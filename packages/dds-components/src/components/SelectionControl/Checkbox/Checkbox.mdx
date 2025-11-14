@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta } from '@storybook/blocks';
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as CheckboxStories from './Checkbox.stories';
 import * as CheckboxGroupStories from './CheckboxGroup.stories';
@@ -12,7 +12,6 @@ import * as CheckboxGroupStories from './CheckboxGroup.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A38"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Checkbox"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-checkbox--default"
-  withBottomSpacing
 />
 
 Følgende komponenter er tilgjengelige:
@@ -24,8 +23,8 @@ Følgende komponenter er tilgjengelige:
 
 ### Checkbox
 
-<Canvas of={CheckboxStories.Default} sourceState="shown" />
-<Controls of={CheckboxStories.Default} />
+<Canvas of={CheckboxStories.Preview} />
+<Controls of={CheckboxStories.Preview} />
 
 Native HTML-attributter `name`, `checked`, `defaultChecked`, `value`, `defaultValue`, `onChange`, `onBlur` er tilgjengelige på rotnivå.
 
@@ -33,8 +32,8 @@ Native HTML-attributter `name`, `checked`, `defaultChecked`, `value`, `defaultVa
 
 Wrapper for en `<Checkbox>` gruppe. Brukes ved flere barn.
 
-<Canvas of={CheckboxGroupStories.Default} sourceState="shown" />
-<Controls of={CheckboxGroupStories.Default} />
+<Canvas of={CheckboxGroupStories.Preview} />
+<Controls of={CheckboxGroupStories.Preview} />
 
 #### Med `<Fieldset>`
 

@@ -1,4 +1,4 @@
-import { Meta, Canvas, Controls } from '@storybook/blocks';
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as ToggleButtonStories from './ToggleButton.stories';
 import * as ToggleButtonGroupStories from './ToggleButtonGroup.stories';
@@ -12,7 +12,6 @@ import * as ToggleButtonGroupStories from './ToggleButtonGroup.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=6990%3A142094"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/ToggleButton"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-togglebutton--default"
-  withBottomSpacing
 />
 
 Følgende subkomponenter er tilgjengelige:
@@ -24,12 +23,12 @@ Følgende subkomponenter er tilgjengelige:
 
 ### ToggleButton
 
-<Canvas of={ToggleButtonStories.Default} sourceState="shown" />
-<Controls of={ToggleButtonStories.Default} />
+<Canvas of={ToggleButtonStories.Preview} />
+<Controls of={ToggleButtonStories.Preview} />
 
 ### ToggleButtonGroup
 
 Gruppen for `<ToggleButton>`.
 
-<Canvas of={ToggleButtonGroupStories.Default} sourceState="shown" />
-<Controls of={ToggleButtonGroupStories.Default} />
+<Canvas of={ToggleButtonGroupStories.Preview} />
+<Controls of={ToggleButtonGroupStories.Preview} />

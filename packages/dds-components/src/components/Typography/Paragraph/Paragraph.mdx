@@ -1,4 +1,4 @@
-import { Canvas, Meta, Controls } from '@storybook/blocks';
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import { Link } from '..';
 import * as ParagraphStories from './Paragraph.stories';
@@ -12,12 +12,11 @@ import * as ParagraphStories from './Paragraph.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?type=design&node-id=9982-211813&mode=design&t=6iXcwqRnp1Ov7fmx-4"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Typography/Paragraph"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-typography-paragraph--default"
-  withBottomSpacing
 />
 
 `<Paragraph>` er en komponent som tilsvarer `<p>` HTML tag. Den brukes til avsnitt, ingress o.l.
 
 ## Props
 
-<Canvas of={ParagraphStories.Default} />
-<Controls of={ParagraphStories.Default} />
+<Canvas of={ParagraphStories.Preview} />
+<Controls of={ParagraphStories.Preview} />

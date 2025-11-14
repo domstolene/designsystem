@@ -13,7 +13,7 @@ import { cn, derivativeIdGenerator } from '../../../utils';
 import { renderInputMessage } from '../../InputMessage';
 import { type SelectionControlGroupCommonProps } from '../common/SelectionControl.types';
 import styles from '../SelectionControl.module.css';
-import { GroupLabel } from '../SelectionControl.styles';
+import { renderGroupLabel } from '../SelectionControl.styles';
 
 export type CheckboxGroupProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
@@ -45,7 +45,7 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
   const generatedId = useId();
   const uniqueGroupId = groupId ?? `${generatedId}-checkboxGroup`;
   const hasErrorMessage = !!errorMessage;
-  const showRequiredMarker =
+  const showRequiredStyling =
     required || convertBooleanishToBoolean(ariaRequired);
 
   const errorMessageId = derivativeIdGenerator(uniqueGroupId, 'errorMessage');
@@ -69,16 +69,13 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
         rest,
       )}
     >
-      {label !== undefined ? (
-        <GroupLabel
-          id={uniqueGroupId}
-          readOnly={readOnly}
-          showRequiredMarker={showRequiredMarker}
-        >
-          {label}
-        </GroupLabel>
-      ) : null}
-      {renderInputMessage(tip, tipId)}
+      {renderGroupLabel({
+        label,
+        id: uniqueGroupId,
+        readOnly,
+        showRequiredStyling,
+      })}
+      {renderInputMessage({ tip, tipId })}
       <CheckboxGroupContext value={{ ...contextProps }}>
         <div
           role="group"
@@ -89,7 +86,7 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
           {children}
         </div>
       </CheckboxGroupContext>
-      {renderInputMessage(undefined, undefined, errorMessage, errorMessageId)}
+      {renderInputMessage({ errorMessage, errorMessageId })}
     </div>
   );
 };

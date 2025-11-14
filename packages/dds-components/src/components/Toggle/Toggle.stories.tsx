@@ -1,12 +1,16 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import { fn } from 'storybook/test';
 
 import {
   categoryHtml,
+  commonArgTypes,
+  htmlArgType,
   htmlEventArgType,
-  htmlPropsArgType,
-} from '../../storybook/helpers';
+  labelText,
+} from '../../storybook';
 import { Button } from '../Button';
+import { TOGGLE_SIZES } from './Toggle';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { Toggle } from '.';
@@ -16,22 +20,17 @@ export default {
   component: Toggle,
   argTypes: {
     children: { control: 'text' },
-    disabled: { table: categoryHtml },
-    checked: { table: categoryHtml },
-    defaultChecked: { table: categoryHtml },
-    value: { control: 'boolean', table: categoryHtml },
-    defaultValue: { control: 'boolean', table: categoryHtml },
-    name: { table: categoryHtml },
-    'aria-describedby': { table: categoryHtml },
+    disabled: { control: 'boolean', table: categoryHtml },
+    checked: htmlArgType,
+    defaultChecked: htmlArgType,
+    value: htmlArgType,
+    defaultValue: htmlArgType,
+    name: htmlArgType,
+    'aria-describedby': htmlArgType,
     onBlur: htmlEventArgType,
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
   },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
+  args: { onChange: fn(), onBlur: fn() },
 } satisfies Meta<typeof Toggle>;
 
 type Story = StoryObj<typeof Toggle>;
@@ -40,7 +39,7 @@ export const Preview: Story = {
   args: { children: 'Ledetekst' },
 };
 
-export const Overview: Story = {
+export const States: Story = {
   args: { children: 'Ledetekst' },
   render: args => (
     <StoryHStack>
@@ -51,10 +50,10 @@ export const Overview: Story = {
         <Toggle {...args} isLoading children="isLoading" />
       </StoryVStack>
       <StoryVStack>
-        <Toggle {...args} checked />
-        <Toggle {...args} checked disabled children="disabled" />
-        <Toggle {...args} checked readOnly children="readOnly" />
-        <Toggle {...args} checked isLoading children="isLoading" />
+        <Toggle {...args} checked children="checked" />
+        <Toggle {...args} checked disabled children="disabled checked" />
+        <Toggle {...args} checked readOnly children="readOnly checked" />
+        <Toggle {...args} checked isLoading children="isLoading checked" />
       </StoryVStack>
     </StoryHStack>
   ),
@@ -63,8 +62,11 @@ export const Overview: Story = {
 export const Sizes: Story = {
   render: args => (
     <StoryVStack>
-      <Toggle {...args} size="medium" children="Medium" />
-      <Toggle {...args} size="large" children="Large" />
+      {TOGGLE_SIZES.map(size => (
+        <Toggle {...args} key={size} size={size}>
+          {labelText(size)}
+        </Toggle>
+      ))}
     </StoryVStack>
   ),
 };

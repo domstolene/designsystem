@@ -17,6 +17,8 @@ import {
   useOnKeyDown,
   useReturnFocusOnBlur,
 } from '../../hooks';
+import { useTranslation } from '../../i18n';
+import { commonTexts } from '../../i18n/commonTexts';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -118,6 +120,8 @@ export const Popover = ({
     anchorEl: contextAnchorEl,
   } = context;
 
+  const { t } = useTranslation();
+
   const hasContext = !isEmpty(context);
   const generatedId = useId();
   const uniquePopoverId = id ?? `${generatedId}-popover`;
@@ -165,7 +169,7 @@ export const Popover = ({
   const multiRef = useCombinedRef(ref, popoverRef, floatingRef);
 
   useEffect(() => {
-    setFloatOptions && setFloatOptions({ placement, offset });
+    setFloatOptions?.({ placement, offset });
   }, [placement, offset]);
 
   // hooks when without context
@@ -237,7 +241,7 @@ export const Popover = ({
           purpose="tertiary"
           size="small"
           onClick={onClose}
-          aria-label="Lukk"
+          aria-label={t(commonTexts.close)}
           className={styles['close-button']}
         />
       )}

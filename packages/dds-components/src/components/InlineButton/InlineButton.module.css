@@ -1,3 +1,7 @@
 .button {
   display: inline;
+  vertical-align: middle;
+  &:focus-visible {
+    z-index: var(--dds-zindex-absolute-element);
+  }
 }

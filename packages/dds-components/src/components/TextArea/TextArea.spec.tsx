@@ -77,7 +77,7 @@ describe('<TeaxtArea>', () => {
     const length = 5;
     render(<TextArea id={id} maxLength={length} />);
     expect(screen.getByRole('textbox')).toHaveAccessibleDescription(
-      `0/${length}`,
+      `0 av ${length} tegn skrevet. ${length} igjen.`,
     );
     expect(screen.getByText(`0/${length}`)).toBeInTheDocument();
   });
@@ -88,7 +88,7 @@ describe('<TeaxtArea>', () => {
       <TextArea id={id} maxLength={length} withCharacterCounter={false} />,
     );
     expect(screen.getByRole('textbox')).not.toHaveAccessibleDescription(
-      `0/${length}`,
+      `0 av ${length} tegn skrevet. ${length} igjen.`,
     );
     expect(screen.queryByText(`0/${length}`)).not.toBeInTheDocument();
   });

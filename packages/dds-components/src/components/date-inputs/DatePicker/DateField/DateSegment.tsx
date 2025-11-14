@@ -5,8 +5,8 @@ import type {
 } from '@react-stately/datepicker';
 import { useRef } from 'react';
 
-import { cn } from '../../../../utils';
-import { type InputSize } from '../../../helpers';
+import { cn, spaceSeparatedIdListGenerator } from '../../../../utils';
+import { type InputSize } from '../../../helpers/Input';
 import {
   type StaticTypographyType,
   getTypographyCn,
@@ -25,19 +25,26 @@ interface DateSegmentProps
   extends Pick<Required<DatePickerProps>, 'componentSize'> {
   segment: DateSegmentType;
   state: DateFieldState;
+  errorMessageId?: string;
+  tipId?: string;
 }
 
 export function DateSegment({
   segment,
   state,
   componentSize,
+  errorMessageId,
+  tipId,
 }: DateSegmentProps) {
   const ref = useRef<HTMLDivElement>(null);
   const { segmentProps } = useDateSegment(segment, state, ref);
-
   return (
     <div
       {...segmentProps}
+      aria-describedby={spaceSeparatedIdListGenerator([
+        errorMessageId ? errorMessageId : undefined,
+        tipId ? tipId : undefined,
+      ])}
       ref={ref}
       className={cn(
         segmentProps.className,
@@ -62,9 +69,7 @@ export function DateSegment({
       >
         {segment.placeholder}
       </span>
-      {segment.isPlaceholder
-        ? ''
-        : segment.text.padStart(String(segment.maxValue ?? '').length, '0')}
+      {segment.isPlaceholder ? '' : segment.text}
     </div>
   );
 }

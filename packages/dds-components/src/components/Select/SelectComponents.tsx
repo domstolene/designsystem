@@ -1,9 +1,8 @@
-import type { JSX } from 'react';
+import React, { type JSX, type ReactNode } from 'react';
 import {
   type ClearIndicatorProps,
   type ControlProps,
   type DropdownIndicatorProps,
-  type GroupBase,
   type InputProps,
   type MultiValueRemoveProps,
   type NoticeProps,
@@ -14,7 +13,7 @@ import {
 
 import styles from './Select.module.css';
 import { cn, getFormInputIconSize } from '../../utils';
-import { type InputSize } from '../helpers';
+import { type InputSize } from '../helpers/Input';
 import inputStyles from '../helpers/Input/Input.module.css';
 import { Icon, type IconSize, type SvgIcon } from '../Icon';
 import { CheckIcon, ChevronDownIcon, CloseSmallIcon } from '../Icon/icons';
@@ -41,34 +40,39 @@ export const getIndicatorIconSize = (componentSize: InputSize): IconSize => {
   }
 };
 
-export const DDSOption = <TValue, IsMulti extends boolean>(
-  props: OptionProps<TValue, IsMulti>,
-  componentSize: InputSize,
-) => (
+export const DDSOption = <TValue, IsMulti extends boolean>({
+  ...props
+}: OptionProps<TValue, IsMulti>) => (
   <Option {...props}>
-    {props.isSelected && (
-      <Icon icon={CheckIcon} iconSize={getFormInputIconSize(componentSize)} />
-    )}
+    {props.isSelected && <Icon icon={CheckIcon} iconSize="small" />}
     {props.children}
   </Option>
 );
 
+type CustomOptionProps<TValue, IsMulti extends boolean> = OptionProps<
+  TValue,
+  IsMulti
+> & {
+  customElement: (props: OptionProps<TValue, IsMulti>) => JSX.Element;
+};
 export const CustomOption = <TValue, IsMulti extends boolean>(
-  props: OptionProps<TValue, IsMulti>,
-  Element: (props: OptionProps<TValue, IsMulti>) => JSX.Element,
-) => (
-  <Option {...props}>
-    <Element {...props} />
-  </Option>
+  props: CustomOptionProps<TValue, IsMulti>,
+): ReactNode => (
+  <Option {...props}>{React.createElement(props.customElement, props)}</Option>
 );
 
-export const CustomSingleValue = <TOption, IsMulti extends boolean>(
-  props: SingleValueProps<TOption, IsMulti, GroupBase<TOption>>,
-  id?: string,
-  Element?: (
-    props: SingleValueProps<TOption, IsMulti, GroupBase<TOption>>,
-  ) => JSX.Element,
-) => (
+type CustomSingleValueProps<
+  TOption,
+  IsMulti extends boolean,
+> = SingleValueProps<TOption, IsMulti> & {
+  id?: string;
+  Element?: (props: SingleValueProps<TOption, IsMulti>) => ReactNode;
+};
+export const CustomSingleValue = <TOption, IsMulti extends boolean>({
+  id,
+  Element,
+  ...props
+}: CustomSingleValueProps<TOption, IsMulti>): ReactNode => (
   <SingleValue {...props}>
     <div id={id} className={styles['inner-single-value']}>
       {Element ? <Element {...props} /> : props.children}
@@ -80,10 +84,10 @@ export const DDSNoOptionsMessage = <TValue, IsMulti extends boolean>(
   props: NoticeProps<TValue, IsMulti>,
 ) => <NoOptionsMessage {...props}>Ingen treff</NoOptionsMessage>;
 
-export const DDSClearIndicator = <TValue, IsMulti extends boolean>(
-  props: ClearIndicatorProps<TValue, IsMulti>,
-  size: InputSize,
-) => (
+export const DDSClearIndicator = <TValue, IsMulti extends boolean>({
+  size,
+  ...props
+}: ClearIndicatorProps<TValue, IsMulti> & { size: InputSize }) => (
   <ClearIndicator {...props}>
     <Icon icon={CloseSmallIcon} iconSize={getIndicatorIconSize(size)} />
   </ClearIndicator>
@@ -98,25 +102,35 @@ export const DDSMultiValueRemove = <TValue, IsMulti extends boolean>(
 );
 
 export const DDSDropdownIndicator = <TValue, IsMulti extends boolean>(
-  props: DropdownIndicatorProps<TValue, IsMulti>,
-  size: InputSize,
-) => {
-  const { className, ...rest } = props;
+  props: DropdownIndicatorProps<TValue, IsMulti> & { componentSize: InputSize },
+): ReactNode => {
+  const { className, componentSize, ...rest } = props;
   return (
     <DropdownIndicator
       {...rest}
       className={cn(className, styles['dropdown-indicator'])}
     >
-      <Icon icon={ChevronDownIcon} iconSize={getIndicatorIconSize(size)} />
+      <Icon
+        icon={ChevronDownIcon}
+        iconSize={getIndicatorIconSize(componentSize)}
+      />
     </DropdownIndicator>
   );
 };
 
-export const DDSInput = <TOption, IsMulti extends boolean>(
-  props: InputProps<TOption, IsMulti>,
-  ariaInvalid: boolean,
-  ariaDescribedby?: string,
-) => (
+type DDSInputProps<TOption, IsMulti extends boolean> = InputProps<
+  TOption,
+  IsMulti
+> & {
+  ariaInvalid: boolean;
+  ariaDescribedby?: string;
+};
+
+export const DDSInput = <TOption, IsMulti extends boolean>({
+  ariaInvalid,
+  ariaDescribedby,
+  ...props
+}: DDSInputProps<TOption, IsMulti>) => (
   <Input
     {...props}
     aria-invalid={ariaInvalid}
@@ -124,38 +138,61 @@ export const DDSInput = <TOption, IsMulti extends boolean>(
   />
 );
 
-export const DDSControl = <TValue, IsMulti extends boolean>(
-  props: ControlProps<TValue, IsMulti>,
-  componentSize: InputSize,
-  readOnly?: boolean,
-  icon?: SvgIcon,
-  dataTestId?: string,
-) => {
-  const { className, ...rest } = props;
+type DDSControlProps<TValue, IsMulti extends boolean> = ControlProps<
+  TValue,
+  IsMulti
+> & {
+  componentSize: InputSize;
+  readOnly?: boolean;
+  icon?: SvgIcon;
+  dataTestId?: string;
+};
+
+type CustomInnerDDSControlProps = React.HTMLAttributes<HTMLDivElement> & {
+  'data-testid'?: string;
+};
+
+export function DDSControl<TValue, IsMulti extends boolean>(
+  props: DDSControlProps<TValue, IsMulti>,
+) {
+  const {
+    componentSize,
+    readOnly,
+    icon,
+    dataTestId,
+    className,
+    children,
+    innerProps,
+    ...rest
+  } = props;
 
   return (
-    <div data-testid={dataTestId ? dataTestId + '-control' : undefined}>
-      <Control
-        {...rest}
-        className={cn(
-          className,
-          styles.control,
-          rest.isDisabled && styles['control--disabled'],
-          readOnly && styles['control--readonly'],
-        )}
-      >
-        {icon && (
-          <Icon
-            icon={icon}
-            iconSize={getFormInputIconSize(componentSize)}
-            className={cn(
-              inputStyles['input-group__absolute-element'],
-              styles[`icon--${componentSize}`],
-            )}
-          />
-        )}
-        {props.children}
-      </Control>
-    </div>
+    <Control
+      {...rest}
+      innerProps={
+        {
+          ...innerProps,
+          'data-testid': dataTestId ? dataTestId + '-control' : undefined,
+        } as CustomInnerDDSControlProps
+      }
+      className={cn(
+        className,
+        styles.control,
+        rest.isDisabled && styles['control--disabled'],
+        readOnly && styles['control--readonly'],
+      )}
+    >
+      {icon && (
+        <Icon
+          icon={icon}
+          iconSize={getFormInputIconSize(componentSize)}
+          className={cn(
+            inputStyles['input-group__absolute-el'],
+            styles[`icon--${componentSize}`],
+          )}
+        />
+      )}
+      {children}
+    </Control>
   );
-};
+}

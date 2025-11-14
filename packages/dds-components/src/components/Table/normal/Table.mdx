@@ -1,4 +1,10 @@
-import { Canvas, Story, Meta, ArgTypes, Controls } from '@storybook/blocks';
+import {
+  Canvas,
+  Story,
+  Meta,
+  ArgTypes,
+  Controls,
+} from '@storybook/addon-docs/blocks';
 import { TableRow } from '.';
 import { Table, CollapsibleTable } from '../';
 import { Tag } from '../../Tag';
@@ -18,7 +24,6 @@ import * as CollapsibleTableStories from '../collapsible/CollapsibleTable.storie
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=1347%3A0"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Table"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-table-table--default"
-  withBottomSpacing
 />
 
 Tabeller bygges ved å bruke styled versjoner av native HTML elementer. Disse komponentene er:
@@ -36,7 +41,7 @@ Ikke-compound komponenter er også støttet: `<TableWrapper>`, `<TableHead>`, `<
 
 ### Tabell
 
-<Canvas of={TableStories.Default} />
+<Canvas of={TableStories.Preview} />
 
 ### Kollapsibel tabell
 
@@ -54,8 +59,8 @@ Støtter alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivEl
 
 Tilsvarer `<table>`.
 
-<Canvas of={TableStories.Default} />
-<Controls of={TableStories.Default} />
+<Canvas of={TableStories.Preview} />
+<Controls of={TableStories.Preview} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLTableElement>`-interface.
 

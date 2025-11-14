@@ -2,9 +2,10 @@ import { type AriaButtonProps, useButton } from '@react-aria/button';
 import { useRef } from 'react';
 
 import type { DateFieldProps } from './DateField';
-import { cn } from '../../../../utils';
+import { cn, getFormInputIconSize } from '../../../../utils';
+import { InlineIconButton } from '../../../helpers/InlineIconButton';
+import inputStyles from '../../../helpers/Input/Input.module.css';
 import { focusable } from '../../../helpers/styling/focus.module.css';
-import { Icon } from '../../../Icon';
 import { CalendarIcon } from '../../../Icon/icons';
 import styles from '../../common/DateInput.module.css';
 
@@ -14,31 +15,28 @@ interface CalendarButtonProps extends AriaButtonProps {
 }
 
 export function CalendarButton({
-  componentSize,
+  componentSize = 'medium',
   isReadOnly,
   ...props
 }: CalendarButtonProps) {
   const ref = useRef<HTMLButtonElement>(null);
   const { buttonProps } = useButton(props, ref);
 
-  const size = componentSize === 'xsmall' ? 'small' : 'medium';
-
   return (
-    <button
+    <InlineIconButton
       {...buttonProps}
       ref={ref}
       type="button"
       className={cn(
         buttonProps.className,
-        styles['icon-wrapper'],
-        styles[`icon-wrapper--${size}`],
         styles['popover-button'],
         isReadOnly && styles['popover-button--readonly'],
         !props.isDisabled && focusable,
-        props.isDisabled && 'disabled',
+        inputStyles['input-group__absolute-el'],
+        inputStyles[`input-group__absolute-el--${componentSize}`],
       )}
-    >
-      <Icon icon={CalendarIcon} iconSize={size} />
-    </button>
+      icon={CalendarIcon}
+      size={getFormInputIconSize(componentSize)}
+    />
   );
 }

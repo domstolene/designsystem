@@ -1,4 +1,10 @@
-import { Meta, ArgTypes, Canvas, Controls, Story } from '@storybook/blocks';
+import {
+  Meta,
+  ArgTypes,
+  Canvas,
+  Controls,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import {
   Source,
   ComponentLinkRow,
@@ -15,7 +21,6 @@ import * as PopoverStories from './Popover.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=4988%3A128366"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Popover"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-popover--default"
-  withBottomSpacing
 />
 
 Komponenten består av tre elementer:
@@ -31,9 +36,9 @@ Komponenten består av tre elementer:
 Selve popover-elementet. Den åpnes når anchor-elementet trykkes. Den kan lukkes på fire måter: ved å trykke på anchor-elementet igjen, Esc-tast, lukkeknapptrykk og via `onBlur`-effekt.
 
 <Canvas>
-  <Story of={PopoverStories.Default} />
+  <Story of={PopoverStories.Preview} />
 </Canvas>
-<Controls of={PopoverStories.Default} />
+<Controls of={PopoverStories.Preview} />
 
 #### Types
 

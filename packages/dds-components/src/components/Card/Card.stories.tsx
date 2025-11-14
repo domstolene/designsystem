@@ -1,7 +1,8 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import { fn } from 'storybook/test';
 
-import { htmlPropsArgType } from '../../storybook/helpers';
+import { commonArgTypes, htmlEventArgType } from '../../storybook';
 import {
   DescriptionList,
   DescriptionListDesc,
@@ -16,21 +17,17 @@ import {
   CardExpandable,
   CardExpandableBody,
   CardExpandableHeader,
+  CardSelectable,
 } from '.';
-
 export default {
   title: 'dds-components/Components/Card',
   component: Card,
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
   argTypes: {
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
     cardRef: { control: false },
+    onClick: htmlEventArgType,
   },
+  args: { onClick: fn() },
 } satisfies Meta<typeof Card>;
 
 type Story = StoryObj<typeof Card>;
@@ -51,7 +48,7 @@ const contentContainerStyle = (
   </style>
 );
 
-export const Default: Story = {
+export const Preview: Story = {
   decorators: [
     Story => (
       <>
@@ -81,7 +78,7 @@ export const Overview: Story = {
         <Card {...args} cardType="info">
           <div className="story-container-padding">
             <Heading level={2} typographyType="headingLarge">
-              Title
+              Info
             </Heading>
             {body}
           </div>
@@ -89,23 +86,25 @@ export const Overview: Story = {
         <Card {...args} cardType="navigation" href="#">
           <div className="story-container-padding">
             <Heading level={2} typographyType="headingLarge">
-              Title
+              Navigation
             </Heading>
             {body}
           </div>
         </Card>
         <Card {...args} cardType="expandable">
           <CardExpandable>
-            <CardExpandableHeader> Title </CardExpandableHeader>
+            <CardExpandableHeader> Expandable </CardExpandableHeader>
             <CardExpandableBody>Content</CardExpandableBody>
           </CardExpandable>
         </Card>
+        <CardSelectable cardType="checkbox">Selectable checkbox</CardSelectable>
+        <CardSelectable cardType="radio">Selectable radio</CardSelectable>
       </StoryVStack>
       <StoryVStack>
         <Card {...args} cardType="info" appearance="border">
           <div className="story-container-padding">
             <Heading level={2} typographyType="headingLarge">
-              Title
+              Info
             </Heading>
             {body}
           </div>
@@ -113,17 +112,23 @@ export const Overview: Story = {
         <Card {...args} appearance="border" cardType="navigation" href="#">
           <div className="story-container-padding">
             <Heading level={2} typographyType="headingLarge">
-              Title
+              Navigation
             </Heading>
             {body}
           </div>
         </Card>
         <Card {...args} cardType="expandable" appearance="border">
           <CardExpandable>
-            <CardExpandableHeader> Title </CardExpandableHeader>
+            <CardExpandableHeader> Expandable </CardExpandableHeader>
             <CardExpandableBody>Content</CardExpandableBody>
           </CardExpandable>
         </Card>
+        <CardSelectable cardType="checkbox" appearance="border">
+          Selectable checkbox
+        </CardSelectable>
+        <CardSelectable cardType="radio" appearance="border">
+          Selectable radio
+        </CardSelectable>
       </StoryVStack>
     </StoryHStack>
   ),

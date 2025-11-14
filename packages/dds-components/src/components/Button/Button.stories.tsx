@@ -1,164 +1,118 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
 import { ArrowLeftIcon } from '../..';
+import { BUTTON_SIZES } from './Button.types';
 import {
   categoryHtml,
+  commonArgTypes,
+  htmlArgType,
   htmlEventArgType,
-  htmlPropsArgType,
-} from '../../storybook/helpers';
+  labelText,
+} from '../../storybook';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
-import { Button } from '.';
+import { Button, type ButtonPurpose } from '.';
 
 export default {
   title: 'dds-components/Components/Button',
   component: Button,
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
-  },
   argTypes: {
-    href: { table: categoryHtml },
+    ...commonArgTypes,
     children: { control: 'text' },
-    target: { control: false, table: categoryHtml },
     icon: { control: false },
-    htmlProps: htmlPropsArgType,
+    href: { table: categoryHtml },
+    target: htmlArgType,
+    type: htmlArgType,
     onClick: htmlEventArgType,
     onBlur: htmlEventArgType,
     onFocus: htmlEventArgType,
   },
+  args: { onClick: fn(), onBlur: fn(), onFocus: fn() },
 } satisfies Meta<typeof Button>;
 
 type Story = StoryObj<typeof Button>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { children: 'Tekst' },
 };
 
-export const OverviewPurposes: Story = {
+const purposes: Array<ButtonPurpose> = [
+  'primary',
+  'secondary',
+  'tertiary',
+  'danger',
+];
+
+export const Purposes: Story = {
   render: args => (
     <StoryHStack>
       <StoryVStack>
-        <Button
-          {...args}
-          purpose="primary"
-          onClick={() => console.log('click')}
-        >
-          Primary
-        </Button>
-        <Button {...args} purpose="secondary">
-          Secondary
-        </Button>
-        <Button {...args} purpose="tertiary">
-          Tertiary
-        </Button>
-        <Button {...args} purpose="danger">
-          Danger
-        </Button>
+        {purposes.map(purpose => (
+          <Button key={`t-${purpose}`} {...args} purpose={purpose}>
+            {labelText(purpose)}
+          </Button>
+        ))}
       </StoryVStack>
       <StoryVStack>
-        <Button
-          {...args}
-          purpose="primary"
-          iconPosition={args.iconPosition ?? 'left'}
-          icon={ArrowLeftIcon}
-        >
-          Primary
-        </Button>
-        <Button
-          {...args}
-          purpose="secondary"
-          iconPosition={args.iconPosition ?? 'left'}
-          icon={ArrowLeftIcon}
-        >
-          Secondary
-        </Button>
-        <Button
-          {...args}
-          purpose="tertiary"
-          iconPosition={args.iconPosition ?? 'left'}
-          icon={ArrowLeftIcon}
-        >
-          Tertiary
-        </Button>
-        <Button
-          {...args}
-          purpose="danger"
-          iconPosition={args.iconPosition ?? 'left'}
-          icon={ArrowLeftIcon}
-        >
-          Danger
-        </Button>
+        {purposes.map(purpose => (
+          <Button
+            key={`i-left-${purpose}`}
+            {...args}
+            purpose={purpose}
+            iconPosition={args.iconPosition ?? 'left'}
+            icon={ArrowLeftIcon}
+          >
+            {labelText(purpose)}
+          </Button>
+        ))}
       </StoryVStack>
       <StoryVStack>
-        <Button {...args} icon={ArrowLeftIcon} purpose="primary" />
-        <Button {...args} icon={ArrowLeftIcon} purpose="secondary" />
-        <Button {...args} icon={ArrowLeftIcon} purpose="tertiary" />
-        <Button {...args} icon={ArrowLeftIcon} purpose="danger" />
+        {purposes.map(purpose => (
+          <Button
+            key={`i-${purpose}`}
+            {...args}
+            icon={ArrowLeftIcon}
+            purpose={purpose}
+          />
+        ))}
       </StoryVStack>
     </StoryHStack>
   ),
 };
 
-export const OverviewSizes: Story = {
-  args: { purpose: 'primary' },
+export const Sizes: Story = {
   render: args => (
     <StoryHStack>
       <StoryVStack>
-        <Button {...args} size="xsmall">
-          Primary
-        </Button>
-        <Button {...args} size="small">
-          Primary
-        </Button>
-        <Button {...args} size="medium">
-          Primary
-        </Button>
-        <Button {...args} size="large">
-          Primary
-        </Button>
+        {BUTTON_SIZES.map(size => (
+          <Button key={size} {...args} size={size}>
+            {labelText(size)}
+          </Button>
+        ))}
       </StoryVStack>
       <StoryVStack>
-        <Button
-          {...args}
-          size="xsmall"
-          iconPosition={args.iconPosition ?? 'left'}
-          icon={ArrowLeftIcon}
-        >
-          Primary
-        </Button>
-        <Button
-          {...args}
-          size="small"
-          iconPosition={args.iconPosition ?? 'left'}
-          icon={ArrowLeftIcon}
-        >
-          Primary
-        </Button>
-        <Button
-          {...args}
-          size="medium"
-          iconPosition={args.iconPosition ?? 'left'}
-          icon={ArrowLeftIcon}
-        >
-          Primary
-        </Button>
-        <Button
-          {...args}
-          size="large"
-          iconPosition={args.iconPosition ?? 'left'}
-          icon={ArrowLeftIcon}
-        >
-          Primary
-        </Button>
+        {BUTTON_SIZES.map(size => (
+          <Button
+            key={`il-${size}`}
+            {...args}
+            size={size}
+            iconPosition={args.iconPosition ?? 'left'}
+            icon={ArrowLeftIcon}
+          >
+            {labelText(size)}
+          </Button>
+        ))}
       </StoryVStack>
       <StoryVStack>
-        <Button {...args} size="xsmall" icon={ArrowLeftIcon} />
-        <Button {...args} size="small" icon={ArrowLeftIcon} />
-        <Button {...args} size="medium" icon={ArrowLeftIcon} />
-        <Button {...args} size="large" icon={ArrowLeftIcon} />
+        {BUTTON_SIZES.map(size => (
+          <Button
+            key={`i-${size}`}
+            {...args}
+            icon={ArrowLeftIcon}
+            size={size}
+          />
+        ))}
       </StoryVStack>
     </StoryHStack>
   ),
@@ -194,8 +148,12 @@ export const OverviewFullWidth: Story = {
   render: args => (
     <StoryVStack>
       <Button {...args}></Button>
-      <Button {...args} iconPosition="left" icon={ArrowLeftIcon}></Button>
-      <Button {...args} iconPosition="right" icon={ArrowLeftIcon}></Button>
+      <Button {...args} iconPosition="left" icon={ArrowLeftIcon}>
+        Tekst og ikon til venstre
+      </Button>
+      <Button {...args} iconPosition="right" icon={ArrowLeftIcon}>
+        Tekst og ikon til høyre
+      </Button>
       <Button {...args} children={undefined} icon={ArrowLeftIcon} />
       <Button {...args} loading>
         label
@@ -206,7 +164,7 @@ export const OverviewFullWidth: Story = {
 
 export const TextWithIcon: Story = {
   args: {
-    children: 'Tekst',
+    children: 'Tekst og ikon',
     icon: ArrowLeftIcon,
     iconPosition: 'left',
   },

@@ -1,12 +1,16 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import { fn } from 'storybook/test';
 
 import {
   categoryCss,
   categoryHtml,
+  htmlArgType,
+  labelText,
   windowWidthDecorator,
-} from '../../storybook/helpers';
+} from '../../storybook';
 import { Button } from '../Button';
+import { INPUT_SIZES } from '../helpers/Input';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { PhoneInput, type PhoneInputValue } from '.';
@@ -22,19 +26,14 @@ export default {
     selectRef: { control: false },
     value: { control: false },
     defaultValue: { control: false },
-    id: { control: false },
+    id: htmlArgType,
   },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
+  args: { onChange: fn() },
 } satisfies Meta<typeof PhoneInput>;
 
 type Story = StoryObj<typeof PhoneInput>;
 
-export const Default: Story = { args: { label: 'Telefonnummer' } };
+export const Preview: Story = { args: { label: 'Telefonnummer' } };
 
 export const Overview: Story = {
   args: { label: 'Telefonnummer' },
@@ -61,9 +60,14 @@ export const Sizes: Story = {
   args: { label: 'Label' },
   render: args => (
     <StoryVStack>
-      <PhoneInput {...args} />
-      <PhoneInput {...args} componentSize="small" />
-      <PhoneInput {...args} componentSize="xsmall" />
+      {INPUT_SIZES.map(size => (
+        <PhoneInput
+          {...args}
+          key={size}
+          componentSize={size}
+          label={labelText(size)}
+        />
+      ))}
     </StoryVStack>
   ),
 };

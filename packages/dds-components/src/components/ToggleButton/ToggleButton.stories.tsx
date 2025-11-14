@@ -1,6 +1,14 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
-import { categoryHtml, htmlPropsArgType } from '../../storybook/helpers';
+import { TOGGLE_BUTTON_SIZES } from './ToggleButton.types';
+import {
+  categoryHtml,
+  commonArgTypes,
+  htmlArgType,
+  htmlEventArgType,
+  labelText,
+} from '../../storybook';
 import { NotificationsIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
@@ -10,28 +18,23 @@ export default {
   title: 'dds-components/Components/ToggleButton',
   component: ToggleButton,
   argTypes: {
-    htmlProps: htmlPropsArgType,
-    'aria-describedby': { control: 'text', table: categoryHtml },
-    name: { control: false, table: categoryHtml },
-    checked: { control: false, table: categoryHtml },
+    ...commonArgTypes,
+    'aria-describedby': htmlArgType,
+    name: htmlArgType,
+    checked: htmlArgType,
     defaultChecked: { control: 'boolean', table: categoryHtml },
-    value: { control: false, table: categoryHtml },
-    defaultValue: { control: false, table: categoryHtml },
-    onChange: { control: false, table: categoryHtml },
-    onBlur: { control: false, table: categoryHtml },
+    value: htmlArgType,
+    defaultValue: htmlArgType,
+    onChange: htmlEventArgType,
+    onBlur: htmlEventArgType,
     icon: { control: false },
   },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
-  },
+  args: { onChange: fn(), onBlur: fn() },
 } satisfies Meta<typeof ToggleButton>;
 
 type Story = StoryObj<typeof ToggleButton>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { label: 'Tekst' },
 };
 
@@ -43,17 +46,25 @@ export const Sizes: Story = {
   render: args => (
     <StoryHStack>
       <StoryVStack>
-        <ToggleButton {...args} label="Small" />
-        <ToggleButton {...args} label="Xsmall" size="xsmall" />
+        {TOGGLE_BUTTON_SIZES.map(size => (
+          <ToggleButton
+            {...args}
+            key={size}
+            size={size}
+            label={labelText(size)}
+          />
+        ))}
       </StoryVStack>
       <StoryVStack>
-        <ToggleButton {...args} label="Small" icon={NotificationsIcon} />
-        <ToggleButton
-          {...args}
-          label="Xsmall"
-          icon={NotificationsIcon}
-          size="xsmall"
-        />
+        {TOGGLE_BUTTON_SIZES.map(size => (
+          <ToggleButton
+            {...args}
+            key={size}
+            size={size}
+            label={labelText(size)}
+            icon={NotificationsIcon}
+          />
+        ))}
       </StoryVStack>
     </StoryHStack>
   ),

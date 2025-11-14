@@ -1,0 +1,24 @@
+.button {
+  display: inline-flex;
+  border-radius: var(--dds-border-radius-button);
+  color: var(--dds-color-icon-default);
+
+  &:hover:not(:disabled) {
+    background-color: var(--dds-color-surface-hover-default);
+    color: var(--dds-color-icon-action-hover);
+  }
+  &:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      background-color 0.2s,
+      color 0.2s,
+      var(--dds-focus-transition);
+  }
+}

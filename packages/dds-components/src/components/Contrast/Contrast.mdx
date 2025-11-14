@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta } from '@storybook/blocks';
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as ContrastStories from './Contrast.stories';
 
@@ -10,7 +10,6 @@ import * as ContrastStories from './Contrast.stories';
   docsHref="https://design.domstol.no/987b33f71/p/57aa58-divider/b/587136"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Contrast"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-contrast--default"
-  withBottomSpacing
 />
 
 `<Contrast>` er en code-only komponent. Den returnerer en seksjon som inverterer tekstfargen (inkludert lenker), slik at kontrasten er riktig på invertert bakgrunn ut av boksen.
@@ -22,8 +21,8 @@ På denne måten slipper konsumenten å tenke på fargene, og komponenten følge
 
 Komponenten har default bakgrunnsfarge som kan overskrives med egen CSS. **OBS!** bruk farger med `surface-inverse` i navnet.
 
-<Canvas of={ContrastStories.Default} />
-<Controls of={ContrastStories.Default} />
+<Canvas of={ContrastStories.Preview} />
+<Controls of={ContrastStories.Preview} />
 
 ## Eksempler
 

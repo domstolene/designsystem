@@ -1,4 +1,4 @@
-import { Canvas, Controls, Primary, Meta } from '@storybook/blocks';
+import { Canvas, Controls, Primary, Meta } from '@storybook/addon-docs/blocks';
 import LinkTo from '@storybook/addon-links/react';
 import {
   Source,
@@ -15,14 +15,13 @@ import * as TimePickerStories from './TimePicker.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?type=design&node-id=417%3A16&mode=design&t=yAZzSopZv7pOdHLa-1"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/date-inputs/TimePicker"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-timepicker--default"
-  withBottomSpacing
 />
 
 `TimePicker`-komponenten er implementert vha. [react-aria](https://react-spectrum.adobe.com/react-aria).
 For mer utfyllende dokumentasjon av props referrerer vi deg til [`useTimeField` dokumentasjon til react-aria](https://react-spectrum.adobe.com/react-aria/useTimeField.html).
 
-<Canvas of={TimePickerStories.Default} sourceState="shown" />
-<Controls of={TimePickerStories.Default} />
+<Canvas of={TimePickerStories.Preview} />
+<Controls of={TimePickerStories.Preview} />
 
 ## Bruk
 

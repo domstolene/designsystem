@@ -8,6 +8,24 @@
   --dds-color-text-placeholder: var(--dds-color-text-subtle);
   --dds-color-text-helper: var(--dds-color-text-subtle);
   --dds-color-icon-link: var(--dds-color-text-action-resting);
+  /*Inversable text colors*/
+  --dds-color-text-subtle-inversable: var(--dds-color-text-subtle);
+  --dds-color-text-default-inversable: var(--dds-color-text-default);
+  --dds-color-text-medium-inversable: var(--dds-color-text-medium);
+  --dds-color-text-action-resting-inversable: var(
+    --dds-color-text-action-resting
+  );
+  --dds-color-text-action-hover-inversable: var(--dds-color-text-action-hover);
+  --dds-color-text-requiredfield-inversable: var(
+    --dds-color-text-requiredfield
+  );
+  --dds-color-icon-subtle-inversable: var(--dds-color-icon-subtle);
+  --dds-color-icon-default-inversable: var(--dds-color-icon-default);
+  --dds-color-icon-medium-inversable: var(--dds-color-icon-medium);
+  --dds-color-icon-action-resting-inversable: var(
+    --dds-color-icon-action-resting
+  );
+  --dds-color-icon-action-hover-inversable: var(--dds-color-icon-action-hover);
 
   /*Focus*/
   --dds-focus-outline: var(--dds-color-focus-outside) 2px solid;
@@ -16,10 +34,16 @@
   --dds-focus-box-shadow: 0 0 0 2px var(--dds-color-focus-inside);
   --dds-focus-transition: outline-offset 0.2s;
 
-  /*Other*/
+  /*Sizes*/
   --dds-input-default-width: 320px;
   --dds-input-default-width-xsmall: 210px;
   --dds-selection-control-height: 18px;
+  --dds-spacing-xs-icon-text-gap: var(--dds-spacing-x0-25);
+  --dds-spacing-sm-icon-text-gap: var(--dds-spacing-x0-25);
+  --dds-spacing-md-icon-text-gap: var(--dds-spacing-x0-5);
+  --dds-spacing-lg-icon-text-gap: var(--dds-spacing-x0-75);
+
+  /*Transitions*/
   --dds-transition-duration-surface-move: 0.5s;
 }
 

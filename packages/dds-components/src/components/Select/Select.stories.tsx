@@ -1,13 +1,21 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import { fn } from 'storybook/internal/test';
 
-import { categoryCss, windowWidthDecorator } from '../../storybook/helpers';
+import {
+  categoryHtml,
+  htmlEventArgType,
+  labelText,
+  responsivePropsArgTypes,
+  themeProviderDecorator,
+  windowWidthDecorator,
+} from '../../storybook';
 import { Button } from '../Button';
 import { Drawer, DrawerGroup } from '../Drawer';
+import { INPUT_SIZES } from '../helpers/Input';
 import { CourtIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { Modal, ModalBody } from '../Modal';
-import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 
 import { Select, type SelectProps, createSelectOptions } from '.';
 
@@ -15,30 +23,28 @@ const meta: Meta<typeof Select> = {
   title: 'dds-components/Components/Select/Select',
   component: Select,
   argTypes: {
-    width: { control: 'text', table: categoryCss },
+    width: responsivePropsArgTypes.width,
     placeholder: { control: 'text' },
     isDisabled: { control: 'boolean' },
     isClearable: { control: 'boolean' },
-    required: { control: 'boolean' },
+    required: { control: 'boolean', table: categoryHtml },
     readOnly: { control: 'boolean' },
     isLoading: { control: 'boolean' },
     icon: { control: false },
+    onChange: htmlEventArgType,
+    onBlur: htmlEventArgType,
+    onFocus: htmlEventArgType,
   },
+  args: { onChange: fn(), onInputChange: fn(), onBlur: fn(), onFocus: fn() },
   parameters: {
     docs: {
-      story: { inline: true, height: '450px' },
+      story: { height: '450px' },
     },
     controls: {
       exclude: ['style', 'className', 'items', 'value', 'defaultValue'],
     },
   },
-  decorators: [
-    Story => (
-      <StoryThemeProvider>
-        <Story />
-      </StoryThemeProvider>
-    ),
-  ],
+  decorators: [Story => themeProviderDecorator(<Story />)],
 };
 
 export default meta;
@@ -81,7 +87,7 @@ const groupedOptions = [
   },
 ];
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { label: 'Label', options: options },
 };
 
@@ -107,20 +113,31 @@ export const Overview: Story = {
   },
 };
 
-export const OverviewSizes: Story = {
+export const Sizes: Story = {
   args: { options: options },
   render: args => {
     return (
       <StoryHStack>
         <StoryVStack>
-          <Select {...args} componentSize="medium" />
-          <Select {...args} componentSize="small" />
-          <Select {...args} componentSize="xsmall" />
+          {INPUT_SIZES.map(size => (
+            <Select
+              {...args}
+              key={size}
+              label={labelText(size)}
+              componentSize={size}
+            />
+          ))}
         </StoryVStack>
         <StoryVStack>
-          <Select {...args} componentSize="medium" icon={CourtIcon} />
-          <Select {...args} componentSize="small" icon={CourtIcon} />
-          <Select {...args} componentSize="xsmall" icon={CourtIcon} />
+          {INPUT_SIZES.map(size => (
+            <Select
+              {...args}
+              key={size}
+              label={labelText(size)}
+              componentSize={size}
+              icon={CourtIcon}
+            />
+          ))}
         </StoryVStack>
       </StoryHStack>
     );

@@ -1,7 +1,7 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { htmlPropsArgType } from '../../../storybook/helpers';
 import { StoryVStack } from '../../layout/Stack/utils';
+import { storyTypographyHtmlAttrs } from '../storyUtils';
 
 import { Heading } from '.';
 
@@ -9,23 +9,17 @@ export default {
   title: 'dds-components/Components/Typography/Heading',
   component: Heading,
   argTypes: {
-    htmlProps: htmlPropsArgType,
-  },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
+    ...storyTypographyHtmlAttrs,
   },
 } satisfies Meta<typeof Heading>;
 
 type Story = StoryObj<typeof Heading>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { children: 'Heading', level: 1 },
 };
 
-export const Overview: Story = {
+export const LevelDefaults: Story = {
   render: args => (
     <StoryVStack>
       <Heading {...args} level={1}>
@@ -50,7 +44,7 @@ export const Overview: Story = {
   ),
 };
 
-export const OverviewStyles: Story = {
+export const TypographyStyles: Story = {
   render: args => (
     <StoryVStack>
       <Heading {...args} level={1} typographyType="headingXxlarge">
@@ -87,4 +81,11 @@ export const WithMargins: Story = {
       <Heading {...args} withMargins />
     </div>
   ),
+};
+
+export const CustomColor: Story = {
+  args: {
+    children: 'Heading',
+    color: 'text-subtle',
+  },
 };

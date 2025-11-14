@@ -31,16 +31,12 @@ export const SelectionControl = ({
 
 type SelectionControlLabelProps = {
   disabled?: boolean;
-  readOnly?: boolean;
-  hasError?: boolean;
   hasText?: boolean;
   controlType: SelectionControlType;
 } & LabelHTMLAttributes<HTMLLabelElement>;
 
 export const Label = ({
   disabled,
-  readOnly,
-  hasError,
   hasText,
   controlType,
   className,
@@ -60,10 +56,7 @@ export const Label = ({
         styles[`label--${controlType}`],
         !hasText && styles['label--no-text'],
         typographyStyles['text-color--default'],
-        disabled && styles['label--disabled'],
         disabled && typographyStyles['text-color--subtle'],
-        readOnly && styles['label--readonly'],
-        hasError && styles['label--error'],
       )}
       {...rest}
     />
@@ -72,32 +65,36 @@ export const Label = ({
 
 interface SelectionControlGroupLabelProps {
   id?: string;
-  showRequiredMarker?: boolean;
+  showRequiredStyling?: boolean;
   readOnly?: boolean;
-  children?: string;
+  label?: string;
 }
 
-export const GroupLabel = ({
+export const renderGroupLabel = ({
   id,
-  showRequiredMarker,
+  showRequiredStyling,
   readOnly,
-  children,
+  label,
 }: SelectionControlGroupLabelProps) => {
-  return (
-    <Typography
-      as="span"
-      typographyType="labelMedium"
-      id={id}
-      className={readOnly ? labelStyles['read-only'] : undefined}
-    >
-      {readOnly && (
-        <Icon
-          icon={LockIcon}
-          className={labelStyles['read-only__icon']}
-          iconSize="small"
-        />
-      )}
-      {children} {showRequiredMarker && <RequiredMarker />}
-    </Typography>
-  );
+  const hasLabel = !!label;
+  if (hasLabel)
+    return (
+      <Typography
+        as="span"
+        typographyType="labelMedium"
+        id={id}
+        className={readOnly ? labelStyles['read-only'] : undefined}
+        withMargins
+      >
+        {readOnly && (
+          <Icon
+            icon={LockIcon}
+            className={labelStyles['read-only__icon']}
+            iconSize="small"
+          />
+        )}
+        {label} {showRequiredStyling && <RequiredMarker />}
+      </Typography>
+    );
+  else return null;
 };

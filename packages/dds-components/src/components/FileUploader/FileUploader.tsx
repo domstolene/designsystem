@@ -5,25 +5,27 @@ import { File } from './File';
 import styles from './FileUploader.module.css';
 import { type FileList } from './types';
 import { type FileUploaderHookProps, useFileUploader } from './useFileUploader';
+import { createTexts, useTranslation } from '../../i18n';
 import {
   cn,
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { Button } from '../Button';
-import { StylelessList } from '../helpers';
+import { HiddenInput, StylelessList } from '../helpers';
+import { type InputProps } from '../helpers/Input';
+import focusStyles from '../helpers/styling/focus.module.css';
 import { UploadIcon } from '../Icon/icons';
-import { InputMessage } from '../InputMessage';
+import { renderInputMessage } from '../InputMessage';
 import { Box, type ResponsiveProps, VStack } from '../layout';
-import { Label } from '../Typography';
+import { Typography } from '../Typography';
+import { renderLabel } from '../Typography/Label/Label.utils';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../VisuallyHidden';
 
 export type FileUploaderProps = {
   /**Id til filopplasteren. */
   id?: string;
-  /**Ledetekst for filopplaster. */
-  label?: string;
   /**Ledetekst for slippsonen. Denne teksten skal, av UU-hensyn, henge sammen med den usynlige teksten: "velg fil med påfølgende knapp"
    * @default Dra og slipp filer her eller
    */
@@ -32,8 +34,6 @@ export type FileUploaderProps = {
    * @default Velg fil
    */
   btnLabel?: string;
-  /**Hjelpetekst. */
-  tip?: string;
   /**Om det er påkrevd med minst én fil. */
   required?: boolean;
   /**Callback for når fil-listen endres. */
@@ -46,14 +46,15 @@ export type FileUploaderProps = {
   hideFileList?: boolean;
 } & Pick<ResponsiveProps, 'width'> &
   Partial<FileUploaderHookProps> &
-  Omit<ComponentPropsWithRef<'div'>, 'onChange' | 'id'>;
+  Omit<ComponentPropsWithRef<'div'>, 'onChange' | 'id'> &
+  Pick<InputProps, 'tip' | 'label' | 'afterLabelContent'>;
 
 export const FileUploader = (props: FileUploaderProps) => {
   const {
     id,
     label,
-    dropAreaLabel = 'Dra og slipp filer her eller',
-    btnLabel = 'Velg fil',
+    dropAreaLabel,
+    btnLabel,
     tip,
     required = false,
     withDragAndDrop = true,
@@ -62,13 +63,20 @@ export const FileUploader = (props: FileUploaderProps) => {
     accept,
     maxFiles,
     disabled,
+    readOnly,
     onChange,
+    onKeyDown,
     width = 'var(--dds-input-default-width)',
     errorMessage,
     hideFileList,
     className,
+    afterLabelContent,
     ...rest
   } = props;
+
+  const { t } = useTranslation();
+  const tDropAreaLabel = dropAreaLabel ?? t(texts.dragAndDropOr);
+  const tBtnLabel = btnLabel ?? t(texts.selectFile);
 
   const generatedId = useId();
   const uniqueId = id ?? `${generatedId}-fileUploader`;
@@ -86,18 +94,22 @@ export const FileUploader = (props: FileUploaderProps) => {
     onChange,
     accept,
     disabled,
+    readOnly,
     maxFiles,
     errorMessage,
+    onKeyDown,
   });
   const hasLabel = label !== undefined;
   const hasTip = tip !== undefined;
   const hasRootErrors = rootErrors.length > 0;
-  const showRequiredMarker = required;
+  const inactive = disabled || readOnly;
 
   const labelId = derivativeIdGenerator(uniqueId, 'label');
   const tipId = derivativeIdGenerator(uniqueId, 'tip');
   const buttonId = derivativeIdGenerator(uniqueId, 'button');
   const inputId = derivativeIdGenerator(uniqueId, 'input');
+  const fileListId = derivativeIdGenerator(uniqueId, 'file-list');
+  const fileListNameId = derivativeIdGenerator(uniqueId, 'file-list-name');
 
   const fileListElements = stateFiles.map((stateFile, index) => (
     <File
@@ -107,6 +119,8 @@ export const FileUploader = (props: FileUploaderProps) => {
       file={stateFile}
       isValid={stateFile.errors.length === 0}
       removeFile={() => removeFile(stateFile)}
+      disabled={disabled}
+      readOnly={readOnly}
     />
   ));
 
@@ -132,8 +146,18 @@ export const FileUploader = (props: FileUploaderProps) => {
         ]),
       }}
     >
-      {btnLabel}
+      {tBtnLabel}
     </Button>
+  );
+
+  const input = (
+    <HiddenInput
+      {...getInputProps()}
+      className={cn(readOnly && focusStyles['focusable-sibling'])}
+      id={inputId}
+      data-testid="file-uploader-input"
+      aria-describedby={fileListId}
+    />
   );
 
   return (
@@ -143,17 +167,18 @@ export const FileUploader = (props: FileUploaderProps) => {
       width={width}
       {...rest}
     >
-      {hasLabel && (
-        <Label
-          id={labelId}
-          showRequiredStyling={showRequiredMarker}
-          htmlFor={inputId}
-        >
-          {label}
-        </Label>
-      )}
-      {hasTip && <InputMessage id={tipId} message={tip} messageType="tip" />}
-      {withDragAndDrop ? (
+      {renderLabel({
+        label,
+        id: labelId,
+        showRequiredStyling: required,
+        htmlFor: inputId,
+        readOnly,
+        afterLabelContent,
+      })}
+      {renderInputMessage({ tip, tipId })}
+      {inactive ? (
+        input
+      ) : withDragAndDrop ? (
         <VStack
           gap="x1"
           padding="x1.5 x1.5 x2 x1.5"
@@ -164,27 +189,84 @@ export const FileUploader = (props: FileUploaderProps) => {
             isDragActive && styles['input-container--drag-active'],
           )}
         >
-          <input
-            {...getInputProps()}
-            id={inputId}
-            data-testid="file-uploader-input"
-          />
-          {dropAreaLabel}
-          <VisuallyHidden as="span">
-            velg fil med påfølgende knapp
-          </VisuallyHidden>
+          {input}
+          {tDropAreaLabel}
+          <VisuallyHidden>{t(texts.uploadFileWithButton)}</VisuallyHidden>
           {button}
         </VStack>
       ) : (
-        <div className={styles['input-container--no-drag-zone']}>
-          <input {...getInputProps()} id={inputId} />
+        <Box padding="x 0">
+          {input}
           {button}
-        </div>
+        </Box>
       )}
       <ErrorList errors={rootErrorsList} />
-      {!hideFileList && <StylelessList>{fileListElements}</StylelessList>}
+      {!hideFileList && (
+        <div
+          id={fileListId}
+          className={cn(
+            readOnly && focusStyles['focus-styled-sibling'],
+            readOnly && styles['readonly--file-list'],
+          )}
+        >
+          <VisuallyHidden id={fileListNameId}>
+            {t(texts.uploadedFiles)}
+          </VisuallyHidden>
+          {inactive && fileListElements.length === 0 ? (
+            <Typography
+              italic
+              as="span"
+              color={disabled ? 'text-subtle' : 'text-medium'}
+            >
+              {t(texts.noFiles)}
+            </Typography>
+          ) : (
+            <StylelessList aria-labelledby={fileListNameId}>
+              {fileListElements}
+            </StylelessList>
+          )}
+        </div>
+      )}
     </Box>
   );
 };
 
 FileUploader.displayName = 'FileUploader';
+
+const texts = createTexts({
+  dragAndDropOr: {
+    nb: 'Dra og slipp filer her eller',
+    no: 'Dra og slipp filer her eller',
+    nn: 'Dra og slepp filer her eller',
+    en: 'Drag and drop files here or',
+    se: 'Sirdde fiillaid dása dahje',
+  },
+  selectFile: {
+    nb: 'Velg fil',
+    no: 'Velg fil',
+    nn: 'Velg fil',
+    en: 'Sekect file',
+    se: 'Vállje fiilla',
+  },
+  uploadFileWithButton: {
+    nb: 'last opp en fil med den påfølgende knappen',
+    no: 'last opp en fil med den påfølgende knappen',
+    nn: 'last opp ei fil med den påfølgjande knappen',
+    en: 'upload using the following button',
+    se: 'viečča fiilla čuovvovaš boaluin',
+  },
+  noFiles: {
+    nb: 'Ingen filer.',
+    no: 'Ingen filer.',
+    nn: 'Ingen filer.',
+    en: 'No files.',
+    se: 'Eai leat fiillat.',
+  },
+  uploadedFiles: {
+    nb: 'Opplastede filer',
+    no: 'Opplastede filer',
+    nn: 'Opplasta filer',
+    en: 'Uploaded files',
+    se: 'Vižžon fiillat',
+  },
+});

@@ -33,8 +33,8 @@ describe('<InputStepper />', () => {
     const label = 'label';
     render(<InputStepper label={label} maxValue={5} />);
     const buttonElements = screen.getAllByRole('button');
-    expect(buttonElements[0]).toHaveAccessibleName(`Trekk fra ${label}`);
-    expect(buttonElements[1]).toHaveAccessibleName(`Legg til ${label}`);
+    expect(buttonElements[0]).toHaveAccessibleName(`Reduser ${label} med 1`);
+    expect(buttonElements[1]).toHaveAccessibleName(`Øk ${label} med 1`);
   });
   it('should have label assosiated with input', () => {
     const label = 'label';
@@ -63,7 +63,9 @@ describe('<InputStepper />', () => {
     render(<InputStepper label={label} defaultValue={1} maxValue={5} />);
     const inputField = screen.getByRole('textbox');
     expect(inputField).toHaveValue('1');
-    const button = screen.getByRole('button', { name: /Legg til Label/i });
+    const button = screen.getByRole('button', {
+      name: new RegExp(`Øk ${label} med 1`, 'i'),
+    });
     await userEvent.click(button);
     expect(inputField).toHaveValue('2');
   });
@@ -72,7 +74,9 @@ describe('<InputStepper />', () => {
     render(<InputStepper label={label} defaultValue={1} maxValue={5} />);
     const inputField = screen.getByRole('textbox');
     expect(inputField).toHaveValue('1');
-    const button = screen.getByRole('button', { name: /Trekk fra Label/i });
+    const button = screen.getByRole('button', {
+      name: new RegExp(`Reduser ${label} med 1`, 'i'),
+    });
     await userEvent.click(button);
     expect(inputField).toHaveValue('0');
   });
@@ -81,7 +85,9 @@ describe('<InputStepper />', () => {
     render(<InputStepper label={label} defaultValue={1} maxValue={3} />);
     const inputField = screen.getByRole('textbox');
     expect(inputField).toHaveValue('1');
-    const button = screen.getByRole('button', { name: /Legg til Label/i });
+    const button = screen.getByRole('button', {
+      name: new RegExp(`Øk ${label} med 1`, 'i'),
+    });
     await userEvent.click(button);
     expect(inputField).toHaveValue('2');
     await userEvent.click(button);
@@ -96,7 +102,9 @@ describe('<InputStepper />', () => {
     );
     const inputField = screen.getByRole('textbox');
     expect(inputField).toHaveValue('3');
-    const button = screen.getByRole('button', { name: /Trekk fra Label/i });
+    const button = screen.getByRole('button', {
+      name: new RegExp(`Reduser ${label} med 1`, 'i'),
+    });
     await userEvent.click(button);
     expect(inputField).toHaveValue('2');
     await userEvent.click(button);
@@ -164,6 +172,6 @@ describe('<InputStepper />', () => {
     const label = 'label';
     render(<InputStepper label={label} maxValue={5} disabled />);
     const inputField = screen.getByRole('textbox');
-    expect(inputField).toBeDisabled;
+    expect(inputField).toBeDisabled();
   });
 });

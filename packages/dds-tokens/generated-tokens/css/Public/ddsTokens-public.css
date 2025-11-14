@@ -301,7 +301,7 @@
   --dds-font-heading-xsmall: 600 1.125rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Default h5 */
   --dds-font-heading-small: 600 1.25rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Default h4 */
   --dds-font-heading-medium: 500 1.5rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Default h3 */
-  --dds-font-heading-large: 400 clamp(1.5rem, 0.667rem + 2.222vw, 2rem)/1.35 'IBM Plex Sans', Arial, sans-serif; /* Default h2 */
+  --dds-font-heading-large: 400 2rem/1.35 'IBM Plex Sans', Arial, sans-serif; /* Default h2 */
   --dds-font-heading-xlarge: 300 clamp(2.5rem, 1.667rem + 2.222vw, 3rem)/1.35 'IBM Plex Sans', Arial, sans-serif; /* Default H1 */
   --dds-font-heading-xxlarge: 300 clamp(3rem, 1.333rem + 4.444vw, 4rem)/1.2 'IBM Plex Sans', Arial, sans-serif; /* Display or extra large page title (h1) */
   --dds-font-lead-medium: 300 1.5rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Lead brukes som ingress når man skriver artikler etc */

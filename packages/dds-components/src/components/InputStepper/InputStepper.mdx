@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta } from '@storybook/blocks';
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as InputStepperStories from './InputStepper.stories';
 
@@ -11,12 +11,11 @@ import * as InputStepperStories from './InputStepper.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/InputStepper"
   figmaHref="https://www.figma.com/design/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?node-id=417-16&t=3ewZNXZ6bBP37uWm-0"
   storybookHref="http://localhost:6006/?path=/docs/dds-components-inputstepper--docs"
-  withBottomSpacing
 />
 
 `<InputStepper>` brukes til å øke eller minke verdien i inputfeltet ved å klikke på knapper.
 
 ## Props
 
-<Canvas of={InputStepperStories.Default} sourceState="shown" />
-<Controls of={InputStepperStories.Default} />
+<Canvas of={InputStepperStories.Preview} sourceState="shown" />
+<Controls of={InputStepperStories.Preview} />

@@ -68,7 +68,7 @@ export const ColorsGenerator = () => {
           <Table.Cell>Token</Table.Cell>
           <Table.Cell>Verdi</Table.Cell>
           <Table.Cell>
-            <VisuallyHidden as="span">Forhåndsvisning</VisuallyHidden>
+            <VisuallyHidden>Forhåndsvisning</VisuallyHidden>
           </Table.Cell>
           <Table.Cell>Kopier</Table.Cell>
           <Table.Cell>Beskrivelse</Table.Cell>
@@ -133,7 +133,7 @@ export const DataColorsGenerator = () => {
           <Table.Cell>Token</Table.Cell>
           <Table.Cell>Verdi</Table.Cell>
           <Table.Cell>
-            <VisuallyHidden as="span">Forhåndsvisning</VisuallyHidden>
+            <VisuallyHidden>Forhåndsvisning</VisuallyHidden>
           </Table.Cell>
           <Table.Cell>Kopier</Table.Cell>
           <Table.Cell>Beskrivelse</Table.Cell>

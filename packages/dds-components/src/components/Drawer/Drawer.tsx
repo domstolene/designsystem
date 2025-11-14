@@ -14,9 +14,11 @@ import {
   useMountTransition,
   useOnClickOutside,
 } from '../../hooks';
+import { useTranslation } from '../../i18n';
+import { commonTexts } from '../../i18n/commonTexts';
 import {
   type BaseComponentPropsWithChildren,
-  type Size,
+  createSizes,
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
@@ -34,7 +36,8 @@ import { Heading } from '../Typography';
 import { useDrawerContext } from './Drawer.context';
 import { HStack, Paper, type ResponsiveProps, VStack } from '../layout';
 
-export type DrawerSize = Extract<Size, 'small' | 'medium' | 'large'>;
+export const DRAWER_SIZES = createSizes('small', 'medium', 'large');
+export type DrawerSize = (typeof DRAWER_SIZES)[number];
 export type DrawerPlacement = 'left' | 'right';
 export type WidthProps = Pick<
   ResponsiveProps,
@@ -89,6 +92,7 @@ export const Drawer = ({
   if (!themeContext) {
     throw new Error('Drawer must be used within a ThemeProvider');
   }
+  const { t } = useTranslation();
 
   const portalTarget = parentElement ?? themeContext?.el;
 
@@ -201,7 +205,7 @@ export const Drawer = ({
           size="small"
           purpose="tertiary"
           onClick={onClose}
-          aria-label="Lukk"
+          aria-label={t(commonTexts.close)}
           icon={CloseIcon}
         />
       </HStack>

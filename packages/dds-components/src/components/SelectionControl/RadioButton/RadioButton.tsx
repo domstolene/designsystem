@@ -9,8 +9,8 @@ import {
   readOnlyClickHandler,
   readOnlyKeyDownHandler,
 } from '../../../utils';
+import { HiddenInput } from '../../helpers';
 import focusStyles from '../../helpers/styling/focus.module.css';
-import utilStyles from '../../helpers/styling/utilStyles.module.css';
 import { Typography } from '../../Typography';
 import { Label, SelectionControl } from '../SelectionControl.styles';
 import { selectionControlTypographyProps } from '../SelectionControl.utils';
@@ -61,7 +61,7 @@ export const RadioButton = ({
   const radioButtonGroup = useRadioButtonGroup();
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    onChange && onChange(event);
+    onChange?.(event);
     radioButtonGroup?.onChange?.(event, event.target.value);
   };
 
@@ -81,16 +81,14 @@ export const RadioButton = ({
 
   return (
     <Label
-      hasError={hasError}
       disabled={isDisabled}
-      readOnly={isReadOnly}
       style={style}
       className={cn(className, htmlPropsClassName)}
       hasText={hasLabel || hasChildren}
       htmlFor={uniqueId}
       controlType="radio"
     >
-      <input
+      <HiddenInput
         {...getBaseHTMLProps(uniqueId, restHtmlProps, rest)}
         type="radio"
         name={name ?? radioButtonGroup?.name}
@@ -104,10 +102,7 @@ export const RadioButton = ({
         }
         aria-invalid={hasError ? true : undefined}
         aria-readonly={isReadOnly}
-        className={cn(
-          utilStyles['hide-input'],
-          focusStyles['focusable-sibling'],
-        )}
+        className={focusStyles['focusable-sibling']}
         onKeyDown={readOnlyKeyDownHandler(
           'selectionControl',
           isReadOnly,

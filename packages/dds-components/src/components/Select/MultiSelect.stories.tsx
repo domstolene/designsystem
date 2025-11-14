@@ -1,40 +1,37 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { Select } from './Select';
+import {
+  categoryHtml,
+  labelText,
+  responsivePropsArgTypes,
+  themeProviderDecorator,
+} from '../../storybook';
+import { INPUT_SIZES } from '../helpers/Input';
 import { CourtIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
-import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 
 const meta: Meta<typeof Select<Option, true>> = {
   title: 'dds-components/Components/Select/MultiSelect',
   component: Select,
   argTypes: {
-    label: { control: { type: 'text' } },
-    tip: { control: { type: 'text' } },
-    errorMessage: { control: { type: 'text' } },
-    width: { control: { type: 'text' } },
+    width: responsivePropsArgTypes.width,
     placeholder: { control: { type: 'text' } },
     isDisabled: { control: { type: 'boolean' } },
     isClearable: { control: { type: 'boolean' } },
-    required: { control: { type: 'boolean' } },
+    required: { control: { type: 'boolean' }, table: categoryHtml },
     readOnly: { control: { type: 'boolean' } },
     isLoading: { control: { type: 'boolean' } },
   },
   parameters: {
     docs: {
-      story: { inline: true, height: '450px' },
+      story: { height: '450px' },
     },
     controls: {
       exclude: ['style', 'className', 'items', 'value', 'defaultValue'],
     },
   },
-  decorators: [
-    Story => (
-      <StoryThemeProvider>
-        <Story />
-      </StoryThemeProvider>
-    ),
-  ],
+  decorators: [Story => themeProviderDecorator(<Story />)],
 };
 
 export default meta;
@@ -54,7 +51,7 @@ const options: Array<Option> = [
   'Alternativ 4',
 ].map(s => ({ label: s, value: s }));
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { label: 'Label', options: options, isMulti: true },
 };
 
@@ -78,18 +75,35 @@ export const Overview: Story = {
   ),
 };
 
-export const OverviewSizes: Story = {
-  args: { label: 'Label', options: options, isMulti: true },
+export const Sizes: Story = {
+  args: { options: options, isMulti: true },
   render: args => {
     return (
       <StoryHStack>
         <StoryVStack>
-          <Select {...args} />
-          <Select {...args} componentSize="small" />
+          {INPUT_SIZES.map(size =>
+            size === 'xsmall' ? null : (
+              <Select
+                {...args}
+                key={size}
+                label={labelText(size)}
+                componentSize={size}
+              />
+            ),
+          )}
         </StoryVStack>
         <StoryVStack>
-          <Select {...args} icon={CourtIcon} />
-          <Select {...args} componentSize="small" icon={CourtIcon} />
+          {INPUT_SIZES.map(size =>
+            size === 'xsmall' ? null : (
+              <Select
+                {...args}
+                key={size}
+                label={labelText(size)}
+                icon={CourtIcon}
+                componentSize={size}
+              />
+            ),
+          )}
         </StoryVStack>
       </StoryHStack>
     );

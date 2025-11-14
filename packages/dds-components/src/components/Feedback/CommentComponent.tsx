@@ -1,10 +1,13 @@
 import styles from './Feedback.module.css';
 import { type Layout, type Rating } from './Feedback.types';
+import { createTexts, useTranslation } from '../../i18n';
 import { Button } from '../Button';
+import { Icon } from '../Icon';
+import { ThumbDownFilledIcon, ThumbUpFilledIcon } from '../Icon/icons';
 import { VStack } from '../layout';
 import { TextArea } from '../TextArea';
 import { Paragraph } from '../Typography';
-import { ThumbIcon } from './utils';
+import { getIconSize } from './utils';
 
 interface CommentComponentType {
   layout: Layout;
@@ -31,10 +34,15 @@ export const CommentComponent = ({
   handleSubmit,
   handleFeedbackTextChange,
 }: CommentComponentType) => {
+  const { t } = useTranslation();
   return (
     <VStack gap="x1">
       <span className={styles['rating-submitted-title']}>
-        {ThumbIcon({ rating, layout, type: 'comment' })}
+        <Icon
+          icon={rating === 'positive' ? ThumbUpFilledIcon : ThumbDownFilledIcon}
+          color="iconActionResting"
+          iconSize={getIconSize(layout)}
+        />
         <Paragraph>{ratingSubmittedTitle} </Paragraph>
       </span>
       <TextArea
@@ -54,8 +62,18 @@ export const CommentComponent = ({
         onClick={handleSubmit}
         loading={loading}
       >
-        Send inn
+        {t(texts.send)}
       </Button>
     </VStack>
   );
 };
+
+const texts = createTexts({
+  send: {
+    nb: 'Send inn',
+    no: 'Send inn',
+    nn: 'Send inn',
+    en: 'Send',
+    se: 'Sádde',
+  },
+});

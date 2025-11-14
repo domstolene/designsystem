@@ -3,12 +3,13 @@ import { type ReactNode, type Ref, useContext } from 'react';
 
 import styles from './DateInput.module.css';
 import { cn } from '../../../utils';
-import { type InputProps, getInputWidth } from '../../helpers';
+import { type InputProps, getInputWidth } from '../../helpers/Input';
 import inputStyles from '../../helpers/Input/Input.module.css';
 import focusStyles from '../../helpers/styling/focus.module.css';
-import { InputMessage } from '../../InputMessage';
+import { renderInputMessage } from '../../InputMessage';
 import { Box } from '../../layout';
-import { Label } from '../../Typography';
+import { renderLabel } from '../../Typography/Label/Label.utils';
+import { type DatePickerProps } from '../DatePicker';
 import { CalendarPopoverContext } from '../DatePicker/CalendarPopover';
 
 export type DateInputProps = {
@@ -16,9 +17,14 @@ export type DateInputProps = {
   active?: boolean;
   children: ReactNode;
   prefix?: ReactNode;
+  suffix?: ReactNode;
   label?: ReactNode;
   internalRef: Ref<HTMLDivElement>;
   groupProps?: ReturnType<typeof useDatePicker>['groupProps'];
+  ref?: Ref<HTMLDivElement>;
+  clearable?: DatePickerProps['clearable'];
+  errorMessageId?: string;
+  tipId?: string;
 } & Pick<ReturnType<typeof useDateField>, 'fieldProps' | 'labelProps'> &
   Pick<
     InputProps,
@@ -30,9 +36,8 @@ export type DateInputProps = {
     | 'required'
     | 'readOnly'
     | 'width'
-  > & {
-    ref?: Ref<HTMLDivElement>;
-  };
+    | 'afterLabelContent'
+  >;
 
 export function DateInput({
   errorMessage,
@@ -47,17 +52,19 @@ export function DateInput({
   required,
   children,
   prefix: button,
+  suffix: suffixEl,
   labelProps,
   fieldProps,
   groupProps,
   width,
+  clearable,
   ref,
+  afterLabelContent,
+  tipId,
+  errorMessageId,
   ...props
 }: DateInputProps) {
   const hasErrorMessage = !!errorMessage;
-  const hasTip = !!tip;
-  const hasLabel = props.label != null;
-  const hasMessage = hasErrorMessage || hasTip;
 
   const { isOpen } = useContext(CalendarPopoverContext);
 
@@ -67,29 +74,25 @@ export function DateInput({
       className={cn(className, inputStyles.container)}
       ref={ref}
     >
-      {hasLabel && (
-        <Label
-          {...labelProps}
-          showRequiredStyling={required}
-          className={inputStyles.label}
-          readOnly={readOnly}
-        >
-          {props.label}
-        </Label>
-      )}
+      {renderLabel({
+        ...labelProps,
+        label: props.label,
+        showRequiredStyling: required,
+        readOnly,
+        afterLabelContent,
+      })}
       <Box
-        {...fieldProps}
         style={style}
-        ref={internalRef}
         width={getInputWidth(width, 'fit-content')}
         className={cn(
           inputStyles.input,
           inputStyles['input--stateful'],
           inputStyles['input--hover'],
           inputStyles[`input--${componentSize}`],
+          inputStyles[`input-with-icon--${componentSize}`],
           hasErrorMessage && inputStyles['input--stateful-danger'],
           styles['date-input'],
-          styles[`date-input--${componentSize}`],
+          clearable && styles[`date-input--${componentSize}--clearable`],
           focusStyles['focusable-within'],
           isOpen && focusStyles.focused,
           disabled && 'disabled',
@@ -100,14 +103,16 @@ export function DateInput({
         )}
       >
         {button}
-        <div className={styles['date-segment-container']}>{children}</div>
+        <div
+          {...fieldProps}
+          ref={internalRef}
+          className={styles['date-segment-container']}
+        >
+          {children}
+        </div>
+        {suffixEl}
       </Box>
-      {hasMessage && (
-        <InputMessage
-          messageType={hasErrorMessage ? 'error' : 'tip'}
-          message={errorMessage ?? tip ?? ''}
-        />
-      )}
+      {renderInputMessage({ tip, errorMessage, tipId, errorMessageId })}
     </div>
   );
 }

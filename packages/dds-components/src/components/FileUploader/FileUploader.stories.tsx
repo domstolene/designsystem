@@ -1,120 +1,97 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import { fn } from 'storybook/test';
 
 import { FileUploader } from './FileUploader';
 import {
-  categoryCss,
   categoryHtml,
+  responsivePropsArgTypes,
   windowWidthDecorator,
-} from '../../storybook/helpers';
-import { StoryVStack } from '../layout/Stack/utils';
+} from '../../storybook';
+import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { Heading, Paragraph } from '../Typography';
 
 export default {
   title: 'dds-components/Components/FileUploader',
   component: FileUploader,
   argTypes: {
-    width: { control: 'text', table: categoryCss },
-    id: { control: false, table: categoryHtml },
+    width: responsivePropsArgTypes.width,
+    id: { control: 'text', table: categoryHtml },
+    disabled: { control: 'boolean', table: categoryHtml },
     initialFiles: { control: false },
     accept: { control: false },
   },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
+  args: { onChange: fn() },
 } satisfies Meta<typeof FileUploader>;
 
 type Story = StoryObj<typeof FileUploader>;
 
-export const Default: Story = {};
+const file = new File(['hello'], 'hello.png', { type: 'image/png' });
 
-const SingleFileUploader = () => {
-  const [files, setFiles] = useState<Array<File>>([]);
-
-  return (
-    <FileUploader
-      label="Last opp fil"
-      tip="Maks 1 fil"
-      required
-      initialFiles={files}
-      onChange={files => {
-        setFiles(files);
-      }}
-      maxFiles={1}
-    />
-  );
-};
-
-const NoZoneUploader = () => {
-  const [files, setFiles] = useState<Array<File>>([]);
-
-  return (
-    <FileUploader
-      label="Last opp fil"
-      tip="Maks 1 fil"
-      withDragAndDrop={false}
-      required
-      initialFiles={files}
-      onChange={files => {
-        setFiles(files);
-      }}
-      maxFiles={1}
-    />
-  );
-};
-
-const WithErrorMessage = () => {
-  const [files, setFiles] = useState<Array<File>>([]);
-
-  return (
-    <FileUploader
-      label="Last opp fil"
-      tip="Maks 2 filer"
-      required
-      initialFiles={files}
-      onChange={files => {
-        setFiles(files);
-      }}
-      errorMessage="Feilmelding"
-      maxFiles={2}
-    />
-  );
-};
+export const Preview: Story = { args: { label: 'Label' } };
 
 export const Overview: Story = {
-  args: {},
   render: () => (
-    <StoryVStack>
-      <SingleFileUploader />
-      <NoZoneUploader />
-      <WithErrorMessage />
-    </StoryVStack>
+    <StoryHStack>
+      <StoryVStack>
+        <FileUploader
+          label="Med fil"
+          initialFiles={[file]}
+          onChange={() => null}
+        />
+        <FileUploader label="Required" required onChange={() => null} />
+        <FileUploader
+          label="Error"
+          errorMessage="Feilmelding"
+          onChange={() => null}
+        />
+      </StoryVStack>
+      <StoryVStack>
+        <FileUploader label="Disabled" disabled onChange={() => null} />
+        <FileUploader label="ReadOnly" readOnly onChange={() => null} />
+        <FileUploader
+          label="Disabled med fil"
+          disabled
+          onChange={() => null}
+          initialFiles={[file]}
+        />
+        <FileUploader
+          label="ReadOnly med fil"
+          readOnly
+          onChange={() => null}
+          initialFiles={[file]}
+        />
+      </StoryVStack>
+    </StoryHStack>
   ),
 };
-export const NoZone: Story = {
-  args: { label: 'Last opp fil' },
-  render: args => {
-    return <FileUploader {...args} withDragAndDrop={false} />;
-  },
-};
 
-export const Pdf: Story = {
-  args: { label: 'Last opp fil', tip: 'Kun PDF-filer' },
+export const Controlled: Story = {
+  args: { label: 'Last opp fil', tip: 'Maks 1 fil', maxFiles: 1 },
   render: args => {
     const [files, setFiles] = useState<Array<File>>([]);
+
     return (
       <FileUploader
         {...args}
-        initialFiles={files}
+        value={files}
         onChange={files => {
           setFiles(files);
         }}
-        accept={['.pdf', 'application/pdf']}
       />
     );
+  },
+};
+
+export const NoZone: Story = {
+  args: { label: 'Last opp fil', withDragAndDrop: false },
+};
+
+export const PdfOnly: Story = {
+  args: {
+    label: 'Last opp fil',
+    tip: 'Kun PDF-filer',
+    accept: ['.pdf', 'application/pdf'],
   },
 };
 
@@ -161,4 +138,8 @@ export const ResponsiveWidth: Story = {
       xl: 'var(--dds-input-default-width)',
     },
   },
+};
+
+export const MaxOneFile: Story = {
+  args: { label: 'Label', maxFiles: 1, tip: 'Maks 1 fil' },
 };

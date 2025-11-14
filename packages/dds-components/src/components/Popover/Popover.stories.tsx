@@ -1,14 +1,18 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useRef, useState } from 'react';
+import { fn } from 'storybook/test';
 
 import { type Placement } from '../../hooks';
-import { htmlEventArgType, htmlPropsArgType } from '../../storybook/helpers';
+import {
+  commonArgTypes,
+  htmlEventArgType,
+  themeProviderDecorator,
+} from '../../storybook';
 import { Button } from '../Button';
 import { InlineButton } from '../InlineButton';
 import { VStack } from '../layout';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { LocalMessage } from '../LocalMessage';
-import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 import { Paragraph } from '../Typography';
 
 import { Popover, PopoverGroup } from '.';
@@ -16,25 +20,19 @@ import { Popover, PopoverGroup } from '.';
 const meta: Meta<typeof Popover> = {
   title: 'dds-components/Components/Popover',
   component: Popover,
-  decorators: [
-    Story => (
-      <StoryThemeProvider>
-        <Story />
-      </StoryThemeProvider>
-    ),
-  ],
+  decorators: [Story => themeProviderDecorator(<Story />)],
   argTypes: {
     header: { control: 'text' },
     onBlur: htmlEventArgType,
     isOpen: { control: false },
     anchorRef: { control: false },
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
     sizeProps: { control: false },
   },
+  args: { onBlur: fn(), onClose: fn() },
   parameters: {
     docs: {
-      story: { inline: true, height: '300px' },
-      canvas: { sourceState: 'shown' },
+      story: { height: '300px' },
     },
   },
 };
@@ -43,7 +41,7 @@ export default meta;
 
 type Story = StoryObj<typeof Popover>;
 
-export const Default: Story = {
+export const Preview: Story = {
   render: args => (
     <VStack>
       <PopoverGroup>

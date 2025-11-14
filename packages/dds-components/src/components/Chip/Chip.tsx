@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import styles from './Chip.module.css';
+import { createTexts, useTranslation } from '../../i18n';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils/dom';
 import { Button } from '../Button';
@@ -13,7 +14,7 @@ export type ChipProps = BaseComponentProps<
   {
     /** Teksten som vises i komponenten. */
     text?: string;
-    /** Ekstra logikk når `<Chip />` lukkes. */
+    /** Ekstra logikk når `<Chip>` lukkes. */
     onClose?: () => void;
   }
 >;
@@ -26,13 +27,14 @@ export const Chip = ({
   htmlProps = {},
   ...rest
 }: ChipProps) => {
+  const { t } = useTranslation();
   const { 'aria-label': ariaLabel, ...restHTMLprops } = htmlProps;
 
   const [isOpen, setIsOpen] = useState(true);
 
   const onClick = () => {
     setIsOpen(false);
-    onClose && onClose();
+    onClose?.();
   };
 
   return isOpen ? (
@@ -52,10 +54,20 @@ export const Chip = ({
         icon={CloseSmallIcon}
         purpose="tertiary"
         onClick={onClick}
-        aria-label={ariaLabel ?? `Fjern ${text ? `chip ${text}` : 'chip'}`}
+        aria-label={ariaLabel ?? t(texts.removeChip) + (text ? ` ${text}` : '')}
       />
     </div>
   ) : null;
 };
 
 Chip.displayName = 'Chip';
+
+const texts = createTexts({
+  removeChip: {
+    nb: 'Fjern merkelapp',
+    no: 'Fjern merkelapp',
+    nn: 'Fjern merkelapp',
+    en: 'Remove chip',
+    se: 'Sihku lihppu',
+  },
+});

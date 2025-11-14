@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta } from '@storybook/blocks';
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as FieldsetStories from './Fieldset.stories';
 
@@ -10,7 +10,6 @@ import * as FieldsetStories from './Fieldset.stories';
   docsHref="https://design.domstol.no/987b33f71/p/67392b-fieldset"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Fieldset"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-fieldset--default"
-  withBottomSpacing
 />
 
 `<Fieldset>` er en code-only komponent som tilsvarer nativ HTML-tag `<fieldset>`; den grupperer skjemafelt som hører sammen. Den skal ha `<Legend>` som første barn og `<FieldsetGroup>` som andre.
@@ -19,8 +18,8 @@ import * as FieldsetStories from './Fieldset.stories';
 
 ### Fieldset
 
-<Canvas of={FieldsetStories.Default} sourceState="shown" />
-<Controls of={FieldsetStories.Default} />
+<Canvas of={FieldsetStories.Preview} />
+<Controls of={FieldsetStories.Preview} />
 
 ### FieldsetGroup
 

@@ -1,10 +1,7 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { Paper } from '..';
-import {
-  categoryCss,
-  responsivePropsArgTypes,
-} from '../../../storybook/helpers';
+import { categoryCss, responsivePropsArgTypes } from '../../../storybook';
 
 import { Grid, GridChild } from '.';
 
@@ -14,20 +11,14 @@ export default {
   argTypes: {
     gridRow: { control: 'text' },
     justifySelf: { control: 'text', table: categoryCss },
-    columnsOccupied: { control: 'text', table: categoryCss },
+    columnsOccupied: { control: 'text' },
     ...responsivePropsArgTypes,
-  },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
   },
 } satisfies Meta<typeof GridChild>;
 
 type Story = StoryObj<typeof GridChild>;
 
-export const Default: Story = {
+export const Preview: Story = {
   decorators: [
     Story => (
       <>

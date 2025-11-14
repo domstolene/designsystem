@@ -1,6 +1,7 @@
-import { Meta, Canvas, Controls } from '@storybook/blocks';
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as ToggleStories from './Toggle.stories';
+import { Tabs, Tab, TabList, TabPanels, TabPanel } from '../Tabs';
 
 <Meta of={ToggleStories} />
 
@@ -11,12 +12,22 @@ import * as ToggleStories from './Toggle.stories';
   figmaHref="https://www.figma.com/design/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?node-id=17550-439"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/dds-components/src/components/Toggle"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-toggle--default"
-  withBottomSpacing
 />
 
 `<Toggle>` er en semantisk `<input type="checkbox">`. Den brukes til umiddelbar tilstandsendring.
 
-## Props
-
-<Canvas of={ToggleStories.Preview} />
-<Controls of={ToggleStories.Preview} />
+<Tabs>
+  <TabList>
+    <Tab>Preview</Tab>
+    <Tab>Controlled</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <Canvas of={ToggleStories.Preview} />
+      <Controls of={ToggleStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={ToggleStories.Controlled} />
+    </TabPanel>
+  </TabPanels>
+</Tabs>

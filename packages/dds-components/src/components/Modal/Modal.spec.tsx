@@ -1,4 +1,4 @@
-import { act, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { type ReactNode, useEffect, useState } from 'react';
 import { describe, expect, it, vi } from 'vitest';
@@ -81,11 +81,9 @@ describe('<Modal>', () => {
     render(<TestComponent />);
     const button = screen.getAllByRole('button')[0];
 
-    act(() => {
-      button.click();
-    });
+    await userEvent.click(button);
 
-    const el = await screen.findByRole('dialog');
+    const el = screen.getByRole('dialog');
     expect(el).toBeInTheDocument();
   });
 
@@ -140,9 +138,8 @@ describe('<Modal>', () => {
 
     expect(document.body.style.position).toBe('fixed');
 
-    act(() => {
-      button.click();
-    });
+    await userEvent.click(button);
+
     expect(document.body.style.position).toBe('');
   });
 

@@ -18,6 +18,8 @@ import {
   useOnClickOutside,
   useOnKeyDown,
 } from '../../../hooks';
+import { useTranslation } from '../../../i18n';
+import { commonTexts } from '../../../i18n/commonTexts';
 import { cn } from '../../../utils';
 import { Button } from '../../Button';
 import {
@@ -120,6 +122,7 @@ export const CalendarPopoverContent = ({
   }
 
   const portalTarget = themeContext.el;
+  const { t } = useTranslation();
   const { isOpen, onClose, anchorRef, closeButtonRef } = useContext(
     CalendarPopoverContext,
   );
@@ -181,7 +184,7 @@ export const CalendarPopoverContent = ({
                     icon={CloseIcon}
                     size="small"
                     purpose="tertiary"
-                    aria-label="Lukk"
+                    aria-label={t(commonTexts.close)}
                     onClick={onClose}
                     htmlProps={{ onKeyDown: closeOnKeyboardBlurBack }}
                   />

@@ -6,14 +6,22 @@ import {
   toCalendarDateTime,
   today,
 } from '@internationalized/date';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useRef, useState } from 'react';
+import { fn } from 'storybook/test';
 
-import { windowWidthDecorator } from '../../../storybook/helpers';
+import {
+  htmlArgType,
+  htmlEventArgType,
+  labelText,
+  responsivePropsArgTypes,
+  themeProviderDecorator,
+  windowWidthDecorator,
+} from '../../../storybook';
 import { Button } from '../../Button';
+import { INPUT_SIZES } from '../../helpers/Input';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 import { Modal } from '../../Modal';
-import { StoryThemeProvider } from '../../ThemeProvider/utils/StoryThemeProvider';
 import { Paragraph } from '../../Typography';
 import { TimePicker } from '../TimePicker';
 import {
@@ -28,30 +36,41 @@ const meta: Meta<typeof DatePicker> = {
   component: DatePicker,
   parameters: {
     docs: {
-      story: { inline: true, height: '500px' },
-      canvas: { sourceState: 'shown' },
+      story: { height: '500px' },
     },
   },
   argTypes: {
-    width: {
-      control: 'text',
-    },
+    width: responsivePropsArgTypes.width,
+    isDisabled: { control: 'boolean' },
+    isReadOnly: { control: 'boolean' },
+    isRequired: { control: 'boolean' },
+    onBlur: htmlEventArgType,
+    onChange: htmlEventArgType,
+    onFocus: htmlEventArgType,
+    onOpenChange: { control: false },
+    onFocusChange: { control: false },
+    id: htmlArgType,
   },
-  decorators: [
-    Story => (
-      <StoryThemeProvider>
-        <Story />
-      </StoryThemeProvider>
-    ),
-  ],
+  args: {
+    onBlur: fn(),
+    onChange: fn(),
+    onFocus: fn(),
+    onFocusChange: fn(),
+    onOpenChange: fn(),
+  },
+  decorators: [Story => themeProviderDecorator(<Story />)],
 };
 
 export default meta;
 
 type Story = StoryObj<typeof DatePicker>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { label: 'Dato' },
+};
+
+export const Clearable: Story = {
+  args: { label: 'Dato', clearable: true },
 };
 
 export const Overview: Story = {
@@ -122,12 +141,17 @@ export const Error: Story = {
   args: { label: 'Dato', errorMessage: 'Her er noe veldig galt! 😨' },
 };
 
-export const OverviewSizes: Story = {
+export const Sizes: Story = {
   render: args => (
     <StoryVStack>
-      <DatePicker {...args} componentSize="medium" label="Medium" />
-      <DatePicker {...args} componentSize="small" label="Small" />
-      <DatePicker {...args} componentSize="xsmall" label="Tiny" />
+      {INPUT_SIZES.map(size => (
+        <DatePicker
+          {...args}
+          key={size}
+          componentSize={size}
+          label={labelText(size)}
+        />
+      ))}
     </StoryVStack>
   ),
 };
@@ -174,13 +198,6 @@ export const ControlFocus: Story = {
 
 export const InsideModal: Story = {
   args: { label: 'Dato' },
-  decorators: [
-    Story => (
-      <StoryThemeProvider>
-        <Story />
-      </StoryThemeProvider>
-    ),
-  ],
   render: args => {
     const [isOpen, setOpen] = useState(true);
     return (
@@ -201,7 +218,9 @@ export const DateAndTime: Story = {
       dateStyle: 'full',
       timeStyle: 'short',
     });
-    const [date, setDate] = useState<CalendarDate>(today('Europe/Oslo'));
+    const [date, setDate] = useState<CalendarDate>(
+      new CalendarDate(2025, 6, 18),
+    );
     const [time, setTime] = useState<Time>(new Time(12, 0, 0));
     const dateTime = toCalendarDateTime(date, time);
     return (
@@ -230,7 +249,7 @@ export const DateAndTime: Story = {
 export const NativeDate: Story = {
   args: { label: 'Dato' },
   render: args => {
-    const [date, setDate] = useState<Date>(new Date());
+    const [date, setDate] = useState<Date>(new Date('June 18, 2025'));
     return (
       <DatePicker
         {...args}

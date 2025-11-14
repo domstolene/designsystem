@@ -6,11 +6,11 @@ import { Footer } from './Footer';
 describe('<Footer>', () => {
   it('should render footer', () => {
     render(<Footer />);
-    expect(screen.getByRole('contentinfo')).toBeInTheDocument;
+    expect(screen.getByRole('contentinfo')).toBeInTheDocument();
   });
   it('should render children', () => {
     const text = 'text';
     render(<Footer>{text}</Footer>);
-    expect(screen.getByText(text)).toBeInTheDocument;
+    expect(screen.getByText(text)).toBeInTheDocument();
   });
 });

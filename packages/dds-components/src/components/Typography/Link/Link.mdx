@@ -1,10 +1,11 @@
-import { Canvas, Meta, Controls } from '@storybook/blocks';
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
 import {
   ComponentLinkRow,
   Source,
 } from '@norges-domstoler/storybook-components';
 import { Link } from '.';
 import * as LinkStories from './Link.stories';
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from '../../Tabs';
 
 <Meta of={LinkStories} />
 
@@ -15,55 +16,69 @@ import * as LinkStories from './Link.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?type=design&node-id=9982-211814&mode=design&t=XBHlNDhFak7JkOlt-4"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Typography/Link"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-typography-link--default"
-  withBottomSpacing
 />
 
-`<Link>` er en komponent som tilsvarer `<a>` HTML tag. Den arver font-relatert styling. Arvet styling kan overskrives (se [props](#props)).
+`<Link>` er en komponent som tilsvarer `<a>` HTML tag. Den arver font-relatert styling.
 
-## Props
+<Tabs>
+  <TabList>
+    <Tab>Preview</Tab>
+    <Tab>Ekstern</Tab>
+    <Tab>Polymorf</Tab>
+    <Tab>Custom farge</Tab>
+    <Tab>Visited</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <Canvas of={LinkStories.Preview} />
+      <Controls of={LinkStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      Hvis URL fører til et eksternt nettested gjenspeiles det via en dedikert
+      prop.
+      <Canvas of={LinkStories.External} />
+    </TabPanel>
+    <TabPanel>
+      Komponenten kan returnere vilkårlig HTML- eller React-element. Brukes
+      primært ved klient-side ruting.
+      <Canvas of={LinkStories.As} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={LinkStories.CustomColor} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={LinkStories.Visited} />
+    </TabPanel>
+  </TabPanels>
+</Tabs>
 
-<Canvas of={LinkStories.Default} />
-<Controls of={LinkStories.Default} />
+## Klient-side ruting
+
+Bruk `as` prop slik at komponenten kan returnere lenke fra rammeverket du bruker.
+
+### `react-router`
+
+<Source code={`
+import { Link as RRLink } from "react-router";
+import { Link } from '@norges-domstoler/dds-components';
+
+<Link as={RRLink} to="/saker">
+  Mine saker
+</Link>
+`} />
+
+### `Next.js`
+
+<Source code={`
+import NextLink from 'next/link';
+import { Link } from '@norges-domstoler/dds-components';
+
+<Link as={NextLink} href="/saker">
+  Mine saker
+</Link>
+`} />
 
 ## Retningslinjer
 
 - En lenke må ha `href` prop for assisterende teknologi skal tolke elementet riktig.
-- Komponenten brukes kun til sematiske `<a>`-elementer.
-
-## Med `react-router`
-
-Bruk hooks tilgjengelige i `react-router` for å returnere Elsa `<Link>` som custom lenke:
-
-<Source code={`
-
-import { useHref, useLinkClickHandler } from 'react-router-dom';
-
-import { Link } from '@norges-domstoler/dds-components';
-import type { LinkProps } from '@norges-domstoler/dds-components';
-
-type RouterConnectedLinkProps = Omit<LinkProps, 'onClick'>;
-
-export default function RouterConnectedLink(
-  props: RouterConnectedLinkProps,
-): JSX.Element {
-  const { href, ...rest } = props;
-  const routerHref = href ? useHref(href) : undefined;
-  const linkClickHandler = href ? useLinkClickHandler(href) : () => {};
-
-return <Link {...rest} href={routerHref} onClick={linkClickHandler} />;
-}
-`} />
-
-## I `Next.js`
-
-Komponenten kan wrappes i Next.js sin `<Link>` med props `passHref` og `legacyBehavior` per [Next.js dokumentasjon](https://nextjs.org/docs/pages/api-reference/components/link#if-the-child-is-a-custom-component-that-wraps-an-a-tag).
-Dette er legacy oppførsel og vil sannsynligvis bli endret i fremtiden.
-
-<Source code={`
-import Link from 'next/link';
-import { Link as DDSLink } from '@norges-domstoler/dds-components';
-
-<Link href={\`../\${sakId}\`} passHref legacyBehavior>
-  <DDSLink> Gå til sak </DDSLink>
-</Link>
-`} />
+- Komponenten brukes kun til sematiske lenker, likke knapper el.l.. som ser ut som lenke.

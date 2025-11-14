@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta } from '@storybook/blocks';
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as ChipStories from './Chip.stories';
 import * as ChipGroupStories from './ChipGroup.stories';
@@ -12,7 +12,6 @@ import * as ChipGroupStories from './ChipGroup.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=7788%3A148018"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Chip"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-chip--default"
-  withBottomSpacing
 />
 
 Komponenten består av to subkomponenter:
@@ -24,12 +23,12 @@ Komponenten består av to subkomponenter:
 
 ### Chip
 
-<Canvas of={ChipStories.Default} />
-<Controls of={ChipStories.Default} />
+<Canvas of={ChipStories.Preview} />
+<Controls of={ChipStories.Preview} />
 
 ### ChipGroup
 
-<Canvas of={ChipGroupStories.Default} />
+<Canvas of={ChipGroupStories.Preview} />
 
 Det støttes alle native HTML-attributter for `<ul>`.
 

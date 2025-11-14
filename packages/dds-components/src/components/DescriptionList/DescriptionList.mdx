@@ -1,10 +1,11 @@
-import { Meta, ArgTypes, Canvas, Controls } from '@storybook/blocks';
+import { Meta, ArgTypes, Canvas, Controls } from '@storybook/addon-docs/blocks';
 import { DescriptionListDesc, DescriptionListGroup } from '.';
 import {
   Source,
   ComponentLinkRow,
 } from '@norges-domstoler/storybook-components';
 import * as DescriptionListStories from './DescriptionList.stories';
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from '../Tabs';
 
 <Meta of={DescriptionListStories} />
 
@@ -15,46 +16,63 @@ import * as DescriptionListStories from './DescriptionList.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=3332%3A94241"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/DescriptionList"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-descriptionlist--default"
-  withBottomSpacing
 />
 
-Beskrivelseslister bygges med følgende subkomponenter:
+## Delkomponenter
 
-- **`<DescriptionList>`**: tilsvarer `<dl>`, hele listen.
-- **`<DescriptionListTerm>`**: tilsvarer `<dt>`, uttrykk eller ledetekst.
-- **`<DescriptionListDesc>`**: tilsvarer `<dd>`, verdi eller beskrivelse.
-- **`<DescriptionListGroup>`**: wrapper til bruk for gruppering eller spesifikk layout.
+<Tabs>
+  <TabList>
+    <Tab>DescriptionList</Tab>
+    <Tab>DescriptionListGroup</Tab>
+    <Tab>DescriptionListTerm</Tab>
+    <Tab>DescriptionListDesc</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      Tilsvarer `<dl>` - hele listen.
 
-## Props
+      <Canvas of={DescriptionListStories.Preview} />
+      <Controls of={DescriptionListStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      En valgfri delkomponent som kan brukes til å gruppere terms
+      og descriptions for riktig layout.
 
-### DescriptionList
+      <ArgTypes of={DescriptionListGroup} />
+    </TabPanel>
+    <TabPanel>
+      Tilsvarer `<dt>` - uttrykk eller ledetekst.
+    </TabPanel>
+    <TabPanel>
+      Tilsvarer `<dd>` - verdi eller beskrivelse.
 
-Tilsvarer `<dl>`.
+      <ArgTypes of={DescriptionListDesc} />
+    </TabPanel>
 
-<Canvas of={DescriptionListStories.Default} sourceState="shown" />
-<Controls of={DescriptionListStories.Default} />
+  </TabPanels>
+</Tabs>
 
-### DescriptionListTerm
+## Eksempler
 
-Tilsvarer `<dt>`.
+<Tabs>
+  <TabList>
+    <Tab>Row</Tab>
+    <Tab>Med ikon</Tab>
+    <Tab>Gruppe</Tab>
 
-### DescriptionListDesc
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      Hvis beskrivelseslisten skal legge seg over flere kolonner
+      på en spesifikk måte kan man bruke `<DescriptionListGroup>` og sette `direction="row"` på `<DescriptionList>`.
+      <Canvas of={DescriptionListStories.Row} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={DescriptionListStories.WithIcon} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={DescriptionListStories.Group} />
+    </TabPanel>
 
-Tilsvarer `<dd>`.
-
-<ArgTypes of={DescriptionListDesc} />
-
-### DescriptionListGroup
-
-En valgfri subkomponent som kan brukes til å gruppere terms
-og descriptions. Den kan være relevant for å få til riktig layout, eller wrappe gruppen
-til andre formål.
-
-<ArgTypes of={DescriptionListGroup} />
-
-#### Eksempler
-
-Hvis beskrivelseslisten skal legge seg over flere kolonner
-på en spesifikk måte kan man sette `direction="row"` på DescriptionList-elementet.
-
-<Canvas of={DescriptionListStories.RowDirectionExample} sourceState="shown" />
+  </TabPanels>
+</Tabs>

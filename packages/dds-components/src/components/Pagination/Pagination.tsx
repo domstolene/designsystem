@@ -2,6 +2,8 @@ import { type HTMLAttributes, useState } from 'react';
 
 import styles from './Pagination.module.css';
 import { PaginationGenerator } from './paginationGenerator';
+import { useControllableState } from '../../hooks/useControllableState';
+import { createTexts, useTranslation } from '../../i18n';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
 import { Button } from '../Button';
@@ -14,7 +16,7 @@ import {
   MoreHorizontalIcon,
 } from '../Icon/icons';
 import { Box, type Breakpoint, ShowHide } from '../layout';
-import { applyResponsiveStyle } from '../layout/common/utils';
+import { styleUpToBreakpoint } from '../layout/common/utils';
 import { Select } from '../Select';
 import { Paragraph } from '../Typography';
 
@@ -26,25 +28,27 @@ export interface PaginationOption {
 export type PaginationProps = BaseComponentProps<
   HTMLElement,
   {
-    /**Totalt antall elementer å paginere. */
+    /**Totalt antall elementer som skal pagineres. */
     itemsAmount: number;
-    /**Antall elementer per side ved innlastning av komponenten.
+    /**Antall elementer per side ved innlastning.
      * @default 10
      */
     defaultItemsPerPage?: number;
-    /**Den aktive siden ved innlastning av komponenten.
+    /**Den aktive siden ved innlastning.
      * @default 1
      */
     defaultActivePage?: number;
+    /**Den aktive siden. Brukes til kontrollert tilstand - når denne er satt styrer du siden utenfra. */
+    activePage?: number;
     /**Spesifiserer om selve pagineringen skal vises.
      * @default true
      */
     withPagination?: boolean;
-    /**Spesifiserer om teksten `'Vis x-y av z'` skal vises. */
+    /**Om teksten `'Vis x-y av z'` skal vises. */
     withCounter?: boolean;
-    /**Spesifiserer om `<Select />` til å velge antall resultater per side skal vises. */
+    /**Om `<Select>` for å velge antall per side skal vises. */
     withSelect?: boolean;
-    /**Custom options for `<Select />`. **OBS!** hvis det settes custom `selectOptions` bør "alle"-alternativet inkluderes der det er relevant, da brukere ofte liker å ha muligheten.
+    /**Custom options for `<Select>`. **OBS!** husk å inkludere "Alle"-alternativet hvis relevant - brukere forventer ofte den muligheten.
      * @default [
         { label: '10', value: 10 },
         { label: '25', value: 25 },
@@ -53,14 +57,16 @@ export type PaginationProps = BaseComponentProps<
       ]
      */
     selectOptions?: Array<PaginationOption>;
-    /**Brukes til å hente side og eventuelt annen logikk ved endring av side. */
+    /**Kalles ved sideendring - henter ny aktiv side og kjører ekstra logikk. */
     onChange?: (
       event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
       page: number,
     ) => void;
-    /**Brukes til å hente `selectedOption` og eventuelt kjøre annen logikk når `withSelect=true` ved endring av alternativ. */
+    /**Kalles når `selectedOption` endres, hvis `withSelect="true"`.
+     * Brukes til å hente valgt alternativ og evt. kjøre ekstra logikk.
+     */
     onSelectOptionChange?: (option: PaginationOption | null) => void;
-    /**Spesifiserer ved hvilket brekkpunkt og nedover versjonen for små skjermer skal vises; den viser færre sideknapper og stacker subkomponentene. */
+    /**Brekkpunkt for mobilvisning; den viser færre sideknapper og stacker delkomponentene. */
     smallScreenBreakpoint?: Breakpoint;
   },
   Omit<HTMLAttributes<HTMLElement>, 'onChange'>
@@ -70,15 +76,11 @@ export const Pagination = ({
   itemsAmount,
   defaultItemsPerPage = 10,
   defaultActivePage = 1,
+  activePage: activePageProp,
   withPagination = true,
   withCounter,
   withSelect,
-  selectOptions = [
-    { label: '10', value: 10 },
-    { label: '25', value: 25 },
-    { label: '50', value: 50 },
-    { label: 'Alle', value: itemsAmount },
-  ],
+  selectOptions,
   smallScreenBreakpoint,
   onChange,
   onSelectOptionChange,
@@ -88,7 +90,30 @@ export const Pagination = ({
   ref,
   ...rest
 }: PaginationProps) => {
-  const [activePage, setActivePage] = useState(defaultActivePage);
+  const { t } = useTranslation();
+
+  const tSelectOptions =
+    selectOptions && selectOptions.length > 0
+      ? selectOptions
+      : [
+          { label: '10', value: 10 },
+          { label: '25', value: 25 },
+          { label: '50', value: 50 },
+          { label: t(texts.all), value: itemsAmount },
+        ];
+
+  if (
+    withSelect &&
+    !tSelectOptions.some(o => o.value === defaultItemsPerPage)
+  ) {
+    console.warn(
+      `[Pagination] defaultItemsPerPage prop value (${defaultItemsPerPage}) is not included in customOptions prop. Please add it to ensure it appears in the dropdown.`,
+    );
+  }
+  const [activePage, setActivePage] = useControllableState({
+    value: activePageProp,
+    defaultValue: defaultActivePage,
+  });
   const [itemsPerPage, setItemsPerPage] = useState(defaultItemsPerPage);
 
   const pagesLength = Math.ceil(itemsAmount / itemsPerPage);
@@ -99,7 +124,7 @@ export const Pagination = ({
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     page: number,
   ) => {
-    page && setActivePage(page);
+    if (page) setActivePage(page);
     if (event && onChange) {
       onChange(event, page);
     }
@@ -129,9 +154,7 @@ export const Pagination = ({
                     onPageChange(event, item);
                   }}
                   aria-label={
-                    isActive
-                      ? `Nåværende side (side ${item})`
-                      : `Gå til side ${item}`
+                    isActive ? t(texts.currentPage(item)) : t(texts.page(item))
                   }
                 >
                   {item}
@@ -155,7 +178,7 @@ export const Pagination = ({
       onClick={event => {
         onPageChange(event, activePage - 1);
       }}
-      aria-label="Gå til forrige siden"
+      aria-label={t(texts.previousPage)}
     />
   );
 
@@ -167,7 +190,7 @@ export const Pagination = ({
       onClick={event => {
         onPageChange(event, activePage + 1);
       }}
-      aria-label="Gå til neste siden"
+      aria-label={t(texts.nextPage)}
     />
   );
 
@@ -178,7 +201,7 @@ export const Pagination = ({
     <Box
       as="nav"
       ref={ref}
-      aria-label="paginering"
+      aria-label={t(texts.pagination)}
       display="flex"
       alignItems="center"
       {...(!withSelect &&
@@ -231,7 +254,7 @@ export const Pagination = ({
               onClick={event => {
                 onPageChange(event, 1);
               }}
-              aria-label="Gå til første siden"
+              aria-label={t(texts.firstPage)}
             />
           </li>
           <li
@@ -276,7 +299,7 @@ export const Pagination = ({
               onClick={event => {
                 onPageChange(event, pagesLength);
               }}
-              aria-label="Gå til siste siden"
+              aria-label={t(texts.lastPage)}
             />
           </li>
         </ShowHide>
@@ -298,16 +321,16 @@ export const Pagination = ({
       gap="x0.75"
       justifyContent="space-between"
       flexWrap="wrap"
-      flexDirection={applyResponsiveStyle('column', smallScreenBreakpoint)}
-      alignItems={applyResponsiveStyle('center', smallScreenBreakpoint)}
+      flexDirection={styleUpToBreakpoint('column', smallScreenBreakpoint)}
+      alignItems={styleUpToBreakpoint('center', smallScreenBreakpoint)}
       {...getBaseHTMLProps(id, className, htmlProps, rest)}
     >
       <div className={styles.indicators}>
         {withSelect && (
           <Select
-            options={selectOptions}
+            options={tSelectOptions}
             isSearchable={false}
-            width="74px"
+            width="90px"
             defaultValue={{
               label: itemsPerPage.toString(),
               value: itemsPerPage,
@@ -315,12 +338,18 @@ export const Pagination = ({
             isClearable={false}
             onChange={handleSelectChange}
             componentSize="small"
-            aria-label="Antall elementer per side"
+            aria-label={t(texts.itemsPerPage)}
           />
         )}
         {withCounter && (
           <Paragraph>
-            Viser {activePageFirstItem}-{activePageLastItem} av {itemsAmount}
+            {t(
+              texts.showsAmountOfTotalItems(
+                activePageFirstItem,
+                activePageLastItem,
+                itemsAmount,
+              ),
+            )}
           </Paragraph>
         )}
       </div>
@@ -330,3 +359,76 @@ export const Pagination = ({
 };
 
 Pagination.displayName = 'Pagination';
+
+const texts = createTexts({
+  pagination: {
+    nb: 'Paginering',
+    no: 'Paginering',
+    nn: 'Paginering',
+    en: 'Pagination',
+    se: 'Pagineren',
+  },
+  itemsPerPage: {
+    nb: 'Elementer per side',
+    no: 'Elementer per side',
+    nn: 'Element per side',
+    en: 'Items per page',
+    se: 'Elementat juohki siidui',
+  },
+  nextPage: {
+    nb: 'Neste side',
+    no: 'Neste side',
+    nn: 'Neste side',
+    en: 'Next page',
+    se: 'Boahte siidu',
+  },
+  previousPage: {
+    nb: 'Forrige side',
+    no: 'Forrige side',
+    nn: 'Førre side',
+    en: 'Previous page',
+    se: 'Ovddit siidu',
+  },
+  firstPage: {
+    nb: 'Første side',
+    no: 'Første side',
+    nn: 'Fyrste side',
+    en: 'First page',
+    se: 'Vusttaš siidu',
+  },
+  lastPage: {
+    nb: 'Siste side',
+    no: 'Siste side',
+    nn: 'Siste side',
+    en: 'Last page',
+    se: 'Maŋimuš siidu',
+  },
+  currentPage: page => ({
+    nb: `Nåværende side (${page})`,
+    no: `Nåværende side (${page})`,
+    nn: `Noverande side (${page})`,
+    en: `Current page (${page})`,
+    se: `Dála siidu (${page})`,
+  }),
+  page: page => ({
+    nb: `Side ${page}`,
+    no: `Side ${page}`,
+    nn: `Side ${page}`,
+    en: `Page ${page}`,
+    se: `Siidu ${page}`,
+  }),
+  showsAmountOfTotalItems: (first, last, total) => ({
+    nb: `Viser ${first}-${last} av ${total}`,
+    no: `Viser ${first}-${last} av ${total}`,
+    nn: `Viser ${first}-${last} av ${total}`,
+    en: `Shows ${first}-${last} of ${total}`,
+    se: `Čájeha ${first}-${last} ${total} gaskkas`,
+  }),
+  all: {
+    nb: 'Alle',
+    no: 'Alle',
+    nn: 'Alle',
+    en: 'All',
+    se: 'Buot',
+  },
+});

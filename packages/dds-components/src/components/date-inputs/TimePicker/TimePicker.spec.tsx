@@ -22,11 +22,31 @@ describe('<TimePicker />', () => {
 
     expect(timePickerHeight).toBe(textInputHeight);
   });
-  it('should render three spinbuttons for the time', () => {
+  it('should render 2 spinbuttons for the time', () => {
     render(<TimePicker />);
 
     const spinbuttons = screen.getAllByRole('spinbutton');
     expect(spinbuttons).toHaveLength(2);
+  });
+  it('should have accessible description if tip present', () => {
+    const tip = 'tip';
+    render(<TimePicker tip={tip} />);
+
+    const spinbuttons = screen.getAllByRole('spinbutton');
+
+    spinbuttons.forEach(sb => {
+      expect(sb).toHaveAccessibleDescription(tip);
+    });
+  });
+  it('should have accessible description if errorMessage present', () => {
+    const errorMessage = 'errorMessage';
+    render(<TimePicker errorMessage={errorMessage} />);
+
+    const spinbuttons = screen.getAllByRole('spinbutton');
+
+    spinbuttons.forEach(sb => {
+      expect(sb).toHaveAccessibleDescription(errorMessage);
+    });
   });
   it('spinbuttons should have aria-valuemin', () => {
     render(<TimePicker />);

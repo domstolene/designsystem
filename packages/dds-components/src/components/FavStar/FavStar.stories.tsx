@@ -1,8 +1,15 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useRef, useState } from 'react';
+import { fn } from 'storybook/test';
 
-import { FavStar } from './FavStar';
-import { categoryHtml, htmlPropsArgType } from '../../storybook/helpers';
+import { FAVSTAR_SIZES, FavStar } from './FavStar';
+import {
+  StoryLabel,
+  categoryHtml,
+  commonArgTypes,
+  htmlEventArgType,
+  labelText,
+} from '../../storybook';
 import { Button } from '../Button';
 import { focusable } from '../helpers/styling/focus.module.css';
 import { Icon } from '../Icon';
@@ -11,45 +18,35 @@ import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { Checkbox } from '../SelectionControl/Checkbox';
 import { Table } from '../Table';
 import { Tooltip } from '../Tooltip';
-import { Caption, Link, Typography } from '../Typography';
+import { Caption, Link } from '../Typography';
 
 const meta: Meta<typeof FavStar> = {
   title: 'dds-components/Components/FavStar',
   component: FavStar,
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
-  },
   argTypes: {
     checked: { control: false, table: categoryHtml },
     defaultChecked: { table: categoryHtml },
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
+    onChange: htmlEventArgType,
   },
+  args: { onChange: fn() },
 };
 
 export default meta;
 
 type Story = StoryObj<typeof FavStar>;
 
-export const Default: Story = {};
+export const Preview: Story = {};
 
-export const OverviewSizes: Story = {
+export const Sizes: Story = {
   render: args => (
     <StoryHStack>
-      <StoryVStack>
-        <Typography as="span" typographyType="labelMedium">
-          Medium
-        </Typography>
-        <FavStar {...args} size="medium" />
-      </StoryVStack>
-      <StoryVStack>
-        <Typography as="span" typographyType="labelMedium">
-          Large
-        </Typography>
-        <FavStar {...args} size="large" />
-      </StoryVStack>
+      {FAVSTAR_SIZES.map(size => (
+        <StoryVStack key={size}>
+          <StoryLabel>{labelText(size)}</StoryLabel>
+          <FavStar {...args} size={size} />
+        </StoryVStack>
+      ))}
     </StoryHStack>
   ),
 };

@@ -1,9 +1,13 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
+import { SEARCH_SIZES } from './Search.utils';
 import {
+  htmlEventArgType,
+  labelText,
   responsivePropsArgTypes,
   windowWidthDecorator,
-} from '../../storybook/helpers';
+} from '../../storybook';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { Search } from '.';
@@ -14,13 +18,9 @@ export default {
   argTypes: {
     buttonProps: { control: false },
     width: responsivePropsArgTypes.width,
+    onChange: htmlEventArgType,
   },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
-  },
+  args: { onChange: fn() },
 } satisfies Meta<typeof Search>;
 
 const array = [
@@ -41,9 +41,19 @@ const array = [
   'Øst-Agder',
 ];
 
+const elementsInfo = (
+  <div>
+    Elementer i listen:{' '}
+    {array.map(
+      (item, index) => `${item}${index !== array.length - 1 ? ', ' : ''}`,
+    )}
+    .
+  </div>
+);
+
 type Story = StoryObj<typeof Search>;
 
-export const Default: Story = {};
+export const Preview: Story = {};
 
 export const Overview: Story = {
   render: args => (
@@ -52,12 +62,13 @@ export const Overview: Story = {
       <Search {...args} tip="Dette er en hjelpetekst" />
       <Search {...args} label={args.label ?? 'Label'} />
       <Search {...args} showIcon={false} />
-      <Search {...args} buttonProps={{ onClick: () => null, label: 'Søk' }} />
+      <Search {...args} buttonProps={{ onClick: () => null }} />
       <Search
         {...args}
         buttonProps={{
           onClick: () => null,
           purpose: 'secondary',
+          label: 'Secondary knapp',
         }}
       />
       <Search
@@ -69,47 +80,37 @@ export const Overview: Story = {
   ),
 };
 
-export const OverviewSizes: Story = {
+export const Sizes: Story = {
   render: args => (
     <StoryHStack>
       <StoryVStack>
-        <Search {...args} componentSize="small" />
-        <Search {...args} componentSize="medium" />
-        <Search {...args} componentSize="large" />
+        {SEARCH_SIZES.map(size => (
+          <Search {...args} label={labelText(size)} componentSize={size} />
+        ))}
       </StoryVStack>
       <StoryVStack>
-        <Search
-          {...args}
-          componentSize="small"
-          buttonProps={{ onClick: () => null, label: 'Søk' }}
-        />
-        <Search
-          {...args}
-          componentSize="medium"
-          buttonProps={{ onClick: () => null, label: 'Søk' }}
-        />
-        <Search
-          {...args}
-          componentSize="large"
-          buttonProps={{ onClick: () => null, label: 'Søk' }}
-        />
+        {SEARCH_SIZES.map(size => (
+          <Search
+            {...args}
+            label={labelText(size)}
+            componentSize={size}
+            buttonProps={{ onClick: () => null, label: 'Søk' }}
+          />
+        ))}
       </StoryVStack>
     </StoryHStack>
   ),
 };
 
-export const OverviewWithSuggestion: Story = {
+export const SizesWithSuggestions: Story = {
   render: args => (
     <StoryVStack>
-      <Search.AutocompleteWrapper data={{ array }}>
-        <Search {...args} componentSize="large" />
-      </Search.AutocompleteWrapper>
-      <Search.AutocompleteWrapper data={{ array }}>
-        <Search {...args} componentSize="medium" />
-      </Search.AutocompleteWrapper>
-      <Search.AutocompleteWrapper data={{ array }}>
-        <Search {...args} componentSize="small" />
-      </Search.AutocompleteWrapper>
+      {SEARCH_SIZES.map(size => (
+        <Search.AutocompleteWrapper data={{ array }} key={size}>
+          <Search {...args} label={labelText(size)} componentSize={size} />
+        </Search.AutocompleteWrapper>
+      ))}
+      {elementsInfo}
     </StoryVStack>
   ),
 };
@@ -127,16 +128,7 @@ export const WithSuggestions: Story = {
       <Search.AutocompleteWrapper data={{ array }}>
         <Search {...args} />
       </Search.AutocompleteWrapper>
-      <div>
-        Elementer i listen:{' '}
-        {array.map((item, index) => (
-          <span>
-            {item}
-            {index !== array.length - 1 && ', '}
-          </span>
-        ))}
-        .
-      </div>
+      {elementsInfo}
     </>
   ),
 };

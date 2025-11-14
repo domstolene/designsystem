@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta } from '@storybook/blocks';
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
 import {
   Source,
   ComponentLinkRow,
@@ -15,15 +15,14 @@ import * as FavStarStories from './FavStar.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?type=design&node-id=12275%3A221227&mode=design&t=I6T2GC1TzZmvlYQ3-1"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/FavStar"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-favstar--default"
-  withBottomSpacing
 />
 
 En komponent for å legge noe til i favoritter; bruker `<input type="checkbox">`.
 
 ## Props
 
-<Canvas of={FavStarStories.Default} sourceState="shown" />
-<Controls of={FavStarStories.Default} />
+<Canvas of={FavStarStories.Preview} sourceState="shown" />
+<Controls of={FavStarStories.Preview} />
 
 ## Bruk
 

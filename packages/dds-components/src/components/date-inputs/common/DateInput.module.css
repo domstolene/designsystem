@@ -2,23 +2,19 @@
   display: inline-flex;
   flex-direction: row;
   align-items: center;
-  gap: var(--dds-spacing-x0-25);
-  width: var(--dds-date-input-width);
+  gap: var(--dds-spacing-x0-5);
 }
 
-.date-input--medium {
-  padding-inline-start: var(--dds-spacing-x0-5);
-  padding-inline-end: var(--dds-spacing-x1);
-}
-
-.date-input--small {
-  padding-inline-start: var(--dds-spacing-x0-5);
-  padding-inline-end: var(--dds-spacing-x0-75);
-}
-
-.date-input--xsmall {
-  padding-inline-start: var(--dds-spacing-x0-25);
+.date-input--medium--clearable {
   padding-inline-end: var(--dds-spacing-x0-5);
+}
+
+.date-input--small--clearable {
+  padding-inline-end: var(--dds-spacing-x0-5);
+}
+
+.date-input--xsmall--clearable {
+  padding-inline-end: var(--dds-spacing-x0-25);
 }
 
 .date-segment-container {
@@ -32,6 +28,7 @@
   width: max-content;
   font-variant-numeric: tabular-nums;
   outline: none;
+  font-family: var(--dds-font-family-monospace);
 
   &:focus {
     background-color: var(--dds-color-surface-action-selected);
@@ -44,6 +41,7 @@
   width: 100%;
   font-variant-numeric: tabular-nums;
   pointer-events: none;
+  font-family: var(--dds-font-family-monospace);
 
   .segment:focus & {
     color: var(--dds-color-text-on-action);
@@ -56,33 +54,27 @@
   width: 0;
 }
 
-/**------------------------------------------------------------------------
- * Ikon-wrapper ved siden av input
- * Gjelder både dato og tid
- *------------------------------------------------------------------------*/
-
-.icon-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--dds-spacing-x0-25);
-  color: var(--dds-color-icon-default);
+.clear-button {
+  align-self: center;
 }
 
-.icon-wrapper--disabled {
+.clear-button--inactive {
+  visibility: hidden;
+}
+
+/**------------------------------------------------------------------------
+* Ikon ved siden av input
+* Gjelder både dato og tid
+*------------------------------------------------------------------------*/
+
+.icon-wrapper--disabled,
+.popover-button:disabled {
   color: var(--dds-color-icon-subtle);
 }
 
-.icon-wrapper--readonly {
+.icon-wrapper--readonly,
+.popover-button--readonly:disabled {
   color: var(--dds-color-icon-medium);
-}
-
-.icon-wrapper--small {
-  margin-block: calc(0px - var(--dds-icon-size-medium));
-}
-
-.icon-wrapper--medium {
-  margin-block: calc(0px - var(--dds-icon-size-small));
 }
 
 /**------------------------------------------------------------------------
@@ -90,28 +82,8 @@
  *------------------------------------------------------------------------*/
 
 .popover-button {
-  cursor: pointer;
-  border: 0;
-  transition: 0.2s;
-  background: transparent;
-  border-radius: var(--dds-border-radius-button);
-
-  &:not(:disabled):not(.disabled):hover,
-  &:not(:disabled):not(.disabled):active {
-    background-color: var(--dds-color-surface-hover-default);
-    color: var(--dds-color-icon-action-hover);
-  }
-
-  &:disabled,
-  &.disabled {
-    cursor: not-allowed;
-    outline: none;
-    color: var(--dds-color-text-subtle);
-  }
-}
-
-.popover-button--readonly:disabled {
-  color: var(--dds-color-text-medium);
+  padding: 1px;
+  margin-inline-start: -2px;
 }
 
 .popover {

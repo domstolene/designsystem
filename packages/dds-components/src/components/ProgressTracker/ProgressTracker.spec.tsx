@@ -11,7 +11,7 @@ describe('<ProgressTracker>', () => {
   it('should have accesible name', () => {
     render(<ProgressTracker />);
     expect(screen.getByRole('navigation')).toHaveAccessibleName(
-      'stegprogresjon',
+      'Trinnprogresjon',
     );
   });
   describe('steps', () => {
@@ -60,12 +60,8 @@ describe('<ProgressTracker>', () => {
         </ProgressTracker>,
       );
       const buttons = screen.getAllByRole('button');
-      expect(buttons[0]).toHaveAccessibleName(
-        `1. trinn, ${text1} , ikke ferdig`,
-      );
-      expect(buttons[1]).toHaveAccessibleName(
-        `2. trinn, ${text2} , ikke ferdig`,
-      );
+      expect(buttons[0]).toHaveAccessibleName(`${text1}, 1. trinn ikke ferdig`);
+      expect(buttons[1]).toHaveAccessibleName(`${text2}, 2. trinn ikke ferdig`);
     });
     it('should have accessible completed name', () => {
       const text1 = 'a';
@@ -77,7 +73,7 @@ describe('<ProgressTracker>', () => {
         </ProgressTracker>,
       );
       const buttons = screen.getAllByRole('button');
-      expect(buttons[1]).toHaveAccessibleName(`2. trinn, ${text2} , ferdig`);
+      expect(buttons[1]).toHaveAccessibleName(`${text2}, 2. trinn ferdig`);
     });
   });
 });

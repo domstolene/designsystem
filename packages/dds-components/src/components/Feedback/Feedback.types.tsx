@@ -4,7 +4,7 @@ export interface FeedbackProps {
   /**Label som er plassert over tommel opp/ned knappene.
    * @default "Hva syns du om tjenesten?"
    */
-  ratingLabel: string;
+  ratingLabel?: string;
   /**Label til fritekstfeltet når bruker har gitt tommel opp.
    * @default "Hva kan vi forbedre? (valgfritt)"
    */
@@ -57,9 +57,3 @@ export interface FeedbackProps {
 
 export type Rating = 'positive' | 'negative';
 export type Layout = 'vertical' | 'horizontal';
-
-export interface ThumbIconProps {
-  rating: Rating | null;
-  layout: Layout;
-  type: 'comment' | 'rating';
-}

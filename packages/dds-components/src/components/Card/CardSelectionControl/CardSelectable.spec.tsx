@@ -199,14 +199,9 @@ describe('<CardSelectable>', () => {
     });
 
     it('children should have accessible description and be invalid when errorMessage provided', () => {
-      const groupId = 'groupId';
       const errorMessage = 'errorMessage';
       render(
-        <CardSelectableGroup
-          cardType="radio"
-          groupId={groupId}
-          errorMessage={errorMessage}
-        >
+        <CardSelectableGroup cardType="radio" errorMessage={errorMessage}>
           <CardSelectable />
         </CardSelectableGroup>,
       );

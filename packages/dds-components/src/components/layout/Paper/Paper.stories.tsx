@@ -1,49 +1,32 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import {
-  categoryCss,
-  htmlPropsArgType,
+  CSSSelectArgType,
+  htmlArgType,
   responsivePropsArgTypes,
-} from '../../../storybook/helpers';
+} from '../../../storybook';
 
 import { Paper } from '.';
 
 const meta: Meta<typeof Paper> = {
   title: 'dds-components/Layout Primitives/Paper',
   component: Paper,
-  parameters: {
-    docs: {
-      story: { inline: true },
-    },
-  },
   argTypes: {
     as: { control: 'text' },
     ...responsivePropsArgTypes,
-    elevation: {
-      control: { type: 'select' },
-      table: categoryCss,
-    },
-    border: {
-      control: { type: 'select' },
-      table: categoryCss,
-    },
-    borderRadius: {
-      control: { type: 'select' },
-      table: categoryCss,
-    },
-    background: {
-      control: { type: 'select' },
-      table: categoryCss,
-    },
-    tabIndex: htmlPropsArgType,
-    role: htmlPropsArgType,
+    elevation: CSSSelectArgType,
+    border: CSSSelectArgType,
+    borderRadius: CSSSelectArgType,
+    background: CSSSelectArgType,
+    tabIndex: htmlArgType,
+    role: htmlArgType,
   },
 };
 export default meta;
 
 type Story = StoryObj<typeof Paper>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: {
     border: 'border-default',
     padding: 'x1.5',

@@ -9,8 +9,8 @@ import {
   readOnlyKeyDownHandler,
   spaceSeparatedIdListGenerator,
 } from '../../../utils';
+import { HiddenInput } from '../../helpers';
 import focusStyles from '../../helpers/styling/focus.module.css';
-import utilStyles from '../../helpers/styling/utilStyles.module.css';
 import { Typography } from '../../Typography';
 import { Label, SelectionControl } from '../SelectionControl.styles';
 import { selectionControlTypographyProps } from '../SelectionControl.utils';
@@ -44,16 +44,14 @@ export const Checkbox = ({
 
   return (
     <Label
-      hasError={hasError}
       disabled={isDisabled}
-      readOnly={isReadOnly}
       htmlFor={uniqueId}
       hasText={hasLabel || hasChildren}
       controlType="checkbox"
       className={cn(className, htmlPropsClassName)}
       style={style}
     >
-      <input
+      <HiddenInput
         {...getBaseHTMLProps(uniqueId, restHtmlProps, rest)}
         name={name}
         disabled={isDisabled}
@@ -68,10 +66,7 @@ export const Checkbox = ({
         aria-readonly={isReadOnly}
         type="checkbox"
         data-indeterminate={indeterminate}
-        className={cn(
-          utilStyles['hide-input'],
-          focusStyles['focusable-sibling'],
-        )}
+        className={focusStyles['focusable-sibling']}
         onKeyDown={readOnlyKeyDownHandler(
           'selectionControl',
           isReadOnly,

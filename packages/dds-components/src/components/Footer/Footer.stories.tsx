@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { Grid, GridChild, Link, Paragraph } from '../..';
 import { Icon } from '../Icon';
@@ -19,12 +19,6 @@ import {
 export default {
   title: 'dds-components/Components/Footer',
   component: Footer,
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
 } satisfies Meta<typeof Footer>;
 
 type Story = StoryObj<typeof Footer>;
@@ -45,7 +39,7 @@ const socials = (
             htmlProps={{ style: { display: 'block' } }}
           />
         </Link>
-        <VisuallyHidden as="span">Facebook</VisuallyHidden>
+        <VisuallyHidden>Facebook</VisuallyHidden>
       </li>
       <li>
         <Link
@@ -58,7 +52,7 @@ const socials = (
             icon={InstagramIcon}
             htmlProps={{ style: { display: 'block' } }}
           />
-          <VisuallyHidden as="span">Instagram</VisuallyHidden>
+          <VisuallyHidden>Instagram</VisuallyHidden>
         </Link>
       </li>
       <li>
@@ -72,14 +66,14 @@ const socials = (
             icon={LinkedInIcon}
             htmlProps={{ style: { display: 'block' } }}
           />
-          <VisuallyHidden as="span">LinkedIn</VisuallyHidden>
+          <VisuallyHidden>LinkedIn</VisuallyHidden>
         </Link>
       </li>
     </FooterSocialsList>
   </FooterSocialsGroup>
 );
 
-export const Default: Story = {
+export const Preview: Story = {
   render: args => (
     <Footer {...args}>
       <Grid

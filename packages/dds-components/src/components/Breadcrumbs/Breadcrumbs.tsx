@@ -1,6 +1,7 @@
 import { Children, isValidElement } from 'react';
 
 import styles from './Breadcrumbs.module.css';
+import { createTexts, useTranslation } from '../../i18n';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -46,7 +47,7 @@ export const Breadcrumbs = ({
       icon={ChevronRightIcon}
     />
   );
-
+  const { t } = useTranslation();
   const childrenArray = Children.toArray(children);
 
   const responsiveLiProps: HStackProps<'li'> = {
@@ -56,7 +57,7 @@ export const Breadcrumbs = ({
     padding: 'x0',
   };
 
-  const breadcrumbChildren = childrenArray.map((item, index) => {
+  const bChildren = childrenArray.map((item, index) => {
     return (
       <HStack
         key={`breadcrumb-${index}`}
@@ -69,7 +70,7 @@ export const Breadcrumbs = ({
     );
   });
 
-  const breadcrumbChildrenTruncated =
+  const bChildrenTruncated =
     childrenArray.length > 2
       ? childrenArray.slice(1, childrenArray.length - 1).map((item, index) => {
           if (isValidElement<BreadcrumbProps>(item)) {
@@ -89,10 +90,10 @@ export const Breadcrumbs = ({
         })
       : [];
 
-  const breadcrumbChildrenSmallScreen = (
+  const bChildrenSmallScreen = (
     <>
       <HStack {...responsiveLiProps}>{childrenArray[0]}</HStack>
-      {breadcrumbChildrenTruncated.length > 0 && (
+      {bChildrenTruncated.length > 0 && (
         <HStack {...responsiveLiProps}>
           {chevronIcon}
           <OverflowMenuGroup>
@@ -100,10 +101,14 @@ export const Breadcrumbs = ({
               size="xsmall"
               icon={MoreHorizontalIcon}
               purpose="tertiary"
-              aria-label={`Vis brødsmulesti brødsmule 2 ${breadcrumbChildrenTruncated.length > 1 && `til ${breadcrumbChildren.length - 1}`}`}
+              aria-label={
+                bChildrenTruncated.length > 1
+                  ? t(texts.showHiddenTo(bChildren.length - 1))
+                  : t(texts.showHidden)
+              }
             />
             <OverflowMenu>
-              <OverflowMenuList>{breadcrumbChildrenTruncated}</OverflowMenuList>
+              <OverflowMenuList>{bChildrenTruncated}</OverflowMenuList>
             </OverflowMenu>
           </OverflowMenuGroup>
         </HStack>
@@ -126,17 +131,17 @@ export const Breadcrumbs = ({
   return (
     <nav
       {...getBaseHTMLProps(id, className, htmlProps, rest)}
-      aria-label="brødsmulesti"
+      aria-label={t(texts.breadcrumbs)}
     >
       <HStack
         {...responsiveListProps}
         hideBelow={hasSmallScreenBreakpoint ? smallScreenBreakpoint : undefined}
       >
-        {breadcrumbChildren}
+        {bChildren}
       </HStack>
       {hasSmallScreenBreakpoint && (
         <HStack {...responsiveListProps} showBelow={smallScreenBreakpoint}>
-          {breadcrumbChildrenSmallScreen}
+          {bChildrenSmallScreen}
         </HStack>
       )}
     </nav>
@@ -144,3 +149,27 @@ export const Breadcrumbs = ({
 };
 
 Breadcrumbs.displayName = 'Breadcrumbs';
+
+const texts = createTexts({
+  breadcrumbs: {
+    nb: 'Brødsmulesti',
+    no: 'Brødsmulesti',
+    nn: 'Brødsmulesti',
+    en: 'Breadcrumbs',
+    se: 'Láibemoallobálggis',
+  },
+  showHiddenTo: to => ({
+    nb: `Vis brødsmule 2 til ${to}`,
+    no: `Vis brødsmule 2 til ${to}`,
+    nn: `Vis brødsmule 2 til ${to}`,
+    en: `Show breadcrumb 2 to ${to}`,
+    se: `Čájet láibemoalu 2 ${to}`,
+  }),
+  showHidden: {
+    nb: 'Vis brødsmule 2',
+    no: 'Vis brødsmule 2',
+    nn: 'Vis brødsmule 2',
+    en: 'Show breadcrumb 2',
+    se: 'Čájet láibemoalu 2',
+  },
+});

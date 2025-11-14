@@ -1,4 +1,4 @@
-import { type Meta } from '@storybook/react';
+import { type Meta } from '@storybook/react-vite';
 
 import {
   BorderRadiusGenerator,
@@ -10,9 +10,16 @@ import {
   ShadowsGenerator,
   SpacingGenerator,
   TypographyGenerator,
-  wrapperStyle,
+  Wrapper,
 } from './utils';
 import { ZIndexGenerator } from './utils/ZIndexGenerator';
+import {
+  Tabs,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+} from '../../packages/dds-components/src';
 
 const meta: Meta = {
   title: 'dds-design-tokens/Tokens',
@@ -24,54 +31,66 @@ export default meta;
 
 export const BorderRadius = () => {
   return (
-    <div style={wrapperStyle}>
-      <h2>Core</h2>
-      {BorderRadiusGenerator('core')}
-      <h2>Public</h2>
-      {BorderRadiusGenerator('public')}
-    </div>
+    <Wrapper>
+      <Tabs>
+        <TabList>
+          <Tab>Core</Tab>
+          <Tab>Public</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>{BorderRadiusGenerator('core')}</TabPanel>
+          <TabPanel>{BorderRadiusGenerator('public')}</TabPanel>
+        </TabPanels>
+      </Tabs>
+    </Wrapper>
   );
 };
 
 export const Breakpoints = () => {
-  return <div style={wrapperStyle}> {BreakpointsGenerator()}</div>;
+  return <Wrapper> {BreakpointsGenerator()}</Wrapper>;
 };
 
 export const Colors = () => {
-  return <div style={wrapperStyle}> {ColorsGenerator()}</div>;
+  return <Wrapper> {ColorsGenerator()}</Wrapper>;
 };
 
 export const ColorsDataVisualisation = () => {
-  return <div style={wrapperStyle}> {DataColorsGenerator()}</div>;
+  return <Wrapper> {DataColorsGenerator()}</Wrapper>;
 };
 
 export const Grid = () => {
-  return <div style={wrapperStyle}> {GridGenerator()}</div>;
+  return <Wrapper> {GridGenerator()}</Wrapper>;
 };
 
 export const IconSizes = () => {
-  return <div style={wrapperStyle}> {IconSizesGenerator()}</div>;
+  return <Wrapper> {IconSizesGenerator()}</Wrapper>;
 };
 
 export const Shadows = () => {
-  return <div style={wrapperStyle}> {ShadowsGenerator()}</div>;
+  return <Wrapper> {ShadowsGenerator()}</Wrapper>;
 };
 
 export const Spacing = () => {
-  return <div style={wrapperStyle}> {SpacingGenerator()}</div>;
+  return <Wrapper> {SpacingGenerator()}</Wrapper>;
 };
 
 export const Typography = () => {
   return (
-    <div style={{ maxWidth: '120ch', marginInline: 'auto' }}>
-      <h2>Core</h2>
-      {TypographyGenerator('core')}
-      <h2>Public</h2>
-      {TypographyGenerator('public')}
-    </div>
+    <Wrapper maxWidth="120ch">
+      <Tabs>
+        <TabList>
+          <Tab>Core</Tab>
+          <Tab>Public</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>{TypographyGenerator('core')}</TabPanel>
+          <TabPanel>{TypographyGenerator('public')}</TabPanel>
+        </TabPanels>
+      </Tabs>
+    </Wrapper>
   );
 };
 
 export const ZIndex = () => {
-  return <div style={wrapperStyle}> {ZIndexGenerator()}</div>;
+  return <Wrapper> {ZIndexGenerator()}</Wrapper>;
 };

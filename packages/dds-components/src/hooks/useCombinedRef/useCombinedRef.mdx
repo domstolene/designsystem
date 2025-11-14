@@ -1,0 +1,36 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
+import * as useCombinedRefStories from './useCombinedRef.stories';
+
+<Meta of={useCombinedRefStories} />
+
+# useCombinedRef
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/30227e-useonkeydown"
+  githubHref="https://github.com/domstolene/designsystem/blob/main/packages/dds-components/src/hooks/useCombinedRef/useCombinedRef.tsx"
+/>
+
+Kombinerer `ref`s for et element.
+
+`@returns` callback med kombinerte `ref`s.
+
+<Canvas of={useCombinedRefStories.Preview} sourceState="none" />
+<Controls of={useCombinedRefStories.Preview} />
+
+## Bruk
+
+<Source code={`
+import { useCombinedRef } from '@norges-domstoler/dds-components';
+
+function MyComponent(ref) {
+
+    const itemRef = useRef<HTMLDivElement>(null);
+    const combinedRef = useCombinedRef(ref, itemRef);
+
+    return <div ref={combinedRef}>innhold</div>
+
+};`} />

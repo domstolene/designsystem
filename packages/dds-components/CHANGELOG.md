@@ -1,5 +1,294 @@
 # @norges-domstoler/dds-components
 
+## 21.19.1
+
+(2025-11-14)
+
+### Patch Changes
+
+- f4706c3: Endre headerstørrelse for OverflowMenuHeader
+
+## 21.19.0
+
+(2025-11-12)
+
+### Minor Changes
+
+- 89e6516: Støtte for `icon` prop i `<NativeSelect>`.
+- d0035ef: Støtte for nye props i `<InputMessage>`: `margin`, `marginInline` og `marginBlock`. Gjør layout lettere for komponenten ved custom bruk.
+- d0035ef: Ny responsiv prop: `wordBreak`. Tilsvarer CSS `word-break`. Støttes på alle layout primitives unntatt `<ShowHide>`.
+- d0035ef: Legger på spacing mellom komponent og `<InputMessage>` i alle komponenter som støtter `errorMessage` prop. Dette grunnet bruk av `dds-border-radius-surface` på alle hjørner i `<InputMessage>`. Kan påvirke layout hos konsumenten.
+
+### Patch Changes
+
+- d0035ef: Endrer `border-radius` på `<InputMessage>` til `dds-border-radius-surface` på alle hjørner.
+- d0035ef: Knytter hjelpetekst og feilmelding til spin buttons med `aria-describedby` i `<DatePicker>` og `<TimePicker>` for bedre UU.
+- 89e6516: Standardiserer og justerer på spacing mellom ikon/knapp og tekst på tvers av interaktive komponenter: `<Button>`, `<ToggleButton>`, `<ToggleRadio>`, `<TextInput>`, `<TimePicker>`, `<DatePicker>`, `<Select>`, `<NativeSelect>`, `<Search>`, `<Tab>`.
+
+## 21.18.0
+
+(2025-11-07)
+
+### Minor Changes
+
+- c26c717: Ny komponent: `<FormSummary>`. Brukes til oppsummering av skjema med flere steg.
+- c26c717: Tillater bruk av `children` og gjør `message` prop valgfri i `<InputMessage>`. Komponenten blir standardisert til å bruke kun `children` istedenfor `message` ved neste major versjon.
+- 8d5f148: Støtte for nytt språk: nordsamisk. Språket settes via `language` prop i `<DdsProvider>`.
+
+### Patch Changes
+
+- 8d5f148: Fikser bug der unødvendig default tekst for en prop overskrev oversettelsene i `<PhoneInput>`, `<Pagination>`, `<FileUploader>`, `<Feedback>` og `<Button>`.
+- 8d5f148: Fikser bug der falsy verdier for klassenavn resulterte i `class=""` i DOM.
+- 8d5f148: Gjør `ratingLabel` prop i `<Feedback>` ikke påkrevd. Hvis verdien ikke er oppgitt bruker komponenten default tekst.
+- 8d5f148: Legger til manglende oversettelser i `<Pagination>`, `<Search>` og `<FileUploader>`.
+- 8d5f148: Fikser bug som satt unødvendig HTML attributt `aria-hidden="false"` på `<span>` i `<Button>`.
+
+## 21.17.2
+
+(2025-10-29)
+
+### Patch Changes
+
+- ac9879a: Utbedrer oversettelser i `<Button>`, `<ProgressTracker>` og `<FavStar>`.
+
+## 21.17.1
+
+(2025-10-24)
+
+### Patch Changes
+
+- 61075f7: Setter format på tidspunkt til å alltid være norsk i `<TimePicker>`. Dette inkluderer ledende 0.
+- 390a70b: - Retter `BaseComponentProps` slik at props definert på komponenter overstyrer, og ikke kombineres med, props fra underliggende element; dette gir riktig signatur for f.eks. `CardExpandable.onChange`.
+
+## 21.17.0
+
+(2025-10-17)
+
+### Minor Changes
+
+- ad89a8d: Redesign av `<Spinner>`: den bruker en animasjon av elementer som symboliserer ulike typer domstoler, slik det er definert i designmanualen.
+- 33aa93f: Nytt ikon: `ScaleIcon`.
+
+### Patch Changes
+
+- ad89a8d: Fikser spacing for ikonet/spinner i `<Toggle>`.
+- ad89a8d: Fikser bug der verdier for deprecated HTML attributt `color` var støttet i tillegg til `color` prop i `<Spinner>`.
+- 95579d5: Endrer tilgjengelig navn i `<CookieBanner>` til å bruke headertekst via `aria-labelledby` prop. Implementasjonen er dermed i tråd med andre komponenter som stiller med ny flate (`<Modal>`, `<Drawer>` osv.).
+
+## 21.16.0
+
+(2025-10-10)
+
+### Minor Changes
+
+- 793775e: Støtte for `afterLabelContent` prop i `<Label>` og komponenter som bruker den: `<TextInput>`, `<TextArea>`, `<DatePicker>`, `<TimePicker>`, `<PhoneInput>`, `<Select>`, `<NativeSelect>`, `<FileUploader>` og `<InputStepper>`. Tillater å sømløst legge ekstra innhold etter ledetekst, som f.eks. en knapp som viser utfyllende info.
+- 793775e: Støtte for `icon` prop for enestående ikon i `<InlineButton>`. Sørger for riktig visning av ikonet som sendes inn.
+- 01487e9: Støtte for polymorfi via `as` prop i `<Link>` og `<BackLink>`. Brukes ved klient-side ruting og lignende.
+
+### Patch Changes
+
+- 2f77a3b: Fikser bug der man kunne submitte med loading `<Button>`; gjør den `disabled` ved `loading`.
+
+## 21.15.0
+
+(2025-10-03)
+
+### Minor Changes
+
+- 472cf4b: `<Pagination>` støtter nå kontrollert state via den nye `activePage`-propen.
+
+### Patch Changes
+
+- 2007856: Gjør select i `<Pagination>` bredere slik at lenge alternativer får plass.
+- 80d91e2: Justerer størrelsen og spacing til ikonet til det valgte alternativet i dropdown i `<Select>`.
+- 2007856: Legger til console warning for når verdien til `defaultItemsPerPage` prop ikke er inkludert i `selectOptions` prop i `<Pagination>`.
+
+## 21.14.0
+
+(2025-09-26)
+
+### Minor Changes
+
+- b6e754c: Støtte for locale i `<DatePicker>` og `<TimePicker>` - språk hentes fra `<DdsProvider>`, bruker 'nb-NO' som standard. Tar hånd om oversettelser mens datoformatet alltid er norsk.
+- 91eac1a: Implementerer ordentlig støtte for `disabled` og `readOnly` props i `<FileUploader>`.
+- 91eac1a: Utvider `background` prop i `<Paper>` til å støtte `'surface-field-disabled'`.
+
+### Patch Changes
+
+- 9c3479b: Oppdaterer navn på enkelte land i `<PhoneInput>`.
+- d74d9a8: Fikser styling i `<InputStepper>` ved `disabled` og `readOnly`.
+- c9c5841: Utbedrer programmatisk ledetekst i `<ProgressTrackerItem>`.
+- 91eac1a: Fikser manglende interne oversettelser i `<FileUploader>`.
+
+## 21.13.0
+
+(2025-09-16)
+
+### Minor Changes
+
+- 967f69a: Endrer effekten av `withMargins` prop i `<Label>`. Den får ikke lenger margin `1em` topp og bunn, men `dds-spacing-x0-125` kun bunn. Kan resultere i endringer i layout.
+
+### Patch Changes
+
+- 1dc6d0c: Utbedrer animasjon i `<Toggle>`.
+- 967f69a: Standardiserer spacing mellom ledetekst og input på tvers av komponenter. Påvirker `<TextInput>`, `<TextArea>`, `<DatePicker>`, `<TimePicker>`, `<Select>`, `<NativeSelect>`, `<CheckboxGroup>`, `<RadioButtonGroup>`, `<ToggleButtonGroup>`, `<ProgressBar>`, `<Search>`, `<FileUploader>`, `<InputStepper>`, `<PhoneInput>`.
+- 967f69a: Utbedrer usynlige ledetekster i knapper i `<InputStepper>`.
+- bd5fd6f: Fikser spacing i `<DetailList>` i variant for mindre skjermer.
+
+## 21.12.0
+
+(2025-09-04)
+
+### Minor Changes
+
+- 11625ab: Støtte for `color` prop i `<InlineButton>`. Fungerer som i typografikomponenter; støtter alle tekstfarger fra `@dds-design-tokens` i kebab-case, eller custom.
+
+### Patch Changes
+
+- 5775979: Fikser bug der man ikke kunne skrive ledende 0 i `<DatePicker>` for dag og måned.
+- 6bd63d9: Sett `type` til `"button"` for ClearButton i `<DatePicker>`, `<Search>` og `<NativeSelect>`.
+- 44b60e6: Fikser spacing mellom tekst og ikon i `<TextInput>`.
+- 37c9e84: Endrer farge på standard tekst i `<ProgressTracker>`. Fjerner custom lenke-styling og gjenbruker standard.
+- 44b60e6: Fikser bug der affikser overlappet med tekst i `<TextInput>`.
+
+## 21.11.0
+
+(2025-08-29)
+
+### Minor Changes
+
+- f2fe011: Støtte for `clearable` prop i `<DatePicker>`. Angir om brukeren kan tømme verdi (inkludert delvis verdi) med en tømmeknapp.
+
+### Patch Changes
+
+- f2fe011: Fikser spacing i `<DatePicker>` og `<TimePicker>` mellom elementer og i kalenderknapp.
+- f2fe011: Bytter til monospace font i `<DatePicker>` slik at tegn har samme bredde og bredden på hele komponenten ikke hopper.
+- f2fe011: Fikser manglende oversettelse i `<Search>`.
+- f2fe011: Fikser bug der `<NativeSelect>` fikk tømmeknapp selv om komponenten var `disabled` eller `readOnly`.
+- 5bf1aed: Justerer på `<Caption>` slik at den er venstrejustert over tabell, og ikke sentrert.
+
+## 21.10.0
+
+(2025-08-26)
+
+### Minor Changes
+
+- 48f2a7d: Støtte for resposive props i `<Tabs>`-delkomponenter: `padding`, `paddingInline` og `paddingBlock` i `TabPanels`; `padding` i `<TabPanel>` med default som fra før av. Gir mer fleksibilitet med tanke på spacing rundt innholdet.
+
+### Patch Changes
+
+- 4dc36fe: Fikser feil størrelse på tømmeknapp i `<NativeSelect>` og ulik ikon-spacing i `<NativeSelect>` og `<Select>`.
+
+## 21.9.2 (2025-08-21)
+
+### Patch Changes
+
+- 22c1de8: Fikser bug der redigeringsikonet var plassert feil i `<InlineEditTextArea>`.
+- ad3c1c4: Fikser bug der `width` prop i `<Tabs>` hadde ingen effekt.
+- bd3cf8e: Fikser plasseringen på bullet i `<List>`.
+- d78c546: Fikser bug der verdier for deprecated HTML attributt `color` var støttet i tillegg til `color` prop i `<Divider>`.
+- a39e5f2: Fikser feil der `<Select>`-komponenten kunne miste fokus dersom noen av propertyene endret seg mens den var åpnet.
+
+## 21.9.1 (2025-08-14)
+
+### Patch Changes
+
+- 3e61d81: Fikser hydreringsfeil i `<Select>`-komponent
+
+## 21.9.0 (2025-08-12)
+
+### Minor Changes
+
+- c273b21: Utbedrer oppførselen til `width` prop i input-komponenter; Hvis bredde settes kun på enkelte brekkpunkter vil resterende brekkpunkter få default bredde definert i komponenten. Før fikk utelatte brekkpunkter ingen definert bredde, og dermed utforutsigbar bredde. Kan potensielt føre til endringer i layout. Påvirker komponentene `<TextInput>`, `<Select>`, `<PhoneInput>`, `<ProgressBar>`, `<NativeSelect>`, `<TextArea>`, `<DatePicker>`, `<TimePicker>`.
+
+## 21.8.0 (2025-08-01)
+
+### Minor Changes
+
+- 1de6a0c: Ny prop i `<Tooltip>`: `keepMounted`. Tillater å rendre komponenten når den skal vises, uten at den er alltid i DOM. Har `true` som default.
+- e83f386: Eksponerer enkelte hooks: `useCallbackRef()`, `useControllableState()`.
+- 9d4d12a: Støtte for `clearable` prop i `<NativeSelect>`; brukeren kan trykke en knapp til å sette komponenten til tom verdi. Krever at første `<option>` har `value=""`.
+
+### Patch Changes
+
+- b559af7: Fikser størrelse på spinner i `<Button>` ved loading-tilstand.
+- 9d4d12a: Fikser bug der styling fra `<PhoneInput>` påvirket `<select>` element globalt.
+- 9d4d12a: `<InlineEditSelect>` får pointer-musepeker ved hover.
+- a640ceb: Bytter bakgrunnsfarge i `<EmptyContent>` fra `dds-surface-sublte` til `dds-surface-medium` slik at komponenten er synlig på `dds-surface-subtle` bakgrunn.
+- a640ceb: Fikser bug der beskrivelsestekst i `<EmptyContent>` ikke fikk riktig farge.
+- 2726702: `<Input>` helper og tilhørende types er ikke lengre eksponert; ser ikke ut som om noen har brukt den, og den egner seg kun til intern bruk. Endringen er dermed ikke breaking.
+- a640ceb: Setter border radius til `dds-border-radius-surface` i `<EmptyContent>`.
+- 2726702: Gjør `initiallyExpanded` prop ikke påkrevd i `useAccordion`, da den allerede bruker default `false`.
+- 9d4d12a: Refaktorerte `<InlineEdit>` slik at edit-ikonet ikke bruker en ekstra `<span>` wrapper.
+- 2726702: `<CharCounter>` helper er ikke lengre eksponert; ser ikke ut som om noen har brukt den, og den egner seg kun til intern bruk. Endringen er dermed ikke breaking.
+- d5d042e: Fikser bug der `<Card cardType="navigation">` var et inline element.
+
+## 21.7.0 (2025-07-04)
+
+### Minor Changes
+
+- 0284211: Ny komponent: `<InlineEditSelect>`. Den er en del av [InlineEdit](https://design.domstol.no/987b33f71/p/767867-inlineedit)-komponentgruppen og returnerer nativ `<select>`.
+
+### Patch Changes
+
+- 0284211: Fikser styling for border ved valideringsfeil i `<InlineEdit>`-komponenter.
+- 0284211: Justerer på størrelse på tømmeknapp i `<Search>`
+
+## 21.6.1 (2025-06-23)
+
+### Patch Changes
+
+- e63e899: Fikser en bug der `<Select>` lukket dropdown når options endret seg dynamisk.
+- 673a168: `<TextArea>` bli mindre når brukeren fjerner tekst; før endret størrelsen seg kun når brukeren skrev mer tekst, nå endres størrelsen i begge tilfeller.
+
+## 21.6.0 (2025-06-20)
+
+### Minor Changes
+
+- ff7a6eb: Intern støtte for i18n i komponenter via ny provider, med støtte for språkene `'nb'`, `'no'`, `'nn'` og `'en'`,. Gjelder statiske, hovedsakelig usynlige tekster for UU/skjermleser, men også noen synlige. Bruker `'nb'` som default inntil videre, og vil dermed ikke føre til noen endringer hos konsumenter i denne release. Default blir fjernet i neste major release, med påkrevd bruk av `<DdsProvider>`.
+- ff7a6eb: Ny komponent: `<DdsProvider>`. Slår sammen `<LanguageProvider>` og `<ThemeProvider>`. Blir påkrevd å bruke i neste major release istedenfor `<ThemeProvider>`; må ikke brukes enda grunnet default språk inntil videre.
+
+### Patch Changes
+
+- ff7a6eb: Utbedrer noen statiske usynlige ledetekster og beskrivelser for UU/skjermleser.
+
+## 21.5.1 (2025-06-10)
+
+### Patch Changes
+
+- dffe29a: Fikser bug der `<Checkbox>` fikk indeterminate-styling selv om `indeterminate` prop var satt til `false`.
+
+## 21.5.0 (2025-06-06)
+
+### Minor Changes
+
+- 9239dcd: Ny prop i `<CookieBanner>`: `collapsedBreakpoint`. Brukes til sammentrukket versjon på siden med detaljer om informasjonskapsler. Se detaljer i retningslinjer.
+
+### Patch Changes
+
+- 3286f86: Fikser bug der `<DatePicker>` ikke ble påvirket av `width` prop.
+
+## 21.4.0 (2025-06-04)
+
+### Minor Changes
+
+- f6728a8: Støtte for `color` prop i typografikomponenter: `<Caption>`, `<Heading>`, `<Label>`, `<Legend>`, `<Link>`, `<Paragraph>`. Den støtter både valgfri string og fargenavn for tekst og ikon fra våre design tokens; når kebab-case fargenavn brukes settes CSS klasse for den fargen, ellers brukes inline CSS. Farger som ikke er paret med en bakgrunnsfarge (f.eks. `text-subtle`, men ikke `text-on-notification`) blir automatisk invertert i `<Contrast>`-komponenten.
+- f6728a8: `color` prop i `<Typography>` utvides til å støtte fargenavn i kebab-case, slik at props som refererer til CSS-variabler standardiseres på tvers av biblioteket; camelCase blir deprecated og ikke støttet på sikt.
+- 1ae0ef3: Utvider `<VisuallyHidden>` sin `as` prop til å støtte valgfritt element. Propen er ikke lenger påkrevd og komponenten returnerer `<span>` som default.
+
+### Patch Changes
+
+- d8a80a9: Fikser bug der `<Toggle>`, `<RadioButton>` og `<Checkbox>` fikk read-only styling ved `readOnly="false"`.
+- f6728a8: Fikser bug der `color` prop i `<Typography>` støttet depracated nativ HTML `color`-attributt, og konsumenten fikk dermed ikke tooltip med mulige verdier i kodeeditor.
+
+## 21.3.1
+
+### Patch Changes (2025-06-02)
+
+- 183df0f: Hover styling overskriver nå error-styling i `Checkbox>` og `<RadioButton>`.
+- 183df0f: Små justeringer i styling i `<SelectableCard>`: selected-bakgrunn ved `checked`, ingen ramme ved `disabled`/`readOnly` kombinert med `checked`, disabled-bakgrunn i selection control ved `disabled`/`readOnly`.
+- c3bbf05: Fikser bug deg border mellom knappene i `<SplitButton>` fikk feil farge på hover.
+
 ## 21.3.0 (2025-05-23)
 
 ### Minor Changes
@@ -131,7 +420,6 @@
 
 - 3ced0b0: Endrer navn på prop `title` til `headerText`, og `titleHeadingLevel` til `headerHeadingLevel` i `<EmptyContent>`. På denne måten unngår vi forvirring med nativ HTML `title` og standardiserer navngiving.
 - 2c0cfd7: Revamp av `<Popover>`-komponenten.
-
   - Fjerner props `onCloseButtonClick` og `onTriggerClick`, legger til `onOpen` og `onClose` i `<PopoverGroup>`. På denne måten vil konsumentene kunne legge til callbacks basert på status på `<Popover>` uten å henge seg oppi detaljer rundt implementasjonen.
   - Implementerer kontrollert tilstand. `<PopoverGroup>` kan nå ta inn `isOpen` og `setIsOpen` for å bli kontrollert av konsumenten; hvis de ikke settes brukes intern håndtering. Legger også til `isInitiallyOpen`, som forteller om `<Popover>` vises på første render. Propen var tidligere kalt `isOpen`, så nå skiller vi mellom initial og kontrollert tilstand.
   - Bytter navn på `title` prop til `header` i `<Popover>`. Det er mer riktig, og i tillegg unngår vi forvirring der en konsument kan tro at vi mener native HTML `title`.
@@ -139,13 +427,11 @@
   - Fjerner `onCloseButtonClick` fra `<Popover>`. Vi dropper støtte for callback på så detaljert oppførsel; det erstattes med `onOpen` og `onClose` i `<PopoverGroup>`.
 
 - 3ced0b0: Revamp av `<OverflowMenu>`.
-
   - Fjerner prop `onToggle` i `<OverflowMenuGroup>`. Komponenten blir standardisert og bruke kun `onClose` og `onOpen`.
   - Implementerer kontrollert tilstand. `<OverflowMenuGroup>` kan nå ta inn `isOpen` og `setIsOpen` props for bli kontrollert av konsumenten; hvis de ikke settes brukes intern håndtering. Legger også til `isInitiallyOpen`, som forteller om `<OverflowMenu>` vises på første render.
   - Fjerner props fra `<OverflowMenu>` som ble satt av forelder: `isOpen`, `anchorRef`, `onClose`, `onToggle`, `id` og implementerer React Context istedet. Vi unngår dermed rotet med props konsumenter ikke "får lov" til å sette. `<OverflowMenuGroup>` er dermed obigatorisk å bruke.
 
 - 3ced0b0: Revamp av `<Drawer>`.
-
   - Implementerer kontrollert tilstand. `<DrawerGroup>` kan nå ta inn `isOpen` og `setIsOpen` props for bli kontrollert av konsumenten; hvis de ikke settes brukes intern håndtering. Legger også til `isInitiallyOpen`, som forteller om `<Drawer>` vises på første render.
   - Fjerner props fra `<Drawer>` som ble satt av forelder: `isOpen`, `triggerRef`, `onClose`, `id` og implementerer React Context istedet. Vi unngår dermed rotet med props konsumenter ikke "får lov" til å sette. `<DrawerGroup>` er dermed obigatorisk å bruke.
 
@@ -556,7 +842,6 @@
   Bakgrunnen til denne endringen er at vi vil migrere designsystemet bort fra `styled-components`.
   `styled-components` genererer CSS ved run-time.
   Dette har en del negative konsekvenser som
-
   - dårligere ytelse,
   - kompliserer SSR oppsett, og,
   - setter en [begrensning på bruk av moderne React-funksjonalitet som Streaming SSR](https://github.com/styled-components/styled-components/issues/3658).
@@ -565,7 +850,6 @@
 - b6a2b23: Flytter `<AppShell>`-komponent ut fra dds-components til egen pakke.
 - 62882b4: Endrer variantene for color i `<Divider>` fra `'primary'` og `'primaryLighter'` til `'default'`, `'subtle'` og `'onInverse'`, slik at de følger navngiving på semantiske tokens.
 - 23bffd9: - Oppdaterer alle komponenter til å bruke CSS modules istedenfor styled-components. Det vil gi oss bl.a. bedre performance, lettere styling override, og kompatibilitet med server components. Denne oppgraderingen betyr at det ikke brukes en CSS-in-JS-løsning lenger, og det kan påvirke hvordan komponentene oppleves hos konsumenter.
-
   - `<Button>` støtter ikke `label`-prop lenger, da den er deprecated. Bruk `children` i stedet.
   - `<Button>` ble redesignet og simplifisert, da det ikke trengs så mange varianter. Den støtter ikke `appearance`-prop lenger. Det støttes kun `purpose`-prop med følgende verdier: `'primary'`, `'secondary'`, `'tertiary'`, `'danger'`. Hvordan koden skal oppdateres avhenger av kontekst; for eksempel, en gammel lukkeknapp brukte `<Button purpose="secondary" appearance="borderless">`, den byttes til `<Button purpose="tertiary">`.
   - `<Typography>` støtter ikke `interactionProps`-prop lenger. Du kan overskrive styling for `:hover` og `:active` med egen CSS-kode i stedet.
@@ -581,7 +865,6 @@
 ### Minor Changes
 
 - 23bffd9: - Støtte for alle HTML-attributter for `<div>` i `<FileUploader>`.
-
   - Støtte for alle HTML-attributter for `<div>` i `<SplitButton>`.
   - Eksporterer `type SearchButtonProps` fra `<Search>`, slik at den er lett tilgjengelig for konsumenter.
 
@@ -596,7 +879,6 @@
 
 - 1ad72df: Støtte for `data-testid` i `<Select />` for lettere testing. Legger `data-testid` + suffiks `'control'` på control-div.
 - 23bffd9: - Oppdaterer border styling i `<FileUploader>`.
-
   - Oppdaterer spacing i `<OverflowMenu>`.
   - Legger til skygge i `<DatePicker>` popover.
   - Endrer `:active` styling i `<Button>` til at knapper ser ut til å bli trykt på.
@@ -694,7 +976,6 @@
 
 - ade4158: Justerer spacing i `<Chip />`.
 - dfed172: Fikser at museklikk på knapper for å bla i måneder i `<Datepicker />` ikke skal lukke kalender i Safari.
-
   - Fikser også at museklikk inne i kalenderen ikke lukker den (for alle nettlesere).
 
 - 0147de5: Fikser at `<FileUploader>` sin `accept`-prop kastet feil ved bruk av ESM-bygg.
@@ -709,7 +990,6 @@
 
 - fe471c1: Fjerner `disabled` prop i `<TimePicker />`, da det er `isDisabled` som er støttet.
 - 1270247: Oppdaterer default styling i `<Heading />` for nivåene 2, 3, 4 og 5.
-
   - Stilen på overskriften vil forandre seg der det brukes default og nivå 2-5, f.eks. `<Heading level={3}>`. Hvis nye default ikke passer må `typogaphyType` prop brukes for å få den ønskede stilen.
 
 - 65f4bbf: Fikser slik at brukeren ikke markerer tekst når de blar i måneder i `<DatePicker />`.
@@ -1183,7 +1463,6 @@
 ### Minor Changes
 
 - 96b76033: Legger til nye ikoner
-
   - AgreementIcon
   - CaringIcon
   - PayoutIcon
@@ -1214,7 +1493,6 @@
 ### Minor Changes
 
 - e3cdac52: Lagt inn nye ikoner
-
   - StarHalfFilled
   - Thumbup
   - ThumbupFilled
@@ -1391,7 +1669,6 @@
 - 8236e843: Åpner opp for overstyring av CardAccordion.
 
   Lagt til nye props (alle optional):
-
   - `CardAccordionHeader`: `padding`, `typographyType`, `bold`
   - `CardAccordionBody`: `padding`
 

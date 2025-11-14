@@ -1,12 +1,18 @@
 import {
   type HTMLAttributes,
   type JSX,
+  type ReactNode,
   type Ref,
+  useCallback,
   useContext,
   useId,
 } from 'react';
 import {
+  type ClearIndicatorProps,
+  type ControlProps,
+  type DropdownIndicatorProps,
   type GroupBase,
+  type InputProps,
   type OptionProps,
   default as ReactSelect,
   type Props as ReactSelectProps,
@@ -35,13 +41,16 @@ import {
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { readOnlyKeyDownHandler } from '../../utils/readonlyEventHandlers';
-import { type InputSize, getInputWidth } from '../helpers';
-import inputStyles from '../helpers/Input/Input.module.css';
-import { type SvgIcon } from '../Icon/utils';
+import {
+  type CommonInputProps,
+  type InputIconProps,
+  type InputSize,
+  getInputWidth,
+} from '../helpers/Input';
 import { renderInputMessage } from '../InputMessage';
-import { Box, type ResponsiveProps } from '../layout';
+import { Box } from '../layout';
 import { ThemeContext } from '../ThemeProvider';
-import { Label } from '../Typography';
+import { renderLabel } from '../Typography/Label/Label.utils';
 
 export interface SelectOption<TValue = unknown> {
   label: string | number;
@@ -59,20 +68,12 @@ type WrappedReactSelectProps<
 >;
 
 export type SelectProps<Option = unknown, IsMulti extends boolean = false> = {
-  /**Ledetekst for nedtrekkslisten. */
-  label?: string;
   /**Størrelsen på komponenten.
    * @default "medium"
    */
   componentSize?: InputSize;
-  /**Ikonet som vises i komponenten. */
-  icon?: SvgIcon;
   /**Nedtrekkslisten blir `readonly` og får readOnly styling. */
   readOnly?: boolean;
-  /**Meldingen som vises ved valideringsfeil. */
-  errorMessage?: string;
-  /**Hjelpetekst. */
-  tip?: string;
   /** CSS klassenavn. */
   className?: string;
   /** Inline styling. */
@@ -89,8 +90,9 @@ export type SelectProps<Option = unknown, IsMulti extends boolean = false> = {
   'data-testid'?: string;
   /**Ref til komponenten. */
   ref?: SelectForwardRefType<Option, IsMulti>;
-} & Pick<HTMLAttributes<HTMLInputElement>, 'aria-required'> &
-  Pick<ResponsiveProps, 'width'> &
+} & CommonInputProps &
+  InputIconProps &
+  Pick<HTMLAttributes<HTMLInputElement>, 'aria-required'> &
   WrappedReactSelectProps<Option, IsMulti, GroupBase<Option>>;
 
 export type SelectForwardRefType<Option, IsMulti extends boolean> = Ref<
@@ -103,7 +105,6 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
   componentSize = 'medium',
   errorMessage,
   tip,
-  required,
   'aria-required': ariaRequired,
   readOnly,
   options,
@@ -125,6 +126,8 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
   onKeyDown,
   openMenuOnClick,
   ref,
+  instanceId,
+  afterLabelContent,
   ...rest
 }: SelectProps<Option, IsMulti>) {
   const themeContext = useContext(ThemeContext);
@@ -139,10 +142,9 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
   const uniqueId = id ?? `${generatedId}-select`;
 
   const singleValueId = !isMulti ? `${uniqueId}-singleValue` : undefined;
-  const hasLabel = !!label;
   const hasErrorMessage = !!errorMessage;
   const hasIcon = !!icon;
-  const showRequiredStyling = !!(required || ariaRequired);
+  const showRequiredStyling = !!(rest.required || ariaRequired);
 
   const tipId = derivativeIdGenerator(uniqueId, 'tip');
   const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
@@ -150,6 +152,83 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
   const inputWidth = getInputWidth(
     width,
     componentSize === 'xsmall' && 'var(--dds-input-default-width-xsmall)',
+  );
+
+  const customInput = useCallback(
+    <Option, IsMulti extends boolean>(
+      props: InputProps<Option, IsMulti>,
+    ): ReactNode => (
+      <DDSInput
+        {...props}
+        readOnly={readOnly}
+        aria-required={ariaRequired}
+        aria-activedescendant={
+          props['aria-activedescendant'] === ''
+            ? undefined
+            : props['aria-activedescendant']
+        }
+        ariaInvalid={hasErrorMessage}
+        ariaDescribedby={spaceSeparatedIdListGenerator([
+          singleValueId,
+          tip ? tipId : undefined,
+          errorMessage ? errorMessageId : undefined,
+        ])}
+      />
+    ),
+    [],
+  );
+
+  const customSingleValue = useCallback(
+    (
+      props: SingleValueProps<Option, IsMulti, GroupBase<Option>>,
+    ): ReactNode => (
+      <CustomSingleValue
+        {...props}
+        id={singleValueId}
+        Element={customSingleValueElement}
+      />
+    ),
+    [],
+  );
+
+  const customClearIndicator = useCallback(
+    (
+      props: ClearIndicatorProps<Option, IsMulti, GroupBase<Option>>,
+    ): ReactNode => <DDSClearIndicator {...props} size={componentSize} />,
+    [componentSize],
+  );
+
+  const customDropdownIndicator = useCallback(
+    (
+      props: DropdownIndicatorProps<Option, IsMulti, GroupBase<Option>>,
+    ): ReactNode => (
+      <DDSDropdownIndicator {...props} componentSize={componentSize} />
+    ),
+    [componentSize],
+  );
+
+  const customControl = useCallback(
+    (props: ControlProps<Option, IsMulti, GroupBase<Option>>): ReactNode => (
+      <DDSControl
+        {...props}
+        componentSize={componentSize}
+        readOnly={readOnly}
+        icon={icon}
+        dataTestId={dataTestId}
+      />
+    ),
+    [componentSize, readOnly, icon, dataTestId],
+  );
+
+  const customOptionComponent = useCallback(
+    (props: OptionProps<Option, IsMulti, GroupBase<Option>>): ReactNode => {
+      if (customOptionElement) {
+        return <CustomOption {...props} customElement={customOptionElement} />;
+      } else {
+        return <DDSOption {...props} />;
+      }
+    },
+    [customOptionElement, componentSize],
   );
 
   const reactSelectProps: ReactSelectProps<
@@ -169,6 +248,7 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
         ? false
         : true,
     isMulti,
+    instanceId: instanceId ?? useId(),
     inputId: uniqueId,
     name: uniqueId,
     menuPortalTarget: portalTarget,
@@ -184,34 +264,16 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
       return searchFilter(label, inputValue) || inputValue === '';
     },
     components: {
-      Option: customOptionElement
-        ? props => CustomOption(props, customOptionElement)
-        : props => DDSOption(props, componentSize),
+      Option: customOptionComponent,
       NoOptionsMessage: DDSNoOptionsMessage,
-      Input: props =>
-        DDSInput(
-          {
-            ...props,
-            readOnly,
-            'aria-required': ariaRequired,
-          },
-          hasErrorMessage,
-          spaceSeparatedIdListGenerator([
-            singleValueId,
-            tip ? tipId : undefined,
-            errorMessage ? errorMessageId : undefined,
-          ]),
-        ),
-      SingleValue: props =>
-        CustomSingleValue(props, singleValueId, customSingleValueElement),
-      ClearIndicator: props => DDSClearIndicator(props, componentSize),
-      DropdownIndicator: props => DDSDropdownIndicator(props, componentSize),
+      Input: customInput,
+      SingleValue: customSingleValue,
+      ClearIndicator: customClearIndicator,
+      DropdownIndicator: customDropdownIndicator,
       MultiValueRemove: DDSMultiValueRemove,
-      Control: props =>
-        DDSControl(props, componentSize, readOnly, icon, dataTestId),
+      Control: customControl,
     },
     'aria-invalid': hasErrorMessage ? true : undefined,
-    required,
     onKeyDown: readOnlyKeyDownHandler('select', readOnly, onKeyDown),
     openMenuOnClick: readOnly
       ? false
@@ -233,18 +295,15 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
       )}
       style={style}
     >
-      {hasLabel && (
-        <Label
-          htmlFor={uniqueId}
-          showRequiredStyling={showRequiredStyling}
-          className={inputStyles.label}
-          readOnly={readOnly}
-        >
-          {label}
-        </Label>
-      )}
+      {renderLabel({
+        label,
+        htmlFor: uniqueId,
+        showRequiredStyling,
+        readOnly,
+        afterLabelContent,
+      })}
       <ReactSelect {...reactSelectProps} ref={ref} />
-      {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
+      {renderInputMessage({ tip, tipId, errorMessage, errorMessageId })}
     </Box>
   );
 }

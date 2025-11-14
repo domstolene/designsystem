@@ -7,6 +7,6 @@ describe('<Divider>', () => {
   it('should render a horisontal line', () => {
     render(<Divider />);
 
-    expect(screen.getByRole('separator')).toBeInTheDocument;
+    expect(screen.getByRole('separator')).toBeInTheDocument();
   });
 });

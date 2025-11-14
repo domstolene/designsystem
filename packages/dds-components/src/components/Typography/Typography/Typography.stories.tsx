@@ -1,8 +1,9 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { Typography } from '..';
-import { categoryHtml, htmlPropsArgType } from '../../../storybook/helpers';
+import { categoryHtml } from '../../../storybook';
 import { StoryVStack } from '../../layout/Stack/utils';
+import { storyTypographyHtmlAttrs } from '../storyUtils';
 
 export default {
   title: 'dds-components/Components/Typography/Typography',
@@ -13,19 +14,13 @@ export default {
     href: { control: 'text', table: categoryHtml },
     target: { control: false, table: categoryHtml },
     as: { control: 'text' },
-    htmlProps: htmlPropsArgType,
-  },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
+    ...storyTypographyHtmlAttrs,
   },
 } satisfies Meta<typeof Typography>;
 
 type Story = StoryObj<typeof Typography>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { children: 'Typography' },
 };
 
@@ -118,5 +113,5 @@ export const OverviewLink: Story = {
 };
 
 export const CustomColor: Story = {
-  args: { children: 'Typography', color: 'textActionResting' },
+  args: { children: 'Typography', color: 'text-action-resting' },
 };

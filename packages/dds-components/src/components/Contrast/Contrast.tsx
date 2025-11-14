@@ -1,6 +1,6 @@
 import styles from './Contrast.module.css';
+import { ElementAs, type PolymorphicProps } from '../../polymorphic';
 import { cn } from '../../utils';
-import { ElementAs, type PolymorphicProps } from '../helpers/ElementAs';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export type ContrastProps<T extends React.ElementType> = PolymorphicProps<T>;

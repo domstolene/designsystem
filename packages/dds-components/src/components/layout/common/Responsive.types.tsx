@@ -30,9 +30,7 @@ export interface PrimitiveDisplayProps {
   showBelow?: Breakpoint;
 }
 
-export type BreakpointBasedProp<T> = {
-  [k in Breakpoint]?: T;
-};
+export type BreakpointBasedProp<T> = Partial<Record<Breakpoint, T>>;
 
 export type ResponsiveProp<T> = T | BreakpointBasedProp<T>;
 
@@ -103,6 +101,8 @@ interface PrimitiveLayoutProps {
   rowGap?: ResponsiveProp<Property.RowGap | SpacingScale>;
   /** CSS `column-gap`. Støtter standardverdier og dds spacing tokens skala, per brekkpunkt eller samme for alle skjermstørrelser. */
   columnGap?: ResponsiveProp<Property.ColumnGap | SpacingScale>;
+  /** CSS `word-break`. Støtter verdi per brekkpunkt eller samme for alle skjermstørrelser. */
+  wordBreak?: ResponsiveProp<Property.WordBreak>;
 }
 
 export type ResponsiveProps = PrimitiveDisplayProps & PrimitiveLayoutProps;

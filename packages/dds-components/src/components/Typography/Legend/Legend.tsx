@@ -1,3 +1,5 @@
+import { type HTMLAttributes } from 'react';
+
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -13,7 +15,8 @@ export type LegendProps = BaseComponentPropsWithChildren<
   BaseTypographyProps & {
     /**Typografistil basert på utvalget for HTML heading elementer.  */
     typographyType?: TypographyHeadingType;
-  }
+  },
+  Omit<HTMLAttributes<HTMLLegendElement>, 'color'>
 >;
 
 export const Legend = ({

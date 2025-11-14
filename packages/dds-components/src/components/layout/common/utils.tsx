@@ -17,7 +17,7 @@ import {
 
 export function isBreakpointObject<T>(
   value: ResponsiveProp<T>,
-): value is { [k in Breakpoint]?: T } {
+): value is Partial<Record<Breakpoint, T>> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
 
@@ -101,7 +101,15 @@ export function getResponsiveCSSProperties<T>(
   return properties;
 }
 
-export function applyResponsiveStyle<T>(
+/**
+ * Setter styling opptil et brekkpunkt og muligens annen styling over det brekkpunktet.
+ * @param p styling under og inkludert brekkpunktet.
+ * @param bp brekkpunktet.
+ * @param largeScreenP styling over brekkpunktet.
+ * @returns responsiv styling for en CSS prop.
+ */
+
+export function styleUpToBreakpoint<T>(
   p: T,
   bp?: Breakpoint,
   largeScreenP?: T,

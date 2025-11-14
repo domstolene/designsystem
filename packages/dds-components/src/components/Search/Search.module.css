@@ -12,18 +12,8 @@
   }
 }
 
-.search-icon {
-  left: var(--dds-spacing-x0-75);
-}
-
 .clear-button {
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
   right: var(--dds-spacing-x1);
-
-  width: var(--dds-icon-size-medium);
-  height: var(--dds-icon-size-medium);
 }
 
 .suggestions {

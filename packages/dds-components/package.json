@@ -1,6 +1,6 @@
 {
   "name": "@norges-domstoler/dds-components",
-  "version": "21.3.0",
+  "version": "21.19.1",
   "description": "React components used in Elsa - domstolenes designsystem",
   "author": "Elsa team",
   "license": "MIT",
@@ -29,7 +29,7 @@
     "test:watch": "vitest watch",
     "generate-css-types": "tcm src",
     "build": "pnpm run generate-css-types && tsup --dts",
-    "dev": "pnpm run generate-css-types --watch",
+    "dev": "pnpm run generate-css-types --watch && tsup",
     "typecheck": "tsc --noEmit"
   },
   "keywords": [
@@ -43,28 +43,27 @@
     "elsa"
   ],
   "devDependencies": {
-    "@internationalized/date": "^3.8.0",
+    "@internationalized/date": "^3.10.0",
     "@norges-domstoler/dds-design-tokens": "workspace:*",
     "@norges-domstoler/storybook-components": "workspace:*",
-    "@react-types/datepicker": "^3.12.0",
-    "@storybook/blocks": "8.6.14",
-    "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.6.3",
+    "@react-types/datepicker": "^3.13.2",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
-    "@types/react": "19.1.4",
-    "@types/react-dom": "19.1.5",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
     "autoprefixer": "^10.4.21",
     "csstype": "3.1.2",
-    "jsdom": "^26.1.0",
-    "postcss": "^8.5.3",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
+    "jsdom": "^27.1.0",
+    "postcss": "^8.5.6",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
     "tsup": "^8.5.0",
     "typed-css-modules": "^0.9.1",
-    "typescript": "^5.8.3",
-    "vite": "^6.3.5",
-    "vitest": "^3.1.4"
+    "typescript": "^5.9.3",
+    "vite": "^7.2.2",
+    "vitest": "^4.0.8"
   },
   "peerDependencies": {
     "@internationalized/date": "^3",
@@ -73,16 +72,16 @@
     "react-dom": "^19"
   },
   "dependencies": {
-    "@floating-ui/react-dom": "^2.1.2",
-    "@react-aria/button": "^3.13.0",
-    "@react-aria/calendar": "^3.8.0",
-    "@react-aria/datepicker": "^3.14.2",
-    "@react-aria/focus": "^3.20.2",
-    "@react-aria/i18n": "^3.12.8",
-    "@react-stately/calendar": "^3.8.0",
-    "@react-stately/datepicker": "^3.14.0",
+    "@floating-ui/react-dom": "^2.1.6",
+    "@react-aria/button": "^3.14.2",
+    "@react-aria/calendar": "^3.9.2",
+    "@react-aria/datepicker": "^3.15.2",
+    "@react-aria/focus": "^3.21.2",
+    "@react-aria/i18n": "^3.12.13",
+    "@react-stately/calendar": "^3.9.0",
+    "@react-stately/datepicker": "^3.15.2",
     "file-selector": "^2.1.2",
-    "react-select": "^5.10.1"
+    "react-select": "^5.10.2"
   },
   "publishConfig": {
     "provenance": true

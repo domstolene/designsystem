@@ -1,10 +1,12 @@
-import { ArgTypes, Meta, Canvas, Controls } from '@storybook/blocks';
+import { ArgTypes, Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 import * as ProgressTrackerStories from './ProgressTracker.stories';
+import * as ProgressTrackerFormStories from './ProgressTrackerForm.stories';
 import { ProgressTracker, ProgressTrackerItem } from '.';
 import {
   Source,
   ComponentLinkRow,
 } from '@norges-domstoler/storybook-components';
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from '../Tabs';
 
 <Meta of={ProgressTrackerStories} />
 
@@ -15,49 +17,99 @@ import {
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?node-id=10018%3A211463"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/ProgressTracker"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-progresstracker--default"
-  withBottomSpacing
 />
 
-Komponenten består av:
+## Delkomponenter
 
-- `<ProgressTracker>` - ytterste container for andre subkomponenter. Håndterer oppførsel og eventuelt litt styling. Har to eller flere `<ProgressTracker.Item>` som barn.
-- `<ProgressTracker.Item>` - et steg. Ikke-compound variant er også støttet: `<ProgressTrackerItem>`.
+<Tabs>
+  <TabList>
+    <Tab>ProgressTracker</Tab>
+    <Tab>ProgressTracker.Item</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      Ytterste container som styrer hvilket steg skal vises via indeks. Har to eller flere `<ProgressTracker.Item>` som barn. Håndterer oppførsel og eventuelt litt styling.
+      <Canvas of={ProgressTrackerStories.Preview} />
+      <Controls of={ProgressTrackerStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      Et steg. Ikke-compound variant er også støttet: `<ProgressTrackerItem>`.
 
-## Props
+      <ArgTypes of={ProgressTrackerItem} />
+    </TabPanel>
 
-### ProgressTracker
-
-Ytterste container som styrer hvilket steg skal vises via indeks. Har to eller flere `<ProgressTracker.Item>` som barn.
-
-<Canvas of={ProgressTrackerStories.Default} sourceState="shown" />
-<Controls of={ProgressTrackerStories.Default} />
-
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
-
-### ProgressTracker.Item
-
-Et steg.
-
-<ArgTypes of={ProgressTrackerItem} />
+  </TabPanels>
+</Tabs>
 
 ## Bruk
 
 <Source
-  code={`import { ProgressTracker } from '.';
+  code={`
+const [activeStep, setActiveStep] = useState(0);
+const [completedSteps, setCompletedSteps] = useState(new Set());
 
-function handleProgressTrackerItemClick(index: number) {
-console.log(index)
+function handleCompleted() {
+// ...din kode for fullført steg...
+setCompletedSteps(s => new Set([...s, activeStep]));
 }
 
-<ProgressTracker activeStep={activeStep}>
-  <ProgressTracker.Item completed onClick={handleProgressTrackerItemClick}>
-    Parter
-  </ProgressTracker.Item>
-  <ProgressTracker.Item active onClick={handleProgressTrackerItemClick}>
-    Slutning
-  </ProgressTracker.Item>
-  <ProgressTracker.Item onClick={handleProgressTrackerItemClick}>
-    Vedlegg
-  </ProgressTracker.Item>
-</ProgressTracker>
-`} />
+function onStepChange(index: number) {
+handleCompleted();
+setActiveStep(index);
+}
+
+return (
+
+<div>
+  <ProgressTracker
+    activeStep={activeStep}
+    onStepChange={step => onStepChange(step)}
+  >
+    <ProgressTracker.Item completed={completedSteps.has(0)}>
+      Steg 1
+    </ProgressTracker.Item>
+    <ProgressTracker.Item completed={completedSteps.has(1)}>
+      Steg 2
+    </ProgressTracker.Item>
+    <ProgressTracker.Item> Sammendrag </ProgressTracker.Item>
+  </ProgressTracker>
+  <div>
+    {activeStep === 0 && <div> Steg 1 </div>}
+    {activeStep === 1 && <div> Steg 2 </div>}
+    {activeStep === 2 && <div> Sammendrag </div>}
+  </div>
+</div>
+) `} />
+
+## Eksempler
+
+<Tabs>
+  <TabList>
+    <Tab>Med ikoner</Tab>
+    <Tab>Horisontal</Tab>
+    <Tab>Liten skjerm</Tab>
+    <Tab>Skjema</Tab>
+    <Tab>Skjema custom grid</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <Canvas of={ProgressTrackerStories.WithIcons} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={ProgressTrackerStories.Horisontal} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={ProgressTrackerStories.SmallScreen} />
+    </TabPanel>
+    <TabPanel>
+      Se detaljer i [Patterns |
+      Form](https://domstolene.github.io/designsystem/?path=/docs/patterns-form--docs).
+      <Canvas of={ProgressTrackerFormStories.FormWithSteps} />
+    </TabPanel>
+    <TabPanel>
+      Se detaljer i [Patterns |
+      Form](https://domstolene.github.io/designsystem/?path=/docs/patterns-form--docs).
+      <Canvas of={ProgressTrackerFormStories.FormWithStepsCustomGrid} />
+    </TabPanel>
+  </TabPanels>
+</Tabs>

@@ -1,8 +1,11 @@
+import { type ElementType } from 'react';
+
 import styles from './InputMessage.module.css';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
 import { Icon } from '../Icon';
 import { ErrorIcon } from '../Icon/icons';
+import { Box, type BoxProps, Paper, type ResponsiveProps } from '../layout';
 import { Typography } from '../Typography/Typography/Typography';
 
 export type InputMessageType = 'error' | 'tip';
@@ -11,12 +14,12 @@ export type InputMessageProps = BaseComponentProps<
   HTMLDivElement,
   {
     /** Meldingen som vises til brukeren. */
-    message: string;
+    message?: string;
     /** Formålet med meldingen. Påvirker styling.
      * @default "error"
      */
     messageType: InputMessageType;
-  }
+  } & Pick<ResponsiveProps, 'margin' | 'marginInline' | 'marginBlock'>
 >;
 
 export const InputMessage = ({
@@ -25,50 +28,82 @@ export const InputMessage = ({
   id,
   className,
   htmlProps,
+  children,
   ...rest
 }: InputMessageProps) => {
   const isError = messageType === 'error';
 
-  return (
-    <div
-      {...getBaseHTMLProps(
-        id,
-        cn(className, styles.container, isError && styles['container--error']),
-        htmlProps,
-        rest,
-      )}
+  const commonProps: BoxProps = {
+    display: 'flex',
+    width: 'fit-content',
+    maxWidth: '100%',
+    wordBreak: 'break-word',
+    ...getBaseHTMLProps(id, cn(className, styles.container), htmlProps, rest),
+  };
+
+  const tgCommonProps = {
+    as: 'span' as ElementType,
+    children: message ?? children,
+  };
+
+  return isError ? (
+    <Paper
+      {...commonProps}
+      gap="x0.25"
+      padding="x0.25 x0.5"
+      background="surface-danger-default"
+      borderRadius="surface"
     >
-      {isError && (
-        <Icon icon={ErrorIcon} iconSize="small" className={styles.icon} />
-      )}
+      <Icon
+        icon={ErrorIcon}
+        iconSize="small"
+        className={styles.icon}
+        color="icon-on-danger-default"
+      />
       <Typography
-        typographyType={isError ? 'bodySmall' : 'bodyXsmall'}
-        color={isError ? 'textDefault' : 'textSubtle'}
-        as="span"
-      >
-        {message}
-      </Typography>
-    </div>
+        {...tgCommonProps}
+        typographyType="bodySmall"
+        color="textDefault"
+      />
+    </Paper>
+  ) : (
+    <Box {...commonProps}>
+      <Typography
+        {...tgCommonProps}
+        typographyType="bodyXsmall"
+        color="textSubtle"
+      />
+    </Box>
   );
 };
 
 InputMessage.displayName = 'InputMessage';
 
-export const renderInputMessage = (
-  tip?: string,
-  tipId?: string,
-  errorMessage?: string,
-  errorMessageId?: string,
-) => (
+interface RenderInputMessageProps {
+  tip?: string;
+  tipId?: string;
+  errorMessage?: string;
+  errorMessageId?: string;
+  noSpacing?: boolean;
+}
+
+export const renderInputMessage = ({
+  tip,
+  tipId,
+  errorMessage,
+  errorMessageId,
+  noSpacing,
+}: RenderInputMessageProps) => (
   <>
-    {errorMessage && errorMessageId && (
+    {errorMessage && (
       <InputMessage
         message={errorMessage}
         messageType="error"
         id={errorMessageId}
+        marginBlock={!noSpacing ? 'x0.125 0' : undefined}
       />
     )}
-    {tip && tipId && !errorMessage && (
+    {tip && !errorMessage && (
       <InputMessage message={tip} messageType="tip" id={tipId} />
     )}
   </>

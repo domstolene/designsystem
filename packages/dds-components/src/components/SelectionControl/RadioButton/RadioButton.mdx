@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta } from '@storybook/blocks';
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as RadioButtonStories from './RadioButton.stories';
 import * as RadioButtonGroupStories from './RadioButtonGroup.stories';
@@ -12,7 +12,6 @@ import * as RadioButtonGroupStories from './RadioButtonGroup.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A38"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/RadioButton"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-radiobutton--default"
-  withBottomSpacing
 />
 
 Følgende komponenter er tilgjengelige:
@@ -24,15 +23,15 @@ Følgende komponenter er tilgjengelige:
 
 ### RadioButton
 
-<Canvas of={RadioButtonStories.Default} sourceState="shown" />
-<Controls of={RadioButtonStories.Default} />
+<Canvas of={RadioButtonStories.Preview} />
+<Controls of={RadioButtonStories.Preview} />
 
 ### RadioButtonGroup
 
 Wrapper for en `<RadioButton>` gruppe. Den håndtere universell utforming og oppførsel.
 
-<Canvas of={RadioButtonGroupStories.Default} sourceState="shown" />
-<Controls of={RadioButtonGroupStories.Default} />
+<Canvas of={RadioButtonGroupStories.Preview} />
+<Controls of={RadioButtonGroupStories.Preview} />
 
 ## Retningslinjer
 

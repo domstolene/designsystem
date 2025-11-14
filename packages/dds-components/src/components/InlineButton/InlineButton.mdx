@@ -1,6 +1,8 @@
-import { Canvas, Controls, Meta } from '@storybook/blocks';
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as InlineButtontories from './InlineButton.stories';
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from '../Tabs';
+import { LocalMessage } from '../LocalMessage';
 
 <Meta of={InlineButtontories} />
 
@@ -11,16 +13,26 @@ import * as InlineButtontories from './InlineButton.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?type=design&node-id=720-39910&mode=design&t=lhBa2gqNU7pebH1g-4"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/InlineButton"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-inlinebutton--default"
-  withBottomSpacing
 />
 
 **OBS!** Ikke bruk komponenten som en lenke.
 
-## Props
-
-<Canvas of={InlineButtontories.Default} sourceState="shown" />
-<Controls of={InlineButtontories.Default} />
-
-## Eksempel
-
-<Canvas of={InlineButtontories.Example} />
+<Tabs>
+  <TabList>
+    <Tab>Preview</Tab>
+    <Tab>Tekstfarge</Tab>
+    <Tab>I liste</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <Canvas of={InlineButtontories.Preview} />
+      <Controls of={InlineButtontories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={InlineButtontories.WithColor} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={InlineButtontories.Example} />
+    </TabPanel>
+  </TabPanels>
+</Tabs>

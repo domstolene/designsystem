@@ -1,0 +1,63 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
+import * as DdsProviderStories from './DdsProvider.stories';
+
+<Meta of={DdsProviderStories} />
+
+# DdsProvider
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/264636-ddsprovider"
+  githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/DdsProvider"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-ddsprovider--default"
+/>
+
+`<DdsProvider>` setter følgende i applikasjonen din:
+
+- Visuelt tema. Den wrapper applikasjonen i en `<div>` som setter riktige CSS klasser for både Elsa komponenter og din bruk av tokens i CSS eller SCSS. I tillegg velger den sett med tokens i TS om du skulle brukt de.
+- Språk internt i komponenter. Den håndterer statiske tekster, typisk usynlige tekster for skjermeleser, men også noen synlige, som "Vis 10 av 100" i `<Pagination>`-komponenten.
+- Rotelement for portaler. Brukes av `<Drawer>`, `<Modal>` osv.
+
+Komponenten blir obligatorisk å bruke i neste major release.
+
+## Props
+
+<Canvas of={DdsProviderStories.Preview} sourceState="shown" />
+<Controls of={DdsProviderStories.Preview} />
+
+## Bruk
+
+<Source code={`
+import { DdsProvider } from '@norges-domstoler/dds-components';
+
+<DdsProvider language="nb" theme="core">
+    {...din applikasjon...}
+</DdsProvider>
+
+`} />
+
+### Hvis du bruker tokens i TS
+
+<Source code={`
+import { DdsProvider, useTheme } from '@norges-domstoler/dds-components';
+
+<DdsProvider language="nb">
+  <Panel />
+</DdsProvider>
+
+function Panel(props) {
+const { theme } = useTheme();
+
+const style = {
+borderRadius: theme.ddsBorderRadiusSurface,
+};
+
+return (
+
+<div style={style} {...props} />
+)}
+
+`} />

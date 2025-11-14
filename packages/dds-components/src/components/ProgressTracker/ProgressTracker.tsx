@@ -13,6 +13,7 @@ import {
 import { ProgressTrackerContext } from './ProgressTracker.context';
 import styles from './ProgressTracker.module.css';
 import { ProgressTrackerItem } from './ProgressTrackerItem';
+import { createTexts, useTranslation } from '../../i18n';
 import {
   type BaseComponentPropsWithChildren,
   type Direction,
@@ -53,11 +54,12 @@ export const ProgressTracker: ProgressTrackerComponent = (() => {
     htmlProps = {},
     ...rest
   }: ProgressTrackerProps) => {
+    const { t } = useTranslation();
     const [thisActiveStep, setActiveStep] = useState(activeStep);
 
     const handleChange = (step: number) => {
       setActiveStep(step);
-      onStepChange && onStepChange(step);
+      onStepChange?.(step);
     };
 
     useEffect(() => {
@@ -85,7 +87,7 @@ export const ProgressTracker: ProgressTrackerComponent = (() => {
         }}
       >
         <nav
-          aria-label={ariaLabel ?? 'stegprogresjon'}
+          aria-label={ariaLabel ?? t(texts.stepProgression)}
           {...getBaseHTMLProps(id, className, htmlProps, rest)}
         >
           <Box
@@ -125,3 +127,13 @@ function passIndexPropToProgressTrackerItem<TProps extends object>(
     }),
   );
 }
+
+const texts = createTexts({
+  stepProgression: {
+    nb: 'Trinnprogresjon',
+    no: 'Trinnprogresjon',
+    nn: 'Trinnprogresjon',
+    en: 'Step progression',
+    se: 'Ceahkkeprogrešuvdna',
+  },
+});

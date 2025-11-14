@@ -1,26 +1,19 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import {
-  htmlPropsArgType,
-  windowWidthDecorator,
-} from '../../storybook/helpers';
+import { commonArgTypes, windowWidthDecorator } from '../../storybook';
 import { StoryVStack } from '../layout/Stack/utils';
 
 import { Breadcrumb, Breadcrumbs } from '.';
 
-export default {
+const meta: Meta<typeof Breadcrumbs> = {
   title: 'dds-components/Components/Breadcrumbs',
   component: Breadcrumbs,
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
   argTypes: {
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
   },
-} satisfies Meta<typeof Breadcrumbs>;
+};
+
+export default meta;
 
 type Story = StoryObj<typeof Breadcrumbs>;
 
@@ -31,7 +24,7 @@ const children = [
   <Breadcrumb>Siden du er på</Breadcrumb>,
 ];
 
-export const Default: Story = {
+export const Preview: Story = {
   args: {
     children,
   },
@@ -56,7 +49,7 @@ export const SmallScreen: Story = {
   },
 };
 
-export const responsive: Story = {
+export const Responsive: Story = {
   args: {
     children,
     smallScreenBreakpoint: 'sm',

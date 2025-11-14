@@ -1,12 +1,13 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
 import {
   categoryHtml,
+  htmlArgType,
   htmlEventArgType,
-  htmlPropsArgType,
-} from '../../../storybook/helpers';
-import { StoryVStack } from '../../layout/Stack/utils';
+} from '../../../storybook';
 import { Paragraph } from '../Paragraph';
+import { storyTypographyHtmlAttrs } from '../storyUtils';
 
 import { Link } from '.';
 
@@ -15,40 +16,46 @@ export default {
   component: Link,
   argTypes: {
     href: { control: 'text', table: categoryHtml },
+    as: { control: 'text' },
     onClick: htmlEventArgType,
-    target: { control: false, table: categoryHtml },
-    htmlProps: htmlPropsArgType,
+    target: htmlArgType,
+    ...storyTypographyHtmlAttrs,
   },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
+  args: { onClick: fn() },
 } satisfies Meta<typeof Link>;
 
 type Story = StoryObj<typeof Link>;
 
-export const Default: Story = {
-  args: { children: 'Link', href: 'https://www.domstol.no' },
+const showcaseProps = { children: 'Link', href: 'https://www.domstol.no' };
+
+export const Preview: Story = {
+  args: showcaseProps,
 };
 
-export const Overview: Story = {
-  args: { children: 'Link', href: 'https://www.domstol.no' },
-  render: args => (
-    <StoryVStack>
-      <Link {...args} />
-      <Link {...args} external />
-    </StoryVStack>
-  ),
+export const External: Story = {
+  args: { ...showcaseProps, external: true },
 };
 
-export const WithVisited: Story = {
-  args: { children: 'Link', href: 'https://www.domstol.no', withVisited: true },
+export const Visited: Story = {
+  args: { ...showcaseProps, withVisited: true },
+};
+
+export const CustomColor: Story = {
+  args: {
+    ...showcaseProps,
+    color: 'text-default',
+  },
+};
+
+export const As: Story = {
+  args: {
+    ...showcaseProps,
+    as: 'span',
+  },
 };
 
 export const InText: Story = {
-  args: { children: 'Link', href: 'https://www.domstol.no' },
+  args: showcaseProps,
   render: args => (
     <Paragraph>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

@@ -21,8 +21,8 @@ Arbeidet logges i [Elsa Utvikling tavle](https://domstol.atlassian.net/jira/soft
 ### Nødvendige installasjoner
 
 - **[Volta](https://volta.sh/)**: Vi anbefaler å installere Volta for versjonshåndtering av Node.js og pnpm. Volta vil automatisk installere riktig versjon av Node.js og pnpm når du jobber med designsystemet. Siden Volta kun har eksperimentell støtte for pnpm må du legge til `VOLTA_FEATURE_PNPM=1` i miljøvariabler (Windows), eller `.bashrc`, `.zshrc` eller tilsvarende (Linux/Mac). Se [Volta pnpm support](https://docs.volta.sh/advanced/pnpm) for mer informasjon.
+- **[Node.js](https://nodejs.org/en)**: kjør `volta install node` for riktig versjon.
 - **[pnpm](https://pnpm.io/)**: vi bruker pnpm som pakke-manager. Kjør `volta install pnpm` for riktig versjon.
-- **[node](https://nodejs.org/en)**: kjør `volta install node` for riktig versjon.
 
 ### Kjør miljøet
 
@@ -57,6 +57,8 @@ cd ~/din-app
 npm link pakke
 ```
 
+`pakke` må tilsvare `name` som er satt i `pakke/package.json`, for eksempel `@norges-domstoler/dds-components`.
+
 ### Finner ikke pakken
 
 Skal ikke egentlig være nødvendig, men hvis du får en feilmeldinger om at den ikke finner en av pakkene kan du prøve:
@@ -85,6 +87,26 @@ Kjør spesifikk testfil:
 
 ```Shell
 pnpm test:components <KomponentNavn>.spec.tsx
+```
+
+#### Visuell testing
+
+Hvis din kode kan resultere i visuelle endringer i komponenter eller design tokens, kjør visuelle tester via Storybook sin Chromatic integrasjon.
+
+Du kan gjøre det direkte i nettleseren i Storybook ved å trykke på "Run tests" i global widget:
+
+![image](https://github.com/user-attachments/assets/766db2a9-6617-493b-9ee4-17c526313e45)
+
+Tester kan også kjøres per komponent via fanen "Visual tests":
+
+![image](https://github.com/user-attachments/assets/cc52dd61-264b-460b-b969-84b5339b6983)
+
+Hvis forskjeller er funnet, aksepterer du de som er ønsket, fikser de som er uønsket og kjører tester på nytt. Les mer i Storybook docs: [kjør visuelle tester](https://storybook.js.org/docs/writing-tests/visual-testing#run-visual-tests) og [se over endringer](https://storybook.js.org/docs/writing-tests/visual-testing#review-changes).
+
+Du kan også kjøre en kommando for å se resultatet i terminalen:
+
+```Shell
+pnpm chromatic
 ```
 
 ## Konvensjoner
@@ -252,7 +274,7 @@ Spørs på komponenten kan det være relevant med flere stories: eksempel med ko
 Du kan følge en enkel mal for stories-fila:
 
 ```JSX
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { Button } from '.';
 
 // config
@@ -313,7 +335,7 @@ Docs-fila er en `.mdx` fil som inneholder teknisk dokumentasjon og viser Storybo
 Enkel mal for docs-fila:
 
 ```JSX
-import { Canvas, Controls, Meta } from '@storybook/addon-docs';
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
 import { Source, ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as komponentStories from './KomponentNavn.stories'
 import * as delkomponentStories from './DelkomponentNavn.stories'
@@ -333,15 +355,15 @@ import * as delkomponentStories from './DelkomponentNavn.stories'
 
 ## Props
 
-// Referanse til primære storien, ofte komponentStories.Default.
+// Referanse til primære storien, ofte komponentStories.Preview.
 // Bruk Canvas for demo og Controls for kotrollere.
-<Canvas of={komponentStories.Default} />
-<Controls of={komponentStories.Default} />
+<Canvas of={komponentStories.Preview} />
+<Controls of={komponentStories.Preview} />
 
 // Hvis det er delkomponenter, vis demoer for de også.
 ### Delkomponent
 
-<Canvas of={delkomponentStories.Default} />
+<Canvas of={delkomponentStories.Preview} />
 
 // Eksempler ved behov
 ## Eksempler

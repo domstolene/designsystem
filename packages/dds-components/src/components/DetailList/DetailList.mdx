@@ -1,10 +1,11 @@
-import { Meta, ArgTypes, Canvas, Controls } from '@storybook/blocks';
+import { Meta, ArgTypes, Canvas, Controls } from '@storybook/addon-docs/blocks';
 import { DetailListDesc, DetailListRow } from '.';
 import {
   Source,
   ComponentLinkRow,
 } from '@norges-domstoler/storybook-components';
 import * as DetailListStories from './DetailList.stories';
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from '../Tabs';
 
 <Meta of={DetailListStories} />
 
@@ -15,37 +16,63 @@ import * as DetailListStories from './DetailList.stories';
   figmaHref="https://www.figma.com/design/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?node-id=18211-10410"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/DetailList"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-detaillist--default"
-  withBottomSpacing
 />
 
-Detaljert liste er en beskrivelsesliste formatert som en tabell. Den bygges med følgende subkomponenter:
+Detaljert liste er en beskrivelsesliste formatert som en tabell.
 
-- **`<DetailList>`**: tilsvarer `<dl>`, hele listen.
-- **`<DetailListRow>`**: en rad. Oppfører seg som en tabellrad.
-- **`<DetailListTerm>`**: tilsvarer `<dt>`, uttrykk eller ledetekst. Oppfører seg som en tabellcelle.
-- **`<DetailListDesc>`**: tilsvarer `<dd>`, verdi, beskrivelse, knapp eller lenke relatert til `<DetailListTerm>`. Oppfører seg som en tabellcelle.
+## Delkomponenter
 
-## Props
+<Tabs>
+  <TabList>
+    <Tab>DetailList</Tab>
+    <Tab>DetailListRow</Tab>
+    <Tab>DetailListTerm</Tab>
+    <Tab>DetailListDesc</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      Tilsvarer `<dl>`.
 
-### DetailList
+      <Canvas of={DetailListStories.Preview} sourceState="shown" />
+      <Controls of={DetailListStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      Subkomponent som grupperer `<DetailListTerm>` og `<DetailListDesc>` i en rad. Reurnerer `<div>`. Oppfører seg som en tabellrad. Støtter native props.
+    </TabPanel>
+    <TabPanel>
+      Tilsvarer `<dt>`. Oppfører seg som en tabellcelle. Støtter native props.
+    </TabPanel>
+    <TabPanel>
+      Tilsvarer `<dd>`. Oppfører seg som en tabellcelle. Støtter native props.
+    </TabPanel>
 
-Tilsvarer `<dl>`.
+  </TabPanels>
+</Tabs>
 
-<Canvas of={DetailListStories.Default} sourceState="shown" />
-<Controls of={DetailListStories.Default} />
+## Eksempler
 
-### DetailListTerm
-
-Tilsvarer `<dt>`. Oppfører seg som en tabellcelle. Støtter native props.
-
-### DetailListDesc
-
-Tilsvarer `<dd>`. Oppfører seg som en tabellcelle. Støtter native props.
-
-### DetailListRow
-
-Subkomponent som grupperer `<DetailListTerm>` og `<DetailListDesc>` i en rad. Oppfører seg som en tabellrad. Støtter native props.
-
+<Tabs>
+  <TabList>
+    <Tab>Small</Tab>
+    <Tab>Large</Tab>
+    <Tab>SmallScreen</Tab>
+    <Tab>Responsive</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <Canvas of={DetailListStories.Small} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={DetailListStories.Large} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={DetailListStories.SmallScreen} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={DetailListStories.Responsive} />
+    </TabPanel>
+  </TabPanels>
+</Tabs>
 ## Retningslinjer
 
 ### Layout

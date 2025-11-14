@@ -7,6 +7,7 @@ import {
 
 import styles from './Button.module.css';
 import { type ButtonProps } from './Button.types';
+import { createTexts, useTranslation } from '../../i18n';
 import { getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
 import { useButtonGroupContext } from '../ButtonGroup/ButtonGroup.context';
@@ -23,8 +24,8 @@ export const Button = ({
   iconPosition = 'left',
   href,
   target,
-  loading = false,
-  loadingTooltip = 'Lagring pågår',
+  loading,
+  loadingTooltip,
   fullWidth = false,
   icon,
   onClick,
@@ -37,6 +38,8 @@ export const Button = ({
   ...rest
 }: ButtonProps) => {
   const { purpose: groupPurpose, size: groupSize } = useButtonGroupContext();
+  const { t } = useTranslation();
+  const spinnerTooltip = loadingTooltip ?? t(texts.saving);
 
   const hasLabel = !!children;
   const hasIcon = !!icon;
@@ -85,14 +88,13 @@ export const Button = ({
       {loading && (
         <span className={cn(!noContent && styles['spinner-wrapper--absolute'])}>
           <Spinner
-            /*TODO: bytte til icon size token for button når den er på plass*/
-            size="calc(var(--dds-font-lineheight-x1) * 1em)"
+            size="1em"
             color={
               purpose === 'primary' || purpose === 'danger'
                 ? 'iconOnAction'
                 : 'iconDefault'
             }
-            tooltip={loadingTooltip}
+            tooltip={spinnerTooltip}
             className={styles.icon}
           />
         </span>
@@ -105,10 +107,10 @@ export const Button = ({
       <button
         ref={ref}
         {...getBaseHTMLProps(id, buttonCn, htmlProps, rest)}
-        onClick={loading ? undefined : onClick}
+        onClick={onClick}
         onFocus={onFocus}
         onBlur={onBlur}
-        aria-disabled={loading}
+        disabled={loading ?? rest.disabled}
       >
         {content}
       </button>
@@ -143,3 +145,13 @@ export const Button = ({
 };
 
 Button.displayName = 'Button';
+
+const texts = createTexts({
+  saving: {
+    no: 'Lagring pågår',
+    nb: 'Lagring pågår',
+    nn: 'Lagring pågår',
+    en: 'Saving',
+    se: 'Vurkemin',
+  },
+});

@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta } from '@storybook/blocks';
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as InputMessageStories from './InputMessage.stories';
 
@@ -11,7 +11,6 @@ import * as InputMessageStories from './InputMessage.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/InputMessage"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A38"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-inputmessage--default"
-  withBottomSpacing
 />
 
 `<InputMessage>` brukes til å vise hjelpetekst eller feilmelding som tilhører et custom inputelement (radio, checkbox, inputfelt...).
@@ -20,5 +19,5 @@ import * as InputMessageStories from './InputMessage.stories';
 
 ## Props
 
-<Canvas of={InputMessageStories.Default} sourceState="shown" />
-<Controls of={InputMessageStories.Default} />
+<Canvas of={InputMessageStories.Preview} />
+<Controls of={InputMessageStories.Preview} />

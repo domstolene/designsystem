@@ -1,6 +1,7 @@
 .inline-input {
   width: 100%;
   padding: var(--dds-spacing-x0-25);
+  border-width: 1px;
   border-color: transparent;
   background-color: transparent;
   border-radius: var(--dds-border-radius-input);
@@ -12,15 +13,33 @@
       var(--dds-focus-transition);
   }
 
-  &:hover:enabled:read-write:not(:focus) {
-    border-color: transparent;
-    box-shadow: none;
-    background-color: var(--dds-color-surface-hover-default);
-  }
-
   &:focus {
     background-color: var(--dds-color-surface-default);
   }
+}
+
+.inline-select {
+  appearance: none;
+  text-overflow: ellipsis;
+  width: 100%;
+  padding-right: var(--dds-spacing-x1-5);
+  cursor: pointer;
+}
+
+.inline-select--with-clear-button {
+  padding-right: var(--dds-spacing-x3);
+}
+
+.inline-input:hover:enabled:read-write:not(:focus),
+.inline-select:hover:enabled:not(:focus) {
+  border-color: transparent;
+  box-shadow: none;
+  background-color: var(--dds-color-surface-hover-default);
+}
+
+.inline-input--danger {
+  border-color: var(--dds-color-border-danger);
+  box-shadow: 0 0 0 1px var(--dds-color-border-danger);
 }
 
 .inline-input--with-icon {
@@ -31,13 +50,26 @@
   resize: vertical;
 }
 
-.icon-wrapper {
-  position: absolute;
-  top: var(--dds-spacing-x0-5);
+.edit-icon {
   left: var(--dds-spacing-x0-5);
+  pointer-events: none;
   z-index: var(--dds-zindex-absolute-element);
+}
 
-  &:hover {
-    cursor: text;
-  }
+/* Sentrerer ikonet i forhold til første linjen med tekst */
+.edit-icon-textarea {
+  position: absolute;
+  top: calc(
+    ((var(--dds-font-lineheight-x1) * 1em - var(--dds-icon-size-small)) / 2) +
+      var(--dds-spacing-x0-25)
+  );
+}
+
+.chevron {
+  right: var(--dds-spacing-x0-25);
+  pointer-events: none;
+}
+
+.clear-button {
+  right: calc(var(--dds-spacing-x0-75) + var(--dds-icon-size-small));
 }

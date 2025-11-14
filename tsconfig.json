@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "lib": ["dom", "esnext"],
+    "lib": ["dom", "esnext", "dom.iterable"],
     "declaration": true,
     "sourceMap": true,
     "moduleResolution": "Bundler",
@@ -16,6 +16,6 @@
     "allowSyntheticDefaultImports": true,
     "downlevelIteration": true
   },
-  "include": ["packages", "stories"],
+  "include": ["packages", "stories", ".storybook"],
   "exclude": ["**/node_modules"]
 }

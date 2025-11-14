@@ -3,8 +3,8 @@ name: Release
 on:
   push:
     paths:
-      - 'packages/**'
-      - '.changeset/**'
+      - "packages/**"
+      - ".changeset/**"
     branches:
       - main
 
@@ -21,7 +21,7 @@ jobs:
       id-token: write
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Cache turbo build setup
         uses: actions/cache@v4
@@ -44,7 +44,15 @@ jobs:
           publish: pnpm release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Track package version for adoption
+        if: steps.changesets.outputs.published == 'true'
+        uses: zeroheight/action-design-system-adoption@v2
+        with:
+          command: "track-package"
+        env:
+          ZEROHEIGHT_CLIENT_ID: "${{ secrets.ZEROHEIGHT_CLIENT_ID }}"
+          ZEROHEIGHT_ACCESS_TOKEN: "${{ secrets.ZEROHEIGHT_ACCESS_TOKEN }}"
 
       - name: Create @dev release
         if: steps.changesets.outputs.published != 'true'
@@ -53,5 +61,4 @@ jobs:
           pnpm version:dev
           pnpm release:dev
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

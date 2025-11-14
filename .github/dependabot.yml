@@ -17,11 +17,19 @@ updates:
       typescript:
         patterns:
           - 'typescript'
+        update-types:
+          - 'major'
+          - 'minor'
+          - 'patch'
       non-major:
         update-types:
           - 'minor'
           - 'patch'
+        exclude-patterns:
+          - 'typescript'
+
       storybook:
         patterns:
           - '@storybook/*'
           - 'storybook'
+          - 'eslint-plugin-storybook'

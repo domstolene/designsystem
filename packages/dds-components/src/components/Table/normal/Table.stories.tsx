@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { type ChangeEvent, useEffect, useState } from 'react';
 
 import {
@@ -8,11 +8,11 @@ import {
   headerCells,
   mapCellContents,
 } from './tableData';
+import { themeProviderDecorator } from '../../../storybook';
 import { Button } from '../../Button';
 import { Icon } from '../../Icon';
 import { PersonIcon, TrashIcon } from '../../Icon/icons';
 import { Checkbox } from '../../SelectionControl/Checkbox';
-import { StoryThemeProvider } from '../../ThemeProvider/utils/StoryThemeProvider';
 import { Link, Paragraph } from '../../Typography';
 
 import { Table } from '.';
@@ -22,17 +22,10 @@ const meta: Meta<typeof Table> = {
   component: Table,
   parameters: {
     docs: {
-      story: { inline: true },
       canvas: { sourceState: 'hidden' },
     },
   },
-  decorators: [
-    Story => (
-      <StoryThemeProvider>
-        <Story />
-      </StoryThemeProvider>
-    ),
-  ],
+  decorators: [Story => themeProviderDecorator(<Story />)],
 };
 
 export default meta;
@@ -47,7 +40,7 @@ const mappedHeaderCells = headerCells.map(headerCell => {
   );
 });
 
-export const Default: Story = {
+export const Preview: Story = {
   render: args => (
     <Table.Wrapper>
       <Table {...args}>

@@ -2,17 +2,20 @@ import { type HTMLAttributes, useId } from 'react';
 
 import styles from './FavStar.module.css';
 import { useControllableState } from '../../hooks/useControllableState';
+import { createTexts, useTranslation } from '../../i18n';
 import {
   type BaseComponentPropsWithChildren,
+  createSizes,
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
+import { HiddenInput } from '../helpers';
 import focusStyles from '../helpers/styling/focus.module.css';
-import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Icon } from '../Icon';
 import { StarFilledIcon, StarIcon } from '../Icon/icons';
 
-type ComponentSize = 'medium' | 'large';
+export const FAVSTAR_SIZES = createSizes('medium', 'large');
+type ComponentSize = (typeof FAVSTAR_SIZES)[number];
 
 export type FavStarProps = BaseComponentPropsWithChildren<
   HTMLElement,
@@ -49,6 +52,7 @@ export const FavStar = ({
   htmlProps,
   ...rest
 }: FavStarProps) => {
+  const { t } = useTranslation();
   const { style, ...props } = getBaseHTMLProps(
     id,
     cn(className),
@@ -72,14 +76,13 @@ export const FavStar = ({
       style={style}
       htmlFor={id ?? generatedId}
     >
-      <input
+      <HiddenInput
         {...props}
         id={id ?? generatedId}
         checked={checked}
         onChange={e => setChecked(e.target.checked)}
         type="checkbox"
-        aria-label={props['aria-label'] ?? 'Favoriser'}
-        className={utilStyles['hide-input']}
+        aria-label={props['aria-label'] ?? t(texts.favourite)}
       />
       <Icon iconSize={size} icon={StarIcon} className={styles.icon} />
       <Icon
@@ -92,3 +95,13 @@ export const FavStar = ({
 };
 
 FavStar.displayName = 'FavStar';
+
+const texts = createTexts({
+  favourite: {
+    nb: 'Stjernemarker',
+    no: 'Stjernemarker',
+    nn: 'Stjernemerk',
+    en: 'Mark as favourite',
+    se: 'Merke favorihta',
+  },
+});

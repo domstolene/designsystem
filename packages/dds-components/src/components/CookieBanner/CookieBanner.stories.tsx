@@ -1,12 +1,11 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { CookieBanner } from './CookieBanner';
 import {
-  categoryHtml,
-  htmlPropsArgType,
+  commonArgTypes,
   responsivePropsArgTypes,
   windowWidthDecorator,
-} from '../../storybook/helpers';
+} from '../../storybook';
 import { Button } from '../Button';
 import { Box, Paper, VStack } from '../layout';
 import { Link } from '../Typography';
@@ -14,12 +13,11 @@ import { Link } from '../Typography';
 const { position, left, right, top, bottom, maxHeight, width } =
   responsivePropsArgTypes;
 
-export default {
+const meta: Meta<typeof CookieBanner> = {
   title: 'dds-components/Components/CookieBanner',
   component: CookieBanner,
   argTypes: {
-    htmlProps: htmlPropsArgType,
-    id: { control: false, table: categoryHtml },
+    ...commonArgTypes,
     position,
     left,
     right,
@@ -28,24 +26,23 @@ export default {
     maxHeight,
     width,
   },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
-} satisfies Meta<typeof CookieBanner>;
+};
+
+export default meta;
 
 type Story = StoryObj<typeof CookieBanner>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: {
     headerText: 'Tittel for banner',
     description: (
       <>
         Eksempeltekst for dette cookie-banneret. Fyll inn passende tekst om at
         vi har noen valgfrie og noen nødvendige informasjonskapsler.{' '}
-        <Link href="/">Se alle våre informasjonskapsler</Link>.
+        <Link href="/" color="text-default">
+          Se alle våre informasjonskapsler
+        </Link>
+        .
       </>
     ),
     buttons: [{ children: 'Godkjenn alle' }, { children: 'Kun nødvendige' }],
@@ -59,7 +56,10 @@ export const WithCheckboxes: Story = {
       <>
         Eksempeltekst for dette cookie-banneret. Fyll inn passende tekst om at
         vi har noen valgfrie og noen nødvendige informasjonskapsler.{' '}
-        <Link href="/">Se alle våre informasjonskapsler</Link>.
+        <Link href="/" color="text-default">
+          Se alle våre informasjonskapsler
+        </Link>
+        .
       </>
     ),
     buttons: [{ children: 'Godkjenn valgte' }],
@@ -102,7 +102,10 @@ export const Placement: Story = {
       <>
         Eksempeltekst for dette cookie-banneret. Fyll inn passende tekst om at
         vi har noen valgfrie og noen nødvendige informasjonskapsler.{' '}
-        <Link href="/">Se alle våre informasjonskapsler</Link>.
+        <Link href="/" color="text-default">
+          Se alle våre informasjonskapsler
+        </Link>
+        .
       </>
     ),
     buttons: [{ children: 'Godkjenn alle' }, { children: 'Kun nødvendige' }],
@@ -175,7 +178,10 @@ export const PlacementWithCheckboxes: Story = {
       <>
         Eksempeltekst for dette cookie-banneret. Fyll inn passende tekst om at
         vi har noen valgfrie og noen nødvendige informasjonskapsler.{' '}
-        <Link href="/">Se alle våre informasjonskapsler</Link>.
+        <Link href="/" color="text-default">
+          Se alle våre informasjonskapsler
+        </Link>
+        .
       </>
     ),
     buttons: [{ children: 'Godkjenn valgte' }],
@@ -247,5 +253,30 @@ export const PlacementWithCheckboxes: Story = {
         </VStack>
       </Box>
     );
+  },
+};
+
+export const Collapsible: Story = {
+  decorators: [
+    Story =>
+      windowWidthDecorator(
+        <Story />,
+        'Sammentrukket variant vises ved sm brekkpunkt.',
+      ),
+  ],
+  args: {
+    headerText: 'Tittel for banner',
+    collapsedBreakpoint: 'sm',
+    description: (
+      <>
+        Eksempeltekst for dette cookie-banneret. Fyll inn passende tekst om at
+        vi har noen valgfrie og noen nødvendige informasjonskapsler.{' '}
+        <Link href="/" color="text-default">
+          Se alle våre informasjonskapsler
+        </Link>
+        .
+      </>
+    ),
+    buttons: [{ children: 'Godkjenn alle' }, { children: 'Kun nødvendige' }],
   },
 };

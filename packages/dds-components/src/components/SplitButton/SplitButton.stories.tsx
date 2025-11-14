@@ -1,21 +1,18 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 
+import { labelText } from '../../storybook';
+import { BUTTON_SIZES } from '../Button/Button.types';
 import { PlusCircledIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
-import {
-  SplitButton,
-  type SplitButtonPrimaryActionProps,
-  type SplitButtonProps,
-} from '.';
+import { SplitButton } from '.';
 
 export default {
   title: 'dds-components/Components/SplitButton',
   component: SplitButton,
   parameters: {
     docs: {
-      story: { inline: true, height: '200px' },
-      canvas: { sourceState: 'shown' },
+      story: { height: '200px' },
     },
   },
   argTypes: {
@@ -38,28 +35,60 @@ const items = [
 
 type Story = StoryObj<typeof SplitButton>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: {
     primaryAction: { children: 'Tekst' },
     secondaryActions: items,
   },
 };
 
-export const Overview: Story = {
+export const Purposes: Story = {
   render: args => (
     <StoryHStack>
       <StoryVStack>
-        <SplitButtonVariants args={args} children="Tekst" />
-      </StoryVStack>
-      <StoryVStack>
-        <SplitButtonVariants
-          args={args}
-          children="Tekst"
-          icon={PlusCircledIcon}
+        <SplitButton
+          {...args}
+          primaryAction={{ children: 'Primary' }}
+          secondaryActions={items}
+          purpose="primary"
+        />
+        <SplitButton
+          {...args}
+          primaryAction={{ children: 'Secondary' }}
+          secondaryActions={items}
+          purpose="secondary"
         />
       </StoryVStack>
+    </StoryHStack>
+  ),
+};
+
+export const Sizes: Story = {
+  render: args => (
+    <StoryHStack>
       <StoryVStack>
-        <SplitButtonVariants args={args} children="Tekst" loading />
+        {BUTTON_SIZES.map(size => (
+          <SplitButton
+            {...args}
+            key={size}
+            primaryAction={{ children: labelText(size) }}
+            secondaryActions={items}
+            size={size}
+          />
+        ))}
+      </StoryVStack>
+      <StoryVStack>
+        {BUTTON_SIZES.map(size => (
+          <SplitButton
+            {...args}
+            primaryAction={{
+              children: labelText(size),
+              icon: PlusCircledIcon,
+            }}
+            secondaryActions={items}
+            size={size}
+          />
+        ))}
       </StoryVStack>
     </StoryHStack>
   ),
@@ -71,71 +100,3 @@ export const FullWidth: Story = {
     secondaryActions: items,
   },
 };
-
-interface SplitButtonVariantsProps {
-  args: SplitButtonProps;
-  children?: SplitButtonPrimaryActionProps['children'];
-  icon?: SplitButtonPrimaryActionProps['icon'];
-  loading?: SplitButtonPrimaryActionProps['loading'];
-}
-
-const SplitButtonVariants = ({ args, ...rest }: SplitButtonVariantsProps) => (
-  <>
-    <SplitButton
-      {...args}
-      primaryAction={{ ...rest }}
-      secondaryActions={items}
-      size="large"
-      purpose="primary"
-    />
-    <SplitButton
-      {...args}
-      primaryAction={{ ...rest }}
-      secondaryActions={items}
-      size="medium"
-      purpose="primary"
-    />
-    <SplitButton
-      {...args}
-      primaryAction={{ ...rest }}
-      secondaryActions={items}
-      size="small"
-      purpose="primary"
-    />
-    <SplitButton
-      {...args}
-      primaryAction={{ ...rest }}
-      secondaryActions={items}
-      size="xsmall"
-      purpose="primary"
-    />
-    <SplitButton
-      {...args}
-      primaryAction={{ ...rest }}
-      secondaryActions={items}
-      size="large"
-      purpose="secondary"
-    />
-    <SplitButton
-      {...args}
-      primaryAction={{ ...rest }}
-      secondaryActions={items}
-      size="medium"
-      purpose="secondary"
-    />
-    <SplitButton
-      {...args}
-      primaryAction={{ ...rest }}
-      secondaryActions={items}
-      size="small"
-      purpose="secondary"
-    />
-    <SplitButton
-      {...args}
-      primaryAction={{ ...rest }}
-      secondaryActions={items}
-      size="xsmall"
-      purpose="secondary"
-    />
-  </>
-);

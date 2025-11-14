@@ -2,18 +2,20 @@ import { type ComponentPropsWithRef, useMemo } from 'react';
 
 import { useProgressTrackerContext } from './ProgressTracker.context';
 import styles from './ProgressTracker.module.css';
+import { createTexts, useTranslation } from '../../i18n';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
-import { cn } from '../../utils';
+import { type TextColor, cn } from '../../utils';
+import { StylelessButton } from '../helpers';
 import { focusable } from '../helpers/styling/focus.module.css';
 import { Icon } from '../Icon';
 import { CheckIcon } from '../Icon/icons';
 import { type SvgIcon } from '../Icon/utils';
 import { Box } from '../layout';
+import { Typography } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
-import { VisuallyHidden } from '../VisuallyHidden';
 
 type ItemState =
   | 'activeCompleted'
@@ -85,11 +87,6 @@ export type ProgressTrackerItemProps =
       }
     >;
 
-const getVisuallyHiddenTextBefore = (index: number) => `${index + 1}. trinn, `;
-
-const getVisuallyHiddenTextAfter = (completed: boolean) =>
-  `, ${completed ? 'ferdig' : 'ikke ferdig'}`;
-
 export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
   const {
     id,
@@ -104,6 +101,9 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
     ...rest
   } = props;
 
+  const { t } = useTranslation();
+  const stepNumber = index + 1;
+
   const { activeStep, handleStepChange, direction } =
     useProgressTrackerContext();
   const active = activeStep === index;
@@ -111,8 +111,8 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
 
   const handleClick = () => {
     if (!disabled) {
-      onClick && onClick(index);
-      handleStepChange && handleStepChange(index);
+      onClick?.(index);
+      handleStepChange?.(index);
     }
   };
 
@@ -125,8 +125,15 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
       return <Icon icon={icon} iconSize="small" />;
     }
 
-    return index + 1;
+    return stepNumber;
   }, [completed, icon, index]);
+
+  function getTextColor(): TextColor | undefined {
+    if (disabled) return 'text-subtle';
+    if (active) return 'text-action-resting';
+  }
+
+  const isInactiveLink = disabled || active;
 
   const stepContent = (
     <>
@@ -143,23 +150,23 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
       >
         {stepNumberContent}
       </Box>
-      <div
+      <Typography
+        as="div"
         className={cn(
           styles['item-text'],
-          styles[`item-text--${itemStateCn[itemState]}`],
-          typographyStyles['body-medium'],
+          typographyStyles['a--nested__child'],
+          isInactiveLink && styles['item-text--inactive-link'],
         )}
+        color={getTextColor()}
       >
-        <VisuallyHidden as="span">
-          {getVisuallyHiddenTextBefore(index)}
-        </VisuallyHidden>
         {children}
-        <VisuallyHidden as="span">
-          {getVisuallyHiddenTextAfter(completed)}
-        </VisuallyHidden>
-      </div>
+      </Typography>
     </>
   );
+
+  const ariaLabel = props['aria-label']
+    ? props['aria-label']
+    : `${children}, ${stepNumber}. ${completed ? t(texts.completed) : t(texts.uncompleted)}`;
 
   return (
     <Box
@@ -169,18 +176,29 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
       className={cn(styles['list-item'], styles[`list-item--${direction}`])}
     >
       {handleStepChange ? (
-        <button
+        <Box
+          as={StylelessButton}
+          display="grid"
+          alignItems="center"
+          justifyContent="flex-start"
+          gap="x0.5"
           {...getBaseHTMLProps(
             id,
-            cn(className, styles['item-button'], focusable),
+            cn(
+              className,
+              styles['item-button'],
+              typographyStyles['a--nested__parent'],
+              focusable,
+            ),
             htmlProps as ComponentPropsWithRef<'button'>,
             rest,
           )}
+          aria-label={ariaLabel}
           onClick={() => handleClick()}
           disabled={disabled}
         >
           {stepContent}
-        </button>
+        </Box>
       ) : (
         <div
           {...getBaseHTMLProps(
@@ -189,6 +207,7 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
             htmlProps as ComponentPropsWithRef<'div'>,
             rest,
           )}
+          aria-label={ariaLabel}
         >
           {stepContent}
         </div>
@@ -198,3 +217,20 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
 };
 
 ProgressTrackerItem.displayName = 'ProgressTracker.Item';
+
+const texts = createTexts({
+  uncompleted: {
+    nb: 'trinn ikke ferdig',
+    no: 'trinn ikke ferdig',
+    nn: 'trinn ikkje ferdig',
+    en: 'step uncompleted',
+    se: 'ceahkki ii gárvvis',
+  },
+  completed: {
+    nb: 'trinn ferdig',
+    no: 'trinn ferdig',
+    nn: 'trinn ferdig',
+    en: 'step completed',
+    se: 'ceahkki gárvá',
+  },
+});

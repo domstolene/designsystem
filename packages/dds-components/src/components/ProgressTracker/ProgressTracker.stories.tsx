@@ -1,8 +1,8 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
 import { ProgressTracker } from './ProgressTracker';
-import { htmlPropsArgType } from '../../storybook/helpers';
+import { commonArgTypes, themeProviderDecorator } from '../../storybook';
 import { Button } from '../Button';
 import { Drawer, DrawerGroup } from '../Drawer';
 import { Fieldset, FieldsetGroup } from '../Fieldset';
@@ -18,26 +18,19 @@ import { Box, Grid, HStack, ShowHide, VStack } from '../layout';
 import { Select } from '../Select';
 import { Checkbox } from '../SelectionControl/Checkbox';
 import { TextInput } from '../TextInput';
-import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 import { Heading, Legend, Paragraph } from '../Typography';
 
 export default {
   title: 'dds-components/Components/ProgressTracker',
   component: ProgressTracker,
   argTypes: {
-    htmlProps: htmlPropsArgType,
-  },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
+    ...commonArgTypes,
   },
 } satisfies Meta<typeof ProgressTracker>;
 
 type Story = StoryObj<typeof ProgressTracker>;
 
-export const Default: Story = {
+export const Preview: Story = {
   render: args => {
     const numSteps = 3;
 
@@ -53,13 +46,13 @@ export const Default: Story = {
           htmlProps={{ style: { maxWidth: '800px' } }}
         >
           <ProgressTracker.Item completed={completedSteps.has(0)}>
-            Parter
+            Steg 1
           </ProgressTracker.Item>
           <ProgressTracker.Item completed={completedSteps.has(1)}>
-            Slutning
+            Steg 2
           </ProgressTracker.Item>
           <ProgressTracker.Item completed={completedSteps.has(2)}>
-            Vedlegg
+            Steg 3
           </ProgressTracker.Item>
           <ProgressTracker.Item completed={completedSteps.has(3)} disabled>
             Sammendrag
@@ -70,7 +63,7 @@ export const Default: Story = {
           {activeStep === 0 && <div>Steg 1</div>}
           {activeStep === 1 && <div>Steg 2</div>}
           {activeStep === 2 && <div>Steg 3</div>}
-          {activeStep === 3 && <div>Steg 4</div>}
+          {activeStep === 3 && <div>Sammendrag</div>}
         </div>
 
         <Button
@@ -106,19 +99,19 @@ export const WithIcons: Story = {
             icon={PersonIcon}
             completed={completedSteps.has(0)}
           >
-            Parter
+            Steg 1
           </ProgressTracker.Item>
           <ProgressTracker.Item
             icon={GavelIcon}
             completed={completedSteps.has(1)}
           >
-            Slutning
+            Steg 2
           </ProgressTracker.Item>
           <ProgressTracker.Item
             icon={AttachmentIcon}
             completed={completedSteps.has(2)}
           >
-            Vedlegg
+            Steg 3
           </ProgressTracker.Item>
           <ProgressTracker.Item
             icon={ChecklistIcon}
@@ -165,13 +158,13 @@ export const Horisontal: Story = {
           onStepChange={step => setActiveStep(step)}
         >
           <ProgressTracker.Item completed={completedSteps.has(0)}>
-            Parter
+            Steg 1
           </ProgressTracker.Item>
           <ProgressTracker.Item completed={completedSteps.has(1)}>
-            Slutning
+            Steg 2
           </ProgressTracker.Item>
           <ProgressTracker.Item completed={completedSteps.has(2)}>
-            Vedlegg
+            Steg 3
           </ProgressTracker.Item>
           <ProgressTracker.Item completed={completedSteps.has(3)} disabled>
             Sammendrag
@@ -229,19 +222,19 @@ export const FutureStepsDisabled: Story = {
             disabled={isDisabled(0)}
             completed={completedSteps.has(0)}
           >
-            Parter
+            Steg 1
           </ProgressTracker.Item>
           <ProgressTracker.Item
             disabled={isDisabled(1)}
             completed={completedSteps.has(1)}
           >
-            Slutning
+            Steg 2
           </ProgressTracker.Item>
           <ProgressTracker.Item
             disabled={isDisabled(2)}
             completed={completedSteps.has(2)}
           >
-            Vedlegg
+            Steg 3
           </ProgressTracker.Item>
         </ProgressTracker>
         <div>
@@ -261,13 +254,7 @@ export const FutureStepsDisabled: Story = {
 };
 
 export const SmallScreen: Story = {
-  decorators: [
-    Story => (
-      <StoryThemeProvider>
-        <Story />
-      </StoryThemeProvider>
-    ),
-  ],
+  decorators: [Story => themeProviderDecorator(<Story />)],
   render: args => {
     const numSteps = 3;
 
@@ -296,13 +283,13 @@ export const SmallScreen: Story = {
                 }}
               >
                 <ProgressTracker.Item completed={completedSteps.has(0)}>
-                  Parter med lang tekst
+                  Steg 1 med lang tekst
                 </ProgressTracker.Item>
                 <ProgressTracker.Item completed={completedSteps.has(1)}>
-                  Slutning
+                  Steg 2
                 </ProgressTracker.Item>
                 <ProgressTracker.Item completed={completedSteps.has(2)}>
-                  Vedlegg
+                  Steg 3
                 </ProgressTracker.Item>
                 <ProgressTracker.Item
                   completed={completedSteps.has(3)}
@@ -331,21 +318,7 @@ export const SmallScreen: Story = {
 };
 
 export const RealWorldRosponsiveExample: Story = {
-  decorators: [
-    Story => (
-      <StoryThemeProvider>
-        <Story />
-        <style>
-          {`
-          .story-grid {
-              grid-template-columns: 26rem 1fr;
-              gap: var(--dds-spacing-x6);
-          }
-          `}
-        </style>
-      </StoryThemeProvider>
-    ),
-  ],
+  decorators: [Story => themeProviderDecorator(<Story />)],
   render: args => {
     const [activeStep, setActiveStep] = useState(0);
     const [completedSteps, setCompletedSteps] = useState(new Set<number>());
@@ -391,7 +364,7 @@ export const RealWorldRosponsiveExample: Story = {
     ];
 
     return (
-      <Grid className="story-grid">
+      <Grid className="story-grid" gridTemplateColumns="26rem 1fr" gap="x6">
         <div>
           <ShowHide showBelow="md">
             <DrawerGroup

@@ -1,7 +1,6 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { htmlPropsArgType } from '../../storybook/helpers';
-import { Heading } from '../Typography';
+import { categoryCss, commonArgTypes } from '../../storybook';
 
 import { SkipToContent } from '.';
 
@@ -9,20 +8,14 @@ export default {
   title: 'dds-components/Components/SkipToContent',
   component: SkipToContent,
   argTypes: {
-    top: { control: 'text' },
-    htmlProps: htmlPropsArgType,
-  },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
+    top: { control: 'text', table: categoryCss },
+    ...commonArgTypes,
   },
 } satisfies Meta<typeof SkipToContent>;
 
 type Story = StoryObj<typeof SkipToContent>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { href: '#innhold' },
   render: args => (
     <div style={{ position: 'relative' }}>
@@ -33,36 +26,23 @@ export const Default: Story = {
   ),
 };
 
-export const Overview: Story = {
-  args: { href: '#innhold' },
+export const CustomTop: Story = {
+  args: { href: '#innhold', top: '30px' },
   render: args => (
     <div style={{ position: 'relative' }}>
       <SkipToContent {...args} />
-      <SkipToContent {...args} top={'30px'} text="Alternativ tekst" />
-      'Tab' når du er i frame for å se varianter av komponenten
+      'Tab' når du er i frame for å se komponenten
       <main id="innhold">Innhold</main>
     </div>
   ),
 };
 
-export const Example: Story = {
-  args: { href: '#innhold' },
+export const CustomText: Story = {
+  args: { href: '#innhold', text: 'Alternativ tekst' },
   render: args => (
     <div style={{ position: 'relative' }}>
       <SkipToContent {...args} />
-      'Tab' når du er i frame for å se komponenten; 'Enter' for å åpne i ny side
-      og teste
-      <Heading level={2} typographyType="headingXxlarge" withMargins>
-        Placeholder
-      </Heading>
-      <div
-        style={{
-          height: '1000px',
-          backgroundColor: 'var(--dds-color-brand-primary-subtle)',
-        }}
-      >
-        Placeholder
-      </div>
+      'Tab' når du er i frame for å se komponenten
       <main id="innhold">Innhold</main>
     </div>
   ),

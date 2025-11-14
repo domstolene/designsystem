@@ -1,0 +1,24 @@
+name: 'Chromatic'
+
+on: push
+
+jobs:
+  chromatic:
+    if: github.actor != 'dependabot[bot]'
+    name: Run Chromatic
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Install
+        uses: ./.github/composite-actions/install
+
+      - name: Run Chromatic
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}

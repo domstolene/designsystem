@@ -1,4 +1,4 @@
-import { Meta, Canvas, Controls } from '@storybook/blocks';
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as ListStories from './List.stories';
 
@@ -11,7 +11,6 @@ import * as ListStories from './List.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=3332%3A94240"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/List"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-list--default"
-  withBottomSpacing
 />
 
 Lister bygges med to subkomponenter som tilsvarer native HTML-elementer:
@@ -25,8 +24,8 @@ Lister bygges med to subkomponenter som tilsvarer native HTML-elementer:
 
 Tilsvarer `<ul>` eller `<ol>`.
 
-<Canvas of={ListStories.Default} sourceState="shown" />
-<Controls of={ListStories.Default} />
+<Canvas of={ListStories.Preview} />
+<Controls of={ListStories.Preview} />
 
 ### ListItem
 

@@ -12,7 +12,7 @@ import {
 import { type EditElement } from './InlineEdit.types';
 import { useOnClickOutside, useOnKeyDown } from '../../hooks';
 
-interface InlineEditContextType {
+export interface InlineEditContextType {
   onChange: (e: ChangeEvent<EditElement>) => void;
   onBlur: (e: FocusEvent<EditElement>) => void;
   onFocus: (e: FocusEvent<EditElement>) => void;

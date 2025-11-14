@@ -1,6 +1,3 @@
 .icon {
-  display: inline;
-  margin: 0.1em 0.25em -0.1em 0.1em;
-  transform: translateY(0.05em);
-  vertical-align: baseline;
+  margin-right: var(--dds-spacing-x0-25);
 }

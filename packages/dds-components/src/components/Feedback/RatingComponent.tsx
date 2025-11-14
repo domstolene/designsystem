@@ -1,9 +1,10 @@
 import styles from './Feedback.module.css';
 import { type Layout, type Rating } from './Feedback.types';
-import { ThumbIcon } from './utils';
+import { getIconSize } from './utils';
+import { createTexts, useTranslation } from '../../i18n';
 import { cn } from '../../utils';
-import { focusable } from '../helpers/styling/focus.module.css';
-import utilStyles from '../helpers/styling/utilStyles.module.css';
+import { InlineIconButton } from '../helpers/InlineIconButton';
+import { ThumbDownIcon, ThumbUpIcon } from '../Icon/icons';
 import { HStack } from '../layout';
 import { Spinner } from '../Spinner';
 import { Tooltip } from '../Tooltip';
@@ -26,19 +27,16 @@ export const RatingComponent = ({
   thumbDownTooltip,
   handleRatingChange,
 }: RatingComponentType) => {
+  const { t } = useTranslation();
+
   const button = (rating: Rating, layout: Layout, tooltip: string) => (
-    <button
+    <InlineIconButton
       aria-label={tooltip}
       onClick={() => handleRatingChange(rating)}
-      className={cn(
-        utilStyles['remove-button-styling'],
-        styles.button,
-        styles[`button--${layout}`],
-        focusable,
-      )}
-    >
-      {ThumbIcon({ rating, layout, type: 'rating' })}
-    </button>
+      size={getIconSize(layout)}
+      icon={rating === 'positive' ? ThumbUpIcon : ThumbDownIcon}
+      color="icon-medium"
+    ></InlineIconButton>
   );
 
   return (
@@ -50,7 +48,7 @@ export const RatingComponent = ({
     >
       <h2 className={typographyStyles['label-medium']}>{ratingLabel}</h2>
       {loading ? (
-        <Spinner tooltip="Laster opp tilbakemelding ..." />
+        <Spinner tooltip={t(texts.uploadingFeedback)} />
       ) : (
         <HStack gap="x1">
           <Tooltip text={thumbUpTooltip}>
@@ -64,3 +62,13 @@ export const RatingComponent = ({
     </div>
   );
 };
+
+const texts = createTexts({
+  uploadingFeedback: {
+    nb: 'Laster opp tilbakemelding...',
+    no: 'Laster opp tilbakemelding...',
+    nn: 'Lastar opp tilbakemelding...',
+    en: 'Uploading feedback...',
+    se: 'Viežžamin ruovttoluottadieđuid...',
+  },
+});

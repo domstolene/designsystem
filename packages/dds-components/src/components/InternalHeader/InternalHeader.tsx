@@ -3,6 +3,7 @@ import { useState } from 'react';
 import styles from './InternalHeader.module.css';
 import { type InternalHeaderProps } from './InternalHeader.types';
 import { NavigationItem } from './NavigationItem';
+import { createTexts, useTranslation } from '../../i18n/translation';
 import { getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
 import { Button } from '../Button';
@@ -11,7 +12,7 @@ import { focusable } from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { MenuIcon, MoreVerticalIcon, PersonIcon } from '../Icon/icons';
 import { Box } from '../layout';
-import { applyResponsiveStyle } from '../layout/common/utils';
+import { styleUpToBreakpoint } from '../layout/common/utils';
 import { ShowHide } from '../layout/ShowHide';
 import {
   OverflowMenu,
@@ -43,6 +44,8 @@ export const InternalHeader = (props: InternalHeaderProps) => {
     ...rest
   } = props;
 
+  const { t } = useTranslation();
+
   const [currentPage, setCurrentPage] = useState<string | undefined>(
     currentPageHref,
   );
@@ -59,17 +62,17 @@ export const InternalHeader = (props: InternalHeaderProps) => {
   const hasNavInContextMenu = hasSmallScreenBreakpoint && hasNavigationElements;
 
   const navigation = hasNavigationElements ? (
-    <nav aria-label="sidenavigasjon">
+    <nav aria-label={t(texts.siteNavigation)}>
       <ShowHide
         as={StylelessList}
         hideBelow={hasSmallScreenBreakpoint ? smallScreenBreakpoint : undefined}
         className={cn(styles['nav-list'])}
       >
-        {navItems.map((item, index) => {
+        {navItems.map((item, i) => {
           const { href, ...rest } = item;
           const isCurrent = href === currentPage;
           return (
-            <li key={index} className={styles['nav-list__item']}>
+            <li key={i} className={styles['nav-list__item']}>
               <NavigationItem
                 href={href}
                 {...rest}
@@ -91,8 +94,8 @@ export const InternalHeader = (props: InternalHeaderProps) => {
     <Box
       display="flex"
       alignItems="center"
-      gap={applyResponsiveStyle('x1.5', smallScreenBreakpoint, 'x1')}
-      paddingInline={applyResponsiveStyle(
+      gap={styleUpToBreakpoint('x1.5', smallScreenBreakpoint, 'x1')}
+      paddingInline={styleUpToBreakpoint(
         'x1.5',
         smallScreenBreakpoint,
         'x1 x0.5',
@@ -137,7 +140,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
             <Button
               icon={hasNavInContextMenu ? MenuIcon : MoreVerticalIcon}
               purpose="tertiary"
-              aria-label="åpne meny"
+              aria-label={t(texts.openMenu)}
             />
             <OverflowMenu className={styles['context-menu']}>
               {user && (
@@ -152,12 +155,12 @@ export const InternalHeader = (props: InternalHeaderProps) => {
               {hasNavInContextMenu && (
                 <ShowHide
                   as="nav"
-                  aria-label="sidenavigasjon"
+                  aria-label={t(texts.siteNavigation)}
                   showBelow={smallScreenBreakpoint}
                 >
                   <OverflowMenuList>
-                    {navItems.map(item => (
-                      <OverflowMenuLink {...item} />
+                    {navItems.map((item, i) => (
+                      <OverflowMenuLink {...item} key={`nav-${i}`} />
                     ))}
                   </OverflowMenuList>
                 </ShowHide>
@@ -170,12 +173,16 @@ export const InternalHeader = (props: InternalHeaderProps) => {
               )}
               {hasContextMenuElements && (
                 <OverflowMenuList>
-                  {contextMenuItems.map(item => {
+                  {contextMenuItems.map((item, i) => {
                     return item.href ? (
-                      <OverflowMenuLink {...(item as OverflowMenuLinkProps)} />
+                      <OverflowMenuLink
+                        {...(item as OverflowMenuLinkProps)}
+                        key={`context-${i}`}
+                      />
                     ) : (
                       <OverflowMenuButton
                         {...(item as OverflowMenuButtonProps)}
+                        key={`context-${i}`}
                       />
                     );
                   })}
@@ -190,3 +197,20 @@ export const InternalHeader = (props: InternalHeaderProps) => {
 };
 
 InternalHeader.displayName = 'InternalHeader';
+
+const texts = createTexts({
+  openMenu: {
+    nb: 'Åpne meny',
+    no: 'Åpne meny',
+    nn: 'Opna meny',
+    en: 'Open menu',
+    se: 'Rabas fállu',
+  },
+  siteNavigation: {
+    nb: 'Sidenavigasjon',
+    no: 'Sidenavigasjon',
+    nn: 'Sidenavigasjon',
+    en: 'Site navigation',
+    se: 'Siidu navigášuvdna',
+  },
+});

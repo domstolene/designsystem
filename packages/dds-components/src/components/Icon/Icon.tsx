@@ -1,5 +1,11 @@
+import { type HTMLAttributes } from 'react';
+
 import { type SvgIcon } from './utils';
-import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
+import {
+  type BaseComponentProps,
+  createSizes,
+  getBaseHTMLProps,
+} from '../../types';
 import { type TextColor } from '../../utils';
 
 const getSize = (iconSize: IconSize): string => {
@@ -17,7 +23,8 @@ const getSize = (iconSize: IconSize): string => {
   }
 };
 
-export type IconSize = 'small' | 'medium' | 'large' | 'inherit';
+export const ICON_SIZES = createSizes('small', 'medium', 'large', 'inherit');
+export type IconSize = (typeof ICON_SIZES)[number];
 
 export type IconProps = BaseComponentProps<
   SVGSVGElement,
@@ -32,7 +39,8 @@ export type IconProps = BaseComponentProps<
      * @default "currentcolor"
      */
     color?: TextColor;
-  }
+  },
+  Omit<HTMLAttributes<SVGSVGElement>, 'color'>
 >;
 
 export function Icon(props: IconProps) {

@@ -1,36 +1,115 @@
 .svg {
   display: block;
-  stroke-dasharray: 90, 150;
-  animation: rotate 1.5s linear infinite;
-  @media (prefers-reduced-motion: no-preference) {
-    animation: rotate 2s linear infinite;
-  }
 }
 
-.circle {
-  stroke-linecap: round;
-  @media (prefers-reduced-motion: no-preference) {
-    animation: dash 1.5s ease-in-out infinite;
-  }
+.jordskifterett,
+.lagmannsrett,
+.tingrett {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation-duration: 3.4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 }
 
-@keyframes rotate {
-  100% {
-    transform: rotate(360deg);
-  }
+.jordskifterett {
+  animation-name: jordskifterett;
 }
 
-@keyframes dash {
+.tingrett {
+  animation-name: tingrett;
+}
+
+.lagmannsrett {
+  animation-name: lagmannsrett;
+}
+
+@keyframes jordskifterett {
   0% {
-    stroke-dasharray: 1, 150;
-    stroke-dashoffset: 0;
+    transform: scale(0.01);
   }
+
+  16.66% {
+    transform: scale(1);
+  }
+
+  33.33% {
+    transform: scale(0.1);
+  }
+
   50% {
-    stroke-dasharray: 90, 150;
-    stroke-dashoffset: -35;
+    transform: scale(0.01);
   }
+
+  66.66% {
+    transform: scale(0.01);
+  }
+
+  83.33% {
+    transform: scale(0.01);
+  }
+
   100% {
-    stroke-dasharray: 90, 150;
-    stroke-dashoffset: -124;
+    transform: scale(0.01);
+  }
+}
+
+@keyframes tingrett {
+  0% {
+    transform: scale(0.01);
+  }
+
+  16.66% {
+    transform: scale(0.01);
+  }
+
+  33.33% {
+    transform: scale(0.01);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  66.66% {
+    transform: scale(0.1);
+  }
+
+  83.33% {
+    transform: scale(0.01);
+  }
+
+  100% {
+    transform: scale(0.01);
+  }
+}
+
+@keyframes lagmannsrett {
+  0% {
+    transform: scale(0.01);
+  }
+
+  16.66% {
+    transform: scale(0.01);
+  }
+
+  33.33% {
+    transform: scale(0.01);
+  }
+
+  50% {
+    transform: scale(0.01);
+  }
+
+  66.66% {
+    transform: scale(0.01);
+  }
+
+  83.33% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.1);
   }
 }

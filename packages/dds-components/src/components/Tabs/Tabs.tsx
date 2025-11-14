@@ -2,17 +2,16 @@ import { type HTMLAttributes, useEffect, useId, useRef, useState } from 'react';
 
 import { type AddTabButtonProps } from './AddTabButton';
 import { TabsContext } from './Tabs.context';
-import styles from './Tabs.module.css';
 import {
   type BaseComponentPropsWithChildren,
   type Direction,
-  type Size,
+  createSizes,
   getBaseHTMLProps,
 } from '../../types';
-import { cn } from '../../utils';
 import { Box, type ResponsiveProps } from '../layout';
 
-export type TabSize = Extract<Size, 'small' | 'medium'>;
+export const TABS_SIZES = createSizes('small', 'medium');
+export type TabSize = (typeof TABS_SIZES)[number];
 
 export type TabsProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
@@ -56,7 +55,7 @@ export const Tabs = ({
 
   const handleTabChange = (index: number) => {
     setActiveTab(index);
-    onChange && onChange(index);
+    onChange?.(index);
   };
 
   useEffect(() => {
@@ -81,12 +80,7 @@ export const Tabs = ({
       }}
     >
       <Box
-        {...getBaseHTMLProps(
-          uniqueId,
-          cn(className, styles.tabs),
-          htmlProps,
-          rest,
-        )}
+        {...getBaseHTMLProps(uniqueId, className, htmlProps, rest)}
         width={width}
       >
         {children}

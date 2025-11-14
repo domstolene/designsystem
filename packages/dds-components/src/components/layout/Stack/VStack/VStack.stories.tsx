@@ -1,11 +1,11 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { VStack } from './VStack';
 import { Box } from '../..';
 import {
   responsiveStackPropsArgTypes,
   windowWidthDecorator,
-} from '../../../../storybook/helpers';
+} from '../../../../storybook';
 
 export default {
   title: 'dds-components/Layout Primitives/VStack',
@@ -27,7 +27,7 @@ const ExampleElement = () => (
 
 type Story = StoryObj<typeof VStack>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: {
     children: [
       <ExampleElement />,

@@ -1,4 +1,4 @@
-import { Story, Canvas, Meta, Controls, ArgTypes } from '@storybook/blocks';
+import { Story, Canvas, Meta, Controls, ArgTypes } from '@storybook/addon-docs/blocks';
 import {
   Source,
   ComponentLinkRow,
@@ -16,7 +16,6 @@ import { NativeSelectPlaceholder } from '.';
   docsHref="https://design.domstol.no/987b33f71/p/19970c-select/b/98ef83"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Select/NativeSelect"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-select-nativeselect--default"
-  withBottomSpacing
 />
 
 `<NativeSelect>` er nativ variant av `<Select>`. Den har begrenset funksjonalitet, men er ikke bygd med custom elementer som begrenser f.eks. testbarhet. Komponenten kan brukes bl.a. når det ikke trengs søk.
@@ -29,8 +28,8 @@ Siden `<select>` automatisk velger første alternativ, tilbyr vi også `<NativeS
 
 Returnerer `<select>`. Bruk native HTML-elementer `<option>` og `<optgroup>` som barn.
 
-<Canvas of={NativeSelectStories.Default} sourceState="shown" />
-<Controls of={NativeSelectStories.Default} />
+<Canvas of={NativeSelectStories.Preview} />
+<Controls of={NativeSelectStories.Preview} />
 
 ### NativeSelectPlaceholder
 

@@ -1,32 +1,34 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
 import {
-  categoryCss,
   categoryHtml,
+  htmlEventArgType,
+  labelText,
+  responsivePropsArgTypes,
   windowWidthDecorator,
-} from '../../../storybook/helpers';
-import { StoryVStack } from '../../layout/Stack/utils';
+} from '../../../storybook';
+import { INPUT_SIZES } from '../../helpers/Input';
+import { CourtIcon } from '../../Icon/icons';
+import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 
 import { NativeSelect, NativeSelectPlaceholder } from '.';
 
 export default {
   title: 'dds-components/Components/Select/NativeSelect',
   component: NativeSelect,
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
-  },
   argTypes: {
     label: { control: 'text' },
+    clearable: { control: 'boolean' },
     tip: { control: 'text' },
     errorMessage: { control: 'text' },
-    width: { control: 'text', table: categoryCss },
+    width: responsivePropsArgTypes.width,
     disabled: { control: 'boolean', table: categoryHtml },
     required: { control: 'boolean', table: categoryHtml },
     readOnly: { control: 'boolean' },
+    onChange: htmlEventArgType,
   },
+  args: { onChange: fn() },
 } satisfies Meta<typeof NativeSelect>;
 
 type Story = StoryObj<typeof NativeSelect>;
@@ -50,7 +52,7 @@ const nativeOptions = options.map((item, index) => (
 
 const children = [<NativeSelectPlaceholder />, ...nativeOptions];
 
-export const Default: Story = {
+export const Preview: Story = {
   args: {
     label: 'Label',
     children,
@@ -73,18 +75,44 @@ export const Overview: Story = {
   ),
 };
 
-export const OverviewSizes: Story = {
+export const Sizes: Story = {
   args: {
     label: 'Label',
     children,
   },
   render: args => (
-    <StoryVStack>
-      <NativeSelect {...args} componentSize="medium" />
-      <NativeSelect {...args} componentSize="small" />
-      <NativeSelect {...args} componentSize="xsmall" />
-    </StoryVStack>
+    <StoryHStack>
+      <StoryVStack>
+        {INPUT_SIZES.map(size => (
+          <NativeSelect
+            {...args}
+            key={size}
+            label={labelText(size)}
+            componentSize={size}
+          />
+        ))}
+      </StoryVStack>
+      <StoryVStack>
+        {INPUT_SIZES.map(size => (
+          <NativeSelect
+            icon={CourtIcon}
+            {...args}
+            key={size}
+            label={labelText(size)}
+            componentSize={size}
+          />
+        ))}
+      </StoryVStack>
+    </StoryHStack>
   ),
+};
+
+export const WithIcon: Story = {
+  args: {
+    label: 'Label',
+    children,
+    icon: CourtIcon,
+  },
 };
 
 export const ResponsiveWidth: Story = {
@@ -121,5 +149,13 @@ export const Groups: Story = {
         </optgroup>
       </>
     ),
+  },
+};
+
+export const Clearable: Story = {
+  args: {
+    label: 'Label',
+    children,
+    clearable: true,
   },
 };

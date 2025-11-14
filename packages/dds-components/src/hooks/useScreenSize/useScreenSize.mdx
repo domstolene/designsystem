@@ -1,0 +1,33 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
+import * as useScreenSizeStories from './useScreenSize.stories';
+
+<Meta of={useScreenSizeStories} />
+
+# useScreenSize
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/94d2f2-usescreensize"
+  githubHref="https://github.com/domstolene/designsystem/blob/main/packages/dds-components/src/hooks/useScreenSize/useScreenSize.tsx"
+/>
+
+Sjekker skjermstørrelsen basert på brekkpunkter definerte i Elsa.
+
+`@returns` `enum ScreenSize` skjermstørrelse.
+
+<Canvas of={useScreenSizeStories.Preview} sourceState="none" />
+
+## Bruk
+
+<Source code={`
+import { ScreenSize, useScreenSize } from '@norges-domstoler/dds-components';
+
+function MyComponent() {
+const screenSize = useScreenSize();
+const isSmallScreen = screenSize === ScreenSize.Small;
+
+return <div className={isSmallScreen && 'smallDiv'} > innhold </div>
+}`} />

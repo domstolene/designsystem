@@ -1,6 +1,6 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { htmlPropsArgType } from '../../storybook/helpers';
+import { commonArgTypes } from '../../storybook';
 import { StoryHStack } from '../layout/Stack/utils';
 
 import { InputMessage } from '.';
@@ -9,19 +9,13 @@ export default {
   title: 'dds-components/Components/InputMessage',
   component: InputMessage,
   argTypes: {
-    htmlProps: htmlPropsArgType,
-  },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
+    ...commonArgTypes,
   },
 } satisfies Meta<typeof InputMessage>;
 
 type Story = StoryObj<typeof InputMessage>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: {
     messageType: 'error',
     message: 'Feilmelding',

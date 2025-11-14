@@ -8,7 +8,7 @@ describe('<ToggleButton>', () => {
   it('should render label', () => {
     const label = 'label';
     render(<ToggleButton label={label} />);
-    expect(screen.getByText(label)).toBeInTheDocument;
+    expect(screen.getByText(label)).toBeInTheDocument();
   });
 
   it('should be selectable', async () => {

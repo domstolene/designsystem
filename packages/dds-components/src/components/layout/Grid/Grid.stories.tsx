@@ -1,10 +1,10 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import {
   categoryCss,
   responsivePropsArgTypes,
   windowWidthDecorator,
-} from '../../../storybook/helpers';
+} from '../../../storybook';
 import { Button } from '../../Button';
 import { FilterIcon, PlusIcon } from '../../Icon/icons';
 import { InternalHeader } from '../../InternalHeader';
@@ -25,16 +25,11 @@ export default {
     ...responsivePropsArgTypes,
     gridTemplateColumns: { control: 'text', table: categoryCss },
   },
-  parameters: {
-    docs: {
-      story: { inline: true },
-    },
-  },
 } satisfies Meta<typeof Grid>;
 
 type Story = StoryObj<typeof Grid>;
 
-export const Default: Story = {
+export const Preview: Story = {
   decorators: [
     Story =>
       windowWidthDecorator(

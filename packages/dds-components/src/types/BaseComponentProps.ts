@@ -10,6 +10,20 @@ import {
 
 import { cn } from '../../../dds-components/src/utils/dom';
 
+interface CommonComponentProps<
+  THTMLProps extends object,
+  TRef extends Ref<unknown>,
+> {
+  /**HTML id. */
+  id?: string;
+  /**HTML klassenavn. */
+  className?: string;
+  /**Native HTML-attributter som vil settes på elementet som genereres. Untatt `id`, `className` (og eventuelle andre attributter spesifisert i dokumentasjonen) som settes på toppnivå. */
+  htmlProps?: THTMLProps;
+  /**Ref til komponenten. */
+  ref?: TRef;
+}
+
 /**
  * Basetype for props som eksponeres til konsumenter av designsystemet.
  * Lager en intersection-type med props som sendes inn og `id` og `htmlProps`
@@ -26,17 +40,9 @@ export type BaseComponentProps<
   TOtherProps extends object = object,
   THTMLAttributesProps extends
     HTMLAttributes<TElement> = HTMLAttributes<TElement>,
-> = Omit<THTMLAttributesProps, 'id' | 'className'> &
-  TOtherProps & {
-    /**Native HTML-attributter som vil settes på elementet som genereres. Untatt `id`, `className` (og eventuelle andre attributter spesifisert i dokumentasjonen) som settes på toppnivå. */
-    htmlProps?: THTMLAttributesProps;
-    /**Ref til komponenten. */
-    ref?: Ref<TElement>;
-    /**HTML id. */
-    id?: string;
-    /**Klassenavn. */
-    className?: string;
-  };
+> = Omit<THTMLAttributesProps, 'id' | 'className' | keyof TOtherProps> &
+  TOtherProps &
+  CommonComponentProps<THTMLAttributesProps, Ref<TElement>>;
 
 /**
  * Basetype for polymorfe props som eksponeres til konsumenter av designsystemet.
@@ -52,18 +58,14 @@ export type PolymorphicBaseComponentProps<
   E extends ElementType,
   TOtherProps extends object = object,
   TComponentProps extends object = ComponentPropsWithoutRef<E>,
-> = Omit<TComponentProps, 'id' | 'className' | 'style' | 'ref'> &
-  TOtherProps & {
+> = Omit<
+  TComponentProps,
+  'id' | 'className' | 'style' | 'ref' | keyof TOtherProps
+> &
+  TOtherProps &
+  CommonComponentProps<TComponentProps, ComponentPropsWithRef<E>['ref']> & {
     /**HTML- eller React-element som returneres. */
     as?: E;
-    /**Ref til komponenten. */
-    ref?: ComponentPropsWithRef<E>['ref'];
-    /**Native HTML-attributter som vil settes på elementet som genereres. Untatt `id`, `className` og `style` (og eventuelle andre attributter spesifisert i dokumentasjonen) som settes på toppnivå. */
-    htmlProps?: TComponentProps;
-    /**HTML id. */
-    id?: string;
-    /**Klassenavn. */
-    className?: string;
     /**Inline style. */
     style?: CSSProperties;
   };

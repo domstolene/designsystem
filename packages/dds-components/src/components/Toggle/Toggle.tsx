@@ -2,20 +2,23 @@ import { type InputHTMLAttributes, type ReactNode, useId } from 'react';
 
 import styles from './Toggle.module.css';
 import { useControllableState } from '../../hooks/useControllableState';
+import { useTranslation } from '../../i18n';
+import { commonTexts } from '../../i18n/commonTexts';
 import {
   type BaseComponentProps,
-  type Size,
+  createSizes,
   getBaseHTMLProps,
 } from '../../types';
 import { cn, readOnlyClickHandler, readOnlyKeyDownHandler } from '../../utils';
+import { HiddenInput } from '../helpers';
 import focusStyles from '../helpers/styling/focus.module.css';
-import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Icon } from '../Icon';
 import { CheckIcon, LockIcon } from '../Icon/icons';
 import { Spinner } from '../Spinner';
 import { VisuallyHidden } from '../VisuallyHidden';
 
-export type ToggleSize = Extract<Size, 'medium' | 'large'>;
+export const TOGGLE_SIZES = createSizes('medium', 'large');
+export type ToggleSize = (typeof TOGGLE_SIZES)[number];
 
 export type ToggleProps = BaseComponentProps<
   HTMLElement,
@@ -42,7 +45,7 @@ export type ToggleProps = BaseComponentProps<
      */
     readOnly?: boolean;
     /**
-     * Indikerer at verdien prosesseres; viser loading-tilstand og setter `aria-disabled`.
+     * Indikerer at verdien prosesseres; viser loading-tilstand og setter `disabled`.
      */
     isLoading?: boolean;
     /**
@@ -71,6 +74,7 @@ export const Toggle = ({
   htmlProps = {},
   ...rest
 }: ToggleProps) => {
+  const { t } = useTranslation();
   const generatedId = useId();
   const uniqueId = id ?? `${generatedId}-toggle`;
   const iconSize = size === 'large' ? 'medium' : 'small';
@@ -92,22 +96,17 @@ export const Toggle = ({
         readOnly && styles['label--read-only'],
       )}
     >
-      <input
+      <HiddenInput
         {...getBaseHTMLProps(
           uniqueId,
-          cn(
-            className,
-            focusStyles['focusable-sibling'],
-            utilStyles['hide-input'],
-          ),
+          cn(className, focusStyles['focusable-sibling']),
           htmlProps,
           rest,
         )}
         type="checkbox"
         checked={checked}
         onChange={e => setChecked(e.target.checked)}
-        disabled={disabled}
-        aria-disabled={isLoading}
+        disabled={isLoading ?? disabled}
         aria-readonly={readOnly}
         onKeyDown={readOnlyKeyDownHandler(
           'selectionControl',
@@ -138,9 +137,7 @@ export const Toggle = ({
           />
         )}
         {children}{' '}
-        {isLoading && (
-          <VisuallyHidden as="span">Innlastning pågår</VisuallyHidden>
-        )}
+        {isLoading && <VisuallyHidden>{t(commonTexts.loading)}</VisuallyHidden>}
       </span>
     </label>
   );

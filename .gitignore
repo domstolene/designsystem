@@ -28,4 +28,11 @@ dist
 # Optional eslint cache
 .eslintcache
 
+# Storybook
 storybook-static
+doctor-storybook.log
+build-storybook.log
+
+# Chromatic
+chromatic-diagnostics.json
+chromatic.log

@@ -12,23 +12,27 @@ import {
 import { COUNTRIES, type Country, type ISOCountryCode } from './constants';
 import styles from './PhoneInput.module.css';
 import { useCombinedRef } from '../../hooks';
+import { createTexts, useTranslation } from '../../i18n';
 import {
   cn,
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-import { type InputProps, StatefulInput, getInputWidth } from '../helpers';
+import {
+  type InputProps,
+  StatefulInput,
+  getInputWidth,
+} from '../helpers/Input';
 import inputStyles from '../helpers/Input/Input.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { renderInputMessage } from '../InputMessage';
 import { Box, type Breakpoint } from '../layout';
-import { applyResponsiveStyle } from '../layout/common/utils';
+import { styleUpToBreakpoint } from '../layout/common/utils';
 import { NativeSelect } from '../Select';
-import { Label } from '../Typography';
+import { renderLabel } from '../Typography/Label/Label.utils';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export interface PhoneInputValue {
-  // eslint-disable-next-line @typescript-eslint/ban-types
   countryCode: ISOCountryCode | (string & {});
   phoneNumber: string;
 }
@@ -124,6 +128,7 @@ export type PhoneInputProps = {
   | 'componentSize'
   | 'errorMessage'
   | 'label'
+  | 'afterLabelContent'
   | 'tip'
   | 'required'
   | 'className'
@@ -145,16 +150,20 @@ export const PhoneInput = ({
   className,
   style,
   value,
-  selectLabel = 'Landskode',
+  selectLabel,
   selectRef,
   onChange,
   defaultValue,
   'aria-required': ariaRequired,
   'aria-describedby': ariaDescribedby,
-  groupLabel = 'Landskode og telefonnummer',
+  groupLabel,
+  afterLabelContent,
   ref,
   ...props
 }: PhoneInputProps) => {
+  const { t } = useTranslation();
+  const tGroupLabel = groupLabel ?? t(texts.countryCodeAndPhoneNumber);
+  const tSelectLabel = selectLabel ?? t(texts.countryCode);
   const generatedId = useId();
   const uniqueId = props.id ?? generatedId;
   const phoneInputId = `${uniqueId}-phone-input`;
@@ -163,7 +172,6 @@ export const PhoneInput = ({
 
   const hasErrorMessage = !!errorMessage;
   const hasTip = !!tip;
-  const hasLabel = !!label;
   const hasMessage = hasErrorMessage || hasTip;
 
   const tipId = derivativeIdGenerator(phoneInputId, 'tip');
@@ -249,7 +257,6 @@ export const PhoneInput = ({
     componentSize,
   };
 
-  // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
   const showRequiredStyling = !!(required || ariaRequired);
 
   const bp = props.smallScreenBreakpoint;
@@ -259,32 +266,29 @@ export const PhoneInput = ({
 
   return (
     <div className={cn(className, inputStyles.container)} style={style}>
-      {hasLabel && (
-        <Label
-          htmlFor={phoneNumberId}
-          showRequiredStyling={showRequiredStyling}
-          className={inputStyles.label}
-          readOnly={readOnly}
-        >
-          {label}
-        </Label>
-      )}
+      {renderLabel({
+        label,
+        htmlFor: phoneNumberId,
+        showRequiredStyling,
+        readOnly,
+        afterLabelContent,
+      })}
       <Box
         display="flex"
-        flexDirection={applyResponsiveStyle('column', bp, 'row')}
+        flexDirection={styleUpToBreakpoint('column', bp, 'row')}
         className={cn(
           styles['inputs-container'],
           !!bp && styles[`inputs-container--small-screen-${bp}`],
         )}
         width={getInputWidth(width, widthDefault)}
         role="group"
-        aria-label={groupLabel}
+        aria-label={tGroupLabel}
       >
         <label className={utilStyles['visually-hidden']} htmlFor={selectId}>
-          {selectLabel}
+          {tSelectLabel}
         </label>
         <NativeSelect
-          width={applyResponsiveStyle(
+          width={styleUpToBreakpoint(
             '100%',
             bp,
             componentSize === 'xsmall' ? '5rem' : '8rem',
@@ -313,7 +317,7 @@ export const PhoneInput = ({
           <span
             className={cn(
               typographyStyles[`body-${componentSize}`],
-              inputStyles['input-group__absolute-element'],
+              inputStyles['input-group__absolute-el'],
               styles['calling-code'],
             )}
             ref={callingCodeRef}
@@ -347,7 +351,7 @@ export const PhoneInput = ({
         </Box>
       </Box>
       {hasMessage &&
-        renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
+        renderInputMessage({ tip, tipId, errorMessage, errorMessageId })}
     </div>
   );
 };
@@ -356,3 +360,20 @@ PhoneInput.displayName = 'PhoneInput';
 
 const getCallingCode = (s: string): string =>
   s.substring(s.indexOf('+'), s.length) ?? '';
+
+const texts = createTexts({
+  countryCode: {
+    nb: 'Landskode',
+    no: 'Landskode',
+    nn: 'Landskode',
+    en: 'Country code',
+    se: 'Riikkakoda',
+  },
+  countryCodeAndPhoneNumber: {
+    nb: 'Landskode og telefonnummer',
+    no: 'Landskode og telefonnummer',
+    nn: 'Landskode og telefonnummer',
+    en: 'Country code and phone number',
+    se: 'Riikkakoda ja telefovnndanummir',
+  },
+});

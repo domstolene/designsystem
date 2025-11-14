@@ -19,4 +19,12 @@ describe('<BackLink>', () => {
 
     expect(screen.getByRole('link')).toBeInTheDocument();
   });
+  it('should be a button', () => {
+    const label = 'link';
+    const href = '#';
+    const role = 'button';
+    render(<BackLink label={label} href={href} as={role} />);
+
+    expect(screen.getByRole(role)).toBeInTheDocument();
+  });
 });

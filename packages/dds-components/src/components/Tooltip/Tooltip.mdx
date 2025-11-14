@@ -1,4 +1,4 @@
-import { Meta, Canvas, Controls } from '@storybook/blocks';
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 import {
   Source,
   ComponentLinkRow,
@@ -15,7 +15,6 @@ import * as TooltipStories from './Tooltip.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=4985%3A127667"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Tooltip"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-tooltip--default"
-  withBottomSpacing
 />
 
 En tooltip består av:
@@ -27,12 +26,13 @@ En tooltip består av:
 
 ## Props
 
-<Canvas of={TooltipStories.Default} sourceState="shown" />
-<Controls of={TooltipStories.Default} />
+<Canvas of={TooltipStories.Preview} />
+<Controls of={TooltipStories.Preview} />
 
 ### Events
 
-Det brukes ulike events til å lukke eller åpne tooltip. For å bruke callback på event som styrer tooltip må den sendes som prop til riktig element. Se oversikt over hvilket element bruker hvilken event:
+Det brukes ulike events til å lukke eller åpne tooltip.
+Hover-events settes på tooltip, mens focus-events settes på anchor-elementer.
 
 <Table.Wrapper>
   <Table size='small' style={{ width: '100%' }}>

@@ -1,6 +1,12 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/internal/test';
 
-import { categoryHtml, htmlPropsArgType } from '../../../storybook/helpers';
+import {
+  categoryHtml,
+  commonArgTypes,
+  htmlArgType,
+  htmlEventArgType,
+} from '../../../storybook';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 
 import { Checkbox } from '.';
@@ -10,27 +16,22 @@ export default {
   component: Checkbox,
   argTypes: {
     disabled: { table: categoryHtml },
-    htmlProps: htmlPropsArgType,
-    'aria-describedby': { control: false, table: categoryHtml },
-    name: { control: false, table: categoryHtml },
-    checked: { control: false, table: categoryHtml },
-    defaultChecked: { control: false, table: categoryHtml },
-    value: { control: false, table: categoryHtml },
-    defaultValue: { control: false, table: categoryHtml },
-    onChange: { control: false, table: categoryHtml },
-    onBlur: { control: false, table: categoryHtml },
+    ...commonArgTypes,
+    'aria-describedby': htmlArgType,
+    name: htmlArgType,
+    checked: htmlArgType,
+    defaultChecked: htmlArgType,
+    value: htmlArgType,
+    defaultValue: htmlArgType,
+    onBlur: htmlEventArgType,
+    onChange: htmlEventArgType,
   },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
-  },
+  args: { onChange: fn(), onBlur: fn() },
 } satisfies Meta<typeof Checkbox>;
 
 type Story = StoryObj<typeof Checkbox>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { label: 'Label' },
 };
 

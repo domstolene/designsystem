@@ -1,14 +1,17 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import { fn } from 'storybook/test';
 
 import { InputStepper } from './InputStepper';
 import {
-  categoryCss,
   categoryHtml,
-  htmlPropsArgType,
+  commonArgTypes,
+  labelText,
+  responsivePropsArgTypes,
   windowWidthDecorator,
-} from '../../storybook/helpers';
+} from '../../storybook';
 import { Button } from '../Button';
+import { INPUT_STEPPER_SIZES } from './InputStepper.types';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 export default {
@@ -18,21 +21,15 @@ export default {
     defaultValue: { control: 'number', table: categoryHtml },
     disabled: { table: categoryHtml },
     value: { control: 'number', table: categoryHtml },
-    htmlProps: htmlPropsArgType,
-    width: { control: 'text', table: categoryCss },
+    ...commonArgTypes,
+    width: responsivePropsArgTypes.width,
   },
-
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
+  args: { onChange: fn() },
 } satisfies Meta<typeof InputStepper>;
 
 type Story = StoryObj<typeof InputStepper>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: {
     maxValue: 5,
   },
@@ -48,8 +45,14 @@ export const Sizes: Story = {
   render: args => {
     return (
       <StoryHStack>
-        <InputStepper {...args} label="Medium" />
-        <InputStepper {...args} label="Small" componentSize="small" />
+        {INPUT_STEPPER_SIZES.map(size => (
+          <InputStepper
+            {...args}
+            key={size}
+            label={labelText(size)}
+            componentSize={size}
+          />
+        ))}
       </StoryHStack>
     );
   },
@@ -68,6 +71,7 @@ export const Overview: Story = {
           <InputStepper {...args} label="Hjelpetekst" tip="Hjelpetekst" />
         </StoryVStack>
         <StoryVStack>
+          <InputStepper {...args} label="Required" required />
           <InputStepper {...args} label="ReadOnly" readOnly />
           <InputStepper {...args} label="Disabled" disabled />
         </StoryVStack>

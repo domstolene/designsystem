@@ -1,6 +1,8 @@
 import { useState } from 'react';
 
 import styles from './GlobalMessage.module.css';
+import { useTranslation } from '../../i18n';
+import { commonTexts } from '../../i18n/commonTexts';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -46,6 +48,7 @@ export const GlobalMessage = ({
   htmlProps,
   ...rest
 }: GlobalMessageProps) => {
+  const { t } = useTranslation();
   const [isClosed, setClosed] = useState(false);
 
   return !isClosed ? (
@@ -75,10 +78,10 @@ export const GlobalMessage = ({
           purpose="tertiary"
           onClick={() => {
             setClosed(true);
-            onClose && onClose();
+            onClose?.();
           }}
           size="small"
-          aria-label="Lukk melding"
+          aria-label={t(commonTexts.closeMessage)}
         />
       )}
     </div>

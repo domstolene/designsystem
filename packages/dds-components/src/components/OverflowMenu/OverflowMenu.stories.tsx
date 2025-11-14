@@ -1,7 +1,7 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
-import { htmlPropsArgType } from '../../storybook/helpers';
+import { commonArgTypes } from '../../storybook';
 import { Button } from '../Button';
 import { EditIcon, MenuIcon, PersonIcon, TrashIcon } from '../Icon/icons';
 import { VStack } from '../layout';
@@ -17,23 +17,26 @@ import {
   OverflowMenuSpan,
 } from '.';
 
+const { className, htmlProps, ref } = commonArgTypes;
+
 export default {
   title: 'dds-components/Components/OverflowMenu',
   component: OverflowMenu,
   argTypes: {
-    htmlProps: htmlPropsArgType,
+    className,
+    htmlProps,
+    ref,
   },
   parameters: {
     docs: {
-      story: { height: '350px', inline: true },
-      canvas: { sourceState: 'shown' },
+      story: { height: '350px' },
     },
   },
 } satisfies Meta<typeof OverflowMenu>;
 
 type Story = StoryObj<typeof OverflowMenu>;
 
-export const Default: Story = {
+export const Preview: Story = {
   parameters: { docs: { story: { height: '480px' } } },
   render: args => {
     return (
@@ -51,7 +54,7 @@ export const Default: Story = {
               <OverflowMenuLink href="/">Link</OverflowMenuLink>
               <OverflowMenuButton
                 onClick={() => {
-                  null;
+                  //kun for showcase
                 }}
               >
                 Handling
@@ -62,7 +65,7 @@ export const Default: Story = {
             <OverflowMenuList>
               <OverflowMenuButton
                 onClick={() => {
-                  null;
+                  //kun for showcase
                 }}
               >
                 Handling
@@ -70,14 +73,14 @@ export const Default: Story = {
               <OverflowMenuButton
                 loading
                 onClick={() => {
-                  null;
+                  //kun for showcase
                 }}
               >
                 Handling 2
               </OverflowMenuButton>
               <OverflowMenuButton
                 onClick={() => {
-                  null;
+                  //kun for showcase
                 }}
                 icon={EditIcon}
               >
@@ -85,7 +88,7 @@ export const Default: Story = {
               </OverflowMenuButton>
               <OverflowMenuButton
                 onClick={() => {
-                  null;
+                  //kun for showcase
                 }}
                 icon={TrashIcon}
                 purpose="danger"
@@ -112,7 +115,7 @@ export const Controlled: Story = {
             <OverflowMenuList>
               <OverflowMenuButton
                 onClick={() => {
-                  null;
+                  //kun for showcase
                 }}
                 icon={EditIcon}
               >
@@ -120,7 +123,7 @@ export const Controlled: Story = {
               </OverflowMenuButton>
               <OverflowMenuButton
                 onClick={() => {
-                  null;
+                  //kun for showcase
                 }}
                 icon={TrashIcon}
                 purpose="danger"
@@ -169,7 +172,7 @@ export const WithButtons: Story = {
             <OverflowMenuList>
               <OverflowMenuButton
                 onClick={() => {
-                  null;
+                  //kun for showcase
                 }}
               >
                 Handling
@@ -180,14 +183,14 @@ export const WithButtons: Story = {
             <OverflowMenuList>
               <OverflowMenuButton
                 onClick={() => {
-                  null;
+                  //kun for showcase
                 }}
               >
                 Handling
               </OverflowMenuButton>
               <OverflowMenuButton
                 onClick={() => {
-                  null;
+                  //kun for showcase
                 }}
                 icon={EditIcon}
               >
@@ -195,7 +198,7 @@ export const WithButtons: Story = {
               </OverflowMenuButton>
               <OverflowMenuButton
                 onClick={() => {
-                  null;
+                  //kun for showcase
                 }}
                 icon={TrashIcon}
                 purpose="danger"

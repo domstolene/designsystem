@@ -9,20 +9,17 @@ import {
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { getFormInputIconSize } from '../../utils/icon';
-import {
-  StatefulInput,
-  getDefaultText,
-  getInputWidth,
-  renderCharCounter,
-} from '../helpers';
+import { renderCharCounter } from '../helpers/CharCounter';
+import { StatefulInput, getDefaultText, getInputWidth } from '../helpers/Input';
 import inputStyles from '../helpers/Input/Input.module.css';
 import { Icon } from '../Icon';
 import { renderInputMessage } from '../InputMessage';
 import { Box } from '../layout';
-import { Label } from '../Typography';
+import { renderLabel } from '../Typography/Label/Label.utils';
 
 export const TextInput = ({
   label,
+  afterLabelContent,
   disabled,
   readOnly,
   errorMessage,
@@ -54,12 +51,14 @@ export const TextInput = ({
   const [suffixLength, setSuffixLength] = useState(0);
 
   useLayoutEffect(() => {
-    if (prefixRef.current) {
-      setPrefixLength(prefixRef.current.offsetWidth);
-    }
-    if (suffixRef.current) {
-      setSuffixLength(suffixRef.current.offsetWidth);
-    }
+    requestAnimationFrame(() => {
+      if (prefixRef.current) {
+        setPrefixLength(prefixRef.current.offsetWidth);
+      }
+      if (suffixRef.current) {
+        setSuffixLength(suffixRef.current.offsetWidth);
+      }
+    });
   }, [prefix, suffix]);
 
   const onChangeHandler: React.ChangeEventHandler<HTMLInputElement> = (
@@ -77,7 +76,6 @@ export const TextInput = ({
 
   const hasErrorMessage = !!errorMessage;
   const hasTip = !!tip;
-  const hasLabel = !!label;
   const hasMessage = hasErrorMessage || hasTip;
   const hasBottomContainer = hasErrorMessage || hasTip || !!maxLength;
   const hasIcon = !!icon;
@@ -119,10 +117,9 @@ export const TextInput = ({
     ...rest,
   };
 
-  // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
   const showRequiredStyling = !!(required || ariaRequired);
 
-  const preffixPaddingInlineStart: Property.PaddingInlineStart | undefined =
+  const prefixPaddingInlineStart: Property.PaddingInlineStart | undefined =
     prefixLength
       ? `calc(var(--dds-spacing-x1) + ${prefixLength}px)`
       : undefined;
@@ -137,20 +134,18 @@ export const TextInput = ({
   if (hasIcon) {
     extendedInput = (
       <Box className={inputStyles['input-group']} width={inputWidth}>
-        {
-          <Icon
-            icon={icon}
-            iconSize={getFormInputIconSize(componentSize)}
-            className={cn(
-              inputStyles['input-group__absolute-element'],
-              styles[`icon--${componentSize}`],
-            )}
-          />
-        }
+        <Icon
+          icon={icon}
+          iconSize={getFormInputIconSize(componentSize)}
+          className={cn(
+            inputStyles['input-group__absolute-el'],
+            inputStyles[`input-group__absolute-el--${componentSize}`],
+            styles[`icon--${componentSize}`],
+          )}
+        />
         <StatefulInput
           className={cn(
-            styles.input,
-            styles[`with-icon--${componentSize}`],
+            inputStyles[`input-with-icon--${componentSize}`],
             styles['input--extended'],
           )}
           {...generalInputProps}
@@ -180,7 +175,7 @@ export const TextInput = ({
         )}
         <StatefulInput
           style={{
-            paddingInlineStart: preffixPaddingInlineStart,
+            paddingInlineStart: prefixPaddingInlineStart,
             paddingInlineEnd: suffixPaddingInlineEnd,
           }}
           className={styles['input--extended']}
@@ -214,17 +209,13 @@ export const TextInput = ({
       )}
       style={style}
     >
-      {hasLabel && (
-        <Box
-          as={Label}
-          display="block"
-          htmlFor={uniqueId}
-          showRequiredStyling={showRequiredStyling}
-          readOnly={readOnly}
-        >
-          {label}
-        </Box>
-      )}
+      {renderLabel({
+        label,
+        htmlFor: uniqueId,
+        showRequiredStyling,
+        readOnly,
+        afterLabelContent,
+      })}
       {extendedInput ? (
         extendedInput
       ) : (
@@ -243,7 +234,7 @@ export const TextInput = ({
           gap="x0.5"
           width={withCharacterCounter ? inputWidth : undefined}
         >
-          {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
+          {renderInputMessage({ tip, tipId, errorMessage, errorMessageId })}
           {renderCharCounter(
             characterCounterId,
             withCharacterCounter,

@@ -1,8 +1,4 @@
-import {
-  type ElementType,
-  type HTMLAttributes,
-  type PropsWithChildren,
-} from 'react';
+import { type CSSProperties, type ElementType } from 'react';
 
 import { type TextColor } from '../../../utils/color';
 
@@ -110,19 +106,20 @@ export type InlineElement =
   | 'video'
   | 'wbr';
 
-export type BaseTypographyProps = PropsWithChildren<{
+export interface BaseTypographyProps {
+  /**Tekstfarge fra utvalget eller custom. **OBS!** Bruk farger fra `@dds-design-tokens` med navn i kebab-case, f.eks. `text-subtle`. */
+  color?: TextColor;
   /**Spesifiserer om tekstelementet skal ha spacing definert i Elsa.
    * Brukes hovedsakelig i artikler og lignende.
    * **OBS!** har forskjellig virkning på ulike typografityper.
    * `body` og `lead`-typer får margin på bunnen, `heading`-typer får margin på bunnen og padding på toppen mens label får margin topp og bunn.
    * */
   withMargins?: boolean;
-}> &
-  Pick<HTMLAttributes<HTMLElement>, 'style'>;
+  /**HTML style. */
+  style?: CSSProperties;
+}
 
 export type TypographyComponentProps = BaseTypographyProps & {
-  /**Tekstfarge fra utvalget eller custom. **OBS!** Bruk farger fra `@dds-design-tokens`. */
-  color?: TextColor;
   /**Setter `bold` styling. */
   bold?: boolean;
   /**Setter `italic` styling. */

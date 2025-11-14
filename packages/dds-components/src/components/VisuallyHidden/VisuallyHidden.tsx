@@ -1,36 +1,35 @@
+import { type ElementType } from 'react';
+
+import { ElementAs } from '../../polymorphic';
 import {
-  type BaseComponentPropsWithChildren,
+  type PolymorphicBaseComponentProps,
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 
-type VisuallyHiddenDivProps = BaseComponentPropsWithChildren<
-  HTMLDivElement,
-  { as: 'div' }
->;
+export type VisuallyHiddenProps<T extends ElementType = 'span'> =
+  PolymorphicBaseComponentProps<T>;
 
-type VisuallyHiddenSpanProps = BaseComponentPropsWithChildren<
-  HTMLSpanElement,
-  {
-    /**Spesifiserer hvilken HTML tag skal returneres. */
-    as: 'span';
-  }
->;
-
-export type VisuallyHiddenProps =
-  | VisuallyHiddenSpanProps
-  | VisuallyHiddenDivProps;
-
-export const VisuallyHidden = (props: VisuallyHiddenProps) => {
-  const { id, className, htmlProps, as, ...rest } = props;
-
-  const cl = cn(className, utilStyles['visually-hidden']);
-
-  if (as === 'div') {
-    return <div {...getBaseHTMLProps(id, cl, htmlProps, rest)} />;
-  }
-  return <span {...getBaseHTMLProps(id, cl, htmlProps, rest)} />;
+export const VisuallyHidden = <T extends ElementType = 'span'>({
+  id,
+  as: asProp,
+  className,
+  htmlProps,
+  ...rest
+}: VisuallyHiddenProps<T>) => {
+  const as = asProp ?? 'span';
+  return (
+    <ElementAs
+      as={as}
+      {...getBaseHTMLProps(
+        id,
+        cn(className, utilStyles['visually-hidden']),
+        htmlProps,
+        rest,
+      )}
+    />
+  );
 };
 
 VisuallyHidden.displayName = 'VisuallyHidden';

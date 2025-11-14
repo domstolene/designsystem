@@ -1,6 +1,7 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
+import { commonArgTypes } from '../../../storybook';
 import { Button } from '../../Button';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 
@@ -10,18 +11,8 @@ export default {
   title: 'dds-components/Components/RadioButton/RadioButtonGroup',
   component: RadioButtonGroup,
   argTypes: {
-    label: { control: { type: 'text' } },
-    errorMessage: { control: { type: 'text' } },
-    tip: { control: { type: 'text' } },
-    disabled: { control: { type: 'boolean' } },
-    readOnly: { control: { type: 'boolean' } },
-    required: { control: { type: 'boolean' } },
-  },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
+    ...commonArgTypes,
+    value: { control: false },
   },
 } satisfies Meta<typeof RadioButtonGroup>;
 
@@ -42,8 +33,8 @@ const childrenString = [
 let counter = 0;
 const name = () => `test${counter++}`;
 
-export const Default: Story = {
-  args: { label: 'Label', children },
+export const Preview: Story = {
+  args: { label: 'Label', children, name: 'test' },
 };
 
 export const Overview: Story = {

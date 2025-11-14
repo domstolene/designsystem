@@ -1,4 +1,10 @@
-import { Canvas, Controls, Meta, Primary, Story } from '@storybook/blocks';
+import {
+  Canvas,
+  Controls,
+  Meta,
+  Primary,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import {
   Source,
   ComponentLinkRow,
@@ -14,7 +20,6 @@ import * as InternalHeaderStories from './InternalHeader.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=3431%3A94756"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/InternalHeader"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-internalheader--with-navigation-and-context-menu"
-  withBottomSpacing
 />
 
 `<InternalHeader>` er ment for å bli brukt som header i alle Lovisa
@@ -31,10 +36,7 @@ applikasjoner vil være tilgjengelige ved å trykke på det som i dag er navn p�
 
 ## Props
 
-<Canvas
-  of={InternalHeaderStories.WithNavigationAndContextMenu}
-  sourceState="shown"
-/>
+<Canvas of={InternalHeaderStories.WithNavigationAndContextMenu} />
 <Controls of={InternalHeaderStories.WithNavigationAndContextMenu} />
 
 ### Types

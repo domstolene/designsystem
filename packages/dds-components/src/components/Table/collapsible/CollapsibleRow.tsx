@@ -8,15 +8,15 @@ import {
 } from 'react';
 
 import { useCollapsibleTableContext } from './Table.context';
+import { createTexts, useTranslation } from '../../../i18n';
 import {
   cn,
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../../utils';
 import { DescriptionList, DescriptionListTerm } from '../../DescriptionList';
-import { AnimatedChevronUpDown } from '../../helpers';
+import { AnimatedChevronUpDown, StylelessButton } from '../../helpers';
 import { focusable } from '../../helpers/styling/focus.module.css';
-import utilStyles from '../../helpers/styling/utilStyles.module.css';
 import { VisuallyHidden } from '../../VisuallyHidden';
 import { Table, type TableRowProps } from '../normal';
 import { Cell, type TableCellProps } from '../normal/Cell';
@@ -34,6 +34,7 @@ export const CollapsibleRow = ({
   ref,
   ...rest
 }: TableRowProps) => {
+  const { t } = useTranslation();
   const isInHead = useIsInTableHead();
   const type = _type ?? (isInHead ? 'head' : 'body');
   const { isCollapsed, headerValues, definingColumnIndex } =
@@ -41,7 +42,7 @@ export const CollapsibleRow = ({
   const [childrenCollapsed, setChildrenCollapsed] = useState(true);
 
   useEffect(() => {
-    !isCollapsed && setChildrenCollapsed(true);
+    if (!isCollapsed) setChildrenCollapsed(true);
   }, [isCollapsed]);
 
   const rowProps = (isOpenCollapsibleHeader?: boolean) => {
@@ -116,8 +117,8 @@ export const CollapsibleRow = ({
         <>
           {definingColumnCells}
           <Table.Cell type="head" layout="center">
-            Utvid
-            <VisuallyHidden as="span">raden</VisuallyHidden>
+            {t(texts.expand)}
+            <VisuallyHidden>{t(texts.row)}</VisuallyHidden>
           </Table.Cell>
         </>
       </Row>
@@ -133,23 +134,18 @@ export const CollapsibleRow = ({
       <Row ref={ref} {...rowProps(!childrenCollapsed && true)}>
         {definingColumnCells}
         <Table.Cell>
-          <button
+          <StylelessButton
             onClick={() => setChildrenCollapsed(!childrenCollapsed)}
             aria-expanded={!childrenCollapsed}
             aria-controls={idList}
-            className={cn(
-              styles['collapse-button'],
-              utilStyles['normalize-button'],
-              utilStyles['remove-button-styling'],
-              focusable,
-            )}
+            className={cn(styles['collapse-button'], focusable)}
           >
             <AnimatedChevronUpDown
               isUp={childrenCollapsed ? false : true}
               height="8px"
               width="12px"
             />
-          </button>
+          </StylelessButton>
         </Table.Cell>
       </Row>
     );
@@ -175,3 +171,20 @@ export const CollapsibleRow = ({
 };
 
 CollapsibleRow.displayName = 'CollapsibleTable.Row';
+
+const texts = createTexts({
+  expand: {
+    nb: 'Utvid',
+    no: 'Utvid',
+    nn: 'Utvid',
+    en: 'Expand',
+    se: 'Viiddit',
+  },
+  row: {
+    nb: 'raden',
+    no: 'raden',
+    nn: 'rada',
+    en: 'row',
+    se: 'gurgadus',
+  },
+});

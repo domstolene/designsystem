@@ -1,0 +1,54 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
+import * as useReturnFocusOnBlurStories from './useReturnFocusOnBlur.stories';
+
+<Meta of={useReturnFocusOnBlurStories} />
+
+# useReturnFocusOnBlur
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/87401f-usereturnfocusonblur"
+  githubHref="https://github.com/domstolene/designsystem/blob/main/packages/dds-components/src/hooks/useReturnFocusOnBlur/useReturnFocusOnBlur.tsx"
+/>
+
+Returnerer fokus til et element når første eller siste barn i en container mister fokus ved tastaturnavigasjon.
+
+`@returns` `ref` til container som får fokus.
+
+<Canvas of={useReturnFocusOnBlurStories.Preview} sourceState="none" />
+<Controls of={useReturnFocusOnBlurStories.Preview} />
+
+## Bruk
+
+<Source code={`
+import { useReturnFocusOnBlur } from '@norges-domstoler/dds-components';
+
+function MyComponent() {
+const [isOpen, setOpen] = useState(false);
+const triggerRef = useRef<HTMLButtonElement>(null);
+const containerRef = useReturnFocusOnBlur<HTMLDivElement>(
+isOpen,
+() => setOpen(false),
+triggerRef.current,
+);
+
+    return (
+        <div>
+        <button
+            ref={triggerRef}
+            onClick={() => setOpen(true)} >
+            Åpne popover
+        </button>
+        {isOpen &&
+            <div ref={containerRef}>
+                <button>1</button>
+                <button>2</button>
+            </div>
+        }
+        </div>
+    )
+
+};`} />

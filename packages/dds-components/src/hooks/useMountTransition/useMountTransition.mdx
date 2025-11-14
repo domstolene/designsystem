@@ -1,0 +1,56 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
+import * as useMountTransitionStories from './useMountTransition.stories';
+
+<Meta of={useMountTransitionStories} />
+
+# useMountTransition
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/38d3f0-usemounttransition"
+  githubHref="https://github.com/domstolene/designsystem/blob/main/packages/dds-components/src/hooks/useMountTransition/useMountTransition.tsx"
+/>
+
+Tillater effekter og animasjoner for elementer som blir lagt til og/eller fjernet fra DOM; like etter mount eller like før unmount.
+
+`@returns` om transisjonen kjører (er mounted og synlig).
+
+<Canvas of={useMountTransitionStories.Preview} sourceState="none" />
+<Controls of={useMountTransitionStories.Preview} />
+
+## Bruk
+
+### CSS
+
+<Source language='css' code={`
+.component {
+   transition: opacity 0.2s;
+   opacity: 0;
+  }
+
+.transitionedIn.mounted {
+opacity: 1;
+}
+};`} />
+
+### JSX
+
+<Source code={`
+import { useMountTransition } from '@norges-domstoler/dds-components';
+
+function MyComponent(){
+
+const [isOpen, setOpen] = useState(true);
+const hasTransitionedIn = useMountTransition(isOpen, 500);
+
+return isOpen || hasTransitionedIn ?
+
+  <div
+      className={\`component \${hasTransitionedIn && 'transitionedIn'} \${isOpen && 'mounted'}\`}>
+      innhold
+  </div>
+  : null
+};`} />

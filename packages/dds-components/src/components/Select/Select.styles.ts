@@ -1,11 +1,8 @@
 import { type GroupBase, type StylesConfig } from 'react-select';
 
-import {
-  type InputSize,
-  focusVisible,
-  focusVisibleTransitionValue,
-} from '../helpers';
+import { focusVisible, focusVisibleTransitionValue } from '../helpers';
 import { scrollbarStyling } from '../helpers';
+import { type InputSize } from '../helpers/Input';
 
 type SelectTypography = Record<
   InputSize,
@@ -64,7 +61,7 @@ const control = {
     },
     hasIcon: {
       paddingLeft:
-        'calc(var(--dds-spacing-x0-75) + var(--dds-icon-size-medium) + var(--dds-spacing-x0-5))',
+        'calc(var(--dds-spacing-x0-75) + var(--dds-icon-size-medium) + var(--dds-spacing-md-icon-text-gap))',
     },
   },
   small: {
@@ -75,7 +72,7 @@ const control = {
     },
     hasIcon: {
       paddingLeft:
-        'calc(var(--dds-spacing-x0-75) + var(--dds-icon-size-medium) + var(--dds-spacing-x0-5))',
+        'calc(var(--dds-spacing-x0-75) + var(--dds-icon-size-medium) + var(--dds-spacing-sm-icon-text-gap))',
     },
   },
   xsmall: {
@@ -86,7 +83,7 @@ const control = {
     },
     hasIcon: {
       paddingLeft:
-        'calc(var(--dds-spacing-x0-5) + var(--dds-icon-size-small) + var(--dds-spacing-x0-5))',
+        'calc(var(--dds-spacing-x0-5) + var(--dds-icon-size-small) + var(--dds-spacing-xs-icon-text-gap))',
     },
   },
 };
@@ -252,7 +249,7 @@ export const getCustomStyles = <TOption>(
     cursor: 'pointer',
     display: 'flex',
     alignItems: 'center',
-    gap: 'var(--dds-spacing-x0-5)',
+    gap: 'var(--dds-spacing-x0-25)',
     padding: 'var(--dds-spacing-x0-75)',
     backgroundColor: 'var(--dds-color-surface-default)',
     ...typography.option[size],

@@ -11,6 +11,7 @@ import {
 import { useContext } from 'react';
 
 import { CalendarCell } from './CalendarCell';
+import { createTexts, useTranslation } from '../../../../i18n';
 import { cn } from '../../../../utils';
 import typographyStyles from '../../../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../../../VisuallyHidden';
@@ -23,6 +24,7 @@ interface CalendarGridProps extends AriaCalendarGridProps {
 }
 
 export function CalendarGrid({ state, ...props }: CalendarGridProps) {
+  const { t } = useTranslation();
   const { locale } = useLocale();
   const {
     gridProps: { onKeyDown, ...gridProps },
@@ -31,7 +33,15 @@ export function CalendarGrid({ state, ...props }: CalendarGridProps) {
 
   // Get the number of weeks in the month so we can render the proper number of rows.
   const weeksInMonth = getWeeksInMonth(state.visibleRange.start, locale);
-  const weekDays = ['Ma', 'Ti', 'On', 'To', 'Fr', 'Lø', 'Sø'];
+  const weekDays = [
+    { short: t(texts.mo), full: t(texts.monday) },
+    { short: t(texts.tu), full: t(texts.tuesday) },
+    { short: t(texts.we), full: t(texts.wednesday) },
+    { short: t(texts.th), full: t(texts.thursday) },
+    { short: t(texts.fr), full: t(texts.friday) },
+    { short: t(texts.sa), full: t(texts.saturday) },
+    { short: t(texts.su), full: t(texts.sunday) },
+  ];
 
   const { showWeekNumbers, onClose } = useContext(CalendarPopoverContext);
 
@@ -60,12 +70,14 @@ export function CalendarGrid({ state, ...props }: CalendarGridProps) {
             <th
               className={cn(styles['calendar__grid-element'], ...typographyCn)}
             >
-              # <VisuallyHidden as="span">Ukenummer</VisuallyHidden>
+              <span aria-hidden>#</span>
+              <VisuallyHidden>{t(texts.weekNumber)}</VisuallyHidden>
             </th>
           )}
           {weekDays.map((day, index) => (
             <th key={index} className={cn(...typographyCn)}>
-              {day}
+              <span aria-hidden>{day.short}</span>
+              <VisuallyHidden>{day.full}</VisuallyHidden>
             </th>
           ))}
         </tr>
@@ -111,3 +123,111 @@ export function CalendarGrid({ state, ...props }: CalendarGridProps) {
 }
 
 CalendarGrid.displayName = 'CalendarGrid';
+
+const texts = createTexts({
+  weekNumber: {
+    nb: 'Ukenummer',
+    no: 'Ukenummer',
+    nn: 'Vekenummer',
+    en: 'Week number',
+    se: 'Vahkkonummir',
+  },
+  mo: {
+    nb: 'Ma',
+    no: 'Ma',
+    nn: 'Må',
+    en: 'Mo',
+    se: 'Vuos',
+  },
+  tu: {
+    nb: 'Ti',
+    no: 'Ti',
+    nn: 'Ty',
+    en: 'Tu',
+    se: 'Maŋ',
+  },
+  we: {
+    nb: 'On',
+    no: 'On',
+    nn: 'On',
+    en: 'We',
+    se: 'Gask',
+  },
+  th: {
+    nb: 'To',
+    no: 'To',
+    nn: 'To',
+    en: 'Th',
+    se: 'Duo',
+  },
+  fr: {
+    nb: 'Fr',
+    no: 'Fr',
+    nn: 'Fr',
+    en: 'Fr',
+    se: 'Bea',
+  },
+  sa: {
+    nb: 'Lø',
+    no: 'Lø',
+    nn: 'La',
+    en: 'Sa',
+    se: 'Láv',
+  },
+  su: {
+    nb: 'Sø',
+    no: 'Sø',
+    nn: 'Su',
+    en: 'Su',
+    se: 'Sotn',
+  },
+  monday: {
+    nb: 'Mandag',
+    no: 'Mandag',
+    nn: 'Måndag',
+    en: 'Monday',
+    se: 'Vuossárga',
+  },
+  tuesday: {
+    nb: 'Tirsdag',
+    no: 'Tirsdag',
+    nn: 'Tysdag',
+    en: 'Tuesday',
+    se: 'Maŋŋebárga',
+  },
+  wednesday: {
+    nb: 'Onsdag',
+    no: 'Onsdag',
+    nn: 'Onsdag',
+    en: 'Wednesday',
+    se: 'Gaskavahkku',
+  },
+  thursday: {
+    nb: 'Torsdag',
+    no: 'Torsdag',
+    nn: 'Torsdag',
+    en: 'Thursday',
+    se: 'Duorastat',
+  },
+  friday: {
+    nb: 'Fredag',
+    no: 'Fredag',
+    nn: 'Fredag',
+    en: 'Friday',
+    se: 'Bearjadat',
+  },
+  saturday: {
+    nb: 'Lørdag',
+    no: 'Lørdag',
+    nn: 'Laurdag',
+    en: 'Saturday',
+    se: 'Lávvardat',
+  },
+  sunday: {
+    nb: 'Søndag',
+    no: 'Søndag',
+    nn: 'Sundag',
+    en: 'Sunday',
+    se: 'Sotnabeaivi',
+  },
+});

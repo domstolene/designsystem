@@ -1,8 +1,16 @@
 import { Time } from '@internationalized/date';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import { fn } from 'storybook/test';
 
+import {
+  htmlEventArgType,
+  labelText,
+  responsivePropsArgTypes,
+  themeProviderDecorator,
+} from '../../../storybook';
 import { Button } from '../../Button';
+import { INPUT_SIZES } from '../../helpers/Input';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 
 import { TimePicker } from '.';
@@ -11,22 +19,24 @@ const meta: Meta<typeof TimePicker> = {
   title: 'dds-components/Components/TimePicker',
   component: TimePicker,
   argTypes: {
-    width: { control: 'text' },
+    width: responsivePropsArgTypes.width,
+    isDisabled: { control: 'boolean' },
+    isReadOnly: { control: 'boolean' },
+    isRequired: { control: 'boolean' },
     className: { table: { disable: true } },
+    onBlur: htmlEventArgType,
+    onChange: htmlEventArgType,
+    onFocus: htmlEventArgType,
   },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
-  },
+  args: { onBlur: fn(), onFocus: fn(), onChange: fn(), onFocusChange: fn() },
+  decorators: [Story => themeProviderDecorator(<Story />)],
 };
 
 export default meta;
 
 type Story = StoryObj<typeof TimePicker>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { label: 'Tidspunkt' },
 };
 
@@ -81,12 +91,17 @@ export const ReadOnly: Story = {
   args: { label: 'Tidspunkt', isReadOnly: true },
 };
 
-export const OverviewSizes: Story = {
+export const Sizes: Story = {
   render: args => (
     <StoryVStack>
-      <TimePicker {...args} componentSize="medium" label="Medium" />
-      <TimePicker {...args} componentSize="small" label="Small" />
-      <TimePicker {...args} componentSize="xsmall" label="Xsmall" />
+      {INPUT_SIZES.map(size => (
+        <TimePicker
+          {...args}
+          key={size}
+          componentSize={size}
+          label={labelText(size)}
+        />
+      ))}
     </StoryVStack>
   ),
 };

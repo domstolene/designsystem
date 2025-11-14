@@ -1,3 +1,5 @@
+import { type HTMLAttributes } from 'react';
+
 import styles from './Divider.module.css';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
@@ -11,7 +13,8 @@ export type DividerProps = BaseComponentProps<
      * @default "default"
      */
     color?: DividerColor;
-  }
+  },
+  Omit<HTMLAttributes<HTMLHRElement>, 'color'>
 >;
 
 export const Divider = ({

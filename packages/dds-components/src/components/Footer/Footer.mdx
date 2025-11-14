@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta, ArgTypes } from '@storybook/blocks';
+import { Canvas, Controls, Meta, ArgTypes } from '@storybook/addon-docs/blocks';
 import {
   Source,
   ComponentLinkRow,
@@ -14,7 +14,6 @@ import { FooterListHeader, FooterLogo } from '.';
   docsHref="https://design.domstol.no/987b33f71/p/802ff0-button/b/32e1a2"
   figmaHref="https://www.figma.com/design/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?node-id=17100-91741"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Footer"
-  withBottomSpacing
 />
 
 `<Footer>` er en fleksibel komponent som tillatter å bygge en footer fra bunn av.
@@ -36,8 +35,8 @@ Følgende subkomponenter er tilgjengelige:
 
 Du kan åpne [alenestående demo](https://domstolene.github.io/designsystem/?path=/story/dds-components-components-footer--default) og endre bredden til nettleservinduet for å se implementasjonen av brekkpunktene.
 
-<Canvas of={FooterStories.Default} />
-<Controls of={FooterStories.Default} />
+<Canvas of={FooterStories.Preview} />
+<Controls of={FooterStories.Preview} />
 
 ## Subkomponenter
 

@@ -1,6 +1,12 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
-import { categoryHtml, htmlPropsArgType } from '../../../storybook/helpers';
+import {
+  categoryHtml,
+  commonArgTypes,
+  htmlArgType,
+  htmlEventArgType,
+} from '../../../storybook';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 
 import { RadioButton } from '.';
@@ -10,19 +16,20 @@ export default {
   component: RadioButton,
   argTypes: {
     disabled: { table: categoryHtml },
-    htmlProps: htmlPropsArgType,
+    required: { table: categoryHtml },
+    ...commonArgTypes,
+    'aria-describedby': htmlArgType,
+    name: htmlArgType,
+    checked: htmlArgType,
+    value: htmlArgType,
+    onChange: htmlEventArgType,
   },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
-  },
+  args: { onChange: fn() },
 } satisfies Meta<typeof RadioButton>;
 
 type Story = StoryObj<typeof RadioButton>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { label: 'Label' },
 };
 

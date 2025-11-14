@@ -1,4 +1,4 @@
-import { Meta, Canvas, Controls } from '@storybook/blocks';
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as FeedbackStories from './Feedback.stories';
 
@@ -11,15 +11,14 @@ import * as FeedbackStories from './Feedback.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A38"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Feedback"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-feedback--default"
-  withBottomSpacing
 />
 
 `<Feedback>` brukes til å samle inn tilbakemeldinger rundt bruk og opplevelse av domstolenes tjenester.
 
 ## Props
 
-<Canvas of={FeedbackStories.Default} sourceState="shown" />
-<Controls of={FeedbackStories.Default} />
+<Canvas of={FeedbackStories.Preview} />
+<Controls of={FeedbackStories.Preview} />
 
 ## Implementasjon hos domstolene
 

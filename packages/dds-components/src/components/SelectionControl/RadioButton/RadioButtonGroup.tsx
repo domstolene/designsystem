@@ -14,7 +14,7 @@ import { cn } from '../../../utils';
 import { renderInputMessage } from '../../InputMessage';
 import { type SelectionControlGroupCommonProps } from '../common/SelectionControl.types';
 import styles from '../SelectionControl.module.css';
-import { GroupLabel } from '../SelectionControl.styles';
+import { renderGroupLabel } from '../SelectionControl.styles';
 
 export type RadioButtonGroupProps<T extends string | number> =
   BaseComponentPropsWithChildren<
@@ -68,7 +68,7 @@ export const RadioButtonGroup = <T extends string | number = string>({
   });
 
   const hasErrorMessage = !!errorMessage;
-  const showRequiredMarker =
+  const showRequiredStyling =
     required || convertBooleanishToBoolean(ariaRequired);
 
   const tipId = tip && `${uniqueGroupId}-tip`;
@@ -95,16 +95,13 @@ export const RadioButtonGroup = <T extends string | number = string>({
         rest,
       )}
     >
-      {label !== undefined ? (
-        <GroupLabel
-          id={uniqueGroupId}
-          readOnly={readOnly}
-          showRequiredMarker={showRequiredMarker}
-        >
-          {label}
-        </GroupLabel>
-      ) : null}
-      {renderInputMessage(tip, tipId)}
+      {renderGroupLabel({
+        label,
+        id: uniqueGroupId,
+        readOnly,
+        showRequiredStyling,
+      })}
+      {renderInputMessage({ tip, tipId })}
       <RadioButtonGroupContext value={{ ...contextProps }}>
         <div
           role="radiogroup"
@@ -116,7 +113,7 @@ export const RadioButtonGroup = <T extends string | number = string>({
           {children}
         </div>
       </RadioButtonGroupContext>
-      {renderInputMessage(undefined, undefined, errorMessage, errorMessageId)}
+      {renderInputMessage({ errorMessage, errorMessageId })}
     </div>
   );
 };

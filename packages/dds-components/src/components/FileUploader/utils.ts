@@ -38,8 +38,3 @@ export const isFileAccepted = (
 //   minSize: number | undefined,
 //   maxSize: number | undefined
 // ): boolean => {};
-
-export const getTooManyFilesErrorMessage = (maxFiles: number) =>
-  `For mange filer, maks ${maxFiles}stk`;
-
-export const getInvalidFileTypeErrorMessage = () => 'Ugyldig filtype';

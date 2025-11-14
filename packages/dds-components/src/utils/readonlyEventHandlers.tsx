@@ -19,11 +19,11 @@ export const readOnlyMouseDownHandler = <T,>(
       evt.preventDefault();
       // gi fokus til elementet per standard readonly oppførsel
       (evt.target as HTMLElement).focus();
-    } else onMouseDown && onMouseDown(evt);
+    } else onMouseDown?.(evt);
   };
 };
 
-type ReadOnlyKeyDownHandlerType = 'select' | 'selectionControl';
+type ReadOnlyKeyDownHandlerType = 'select' | 'selectionControl' | 'file';
 
 export const readOnlyKeyDownHandler = <T,>(
   type: ReadOnlyKeyDownHandlerType,
@@ -42,8 +42,10 @@ export const readOnlyKeyDownHandler = <T,>(
         evt.preventDefault();
       } else if (type === 'selectionControl' && evt.key === ' ') {
         evt.preventDefault();
+      } else if (type === 'file' && (evt.key === ' ' || evt.key === 'Enter')) {
+        evt.preventDefault();
       }
-    } else onKeyDown && onKeyDown(evt);
+    } else onKeyDown?.(evt);
   };
 };
 
@@ -55,7 +57,7 @@ export const readOnlyChangeHandler = <T,>(
     if (readOnly) {
       return;
     }
-    onChange && onChange(evt);
+    onChange?.(evt);
   };
 };
 
@@ -68,6 +70,6 @@ export const readOnlyClickHandler = <T,>(
       evt.preventDefault();
       return;
     }
-    onClick && onClick(evt);
+    onClick?.(evt);
   };
 };

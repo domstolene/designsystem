@@ -1,7 +1,6 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { htmlPropsArgType } from '../../storybook/helpers';
-import { StoryHStack } from '../layout/Stack/utils';
+import { commonArgTypes } from '../../storybook';
 
 import { Spinner } from '.';
 
@@ -11,29 +10,20 @@ export default {
   argTypes: {
     color: { control: 'text' },
     size: { control: 'text' },
-    htmlProps: htmlPropsArgType,
-  },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
+    ...commonArgTypes,
   },
 } satisfies Meta<typeof Spinner>;
 
 type Story = StoryObj<typeof Spinner>;
 
-export const Default: Story = {};
+export const Preview: Story = {};
 
-export const Overview: Story = {
-  render: args => (
-    <StoryHStack>
-      <Spinner {...args} />
-      <Spinner {...args} color="iconSubtle" />
-      <Spinner {...args} color="iconOnSuccessDefault" />
-      <Spinner {...args} size="60px" />
-    </StoryHStack>
-  ),
+export const CustomColor: Story = {
+  args: { color: 'icon-on-success-default' },
+};
+
+export const CustomSize: Story = {
+  args: { size: '150px' },
 };
 
 export const CustomTooltip: Story = {

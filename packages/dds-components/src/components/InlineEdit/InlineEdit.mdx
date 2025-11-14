@@ -1,8 +1,9 @@
-import { Meta, Canvas, Controls } from '@storybook/blocks';
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as InlineEditStories from './InlineEdit.stories';
-import * as InlineEditInputStories from './InlineEditInput.stories';
-import * as InlineEditTextAreaStories from './InlineEditTextArea.stories';
+import * as InlineEditInputStories from './InlineEditInput/InlineEditInput.stories';
+import * as InlineEditTextAreaStories from './InlineEditTextArea/InlineEditTextArea.stories';
+import * as InlineEditSelectStories from './InlineEditSelect/InlineEditSelect.stories';
 
 <Meta of={InlineEditStories} />
 
@@ -13,26 +14,33 @@ import * as InlineEditTextAreaStories from './InlineEditTextArea.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/InlineEdit"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?node-id=9005%3A150044"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-inlineedit--overview-input-types"
-  withBottomSpacing
 />
 
-`<InlineEdit>`-komponentene håndterer inline redigering, f.eks i tabeller. Vi har følgende komponenter:
+`<InlineEdit>`-komponentene håndterer inline redigering, der brukeren kan trykke `Enter` for å lagre verdien i feltet. Brukes f.eks i tabeller. Vi har følgende komponenter:
 
 - `<InlineEditInput>` - returnerer `<input>`.
 - `<InlineEditTextArea>` - returnerer `<textarea>`.
+- `<InlineEditSelect>` - returnerer `<select>`.
 
 ## Props
 
-### InlineEditTextArea
-
-Inputfeltet. Returnerer `<textarea>`.
-
-<Canvas of={InlineEditTextAreaStories.Default} sourceState="shown" />
-<Controls of={InlineEditTextAreaStories.Default} />
-
 ### InlineEditInput
 
-Inputfeltet. Returnerer `<input>`.
+Inputfelt. Returnerer `<input>`.
 
-<Canvas of={InlineEditInputStories.Default} sourceState="shown" />
-<Controls of={InlineEditInputStories.Default} />
+<Canvas of={InlineEditInputStories.Preview} />
+<Controls of={InlineEditInputStories.Preview} />
+
+### InlineEditTextArea
+
+Inputfelt med flere linjer. Returnerer `<textarea>`.
+
+<Canvas of={InlineEditTextAreaStories.Preview} />
+<Controls of={InlineEditTextAreaStories.Preview} />
+
+### InlineEditSelect
+
+Nedtrekksliste. Returnerer nativ `<select>`. Bruk `<option>` som barn. **OBS!** husk tom `<option>` for initiell tom verdi og/eller tømbar variant. Komponenten tømmer verdi ved å velge `<option>` uten barn.
+
+<Canvas of={InlineEditSelectStories.Preview} />
+<Controls of={InlineEditSelectStories.Preview} />

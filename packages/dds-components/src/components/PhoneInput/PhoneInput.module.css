@@ -81,8 +81,8 @@
   }
 }
 
-select:focus-visible,
-select:hover {
+.select:focus-visible,
+.select:hover {
   z-index: var(--dds-zindex-absolute-element);
   & ~ svg {
     z-index: var(--dds-zindex-absolute-element);

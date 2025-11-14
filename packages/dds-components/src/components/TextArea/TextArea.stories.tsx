@@ -1,30 +1,32 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
 import { TextArea } from './TextArea';
-import { categoryHtml, windowWidthDecorator } from '../../storybook/helpers';
+import {
+  categoryHtml,
+  htmlEventArgType,
+  responsivePropsArgTypes,
+  windowWidthDecorator,
+} from '../../storybook';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 export default {
   title: 'dds-components/Components/TextArea',
   component: TextArea,
   argTypes: {
-    width: { control: 'text' },
+    width: responsivePropsArgTypes.width,
     maxLength: { control: 'number', table: categoryHtml },
     required: { control: 'boolean', table: categoryHtml },
     disabled: { control: 'boolean', table: categoryHtml },
     readOnly: { control: 'boolean', table: categoryHtml },
+    onChange: htmlEventArgType,
   },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
+  args: { onChange: fn() },
 } satisfies Meta<typeof TextArea>;
 
 type Story = StoryObj<typeof TextArea>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { label: 'Label' },
 };
 

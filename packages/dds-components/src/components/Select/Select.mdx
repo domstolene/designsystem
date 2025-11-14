@@ -1,4 +1,4 @@
-import { Story, Canvas, Meta, Controls } from '@storybook/blocks';
+import { Story, Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
 import {
   Source,
   ComponentLinkRow,
@@ -18,7 +18,6 @@ import * as MultiSelectStories from './MultiSelect.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A38"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Select"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-select-select--default"
-  withBottomSpacing
 />
 
 Komponenten har to varianter:
@@ -30,13 +29,13 @@ Komponenten har to varianter:
 
 Komponenten bruker <Link href="https://react-select.com/home" external>React-select</Link>. Det støttes props definert i designsystemet (Elsa props) og native React-select props.
 
-<Canvas of={SelectStories.Default} sourceState="shown" />
+<Canvas of={SelectStories.Preview} />
 
 ### Elsa props
 
 Tabellen inkluderer native HTML props som brukes til styling.
 
-<Controls of={SelectStories.Default} />
+<Controls of={SelectStories.Preview} />
 
 ### Native React-select props
 
@@ -155,7 +154,7 @@ Brukeren kan filtrere alternativer ved å gi tekstlig input. Det brukes en custo
 
 Du kan bruke `options` i custom format, og sette label og value basert på option som du vil.
 
-<Canvas of={SelectStories.CustomData} />
+<Canvas of={SelectStories.CustomData} sourceState="hidden" />
 
 <Source
   code={`const employees = [
@@ -186,36 +185,43 @@ Du kan customisere visuelle elementer for både det valgte elemetet og alternati
 
 <Source
   code={`
-  const ref: SelectForwardRefType<
-    {
-      label: string;
-      value: string;
-    },
-    false
-  > = useRef(null);
+import { type SelectForwardRefType } from '@norges-domstoler/dds-components';
+
+function MyComponent() {
+
+const ref: SelectForwardRefType<
+{
+label: string;
+value: string;
+},
+false
+
+> = useRef(null);
 
 return <Select options={[{ label: 'alt', value: 'alt' }]} ref={ref} />;
+
+};
 `}
 />
 
 ### Multiselect
 
-<Canvas of={MultiSelectStories.Default} sourceState="shown" />
-<Controls of={MultiSelectStories.Default} />
+<Canvas of={MultiSelectStories.Preview} />
+<Controls of={MultiSelectStories.Preview} />
 
 #### Bredde ved `isMulti`
 
 Komponenten har default bredde. Dette gjør at valgte alternativer ved `isMulti` vil prøve å fylle opp bredden og videre legge seg nedover. Hvis det er ønsket at komponenten skal utvide seg i bredden når flere alternativer blir valgt bør det settes f.eks. `width='fit-content'` og `min-width` i styling:
 
-<Canvas of={MultiSelectStories.WithFitContent} sourceState="shown" />
+<Canvas of={MultiSelectStories.WithFitContent} />
 
 #### Med verdi
 
-<Canvas of={MultiSelectStories.WithValue} sourceState="shown" />
+<Canvas of={MultiSelectStories.WithValue} />
 
 #### Med default verdi
 
-<Canvas of={MultiSelectStories.WithDefaultValue} sourceState="shown" />
+<Canvas of={MultiSelectStories.WithDefaultValue} />
 
 ## Retningslinjer
 

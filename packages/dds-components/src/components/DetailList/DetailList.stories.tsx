@@ -1,9 +1,6 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import {
-  htmlPropsArgType,
-  windowWidthDecorator,
-} from '../../storybook/helpers';
+import { commonArgTypes, windowWidthDecorator } from '../../storybook';
 import { InlineButton } from '../InlineButton';
 
 import { DetailList, DetailListDesc, DetailListRow, DetailListTerm } from '.';
@@ -11,14 +8,17 @@ import { DetailList, DetailListDesc, DetailListRow, DetailListTerm } from '.';
 export default {
   title: 'dds-components/Components/DetailList',
   component: DetailList,
-  parameters: {
-    docs: {
-      story: { inline: true },
-    },
-  },
   argTypes: {
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
   },
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        <style>{styling}</style>
+      </>
+    ),
+  ],
 } satisfies Meta<typeof DetailList>;
 
 type Story = StoryObj<typeof DetailList>;
@@ -36,7 +36,7 @@ const children = [
     <DetailListDesc className="story-text-right">
       <InlineButton
         onClick={() => {
-          null;
+          //kun for showcase
         }}
       >
         Knapp
@@ -49,7 +49,7 @@ const children = [
     <DetailListDesc className="story-text-right">
       <InlineButton
         onClick={() => {
-          null;
+          //kun for showcase
         }}
       >
         Knapp
@@ -62,7 +62,7 @@ const children = [
     <DetailListDesc className="story-text-right">
       <InlineButton
         onClick={() => {
-          null;
+          //kun for showcase
         }}
       >
         Knapp
@@ -75,7 +75,7 @@ const children = [
     <DetailListDesc className="story-text-right">
       <InlineButton
         onClick={() => {
-          null;
+          //kun for showcase
         }}
       >
         Knapp
@@ -84,27 +84,11 @@ const children = [
   </DetailListRow>,
 ];
 
-export const Default: Story = {
-  decorators: [
-    Story => (
-      <>
-        <Story />
-        <style>{styling}</style>
-      </>
-    ),
-  ],
+export const Preview: Story = {
   render: args => <DetailList {...args}>{children}</DetailList>,
 };
 
 export const Small: Story = {
-  decorators: [
-    Story => (
-      <>
-        <Story />
-        <style>{styling}</style>
-      </>
-    ),
-  ],
   render: args => (
     <DetailList {...args} size="small">
       {children}
@@ -113,16 +97,16 @@ export const Small: Story = {
 };
 
 export const Large: Story = {
-  decorators: [
-    Story => (
-      <>
-        <Story />
-        <style>{styling}</style>
-      </>
-    ),
-  ],
   render: args => (
     <DetailList {...args} size="large">
+      {children}
+    </DetailList>
+  ),
+};
+
+export const SmallScreen: Story = {
+  render: args => (
+    <DetailList {...args} smallScreenBreakpoint="xl">
       {children}
     </DetailList>
   ),
@@ -132,10 +116,7 @@ export const Responsive: Story = {
   decorators: [
     Story =>
       windowWidthDecorator(
-        <>
-          <Story />
-          <style>{styling}</style>
-        </>,
+        <Story />,
         'Versjonen for liten skjerm vises ved sm brekkpunkt og nedover.',
       ),
   ],

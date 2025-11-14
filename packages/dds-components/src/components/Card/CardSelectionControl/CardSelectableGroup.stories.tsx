@@ -1,13 +1,10 @@
-import { type Story } from '@storybook/blocks';
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Story } from '@storybook/addon-docs/blocks';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
 import { CardSelectable } from './CardSelectable';
 import { CardSelectableGroup } from './CardSelectableGroup';
-import {
-  htmlPropsArgType,
-  responsivePropsArgTypes,
-} from '../../../storybook/helpers';
+import { commonArgTypes, responsivePropsArgTypes } from '../../../storybook';
 import { Button } from '../../Button';
 import { VStack } from '../../layout';
 import { Typography } from '../../Typography';
@@ -28,16 +25,8 @@ const {
 export default {
   title: 'dds-components/Components/Card/CardSelectable/Group',
   component: CardSelectableGroup,
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
   argTypes: {
-    htmlProps: htmlPropsArgType,
-    className: htmlPropsArgType,
-    id: htmlPropsArgType,
+    ...commonArgTypes,
     alignItems,
     flexDirection,
     columnGap,
@@ -130,9 +119,7 @@ export const GroupWithInvisibleLabel: Story = {
   render: args => {
     return (
       <>
-        <VisuallyHidden as="span" id="label-1">
-          Gruppeledetekst
-        </VisuallyHidden>
+        <VisuallyHidden id="label-1">Gruppeledetekst</VisuallyHidden>
         <CardSelectableGroup {...args} aria-labelledby="label-1">
           <CardSelectable children="alternativ 1" value={1} name="a" />
           <CardSelectable children="alternativ 2" value={2} name="a" />

@@ -1,87 +1,154 @@
-import { Meta } from '@storybook/addon-docs';
-import { StorybookLink } from '@norges-domstoler/storybook-components';
+import { Meta } from '@storybook/addon-docs/blocks';
+import {
+  CardLink,
+  CardsContainter,
+} from '@norges-domstoler/storybook-components';
 
 <Meta title="Introduction" />
 
 <style>{`
   .sbdocs-content {
-    max-width: 600px;
-    text-align: center;
+    max-width: 750px;
   }
   .quote {
      border-left: 4px solid var(--dds-color-border-info);
   padding: var(--dds-spacing-x0-5);
   text-align: left;
   }
-  .links {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--dds-spacing-x0-75);
-  justify-content: center;
-  margin-top: var(--dds-spacing-x2);
+
+  .sb-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dds-spacing-x0-25);
+
+    @media only screen and (min-width: 960px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
   }
-  .link {
-  width: 210px;
+
+  .sb-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dds-spacing-x0-25);
+    padding: var(--dds-spacing-x1);
+    border: 1px solid var(--dds-color-border-subtle);
+    transition: 0.2s;
+    text-decoration: none;
+    border-radius: var(--dds-border-radius-surface);
+    color: var(--dds-color-text-default);
+    width: 100%;
+
+    @media only screen and (min-width: 960px) {
+      width: 48%;
+    }
+
+    &:hover {
+      border-color: var(--dds-color-border-action-hover);
+      box-shadow: 0 0 0 1px var(--dds-color-border-action-hover);
+    }
+  }
+
+  .sb-card-title {
+    display: flex;
+    gap: var(--dds-spacing-x0-25);
+    align-items: center;
+    font: var(--dds-font-heading-small);
   }
 `}</style>
 
 # Elsa Storybook
 
-Velkommen til Elsa Storybook! Her kan du interagere med demoer av alle UI komponentene som ligger i domstolenes designsystem - Elsa.
+Velkommen til Elsa Storybook! Her finner du interaktive demoer, eksempler og changelogs av alt vi tilbyr i domstolenes designsystem - Elsa.
 
-Elsa Storybook kan brukes til å finne informasjon om komponentene samt testing og utvikling i isolasjon.
-Elsa Storybook er også integrert med designsystemets [**dokumentasjon**](https://design.domstol.no/) - sjekk den ut for mer info om både komponentene og Elsa.
+<CardsContainter>
+  <CardLink
+    icon="zeroheight"
+    title="Kom i gang!"
+    body="Hvordan bruke Elsa."
+    href="https://design.domstol.no/987b33f71/p/851bb3-kom-i-gang"
+  />
 
-<blockquote className="quote">* - begrenset tilgang</blockquote>
+  <CardLink
+    icon="zeroheight"
+    title="Bidra"
+    body="Team Elsa setter pris på alle bidrag!"
+    href="https://design.domstol.no/987b33f71/p/07d7b0-bidra"
+/>
+</CardsContainter>
 
-<div className="links">
-  <StorybookLink
-    className="link"
-    text="dds-components"
-    href="https://www.npmjs.com/package/@norges-domstoler/dds-components"
-    linkType="npm"
-  />
-  <StorybookLink
-    className="link"
-    text="dds-design-tokens"
-    href="https://www.npmjs.com/package/@norges-domstoler/dds-design-tokens"
-    linkType="npm"
-  />
-  <StorybookLink
-    className="link"
-    text="dds-formatting"
-    href="https://www.npmjs.com/package/@norges-domstoler/dds-formatting"
-    linkType="npm"
-  />
-  <StorybookLink
-    className="link"
-    text="dds-page-generator"
-    href="https://www.npmjs.com/package/@norges-domstoler/dds-page-generator"
-    linkType="npm"
-  />
-  <StorybookLink
-    className="link"
-    text="Dokumentasjon"
-    href="https://design.domstol.no/"
-    linkType="zeroheight"
-  />
-  <StorybookLink
-    className="link"
-    text="Github"
-    href="https://github.com/domstolene/designsystem"
-    linkType="github"
-  />
-  <StorybookLink
-    className="link"
-    text="Figma *"
-    href="https://www.figma.com/files/project/17499991/Designsystem?fuid=902545492424722130"
-    linkType="figma"
-  />
-  <StorybookLink
-    className="link"
-    text="Slack *"
-    href="https://app.slack.com/client/T0L26CARG/C01HNLSPTT9"
-    linkType="slack"
-  />
-</div>
+## Ressurser
+
+<blockquote className="quote">* - krever innlogging</blockquote>
+
+<CardsContainter>
+
+<CardLink
+  icon="github"
+  title="Kodebase"
+  body="Elsas monorepo."
+  href="https://github.com/domstolene/designsystem"
+/>
+
+<CardLink
+  icon="zeroheight"
+  title="Dokumentasjon"
+  body="Retningslinjer, mønstre, konvensjoner m.m."
+  href="https://design.domstol.no/"
+/>
+
+<CardLink
+  icon="figma"
+  title="Figma *"
+  body="Design for Elsa."
+  href="https://www.figma.com/files/project/17499991/Designsystem?fuid=902545492424722130"
+/>
+
+<CardLink
+  icon="slack"
+  title="Slack *"
+  body="Ta kontakt med team Elsa på Slack."
+  href="https://domstoladm.slack.com/archives/C01HNLSPTT9"
+/>
+
+</CardsContainter>
+
+## Pakker
+
+<CardsContainter>
+
+<CardLink
+  icon="npm"
+  title="dds-components"
+  body="Core-pakke med React UI komponenter, ikoner og hooks."
+  href="https://www.npmjs.com/package/@norges-domstoler/dds-components"
+/>
+
+<CardLink
+  icon="npm"
+  title="dds-design-tokens"
+  body="Elsa design tokens: farger, typografi, skygger m.m."
+  href="https://www.npmjs.com/package/@norges-domstoler/dds-design-tokens"
+/>
+
+<CardLink
+  icon="npm"
+  title="dds-formatting"
+  body="Standardisert tekstformattering på tvers av domstolenes tjenester."
+  href="https://www.npmjs.com/package/@norges-domstoler/dds-formatting"
+/>
+
+<CardLink
+  icon="npm"
+  title="development-utils"
+  body="Diverse utilities for utvikling på tvers av domstolenes tjenester."
+  href="https://www.npmjs.com/package/@norges-domstoler/development-utils"
+/>
+
+<CardLink
+  icon="npm"
+  title="dds-page-generator"
+  body="Side- og skjemagenerering basert på JSON-input. OBS! Team Elsa har ikke ansvar for denne pakken."
+  href="https://www.npmjs.com/package/@norges-domstoler/dds-page-generator"
+/>
+</CardsContainter>

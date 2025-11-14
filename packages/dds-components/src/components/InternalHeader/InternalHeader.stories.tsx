@@ -1,31 +1,30 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
-import {
-  htmlPropsArgType,
-  windowWidthDecorator,
-} from '../../storybook/helpers';
+import { commonArgTypes, windowWidthDecorator } from '../../storybook';
 import { EditIcon } from '../Icon/icons';
 import { StoryVStack } from '../layout/Stack/utils';
 
 import { InternalHeader } from '.';
 
-export default {
+const meta: Meta<typeof InternalHeader> = {
   title: 'dds-components/Components/InternalHeader',
   component: InternalHeader,
   argTypes: {
     navItems: { control: false },
     contextMenuItems: { control: false },
     user: { control: false },
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
   },
+  args: { onCurrentPageChange: fn() },
   parameters: {
     docs: {
-      story: { inline: true, height: '320px' },
-      canvas: { sourceState: 'hidden' },
+      story: { height: '320px' },
     },
   },
-} satisfies Meta<typeof InternalHeader>;
+};
 
+export default meta;
 const navigationLink = {
   href: '#',
   children: 'navlenke',

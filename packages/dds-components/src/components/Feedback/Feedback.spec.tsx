@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { userEvent } from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 
 import { Feedback } from './Feedback';
@@ -221,7 +221,7 @@ describe('<Feedback>', () => {
 
     assertInDocument([
       'Hva syns du om tjenesten?',
-      'Laster opp tilbakemelding ...',
+      'Laster opp tilbakemelding...',
     ]);
 
     assertNotInDocument([

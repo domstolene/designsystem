@@ -13,14 +13,18 @@ import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-import { getDefaultText, getInputWidth, renderCharCounter } from '../helpers';
-import { type CommonInputProps } from '../helpers';
+import { renderCharCounter } from '../helpers/CharCounter';
+import {
+  type CommonInputProps,
+  getDefaultText,
+  getInputWidth,
+} from '../helpers/Input';
 import inputStyles from '../helpers/Input/Input.module.css';
 import { focusable } from '../helpers/styling/focus.module.css';
 import { scrollbar } from '../helpers/styling/utilStyles.module.css';
 import { renderInputMessage } from '../InputMessage';
 import { Box } from '../layout';
-import { Label } from '../Typography';
+import { renderLabel } from '../Typography/Label/Label.utils';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export type TextAreaProps = CommonInputProps & {
@@ -59,9 +63,9 @@ export const TextArea = ({
 
   useEffect(() => {
     if (textAreaRef?.current) {
-      textAreaRef.current.style.height = `${
-        textAreaRef.current.scrollHeight + 2
-      }px`;
+      const el = textAreaRef.current;
+      el.style.height = 'auto';
+      el.style.height = `${el.scrollHeight + 2}px`;
     }
   }, [text]);
 
@@ -77,7 +81,6 @@ export const TextArea = ({
 
   const hasErrorMessage = !!errorMessage;
   const hasMessage = hasErrorMessage || !!tip;
-  const hasLabel = !!label;
   const tipId = derivativeIdGenerator(uniqueId, 'tip');
   const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
   const characterCounterId = derivativeIdGenerator(
@@ -90,16 +93,7 @@ export const TextArea = ({
 
   return (
     <div className={cn(className, inputStyles.container)} style={{ ...style }}>
-      {hasLabel && (
-        <Label
-          showRequiredStyling={showRequiredStyling}
-          htmlFor={uniqueId}
-          className={inputStyles.label}
-          readOnly={readOnly}
-        >
-          {label}
-        </Label>
-      )}
+      {renderLabel({ label, htmlFor: uniqueId, readOnly, showRequiredStyling })}
       <Box
         as="textarea"
         width={inputWidth}
@@ -141,7 +135,7 @@ export const TextArea = ({
         }
         width={withCharacterCounter ? inputWidth : undefined}
       >
-        {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
+        {renderInputMessage({ tip, tipId, errorMessage, errorMessageId })}
         {renderCharCounter(
           characterCounterId,
           withCharacterCounter,

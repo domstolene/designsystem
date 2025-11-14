@@ -1,7 +1,10 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { ScreenSize, useScreenSize } from '../../../hooks';
-import { windowWidthDecorator } from '../../../storybook/helpers';
+import {
+  themeProviderDecorator,
+  windowWidthDecorator,
+} from '../../../storybook';
 import { Button } from '../../Button';
 import { FavStar } from '../../FavStar';
 import { Icon } from '../../Icon';
@@ -12,7 +15,6 @@ import {
   PersonIcon,
   TrashIcon,
 } from '../../Icon/icons';
-import { StoryThemeProvider } from '../../ThemeProvider/utils/StoryThemeProvider';
 import { Link } from '../../Typography';
 import { VisuallyHidden } from '../../VisuallyHidden';
 import { Table } from '../normal';
@@ -24,17 +26,16 @@ const meta: Meta<typeof CollapsibleTable> = {
   title: 'dds-components/Components/Table/CollapsibleTable',
   component: CollapsibleTable,
   parameters: {
+    docs: {
+      canvas: {
+        sourceState: 'hidden',
+      },
+    },
     controls: {
       exclude: ['headerValues', 'definingColumnIndex'],
     },
   },
-  decorators: [
-    Story => (
-      <StoryThemeProvider>
-        <Story />
-      </StoryThemeProvider>
-    ),
-  ],
+  decorators: [Story => themeProviderDecorator(<Story />)],
 };
 
 export default meta;
@@ -345,16 +346,16 @@ export const ResposiveMultipleBreakpoints: Story = {
 const headers = [
   {
     key: 'fav',
-    content: <VisuallyHidden as="span">Velg som favoritt</VisuallyHidden>,
+    content: <VisuallyHidden>Velg som favoritt</VisuallyHidden>,
   },
   {
     key: 'Dokumenttype',
-    content: <VisuallyHidden as="span">Dokumenttype</VisuallyHidden>,
+    content: <VisuallyHidden>Dokumenttype</VisuallyHidden>,
   },
   { key: 'Nummer', content: 'Nr.' },
   {
     key: 'Lest status',
-    content: <VisuallyHidden as="span">Lest status</VisuallyHidden>,
+    content: <VisuallyHidden>Lest status</VisuallyHidden>,
   },
   { key: 'Dokumentnavn', content: 'Dokumentnavn' },
   { key: 'Avsender', content: 'Avsender' },

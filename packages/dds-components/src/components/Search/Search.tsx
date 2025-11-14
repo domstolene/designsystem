@@ -8,61 +8,38 @@ import {
 import { useAutocompleteSearch } from './AutocompleteSearch.context';
 import styles from './Search.module.css';
 import { type SearchButtonProps, type SearchSize } from './Search.types';
-import { createEmptyChangeEvent, typographyTypes } from './Search.utils';
+import { typographyTypes } from './Search.utils';
 import { SearchSuggestions } from './SearchSuggestions';
 import { useCombinedRef } from '../../hooks';
+import { createTexts, useTranslation } from '../../i18n';
 import {
   cn,
   derivativeIdGenerator,
+  getFormInputIconSize,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
+import { createClearChangeEvent } from '../../utils/createClearChangeEvent';
 import { Button } from '../Button';
-import { Input, type InputProps } from '../helpers';
+import { ClearButton } from '../helpers/ClearButton';
+import { Input, type InputProps } from '../helpers/Input';
 import inputStyles from '../helpers/Input/Input.module.css';
 import { Icon, type IconSize } from '../Icon';
-import { CloseSmallIcon, SearchIcon } from '../Icon/icons';
+import { SearchIcon } from '../Icon/icons';
 import { renderInputMessage } from '../InputMessage';
-import { Box, Grid, HStack, type ResponsiveProps, VStack } from '../layout';
-import { Label, getTypographyCn } from '../Typography';
+import { Box, Grid, HStack } from '../layout';
+import { getTypographyCn } from '../Typography';
+import { renderLabel } from '../Typography/Label/Label.utils';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../VisuallyHidden';
 
-const getIconSize = (size: SearchSize): IconSize => {
+const getIconSize = (size: SearchSize): Exclude<IconSize, 'inherit'> => {
   switch (size) {
     case 'large':
       return 'medium';
     case 'medium':
-      return 'medium';
     case 'small':
-      return 'small';
+      return getFormInputIconSize(size);
   }
-};
-
-const getPadding = (
-  size: SearchSize,
-  showIcon: boolean,
-): ResponsiveProps['padding'] => {
-  /**Avhengig av størrelse på tømmeknapp  */
-  const paddingRight = (textSize: string) => `calc(
- var(--dds-spacing-x1) + ${textSize} * 1.5 + var(--dds-spacing-x0-5)
- )`;
-  /**Avhengig av størrelse på søkeikonet */
-  const paddingLeft = (iconSize: string) => `calc(
- var(--dds-spacing-x0-75) + ${iconSize} + var(--dds-spacing-x0-5)
- )`;
-
-  const pRSmallButton = paddingRight('0.875rem');
-  const pRMediumButton = paddingRight('1rem');
-  const pLSmallIcon = paddingLeft('var(--dds-icon-size-small)');
-  const pLMediumIcon = paddingLeft('var(--dds-icon-size-medium)');
-
-  const paddingMap = {
-    large: `x1 ${pRMediumButton} x1 ${showIcon ? pLMediumIcon : 'x0.75'}`,
-    medium: `x0.75 ${pRSmallButton} x0.75 ${showIcon ? pLMediumIcon : 'x0.75'}`,
-    small: `x0.5 ${pRSmallButton} x0.5 ${showIcon ? pLSmallIcon : 'x0.75'}`,
-  };
-
-  return paddingMap[size];
 };
 
 export type SearchProps = Pick<InputProps, 'tip' | 'label'> & {
@@ -73,7 +50,7 @@ export type SearchProps = Pick<InputProps, 'tip' | 'label'> & {
   /**Om søkeikonet skal vises. */
   showIcon?: boolean;
 } & Pick<InputProps, 'width'> &
-  Omit<ComponentPropsWithRef<'input'>, 'width'>;
+  Omit<ComponentPropsWithRef<'input'>, 'width' | 'height'>;
 
 export const Search = ({
   componentSize = 'medium',
@@ -94,13 +71,14 @@ export const Search = ({
 }: SearchProps) => {
   const generatedId = useId();
   const uniqueId = id ?? `${generatedId}-searchInput`;
-  const hasLabel = !!label;
   const tipId = derivativeIdGenerator(uniqueId, 'tip');
   const suggestionsId = derivativeIdGenerator(uniqueId, 'suggestions');
   const suggestionsDescriptionId = derivativeIdGenerator(
     uniqueId,
     'suggestions-description',
   );
+
+  const { t } = useTranslation();
 
   const [hasValue, setHasValue] = useState(!!value);
 
@@ -113,13 +91,13 @@ export const Search = ({
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setHasValue(e.target.value !== '');
 
-    context.onValueChange && context.onValueChange(e);
-    onChange && onChange(e);
+    context?.onValueChange?.(e);
+    onChange?.(e);
   };
 
   const clearInput = () => {
-    const emptyChangeEvent = createEmptyChangeEvent(uniqueId);
-    handleChange(emptyChangeEvent);
+    const clearChangeEvent = createClearChangeEvent<HTMLInputElement>(uniqueId);
+    handleChange(clearChangeEvent);
   };
 
   const {
@@ -141,8 +119,8 @@ export const Search = ({
           icon={SearchIcon}
           iconSize={getIconSize(componentSize)}
           className={cn(
-            inputStyles['input-group__absolute-element'],
-            styles['search-icon'],
+            inputStyles['input-group__absolute-el'],
+            inputStyles[`input-group__absolute-el--${componentSize}`],
           )}
         />
       )}
@@ -166,9 +144,11 @@ export const Search = ({
         aria-expanded={context.showSuggestions}
         role={hasSuggestions ? 'combobox' : undefined}
         width="100%"
-        padding={getPadding(componentSize, showIcon)}
         className={cn(
           styles.input,
+          inputStyles[`input--${componentSize}`],
+          showIcon && inputStyles[`input-with-icon--${componentSize}`],
+          inputStyles[`input-with-el-right--${componentSize}`],
           typographyStyles[getTypographyCn(typographyTypes[componentSize])],
         )}
       />
@@ -183,17 +163,15 @@ export const Search = ({
             showSuggestions={context.showSuggestions}
             componentSize={componentSize}
           />
-          <VisuallyHidden id={suggestionsDescriptionId} as="span">
-            Bla i søkeforslag med piltaster når listen er utvidet.
+          <VisuallyHidden id={suggestionsDescriptionId}>
+            {t(texts.useArrowKeys)}
           </VisuallyHidden>
         </>
       )}
       {hasValue && (
-        <Button
-          icon={CloseSmallIcon}
-          size={componentSize === 'large' ? 'medium' : 'small'}
-          purpose="tertiary"
-          aria-label="Tøm"
+        <ClearButton
+          size={getIconSize(componentSize)}
+          aria-label={t(texts.clearSearch)}
           onClick={clearInput}
           className={styles['clear-button']}
         />
@@ -201,8 +179,8 @@ export const Search = ({
     </HStack>
   );
   return (
-    <VStack gap="x0.125">
-      {hasLabel && <Label htmlFor={uniqueId}>{label}</Label>}
+    <div>
+      {renderLabel({ htmlFor: uniqueId, label })}
       <div>
         {showSearchButton ? (
           <Grid
@@ -220,16 +198,40 @@ export const Search = ({
               onClick={onClick}
               {...otherButtonProps}
             >
-              {buttonLabel ?? 'Søk'}
+              {buttonLabel ?? t(texts.search)}
             </Button>
           </Grid>
         ) : (
           inputGroup
         )}
-        {renderInputMessage(tip, tipId)}
+        {renderInputMessage({ tip, tipId })}
       </div>
-    </VStack>
+    </div>
   );
 };
 
 Search.displayName = 'Search';
+
+const texts = createTexts({
+  clearSearch: {
+    nb: 'Tøm søk',
+    no: 'Tøm søk',
+    nn: 'Tøm søk',
+    en: 'Clear search',
+    se: 'Gurre ohcama',
+  },
+  search: {
+    nb: 'Søk',
+    no: 'Søk',
+    nn: 'Søk',
+    en: 'Search',
+    se: 'Ohcan',
+  },
+  useArrowKeys: {
+    nb: 'Bruk piltastene for å navigere i forslagene når listen er utvidet',
+    no: 'Bruk piltastene for å navigere i forslagene når listen er utvidet',
+    nn: 'Bruk piltastane for å navigere i forslaga når lista er utvida',
+    en: 'Use the arrow keys to navigate suggestions when the list is expanded',
+    se: 'Deatte njuollaboalu ohccat árvalusaid listtus mii lea viiddiduvvon',
+  },
+});

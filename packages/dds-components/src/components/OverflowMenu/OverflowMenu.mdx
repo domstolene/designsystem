@@ -1,4 +1,10 @@
-import { Canvas, Controls, Meta, ArgTypes, Story } from '@storybook/blocks';
+import {
+  Canvas,
+  Controls,
+  Meta,
+  ArgTypes,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import {
   OverflowMenuGroup,
   OverflowMenuButton,
@@ -23,7 +29,6 @@ import * as OverflowMenuStories from './OverflowMenu.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=5773%3A159680"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/OverflowMenu"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-overflowmenu--default"
-  withBottomSpacing
 />
 
 OverflowMenu er en komponent som viser og skjuler en meny med handlinger og/eller lenker når brukeren trykker på en knapp - anchor-elementet. Den består følgende elementer:
@@ -50,9 +55,9 @@ Hovedkomponenten `<OverflowMenu>`. Kan brukes kontrollert eller ikke kontrollert
 **OBS!** Støtter ikke `id`; se [OverflowMenuGroup](#overflowmenugroup).
 
 <Canvas>
-  <Story of={OverflowMenuStories.Default} />
+  <Story of={OverflowMenuStories.Preview} />
 </Canvas>
-<Controls of={OverflowMenuStories.Default} />
+<Controls of={OverflowMenuStories.Preview} />
 
 ### OverflowMenuGroup
 

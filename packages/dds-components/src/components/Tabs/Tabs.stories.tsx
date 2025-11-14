@@ -1,15 +1,17 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
 import {
-  categoryCss,
-  htmlPropsArgType,
+  StoryLabel,
+  commonArgTypes,
+  labelText,
+  responsivePropsArgTypes,
   windowWidthDecorator,
-} from '../../storybook/helpers';
+} from '../../storybook';
 import { NotificationsIcon } from '../Icon/icons';
 import { StoryVStack } from '../layout/Stack/utils';
-import { TextArea } from '../TextArea';
 import { Paragraph } from '../Typography';
+import { TABS_SIZES } from './Tabs';
 
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '.';
 
@@ -17,33 +19,38 @@ export default {
   title: 'dds-components/Components/Tabs',
   component: Tabs,
   argTypes: {
-    width: { control: 'text', table: categoryCss },
-    htmlProps: htmlPropsArgType,
+    width: responsivePropsArgTypes.width,
+    ...commonArgTypes,
     addTabButtonProps: { control: false },
-  },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
   },
 } satisfies Meta<typeof Tabs>;
 
 type Story = StoryObj<typeof Tabs>;
 
-export const Default: Story = {
+const tabList = (icon?: boolean) => {
+  const tabIcon = icon ? NotificationsIcon : undefined;
+  return (
+    <TabList>
+      <Tab icon={tabIcon}>Fane 1</Tab>
+      <Tab icon={tabIcon}>Fane 2</Tab>
+      <Tab icon={tabIcon}>Fane 3</Tab>
+    </TabList>
+  );
+};
+
+const tabPanels = (
+  <TabPanels>
+    <TabPanel>Innhold 1</TabPanel>
+    <TabPanel>Innhold 2</TabPanel>
+    <TabPanel>Innhold 3</TabPanel>
+  </TabPanels>
+);
+
+export const Preview: Story = {
   render: args => (
     <Tabs {...args}>
-      <TabList>
-        <Tab>Tab 1</Tab>
-        <Tab>Tab 2</Tab>
-        <Tab>Tab 3</Tab>
-      </TabList>
-      <TabPanels>
-        <TabPanel>Innhold 1</TabPanel>
-        <TabPanel>Innhold 2</TabPanel>
-        <TabPanel>Innhold 3</TabPanel>
-      </TabPanels>
+      {tabList()}
+      {tabPanels}
     </Tabs>
   ),
 };
@@ -51,19 +58,9 @@ export const Default: Story = {
 export const Direction: Story = {
   render: args => (
     <StoryVStack>
-      <Tabs {...args}>
-        <TabList>
-          <Tab icon={NotificationsIcon}>Restriksjoner</Tab>
-          <Tab icon={NotificationsIcon}>Aktører</Tab>
-          <Tab icon={NotificationsIcon}>Logg</Tab>
-        </TabList>
-      </Tabs>
+      <Tabs {...args}>{tabList(true)}</Tabs>
       <Tabs {...args} tabContentDirection="column">
-        <TabList>
-          <Tab icon={NotificationsIcon}>Restriksjoner</Tab>
-          <Tab icon={NotificationsIcon}>Aktører</Tab>
-          <Tab icon={NotificationsIcon}>Logg</Tab>
-        </TabList>
+        {tabList(true)}
       </Tabs>
     </StoryVStack>
   ),
@@ -71,49 +68,21 @@ export const Direction: Story = {
 
 export const Sizes: Story = {
   render: args => (
-    <StoryVStack>
-      <Tabs {...args}>
-        <TabList>
-          <Tab>Restriksjoner</Tab>
-          <Tab>Aktører</Tab>
-          <Tab>Logg</Tab>
-        </TabList>
-      </Tabs>
-      <Tabs {...args}>
-        <TabList>
-          <Tab icon={NotificationsIcon}>Restriksjoner</Tab>
-          <Tab icon={NotificationsIcon}>Aktører</Tab>
-          <Tab icon={NotificationsIcon}>Logg</Tab>
-        </TabList>
-      </Tabs>
-      <Tabs {...args} tabContentDirection="column">
-        <TabList>
-          <Tab icon={NotificationsIcon}>Restriksjoner</Tab>
-          <Tab icon={NotificationsIcon}>Aktører</Tab>
-          <Tab icon={NotificationsIcon}>Logg</Tab>
-        </TabList>
-      </Tabs>
-      <Tabs {...args} size="medium">
-        <TabList>
-          <Tab>Restriksjoner</Tab>
-          <Tab>Aktører</Tab>
-          <Tab>Logg</Tab>
-        </TabList>
-      </Tabs>
-      <Tabs {...args} size="medium">
-        <TabList>
-          <Tab icon={NotificationsIcon}>Restriksjoner</Tab>
-          <Tab icon={NotificationsIcon}>Aktører</Tab>
-          <Tab icon={NotificationsIcon}>Logg</Tab>
-        </TabList>
-      </Tabs>
-      <Tabs {...args} size="medium" tabContentDirection="column">
-        <TabList>
-          <Tab icon={NotificationsIcon}>Restriksjoner</Tab>
-          <Tab icon={NotificationsIcon}>Aktører</Tab>
-          <Tab icon={NotificationsIcon}>Logg</Tab>
-        </TabList>
-      </Tabs>
+    <StoryVStack gap="x2.5">
+      {TABS_SIZES.map(size => (
+        <StoryVStack gap="x0.5" key={size}>
+          <StoryLabel>{labelText(size)}</StoryLabel>
+          <Tabs {...args} size={size}>
+            {tabList()}
+          </Tabs>
+          <Tabs {...args} size={size}>
+            {tabList(true)}
+          </Tabs>
+          <Tabs {...args} size={size} tabContentDirection="column">
+            {tabList(true)}
+          </Tabs>
+        </StoryVStack>
+      ))}
     </StoryVStack>
   ),
 };
@@ -121,16 +90,8 @@ export const Sizes: Story = {
 export const WithIcon: Story = {
   render: args => (
     <Tabs {...args}>
-      <TabList>
-        <Tab icon={NotificationsIcon}>Tab 1</Tab>
-        <Tab icon={NotificationsIcon}>Tab 2</Tab>
-        <Tab icon={NotificationsIcon}>Tab 3</Tab>
-      </TabList>
-      <TabPanels>
-        <TabPanel>Innhold 1</TabPanel>
-        <TabPanel>Innhold 2</TabPanel>
-        <TabPanel>Innhold 3</TabPanel>
-      </TabPanels>
+      {tabList(true)}
+      {tabPanels}
     </Tabs>
   ),
 };
@@ -140,19 +101,8 @@ export const ActiveTab: Story = {
     const [activeTab, setActiveTab] = useState(1);
     return (
       <Tabs {...args} activeTab={activeTab} onChange={tab => setActiveTab(tab)}>
-        <TabList>
-          <Tab>Tab 1</Tab>
-          <Tab>Tab 2</Tab>
-          <Tab>Tab 3</Tab>
-        </TabList>
-        <TabPanels>
-          <TabPanel>
-            <span>Innhold 1</span>
-            <TextArea label="test" />
-          </TabPanel>
-          <TabPanel>Innhold 2</TabPanel>
-          <TabPanel>Innhold 3</TabPanel>
-        </TabPanels>
+        {tabList()}
+        {tabPanels}
       </Tabs>
     );
   },
@@ -188,6 +138,10 @@ export const WithAddTabButton: Story = {
 
     return (
       <>
+        <Paragraph withMargins>
+          Legg til-knapp inkluderes direkte i fanerekka. Husk å begrense antall
+          faner, slik at brukeren ikke kan legge til uendelig mange.
+        </Paragraph>
         {tooManyText}
         <Tabs
           {...args}
@@ -216,40 +170,13 @@ export const WithAddTabButton: Story = {
 };
 
 export const WithWidth: Story = {
-  render: args => (
-    <Tabs {...args} width="500px">
-      <TabList>
-        <Tab>Tab 1</Tab>
-        <Tab>Tab 2</Tab>
-        <Tab>Tab 3</Tab>
-      </TabList>
-      <TabPanels>
-        <TabPanel>Innhold 1</TabPanel>
-        <TabPanel>Innhold 2</TabPanel>
-        <TabPanel>Innhold 3</TabPanel>
-      </TabPanels>
-    </Tabs>
-  ),
-};
-
-export const MaxContentWidth: Story = {
+  args: { width: '500px' },
   render: args => (
     <>
-      <Paragraph withMargins>
-        Dette er et eksempel på hvordan du kan sette egne bredder på hver tab.
-        Her er alle tabs satt til å ha bredde "<code>max-content</code>".
-      </Paragraph>
-      <Tabs {...args} htmlProps={{ style: { width: '400px' } }}>
-        <TabList>
-          <Tab width="max-content">Aktører</Tab>
-          <Tab width="max-content">Restriksjoner</Tab>
-          <Tab width="max-content">Vedlegg</Tab>
-        </TabList>
-        <TabPanels>
-          <TabPanel>Innhold 1</TabPanel>
-          <TabPanel>Innhold 2</TabPanel>
-          <TabPanel>Innhold 3</TabPanel>
-        </TabPanels>
+      <Paragraph withMargins>Bredde: {args.width?.toString()}</Paragraph>
+      <Tabs {...args}>
+        {tabList()}
+        {tabPanels}
       </Tabs>
     </>
   ),
@@ -268,64 +195,55 @@ export const ResponsiveWidth: Story = {
   },
   render: args => (
     <Tabs {...args}>
-      <TabList>
-        <Tab>Tab 1</Tab>
-        <Tab>Tab 2</Tab>
-        <Tab>Tab 3</Tab>
-      </TabList>
-      <TabPanels>
-        <TabPanel>Innhold 1</TabPanel>
-        <TabPanel>Innhold 2</TabPanel>
-        <TabPanel>Innhold 3</TabPanel>
-      </TabPanels>
+      {tabList()}
+      {tabPanels}
     </Tabs>
   ),
 };
 
-export const TabLongNames: Story = {
+export const DifferentWidths: Story = {
   render: args => (
-    <Tabs {...args}>
-      <TabList>
-        <Tab>Parter</Tab>
-        <Tab>Restriksjoner</Tab>
-        <Tab>Vedlegg</Tab>
-      </TabList>
-      <TabPanels>
-        <TabPanel>Innhold 1</TabPanel>
-        <TabPanel>Innhold 2</TabPanel>
-        <TabPanel>Innhold 3</TabPanel>
-      </TabPanels>
-    </Tabs>
+    <>
+      <Paragraph withMargins>
+        Dette er et eksempel på hvordan du kan sette egne bredder på hver tab
+        med <code>width</code>-attributtet. Det støttes de samme enhetene som i
+        <code>grid-template-columns</code> i CSS.
+      </Paragraph>
+      <Tabs {...args}>
+        <TabList>
+          <Tab width="max-content">Fane 1</Tab>
+          <Tab width="8rem">Fane 2</Tab>
+          <Tab width="1fr">Fane 3</Tab>
+        </TabList>
+        {tabPanels}
+      </Tabs>
+    </>
   ),
 };
 
-export const ManyTabs: Story = {
+export const TabOverflow: Story = {
   render: args => (
-    <Tabs {...args} htmlProps={{ style: { width: '400px' } }}>
-      <TabList>
-        <Tab>Tab1</Tab>
-        <Tab>Restriksjoner</Tab>
-        <Tab>Tab3</Tab>
-        <Tab>Aktører</Tab>
-        <Tab>Tab5</Tab>
-        <Tab>Restriksjoner</Tab>
-        <Tab>Tab7</Tab>
-        <Tab>Tab8</Tab>
-        <Tab>Tab9</Tab>
-        <Tab>Tab10</Tab>
-      </TabList>
-      <TabPanels>
-        <TabPanel>Innhold 1</TabPanel>
-        <TabPanel>Innhold 2</TabPanel>
-        <TabPanel>Innhold 3</TabPanel>
-        <TabPanel>Innhold 4</TabPanel>
-        <TabPanel>Innhold 5</TabPanel>
-        <TabPanel>Innhold 6</TabPanel>
-        <TabPanel>Innhold 7</TabPanel>
-        <TabPanel>Innhold 8</TabPanel>
-        <TabPanel>Innhold 9</TabPanel>
-        <TabPanel>Innhold 10</TabPanel>
-      </TabPanels>
-    </Tabs>
+    <>
+      <Paragraph withMargins>
+        Hvis den totale bredden til fanene går utover tilgjengelig bredde vil
+        horisontal scrollbar vises.
+      </Paragraph>
+      <Tabs {...args} htmlProps={{ style: { width: '200px' } }}>
+        <TabList>
+          <Tab>Fane 1</Tab>
+          <Tab>Fane 2</Tab>
+          <Tab>Fane 3</Tab>
+          <Tab>Fane 4</Tab>
+          <Tab>Fane 5</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>Innhold 1</TabPanel>
+          <TabPanel>Innhold 2</TabPanel>
+          <TabPanel>Innhold 3</TabPanel>
+          <TabPanel>Innhold 4</TabPanel>
+          <TabPanel>Innhold 5</TabPanel>
+        </TabPanels>
+      </Tabs>
+    </>
   ),
 };

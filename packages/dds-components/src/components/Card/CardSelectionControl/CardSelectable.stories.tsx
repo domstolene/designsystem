@@ -1,11 +1,15 @@
-import { type Story } from '@storybook/blocks';
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Story } from '@storybook/addon-docs/blocks';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
 import { CardSelectable } from './CardSelectable';
 import {
-  htmlPropsArgType,
+  categoryHtml,
+  commonArgTypes,
+  htmlArgType,
+  htmlEventArgType,
   responsivePropsArgTypes,
-} from '../../../storybook/helpers';
+} from '../../../storybook';
 import { VStack } from '../../layout';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 import { Typography } from '../../Typography';
@@ -15,25 +19,21 @@ import {
   type CardSelectableType,
 } from '../Card.types';
 
-const { padding } = responsivePropsArgTypes;
-
 export default {
   title: 'dds-components/Components/Card/CardSelectable',
   component: CardSelectable,
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
   argTypes: {
-    htmlProps: htmlPropsArgType,
-    checked: htmlPropsArgType,
-    disabled: htmlPropsArgType,
-    value: htmlPropsArgType,
-    defaultValue: htmlPropsArgType,
-    padding,
+    ...commonArgTypes,
+    checked: { table: categoryHtml, control: 'boolean' },
+    disabled: { table: categoryHtml, control: 'boolean' },
+    value: htmlArgType,
+    defaultValue: htmlArgType,
+    padding: responsivePropsArgTypes.padding,
+    onChange: htmlEventArgType,
+    onBlur: htmlEventArgType,
   },
+
+  args: { onBlur: fn(), onChange: fn() },
 } satisfies Meta<typeof CardSelectable>;
 
 type Story = StoryObj<typeof CardSelectable>;

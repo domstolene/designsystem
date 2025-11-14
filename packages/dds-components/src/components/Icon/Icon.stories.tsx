@@ -1,9 +1,11 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { OpenExternalIcon as OpenExternal } from './icons/openExternal';
-import { htmlPropsArgType } from '../../storybook/helpers';
+import { StoryLabel, commonArgTypes, labelText } from '../../storybook';
 import { StoryHStack } from '../layout/Stack/utils';
 import { Paragraph } from '../Typography';
+import { ICON_SIZES } from './Icon';
+import { VStack } from '../layout';
 
 import { Icon } from '.';
 
@@ -12,14 +14,8 @@ export default {
   component: Icon,
   argTypes: {
     color: { control: 'text' },
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
     icon: { control: false },
-  },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
   },
 } satisfies Meta<typeof Icon>;
 
@@ -27,7 +23,7 @@ type Story = StoryObj<typeof Icon>;
 
 const icon = OpenExternal;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { icon },
 };
 
@@ -35,10 +31,12 @@ export const Sizes: Story = {
   args: { icon },
   render: args => (
     <StoryHStack>
-      <Icon {...args} iconSize="inherit" />
-      <Icon {...args} iconSize="small" />
-      <Icon {...args} iconSize="medium" />
-      <Icon {...args} iconSize="large" />
+      {ICON_SIZES.map(size => (
+        <VStack key={size}>
+          <StoryLabel>{labelText(size)}</StoryLabel>
+          <Icon {...args} iconSize={size} />
+        </VStack>
+      ))}
     </StoryHStack>
   ),
 };

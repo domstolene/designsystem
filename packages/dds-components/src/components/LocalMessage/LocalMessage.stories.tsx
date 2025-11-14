@@ -1,11 +1,14 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
 import { LocalMessage } from './LocalMessage';
 import {
-  categoryCss,
-  htmlPropsArgType,
+  commonArgTypes,
+  responsivePropsArgTypes,
   windowWidthDecorator,
-} from '../../storybook/helpers';
+} from '../../storybook';
+import { Button } from '../Button';
+import { HStack } from '../layout';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { List, ListItem } from '../List';
 import { Heading, Paragraph } from '../Typography';
@@ -14,20 +17,15 @@ export default {
   title: 'dds-components/Components/LocalMessage',
   component: LocalMessage,
   argTypes: {
-    width: { control: 'text', table: categoryCss },
-    htmlProps: htmlPropsArgType,
+    width: responsivePropsArgTypes.width,
+    ...commonArgTypes,
   },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
-  },
+  args: { onClose: fn() },
 } satisfies Meta<typeof LocalMessage>;
 
 type Story = StoryObj<typeof LocalMessage>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: {
     children: 'Dette er en lokal melding',
   },
@@ -62,6 +60,33 @@ export const Overview: Story = {
 export const Closable: Story = {
   args: {
     children: 'Dette er en lokal melding',
+    closable: true,
+  },
+};
+
+export const Vertical: Story = {
+  args: {
+    children: 'Dette er en lokal melding',
+    layout: 'vertical',
+  },
+  render: args => (
+    <StoryHStack>
+      <LocalMessage {...args} />
+      <LocalMessage {...args} closable />
+    </StoryHStack>
+  ),
+};
+
+export const WithExtraButton: Story = {
+  args: {
+    children: (
+      <HStack justifyContent="space-between" gap="x0.75">
+        <span>Dette er en melding</span>
+        <Button size="xsmall" purpose="secondary">
+          Angre
+        </Button>
+      </HStack>
+    ),
     closable: true,
   },
 };

@@ -1,4 +1,4 @@
-import { Canvas, Meta, ArgTypes, Controls } from '@storybook/blocks';
+import { Canvas, Meta, ArgTypes, Controls } from '@storybook/addon-docs/blocks';
 import { ToggleRadio } from '.';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as ToggleBarStories from './ToggleBar.stories';
@@ -12,7 +12,6 @@ import * as ToggleBarStories from './ToggleBar.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A38"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/ToggleBar"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-togglebar--default"
-  withBottomSpacing
 />
 
 ToggleBar er en rad med semantiske radioknapper. Den består av følgende subkomponenter:
@@ -26,14 +25,14 @@ ToggleBar er en rad med semantiske radioknapper. Den består av følgende subkom
 
 En rad med `<ToggleRadio>`.
 
-<Canvas of={ToggleBarStories.Default} sourceState="shown" />
-<Controls of={ToggleBarStories.Default} />
+<Canvas of={ToggleBarStories.Preview} />
+<Controls of={ToggleBarStories.Preview} />
 
 #### Bredde
 
 Bredden på alle `<ToggleRadio>` i en `<ToggleBar>` skal være den samme. `<ToggleBar>` tar i utganspunktet hele tigjengelige bredden og fordeler den likt mellom barna. Spesifikk bredde kan settes enten i `<ToggleBar>` eller i selvutviklede wrapperen til `<ToggleBar>`.
 
-<Canvas of={ToggleBarStories.WithWidth} sourceState="shown" />
+<Canvas of={ToggleBarStories.WithWidth} />
 
 ### ToggleRadio
 

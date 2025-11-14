@@ -1,7 +1,8 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { categoryHtml, htmlPropsArgType } from '../../storybook/helpers';
+import { categoryHtml, commonArgTypes, labelText } from '../../storybook';
 import { Button } from '../Button/Button';
+import { BUTTON_SIZES } from '../Button/Button.types';
 import { StoryVStack } from '../layout/Stack/utils';
 
 import { ButtonGroup } from '.';
@@ -9,23 +10,17 @@ import { ButtonGroup } from '.';
 export default {
   title: 'dds-components/Components/ButtonGroup',
   component: ButtonGroup,
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
   argTypes: {
     role: { control: 'text', table: categoryHtml },
     'aria-label': { table: categoryHtml },
     'aria-labelledby': { table: categoryHtml },
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
   },
 } satisfies Meta<typeof ButtonGroup>;
 
 type Story = StoryObj<typeof ButtonGroup>;
 
-export const Default: Story = {
+export const Preview: Story = {
   render: args => (
     <ButtonGroup {...args}>
       <Button>Første</Button>
@@ -38,26 +33,13 @@ export const Default: Story = {
 export const Sizes: Story = {
   render: args => (
     <StoryVStack>
-      <ButtonGroup {...args} buttonSize="large">
-        <Button>Første</Button>
-        <Button>Andre</Button>
-        <Button>Tredje</Button>
-      </ButtonGroup>
-      <ButtonGroup {...args}>
-        <Button>Første</Button>
-        <Button>Andre</Button>
-        <Button>Tredje</Button>
-      </ButtonGroup>
-      <ButtonGroup {...args} buttonSize="small">
-        <Button>Første</Button>
-        <Button>Andre</Button>
-        <Button>Tredje</Button>
-      </ButtonGroup>
-      <ButtonGroup {...args} buttonSize="xsmall">
-        <Button>Første</Button>
-        <Button>Andre</Button>
-        <Button>Tredje</Button>
-      </ButtonGroup>
+      {BUTTON_SIZES.map(size => (
+        <ButtonGroup key={size} {...args} buttonSize={size}>
+          <Button>{labelText(size)}</Button>
+          <Button>{labelText(size)}</Button>
+          <Button>{labelText(size)}</Button>
+        </ButtonGroup>
+      ))}
     </StoryVStack>
   ),
 };

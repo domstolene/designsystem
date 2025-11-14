@@ -1,15 +1,14 @@
 import '@norges-domstoler/dds-components/index.css';
 import React from 'react';
-import type { Preview } from '@storybook/react';
-import { DocsContainer } from '@storybook/addon-docs';
-import { Unstyled } from '@storybook/blocks';
+import type { Preview } from '@storybook/react-vite';
+import { DocsContainer } from '@storybook/addon-docs/blocks';
+import { Unstyled } from '@storybook/addon-docs/blocks';
 import {
   ToggleBar,
   ToggleRadio,
   ThemeProvider,
   DdsTheme,
 } from '@norges-domstoler/dds-components';
-import { useState } from 'storybook/internal/preview-api';
 
 let nameCounter = 0;
 
@@ -22,7 +21,6 @@ const preview: Preview = {
         order: ['Introduction', '*', ['Introduction', 'Changelog']],
       },
     },
-    actions: { argTypesRegex: '^on[A-Z].*' },
     docs: {
       container: ({ children, context }) => (
         <DocsContainer context={context}>
@@ -32,9 +30,13 @@ const preview: Preview = {
           </Unstyled>
         </DocsContainer>
       ),
+      canvas: { sourceState: 'shown' },
+      story: { inline: true },
       controls: { sort: 'requiredFirst' },
+      codePanel: true,
     },
   },
+
   decorators: [
     /** Styring av theme med toggle bar i hver story */
     /** Hvis story ikke skal ha theme-styring returner fast theme  */
@@ -46,7 +48,7 @@ const preview: Preview = {
           </ThemeProvider>
         );
       }
-      const [theme, setTheme] = useState<DdsTheme>('core');
+      const [theme, setTheme] = React.useState<DdsTheme>('core');
       nameCounter++;
 
       return (
@@ -70,6 +72,8 @@ const preview: Preview = {
       );
     },
   ],
+
+  tags: ['autodocs'],
 };
 
 export default preview;

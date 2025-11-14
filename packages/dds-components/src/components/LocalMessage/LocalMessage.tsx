@@ -1,6 +1,8 @@
 import { useState } from 'react';
 
 import styles from './LocalMessage.module.css';
+import { useTranslation } from '../../i18n';
+import { commonTexts } from '../../i18n/commonTexts';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -69,6 +71,8 @@ export const LocalMessage = ({
   htmlProps,
   ...rest
 }: LocalMessageProps) => {
+  const { t } = useTranslation();
+
   const [isClosed, setClosed] = useState(false);
 
   if (isClosed) {
@@ -108,10 +112,10 @@ export const LocalMessage = ({
           purpose="tertiary"
           onClick={() => {
             setClosed(true);
-            onClose && onClose();
+            onClose?.();
           }}
           size="xsmall"
-          aria-label="Lukk melding"
+          aria-label={t(commonTexts.closeMessage)}
           className={styles.container__button}
         />
       )}
