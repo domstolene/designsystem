@@ -2,6 +2,8 @@
 
 ## 21.19.1
 
+(2025-11-14)
+
 ### Patch Changes
 
 - f4706c3: Endre headerstørrelse for OverflowMenuHeader
