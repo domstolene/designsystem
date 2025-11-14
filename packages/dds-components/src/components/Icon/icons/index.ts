@@ -126,6 +126,7 @@ export * from './refresh';
 export * from './replay';
 export * from './scale';
 export * from './search';
+export * from './section';
 export * from './settings';
 export * from './sms';
 export * from './star';
