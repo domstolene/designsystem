@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import { ErrorList } from './ErrorList';
 import styles from './FileUploader.module.css';
 import { type FileUploaderFile } from './fileUploaderReducer';
@@ -11,7 +13,7 @@ import { Button } from '../Button';
 import { Icon } from '../Icon';
 import { CheckCircledIcon, CloseIcon, ErrorIcon } from '../Icon/icons';
 import { Paper } from '../layout';
-import { Typography } from '../Typography';
+import { Link, Typography } from '../Typography';
 
 interface FileProps {
   parentId: string;
@@ -35,12 +37,26 @@ export const File = (props: FileProps) => {
     readOnly,
   } = props;
 
+  const [fileUrl, setFileUrl] = useState<string>();
+
+  useEffect(() => {
+    if (stateFile.url) {
+      setFileUrl(stateFile.url);
+    } else if (stateFile.file) {
+      const url = URL.createObjectURL(stateFile.file);
+      setFileUrl(url);
+      return () => URL.revokeObjectURL(url);
+    }
+  }, [stateFile.file]);
+
   const errorsList = stateFile.errors.map((e, errorIndex) => ({
     id: derivativeIdGenerator(parentId, `file-${index}-error-${errorIndex}`),
     message: e,
   }));
 
   const inactive = disabled || readOnly;
+  console.log('stateFile', stateFile);
+  console.log('fileUrl', fileUrl);
 
   return (
     <li>
@@ -68,7 +84,13 @@ export const File = (props: FileProps) => {
           }
           className={cn(styles.file__name)}
         >
-          {stateFile.file.name}
+          {fileUrl ? (
+            <Link href={fileUrl} target="_blank">
+              {stateFile.name}
+            </Link>
+          ) : (
+            stateFile.name
+          )}
         </Typography>
         {!inactive && (
           <>
@@ -83,7 +105,7 @@ export const File = (props: FileProps) => {
               onClick={removeFile}
               icon={CloseIcon}
               htmlProps={{
-                'aria-label': t(texts.removeFile(stateFile.file.name)),
+                'aria-label': t(texts.removeFile(stateFile.name)),
                 'aria-invalid': !isValid ? true : undefined,
                 'aria-errormessage': !isValid
                   ? t(texts.invalidFile)

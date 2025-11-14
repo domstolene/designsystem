@@ -1,2 +1,2 @@
 export * from './FileUploader';
-export * from './types';
+export * from './FileUploader.types';

@@ -2,8 +2,10 @@ import { type FileWithPath } from 'file-selector';
 import { type Reducer } from 'react';
 
 export interface FileUploaderFile {
-  file: FileWithPath;
+  file?: FileWithPath;
+  name: string;
   errors: Array<string>;
+  url?: string;
 }
 
 export type RootErrorList = Array<string>;

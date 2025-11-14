@@ -3,7 +3,7 @@ import { type ComponentPropsWithRef, useId } from 'react';
 import { ErrorList } from './ErrorList';
 import { File } from './File';
 import styles from './FileUploader.module.css';
-import { type FileList } from './types';
+import { type FileList } from './FileUploader.types';
 import { type FileUploaderHookProps, useFileUploader } from './useFileUploader';
 import { createTexts, useTranslation } from '../../i18n';
 import {
@@ -113,7 +113,7 @@ export const FileUploader = (props: FileUploaderProps) => {
 
   const fileListElements = stateFiles.map((stateFile, index) => (
     <File
-      key={stateFile.file.name}
+      key={stateFile.name}
       parentId={uniqueId}
       index={index}
       file={stateFile}

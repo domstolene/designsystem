@@ -10,6 +10,7 @@ import {
 } from '../../storybook';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { Heading, Paragraph } from '../Typography';
+import { type FileList } from './FileUploader.types';
 
 export default {
   title: 'dds-components/Components/FileUploader',
@@ -69,7 +70,7 @@ export const Overview: Story = {
 export const Controlled: Story = {
   args: { label: 'Last opp fil', tip: 'Maks 1 fil', maxFiles: 1 },
   render: args => {
-    const [files, setFiles] = useState<Array<File>>([]);
+    const [files, setFiles] = useState<FileList>([]);
 
     return (
       <FileUploader
@@ -98,7 +99,7 @@ export const PdfOnly: Story = {
 export const CustomFileList: Story = {
   args: { label: 'Last opp fil' },
   render: args => {
-    const [files, setFiles] = useState<Array<File>>([]);
+    const [files, setFiles] = useState<FileList>([]);
     return (
       <>
         <Paragraph withMargins>Last opp en fil for å se listen.</Paragraph>

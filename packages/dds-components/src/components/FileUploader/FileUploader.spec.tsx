@@ -4,18 +4,26 @@ import { type ComponentProps, useState } from 'react';
 import { describe, expect, it, vi } from 'vitest';
 
 import { FileUploader } from './FileUploader';
-import type { FileList } from './types';
+import type { FileList } from './FileUploader.types';
 
 function FileUploaderTest(
   props: Omit<ComponentProps<typeof FileUploader>, 'value' | 'onChange'>,
 ) {
   const [files, setFiles] = useState<FileList>([]);
-  return <FileUploader {...props} value={files} onChange={setFiles} />;
+  return (
+    <FileUploader
+      {...props}
+      value={files}
+      onChange={files => setFiles(files)}
+    />
+  );
 }
 const fileName = 'hello.png';
 const fileValue = 'C:\\fakepath\\hello.png';
 const file = new File(['hello'], fileName, { type: 'image/png' });
 const file2 = new File(['hello2'], 'hello2.png', { type: 'image/png' });
+
+const deleteButtonName = `Fjern fil ${fileName}`;
 
 describe('<FileUploader>', () => {
   it('accepts uploading files', async () => {
@@ -28,24 +36,34 @@ describe('<FileUploader>', () => {
     });
   });
 
-  it('should render delete button for uploaded file', async () => {
+  it('renders link for uploaded file', async () => {
+    render(<FileUploaderTest />);
+    const fileInput = screen.getByTestId('file-uploader-input');
+    await userEvent.upload(fileInput, file);
+    await waitFor(() => {
+      expect(screen.getByRole('link')).toBeInTheDocument();
+    });
+  });
+
+  it('renders delete button for uploaded file', async () => {
     render(<FileUploaderTest />);
     const fileInput = screen.getByTestId('file-uploader-input');
     await userEvent.upload(fileInput, file);
     await waitFor(() => {
       expect(
-        screen.getByRole('button', { name: `Fjern fil ${fileName}` }),
+        screen.getByRole('button', { name: deleteButtonName }),
       ).toBeInTheDocument();
     });
   });
 
-  it('should delete file on delete button click', async () => {
+  it('deletes file on delete button click', async () => {
     render(<FileUploaderTest />);
     const fileInput = screen.getByTestId('file-uploader-input');
-    const name = `Fjern fil ${fileName}`;
 
     await userEvent.upload(fileInput, file);
-    const button = await screen.findByRole('button', { name });
+    const button = await screen.findByRole('button', {
+      name: deleteButtonName,
+    });
 
     expect(button).toBeInTheDocument();
     expect(fileInput).toHaveValue(fileValue);
@@ -53,7 +71,9 @@ describe('<FileUploader>', () => {
     await userEvent.click(button);
 
     await waitFor(() => {
-      expect(screen.queryByRole('button', { name })).not.toBeInTheDocument();
+      expect(
+        screen.queryByRole('button', { name: deleteButtonName }),
+      ).not.toBeInTheDocument();
     });
   });
 
@@ -67,7 +87,7 @@ describe('<FileUploader>', () => {
     });
   });
 
-  it('should not upload if file in wrong format', async () => {
+  it('does not upload if file in wrong format', async () => {
     render(<FileUploaderTest accept={['.pdf']} />);
     const fileInput = screen.getByTestId('file-uploader-input');
     await userEvent.upload(fileInput, file);
@@ -77,7 +97,7 @@ describe('<FileUploader>', () => {
     });
   });
 
-  it('should get error if too many files ', async () => {
+  it('gets error if too many files ', async () => {
     const maxFiles = 1;
     render(<FileUploaderTest maxFiles={maxFiles} />);
     const fileInput = screen.getByTestId('file-uploader-input');
@@ -93,34 +113,34 @@ describe('<FileUploader>', () => {
     });
   });
 
-  it('should render label', () => {
+  it('renders label', () => {
     const label = 'Last opp fil';
     render(<FileUploaderTest label={label} />);
     const labelNode = screen.getByText(label);
     expect(labelNode).toBeInTheDocument();
   });
 
-  it('label should have for-attribute', () => {
+  it('label has for-attribute', () => {
     const label = 'Last opp fil';
     render(<FileUploaderTest label={label} />);
     const labelNode = screen.getByText(label);
     expect(labelNode).toHaveAttribute('for');
   });
   describe('disabled', () => {
-    it('should be disabled', async () => {
+    it('is disabled', async () => {
       render(<FileUploaderTest disabled />);
       const fileInput = screen.getByTestId('file-uploader-input');
       expect(fileInput).toBeDisabled();
     });
 
-    it('input should not get keyboard focus', async () => {
+    it('input does not get keyboard focus', async () => {
       render(<FileUploaderTest disabled />);
       const fileInput = screen.getByTestId('file-uploader-input');
       await userEvent.keyboard('[Tab]');
       expect(fileInput).not.toHaveFocus();
     });
 
-    it('should not render upload button', async () => {
+    it('does not render upload button', async () => {
       render(<FileUploaderTest disabled />);
 
       expect(
@@ -130,13 +150,13 @@ describe('<FileUploader>', () => {
   });
 
   describe('readonly', () => {
-    it('should be readonly', async () => {
+    it('is readonly', async () => {
       render(<FileUploaderTest readOnly />);
       const fileInput = screen.getByTestId('file-uploader-input');
       expect(fileInput).toHaveAttribute('readonly');
     });
 
-    it('should not render upload button', async () => {
+    it('does not render upload button', async () => {
       render(<FileUploaderTest readOnly />);
 
       expect(
@@ -144,7 +164,7 @@ describe('<FileUploader>', () => {
       ).not.toBeInTheDocument();
     });
 
-    it('should have accessible description', async () => {
+    it('has accessible description', async () => {
       render(<FileUploaderTest readOnly />);
       const fileInput = screen.getByTestId('file-uploader-input');
       expect(fileInput).toHaveAccessibleDescription(
@@ -152,14 +172,14 @@ describe('<FileUploader>', () => {
       );
     });
 
-    it('should get keyboard focus', async () => {
+    it('gets keyboard focus', async () => {
       render(<FileUploaderTest readOnly />);
       const fileInput = screen.getByTestId('file-uploader-input');
       await userEvent.keyboard('[Tab]');
       expect(fileInput).toHaveFocus();
     });
 
-    it('should prevent default when Enter is pressed', async () => {
+    it('prevents default when Enter is pressed', async () => {
       render(<FileUploaderTest readOnly />);
       const fileInput = screen.getByTestId('file-uploader-input');
 
@@ -181,7 +201,7 @@ describe('<FileUploader>', () => {
       expect(preventDefault).toHaveBeenCalled();
     });
 
-    it('should prevent default when Space is pressed', async () => {
+    it('prevents default when Space is pressed', async () => {
       render(<FileUploaderTest readOnly />);
       const fileInput = screen.getByTestId('file-uploader-input');
 
@@ -203,7 +223,7 @@ describe('<FileUploader>', () => {
       expect(preventDefault).toHaveBeenCalled();
     });
 
-    it('should not allow uploads', async () => {
+    it('does not allow uploads', async () => {
       const handleChange = vi.fn();
 
       render(
