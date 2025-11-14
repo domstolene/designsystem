@@ -6,7 +6,7 @@
 
 ### Minor Changes
 
-- 4e4d14b: Utvider `initialFiles`, `value` og `onChange` props til å støtte filer fra server med `type RemoteFile`: `{ name: string; url: string; }`.
+- 4e4d14b: Utvider `initialFiles`, `value` og `onChange` props i `<FileUploader>` til å støtte filer fra server med `type RemoteFile`: `{ name: string; url: string; }`.
 
 ### Patch Changes
 
