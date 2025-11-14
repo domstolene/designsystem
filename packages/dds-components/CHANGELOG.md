@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-components
 
+## 21.19.1
+
+(2025-11-14)
+
+### Patch Changes
+
+- f4706c3: Endre headerstørrelse for OverflowMenuHeader
+
 ## 21.19.0
 
 (2025-11-12)
