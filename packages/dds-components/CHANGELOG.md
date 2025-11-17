@@ -1,5 +1,16 @@
 # @norges-domstoler/dds-components
 
+## 21.20.0
+
+### Minor Changes
+
+- 4e4d14b: Utvider `initialFiles`, `value` og `onChange` props til å støtte filer fra server med `type RemoteFile`: `{ name: string; url: string; }`.
+- 948ef0c: Nytt icon: `SectionIcon`.
+
+### Patch Changes
+
+- 4e4d14b: `<FileUploader>` returnerer forhåndsvisningslenker for opplastede filer istedenfor statisk filnavn. Hvis filen kommer fra serveren er brukes `url` prop fra fila som lenke. Hvis filen ble lastet opp av brukeren genereres midlertidig URL i klienten.
+
 ## 21.19.1
 
 (2025-11-14)
