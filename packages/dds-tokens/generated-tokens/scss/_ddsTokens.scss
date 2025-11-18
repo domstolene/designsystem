@@ -245,6 +245,7 @@
   $dds-color-text-medium: var(--dds-color-text-medium); /* Label, etc */
   $dds-color-text-subtle: var(--dds-color-text-subtle); /* Disabled or less important text */
   $dds-color-text-on-inverse: var(--dds-color-text-on-inverse); /* On surface.inverse */
+  $dds-color-text-danger: var(--dds-color-text-danger); /* Error text on paper, or default or subtle surafce/bg */
   $dds-color-text-on-action: var(--dds-color-text-on-action); /* On surface.action (primary and danger button) */
   $dds-color-text-on-status-default: var(--dds-color-text-on-status-default); /* On default status surfaces */
   $dds-color-text-on-status-strong: var(--dds-color-text-on-status-strong); /* On status surfaces with strong prop */
@@ -254,14 +255,27 @@
   $dds-color-text-action-visited: var(--dds-color-text-action-visited); /* Used for visited links */
   $dds-color-text-action-visited-on-inverse: var(--dds-color-text-action-visited-on-inverse); /* Used for visited links on inverse surfaces */
   $dds-color-text-on-notification: var(--dds-color-text-on-notification); /* Used on surface.notification */
-  $dds-color-text-danger: var(--dds-color-text-danger); /* Error text on paper, or default or subtle surafce/bg */
+  $dds-color-text-on-primary-default: var(--dds-color-text-on-primary-default); /* Used on brand.primary-default */
+  $dds-color-text-on-primary-subtle: var(--dds-color-text-on-primary-subtle); /* Used on brand.primary-subtle */
+  $dds-color-text-on-primary-medium: var(--dds-color-text-on-primary-medium); /* Used on brand.primary-medium */
+  $dds-color-text-on-primary-strong: var(--dds-color-text-on-primary-strong); /* Used on brand.primary-strong */
+  $dds-color-text-on-secondary-default: var(--dds-color-text-on-secondary-default); /* Used on brand.secondary-default */
+  $dds-color-text-on-secondary-subtle: var(--dds-color-text-on-secondary-subtle); /* Used on brand.secondary-subtle */
+  $dds-color-text-on-secondary-medium: var(--dds-color-text-on-secondary-medium); /* Used on brand.secondary-medium */
+  $dds-color-text-on-secondary-strong: var(--dds-color-text-on-secondary-strong); /* Used on brand.secondary-strong */
+  $dds-color-text-on-tertiary-default: var(--dds-color-text-on-tertiary-default); /* Used on brand.tertiary-default */
+  $dds-color-text-on-tertiary-subtle: var(--dds-color-text-on-tertiary-subtle); /* Used on brand.tertiary-subtle */
+  $dds-color-text-on-tertiary-medium: var(--dds-color-text-on-tertiary-medium); /* Used on brand.tertiary-medium */
+  $dds-color-text-on-tertiary-strong: var(--dds-color-text-on-tertiary-strong); /* Used on brand.tertiary-strong */
+  $dds-color-text-on-data-default: var(--dds-color-text-on-data-default); /* Used on data. with default value */
+  $dds-color-text-on-data-subtle: var(--dds-color-text-on-data-subtle); /* Used on data. with subtle value */
   $dds-color-icon-default: var(--dds-color-icon-default); /* Often used with text.default */
   $dds-color-icon-medium: var(--dds-color-icon-medium); /* Often used with text.medium */
   $dds-color-icon-subtle: var(--dds-color-icon-subtle); /* Often used with text.subtle */
   $dds-color-icon-on-inverse: var(--dds-color-icon-on-inverse); /* On surface.inverse */
   $dds-color-icon-on-action: var(--dds-color-icon-on-action); /* On surface.action (primary and danger button) */
   $dds-color-icon-action-resting: var(--dds-color-icon-action-resting); /* Often used with Text.action */
-  $dds-color-icon-action-hover: var(--dds-color-icon-action-hover); /* hover on icon-action, used on secondary buttons etc */
+  $dds-color-icon-action-hover: var(--dds-color-icon-action-hover); /* hover on icon-action */
   $dds-color-icon-on-success-default: var(--dds-color-icon-on-success-default); /* On surface.success-default */
   $dds-color-icon-on-success-strong: var(--dds-color-icon-on-success-strong); /* On surface-success-strong */
   $dds-color-icon-on-warning-default: var(--dds-color-icon-on-warning-default); /* On surface.warning-default */

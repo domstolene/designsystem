@@ -26,6 +26,7 @@
 .container--success--default {
   background-color: var(--dds-color-surface-success-default);
   border-color: var(--dds-color-border-success);
+  color: var(--dds-color-text-on-status-default);
 
   svg {
     color: var(--dds-color-icon-on-success-default);
@@ -35,6 +36,7 @@
 .container--success--strong {
   background-color: var(--dds-color-surface-success-strong);
   border-color: var(--dds-color-surface-success-strong);
+  color: var(--dds-color-text-on-status-strong);
 
   svg {
     color: var(--dds-color-icon-on-success-strong);
@@ -44,6 +46,7 @@
 .container--danger--default {
   background-color: var(--dds-color-surface-danger-default);
   border-color: var(--dds-color-border-danger);
+  color: var(--dds-color-text-on-status-default);
 
   svg {
     color: var(--dds-color-icon-on-danger-default);
@@ -53,6 +56,7 @@
 .container--danger--strong {
   background-color: var(--dds-color-surface-danger-strong);
   border-color: var(--dds-color-surface-danger-strong);
+  color: var(--dds-color-text-on-status-strong);
 
   svg {
     color: var(--dds-color-icon-on-danger-strong);
@@ -62,6 +66,7 @@
 .container--warning--default {
   background-color: var(--dds-color-surface-warning-default);
   border-color: var(--dds-color-border-warning);
+  color: var(--dds-color-text-on-status-default);
 
   svg {
     color: var(--dds-color-icon-on-warning-default);
@@ -71,6 +76,7 @@
 .container--warning--strong {
   background-color: var(--dds-color-surface-warning-strong);
   border-color: var(--dds-color-surface-warning-strong);
+  color: var(--dds-color-text-on-status-strong);
 
   svg {
     color: var(--dds-color-icon-on-warning-strong);
@@ -80,6 +86,7 @@
 .container--info--default {
   background-color: var(--dds-color-surface-info-default);
   border-color: var(--dds-color-border-info);
+  color: var(--dds-color-text-on-status-default);
 
   svg {
     color: var(--dds-color-icon-on-info-default);
@@ -89,6 +96,7 @@
 .container--info--strong {
   background-color: var(--dds-color-surface-info-strong);
   border-color: var(--dds-color-surface-info-strong);
+  color: var(--dds-color-text-on-status-strong);
 
   svg {
     color: var(--dds-color-icon-on-info-strong);

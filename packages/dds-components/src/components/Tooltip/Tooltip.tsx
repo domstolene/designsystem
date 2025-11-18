@@ -21,7 +21,7 @@ import {
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn, combineHandlers } from '../../utils';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
-import { Paper } from '../layout';
+import { Box, Paper } from '../layout';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
 type AnchorElement = ReactElement<
@@ -78,9 +78,9 @@ export const Tooltip = ({
   const uniqueTooltipId = tooltipId ?? `${generatedId}-tooltip`;
   const [open, setOpen] = useState(false);
   const [inView, setInView] = useState(keepMounted ? false : true);
-  const [arrowElement, setArrowElement] = useState<HTMLElement | null>(null);
-  const { refs, styles: positionStyles } = useFloatPosition(arrowElement, {
+  const { refs, styles: positionStyles } = useFloatPosition(undefined, {
     placement,
+    offset: 4,
   });
   const tooltipRef = useRef<HTMLDivElement>(null);
   const combinedRef = useCombinedRef(ref, refs.setFloating, tooltipRef);
@@ -166,13 +166,9 @@ export const Tooltip = ({
   const ariaHidden = keepMounted ? !open : undefined;
 
   return (
-    <div
-      {...getBaseHTMLProps(
-        id,
-        cn(className, styles.container),
-        htmlProps,
-        rest,
-      )}
+    <Box
+      {...getBaseHTMLProps(id, className, htmlProps, rest)}
+      width="fit-content"
       style={style}
       onMouseLeave={combineHandlers(closeTooltip, onMouseLeave)}
       onMouseOver={combineHandlers(openTooltip, onMouseOver)}
@@ -181,6 +177,9 @@ export const Tooltip = ({
       {(!keepMounted && (open || hasTransitionedIn)) || keepMounted ? (
         <Paper
           id={uniqueTooltipId}
+          padding="x0.5"
+          width="fit-content"
+          textAlign="center"
           ref={combinedRef}
           role="tooltip"
           aria-hidden={ariaHidden}
@@ -195,23 +194,9 @@ export const Tooltip = ({
           )}
         >
           {text}
-          <div ref={setArrowElement} style={positionStyles.arrow}>
-            <svg width="36" height="9">
-              <path
-                d="M16.586 6.586L10 0h16.154a.373.373 0 00-.263.11l-6.477 6.476a2 2 0 01-2.828 0z"
-                className={styles['svg-arrow__background']}
-              />
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M26.5.5l-6.732 6.94a2.5 2.5 0 01-3.536 0L9.5.5H11l5.94 6.232a1.5 1.5 0 002.12 0L25 .5h1.5z"
-                className={styles['svg-arrow__border']}
-              />
-            </svg>
-          </div>
         </Paper>
       ) : null}
-    </div>
+    </Box>
   );
 };
 

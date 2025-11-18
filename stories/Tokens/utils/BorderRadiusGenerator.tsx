@@ -1,17 +1,17 @@
-import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base.json';
-import jsonC from '@norges-domstoler/dds-design-tokens/dds/tokens/Core.json';
-import jsonP from '@norges-domstoler/dds-design-tokens/dds/tokens/Public.json';
+import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Elsa.json';
+import jsonC from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/BorderRadius/Core.json';
+import jsonP from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/BorderRadius/Public.json';
 
 import { copyButton } from './CopyButton';
 import { splitReferenceKeys, tableStyle } from './functions';
-import { type TokenBorderRadiusJsonObject } from './Tokens.types';
-import { Paper } from '../../../packages/dds-components/dist';
 import {
-  type DdsTheme,
-  Table,
-} from '../../../packages/dds-components/src/index';
+  type ThemeMain,
+  type TokenBorderRadiusJsonObject,
+} from './Tokens.types';
+import { Paper } from '../../../packages/dds-components/dist';
+import { Table } from '../../../packages/dds-components/src/index';
 
-export const BorderRadiusGenerator = (theme: DdsTheme) => {
+export const BorderRadiusGenerator = (theme: ThemeMain) => {
   const tokenSet = theme === 'core' ? jsonC : jsonP;
   const tokens: TokenBorderRadiusJsonObject = tokenSet['dds-border-radius'];
   const baseTokens: TokenBorderRadiusJsonObject =
@@ -35,7 +35,7 @@ export const BorderRadiusGenerator = (theme: DdsTheme) => {
               width="x4"
               border="border-default"
               style={{
-                borderRadius: `var(${tokenName})`,
+                borderRadius: value,
               }}
             ></Paper>
           </Table.Cell>

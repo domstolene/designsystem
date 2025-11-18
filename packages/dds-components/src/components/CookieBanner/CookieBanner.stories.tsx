@@ -39,10 +39,7 @@ export const Preview: Story = {
       <>
         Eksempeltekst for dette cookie-banneret. Fyll inn passende tekst om at
         vi har noen valgfrie og noen nødvendige informasjonskapsler.{' '}
-        <Link href="/" color="text-default">
-          Se alle våre informasjonskapsler
-        </Link>
-        .
+        <Link href="/">Se alle våre informasjonskapsler</Link>.
       </>
     ),
     buttons: [{ children: 'Godkjenn alle' }, { children: 'Kun nødvendige' }],
@@ -56,10 +53,7 @@ export const WithCheckboxes: Story = {
       <>
         Eksempeltekst for dette cookie-banneret. Fyll inn passende tekst om at
         vi har noen valgfrie og noen nødvendige informasjonskapsler.{' '}
-        <Link href="/" color="text-default">
-          Se alle våre informasjonskapsler
-        </Link>
-        .
+        <Link href="/">Se alle våre informasjonskapsler</Link>.
       </>
     ),
     buttons: [{ children: 'Godkjenn valgte' }],
@@ -102,10 +96,7 @@ export const Placement: Story = {
       <>
         Eksempeltekst for dette cookie-banneret. Fyll inn passende tekst om at
         vi har noen valgfrie og noen nødvendige informasjonskapsler.{' '}
-        <Link href="/" color="text-default">
-          Se alle våre informasjonskapsler
-        </Link>
-        .
+        <Link href="/">Se alle våre informasjonskapsler</Link>.
       </>
     ),
     buttons: [{ children: 'Godkjenn alle' }, { children: 'Kun nødvendige' }],
@@ -178,10 +169,7 @@ export const PlacementWithCheckboxes: Story = {
       <>
         Eksempeltekst for dette cookie-banneret. Fyll inn passende tekst om at
         vi har noen valgfrie og noen nødvendige informasjonskapsler.{' '}
-        <Link href="/" color="text-default">
-          Se alle våre informasjonskapsler
-        </Link>
-        .
+        <Link href="/">Se alle våre informasjonskapsler</Link>.
       </>
     ),
     buttons: [{ children: 'Godkjenn valgte' }],
@@ -271,10 +259,7 @@ export const Collapsible: Story = {
       <>
         Eksempeltekst for dette cookie-banneret. Fyll inn passende tekst om at
         vi har noen valgfrie og noen nødvendige informasjonskapsler.{' '}
-        <Link href="/" color="text-default">
-          Se alle våre informasjonskapsler
-        </Link>
-        .
+        <Link href="/">Se alle våre informasjonskapsler</Link>.
       </>
     ),
     buttons: [{ children: 'Godkjenn alle' }, { children: 'Kun nødvendige' }],

@@ -13,7 +13,7 @@ type Story = StoryObj<typeof ThemeProvider>;
 
 export const Preview: Story = {
   args: {
-    theme: 'public',
+    theme: 'public-light',
   },
   render: args => (
     <ThemeProvider {...args}>

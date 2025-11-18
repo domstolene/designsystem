@@ -47,7 +47,6 @@
   padding-bottom: calc(
     var(--dds-spacing-x0-75) - var(--dds-drawer-content-container-padding)
   );
-  background-color: var(--dds-color-surface-default);
   z-index: 1;
 }
 

@@ -28,28 +28,67 @@ StyleDictionary.registerFormat({
   format: customSCSSFormat,
 });
 
-const sourcePathBase = 'dds/tokens';
-const generatePathBase = 'generated-tokens';
+const srcPathBase = 'dds/tokens';
+const destPathBase = 'generated-tokens';
+
+const themes = [
+  {
+    name: 'core-light',
+    sources: [
+      'Base/Elsa.json',
+      'Semantic/Color/Light.json',
+      'Semantic/BorderRadius/Core.json',
+      'Semantic/Typography/Core.json',
+    ],
+  },
+  {
+    name: 'core-dark',
+    sources: [
+      'Base/Elsa.json',
+      'Semantic/Color/Dark.json',
+      'Semantic/BorderRadius/Core.json',
+      'Semantic/Typography/Core.json',
+    ],
+  },
+  {
+    name: 'public-light',
+    sources: [
+      'Base/Elsa.json',
+      'Semantic/Color/Light.json',
+      'Semantic/BorderRadius/Public.json',
+      'Semantic/Typography/Public.json',
+    ],
+  },
+  {
+    name: 'public-dark',
+    sources: [
+      'Base/Elsa.json',
+      'Semantic/Color/Dark.json',
+      'Semantic/BorderRadius/Public.json',
+      'Semantic/Typography/Public.json',
+    ],
+  },
+];
 
 function getStyleDictionaryConfig(theme) {
   return {
-    source: [`${sourcePathBase}/Base.json`, `${sourcePathBase}/${theme}.json`],
+    source: theme.sources.map(src => `${srcPathBase}/${src}`),
     preprocessors: ['tokens-studio'],
     platforms: {
       css: {
-        buildPath: `${generatePathBase}/css/${theme}/`,
+        buildPath: `${destPathBase}/css/`,
         transformGroup: 'tokens-studio',
         transforms: ['name/kebab'],
         files: [
           {
-            destination: `ddsTokens-${theme.toLowerCase()}.css`,
+            destination: `ddsTokens-${theme.name}.css`,
             format: 'custom/css/variables',
             filter: token => filterOutBase(token),
           },
         ],
       },
       js: {
-        buildPath: `${generatePathBase}/js/${theme}/`,
+        buildPath: `${destPathBase}/js/${theme.name}/`,
         transformGroup: 'tokens-studio',
         files: [
           {
@@ -61,7 +100,7 @@ function getStyleDictionaryConfig(theme) {
       },
       // Returnerer bare 1 fil da SCSS-variabler refererer til CSS-variabler
       scss: {
-        buildPath: `${generatePathBase}/scss/`,
+        buildPath: `${destPathBase}/scss/`,
         transformGroup: 'tokens-studio',
         transforms: ['name/kebab'],
         files: [
@@ -76,10 +115,10 @@ function getStyleDictionaryConfig(theme) {
   };
 }
 
-['Core', 'Public'].map(function (theme) {
-  ['css', 'js', 'scss'].map(function (platform) {
+themes.forEach(theme => {
+  ['css', 'js', 'scss'].forEach(platform => {
     console.log('\n==============================================');
-    console.log(`\nProcessing: [${theme}] [${platform}]`);
+    console.log(`\nProcessing: [${theme.name}] [${platform}]`);
 
     const sd = new StyleDictionary(getStyleDictionaryConfig(theme), {
       verbosity: 'verbose',

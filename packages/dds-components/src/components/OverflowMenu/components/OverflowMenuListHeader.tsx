@@ -13,7 +13,9 @@ export const OverflowMenuListHeader = ({
 }: OverflowMenuListHeaderProps) => {
   const themeContext = useContext(ThemeContext);
   const headingStyle =
-    themeContext?.theme === 'core' ? 'heading-xsmall' : 'heading-xxsmall';
+    themeContext?.theme === 'core-light' || themeContext?.theme === 'core-dark'
+      ? 'heading-xsmall'
+      : 'heading-xxsmall';
   return (
     <Box
       as="h2"

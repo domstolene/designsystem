@@ -23,6 +23,7 @@ import {
 } from './CookieBannerCheckbox';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { styleUpToBreakpoint } from '../layout/common/utils';
+import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export type CookieBannerProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
@@ -78,7 +79,12 @@ export function CookieBanner({
     <Paper
       {...getBaseHTMLProps(
         id,
-        cn(className, utilStyles.scrollbar, utilStyles['scrollable-y']),
+        cn(
+          className,
+          utilStyles.scrollbar,
+          utilStyles['scrollable-y'],
+          typographyStyles['tertiary-medium'],
+        ),
         htmlProps,
         rest,
       )}

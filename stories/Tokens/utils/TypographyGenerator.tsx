@@ -1,6 +1,6 @@
-import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base.json';
-import jsonC from '@norges-domstoler/dds-design-tokens/dds/tokens/Core.json';
-import jsonP from '@norges-domstoler/dds-design-tokens/dds/tokens/Public.json';
+import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Elsa.json';
+import jsonC from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Typography/Core.json';
+import jsonP from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Typography/Public.json';
 
 import { copyButton } from './CopyButton';
 import {
@@ -10,14 +10,12 @@ import {
   tableStyle,
 } from './functions';
 import {
+  type ThemeMain,
   type TokenTypographyBaseJsonObject,
   type TokenTypographySemanticCssFont,
   type TokenTypographySemanticJsonObject,
 } from './Tokens.types';
-import {
-  type DdsTheme,
-  Table,
-} from '../../../packages/dds-components/src/index';
+import { Table } from '../../../packages/dds-components/src/index';
 
 const baseTokens: Record<string, TokenTypographyBaseJsonObject> = {};
 baseTokens['dds-font-size'] = jsonBase['dds-font-size'];
@@ -29,7 +27,7 @@ baseTokens['dds-font-paragraph-spacing'] =
 baseTokens['dds-font-letter-spacing'] = jsonBase['dds-font-letter-spacing'];
 baseTokens['dds-font-style'] = jsonBase['dds-font-style'];
 
-export const TypographyGenerator = (theme: DdsTheme) => {
+export const TypographyGenerator = (theme: ThemeMain) => {
   const tokenSet = theme === 'core' ? jsonC : jsonP;
   const tokens: TokenTypographySemanticJsonObject = tokenSet['dds-font'];
 
@@ -55,17 +53,17 @@ export const TypographyGenerator = (theme: DdsTheme) => {
           return baseTokens[referenceKeys[0]][referenceKeys[1]].value;
         });
 
+        const valueCSS = `${values[0]} ${values[1]}/${values[2]} ${values[3]}`;
+
         const tokenNameFont = `--dds-font-${key1}-${key2}`;
         rows.push(
           <Table.Row key={tokenNameFont}>
             <Table.Cell>{tokenNameFont}</Table.Cell>
-            <Table.Cell>
-              {values[0]} {values[1]}/{values[2]} {values[3]}
-            </Table.Cell>
+            <Table.Cell>{valueCSS}</Table.Cell>
             <Table.Cell>
               <span
                 style={{
-                  font: `var(${tokenNameFont})`,
+                  font: valueCSS,
                   textTransform: 'capitalize',
                 }}
               >
@@ -89,7 +87,7 @@ export const TypographyGenerator = (theme: DdsTheme) => {
             <Table.Cell>
               <span
                 style={{
-                  font: `var(${tokenNameFont})`,
+                  font: valueCSS,
                   letterSpacing: `var(${tokenNameLetterSpacing})`,
                 }}
               >
@@ -121,7 +119,7 @@ export const TypographyGenerator = (theme: DdsTheme) => {
               >
                 <div
                   style={{
-                    font: `var(${tokenNameFont})`,
+                    font: valueCSS,
                     marginBottom: `var(${tokenNameParagraphSpacing})`,
                   }}
                 >
