@@ -1,5 +1,5 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
-import { fn } from 'storybook/internal/test';
+import { fn } from 'storybook/test';
 
 import {
   categoryHtml,
