@@ -6,7 +6,6 @@ import {
 } from '@norges-domstoler/storybook-components';
 
 import * as NativeSelectStories from './NativeSelect.stories';
-import { NativeSelectPlaceholder } from '.';
 
 <Meta of={NativeSelectStories} />
 
@@ -18,23 +17,14 @@ import { NativeSelectPlaceholder } from '.';
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-select-nativeselect--default"
 />
 
-`<NativeSelect>` er nativ variant av `<Select>`. Den har begrenset funksjonalitet, men er ikke bygd med custom elementer som begrenser f.eks. testbarhet. Komponenten kan brukes bl.a. når det ikke trengs søk.
-
-Siden `<select>` automatisk velger første alternativ, tilbyr vi også `<NativeSelectPlaceholder>` med tom verdi.
+`<NativeSelect>` er nativ variant av `<Select>` som returnerer `<select>`. Den har begrenset funksjonalitet, men er ikke bygd med custom elementer som begrenser f.eks. testbarhet. Komponenten kan brukes bl.a. når det ikke trengs søk. Bruk native HTML-elementer `<option>` og `<optgroup>` som barn.
 
 ## Props
-
-### NativeSelect
-
-Returnerer `<select>`. Bruk native HTML-elementer `<option>` og `<optgroup>` som barn.
 
 <Canvas of={NativeSelectStories.Preview} />
 <Controls of={NativeSelectStories.Preview} />
 
-### NativeSelectPlaceholder
-
-En nativ `<option>`. Skal brukes som første barn i `<NativeSelect>`. Verdien er i utgangspunktet tom, og den har default placeholer-tekst.
-
 ## Retningslinjer
 
-- Bruk `<NativeSelectPlaceholder>` som første barn, slik at en verdi ikke blir valgt automatisk og komponenten er tømbar.
+- Bruk `<option value=""></option>` som første barn, slik at en faktisk verdi ikke blir valgt automatisk og komponenten er tømbar.
+  Vi oppfordrer til å ikke ha en placeholder grunnet utfordringer med universell utforming, men du kan bruke det om nødvendig.

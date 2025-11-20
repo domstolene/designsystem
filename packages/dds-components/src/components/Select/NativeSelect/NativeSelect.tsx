@@ -196,17 +196,3 @@ export const NativeSelect = ({
     </div>
   );
 };
-
-export type NativeSelectPlaceholderProps = ComponentPropsWithRef<'option'>;
-
-export const NativeSelectPlaceholder = ({
-  children = '-- Velg fra listen --',
-  value,
-  ...rest
-}: NativeSelectPlaceholderProps) => (
-  <option value={value ?? ''} selected {...rest}>
-    {children}
-  </option>
-);
-
-NativeSelectPlaceholder.displayName = 'NativeSelectPlaceholder';
