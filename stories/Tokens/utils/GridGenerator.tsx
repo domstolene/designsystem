@@ -1,11 +1,8 @@
-import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base.json';
+import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Elsa.json';
 
 import { copyButton } from './CopyButton';
 import { type TokenGridJsonObject } from './Tokens.types';
-import {
-  Table,
-  VisuallyHidden,
-} from '../../../packages/dds-components/src/index';
+import { Table } from '../../../packages/dds-components/src/index';
 
 export const GridGenerator = () => {
   const tokens: TokenGridJsonObject = jsonBase['dds-grid'];

@@ -23,6 +23,7 @@ export const BORDER_COLORS = [
 ] as const;
 
 const BACKGROUNDS = [
+  'surface-default',
   'surface-subtle',
   'surface-medium',
   'surface-inverse-default',

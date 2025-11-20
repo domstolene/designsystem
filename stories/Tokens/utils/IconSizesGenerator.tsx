@@ -1,4 +1,4 @@
-import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base.json';
+import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Elsa.json';
 
 import { copyButton } from './CopyButton';
 import { type TokenBreakpointJsonObject } from './Tokens.types';

@@ -12,7 +12,7 @@
   display: flex;
   box-sizing: border-box;
   align-items: center;
-  background-color: var(--dds-color-surface-default);
+  background-color: inherit;
   text-decoration: none;
   padding: var(--dds-spacing-x0-75);
   gap: var(--dds-spacing-x0-25);

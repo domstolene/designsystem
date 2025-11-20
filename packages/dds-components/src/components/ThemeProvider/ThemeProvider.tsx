@@ -12,7 +12,7 @@ import styles from './ThemeProvider.module.css';
 import { cn } from '../../utils';
 
 export type DdsTheme = keyof typeof ddsTokens;
-const defaultTheme = 'core';
+const defaultTheme: DdsTheme = 'core-light';
 
 interface ThemeContextProps {
   theme: DdsTheme;
@@ -26,7 +26,7 @@ export const ThemeContext = createContext<ThemeContextProps | undefined>(
 export interface ThemeProviderProps {
   /**
    * Elsa tema for applikasjonen.
-   * @default "core"
+   * @default "core-light"
    */
   theme?: DdsTheme;
   /**

@@ -65,7 +65,7 @@ function TranslationComponent(props: TCProps) {
 
 export const Preview: Story = {
   args: {
-    theme: 'public',
+    theme: 'public-light',
     language: 'en',
   },
   render: args => {

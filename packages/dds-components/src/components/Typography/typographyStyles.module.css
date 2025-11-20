@@ -23,6 +23,41 @@
   --dds-color-icon-action-hover-inversable: var(--dds-color-icon-on-inverse);
 }
 
+.tertiary-medium {
+  --dds-color-text-body: var(--dds-color-text-on-tertiary-medium);
+  --dds-color-text-body-subtle: var(--dds-color-text-on-tertiary-medium);
+  --dds-color-text-link: var(--dds-color-text-on-tertiary-medium);
+  --dds-color-text-link-visited: var(
+    --dds-color-text-action-visited-on-te--dds-color-text-on-tertiary-medium
+  );
+  --dds-color-text-label: var(--dds-color-text-on-tertiary-medium);
+  --dds-color-text-helper: var(--dds-color-text-on-tertiary-medium);
+  --dds-color-text-placeholder: var(--dds-color-text-on-tertiary-medium);
+  --dds-color-icon-link: var(--dds-color-text-on-tertiary-medium);
+  --dds-color-text-default-inversable: var(--dds-color-text-on-tertiary-medium);
+  --dds-color-text-subtle-inversable: var(--dds-color-text-on-tertiary-medium);
+  --dds-color-text-medium-inversable: var(--dds-color-text-on-tertiary-medium);
+  --dds-color-text-action-resting-inversable: var(
+    --dds-color-text-on-tertiary-medium
+  );
+  --dds-color-text-action-hover-inversable: var(
+    --dds-color-text-on-tertiary-medium
+  );
+  --dds-color-text-requiredfield-inversable: var(
+    --dds-color-text-on-tertiary-medium
+  );
+  color: var(--dds-color-text-on-tertiary-medium);
+  --dds-color-icon-default-inversable: var(--dds-color-text-on-tertiary-medium);
+  --dds-color-icon-subtle-inversable: var(--dds-color-text-on-tertiary-medium);
+  --dds-color-icon-medium-inversable: var(--dds-color-text-on-tertiary-medium);
+  --dds-color-icon-action-resting-inversable: var(
+    --dds-color-icon-on-te--dds-color-text-on-tertiary-medium
+  );
+  --dds-color-icon-action-hover-inversable: var(
+    --dds-color-icon-on-te--dds-color-text-on-tertiary-medium
+  );
+}
+
 :where(.a),
 :where(.a--nested__parent .a--nested__child) {
   font: inherit;
@@ -262,6 +297,10 @@
   text-decoration: underline;
 }
 
+.text-color--inherit {
+  color: inherit;
+}
+
 .text-color--default {
   color: var(--dds-color-text-default-inversable);
 }
@@ -304,6 +343,62 @@
 
 .text-color--on-notification {
   color: var(--dds-color-text-on-notification);
+}
+
+.text-color--on-primary-default {
+  color: var(--dds-color-text-on-primary-default);
+}
+
+.text-color--on-primary-medium {
+  color: var(--dds-color-text-on-primary-medium);
+}
+
+.text-color--on-primary-subtle {
+  color: var(--dds-color-text-on-primary-subtle);
+}
+
+.text-color--on-primary-strong {
+  color: var(--dds-color-text-on-primary-strong);
+}
+
+.text-color--on-secondary-default {
+  color: var(--dds-color-text-on-secondary-default);
+}
+
+.text-color--on-secondary-medium {
+  color: var(--dds-color-text-on-secondary-medium);
+}
+
+.text-color--on-secondary-subtle {
+  color: var(--dds-color-text-on-secondary-subtle);
+}
+
+.text-color--on-secondary-strong {
+  color: var(--dds-color-text-on-secondary-strong);
+}
+
+.text-color--on-tertiary-default {
+  color: var(--dds-color-text-on-tertiary-default);
+}
+
+.text-color--on-tertiary-medium {
+  color: var(--dds-color-text-on-tertiary-medium);
+}
+
+.text-color--on-tertiary-subtle {
+  color: var(--dds-color-text-on-tertiary-subtle);
+}
+
+.text-color--on-tertiary-strong {
+  color: var(--dds-color-text-on-tertiary-strong);
+}
+
+.text-color--on-data-default {
+  color: var(--dds-color-text-on-data-default);
+}
+
+.text-color--on-data-subtle {
+  color: var(--dds-color-text-on-data-subtle);
 }
 
 .text-color--on-inverse {

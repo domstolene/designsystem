@@ -50,7 +50,7 @@ const nativeOptions = options.map((item, index) => (
   </option>
 ));
 
-const children = [<NativeSelectPlaceholder />, ...nativeOptions];
+const children = [<option value=""></option>, ...nativeOptions];
 
 export const Preview: Story = {
   args: {

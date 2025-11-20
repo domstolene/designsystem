@@ -14,11 +14,11 @@ import {
 } from './utils';
 import { ZIndexGenerator } from './utils/ZIndexGenerator';
 import {
-  Tabs,
   Tab,
   TabList,
   TabPanel,
   TabPanels,
+  Tabs,
 } from '../../packages/dds-components/src';
 
 const meta: Meta = {
@@ -51,11 +51,37 @@ export const Breakpoints = () => {
 };
 
 export const Colors = () => {
-  return <Wrapper> {ColorsGenerator()}</Wrapper>;
+  return (
+    <Wrapper>
+      <Tabs>
+        <TabList>
+          <Tab>Light</Tab>
+          <Tab>Dark</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>{ColorsGenerator('light')}</TabPanel>
+          <TabPanel>{ColorsGenerator('dark')}</TabPanel>
+        </TabPanels>
+      </Tabs>
+    </Wrapper>
+  );
 };
 
 export const ColorsDataVisualisation = () => {
-  return <Wrapper> {DataColorsGenerator()}</Wrapper>;
+  return (
+    <Wrapper>
+      <Tabs>
+        <TabList>
+          <Tab>Light</Tab>
+          <Tab>Dark</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>{DataColorsGenerator('light')}</TabPanel>
+          <TabPanel>{DataColorsGenerator('dark')}</TabPanel>
+        </TabPanels>
+      </Tabs>
+    </Wrapper>
+  );
 };
 
 export const Grid = () => {

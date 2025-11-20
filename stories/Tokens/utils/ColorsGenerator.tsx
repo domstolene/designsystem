@@ -1,8 +1,9 @@
-import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base.json';
-import jsonC from '@norges-domstoler/dds-design-tokens/dds/tokens/Core.json';
+import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Elsa.json';
+import jsonD from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Color/Dark.json';
+import jsonL from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Color/Light.json';
 
 import { copyButton } from './CopyButton';
-import { type TokenColorJsonObject } from './Tokens.types';
+import { type ThemeMode, type TokenColorJsonObject } from './Tokens.types';
 import {
   Box,
   HStack,
@@ -15,8 +16,9 @@ import {
   VisuallyHidden,
 } from '../../../packages/dds-components/src/index';
 
-export const ColorsGenerator = () => {
-  const tokens: TokenColorJsonObject = jsonC['dds-color'];
+export const ColorsGenerator = (mode: ThemeMode) => {
+  const tokenSet = mode === 'light' ? jsonL : jsonD;
+  const tokens: TokenColorJsonObject = tokenSet['dds-color'];
   const baseTokens: TokenColorJsonObject = jsonBase['dds-color-base'];
 
   function generateBodyRows() {
@@ -46,7 +48,7 @@ export const ColorsGenerator = () => {
                 width="var(--dds-spacing-x2"
                 border="border-default"
                 style={{
-                  background: `var(${tokenName})`,
+                  background: value,
                 }}
               ></Paper>
             </Table.Cell>
@@ -80,8 +82,9 @@ export const ColorsGenerator = () => {
   );
 };
 
-export const DataColorsGenerator = () => {
-  const tokens: TokenColorJsonObject = jsonC['dds-color-data'];
+export const DataColorsGenerator = (mode: ThemeMode) => {
+  const tokenSet = mode === 'light' ? jsonL : jsonD;
+  const tokens: TokenColorJsonObject = tokenSet['dds-color-data'];
   const baseTokens: TokenColorJsonObject = jsonBase['dds-color-data'];
 
   function generateBodyRows() {
@@ -107,11 +110,11 @@ export const DataColorsGenerator = () => {
             </Table.Cell>
             <Table.Cell>
               <Paper
-                height="var(--dds-spacing-x2"
-                width="var(--dds-spacing-x2"
+                height="var(--dds-spacing-x2)"
+                width="var(--dds-spacing-x2)"
                 border="border-default"
                 style={{
-                  background: `var(${tokenName})`,
+                  background: value,
                 }}
               ></Paper>
             </Table.Cell>
@@ -168,7 +171,7 @@ export const DataColorsBaseGenerator = () => {
               height="100px"
               width="100px"
               style={{
-                background: `var(--dds-color-data-${key1}-${tokenName})`,
+                background: token.value,
               }}
             />
             <Heading level={2} typographyType="headingXsmall">

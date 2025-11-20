@@ -16,7 +16,7 @@ export const themeProviderDecorator = (Story: ReactNode) => {
 
   return (
     <div ref={themeRef}>
-      <ThemeContext value={{ theme: 'core', el: element }}>
+      <ThemeContext value={{ theme: 'core-light', el: element }}>
         {Story}
       </ThemeContext>
     </div>

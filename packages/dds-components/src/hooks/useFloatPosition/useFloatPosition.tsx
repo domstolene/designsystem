@@ -117,7 +117,7 @@ interface UseFloatPosition {
  */
 
 export const useFloatPosition = (
-  arrowRef: HTMLElement | null,
+  arrowRef?: HTMLElement | null,
   options: UseFloatPositionOptions = {},
 ): UseFloatPosition => {
   const {

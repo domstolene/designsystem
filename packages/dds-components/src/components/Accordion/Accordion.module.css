@@ -13,6 +13,8 @@
       var(--dds-focus-transition);
   }
 
+  color: inherit;
+
   &:hover {
     background-color: var(--dds-color-surface-hover-default);
     color: var(--dds-color-text-action-hover);

@@ -1,6 +1,13 @@
-import { ddsTokensCore, ddsTokensPublic } from '../generated-tokens';
+import {
+  ddsTokensCoreDark,
+  ddsTokensCoreLight,
+  ddsTokensPublicDark,
+  ddsTokensPublicLight,
+} from '../generated-tokens';
 
 export const ddsTokens = {
-  core: { ...ddsTokensCore },
-  public: { ...ddsTokensPublic },
+  'core-light': { ...ddsTokensCoreLight },
+  'core-dark': { ...ddsTokensCoreDark },
+  'public-light': { ...ddsTokensPublicLight },
+  'public-dark': { ...ddsTokensPublicDark },
 };
