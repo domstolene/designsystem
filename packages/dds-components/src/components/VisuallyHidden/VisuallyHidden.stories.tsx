@@ -1,6 +1,10 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { commonArgTypes, htmlArgType } from '../../storybook';
+import {
+  commonArgTypes,
+  ddsProviderDecorator,
+  htmlArgType,
+} from '../../storybook';
 import { Button } from '../Button';
 import { Table } from '../Table/normal';
 import { Link, Paragraph } from '../Typography';
@@ -15,6 +19,7 @@ export default {
     as: { control: 'text', table: { defaultValue: { summary: 'span' } } },
     style: htmlArgType,
   },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof VisuallyHidden>;
 
 type Story = StoryObj<typeof VisuallyHidden>;

@@ -92,7 +92,6 @@ export const BorderRadiusBaseGenerator = () => {
               }}
             ></Paper>
           </Table.Cell>
-          <Table.Cell>{copyButton(tokenName)}</Table.Cell>
         </Table.Row>,
       );
     }
@@ -107,7 +106,6 @@ export const BorderRadiusBaseGenerator = () => {
           <Table.Cell>Token</Table.Cell>
           <Table.Cell>Verdi</Table.Cell>
           <Table.Cell>Eksempel</Table.Cell>
-          <Table.Cell>Kopier</Table.Cell>
         </Table.Row>
       </Table.Head>
       <Table.Body>{generateBodyRows()}</Table.Body>

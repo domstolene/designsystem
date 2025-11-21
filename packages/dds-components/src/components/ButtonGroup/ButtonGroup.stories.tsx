@@ -1,6 +1,11 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { categoryHtml, commonArgTypes, labelText } from '../../storybook';
+import {
+  categoryHtml,
+  commonArgTypes,
+  ddsProviderDecorator,
+  labelText,
+} from '../../storybook';
 import { Button } from '../Button/Button';
 import { BUTTON_SIZES } from '../Button/Button.types';
 import { StoryVStack } from '../layout/Stack/utils';
@@ -16,6 +21,7 @@ export default {
     'aria-labelledby': { table: categoryHtml },
     ...commonArgTypes,
   },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof ButtonGroup>;
 
 type Story = StoryObj<typeof ButtonGroup>;

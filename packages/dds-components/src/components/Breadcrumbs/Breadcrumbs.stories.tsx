@@ -1,6 +1,10 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { commonArgTypes, windowWidthDecorator } from '../../storybook';
+import {
+  commonArgTypes,
+  ddsProviderDecorator,
+  windowWidthDecorator,
+} from '../../storybook';
 import { StoryVStack } from '../layout/Stack/utils';
 
 import { Breadcrumb, Breadcrumbs } from '.';
@@ -11,6 +15,7 @@ const meta: Meta<typeof Breadcrumbs> = {
   argTypes: {
     ...commonArgTypes,
   },
+  decorators: [ddsProviderDecorator],
 };
 
 export default meta;

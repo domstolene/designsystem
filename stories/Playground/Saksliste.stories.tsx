@@ -12,9 +12,11 @@ import {
   Table,
   Tag,
 } from '../../packages/dds-components/src/index';
+import { ddsProviderDecorator } from '../../packages/dds-components/src/storybook';
 
 export default {
   title: 'Playground/Saksliste',
+  decorators: [ddsProviderDecorator],
 };
 
 const dødsfallItems = [

@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
-import { commonArgTypes } from '../../storybook';
+import { commonArgTypes, ddsProviderDecorator } from '../../storybook';
 import { Button } from '../Button';
 import {
   DetailList,
@@ -22,6 +22,7 @@ export default {
   argTypes: {
     ...commonArgTypes,
   },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof Accordion>;
 
 type Story = StoryObj<typeof Accordion>;

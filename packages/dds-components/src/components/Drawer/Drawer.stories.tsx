@@ -2,7 +2,7 @@ import { type Story } from '@storybook/addon-docs/blocks';
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
-import { commonArgTypes, themeProviderDecorator } from '../../storybook';
+import { commonArgTypes, ddsProviderDecorator } from '../../storybook';
 import { Button } from '../Button';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { Heading, Paragraph } from '../Typography';
@@ -23,7 +23,7 @@ const meta: Meta<typeof Drawer> = {
     parentElement: { control: false },
     widthProps: { control: false },
   },
-  decorators: [Story => themeProviderDecorator(<Story />)],
+  decorators: [ddsProviderDecorator],
 };
 
 export default meta;

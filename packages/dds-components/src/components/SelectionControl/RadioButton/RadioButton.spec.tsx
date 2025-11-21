@@ -34,19 +34,19 @@ const TestComponentControlled = () => {
 };
 
 describe('<RadioButton>', () => {
-  it('should render radiobutton', () => {
+  it('renders radiobutton', () => {
     render(<RadioButton />);
     const radio = screen.getByRole('radio');
     expect(radio).toBeInTheDocument();
   });
-  it('should have a label', () => {
+  it('has a label', () => {
     const label = 'Select me';
     render(<RadioButton label={label} />);
     expect(screen.getByText(label)).toBeInTheDocument();
     expect(screen.getByRole('radio')).toHaveAccessibleName(label);
   });
   describe('<RadioButtonGroup>', () => {
-    it('should have accessible name', () => {
+    it('has accessible name', () => {
       const label = 'label';
       render(
         <RadioButtonGroup label={label}>
@@ -57,7 +57,7 @@ describe('<RadioButton>', () => {
       const radiogroup = screen.getByRole('radiogroup');
       expect(radiogroup).toHaveAccessibleName(label);
     });
-    it('should be selectable', async () => {
+    it('is selectable', async () => {
       render(
         <RadioButtonGroup>
           <RadioButton value={1} />
@@ -70,32 +70,32 @@ describe('<RadioButton>', () => {
       await userEvent.click(radio);
       expect(radio).toBeChecked();
     });
-    it('should set default checked uncontrolled state', () => {
+    it('sets default checked uncontrolled state', () => {
       render(TestComponent);
       const radio = screen.getAllByRole('radio')[0];
       expect(radio).toBeChecked();
     });
-    it('should get focus on click', async () => {
+    it('gets focus on click', async () => {
       render(TestComponent);
       const radio = screen.getAllByRole('radio')[1];
       await userEvent.click(radio);
 
       expect(radio).toHaveFocus();
     });
-    it('should get focus on Tab', async () => {
+    it('gets focus on Tab', async () => {
       render(TestComponent);
       const radio = screen.getAllByRole('radio')[0];
       await userEvent.keyboard('[Tab]');
 
       expect(radio).toHaveFocus();
     });
-    it('should update checked state when clicking a radio button', async () => {
+    it('updates checked state when clicking a radio button', async () => {
       render(TestComponent);
       const radio = screen.getAllByRole('radio')[2];
       await userEvent.click(radio);
       expect(radio).toBeChecked();
     });
-    it('should render radiogroup', () => {
+    it('renders radiogroup', () => {
       render(
         <RadioButtonGroup>
           <RadioButton />
@@ -105,7 +105,7 @@ describe('<RadioButton>', () => {
       expect(radioGroup).toBeInTheDocument();
     });
 
-    it('should have accessible description when tip provided', () => {
+    it('has accessible description when tip provided', () => {
       const groupId = 'groupId';
       const tip = 'tip';
       render(
@@ -117,7 +117,7 @@ describe('<RadioButton>', () => {
       expect(radioGroup).toHaveAccessibleDescription(tip);
     });
 
-    it('children should have accessible description and aria-invalid when errorMessage provided', () => {
+    it('children have accessible description and aria-invalid when errorMessage provided', () => {
       const groupId = 'groupId';
       const errorMessage = 'errorMessage';
       render(
@@ -129,7 +129,7 @@ describe('<RadioButton>', () => {
       expect(radio).toHaveAccessibleDescription(errorMessage);
       expect(radio).toBeInvalid();
     });
-    it('should make all radio buttons required when inside a required radio button group', () => {
+    it('makes all radio buttons required when inside a required radio button group', () => {
       render(
         <RadioButtonGroup required>
           <RadioButton />
@@ -140,7 +140,7 @@ describe('<RadioButton>', () => {
       expect(radios[0]).toBeRequired();
       expect(radios[1]).toBeRequired();
     });
-    it('should disable all radio buttons in a disabled radio button group', async () => {
+    it('disables all radio buttons in a disabled radio button group', async () => {
       render(
         <RadioButtonGroup disabled>
           <RadioButton />
@@ -162,7 +162,7 @@ describe('<RadioButton>', () => {
       expect(radios[1]).not.toBeChecked();
     });
 
-    it('should make all radio buttons inside a read only radio button group read only', async () => {
+    it('makes all radio buttons inside a read only radio button group read only', async () => {
       render(
         <RadioButtonGroup readOnly>
           <RadioButton value={1} />
@@ -179,7 +179,7 @@ describe('<RadioButton>', () => {
       expect(radios[0]).not.toBeChecked();
     });
 
-    it('should select a radio with keyboard input', async () => {
+    it('selects a radio with keyboard input', async () => {
       render(
         <RadioButtonGroup>
           <RadioButton value={1} />
@@ -197,19 +197,19 @@ describe('<RadioButton>', () => {
     });
   });
   describe('<RadioButtonGroup> controlled', () => {
-    it('should set default checked state', () => {
+    it('sets default checked state', () => {
       render(<TestComponentControlled />);
       const radio = screen.getAllByRole('radio')[0];
       expect(radio).toBeChecked();
     });
-    it('should get focus on click', async () => {
+    it('gets focus on click', async () => {
       render(<TestComponentControlled />);
       const radio = screen.getAllByRole('radio')[1];
       await userEvent.click(radio);
 
       expect(radio).toHaveFocus();
     });
-    it('should update checked state when clicking a radio button', async () => {
+    it('updates checked state when clicking a radio button', async () => {
       render(<TestComponentControlled />);
       const radio = screen.getAllByRole('radio')[2];
       await userEvent.click(radio);

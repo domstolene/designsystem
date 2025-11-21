@@ -12,14 +12,14 @@ const link = {
 };
 
 describe('<InternalHeader>', () => {
-  it('should display application name', () => {
+  it('displays application name', () => {
     const appName = 'appName';
     render(<InternalHeader applicationName={appName} />);
     const appNameElement = screen.getByText(appName);
     expect(appNameElement).toBeInTheDocument();
   });
 
-  it('should run onclick event from context menu', async () => {
+  it('calls onClick event from context menu', async () => {
     const event = vi.fn();
     const element = {
       children: 'action',
@@ -33,13 +33,13 @@ describe('<InternalHeader>', () => {
     expect(event).toHaveBeenCalled();
   });
 
-  it('should have a link in navigation', () => {
+  it('has a link in navigation', () => {
     render(<InternalHeader navItems={[link]} />);
     const navigationLink = screen.getByRole('link');
     expect(navigationLink).toHaveAttribute('href', href);
   });
 
-  it('should have a link in navigation with target attribute', () => {
+  it('has a link in navigation with target attribute', () => {
     const target = '_blank';
     const element = {
       ...link,
@@ -50,7 +50,7 @@ describe('<InternalHeader>', () => {
     expect(navigationLink).toHaveAttribute('target', target);
   });
 
-  it('should have a link in context menu', async () => {
+  it('has a link in context menu', async () => {
     render(<InternalHeader contextMenuItems={[link]} />);
 
     const contextMenuButton = screen.getByRole('button');
@@ -60,7 +60,7 @@ describe('<InternalHeader>', () => {
     expect(contextMenuLink).toHaveAttribute('href', href);
   });
 
-  it('should have a nav link in context menu', async () => {
+  it('has a nav link in context menu', async () => {
     render(<InternalHeader navItems={[link]} smallScreenBreakpoint="xl" />);
     const burgerButton = screen.getByRole('button');
     await userEvent.click(burgerButton);
@@ -70,7 +70,7 @@ describe('<InternalHeader>', () => {
     expect(navigationLink).toHaveAttribute('href', href);
   });
 
-  it('should have a static username in context menu', () => {
+  it('has a static username in context menu', () => {
     const name = 'name';
     const user = {
       children: name,
@@ -81,7 +81,7 @@ describe('<InternalHeader>', () => {
     expect(element).toBeInTheDocument();
   });
 
-  it('should have a user link in context menu', () => {
+  it('has a user link in context menu', () => {
     const name = 'name';
     const href = '#';
     const user = {

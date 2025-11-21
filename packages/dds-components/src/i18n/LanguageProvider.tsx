@@ -26,12 +26,10 @@ export function LanguageProvider({
 
 export function useLanguage() {
   const lang = useContext(LanguageContext)?.language;
+
   if (!lang) {
-    return 'nb';
+    throw new Error('useLangage must be used within DdsProvider.');
   }
-  //TODO: ha med når LanguageProvider blir påkrevd
-  // if (!lang) {
-  //   throw new Error('useLangage must be used within DdsProvider.');
-  // }
+
   return lang;
 }

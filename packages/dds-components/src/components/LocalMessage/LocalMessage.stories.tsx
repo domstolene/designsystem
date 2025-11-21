@@ -4,6 +4,7 @@ import { fn } from 'storybook/test';
 import { LocalMessage } from './LocalMessage';
 import {
   commonArgTypes,
+  ddsProviderDecorator,
   responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../storybook';
@@ -21,6 +22,7 @@ export default {
     ...commonArgTypes,
   },
   args: { onClose: fn() },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof LocalMessage>;
 
 type Story = StoryObj<typeof LocalMessage>;

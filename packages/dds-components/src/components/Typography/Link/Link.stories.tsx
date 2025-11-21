@@ -3,6 +3,7 @@ import { fn } from 'storybook/test';
 
 import {
   categoryHtml,
+  ddsProviderDecorator,
   htmlArgType,
   htmlEventArgType,
 } from '../../../storybook';
@@ -22,6 +23,7 @@ export default {
     ...storyTypographyHtmlAttrs,
   },
   args: { onClick: fn() },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof Link>;
 
 type Story = StoryObj<typeof Link>;

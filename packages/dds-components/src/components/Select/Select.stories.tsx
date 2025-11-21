@@ -4,10 +4,10 @@ import { fn } from 'storybook/test';
 
 import {
   categoryHtml,
+  ddsProviderDecorator,
   htmlEventArgType,
   labelText,
   responsivePropsArgTypes,
-  themeProviderDecorator,
   windowWidthDecorator,
 } from '../../storybook';
 import { Button } from '../Button';
@@ -44,7 +44,7 @@ const meta: Meta<typeof Select> = {
       exclude: ['style', 'className', 'items', 'value', 'defaultValue'],
     },
   },
-  decorators: [Story => themeProviderDecorator(<Story />)],
+  decorators: [ddsProviderDecorator],
 };
 
 export default meta;

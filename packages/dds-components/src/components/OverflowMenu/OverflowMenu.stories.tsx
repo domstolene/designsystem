@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
-import { commonArgTypes } from '../../storybook';
+import { commonArgTypes, ddsProviderDecorator } from '../../storybook';
 import { Button } from '../Button';
 import { EditIcon, MenuIcon, PersonIcon, TrashIcon } from '../Icon/icons';
 import { VStack } from '../layout';
@@ -32,6 +32,7 @@ export default {
       story: { height: '350px' },
     },
   },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof OverflowMenu>;
 
 type Story = StoryObj<typeof OverflowMenu>;

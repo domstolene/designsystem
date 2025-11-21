@@ -5,37 +5,37 @@ import { describe, expect, it } from 'vitest';
 import { Checkbox, CheckboxGroup } from '.';
 
 describe('<Checkbox>', () => {
-  it('should render checkbox', () => {
+  it('renders checkbox', () => {
     render(<Checkbox />);
     const checkbox = screen.getByRole('checkbox');
     expect(checkbox).toBeInTheDocument();
   });
-  it('should have a label', () => {
+  it('has a label', () => {
     const label = 'Select me';
     render(<Checkbox label={label} />);
     const labelElement = screen.getByText(label);
     expect(labelElement).toBeInTheDocument();
   });
-  it('should have an accessible name', () => {
+  it('has an accessible name', () => {
     const label = 'Select me';
     render(<Checkbox aria-label={label} />);
     expect(screen.getByRole('checkbox')).toHaveAccessibleName(label);
   });
-  it('should be selectable', async () => {
+  it('is selectable', async () => {
     render(<Checkbox />);
     const checkbox = screen.getByRole('checkbox');
     expect(checkbox).not.toBeChecked();
     await userEvent.click(checkbox);
     expect(checkbox).toBeChecked();
   });
-  it('should get focus on click', async () => {
+  it('gets focus on click', async () => {
     render(<Checkbox />);
     const checkbox = screen.getByRole('checkbox');
     await userEvent.click(checkbox);
 
     expect(checkbox).toHaveFocus();
   });
-  it('should be disabled', async () => {
+  it('is disabled', async () => {
     render(<Checkbox disabled />);
     const checkbox = screen.getByRole('checkbox');
     expect(checkbox).toBeDisabled();
@@ -43,7 +43,7 @@ describe('<Checkbox>', () => {
     await userEvent.click(checkbox);
     expect(checkbox).not.toBeChecked();
   });
-  it('should be readOnly', async () => {
+  it('is readOnly', async () => {
     render(<Checkbox readOnly />);
     const checkbox = screen.getByRole('checkbox');
 
@@ -52,17 +52,17 @@ describe('<Checkbox>', () => {
     await userEvent.click(checkbox);
     expect(checkbox).not.toBeChecked();
   });
-  it('should be required', () => {
+  it('is required', () => {
     render(<Checkbox required />);
     const checkbox = screen.getByRole('checkbox');
     expect(checkbox).toBeRequired();
   });
-  it('should be indeterminate', async () => {
+  it('is indeterminate', async () => {
     render(<Checkbox indeterminate />);
     const checkbox = screen.getByRole('checkbox');
     expect(checkbox).toHaveAttribute('aria-checked', 'mixed');
   });
-  it('should get selected with keyboard input', async () => {
+  it('gets selected with keyboard input', async () => {
     render(<Checkbox />);
     const checkbox = screen.getByRole('checkbox');
     expect(checkbox).not.toBeChecked();
@@ -72,7 +72,7 @@ describe('<Checkbox>', () => {
     expect(checkbox).toBeChecked();
   });
   describe('<CheckboxGroup>', () => {
-    it('should render group', () => {
+    it('renders group', () => {
       render(
         <CheckboxGroup>
           <Checkbox />
@@ -81,7 +81,7 @@ describe('<Checkbox>', () => {
       const group = screen.getByRole('group');
       expect(group).toBeInTheDocument();
     });
-    it('should have accessible name', () => {
+    it('has accessible name', () => {
       const label = 'label';
       render(
         <CheckboxGroup label={label}>
@@ -91,7 +91,7 @@ describe('<Checkbox>', () => {
       const group = screen.getByRole('group');
       expect(group).toHaveAccessibleName(label);
     });
-    it('children should have accessible description when tip provided', () => {
+    it('children have accessible description when tip provided', () => {
       const tip = 'tip';
       render(
         <CheckboxGroup tip={tip}>
@@ -101,7 +101,7 @@ describe('<Checkbox>', () => {
       const checkbox = screen.getByRole('checkbox');
       expect(checkbox).toHaveAccessibleDescription(tip);
     });
-    it('children should be invalid and have have accessible description when errorMessage provided', () => {
+    it('children are invalid and have have accessible description when errorMessage provided', () => {
       const errorMessage = 'error';
       render(
         <CheckboxGroup errorMessage={errorMessage}>
@@ -112,7 +112,7 @@ describe('<Checkbox>', () => {
       expect(checkbox).toHaveAccessibleDescription(errorMessage);
       expect(checkbox).toBeInvalid();
     });
-    it('should disable all checkboxes in a disabled checkbox group', async () => {
+    it('disables all checkboxes in a disabled checkbox group', async () => {
       render(
         <CheckboxGroup disabled>
           <Checkbox />
@@ -133,7 +133,7 @@ describe('<Checkbox>', () => {
       await userEvent.click(checkboxes[1]);
       expect(checkboxes[1]).not.toBeChecked();
     });
-    it('should make all checkboxes inside a read only checkbox group read only', async () => {
+    it('makes all checkboxes inside a read only checkbox group read only', async () => {
       render(
         <CheckboxGroup readOnly>
           <Checkbox value={1} />

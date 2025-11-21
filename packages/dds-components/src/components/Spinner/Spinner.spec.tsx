@@ -4,12 +4,12 @@ import { describe, expect, it } from 'vitest';
 import { Spinner } from '.';
 
 describe('<Spinner>', () => {
-  it('should render progressbar', () => {
+  it('renders progressbar', () => {
     render(<Spinner />);
     const spinner = screen.getByRole('progressbar');
     expect(spinner).toBeInTheDocument();
   });
-  it('should have accessible name', () => {
+  it('has accessible name', () => {
     const tooltip = 'tooltip';
     render(<Spinner tooltip={tooltip} />);
     const spinner = screen.getByRole('progressbar');

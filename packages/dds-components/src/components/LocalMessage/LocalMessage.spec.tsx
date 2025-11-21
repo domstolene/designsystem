@@ -11,14 +11,14 @@ describe('<LocalMessage>', () => {
     const messageElement = screen.getByText(message);
     expect(messageElement).toBeInTheDocument();
   });
-  it('should render children', () => {
+  it('renders children', () => {
     const message = 'This is a message';
     render(<LocalMessage> {message} </LocalMessage>);
     const messageElement = screen.getByText(message);
     expect(messageElement).toBeInTheDocument();
   });
 
-  it('should render children when both message and children provided', () => {
+  it('renders children when both message and children provided', () => {
     const message = 'This is a message';
     const children = 'children';
     render(<LocalMessage message={message}> {children} </LocalMessage>);
@@ -28,7 +28,7 @@ describe('<LocalMessage>', () => {
     expect(childrenElement).toBeInTheDocument();
   });
 
-  it('should call onClose event', async () => {
+  it('calls onClose event', async () => {
     const event = vi.fn();
     render(<LocalMessage closable onClose={event} />);
     const closeButton = screen.getByRole('button');

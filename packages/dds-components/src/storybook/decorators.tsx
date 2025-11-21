@@ -1,3 +1,4 @@
+import { type Decorator } from '@storybook/react-vite';
 import { type ReactNode, useEffect, useRef, useState } from 'react';
 
 import { HStack, VStack } from '../components/layout';
@@ -5,8 +6,9 @@ import { getBreakpointFromScreenWidth } from '../components/layout/common/utils'
 import { ThemeContext } from '../components/ThemeProvider';
 import { Paragraph } from '../components/Typography';
 import { useWindowResize } from '../hooks';
+import { LanguageContext } from '../i18n';
 
-export const themeProviderDecorator = (Story: ReactNode) => {
+export const ddsProviderDecorator: Decorator = Story => {
   const themeRef = useRef<HTMLDivElement>(null);
 
   const [element, setElement] = useState<HTMLDivElement | null>(null);
@@ -15,11 +17,13 @@ export const themeProviderDecorator = (Story: ReactNode) => {
   }, []);
 
   return (
-    <div ref={themeRef}>
-      <ThemeContext value={{ theme: 'core-light', el: element }}>
-        {Story}
-      </ThemeContext>
-    </div>
+    <LanguageContext value={{ language: 'nb' }}>
+      <div ref={themeRef}>
+        <ThemeContext value={{ theme: 'core-light', el: element }}>
+          <Story />
+        </ThemeContext>
+      </div>
+    </LanguageContext>
   );
 };
 

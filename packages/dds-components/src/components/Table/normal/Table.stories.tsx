@@ -8,7 +8,7 @@ import {
   headerCells,
   mapCellContents,
 } from './tableData';
-import { themeProviderDecorator } from '../../../storybook';
+import { ddsProviderDecorator } from '../../../storybook';
 import { Button } from '../../Button';
 import { Icon } from '../../Icon';
 import { PersonIcon, TrashIcon } from '../../Icon/icons';
@@ -25,7 +25,7 @@ const meta: Meta<typeof Table> = {
       canvas: { sourceState: 'hidden' },
     },
   },
-  decorators: [Story => themeProviderDecorator(<Story />)],
+  decorators: [ddsProviderDecorator],
 };
 
 export default meta;

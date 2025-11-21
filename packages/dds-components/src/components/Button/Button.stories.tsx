@@ -6,6 +6,7 @@ import { BUTTON_SIZES } from './Button.types';
 import {
   categoryHtml,
   commonArgTypes,
+  ddsProviderDecorator,
   htmlArgType,
   htmlEventArgType,
   labelText,
@@ -29,6 +30,7 @@ export default {
     onFocus: htmlEventArgType,
   },
   args: { onClick: fn(), onBlur: fn(), onFocus: fn() },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof Button>;
 
 type Story = StoryObj<typeof Button>;

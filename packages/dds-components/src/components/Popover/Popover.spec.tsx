@@ -19,19 +19,19 @@ const TestComponent = () => {
 };
 
 describe('<Popover>', () => {
-  it('should have aria-controls attribute on trigger element', () => {
+  it('has aria-controls attribute on trigger element', () => {
     render(<TestComponent />);
     const triggerElement = screen.getByRole('button');
     expect(triggerElement).toHaveAttribute('aria-controls');
   });
 
-  it('should have aria-haspopup attribute on trigger element', () => {
+  it('has aria-haspopup attribute on trigger element', () => {
     render(<TestComponent />);
     const triggerElement = screen.getByRole('button');
     expect(triggerElement).toHaveAttribute('aria-haspopup', 'dialog');
   });
 
-  it('should not be in DOM by default', () => {
+  it('is not in DOM by default', () => {
     render(<TestComponent />);
     const element = screen.queryByText(content);
     expect(element).not.toBeInTheDocument();
@@ -39,7 +39,7 @@ describe('<Popover>', () => {
     expect(popover).not.toBeInTheDocument();
   });
 
-  it('should open on click', async () => {
+  it('opens on click', async () => {
     render(<TestComponent />);
     const button = screen.getByText(buttonLabel);
 
@@ -49,7 +49,7 @@ describe('<Popover>', () => {
     expect(popover).toBeInTheDocument();
   });
 
-  it('should render header when opened', async () => {
+  it('renders header when opened', async () => {
     const header = 'header';
     render(
       <PopoverGroup>
@@ -65,7 +65,7 @@ describe('<Popover>', () => {
     expect(headerElement).toBeInTheDocument();
   });
 
-  it('should render content when opened', async () => {
+  it('renders content when opened', async () => {
     render(<TestComponent />);
 
     const button = screen.getByText(buttonLabel);
@@ -76,7 +76,7 @@ describe('<Popover>', () => {
     expect(contentElement).toBeInTheDocument();
   });
 
-  it('should hide after close button click', async () => {
+  it('hides after close button click', async () => {
     render(<TestComponent />);
     const button = screen.getByText(buttonLabel);
 
@@ -94,7 +94,7 @@ describe('<Popover>', () => {
     });
   });
 
-  it('should run onOpen event', async () => {
+  it('calls onOpen event', async () => {
     const event = vi.fn();
     render(
       <PopoverGroup onOpen={event}>
@@ -107,7 +107,7 @@ describe('<Popover>', () => {
     expect(event).toHaveBeenCalled();
   });
 
-  it('should run onClose event', async () => {
+  it('calls onClose event', async () => {
     const event = vi.fn();
     render(
       <PopoverGroup onClose={event}>
@@ -122,7 +122,7 @@ describe('<Popover>', () => {
     expect(event).toHaveBeenCalled();
   });
 
-  it('Esc press should close popover', async () => {
+  it('closes popover on Esc press', async () => {
     render(<TestComponent />);
     const button = screen.getByText(buttonLabel);
 
@@ -138,7 +138,7 @@ describe('<Popover>', () => {
     });
   });
 
-  it('Anchor should get focus on open and Esc', async () => {
+  it('anchor gets focus on open and Esc', async () => {
     render(<TestComponent />);
     const triggerButton = screen.getByRole('button');
 

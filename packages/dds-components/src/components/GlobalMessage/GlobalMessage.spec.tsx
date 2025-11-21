@@ -11,14 +11,14 @@ describe('<GlobalMessage>', () => {
     expect(messageElement).toBeInTheDocument();
   });
 
-  it('should render children', () => {
+  it('renders children', () => {
     const message = 'This is a message';
     render(<GlobalMessage> {message} </GlobalMessage>);
     const messageElement = screen.getByText(message);
     expect(messageElement).toBeInTheDocument();
   });
 
-  it('should render children when both message and children provided', () => {
+  it('renders children when both message and children provided', () => {
     const message = 'This is a message';
     const children = 'children';
     render(<GlobalMessage message={message}> {children} </GlobalMessage>);
@@ -28,7 +28,7 @@ describe('<GlobalMessage>', () => {
     expect(childrenElement).toBeInTheDocument();
   });
 
-  it('should call onClose event', () => {
+  it('calls onClose event', () => {
     const event = vi.fn();
     render(<GlobalMessage closable onClose={event} />);
     const closeButton = screen.getByRole('button');

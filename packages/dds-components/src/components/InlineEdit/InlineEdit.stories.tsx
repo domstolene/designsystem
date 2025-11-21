@@ -5,7 +5,7 @@ import { fn } from 'storybook/test';
 import { InlineEditInput } from './InlineEditInput/InlineEditInput';
 import { InlineEditSelect } from './InlineEditSelect';
 import { InlineEditTextArea } from './InlineEditTextArea/InlineEditTextArea';
-import { htmlEventArgType } from '../../storybook';
+import { ddsProviderDecorator, htmlEventArgType } from '../../storybook';
 import { StoryVStack } from '../layout/Stack/utils';
 
 export default {
@@ -23,6 +23,7 @@ export default {
       exclude: ['style', 'className', 'onSetValue', 'inputRef', 'children'],
     },
   },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof InlineEditInput>;
 
 type Story = StoryObj<typeof InlineEditInput>;

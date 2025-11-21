@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { DetailList, DetailListDesc, DetailListRow, DetailListTerm } from '.';
 
 describe('<DetailList>', () => {
-  it('should render description term', () => {
+  it('renders description term', () => {
     const termText = 'term';
     render(
       <DetailList>
@@ -17,7 +17,7 @@ describe('<DetailList>', () => {
     const terms = screen.getByRole('term');
     expect(terms).toBeInTheDocument();
   });
-  it('should render description', () => {
+  it('renders description', () => {
     const descText = 'desc';
     render(
       <DetailList>
@@ -30,7 +30,7 @@ describe('<DetailList>', () => {
     const descs = screen.getByRole('definition');
     expect(descs).toBeInTheDocument();
   });
-  it('should render small screen list', () => {
+  it('renders small screen list', () => {
     const descText = 'desc';
     render(
       <DetailList smallScreenBreakpoint="sm">

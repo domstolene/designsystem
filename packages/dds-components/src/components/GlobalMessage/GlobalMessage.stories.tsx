@@ -2,7 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
 import { GlobalMessage } from './GlobalMessage';
-import { commonArgTypes } from '../../storybook';
+import { commonArgTypes, ddsProviderDecorator } from '../../storybook';
 import { StoryVStack } from '../layout/Stack/utils';
 
 export default {
@@ -12,6 +12,7 @@ export default {
     ...commonArgTypes,
   },
   args: { onClose: fn() },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof GlobalMessage>;
 
 type Story = StoryObj<typeof GlobalMessage>;

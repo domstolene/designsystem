@@ -3,6 +3,7 @@ import { fn } from 'storybook/test';
 
 import {
   categoryHtml,
+  ddsProviderDecorator,
   htmlEventArgType,
   labelText,
   responsivePropsArgTypes,
@@ -28,6 +29,7 @@ export default {
     onChange: htmlEventArgType,
   },
   args: { onChange: fn() },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof TextInput>;
 
 type Story = StoryObj<typeof TextInput>;

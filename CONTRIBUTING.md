@@ -184,7 +184,7 @@ Det kan også være relevant med flere filer, f. eks. RadioButton inneholder kom
 ```
 ├── <KomponentNavn>
 │ ├── <KomponentNavn>.mdx
-| ├── <komponentNavn>.modules.css
+| ├── <komponentNavn>.module.css
 │ ├── <KomponentNavn>.spec.tsx
 │ ├── <KomponentNavn>.stories.tsx
 │ ├── <KomponentNavn>.tsx
@@ -383,14 +383,14 @@ import { KomponentNavn } from '@norges-domstoler/pakkenavn';
 
 ### Testfil
 
-Det brukes Vitest og React Testing Library for testing. Skriv tester som sørger for riktig oppførsel.
+Vi bruker Vitest og React Testing Library for testing. For komponenter som bruker React portal har vi custom `portalRender` funksjon som erstatter RTL sin `render`; den wrapper komponenten i provider som genererer `<div>` portalen bruker.
 
-Ha med også UU-relaterte tester, som å sjekke om interaktive elementer får tilgjengelig navn og instrukser.
+Testene skal sørger for riktig oppførsel: blir teksten i en wrapper rendret, blir inputfeltet `disabled` ved bruk av dedikert prop osv. Ha med også UU-relaterte tester, som å sjekke om interaktive elementer får tilgjengelig navn og instrukser.
 
-Du kan kjøre testene i spesifikk fil:
+Du kan kjøre testene i filen din:
 
 ```shell
-pnpm --filter '@norges-domstoler/dds-components' test KomponentNavn.spec.tsx
+pnpm test:components KomponentNavn.spec.tsx
 ```
 
 ### Index-fil

@@ -5,6 +5,7 @@ import { fn } from 'storybook/test';
 import {
   categoryCss,
   categoryHtml,
+  ddsProviderDecorator,
   htmlArgType,
   labelText,
   windowWidthDecorator,
@@ -29,6 +30,7 @@ export default {
     id: htmlArgType,
   },
   args: { onChange: fn() },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof PhoneInput>;
 
 type Story = StoryObj<typeof PhoneInput>;

@@ -4,18 +4,18 @@ import { describe, expect, it } from 'vitest';
 import { ProgressTracker } from './ProgressTracker';
 
 describe('<ProgressTracker>', () => {
-  it('should render navigation', () => {
+  it('renders navigation', () => {
     render(<ProgressTracker />);
     expect(screen.getByRole('navigation')).toBeInTheDocument();
   });
-  it('should have accesible name', () => {
+  it('has accesible name', () => {
     render(<ProgressTracker />);
     expect(screen.getByRole('navigation')).toHaveAccessibleName(
       'Trinnprogresjon',
     );
   });
   describe('steps', () => {
-    it('should render step buttons', () => {
+    it('renders step buttons', () => {
       render(
         <ProgressTracker>
           <ProgressTracker.Item>Parter</ProgressTracker.Item>
@@ -25,7 +25,7 @@ describe('<ProgressTracker>', () => {
       const buttons = screen.getAllByRole('button');
       expect(buttons).toHaveLength(2);
     });
-    it('should render button labels', () => {
+    it('renders button labels', () => {
       const text1 = 'a';
       const text2 = 'b';
       render(
@@ -38,7 +38,7 @@ describe('<ProgressTracker>', () => {
       expect(screen.getByText(text1)).toBeInTheDocument();
       expect(screen.getByText(text2)).toBeInTheDocument();
     });
-    it('should render disabled button', () => {
+    it('renders disabled button', () => {
       const text1 = 'a';
 
       render(
@@ -50,7 +50,7 @@ describe('<ProgressTracker>', () => {
       const button = screen.getByRole('button');
       expect(button).toBeDisabled();
     });
-    it('should have accessible names', () => {
+    it('has accessible names', () => {
       const text1 = 'a';
       const text2 = 'b';
       render(
@@ -63,7 +63,7 @@ describe('<ProgressTracker>', () => {
       expect(buttons[0]).toHaveAccessibleName(`${text1}, 1. trinn ikke ferdig`);
       expect(buttons[1]).toHaveAccessibleName(`${text2}, 2. trinn ikke ferdig`);
     });
-    it('should have accessible completed name', () => {
+    it('has accessible completed name', () => {
       const text1 = 'a';
       const text2 = 'b';
       render(

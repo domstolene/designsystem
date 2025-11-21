@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
+import { ddsProviderDecorator } from '../../storybook';
 import { BackLink } from '../BackLink';
 import { Breadcrumb, Breadcrumbs } from '../Breadcrumbs';
 import {
@@ -21,6 +22,7 @@ const meta: Meta<typeof Contrast> = {
   argTypes: {
     as: { control: 'text' },
   },
+  decorators: [ddsProviderDecorator],
 };
 
 export default meta;

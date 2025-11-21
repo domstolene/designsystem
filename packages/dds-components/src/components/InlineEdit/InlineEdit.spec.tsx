@@ -44,28 +44,28 @@ const TestComponentSelect = (props: InlineEditSelectProps) => {
 
 describe('<InlineEdit>', () => {
   describe('<input>', () => {
-    it('should render textbox>', () => {
+    it('renders textbox', () => {
       render(<TestComponentInput />);
       expect(screen.getByRole('textbox')).toBeInTheDocument();
     });
-    it('should be invalid', () => {
+    it('is invalid', () => {
       render(<TestComponentInput error />);
       expect(screen.getByRole('textbox')).toBeInvalid();
     });
 
-    it('should have accessible name', () => {
+    it('has accessible name', () => {
       const label = 'text';
       render(<TestComponentInput aria-label={label} />);
       expect(screen.getByRole('textbox')).toHaveAccessibleName(label);
     });
-    it('should have accessible description', () => {
+    it('has accessible description', () => {
       render(<TestComponentInput />);
       expect(screen.getByRole('textbox')).toHaveAccessibleDescription(
         'Escape, Enter eller Tab for å lagre. Innskrivingsfeltet kan ikke tømmes.',
       );
     });
 
-    it('should save input and lose focus on Enter', async () => {
+    it('saves input and lose focus on Enter', async () => {
       render(<TestComponentInput value={initialValue} />);
       const input = screen.getByRole('textbox');
       await userEvent.type(input, `{backspace}${newValue}{enter}`);
@@ -73,7 +73,7 @@ describe('<InlineEdit>', () => {
       expect(input).not.toHaveFocus();
       expect(input).toHaveValue(newValue);
     });
-    it('should save input and lose focus on Escape', async () => {
+    it('saves input and lose focus on Escape', async () => {
       render(<TestComponentInput value={initialValue} />);
       const input = screen.getByRole('textbox');
       await userEvent.type(input, `{backspace}${newValue}{escape}`);
@@ -82,7 +82,7 @@ describe('<InlineEdit>', () => {
       expect(input).toHaveValue(newValue);
     });
 
-    it('should reset to last-saved value if input is empty', async () => {
+    it('resets to last-saved value if input is empty', async () => {
       render(<TestComponentInput value={initialValue} />);
       const input = screen.getByRole('textbox');
 
@@ -90,7 +90,7 @@ describe('<InlineEdit>', () => {
 
       expect(input).toHaveValue(initialValue);
     });
-    it('should become empty when emptiable and input is empty', async () => {
+    it('becomes empty when emptiable and input is empty', async () => {
       render(<TestComponentInput emptiable value={initialValue} />);
       const input = screen.getByRole('textbox');
 
@@ -99,7 +99,7 @@ describe('<InlineEdit>', () => {
       expect(input).toHaveValue('');
     });
 
-    it('should focus when tabbed to', async () => {
+    it('has focus when tabbed to', async () => {
       render(<TestComponentInput />);
       const input = screen.getByRole('textbox');
 
@@ -110,7 +110,7 @@ describe('<InlineEdit>', () => {
       expect(input).toHaveFocus();
     });
 
-    it('should run onFocus event', async () => {
+    it('calls onFocus event', async () => {
       const event = vi.fn();
       render(<TestComponentInput onFocus={event} />);
 
@@ -119,7 +119,7 @@ describe('<InlineEdit>', () => {
       expect(event).toHaveBeenCalled();
     });
 
-    it('should run onChange event', async () => {
+    it('calls onChange event', async () => {
       const event = vi.fn();
       render(<TestComponentInput onChange={event} />);
       const input = screen.getByRole('textbox');
@@ -129,7 +129,7 @@ describe('<InlineEdit>', () => {
       expect(event).toHaveBeenCalled();
     });
 
-    it('should run onBlur event', async () => {
+    it('calls onBlur event', async () => {
       const event = vi.fn();
       render(<TestComponentInput onBlur={event} />);
       const input = screen.getByRole('textbox');
@@ -143,28 +143,28 @@ describe('<InlineEdit>', () => {
   });
 
   describe('<textarea>', () => {
-    it('should render textbox', () => {
+    it('renders textbox', () => {
       render(<TestComponentTextArea />);
       expect(screen.getByRole('textbox')).toBeInTheDocument();
     });
-    it('should be invalid', () => {
+    it('is invalid', () => {
       render(<TestComponentTextArea error />);
       expect(screen.getByRole('textbox')).toBeInvalid();
     });
 
-    it('should have accessible name', () => {
+    it('has accessible name', () => {
       const label = 'text';
       render(<TestComponentTextArea aria-label={label} />);
       expect(screen.getByRole('textbox')).toHaveAccessibleName(label);
     });
-    it('should have accessible description', () => {
+    it('has accessible description', () => {
       render(<TestComponentTextArea />);
       expect(screen.getByRole('textbox')).toHaveAccessibleDescription(
         'Escape, Enter eller Tab for å lagre. Innskrivingsfeltet kan ikke tømmes.',
       );
     });
 
-    it('should save input and lose focus on Enter', async () => {
+    it('saves input and lose focus on Enter', async () => {
       render(<TestComponentTextArea value={initialValue} />);
       const input = screen.getByRole('textbox');
       await userEvent.type(input, `{backspace}${newValue}{enter}`);
@@ -173,7 +173,7 @@ describe('<InlineEdit>', () => {
       expect(input).toHaveValue(newValue);
     });
 
-    it('should save input and lose focus on Escape', async () => {
+    it('saves input and lose focus on Escape', async () => {
       render(<TestComponentTextArea value={initialValue} />);
       const input = screen.getByRole('textbox');
       await userEvent.type(input, `{backspace}${newValue}{escape}`);
@@ -182,7 +182,7 @@ describe('<InlineEdit>', () => {
       expect(input).toHaveValue(newValue);
     });
 
-    it('should reset to last-saved value if input is empty', async () => {
+    it('resets to last-saved value if input is empty', async () => {
       render(<TestComponentTextArea value={initialValue} />);
       const input = screen.getByRole('textbox');
 
@@ -191,7 +191,7 @@ describe('<InlineEdit>', () => {
       expect(input).toHaveValue(initialValue);
     });
 
-    it('should become empty when emptiable and input is empty', async () => {
+    it('becomes empty when emptiable and input is empty', async () => {
       render(<TestComponentTextArea emptiable value={initialValue} />);
       const input = screen.getByRole('textbox');
 
@@ -200,7 +200,7 @@ describe('<InlineEdit>', () => {
       expect(input).toHaveValue('');
     });
 
-    it('should focus when tabbed to', async () => {
+    it('has focus when tabbed to', async () => {
       render(<TestComponentTextArea />);
       const input = screen.getByRole('textbox');
 
@@ -211,7 +211,7 @@ describe('<InlineEdit>', () => {
       expect(input).toHaveFocus();
     });
 
-    it('should run onFocus event', async () => {
+    it('calls onFocus event', async () => {
       const event = vi.fn();
       render(<TestComponentTextArea onFocus={event} />);
 
@@ -220,7 +220,7 @@ describe('<InlineEdit>', () => {
       expect(event).toHaveBeenCalled();
     });
 
-    it('should run onChange event', async () => {
+    it('calls onChange event', async () => {
       const event = vi.fn();
       render(<TestComponentTextArea onChange={event} />);
       const input = screen.getByRole('textbox');
@@ -230,7 +230,7 @@ describe('<InlineEdit>', () => {
       expect(event).toHaveBeenCalled();
     });
 
-    it('should run onBlur event', async () => {
+    it('calls onBlur event', async () => {
       const event = vi.fn();
       render(<TestComponentTextArea onBlur={event} />);
       const input = screen.getByRole('textbox');
@@ -243,28 +243,28 @@ describe('<InlineEdit>', () => {
     });
   });
   describe('<select>', () => {
-    it('should render combobox', () => {
+    it('renders combobox', () => {
       render(<TestComponentSelect />);
       expect(screen.getByRole('combobox')).toBeInTheDocument();
     });
-    it('should be invalid', () => {
+    it('is invalid', () => {
       render(<TestComponentSelect error />);
       expect(screen.getByRole('combobox')).toBeInvalid();
     });
 
-    it('should have accessible name', () => {
+    it('has accessible name', () => {
       const label = 'text';
       render(<TestComponentSelect aria-label={label} />);
       expect(screen.getByRole('combobox')).toHaveAccessibleName(label);
     });
-    it('should have accessible description', () => {
+    it('has accessible description', () => {
       render(<TestComponentSelect />);
       expect(screen.getByRole('combobox')).toHaveAccessibleDescription(
         'Escape, Enter eller Tab for å lagre. Innskrivingsfeltet kan ikke tømmes.',
       );
     });
 
-    it('should save input and lose focus on Enter', async () => {
+    it('saves input and lose focus on Enter', async () => {
       render(<TestComponentSelect value={initialValue} />);
       const input = screen.getByRole('combobox');
       await userEvent.selectOptions(input, newValue);
@@ -274,7 +274,7 @@ describe('<InlineEdit>', () => {
       expect(input).toHaveValue(newValue);
     });
 
-    it('should save input and lose focus on Escape', async () => {
+    it('saves input and lose focus on Escape', async () => {
       render(<TestComponentSelect value={initialValue} />);
       const input = screen.getByRole('combobox');
       await userEvent.selectOptions(input, newValue);
@@ -284,7 +284,7 @@ describe('<InlineEdit>', () => {
       expect(input).toHaveValue(newValue);
     });
 
-    it('should reset to last-saved value if input is empty', async () => {
+    it('resets to last-saved value if input is empty', async () => {
       render(<TestComponentSelect value={initialValue} />);
       const input = screen.getByRole('combobox');
 
@@ -294,7 +294,7 @@ describe('<InlineEdit>', () => {
       expect(input).toHaveValue(initialValue);
     });
 
-    it('should become empty when emptiable and input is empty', async () => {
+    it('becomes empty when emptiable and input is empty', async () => {
       render(<TestComponentSelect emptiable value={initialValue} />);
       const input = screen.getByRole('combobox');
 
@@ -304,7 +304,7 @@ describe('<InlineEdit>', () => {
       expect(input).toHaveValue('');
     });
 
-    it('should become empty when clear button is clicked', async () => {
+    it('becomes empty when clear button is clicked', async () => {
       render(<TestComponentSelect emptiable value={initialValue} />);
       const input = screen.getByRole('combobox');
       const clearButton = screen.getByRole('button', {
@@ -316,7 +316,7 @@ describe('<InlineEdit>', () => {
       expect(input).toHaveValue('');
     });
 
-    it('should focus when tabbed to', async () => {
+    it('has focus when tabbed to', async () => {
       render(<TestComponentSelect />);
       const input = screen.getByRole('combobox');
 
@@ -327,7 +327,7 @@ describe('<InlineEdit>', () => {
       expect(input).toHaveFocus();
     });
 
-    it('should run onFocus event', async () => {
+    it('calls onFocus event', async () => {
       const event = vi.fn();
       render(<TestComponentSelect onFocus={event} />);
 
@@ -336,7 +336,7 @@ describe('<InlineEdit>', () => {
       expect(event).toHaveBeenCalled();
     });
 
-    it('should run onChange event', async () => {
+    it('calls onChange event', async () => {
       const event = vi.fn();
       render(<TestComponentSelect onChange={event} />);
       const input = screen.getByRole('combobox');
@@ -346,7 +346,7 @@ describe('<InlineEdit>', () => {
       expect(event).toHaveBeenCalled();
     });
 
-    it('should run onBlur event', async () => {
+    it('calls onBlur event', async () => {
       const event = vi.fn();
       render(<TestComponentSelect onBlur={event} />);
       const input = screen.getByRole('combobox');

@@ -17,6 +17,7 @@ export default [
       parserOptions: {
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
+        project: ['./tsconfig.json', './.storybook/tsconfig.json'],
       },
     },
     plugins: {
@@ -32,7 +33,7 @@ export default [
       'import/resolver': {
         typescript: {
           alwaysTryTypes: true,
-          project: 'packages/*/tsconfig.json',
+          project: ['tsconfig.json', 'packages/*/tsconfig.json'],
         },
       },
     },

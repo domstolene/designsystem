@@ -4,38 +4,38 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { Chip, ChipGroup } from '.';
 
-describe('<Chip />', () => {
-  it('Should render text', () => {
+describe('<Chip>', () => {
+  it('renders text', () => {
     const text = 'text';
     render(<Chip text={text} />);
     expect(screen.getByText(text)).toBeInTheDocument();
   });
-  it('Should remove component from DOM on close', async () => {
+  it('removes component from DOM on close', async () => {
     const text = 'text';
     render(<Chip text={text} />);
     const button = screen.getByRole('button');
     await userEvent.click(button!);
     expect(screen.queryByText(text)).not.toBeInTheDocument();
   });
-  it('Should have aria-label based on text', () => {
+  it('has aria-label based on text', () => {
     const text = 'text';
     render(<Chip text={text} />);
     const button = screen.getByRole('button');
     expect(button).toHaveAttribute('aria-label', `Fjern merkelapp ${text}`);
   });
-  it('Should have generic aria-label', () => {
+  it('has generic aria-label', () => {
     render(<Chip />);
     const button = screen.getByRole('button');
     expect(button).toHaveAttribute('aria-label', 'Fjern merkelapp');
   });
-  it('Should call onClose event', async () => {
+  it('calls onClose event', async () => {
     const event = vi.fn();
     render(<Chip onClose={event} />);
     const button = screen.getByRole('button');
     await userEvent.click(button!);
     expect(event).toHaveBeenCalled();
   });
-  it('Should render <ul> with a <li> child', () => {
+  it('renders list with a list item child', () => {
     render(
       <ChipGroup>
         <Chip />

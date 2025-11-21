@@ -4,11 +4,11 @@ import { describe, expect, it } from 'vitest';
 import { Footer } from './Footer';
 
 describe('<Footer>', () => {
-  it('should render footer', () => {
+  it('renders footer', () => {
     render(<Footer />);
     expect(screen.getByRole('contentinfo')).toBeInTheDocument();
   });
-  it('should render children', () => {
+  it('renders children', () => {
     const text = 'text';
     render(<Footer>{text}</Footer>);
     expect(screen.getByText(text)).toBeInTheDocument();

@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { labelText } from '../../storybook';
+import { ddsProviderDecorator, labelText } from '../../storybook';
 import { BUTTON_SIZES } from '../Button/Button.types';
 import { PlusCircledIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
@@ -19,6 +19,7 @@ export default {
     secondaryActions: { control: false },
     primaryAction: { control: false },
   },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof SplitButton>;
 
 const items = [

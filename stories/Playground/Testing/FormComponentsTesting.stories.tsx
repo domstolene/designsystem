@@ -15,12 +15,12 @@ import {
 } from '../../../packages/dds-components/src/index';
 import {
   StoryLabel,
-  themeProviderDecorator,
+  ddsProviderDecorator,
 } from '../../../packages/dds-components/src/storybook';
 
 const meta: Meta = {
   title: 'Playground/Testing',
-  decorators: [Story => themeProviderDecorator(<Story />)],
+  decorators: [ddsProviderDecorator],
 };
 export default meta;
 

@@ -3,6 +3,7 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import {
   commonArgTypes,
   commonResponsivePropsArgTypes,
+  ddsProviderDecorator,
   responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../storybook';
@@ -47,6 +48,7 @@ export default {
     marginInline,
     width,
   },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof FormSummary>;
 
 type Story = StoryObj<typeof FormSummary>;

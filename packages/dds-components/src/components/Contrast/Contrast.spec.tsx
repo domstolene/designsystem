@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { Contrast } from '.';
 
 describe('<Contrast>', () => {
-  it('Should render text', () => {
+  it('renders text', () => {
     const text = 'text';
     render(<Contrast> {text} </Contrast>);
     expect(screen.getByText(text)).toBeInTheDocument();

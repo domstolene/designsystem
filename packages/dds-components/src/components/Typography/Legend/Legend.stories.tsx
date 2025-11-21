@@ -1,6 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { Legend } from '..';
+import { ddsProviderDecorator } from '../../../storybook';
 import { storyTypographyHtmlAttrs } from '../storyUtils';
 
 export default {
@@ -9,6 +10,7 @@ export default {
   argTypes: {
     ...storyTypographyHtmlAttrs,
   },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof Legend>;
 
 type Story = StoryObj<typeof Legend>;

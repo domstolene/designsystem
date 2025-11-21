@@ -4,6 +4,7 @@ import { fn } from 'storybook/test';
 import { TextArea } from './TextArea';
 import {
   categoryHtml,
+  ddsProviderDecorator,
   htmlEventArgType,
   responsivePropsArgTypes,
   windowWidthDecorator,
@@ -22,6 +23,7 @@ export default {
     onChange: htmlEventArgType,
   },
   args: { onChange: fn() },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof TextArea>;
 
 type Story = StoryObj<typeof TextArea>;

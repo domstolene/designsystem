@@ -5,7 +5,7 @@ import { fn } from 'storybook/test';
 import {
   StoryLabel,
   commonArgTypes,
-  themeProviderDecorator,
+  ddsProviderDecorator,
   windowWidthDecorator,
 } from '../../storybook';
 import { Button } from '../Button';
@@ -22,7 +22,7 @@ const meta: Meta<typeof Pagination> = {
     ...commonArgTypes,
   },
   args: { onChange: fn(), onSelectOptionChange: fn() },
-  decorators: [Story => themeProviderDecorator(<Story />)],
+  decorators: [ddsProviderDecorator],
 };
 export default meta;
 

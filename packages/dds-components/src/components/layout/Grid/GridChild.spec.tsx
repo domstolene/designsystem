@@ -4,12 +4,12 @@ import { describe, expect, it } from 'vitest';
 import { GridChild } from '.';
 
 describe('<GridChild>', () => {
-  it('should render content', () => {
+  it('renders content', () => {
     const text = 'text';
     render(<GridChild>{text}</GridChild>);
     expect(screen.getByText(text)).toBeInTheDocument();
   });
-  it('should render specified HTML element', () => {
+  it('renders specified HTML element', () => {
     render(<GridChild as="button" />);
     expect(screen.getByRole('button')).toBeInTheDocument();
   });

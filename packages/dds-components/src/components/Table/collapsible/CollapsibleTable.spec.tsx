@@ -70,7 +70,7 @@ const ControlledTable = () => {
 const collapsingColumnHeaderText = 'Utvid';
 
 describe('<CollapsibleTable>', () => {
-  it('should hide second column when collapsed', () => {
+  it('hides second column when collapsed', () => {
     render(table);
 
     expect(screen.getByText(headers[0].content.toString())).toBeInTheDocument();
@@ -82,7 +82,7 @@ describe('<CollapsibleTable>', () => {
     expect(screen.queryByRole('definition')).not.toBeInTheDocument();
   });
 
-  it('should render <DescriptionList> with children while row expanded', async () => {
+  it('renders <DescriptionList> with children while row expanded', async () => {
     render(table);
     const collapseButton = screen.getByRole('button');
 
@@ -111,7 +111,7 @@ describe('<CollapsibleTable>', () => {
     expect(screen.getByText(collapsingColumnHeaderText)).toBeInTheDocument();
   });
 
-  it('should render ordinary table when headerValues is an empty array', () => {
+  it('renders ordinary table when headerValues is an empty array', () => {
     render(
       <CollapsibleTable headerValues={[]} isCollapsed>
         <Table.Head>

@@ -1,38 +1,35 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 
+import { portalRender } from '../../test.utils';
 import { Button } from '../Button';
-import { ThemeProvider } from '../ThemeProvider';
 
 import { Drawer, DrawerGroup, type DrawerGroupProps } from '.';
 
 const buttonLabel = 'label';
 const content = 'content';
 
-// Drawer skal wrappes i ThemeProvider for React Portal
 const TestComponent = (props: Omit<DrawerGroupProps, 'children'>) => {
   return (
-    <ThemeProvider>
-      <DrawerGroup {...props}>
-        <Button>{buttonLabel}</Button>
-        <Drawer>{content}</Drawer>
-      </DrawerGroup>
-    </ThemeProvider>
+    <DrawerGroup {...props}>
+      <Button>{buttonLabel}</Button>
+      <Drawer>{content}</Drawer>
+    </DrawerGroup>
   );
 };
 
 describe('<Drawer>', () => {
-  it('should be hidden by default', () => {
-    render(<TestComponent />);
+  it('is hidden by default', () => {
+    portalRender(<TestComponent />);
     const element = screen.queryByText(content);
     expect(element).not.toBeInTheDocument();
     const drawer = screen.queryByRole('dialog');
     expect(drawer).not.toBeInTheDocument();
   });
 
-  it('should open on click', async () => {
-    render(<TestComponent />);
+  it('opens on click', async () => {
+    portalRender(<TestComponent />);
     const button = screen.getByText(buttonLabel);
 
     await userEvent.click(button);
@@ -40,8 +37,8 @@ describe('<Drawer>', () => {
     const drawer = screen.getByRole('dialog');
     expect(drawer).toBeInTheDocument();
   });
-  it('should render content when open', async () => {
-    render(<TestComponent />);
+  it('renders content when open', async () => {
+    portalRender(<TestComponent />);
     const button = screen.getByText(buttonLabel);
 
     await userEvent.click(button);
@@ -49,8 +46,8 @@ describe('<Drawer>', () => {
     const element = screen.getByText(content);
     expect(element).toBeInTheDocument();
   });
-  it('should hide after Esc keydown', async () => {
-    render(<TestComponent />);
+  it('hides after Esc keydown', async () => {
+    portalRender(<TestComponent />);
     const button = screen.getByText(buttonLabel);
 
     await userEvent.click(button);
@@ -65,8 +62,8 @@ describe('<Drawer>', () => {
       expect(elQuery).not.toBeInTheDocument();
     });
   });
-  it('should hide after close button click', async () => {
-    render(<TestComponent />);
+  it('hides after close button click', async () => {
+    portalRender(<TestComponent />);
     const button = screen.getByText(buttonLabel);
 
     await userEvent.click(button);
@@ -83,9 +80,9 @@ describe('<Drawer>', () => {
     });
   });
 
-  it('should call additional onClose event on click', async () => {
+  it('calls additional onClose event on click', async () => {
     const event = vi.fn();
-    render(<TestComponent onClose={event} />);
+    portalRender(<TestComponent onClose={event} />);
     const button = screen.getByText(buttonLabel);
 
     await userEvent.click(button);
@@ -96,9 +93,9 @@ describe('<Drawer>', () => {
 
     expect(event).toHaveBeenCalled();
   });
-  it('should call additional onClose event on Esc keydown', async () => {
+  it('calls additional onClose event on Esc keydown', async () => {
     const event = vi.fn();
-    render(<TestComponent onClose={event} />);
+    portalRender(<TestComponent onClose={event} />);
     const button = screen.getByText(buttonLabel);
 
     await userEvent.click(button);
@@ -110,9 +107,9 @@ describe('<Drawer>', () => {
 
     expect(event).toHaveBeenCalled();
   });
-  it('should call additional onOpen event on click', async () => {
+  it('calls additional onOpen event on click', async () => {
     const event = vi.fn();
-    render(<TestComponent onOpen={event} />);
+    portalRender(<TestComponent onOpen={event} />);
     const button = screen.getByText(buttonLabel);
 
     await userEvent.click(button);

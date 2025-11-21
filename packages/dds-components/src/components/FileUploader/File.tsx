@@ -55,8 +55,6 @@ export const File = (props: FileProps) => {
   }));
 
   const inactive = disabled || readOnly;
-  console.log('stateFile', stateFile);
-  console.log('fileUrl', fileUrl);
 
   return (
     <li>
