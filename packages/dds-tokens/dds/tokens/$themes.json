@@ -285,10 +285,6 @@
     "name": "Core-Light",
     "$figmaStyleReferences": {
       "dds-font.label.medium": "S:33c1e01d7ed5016292baf8d962c736959aad3ec0,",
-      "dds-font.body.xsmall": "S:4da4c81508de779c07e371989ddc82392aa805e7,",
-      "dds-font.body.small": "S:852cc1f835b76feb9a3819463434d05902edfb1a,",
-      "dds-font.body.medium": "S:eba84e125fee715081f5088d7c7c9b6e959246a9,",
-      "dds-font.body.large": "S:1523287f9dde18748bfb69927acea09b6ed0e74a,",
       "dds-font.heading.xxsmall": "S:aed4ad86199af2be6b1483ed8ccddf9e3bfe4bd4,",
       "dds-font.heading.xsmall": "S:70a6411c1d6df9b5e511942ff8bfb0f58d349059,",
       "dds-font.heading.small": "S:af2b5fb8b85677cb0d2c25f6340089b5a5e7783d,",
@@ -297,7 +293,11 @@
       "dds-font.heading.xlarge": "S:4bcca852a1d9893695f5b190533dc629ed241043,",
       "dds-font.heading.xxlarge": "S:662d1ee4ded711738306f17582fe015861c0e33d,",
       "dds-font.lead.medium": "S:2d54d07b295032c2ebac82888214f18723b75d0a,",
-      "dds-font.code.medium": "S:664d758f72333dba680808a2ec7aacf692c31969,"
+      "dds-font.code.medium": "S:664d758f72333dba680808a2ec7aacf692c31969,",
+      "dds-font.body-long.xsmall": "S:4da4c81508de779c07e371989ddc82392aa805e7,",
+      "dds-font.body-long.small": "S:852cc1f835b76feb9a3819463434d05902edfb1a,",
+      "dds-font.body-long.medium": "S:eba84e125fee715081f5088d7c7c9b6e959246a9,",
+      "dds-font.body-long.large": "S:1523287f9dde18748bfb69927acea09b6ed0e74a,"
     },
     "selectedTokenSets": {
       "Base/Elsa": "source",
@@ -480,10 +480,6 @@
     "name": "Core-Dark",
     "$figmaStyleReferences": {
       "dds-font.label.medium": "S:33c1e01d7ed5016292baf8d962c736959aad3ec0,",
-      "dds-font.body.xsmall": "S:4da4c81508de779c07e371989ddc82392aa805e7,",
-      "dds-font.body.small": "S:852cc1f835b76feb9a3819463434d05902edfb1a,",
-      "dds-font.body.medium": "S:eba84e125fee715081f5088d7c7c9b6e959246a9,",
-      "dds-font.body.large": "S:1523287f9dde18748bfb69927acea09b6ed0e74a,",
       "dds-font.heading.xxsmall": "S:aed4ad86199af2be6b1483ed8ccddf9e3bfe4bd4,",
       "dds-font.heading.xsmall": "S:70a6411c1d6df9b5e511942ff8bfb0f58d349059,",
       "dds-font.heading.small": "S:af2b5fb8b85677cb0d2c25f6340089b5a5e7783d,",
@@ -492,7 +488,11 @@
       "dds-font.heading.xlarge": "S:4bcca852a1d9893695f5b190533dc629ed241043,",
       "dds-font.heading.xxlarge": "S:662d1ee4ded711738306f17582fe015861c0e33d,",
       "dds-font.lead.medium": "S:2d54d07b295032c2ebac82888214f18723b75d0a,",
-      "dds-font.code.medium": "S:664d758f72333dba680808a2ec7aacf692c31969,"
+      "dds-font.code.medium": "S:664d758f72333dba680808a2ec7aacf692c31969,",
+      "dds-font.body-long.xsmall": "S:4da4c81508de779c07e371989ddc82392aa805e7,",
+      "dds-font.body-long.small": "S:852cc1f835b76feb9a3819463434d05902edfb1a,",
+      "dds-font.body-long.medium": "S:eba84e125fee715081f5088d7c7c9b6e959246a9,",
+      "dds-font.body-long.large": "S:1523287f9dde18748bfb69927acea09b6ed0e74a,"
     },
     "selectedTokenSets": {
       "Base/Elsa": "source",
@@ -855,10 +855,6 @@
     "name": "Public-Dark",
     "$figmaStyleReferences": {
       "dds-font.label.medium": "S:33c1e01d7ed5016292baf8d962c736959aad3ec0,",
-      "dds-font.body.xsmall": "S:4da4c81508de779c07e371989ddc82392aa805e7,",
-      "dds-font.body.small": "S:852cc1f835b76feb9a3819463434d05902edfb1a,",
-      "dds-font.body.medium": "S:eba84e125fee715081f5088d7c7c9b6e959246a9,",
-      "dds-font.body.large": "S:1523287f9dde18748bfb69927acea09b6ed0e74a,",
       "dds-font.heading.xxsmall": "S:aed4ad86199af2be6b1483ed8ccddf9e3bfe4bd4,",
       "dds-font.heading.xsmall": "S:70a6411c1d6df9b5e511942ff8bfb0f58d349059,",
       "dds-font.heading.small": "S:af2b5fb8b85677cb0d2c25f6340089b5a5e7783d,",
@@ -867,7 +863,11 @@
       "dds-font.heading.xlarge": "S:4bcca852a1d9893695f5b190533dc629ed241043,",
       "dds-font.heading.xxlarge": "S:662d1ee4ded711738306f17582fe015861c0e33d,",
       "dds-font.lead.medium": "S:2d54d07b295032c2ebac82888214f18723b75d0a,",
-      "dds-font.code.medium": "S:664d758f72333dba680808a2ec7aacf692c31969,"
+      "dds-font.code.medium": "S:664d758f72333dba680808a2ec7aacf692c31969,",
+      "dds-font.body-long.xsmall": "S:4da4c81508de779c07e371989ddc82392aa805e7,",
+      "dds-font.body-long.small": "S:852cc1f835b76feb9a3819463434d05902edfb1a,",
+      "dds-font.body-long.medium": "S:eba84e125fee715081f5088d7c7c9b6e959246a9,",
+      "dds-font.body-long.large": "S:1523287f9dde18748bfb69927acea09b6ed0e74a,"
     },
     "selectedTokenSets": {
       "Base/Elsa": "source",

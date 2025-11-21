@@ -6,7 +6,7 @@
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.bold}",
           "fontSize": "{dds-font-size.x0_875}",
-          "lineHeight": "{dds-font-lineheight.x1}",
+          "lineHeight": "{dds-font-lineheight.rem-1}",
           "letterSpacing": "{dds-font-letter-spacing.loose}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
           "textDecoration": "{dds-font-style.normal}"
@@ -15,7 +15,7 @@
         "description": "Label for form components"
       }
     },
-    "body": {
+    "body-long": {
       "xsmall": {
         "value": {
           "fontFamily": "{dds-font-family.sans}",
@@ -27,7 +27,7 @@
           "textDecoration": "{dds-font-style.normal}"
         },
         "type": "typography",
-        "description": " used with xsmall button and input fields"
+        "description": "Xsmall body text for editorial content"
       },
       "small": {
         "value": {
@@ -40,7 +40,7 @@
           "textDecoration": "{dds-font-style.normal}"
         },
         "type": "typography",
-        "description": " used with small button and input fields"
+        "description": "Small body text for editorial content"
       },
       "medium": {
         "value": {
@@ -53,7 +53,7 @@
           "textDecoration": "{dds-font-style.normal}"
         },
         "type": "typography",
-        "description": "standard body text, used with medium button and input fields"
+        "description": "Default body text for editorial content"
       },
       "large": {
         "value": {
@@ -66,7 +66,7 @@
           "textDecoration": "{dds-font-style.normal}"
         },
         "type": "typography",
-        "description": "Used for large button and large search"
+        "description": "Large body text for editorial content"
       }
     },
     "heading": {
@@ -190,6 +190,60 @@
         },
         "type": "typography",
         "description": "Brukes for kodesnutter etc"
+      }
+    },
+    "body-short": {
+      "xsmall": {
+        "value": {
+          "fontFamily": "{dds-font-family.sans}",
+          "fontWeight": "{dds-font-weight.normal}",
+          "fontSize": "{dds-font-size.x0_75}",
+          "lineHeight": "{dds-font-lineheight.rem-1}",
+          "letterSpacing": "{dds-font-letter-spacing.loose}",
+          "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
+          "textDecoration": "{dds-font-style.normal}"
+        },
+        "type": "typography",
+        "description": " used with xsmall button and input fields"
+      },
+      "small": {
+        "value": {
+          "fontFamily": "{dds-font-family.sans}",
+          "fontWeight": "{dds-font-weight.normal}",
+          "fontSize": "{dds-font-size.x0_875}",
+          "lineHeight": "{dds-font-lineheight.x1}",
+          "letterSpacing": "{dds-font-letter-spacing.loose}",
+          "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
+          "textDecoration": "{dds-font-style.normal}"
+        },
+        "type": "typography",
+        "description": " used with small button and input fields"
+      },
+      "medium": {
+        "value": {
+          "fontFamily": "{dds-font-family.sans}",
+          "fontWeight": "{dds-font-weight.normal}",
+          "fontSize": "{dds-font-size.x1}",
+          "lineHeight": "{dds-font-lineheight.x1}",
+          "letterSpacing": "{dds-font-letter-spacing.normal}",
+          "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
+          "textDecoration": "{dds-font-style.normal}"
+        },
+        "type": "typography",
+        "description": "Used with medium button and input fields"
+      },
+      "large": {
+        "value": {
+          "fontFamily": "{dds-font-family.sans}",
+          "fontWeight": "{dds-font-weight.normal}",
+          "fontSize": "{dds-font-size.x1_125}",
+          "lineHeight": "{dds-font-lineheight.x1}",
+          "letterSpacing": "{dds-font-letter-spacing.normal}",
+          "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
+          "textDecoration": "{dds-font-style.normal}"
+        },
+        "type": "typography",
+        "description": "Used for large button and large search"
       }
     }
   },
