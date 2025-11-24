@@ -168,9 +168,9 @@
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.light}",
           "fontSize": "{dds-font-size.x1_5}",
-          "lineHeight": "{dds-font-lineheight.x1}",
+          "lineHeight": "{dds-font-lineheight.x2}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
-          "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
+          "paragraphSpacing": "{dds-font-paragraph-spacing.medium}",
           "textDecoration": "{dds-font-style.normal}"
         },
         "type": "typography",
