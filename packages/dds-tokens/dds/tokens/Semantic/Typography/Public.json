@@ -6,7 +6,7 @@
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.bold}",
           "fontSize": "{dds-font-size.x1}",
-          "lineHeight": "{dds-font-lineheight.rem-1}",
+          "lineHeight": "{dds-font-lineheight.rem-1_25}",
           "letterSpacing": "{dds-font-letter-spacing.loose}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
           "textDecoration": "{dds-font-style.normal}"
