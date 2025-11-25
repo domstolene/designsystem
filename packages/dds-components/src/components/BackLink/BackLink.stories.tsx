@@ -1,7 +1,11 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
-import { categoryHtml, htmlEventArgType } from '../../storybook';
+import {
+  categoryHtml,
+  ddsProviderDecorator,
+  htmlEventArgType,
+} from '../../storybook';
 
 import { BackLink } from '.';
 
@@ -15,6 +19,7 @@ const meta: Meta<typeof BackLink> = {
     onClick: htmlEventArgType,
   },
   args: { onClick: fn() },
+  decorators: [ddsProviderDecorator],
 };
 
 export default meta;

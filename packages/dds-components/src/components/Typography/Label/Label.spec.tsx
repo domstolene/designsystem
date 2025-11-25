@@ -4,12 +4,12 @@ import { describe, expect, it } from 'vitest';
 import { Label } from './Label';
 
 describe('<Label>', () => {
-  it('should have text', () => {
+  it('renders text', () => {
     const text = 'text';
     render(<Label>{text}</Label>);
     expect(screen.getByText(text)).toBeInTheDocument();
   });
-  it('should render <label>', () => {
+  it('renders <label>', () => {
     const text = 'text';
     render(<Label>{text}</Label>);
     expect(screen.getByText(text).nodeName).toBe('LABEL');

@@ -2,7 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
 import { ProgressTracker } from './ProgressTracker';
-import { commonArgTypes, themeProviderDecorator } from '../../storybook';
+import { commonArgTypes, ddsProviderDecorator } from '../../storybook';
 import { Button } from '../Button';
 import { Drawer, DrawerGroup } from '../Drawer';
 import { Fieldset, FieldsetGroup } from '../Fieldset';
@@ -26,6 +26,7 @@ export default {
   argTypes: {
     ...commonArgTypes,
   },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof ProgressTracker>;
 
 type Story = StoryObj<typeof ProgressTracker>;
@@ -254,7 +255,6 @@ export const FutureStepsDisabled: Story = {
 };
 
 export const SmallScreen: Story = {
-  decorators: [Story => themeProviderDecorator(<Story />)],
   render: args => {
     const numSteps = 3;
 
@@ -318,7 +318,6 @@ export const SmallScreen: Story = {
 };
 
 export const RealWorldRosponsiveExample: Story = {
-  decorators: [Story => themeProviderDecorator(<Story />)],
   render: args => {
     const [activeStep, setActiveStep] = useState(0);
     const [completedSteps, setCompletedSteps] = useState(new Set<number>());

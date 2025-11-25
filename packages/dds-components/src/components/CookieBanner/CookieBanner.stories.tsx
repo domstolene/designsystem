@@ -3,6 +3,7 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { CookieBanner } from './CookieBanner';
 import {
   commonArgTypes,
+  ddsProviderDecorator,
   responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../storybook';
@@ -26,6 +27,7 @@ const meta: Meta<typeof CookieBanner> = {
     maxHeight,
     width,
   },
+  decorators: [ddsProviderDecorator],
 };
 
 export default meta;

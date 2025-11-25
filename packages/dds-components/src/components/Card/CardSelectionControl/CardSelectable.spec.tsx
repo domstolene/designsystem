@@ -41,16 +41,16 @@ const TestComponentRadioControlled = () => {
 
 describe('<CardSelectable>', () => {
   describe('radio', () => {
-    it('should render radiobutton', () => {
+    it('renders radiobutton', () => {
       render(<CardSelectable cardType="radio" />);
       expect(screen.getByRole('radio')).toBeInTheDocument();
     });
-    it('should have a label', () => {
+    it('has a label', () => {
       const label = 'Select me';
       render(<CardSelectable cardType="radio"> {label} </CardSelectable>);
       expect(screen.getByText(label)).toBeInTheDocument();
     });
-    it('should be disabled', async () => {
+    it('is disabled', async () => {
       render(<CardSelectable cardType="radio" disabled />);
       const radio = screen.getByRole('radio');
       expect(radio).toBeDisabled();
@@ -58,23 +58,23 @@ describe('<CardSelectable>', () => {
       await userEvent.click(radio);
       expect(radio).not.toBeChecked();
     });
-    it('should be required', async () => {
+    it('is required', async () => {
       render(<CardSelectable cardType="radio" required />);
       const radio = screen.getByRole('radio');
       expect(radio).toBeRequired();
     });
   });
   describe('checkbox', () => {
-    it('should render checkbox', () => {
+    it('renders checkbox', () => {
       render(<CardSelectable cardType="checkbox" />);
       expect(screen.getByRole('checkbox')).toBeInTheDocument();
     });
-    it('should have a label', () => {
+    it('has a label', () => {
       const label = 'Select me';
       render(<CardSelectable cardType="checkbox"> {label} </CardSelectable>);
       expect(screen.getByText(label)).toBeInTheDocument();
     });
-    it('should be disabled', async () => {
+    it('is disabled', async () => {
       render(<CardSelectable cardType="checkbox" disabled />);
       const checkbox = screen.getByRole('checkbox');
       expect(checkbox).toBeDisabled();
@@ -82,19 +82,19 @@ describe('<CardSelectable>', () => {
       await userEvent.click(checkbox);
       expect(checkbox).not.toBeChecked();
     });
-    it('should be required', async () => {
+    it('is required', async () => {
       render(<CardSelectable cardType="checkbox" required />);
       const checkbox = screen.getByRole('checkbox');
       expect(checkbox).toBeRequired();
     });
-    it('should be selectable', async () => {
+    it('is selectable', async () => {
       render(<CardSelectable cardType="checkbox" />);
       const checkbox = screen.getByRole('checkbox');
       expect(checkbox).not.toBeChecked();
       await userEvent.click(checkbox);
       expect(checkbox).toBeChecked();
     });
-    it('should get focus on click', async () => {
+    it('gets focus on click', async () => {
       render(<CardSelectable cardType="checkbox" />);
       const checkbox = screen.getByRole('checkbox');
       await userEvent.click(checkbox);
@@ -103,32 +103,32 @@ describe('<CardSelectable>', () => {
     });
   });
   describe('<CardSelectableGroup cardType="radio">', () => {
-    it('should set default checked uncontrolled state', () => {
+    it('sets default checked uncontrolled state', () => {
       render(TestComponentRadio);
       const radio = screen.getAllByRole('radio')[0];
       expect(radio).toBeChecked();
     });
-    it('should get focus on click', async () => {
+    it('gets focus on click', async () => {
       render(TestComponentRadio);
       const radio = screen.getAllByRole('radio')[1];
       await userEvent.click(radio);
 
       expect(radio).toHaveFocus();
     });
-    it('should get focus on Tab', async () => {
+    it('gets focus on Tab', async () => {
       render(TestComponentRadio);
       const radio = screen.getAllByRole('radio')[0];
       await userEvent.keyboard('[Tab]');
 
       expect(radio).toHaveFocus();
     });
-    it('should update checked state when clicking a radio button', async () => {
+    it('updates checked state when clicking a radio button', async () => {
       render(TestComponentRadio);
       const radio = screen.getAllByRole('radio')[2];
       await userEvent.click(radio);
       expect(radio).toBeChecked();
     });
-    it('should have radiogroup as role', () => {
+    it('has radiogroup as role', () => {
       render(
         <CardSelectableGroup cardType="radio">
           <CardSelectable />
@@ -136,7 +136,7 @@ describe('<CardSelectable>', () => {
       );
       expect(screen.getByRole('radiogroup')).toBeInTheDocument();
     });
-    it('should make children disabled', () => {
+    it('makes children disabled', () => {
       render(
         <CardSelectableGroup disabled cardType="radio">
           <CardSelectable />
@@ -149,7 +149,7 @@ describe('<CardSelectable>', () => {
         expect(radio).toBeDisabled();
       });
     });
-    it('should make children readOnly', () => {
+    it('makes children readOnly', () => {
       render(
         <CardSelectableGroup readOnly cardType="radio">
           <CardSelectable />
@@ -162,7 +162,7 @@ describe('<CardSelectable>', () => {
         expect(radio).toHaveAttribute('aria-readonly', 'true');
       });
     });
-    it('should give children name attribute', () => {
+    it('gives children name attribute', () => {
       const name = 'name';
       render(
         <CardSelectableGroup name={name} cardType="radio">
@@ -177,7 +177,7 @@ describe('<CardSelectable>', () => {
       });
     });
 
-    it('should have accessible description when tip provided', () => {
+    it('has accessible description when tip provided', () => {
       const tip = 'tip';
       const tipId = 'tipId';
       render(
@@ -198,7 +198,7 @@ describe('<CardSelectable>', () => {
       });
     });
 
-    it('children should have accessible description and be invalid when errorMessage provided', () => {
+    it('children have accessible description and are invalid when errorMessage provided', () => {
       const errorMessage = 'errorMessage';
       render(
         <CardSelectableGroup cardType="radio" errorMessage={errorMessage}>
@@ -211,19 +211,19 @@ describe('<CardSelectable>', () => {
     });
   });
   describe('<CardSelectableGroup cardType="radio"> controlled', () => {
-    it('should set default checked state', () => {
+    it('sets default checked state', () => {
       render(<TestComponentRadioControlled />);
       const radio = screen.getAllByRole('radio')[0];
       expect(radio).toBeChecked();
     });
-    it('should get focus on click', async () => {
+    it('gets focus on click', async () => {
       render(<TestComponentRadioControlled />);
       const radio = screen.getAllByRole('radio')[1];
       await userEvent.click(radio);
 
       expect(radio).toHaveFocus();
     });
-    it('should update checked state when clicking a radio button', async () => {
+    it('updates checked state when clicking a radio button', async () => {
       render(<TestComponentRadioControlled />);
       const radio = screen.getAllByRole('radio')[2];
       await userEvent.click(radio);
@@ -231,27 +231,27 @@ describe('<CardSelectable>', () => {
     });
   });
   describe('<CardSelectableGroup cardType="checkbox">', () => {
-    it('should get focus on click', async () => {
+    it('gets focus on click', async () => {
       render(TestComponentCheckbox);
       const checkbox = screen.getAllByRole('checkbox')[1];
       await userEvent.click(checkbox);
 
       expect(checkbox).toHaveFocus();
     });
-    it('should get focus on Tab', async () => {
+    it('gets focus on Tab', async () => {
       render(TestComponentCheckbox);
       const checkbox = screen.getAllByRole('checkbox')[0];
       await userEvent.keyboard('[Tab]');
 
       expect(checkbox).toHaveFocus();
     });
-    it('should update checked state when clicking a checkbox button', async () => {
+    it('updates checked state when clicking a checkbox button', async () => {
       render(TestComponentCheckbox);
       const checkbox = screen.getAllByRole('checkbox')[2];
       await userEvent.click(checkbox);
       expect(checkbox).toBeChecked();
     });
-    it('should have group as role', () => {
+    it('has group as role', () => {
       render(
         <CardSelectableGroup cardType="checkbox">
           <CardSelectable />
@@ -259,7 +259,7 @@ describe('<CardSelectable>', () => {
       );
       expect(screen.getByRole('group')).toBeInTheDocument();
     });
-    it('should make children disabled', () => {
+    it('makes children disabled', () => {
       render(
         <CardSelectableGroup disabled cardType="checkbox">
           <CardSelectable />
@@ -272,7 +272,7 @@ describe('<CardSelectable>', () => {
         expect(checkbox).toBeDisabled();
       });
     });
-    it('should make children readOnly', () => {
+    it('makes children readOnly', () => {
       render(
         <CardSelectableGroup readOnly cardType="checkbox">
           <CardSelectable />
@@ -286,7 +286,7 @@ describe('<CardSelectable>', () => {
       });
     });
 
-    it('should have accessible description when tip provided', () => {
+    it('has accessible description when tip provided', () => {
       const tip = 'tip';
       const tipId = 'tipId';
       render(
@@ -307,7 +307,7 @@ describe('<CardSelectable>', () => {
       });
     });
 
-    it('children should have accessible description and be invalid when errorMessage provided', () => {
+    it('children have accessible description and are invalid when errorMessage provided', () => {
       const errorMessage = 'errorMessage';
       render(
         <CardSelectableGroup cardType="checkbox" errorMessage={errorMessage}>

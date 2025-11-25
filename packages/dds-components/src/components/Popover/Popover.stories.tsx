@@ -5,8 +5,8 @@ import { fn } from 'storybook/test';
 import { type Placement } from '../../hooks';
 import {
   commonArgTypes,
+  ddsProviderDecorator,
   htmlEventArgType,
-  themeProviderDecorator,
 } from '../../storybook';
 import { Button } from '../Button';
 import { InlineButton } from '../InlineButton';
@@ -20,7 +20,7 @@ import { Popover, PopoverGroup } from '.';
 const meta: Meta<typeof Popover> = {
   title: 'dds-components/Components/Popover',
   component: Popover,
-  decorators: [Story => themeProviderDecorator(<Story />)],
+  decorators: [ddsProviderDecorator],
   argTypes: {
     header: { control: 'text' },
     onBlur: htmlEventArgType,

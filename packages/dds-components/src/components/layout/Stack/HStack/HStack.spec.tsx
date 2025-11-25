@@ -4,12 +4,12 @@ import { describe, expect, it } from 'vitest';
 import { HStack } from '.';
 
 describe('<HStack>', () => {
-  it('should render content', () => {
+  it('renders content', () => {
     const text = 'text';
     render(<HStack>{text}</HStack>);
     expect(screen.getByText(text)).toBeInTheDocument();
   });
-  it('should render specified HTML element', () => {
+  it('renders specified HTML element', () => {
     render(<HStack as="button" />);
     expect(screen.getByRole('button')).toBeInTheDocument();
   });

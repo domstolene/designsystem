@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
+import { ddsProviderDecorator } from '../../storybook';
 import { Divider } from '../Divider';
 
 import { Feedback } from '.';
@@ -15,6 +16,7 @@ export default {
       },
     },
   },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof Feedback>;
 
 type Story = StoryObj<typeof Feedback>;

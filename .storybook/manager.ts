@@ -1,5 +1,6 @@
 import '@norges-domstoler/dds-components/index.css';
 import { addons } from 'storybook/manager-api';
+
 import ddsTheme, { injectCSS } from './ddsTheme';
 
 injectCSS();

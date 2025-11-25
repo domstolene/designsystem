@@ -5,7 +5,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { Button } from '.';
 
 describe('<Button>', () => {
-  it('should have a label', () => {
+  it('has a label', () => {
     const label = 'button label';
     render(<Button>{label}</Button>);
 

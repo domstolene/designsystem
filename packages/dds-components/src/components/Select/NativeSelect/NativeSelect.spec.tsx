@@ -5,19 +5,19 @@ import { describe, expect, it } from 'vitest';
 import { NativeSelect } from './NativeSelect';
 
 describe('<NativeSelect>', () => {
-  it('should render combobox', () => {
+  it('renders combobox', () => {
     render(<NativeSelect />);
 
     const inputElement = screen.getByRole('combobox');
     expect(inputElement).toBeInTheDocument();
   });
-  it('should have a connected label', () => {
+  it('has label', () => {
     const label = 'Label';
     render(<NativeSelect label={label} />);
     const inputElement = screen.getByRole('combobox');
     expect(inputElement).toHaveAccessibleName(label);
   });
-  it('should have selected value', () => {
+  it('has selected value', () => {
     const value = 'value';
     render(
       <NativeSelect value={value}>
@@ -26,19 +26,19 @@ describe('<NativeSelect>', () => {
     );
     expect(screen.getByRole('combobox')).toHaveValue(value);
   });
-  it('should be disabled', () => {
+  it('is disabled', () => {
     render(<NativeSelect disabled />);
     const inputElement = screen.getByRole('combobox');
     expect(inputElement).toBeDisabled();
   });
-  it('should have accessible description when tip provided', () => {
+  it('has accessible description when tip provided', () => {
     const tip = 'tip';
     render(<NativeSelect tip={tip} />);
 
     const inputElement = screen.getByRole('combobox');
     expect(inputElement).toHaveAccessibleDescription(tip);
   });
-  it('should have accessible description  and aria-invalid when errorMessage provided', () => {
+  it('has accessible description  and aria-invalid when errorMessage provided', () => {
     const id = 'id';
     const error = 'error';
     render(<NativeSelect errorMessage={error} id={id} />);

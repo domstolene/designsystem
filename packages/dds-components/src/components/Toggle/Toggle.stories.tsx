@@ -5,6 +5,7 @@ import { fn } from 'storybook/test';
 import {
   categoryHtml,
   commonArgTypes,
+  ddsProviderDecorator,
   htmlArgType,
   htmlEventArgType,
   labelText,
@@ -31,6 +32,7 @@ export default {
     ...commonArgTypes,
   },
   args: { onChange: fn(), onBlur: fn() },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof Toggle>;
 
 type Story = StoryObj<typeof Toggle>;

@@ -1,59 +1,39 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
 import { Select } from './Select';
-import { ThemeProvider } from '../ThemeProvider';
+import { portalRender } from '../../test.utils';
 
 describe('<Select>', () => {
-  it('should render combobox', () => {
-    render(
-      <ThemeProvider>
-        <Select options={[]} />
-      </ThemeProvider>,
-    );
+  it('renders combobox', () => {
+    portalRender(<Select options={[]} />);
 
     expect(screen.getByRole('combobox')).toBeInTheDocument();
   });
-  it('should have a label', () => {
+  it('has a label', () => {
     const label = 'Label';
-    render(
-      <ThemeProvider>
-        <Select options={[]} label={label} />
-      </ThemeProvider>,
-    );
+    portalRender(<Select options={[]} label={label} />);
 
     expect(screen.getByRole('combobox')).toHaveAccessibleName(label);
   });
-  it('should have selected value as accessibile description', () => {
+  it('has selected value as accessibile description', () => {
     const id = 'id';
     const option = { label: 'alt', value: 'alt' };
-    render(
-      <ThemeProvider>
-        <Select options={[option]} value={option} id={id} />
-      </ThemeProvider>,
-    );
+    portalRender(<Select options={[option]} value={option} id={id} />);
 
     const inputElement = screen.getByRole('combobox');
     expect(inputElement).toHaveAccessibleDescription(option.value);
   });
-  it('should have accessible description when tip provided', () => {
+  it('has accessible description when tip provided', () => {
     const tip = 'tip';
-    render(
-      <ThemeProvider>
-        <Select options={[]} tip={tip} />
-      </ThemeProvider>,
-    );
+    portalRender(<Select options={[]} tip={tip} />);
 
     expect(screen.getByRole('combobox')).toHaveAccessibleDescription(tip);
   });
-  it('should have accessible description and aria-invalid when errorMessage provided', () => {
+  it('has accessible description and aria-invalid when errorMessage provided', () => {
     const id = 'id';
     const error = 'error';
-    render(
-      <ThemeProvider>
-        <Select options={[]} errorMessage={error} id={id} />
-      </ThemeProvider>,
-    );
+    portalRender(<Select options={[]} errorMessage={error} id={id} />);
 
     const inputElement = screen.getByRole('combobox');
     expect(inputElement).toHaveAccessibleDescription(error);

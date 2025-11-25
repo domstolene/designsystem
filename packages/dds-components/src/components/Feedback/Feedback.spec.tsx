@@ -5,8 +5,8 @@ import { describe, expect, it, vi } from 'vitest';
 import { Feedback } from './Feedback';
 
 describe('<Feedback>', () => {
-  it('should show thumb buttons on first render', () => {
-    render(<Feedback ratingLabel="Hva syns du om tjenesten?" />);
+  it('renders thumb buttons on first render', () => {
+    render(<Feedback />);
 
     assertInDocument(['Hva syns du om tjenesten?', 'Bra', 'Dårlig']);
 
@@ -18,11 +18,9 @@ describe('<Feedback>', () => {
     ]);
   });
 
-  it('should trigger onRating when thumb up button is clicked', async () => {
+  it('calls onRating when thumb up button is clicked', async () => {
     const onRating = vi.fn();
-    render(
-      <Feedback ratingLabel="Hva syns du om tjenesten?" onRating={onRating} />,
-    );
+    render(<Feedback onRating={onRating} />);
     const button = screen.getByLabelText('Bra');
 
     await userEvent.click(button);
@@ -30,11 +28,9 @@ describe('<Feedback>', () => {
     expect(onRating).toHaveBeenCalledTimes(1);
   });
 
-  it('should trigger onRating when thumb down button is clicked', async () => {
+  it('calls onRating when thumb down button is clicked', async () => {
     const onRating = vi.fn();
-    render(
-      <Feedback ratingLabel="Hva syns du om tjenesten?" onRating={onRating} />,
-    );
+    render(<Feedback onRating={onRating} />);
     const button = screen.getByLabelText('Dårlig');
 
     await userEvent.click(button);
@@ -42,13 +38,8 @@ describe('<Feedback>', () => {
     expect(onRating).toHaveBeenCalledTimes(1);
   });
 
-  it('should show text area when rating is positive', () => {
-    render(
-      <Feedback
-        ratingLabel="Hva syns du om tjenesten?"
-        ratingValue={'positive'}
-      />,
-    );
+  it('renders text area when rating is positive', () => {
+    render(<Feedback ratingValue="positive" />);
 
     assertInDocument([
       'Hva kan vi forbedre? (valgfritt)',
@@ -60,13 +51,8 @@ describe('<Feedback>', () => {
     assertNotInDocument(['Hva syns du om tjenesten?', 'Bra', 'Dårlig']);
   });
 
-  it('should show text area when rating is negative', () => {
-    render(
-      <Feedback
-        ratingLabel="Hva syns du om tjenesten?"
-        ratingValue={'negative'}
-      />,
-    );
+  it('renders text area when rating is negative', () => {
+    render(<Feedback ratingValue="negative" />);
 
     assertInDocument([
       'Hva kan vi forbedre? (valgfritt)',
@@ -78,14 +64,8 @@ describe('<Feedback>', () => {
     assertNotInDocument(['Hva syns du om tjenesten?', 'Bra', 'Dårlig']);
   });
 
-  it('should not show text area when rating is positive and text area is excluded', () => {
-    render(
-      <Feedback
-        ratingLabel="Hva syns du om tjenesten?"
-        ratingValue={'positive'}
-        feedbackTextAreaExcluded
-      />,
-    );
+  it('does not render text area when rating is positive and text area is excluded', () => {
+    render(<Feedback ratingValue="positive" feedbackTextAreaExcluded />);
 
     assertInDocument([
       'Tusen takk! Tilbakemeldingen din hjelper oss å forbedre løsningen',
@@ -101,8 +81,8 @@ describe('<Feedback>', () => {
     ]);
   });
 
-  it('should show confirmation text when isSubmitted is true', () => {
-    render(<Feedback ratingLabel="Hva syns du om tjenesten?" isSubmitted />);
+  it('renders confirmation text when isSubmitted is true', () => {
+    render(<Feedback isSubmitted />);
 
     assertInDocument([
       'Tusen takk! Tilbakemeldingen din hjelper oss å forbedre løsningen',
@@ -118,14 +98,8 @@ describe('<Feedback>', () => {
     ]);
   });
 
-  it('should not show text area when rating is negative and text area is excluded', () => {
-    render(
-      <Feedback
-        ratingLabel="Hva syns du om tjenesten?"
-        ratingValue={'negative'}
-        feedbackTextAreaExcluded
-      />,
-    );
+  it('does not render text area when rating is negative and text area is excluded', () => {
+    render(<Feedback ratingValue="negative" feedbackTextAreaExcluded />);
 
     assertInDocument([
       'Tusen takk! Tilbakemeldingen din hjelper oss å forbedre løsningen',
@@ -141,12 +115,11 @@ describe('<Feedback>', () => {
     ]);
   });
 
-  it('should show text value when text value is given', () => {
+  it('renders text value when text value is given', () => {
     render(
       <Feedback
-        ratingLabel="Hva syns du om tjenesten?"
-        ratingValue={'positive'}
-        feedbackTextValue={'Veldig bra tilbakemelding'}
+        ratingValue="positive"
+        feedbackTextValue="Veldig bra tilbakemelding"
       />,
     );
 
@@ -161,15 +134,9 @@ describe('<Feedback>', () => {
     assertNotInDocument(['Hva syns du om tjenesten?', 'Bra', 'Dårlig']);
   });
 
-  it('should trigger onSubmit when submit button is clicked', async () => {
+  it('calls onSubmit when submit button is clicked', async () => {
     const onSubmit = vi.fn();
-    render(
-      <Feedback
-        ratingLabel="Hva syns du om tjenesten?"
-        ratingValue={'positive'}
-        onSubmit={onSubmit}
-      />,
-    );
+    render(<Feedback ratingValue="positive" onSubmit={onSubmit} />);
     const button = screen.getByRole('button');
 
     await userEvent.click(button);
@@ -177,15 +144,9 @@ describe('<Feedback>', () => {
     expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 
-  it('should trigger onSubmit when rating button is clicked and text area is excluded', async () => {
+  it('calls onSubmit when rating button is clicked and text area is excluded', async () => {
     const onSubmit = vi.fn();
-    render(
-      <Feedback
-        ratingLabel="Hva syns du om tjenesten?"
-        onSubmit={onSubmit}
-        feedbackTextAreaExcluded
-      />,
-    );
+    render(<Feedback onSubmit={onSubmit} feedbackTextAreaExcluded />);
     const button = screen.getByLabelText('Dårlig');
 
     await userEvent.click(button);
@@ -193,13 +154,9 @@ describe('<Feedback>', () => {
     expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 
-  it('should have correct labels when using custom tooltips', () => {
+  it('has correct labels when using custom tooltips', () => {
     render(
-      <Feedback
-        ratingLabel="Hva syns du om tjenesten?"
-        thumbUpTooltip="Veldig bra"
-        thumbDownTooltip="Veldig dårlig"
-      />,
+      <Feedback thumbUpTooltip="Veldig bra" thumbDownTooltip="Veldig dårlig" />,
     );
 
     assertInDocument([
@@ -216,8 +173,8 @@ describe('<Feedback>', () => {
     ]);
   });
 
-  it('should render spinner and not thumb up/down buttons when loading', () => {
-    render(<Feedback ratingLabel="Hva syns du om tjenesten?" loading />);
+  it('renders spinner and not thumb up/down buttons when loading', () => {
+    render(<Feedback loading />);
 
     assertInDocument([
       'Hva syns du om tjenesten?',
@@ -234,13 +191,9 @@ describe('<Feedback>', () => {
     ]);
   });
 
-  it('should render positive feedback label', () => {
+  it('renders positive feedback label', () => {
     render(
-      <Feedback
-        ratingLabel="Hva syns du om tjenesten?"
-        positiveFeedbackLabel="Hva var bra?"
-        ratingValue="positive"
-      />,
+      <Feedback positiveFeedbackLabel="Hva var bra?" ratingValue="positive" />,
     );
 
     assertInDocument([
@@ -253,10 +206,9 @@ describe('<Feedback>', () => {
     assertNotInDocument(['Hva syns du om tjenesten?', 'Bra', 'Dårlig']);
   });
 
-  it('should render negative feedback label', () => {
+  it('renders negative feedback label', () => {
     render(
       <Feedback
-        ratingLabel="Hva syns du om tjenesten?"
         negativeFeedbackLabel="Hva var dårlig?"
         ratingValue="negative"
       />,

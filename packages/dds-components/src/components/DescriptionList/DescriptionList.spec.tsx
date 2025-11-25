@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { DescriptionList, DescriptionListDesc, DescriptionListTerm } from '.';
 
 describe('<DescriptionList>', () => {
-  it('should render description term', () => {
+  it('renders description term', () => {
     const termText = 'term';
     render(
       <DescriptionList>
@@ -16,7 +16,7 @@ describe('<DescriptionList>', () => {
     expect(term).toBeInTheDocument();
     expect(screen.getByText(termText)).toBeInTheDocument();
   });
-  it('should render description', () => {
+  it('renders description', () => {
     const descText = 'desc';
     render(
       <DescriptionList>

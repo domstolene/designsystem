@@ -4,12 +4,12 @@ import { describe, expect, it } from 'vitest';
 import { Paragraph } from './Paragraph';
 
 describe('<Paragraph>', () => {
-  it('should have text', () => {
+  it('renders text', () => {
     const text = 'text';
     render(<Paragraph>{text}</Paragraph>);
     expect(screen.getByText(text)).toBeInTheDocument();
   });
-  it('should render <p>', () => {
+  it('renders <p>', () => {
     const text = 'text';
     render(<Paragraph>{text}</Paragraph>);
     expect(screen.getByText(text).nodeName).toBe('P');

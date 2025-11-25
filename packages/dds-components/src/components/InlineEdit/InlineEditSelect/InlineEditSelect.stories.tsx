@@ -5,6 +5,7 @@ import { fn } from 'storybook/test';
 import { InlineEditSelect } from './InlineEditSelect';
 import {
   categoryCss,
+  ddsProviderDecorator,
   htmlEventArgType,
   windowWidthDecorator,
 } from '../../../storybook';
@@ -27,6 +28,7 @@ export default {
       exclude: ['inputRef'],
     },
   },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof InlineEditSelect>;
 type Story = StoryObj<typeof InlineEditSelect>;
 

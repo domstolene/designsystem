@@ -5,11 +5,11 @@ import { describe, expect, it, vi } from 'vitest';
 import { InlineButton } from './InlineButton';
 
 describe('<InlineButton>', () => {
-  it('should render button', () => {
+  it('renders button', () => {
     render(<InlineButton />);
     expect(screen.getByRole('button')).toBeInTheDocument();
   });
-  it('should render button text', () => {
+  it('renders button text', () => {
     const text = 'text';
     render(<InlineButton>{text}</InlineButton>);
     expect(screen.getByText(text)).toBeInTheDocument();

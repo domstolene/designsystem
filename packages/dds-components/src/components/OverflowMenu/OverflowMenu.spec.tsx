@@ -42,13 +42,13 @@ function TestComponent({ link, item, span }: props) {
 }
 
 describe('<OverflowMenu>', () => {
-  it('should display context menu item as link', () => {
+  it('renders context menu item as link', () => {
     render(<TestComponent link={link} />);
     const aElement = screen.getByText(text);
     expect(aElement).toBeInTheDocument();
     expect(aElement).toHaveAttribute('href', href);
   });
-  it('should display static username', () => {
+  it('renders static username', () => {
     render(<TestComponent span={{ children: text }} />);
     const element = screen.getByText(text);
     expect(element).toBeInTheDocument();
@@ -65,7 +65,7 @@ describe('<OverflowMenu>', () => {
     expect(menuOpened).toHaveAttribute('aria-hidden', 'false');
   });
 
-  it('should call onClose event on button click', async () => {
+  it('calls onClose event on button click', async () => {
     const event = vi.fn();
     render(
       <OverflowMenuGroup onClose={event}>
@@ -82,7 +82,7 @@ describe('<OverflowMenu>', () => {
     expect(event).toBeCalled();
   });
 
-  it('should call onOpen event button click', async () => {
+  it('calls onOpen event button click', async () => {
     const event = vi.fn();
     render(
       <OverflowMenuGroup onOpen={event}>
@@ -97,7 +97,7 @@ describe('<OverflowMenu>', () => {
     expect(event).toBeCalled();
   });
 
-  it('should hide menu after Esc keydown', async () => {
+  it('hides menu after Esc keydown', async () => {
     render(<TestComponent />);
     const menuButton = screen.getByRole('button');
     await userEvent.click(menuButton!);
@@ -111,13 +111,13 @@ describe('<OverflowMenu>', () => {
   });
 
   describe('<OverflowMenuButton>', () => {
-    it('should display context menu item as button', () => {
+    it('renders context menu item as button', () => {
       render(<TestComponent item={item} />);
       const buttonElement = screen.getByRole('button');
       expect(buttonElement).toBeInTheDocument();
     });
 
-    it('should run onClick event from context menu', async () => {
+    it('calls onClick event from context menu', async () => {
       const event = vi.fn();
       const item = { children: text, onClick: event };
       render(<TestComponent item={item} />);
@@ -129,7 +129,7 @@ describe('<OverflowMenu>', () => {
 
       expect(event).toHaveBeenCalled();
     });
-    it('should run onClickAsync and close menu after it resolves', async () => {
+    it('calls onClickAsync and close menu after it resolves', async () => {
       const asyncClick = vi.fn(() => Promise.resolve());
       render(
         <TestComponent item={{ children: text, onClickAsync: asyncClick }} />,
@@ -147,7 +147,7 @@ describe('<OverflowMenu>', () => {
       expect(screen.queryByRole('menu')).not.toBeInTheDocument();
     });
 
-    it('should keep menu open while onClickAsync is pending', async () => {
+    it('keeps menu open while onClickAsync is pending', async () => {
       let resolveFn: () => void;
       const asyncClick = vi.fn(
         () =>
@@ -176,7 +176,7 @@ describe('<OverflowMenu>', () => {
       });
     });
 
-    it('should disable button while loading from onClickAsync', async () => {
+    it('disables button while loading from onClickAsync', async () => {
       let resolveFn: () => void;
       const asyncClick = vi.fn(
         () =>

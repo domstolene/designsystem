@@ -1,7 +1,11 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
-import { commonArgTypes, htmlEventArgType } from '../../storybook';
+import {
+  commonArgTypes,
+  ddsProviderDecorator,
+  htmlEventArgType,
+} from '../../storybook';
 import { Button } from '../Button';
 import { HelpIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
@@ -19,6 +23,7 @@ export default {
     onMouseOver: htmlEventArgType,
   },
   args: { onMouseLeave: fn(), onMouseOver: fn() },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof Tooltip>;
 
 type Story = StoryObj<typeof Tooltip>;

@@ -11,12 +11,14 @@ import {
   FontWeightGenerator,
   wrapperStyle,
 } from './utils';
+import { ddsProviderDecorator } from '../../packages/dds-components/src/storybook';
 
 const meta: Meta = {
   title: 'dds-design-tokens/Tokens/Base',
   parameters: {
     disableGlobalDecorator: true,
   },
+  decorators: [ddsProviderDecorator],
 };
 
 export default meta;

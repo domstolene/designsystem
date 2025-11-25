@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { fn } from 'storybook/test';
 
 import { InlineButton } from './InlineButton';
-import { htmlEventArgType } from '../../storybook';
+import { ddsProviderDecorator, htmlEventArgType } from '../../storybook';
 import { Icon } from '../Icon';
 import { HelpIcon } from '../Icon/icons';
 import { StoryVStack } from '../layout/Stack/utils';
@@ -23,6 +23,7 @@ export default {
     onBlur: htmlEventArgType,
   },
   args: { onClick: fn(), onBlur: fn(), onFocus: fn() },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof InlineButton>;
 
 type Story = StoryObj<typeof InlineButton>;

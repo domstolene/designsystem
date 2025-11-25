@@ -4,6 +4,7 @@ import { fn } from 'storybook/test';
 
 import { InlineEditInput } from './InlineEditInput';
 import {
+  ddsProviderDecorator,
   htmlEventArgType,
   responsivePropsArgTypes,
   windowWidthDecorator,
@@ -27,6 +28,7 @@ export default {
       exclude: ['inputRef'],
     },
   },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof InlineEditInput>;
 type Story = StoryObj<typeof InlineEditInput>;
 

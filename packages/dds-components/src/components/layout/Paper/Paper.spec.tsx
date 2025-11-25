@@ -4,12 +4,12 @@ import { describe, expect, it } from 'vitest';
 import { Paper } from '.';
 
 describe('<Paper>', () => {
-  it('should render content', () => {
+  it('renders content', () => {
     const text = 'text';
     render(<Paper>{text}</Paper>);
     expect(screen.getByText(text)).toBeInTheDocument();
   });
-  it('should render specified HTML element', () => {
+  it('renders specified HTML element', () => {
     render(<Paper as="button" />);
     expect(screen.getByRole('button')).toBeInTheDocument();
   });

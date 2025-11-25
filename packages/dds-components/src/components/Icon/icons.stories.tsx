@@ -6,7 +6,7 @@ import { CopyIcon } from './icons/copy';
 import styles from './IconStory.module.css';
 import { type SvgIcon, type SvgProps } from './utils';
 import { StylelessButton, cn, icons } from '../..';
-import { themeProviderDecorator } from '../../storybook';
+import { ddsProviderDecorator } from '../../storybook';
 import { Button } from '../Button';
 import { focusable } from '../helpers/styling/focus.module.css';
 import { LocalMessage } from '../LocalMessage';
@@ -16,7 +16,7 @@ import { Heading, Typography } from '../Typography';
 const meta: Meta = {
   title: 'Icons/Overview',
   parameters: { docs: { canvas: { sourceState: 'none' } } },
-  decorators: [Story => themeProviderDecorator(<Story />)],
+  decorators: [ddsProviderDecorator],
 };
 
 export default meta;

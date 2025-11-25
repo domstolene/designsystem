@@ -73,7 +73,7 @@ describe('<Tabs>', () => {
     expect(screen.queryAllByRole('tab')).toHaveLength(3);
   });
 
-  it('open panel should visible and closed panels invisible onChange', async () => {
+  it('open panel is visible and closed panels invisible onChange', async () => {
     const panelText1 = 'panelText1';
     const panelText2 = 'panelText2';
     render(
@@ -106,7 +106,7 @@ describe('<Tabs>', () => {
     expect(tabPanel2).toHaveAttribute('aria-expanded', 'true');
   });
 
-  it('first tab should have aria-selected on render', () => {
+  it('first tab has aria-selected on render', () => {
     render(
       <Tabs>
         <TabList>
@@ -124,7 +124,7 @@ describe('<Tabs>', () => {
     expect(tab2).toHaveAttribute('aria-selected', 'false');
   });
 
-  it('tab should get aria-selected onClick', async () => {
+  it('tab gets aria-selected onClick', async () => {
     render(
       <Tabs>
         <TabList>
@@ -145,7 +145,7 @@ describe('<Tabs>', () => {
     expect(tab2).toHaveAttribute('aria-selected', 'true');
   });
 
-  it('tab should fire Tab onClick event', async () => {
+  it('calls Tab onClick event', async () => {
     const onClick = vi.fn();
     render(
       <Tabs>
@@ -160,7 +160,7 @@ describe('<Tabs>', () => {
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
-  it('tabs should be connected to panels via aria-controls accessible name', () => {
+  it('tabs are connected to panels via aria-controls accessible name', () => {
     const id = 'id';
     const tab1Text = 'tab1';
 

@@ -4,12 +4,12 @@ import { describe, expect, it } from 'vitest';
 import { Legend } from './Legend';
 
 describe('<Legend>', () => {
-  it('should have text', () => {
+  it('renders text', () => {
     const text = 'text';
     render(<Legend>{text}</Legend>);
     expect(screen.getByText(text)).toBeInTheDocument();
   });
-  it('should render <legend>', () => {
+  it('renders <legend>', () => {
     const text = 'text';
     render(<Legend>{text}</Legend>);
     expect(screen.getByText(text).nodeName).toBe('LEGEND');

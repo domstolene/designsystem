@@ -2,6 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import {
   categoryCss,
+  ddsProviderDecorator,
   responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../../storybook';
@@ -25,6 +26,7 @@ export default {
     ...responsivePropsArgTypes,
     gridTemplateColumns: { control: 'text', table: categoryCss },
   },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof Grid>;
 
 type Story = StoryObj<typeof Grid>;

@@ -22,7 +22,7 @@ describe('<Pagination>', () => {
       within(screen.getAllByRole('listitem')[3]).getByRole('button'),
     ).toHaveAccessibleName('Nåværende side (3)');
   });
-  it('should render correct number of pages', () => {
+  it('renders correct number of pages', () => {
     const itemsAmount = 6;
     render(
       <Pagination
@@ -33,12 +33,12 @@ describe('<Pagination>', () => {
     );
     expect(screen.getAllByRole('listitem')).toHaveLength(itemsAmount + 2); // itemsAmount + < > buttons)
   });
-  it('should not render previous page-button while on first page', () => {
+  it('does not render previous page-button while on first page', () => {
     const itemsAmount = 6;
     render(<Pagination itemsAmount={itemsAmount} defaultItemsPerPage={1} />);
     expect(screen.getAllByRole('listitem')).toHaveLength(itemsAmount + 1); // itemsAmount +  > button
   });
-  it('should not render next page-button while on last page', () => {
+  it('does not render next page-button while on last page', () => {
     const itemsAmount = 6;
     render(
       <Pagination
@@ -55,7 +55,7 @@ describe('<Pagination>', () => {
       const pagination = screen.getByRole('navigation');
       expect(pagination).toHaveAccessibleName('Paginering');
     });
-    it('should render correct number of pages', () => {
+    it('renders correct number of pages', () => {
       const itemsAmount = 6;
       render(
         <Pagination
@@ -69,7 +69,7 @@ describe('<Pagination>', () => {
       // itemsAmount + < > buttons for large screen, active item + |< >| < > buttons for small screen
       expect(screen.getAllByRole('listitem')).toHaveLength(itemsAmount + 7);
     });
-    it('should not render previous page-button while on first page', () => {
+    it('does not render previous page-button while on first page', () => {
       const itemsAmount = 6;
       render(
         <Pagination
@@ -81,7 +81,7 @@ describe('<Pagination>', () => {
       // itemsAmount +  > button for large screen, active item + >| > buttons for small screen
       expect(screen.getAllByRole('listitem')).toHaveLength(itemsAmount + 4);
     });
-    it('should not render next page-button while on last page', () => {
+    it('does not render next page-button while on last page', () => {
       const itemsAmount = 6;
       render(
         <Pagination
@@ -95,7 +95,7 @@ describe('<Pagination>', () => {
       expect(screen.getAllByRole('listitem')).toHaveLength(itemsAmount + 4);
     });
   });
-  it('should work as controlled component when activePage prop is provided', async () => {
+  it('is a controlled component when activePage prop is provided', async () => {
     const user = userEvent.setup();
     const onChange = vi.fn();
     const { rerender } = render(

@@ -7,6 +7,7 @@ import {
   StoryLabel,
   categoryHtml,
   commonArgTypes,
+  ddsProviderDecorator,
   htmlEventArgType,
   labelText,
 } from '../../storybook';
@@ -30,6 +31,7 @@ const meta: Meta<typeof FavStar> = {
     onChange: htmlEventArgType,
   },
   args: { onChange: fn() },
+  decorators: [ddsProviderDecorator],
 };
 
 export default meta;

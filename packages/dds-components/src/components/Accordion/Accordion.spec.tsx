@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest';
 import { Accordion, AccordionBody, AccordionHeader } from '.';
 
 describe('<Accordion>', () => {
-  it('should render button', () => {
+  it('renders button', () => {
     render(
       <Accordion>
         <AccordionHeader></AccordionHeader>
@@ -17,7 +17,7 @@ describe('<Accordion>', () => {
     expect(button).toBeInTheDocument();
   });
 
-  it('should render button text', () => {
+  it('renders button text', () => {
     const text = 'text';
     render(
       <Accordion>
@@ -30,7 +30,7 @@ describe('<Accordion>', () => {
     expect(button).toBeInTheDocument();
   });
 
-  it('should render text in body', () => {
+  it('renders text in body', () => {
     const text = 'text';
     render(
       <Accordion>
@@ -43,7 +43,7 @@ describe('<Accordion>', () => {
     expect(body).toBeInTheDocument();
   });
 
-  it('should toggle expanded onClick', async () => {
+  it('toggles expanded onClick', async () => {
     const text = 'text';
     render(
       <Accordion>
@@ -64,7 +64,7 @@ describe('<Accordion>', () => {
     });
   });
 
-  it('should have role on body', async () => {
+  it('has role on body', async () => {
     const text = 'text';
     render(
       <Accordion>
@@ -82,7 +82,7 @@ describe('<Accordion>', () => {
     });
   });
 
-  it('should have aria attributes', async () => {
+  it('has aria attributes', async () => {
     const id = 'id';
 
     render(
@@ -101,7 +101,7 @@ describe('<Accordion>', () => {
     expect(button).toHaveAttribute('aria-controls', `${id}-body`);
   });
 
-  it('should have ids on children', async () => {
+  it('has ids on children', async () => {
     const id = 'id';
 
     render(

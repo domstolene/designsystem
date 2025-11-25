@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { commonArgTypes } from '../../storybook';
+import { commonArgTypes, ddsProviderDecorator } from '../../storybook';
 
 import { Spinner } from '.';
 
@@ -12,6 +12,7 @@ export default {
     size: { control: 'text' },
     ...commonArgTypes,
   },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof Spinner>;
 
 type Story = StoryObj<typeof Spinner>;

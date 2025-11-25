@@ -4,12 +4,12 @@ import { describe, expect, it } from 'vitest';
 import { Link } from './Link';
 
 describe('<Link>', () => {
-  it('should have text', () => {
+  it('renders text', () => {
     const text = 'text';
     render(<Link>{text}</Link>);
     expect(screen.getByText(text)).toBeInTheDocument();
   });
-  it('should have role="link"', () => {
+  it('has link role', () => {
     render(<Link href="/" />);
     expect(screen.getByRole('link')).toBeInTheDocument();
   });
@@ -17,14 +17,14 @@ describe('<Link>', () => {
     render(<Link href="/" external />);
     expect(screen.getByRole('link')).toHaveAttribute('target', '_blank');
   });
-  it('should have noopener noreferer', () => {
+  it('has noopener noreferer', () => {
     render(<Link href="/" external />);
     expect(screen.getByRole('link')).toHaveAttribute(
       'rel',
       'noopener noreferer',
     );
   });
-  it('should have role="button"', () => {
+  it('has button role', () => {
     render(<Link href="/" as="button" />);
     expect(screen.getByRole('button')).toBeInTheDocument();
   });

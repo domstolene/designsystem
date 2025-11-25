@@ -4,14 +4,14 @@ import { describe, expect, it } from 'vitest';
 import { PhoneInput } from '.';
 
 describe('<PhoneInput>', () => {
-  it('should render combobox and textbox', () => {
+  it('renders combobox and textbox', () => {
     render(<PhoneInput />);
     const selectElement = screen.getByRole('combobox');
     expect(selectElement).toBeInTheDocument();
     const inputElement = screen.getByRole('textbox');
     expect(inputElement).toBeInTheDocument();
   });
-  it('should have selected value', () => {
+  it('has selected value', () => {
     const countryCode = 'NO';
     const phoneNumber = '99999999';
     render(<PhoneInput value={{ countryCode, phoneNumber }} />);
@@ -20,24 +20,24 @@ describe('<PhoneInput>', () => {
     const inputElement = screen.getByRole('textbox');
     expect(inputElement).toHaveValue(phoneNumber);
   });
-  it('should render label', () => {
+  it('renders label', () => {
     const label = 'label';
     render(<PhoneInput label={label} />);
     expect(screen.getByText(label)).toBeInTheDocument();
   });
-  it('should have accessible name associated with input', () => {
+  it('has accessible name associated with input', () => {
     const label = 'label';
 
     render(<PhoneInput label={label} />);
     expect(screen.getByRole('textbox')).toHaveAccessibleName(label);
   });
-  it('should have accessible name associated with select', () => {
+  it('has accessible name associated with select', () => {
     const label = 'label';
 
     render(<PhoneInput selectLabel={label} />);
     expect(screen.getByRole('combobox')).toHaveAccessibleName(label);
   });
-  it('should have accessible name associated with group', () => {
+  it('has accessible name associated with group', () => {
     const label = 'label';
 
     render(<PhoneInput groupLabel={label} />);
@@ -53,13 +53,13 @@ describe('<PhoneInput>', () => {
     render(<PhoneInput tip={tip} />);
     expect(screen.getByText(tip)).toBeInTheDocument();
   });
-  it('should have accessible description when tip provided', () => {
+  it('has accessible description when tip provided', () => {
     const tip = 'this is a tip';
     render(<PhoneInput tip={tip} />);
     expect(screen.getByRole('textbox')).toHaveAccessibleDescription(tip);
     expect(screen.getByRole('combobox')).toHaveAccessibleDescription(tip);
   });
-  it('should have accessible description and invalid state when errorMessage provided', () => {
+  it('has accessible description and invalid state when errorMessage provided', () => {
     const errorMessage = 'this is an errorMessage';
     render(<PhoneInput errorMessage={errorMessage} />);
     expect(screen.getByRole('textbox')).toHaveAccessibleDescription(

@@ -5,20 +5,20 @@ import { describe, expect, it } from 'vitest';
 import { ToggleButton, ToggleButtonGroup } from '.';
 
 describe('<ToggleButton>', () => {
-  it('should render label', () => {
+  it('renders label', () => {
     const label = 'label';
     render(<ToggleButton label={label} />);
     expect(screen.getByText(label)).toBeInTheDocument();
   });
 
-  it('should be selectable', async () => {
+  it('is selectable', async () => {
     render(<ToggleButton label="label" />);
     const toggleButton = screen.getByRole('checkbox');
     expect(toggleButton).not.toBeChecked();
     await userEvent.click(toggleButton);
     expect(toggleButton).toBeChecked();
   });
-  it('should get focus on click', async () => {
+  it('gets focus on click', async () => {
     render(<ToggleButton />);
     const toggleButton = screen.getByRole('checkbox');
     await userEvent.click(toggleButton);
@@ -27,7 +27,7 @@ describe('<ToggleButton>', () => {
   });
 });
 describe('<ToggleButtonGroup>', () => {
-  it('should have group', () => {
+  it('has group', () => {
     render(
       <ToggleButtonGroup>
         <ToggleButton />
@@ -37,7 +37,7 @@ describe('<ToggleButtonGroup>', () => {
     const group = screen.getByRole('group');
     expect(group).toBeInTheDocument();
   });
-  it('should have accessible name when label provided', () => {
+  it('has accessible name when label provided', () => {
     const label = 'label';
     render(
       <ToggleButtonGroup label={label}>
