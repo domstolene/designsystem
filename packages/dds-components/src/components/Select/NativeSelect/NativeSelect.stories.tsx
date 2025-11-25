@@ -12,7 +12,7 @@ import { INPUT_SIZES } from '../../helpers/Input';
 import { CourtIcon } from '../../Icon/icons';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 
-import { NativeSelect, NativeSelectPlaceholder } from '.';
+import { NativeSelect } from '.';
 
 export default {
   title: 'dds-components/Components/Select/NativeSelect',
@@ -138,7 +138,7 @@ export const Groups: Story = {
     label: 'Label',
     children: (
       <>
-        <NativeSelectPlaceholder />
+        <option value=""></option>
         <optgroup label="Group 1">
           <option>Option 1</option>
           <option>Option 2</option>
