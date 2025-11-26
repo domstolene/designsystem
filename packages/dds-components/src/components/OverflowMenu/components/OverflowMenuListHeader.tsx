@@ -1,30 +1,11 @@
-import { type ComponentPropsWithRef, useContext } from 'react';
+import { type ComponentPropsWithRef } from 'react';
 
-import { cn } from '../../../utils';
-import { Box } from '../../layout';
-import { ThemeContext } from '../../ThemeProvider';
-import typographyStyles from '../../Typography/typographyStyles.module.css';
+import { DropdownHeader } from '../../helpers/Dropdown/DropdownHeader';
 
 type OverflowMenuListHeaderProps = ComponentPropsWithRef<'h2'>;
 
-export const OverflowMenuListHeader = ({
-  className,
-  ...rest
-}: OverflowMenuListHeaderProps) => {
-  const themeContext = useContext(ThemeContext);
-  const headingStyle =
-    themeContext?.theme === 'core-light' || themeContext?.theme === 'core-dark'
-      ? 'heading-xsmall'
-      : 'heading-xxsmall';
-  return (
-    <Box
-      as="h2"
-      paddingInline="x0.75"
-      paddingBlock="x0.75 0"
-      {...rest}
-      className={cn(className, typographyStyles[headingStyle])}
-    />
-  );
+export const OverflowMenuListHeader = (props: OverflowMenuListHeaderProps) => {
+  return <DropdownHeader {...props} />;
 };
 
 OverflowMenuListHeader.displayName = 'OverflowMenuListHeader';
