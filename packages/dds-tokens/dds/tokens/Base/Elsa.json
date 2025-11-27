@@ -528,45 +528,25 @@
     }
   },
   "dds-font-lineheight": {
-    "x1": {
+    "body-long": {
       "value": "150%",
       "type": "lineHeights",
-      "description": "Brukes på str ×1_25 og mindre "
+      "description": "Brukes på mengetekst og artikler"
     },
-    "x2": {
-      "value": "135%",
+    "heading": {
+      "value": "130%",
       "type": "lineHeights",
-      "description": "Brukes på str x1.5, ×2 og ×3 "
+      "description": "Brukes på overskrifter for sider og artikler"
     },
-    "x3": {
+    "body-short": {
       "value": "120%",
       "type": "lineHeights",
-      "description": "Brukes på str ×3 og større"
+      "description": "Brukes i komponenter"
     },
     "list": {
       "value": "200%",
       "type": "lineHeights",
       "description": "Brukes på lister"
-    },
-    "rem-1": {
-      "value": "1rem",
-      "type": "lineHeights",
-      "description": "Brukes på body-short og component strl 0.87rem og mindre"
-    },
-    "rem-1_25": {
-      "value": "1.25rem",
-      "type": "lineHeights",
-      "description": "Brukes på body-short og component strl 1rem"
-    },
-    "rem-1_5": {
-      "value": "1.5rem",
-      "type": "lineHeights",
-      "description": "Brukes på body-short og component strl 1.125rem"
-    },
-    "rem-1_75": {
-      "value": "1.75rem",
-      "type": "lineHeights",
-      "description": "Brukes på body-short og component strl 1.25rem"
     }
   },
   "dds-font-letter-spacing": {
