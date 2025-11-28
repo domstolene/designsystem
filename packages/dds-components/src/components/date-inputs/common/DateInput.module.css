@@ -82,8 +82,8 @@
  *------------------------------------------------------------------------*/
 
 .popover-button {
-  padding: 1px;
-  margin-inline-start: -2px;
+  padding: 3px;
+  margin-inline-start: -3px;
 }
 
 .popover {
