@@ -104,7 +104,7 @@ describe('<Search>', () => {
 
     const input = screen.getByRole('combobox');
     await userEvent.type(input, `${text}`);
-    const menuitem = screen.getByText(text);
+    const menuitem = screen.getByRole('button', { name: `${text} søk` });
     expect(menuitem).not.toHaveFocus();
 
     await act(async () => {

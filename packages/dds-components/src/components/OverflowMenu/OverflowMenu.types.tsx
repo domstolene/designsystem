@@ -1,28 +1,22 @@
-import { type ComponentPropsWithRef, type MouseEventHandler } from 'react';
-
 import { type Placement } from '../../hooks';
 import { type BaseComponentPropsWithChildren } from '../../types';
-import { type ButtonProps } from '../Button';
-import { type SvgIcon } from '../Icon/utils';
+import {
+  type DropdownItemButtonProps,
+  type DropdownItemProps,
+  type StylelessButton,
+} from '../helpers';
 
-export type OverflowMenuListItemBaseProps<T extends 'span' | 'button' | 'a'> = {
-  /**Ikon som vises ved teksten. **OBS!** Settes i tillegg til `children` for riktig layout. */
-  icon?: SvgIcon;
-  /**Bestemmer farger basert på formål.
-   * @default "default"
-   */
-  purpose?: 'default' | 'danger';
-} & ComponentPropsWithRef<T>;
+export type OverflowMenuButtonProps = DropdownItemProps<typeof StylelessButton>;
 
-export type OverflowMenuButtonProps = OverflowMenuListItemBaseProps<'button'> &
-  Pick<ButtonProps, 'loading' | 'loadingTooltip'> & {
-    /**Asynkron `onClick` event; håndterer loading status, slik at menyen ikke lukker seg under loading. */
-    onClickAsync?: MouseEventHandler<HTMLButtonElement>;
-  };
+export type OverflowMenuLinkProps = Omit<
+  DropdownItemProps<'a'>,
+  keyof DropdownItemButtonProps
+>;
 
-export type OverflowMenuLinkProps = OverflowMenuListItemBaseProps<'a'>;
-
-export type OverflowMenuSpanProps = OverflowMenuListItemBaseProps<'span'>;
+export type OverflowMenuSpanProps = Omit<
+  DropdownItemProps<'span'>,
+  keyof DropdownItemButtonProps
+>;
 
 export type OverflowMenuProps = Omit<
   BaseComponentPropsWithChildren<

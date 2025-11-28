@@ -1,10 +1,8 @@
 import { type ComponentPropsWithRef, useEffect, useRef } from 'react';
 
 import { useCombinedRef } from '../../hooks';
-import { cn } from '../../utils';
 import { StylelessButton } from '../helpers';
-import focusStyles from '../helpers/styling/focus.module.css';
-import styles from '../OverflowMenu/OverflowMenu.module.css';
+import { DropdownItem } from '../helpers/Dropdown/DropdownItem';
 
 export type SearchSuggestionItemProps = {
   focus?: boolean;
@@ -13,7 +11,6 @@ export type SearchSuggestionItemProps = {
 
 export const SearchSuggestionItem = ({
   focus,
-  className,
   ref,
   ...rest
 }: SearchSuggestionItemProps) => {
@@ -27,14 +24,9 @@ export const SearchSuggestionItem = ({
   }, [focus]);
 
   return (
-    <StylelessButton
+    <DropdownItem
+      as={StylelessButton}
       ref={combinedRef}
-      className={cn(
-        className,
-        styles.list__item,
-        styles['list__item--link'],
-        focusStyles['focusable--inset'],
-      )}
       {...rest}
       tabIndex={focus ? 0 : -1}
     />

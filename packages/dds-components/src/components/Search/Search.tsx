@@ -161,7 +161,6 @@ export const Search = ({
             onSuggestionClick={context.onSugggestionClick}
             suggestions={context.suggestions}
             showSuggestions={context.showSuggestions}
-            componentSize={componentSize}
           />
           <VisuallyHidden id={suggestionsDescriptionId}>
             {t(texts.useArrowKeys)}

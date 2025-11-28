@@ -38,7 +38,7 @@ export default {
 type Story = StoryObj<typeof OverflowMenu>;
 
 export const Preview: Story = {
-  parameters: { docs: { story: { height: '480px' } } },
+  parameters: { docs: { story: { height: '540px' } } },
   render: args => {
     return (
       <VStack>
@@ -242,7 +242,7 @@ export const WithAsyncClick: Story = {
 };
 
 export const WithNavigation: Story = {
-  parameters: { docs: { story: { height: '250px' } } },
+  parameters: { docs: { story: { height: '270px' } } },
   render: args => {
     return (
       <VStack>

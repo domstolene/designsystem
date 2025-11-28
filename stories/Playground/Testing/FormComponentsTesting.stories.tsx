@@ -44,6 +44,13 @@ function renderInputs(size: InputSize) {
         <option value=""></option>
         <option value="a">a</option>
       </NativeSelect>
+      <Select
+        isMulti
+        componentSize={size}
+        icon={icon}
+        options={[{ label: 'a', value: 'a' }]}
+        value={{ label: 'a', value: 'a' }}
+      />
     </>
   );
 }
@@ -63,9 +70,9 @@ export const FormComponents = () => {
       <VStack gap="x0.25">
         <StoryLabel> Høyde og vertikal plassering på ikonene</StoryLabel>
         <VStack gap="x1">
-          <HStack>{renderInputs('medium')}</HStack>
-          <HStack>{renderInputs('small')}</HStack>
-          <HStack>{renderInputs('xsmall')}</HStack>
+          <HStack width="fit-content">{renderInputs('medium')}</HStack>
+          <HStack width="fit-content">{renderInputs('small')}</HStack>
+          <HStack width="fit-content">{renderInputs('xsmall')}</HStack>
         </VStack>
       </VStack>
     </VStack>

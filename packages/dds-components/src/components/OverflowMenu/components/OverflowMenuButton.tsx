@@ -1,29 +1,16 @@
 import { type MouseEvent, useEffect, useRef, useState } from 'react';
 
 import { useCombinedRef } from '../../../hooks';
-import { cn } from '../../../utils';
-import focusStyles from '../../helpers/styling/focus.module.css';
-import utilStyles, {
-  invisible,
-} from '../../helpers/styling/utilStyles.module.css';
-import { Icon } from '../../Icon';
-import { Spinner } from '../../Spinner';
-import typographyStyles from '../../Typography/typographyStyles.module.css';
+import { StylelessButton } from '../../helpers';
+import { DropdownItem } from '../../helpers/Dropdown/DropdownItem';
 import { useOverflowMenuContext } from '../OverflowMenu.context';
-import styles from '../OverflowMenu.module.css';
 import { type OverflowMenuButtonProps } from '../OverflowMenu.types';
 
 export const OverflowMenuButton = ({
-  id,
-  icon,
-  children,
-  className,
   onClick,
   onClickAsync,
   purpose = 'default',
   loading,
-  loadingTooltip,
-  'aria-disabled': ariaDisabled,
   ref,
   ...rest
 }: OverflowMenuButtonProps) => {
@@ -59,44 +46,16 @@ export const OverflowMenuButton = ({
 
   return (
     <li>
-      <button
+      <DropdownItem
+        as={StylelessButton}
         ref={combinedRef}
         role="menuitem"
-        id={id}
-        className={cn(
-          className,
-          styles.list__item,
-          styles[purpose],
-          typographyStyles['body-small'],
-          styles['list__item--link'],
-          focusStyles['focusable--inset'],
-          loading && styles['button-loading'],
-        )}
+        purpose={purpose}
+        loading={isLoading}
         onClick={e => handleClick(e)}
-        aria-disabled={
-          isLoading ? true : ariaDisabled ? ariaDisabled : undefined
-        }
         {...rest}
         tabIndex={focusedRef === itemRef ? 0 : -1}
-      >
-        {isLoading && (
-          <span className={cn(utilStyles['center-absolute'])}>
-            <Spinner
-              size="var(--dds-icon-size-medium)"
-              tooltip={loadingTooltip}
-            />
-          </span>
-        )}
-
-        {icon && (
-          <Icon
-            className={cn(isLoading && invisible)}
-            iconSize="inherit"
-            icon={icon}
-          />
-        )}
-        <span className={cn(isLoading && invisible)}>{children}</span>
-      </button>
+      />
     </li>
   );
 };
