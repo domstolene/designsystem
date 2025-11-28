@@ -35,7 +35,7 @@ const meta: Meta<typeof Select> = {
     onBlur: htmlEventArgType,
     onFocus: htmlEventArgType,
   },
-  args: { onChange: fn(), onInputChange: fn(), onBlur: fn(), onFocus: fn() },
+  args: { onChange: fn(), onInputChange: fn() },
   parameters: {
     docs: {
       story: { height: '450px' },
