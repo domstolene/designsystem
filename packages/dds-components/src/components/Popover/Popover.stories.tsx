@@ -250,7 +250,9 @@ export const Custom: Story = {
     const id = 'id';
     return (
       <StoryVStack alignItems="center">
-        <LocalMessage purpose="warning" message="Brukes kun ved corner cases" />
+        <LocalMessage purpose="warning">
+          Brukes kun ved corner cases
+        </LocalMessage>
 
         <Button
           ref={bRef}
