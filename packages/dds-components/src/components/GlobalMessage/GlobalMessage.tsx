@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { type ReactNode, useState } from 'react';
 
 import styles from './GlobalMessage.module.css';
 import { useTranslation } from '../../i18n';
 import { commonTexts } from '../../i18n/commonTexts';
 import {
-  type BaseComponentPropsWithChildren,
+  type BaseComponentProps,
+  createPurposes,
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
@@ -13,19 +14,21 @@ import { Icon, type SvgIcon } from '../Icon';
 import { CloseIcon, ErrorIcon, InfoIcon, WarningIcon } from '../Icon/icons';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
+export const G_MESSAGE_PURPOSES = createPurposes('info', 'warning', 'danger');
+
+export type GlobalMessagePurpose = (typeof G_MESSAGE_PURPOSES)[number];
+
 export const icons: Record<GlobalMessagePurpose, SvgIcon> = {
   info: InfoIcon,
   danger: ErrorIcon,
   warning: WarningIcon,
 };
 
-export type GlobalMessagePurpose = 'info' | 'warning' | 'danger';
-
-export type GlobalMessageProps = BaseComponentPropsWithChildren<
+export type GlobalMessageProps = BaseComponentProps<
   HTMLDivElement,
   {
-    /**Meldingen som vises til brukeren. Brukes kun når meldingen er en `string`. */
-    message?: string;
+    /**Melding. */
+    children?: ReactNode;
     /**Formålet med meldingen. Påvirker styling.
      * @default "info"
      */
@@ -38,7 +41,6 @@ export type GlobalMessageProps = BaseComponentPropsWithChildren<
 >;
 
 export const GlobalMessage = ({
-  message,
   purpose = 'info',
   closable,
   onClose,
@@ -69,7 +71,7 @@ export const GlobalMessage = ({
         className={cn(styles.content, closable && styles['content--closable'])}
       >
         <Icon icon={icons[purpose]} className={styles.icon} />
-        {children ?? <span>{message}</span>}
+        {children}
       </div>
 
       {closable && (

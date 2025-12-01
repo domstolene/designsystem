@@ -1,6 +1,7 @@
 import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as TagStories from './Tag.stories';
+import { Tabs, Tab, TabList, TabPanels, TabPanel } from '../Tabs';
 
 <Meta of={TagStories} />
 
@@ -13,7 +14,18 @@ import * as TagStories from './Tag.stories';
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-tag--default"
 />
 
-## Props
-
-<Canvas of={TagStories.Preview} />
-<Controls of={TagStories.Preview} />
+<Tabs>
+  <TabList>
+    <Tab>Preview</Tab>
+    <Tab>Varianter</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <Canvas of={TagStories.Preview} />
+      <Controls of={TagStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={TagStories.Variants} />
+    </TabPanel>
+  </TabPanels>
+</Tabs>

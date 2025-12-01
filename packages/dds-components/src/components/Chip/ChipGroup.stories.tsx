@@ -15,8 +15,8 @@ type Story = StoryObj<typeof ChipGroup>;
 export const Preview: Story = {
   render: args => (
     <ChipGroup {...args}>
-      <Chip text="Chip 1" />
-      <Chip text="Chip 2" />
+      <Chip>Chip 1</Chip>
+      <Chip>Chip 2</Chip>
     </ChipGroup>
   ),
 };
