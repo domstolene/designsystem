@@ -27,12 +27,9 @@ export const ErrorList = (props: ErrorListProps) => {
       {errors.map(({ id, message }) => {
         return (
           <li>
-            <InputMessage
-              key={id}
-              id={id}
-              message={message}
-              messageType="error"
-            />
+            <InputMessage key={id} id={id} messageType="error">
+              {message}
+            </InputMessage>
           </li>
         );
       })}

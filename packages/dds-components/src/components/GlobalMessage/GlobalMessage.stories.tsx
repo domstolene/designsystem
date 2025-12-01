@@ -1,8 +1,12 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
-import { GlobalMessage } from './GlobalMessage';
-import { commonArgTypes, ddsProviderDecorator } from '../../storybook';
+import { G_MESSAGE_PURPOSES, GlobalMessage } from './GlobalMessage';
+import {
+  commonArgTypes,
+  ddsProviderDecorator,
+  labelText,
+} from '../../storybook';
 import { StoryVStack } from '../layout/Stack/utils';
 
 export default {
@@ -20,51 +24,26 @@ type Story = StoryObj<typeof GlobalMessage>;
 export const Preview: Story = {
   args: {
     purpose: 'info',
-    message: 'En tilfeldig melding',
+    children: 'En tilfeldig melding',
   },
 };
 
-export const Overview: Story = {
+export const Variants: Story = {
   args: {},
   render: args => (
     <StoryVStack>
-      <GlobalMessage {...args} purpose="info" message="En tilfeldig melding" />
-      <GlobalMessage
-        {...args}
-        purpose="warning"
-        message="En tilfeldig melding"
-      />
-      <GlobalMessage
-        {...args}
-        purpose="danger"
-        message="En tilfeldig melding"
-      />
-      <GlobalMessage
-        {...args}
-        purpose="info"
-        message="En tilfeldig melding"
-        closable
-      />
-      <GlobalMessage
-        {...args}
-        purpose="warning"
-        message="En tilfeldig melding"
-        closable
-      />
-      <GlobalMessage
-        {...args}
-        purpose="danger"
-        message="En tilfeldig melding"
-        closable
-      />
+      {G_MESSAGE_PURPOSES.map(p => (
+        <GlobalMessage {...args} key={`p-${p}`} purpose={p}>
+          {labelText(p)}
+        </GlobalMessage>
+      ))}
     </StoryVStack>
   ),
 };
 
 export const Closable: Story = {
   args: {
-    purpose: 'info',
-    message: 'En tilfeldig melding',
+    children: 'En tilfeldig melding',
     closable: true,
   },
 };

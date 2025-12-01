@@ -2,6 +2,8 @@ import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as ChipStories from './Chip.stories';
 import * as ChipGroupStories from './ChipGroup.stories';
+import { Tabs, Tab, TabList, TabPanels, TabPanel } from '../Tabs';
+import { Divider } from '../Divider';
 
 <Meta of={ChipStories} />
 
@@ -14,23 +16,27 @@ import * as ChipGroupStories from './ChipGroup.stories';
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-chip--default"
 />
 
-Komponenten består av to subkomponenter:
+## Delkomponenter
 
-- **`<Chip>`** - hovedkomponenten
-- **`<ChipGroup>`** - en gruppe som rendrer en liste med `<Chip>`-barn
+<Tabs>
+  <TabList>
+    <Tab>Chip</Tab>
+    <Tab>ChipGroup</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <Canvas of={ChipStories.Preview} />
+      <Controls of={ChipStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+    En gruppe som rendrer en liste med `<Chip>`-barn.
+      <Canvas of={ChipGroupStories.Preview} />
+      Det støttes alle native HTML-attributter for `<ul>`.
+    </TabPanel>
+  </TabPanels>
+</Tabs>
 
-## Props
-
-### Chip
-
-<Canvas of={ChipStories.Preview} />
-<Controls of={ChipStories.Preview} />
-
-### ChipGroup
-
-<Canvas of={ChipGroupStories.Preview} />
-
-Det støttes alle native HTML-attributter for `<ul>`.
+<Divider />
 
 ## Retningslinjer
 

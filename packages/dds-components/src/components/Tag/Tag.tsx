@@ -1,8 +1,7 @@
-import { type ReactNode } from 'react';
-
 import styles from './Tag.module.css';
 import {
-  type BaseComponentPropsWithChildren,
+  type BaseComponentProps,
+  createPurposes,
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
@@ -19,7 +18,7 @@ import {
 } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
-const icons: Record<TagPurpose, SvgIcon | undefined> = {
+export const icons: Record<TagPurpose, SvgIcon | undefined> = {
   info: InfoIcon,
   danger: ErrorIcon,
   warning: WarningIcon,
@@ -27,20 +26,24 @@ const icons: Record<TagPurpose, SvgIcon | undefined> = {
   default: undefined,
 };
 
-export type TagPurpose = 'success' | 'info' | 'danger' | 'warning' | 'default';
+export const TAG_PURPOSES = createPurposes(
+  'success',
+  'info',
+  'danger',
+  'warning',
+  'default',
+);
+
+export type TagPurpose = (typeof TAG_PURPOSES)[number];
 export type TagAppearance = 'default' | 'strong';
 
-export type TagProps = BaseComponentPropsWithChildren<
+export type TagProps = BaseComponentProps<
   HTMLSpanElement,
   {
     /**
-     * Innholdet til `<Tag>.` Kan brukes istedenfor `text`.
+     * Innholdet til `<Tag>.`
      */
-    children?: ReactNode;
-    /**
-     * Samme oppførsel som `children`. Er `children` brukt vil denne ignoreres. Tekst som vises i `<Tag>`.
-     */
-    text?: string;
+    children?: string;
     /**
      * Formål med status eller kategorisering. Påvirker styling.
      * @default "default"
@@ -60,7 +63,6 @@ export type TagProps = BaseComponentPropsWithChildren<
 >;
 
 export const Tag = ({
-  text,
   purpose = 'default',
   appearance = 'default',
   id,
@@ -88,7 +90,7 @@ export const Tag = ({
       )}
     >
       {withIcon && icon && <Icon icon={icon} iconSize="small" />}
-      <TextOverflowEllipsisInner>{children ?? text}</TextOverflowEllipsisInner>
+      <TextOverflowEllipsisInner>{children}</TextOverflowEllipsisInner>
     </TextOverflowEllipsisWrapper>
   );
 };

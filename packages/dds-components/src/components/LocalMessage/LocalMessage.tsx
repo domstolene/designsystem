@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { type ReactNode, useState } from 'react';
 
 import styles from './LocalMessage.module.css';
 import { useTranslation } from '../../i18n';
 import { commonTexts } from '../../i18n/commonTexts';
 import {
-  type BaseComponentPropsWithChildren,
+  type BaseComponentProps,
+  createPurposes,
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
@@ -21,6 +22,16 @@ import {
 import { Box, type ResponsiveProps } from '../layout';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
+export const L_MESSAGE_PURPOSES = createPurposes(
+  'info',
+  'success',
+  'warning',
+  'danger',
+  'tips',
+);
+
+export type LocalMessagePurpose = (typeof L_MESSAGE_PURPOSES)[number];
+
 const icons: Record<LocalMessagePurpose, SvgIcon> = {
   info: InfoIcon,
   danger: ErrorIcon,
@@ -29,20 +40,13 @@ const icons: Record<LocalMessagePurpose, SvgIcon> = {
   tips: TipIcon,
 };
 
-export type LocalMessagePurpose =
-  | 'info'
-  | 'warning'
-  | 'danger'
-  | 'success'
-  | 'tips';
-
 export type LocalMessageLayout = 'horisontal' | 'vertical';
 
-export type LocalMessageProps = BaseComponentPropsWithChildren<
+export type LocalMessageProps = BaseComponentProps<
   HTMLDivElement,
   {
-    /**Meldingen som vises til brukeren. Brukes kun når meldingen er string. */
-    message?: string;
+    /**Innhold i meldingen. */
+    children?: ReactNode;
     /**Formålet med meldingen. Påvirker styling.
      * @default "info"
      */
@@ -59,7 +63,6 @@ export type LocalMessageProps = BaseComponentPropsWithChildren<
 >;
 
 export const LocalMessage = ({
-  message,
   purpose = 'info',
   closable,
   onClose,
@@ -103,9 +106,7 @@ export const LocalMessage = ({
         icon={icons[purpose]}
         className={cn(styles.icon, styles.container__icon)}
       />
-      <div className={styles.container__text}>
-        {children ?? <span>{message}</span>}
-      </div>
+      <div className={styles.container__text}>{children}</div>
       {closable && (
         <Button
           icon={CloseIcon}

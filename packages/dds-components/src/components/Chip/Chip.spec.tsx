@@ -7,19 +7,19 @@ import { Chip, ChipGroup } from '.';
 describe('<Chip>', () => {
   it('renders text', () => {
     const text = 'text';
-    render(<Chip text={text} />);
+    render(<Chip>{text}</Chip>);
     expect(screen.getByText(text)).toBeInTheDocument();
   });
   it('removes component from DOM on close', async () => {
     const text = 'text';
-    render(<Chip text={text} />);
+    render(<Chip>{text}</Chip>);
     const button = screen.getByRole('button');
     await userEvent.click(button!);
     expect(screen.queryByText(text)).not.toBeInTheDocument();
   });
   it('has aria-label based on text', () => {
     const text = 'text';
-    render(<Chip text={text} />);
+    render(<Chip>{text}</Chip>);
     const button = screen.getByRole('button');
     expect(button).toHaveAttribute('aria-label', `Fjern merkelapp ${text}`);
   });

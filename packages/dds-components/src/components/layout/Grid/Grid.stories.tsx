@@ -171,14 +171,14 @@ export const PageExample: Story = {
                     <Table.Cell> Marie Bjerke </Table.Cell>
                     <Table.Cell>Advokat Firma </Table.Cell>
                     <Table.Cell>
-                      <Tag text="Møterett" purpose="success" />
+                      <Tag purpose="success">Møterett</Tag>
                     </Table.Cell>
                   </Table.Row>
                   <Table.Row type="body">
                     <Table.Cell>Sandra-Katrine Ingvaldsen Lovsetter</Table.Cell>
                     <Table.Cell>Advokatene AS</Table.Cell>
                     <Table.Cell>
-                      <Tag text="Ikke møterett" purpose="danger" />
+                      <Tag purpose="danger">Ikke møterett</Tag>
                     </Table.Cell>
                   </Table.Row>
                 </Table.Body>

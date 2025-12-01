@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { EmptyContent } from './EmptyContent';
-import { StoryVStack } from '../layout/Stack/utils';
+import { Box } from '../layout';
 import { Link } from '../Typography';
 
 export default {
@@ -12,48 +12,43 @@ export default {
 type Story = StoryObj<typeof EmptyContent>;
 
 export const Preview: Story = {
-  args: { headerText: 'Tittel', message: 'Dette er en tekst.' },
+  args: {
+    headerText: 'Tittel',
+    children: 'Dette er en tekst.',
+  },
 };
 
-export const Overview: Story = {
-  args: {},
+export const InWrapper: Story = {
   render: args => (
-    <StoryVStack>
-      <EmptyContent {...args} title="Tittel" message="Dette er en tekst." />
-
-      <EmptyContent {...args} message="Kort melding." />
-
-      <EmptyContent
-        {...args}
-        message={`Dette er en lang tekst. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          Donec tempus imperdiet leo, eget tempus nulla suscipit vel. 
-          Curabitur accumsan dapibus elit, eu semper massa pulvinar vitae.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          Donec tempus imperdiet leo, eget tempus nulla suscipit vel. 
-          Curabitur accumsan dapibus elit, eu semper massa pulvinar vitae.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          Donec tempus imperdiet leo, eget tempus nulla suscipit vel. 
-          Curabitur accumsan dapibus elit, eu semper massa pulvinar vitae.`}
-      />
-
-      <div style={{ height: '25rem', width: '500px' }}>
-        <EmptyContent
-          {...args}
-          message="Ligger inne i et element med definert høyde og bredde."
-        />
-      </div>
-    </StoryVStack>
+    <Box height="25rem" width="400px">
+      <EmptyContent {...args}>
+        Ligger inne i et element med definert høyde og bredde.
+      </EmptyContent>
+    </Box>
   ),
+};
+
+export const LongContent: Story = {
+  args: {
+    children: `Dette er en lang tekst. Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit. Donec tempus imperdiet leo, eget tempus nulla suscipit
+        vel. Curabitur accumsan dapibus elit, eu semper massa pulvinar vitae.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus
+        imperdiet leo, eget tempus nulla suscipit vel. Curabitur accumsan
+        dapibus elit, eu semper massa pulvinar vitae. Lorem ipsum dolor sit
+        amet, consectetur adipiscing elit. Donec tempus imperdiet leo, eget
+        tempus nulla suscipit vel. Curabitur accumsan dapibus elit, eu semper
+        massa pulvinar vitae.`,
+  },
 };
 
 export const ComplexContent: Story = {
   args: {
     headerText: 'Tittel',
-    message: (
-      <>
-        Dette er en forklaring. Du kan <Link href="/">registrere en aktør</Link>
-        .
-      </>
-    ),
   },
+  render: args => (
+    <EmptyContent {...args}>
+      Dette er en forklaring. Du kan <Link href="/">registrere en aktør</Link>.
+    </EmptyContent>
+  ),
 };

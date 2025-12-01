@@ -1,6 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { commonArgTypes } from '../../storybook';
+import { TAG_PURPOSES, icons } from './Tag';
+import { commonArgTypes, labelText } from '../../storybook';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { Tag } from '.';
@@ -20,71 +21,51 @@ export const Preview: Story = {
   args: { children: 'default' },
 };
 
-export const Overview: Story = {
+export const Variants: Story = {
   args: { children: 'default' },
   render: args => (
     <StoryHStack>
       <StoryVStack>
-        <Tag {...args} purpose="success">
-          success
-        </Tag>
-        <Tag {...args} purpose="info">
-          info
-        </Tag>
-        <Tag {...args} purpose="danger">
-          danger
-        </Tag>
-        <Tag {...args} purpose="warning">
-          warning
-        </Tag>
-        <Tag {...args}>default</Tag>
-      </StoryVStack>
-
-      <StoryVStack>
-        <Tag {...args} withIcon purpose="success">
-          success
-        </Tag>
-        <Tag {...args} withIcon purpose="info">
-          info
-        </Tag>
-        <Tag {...args} withIcon purpose="danger">
-          danger
-        </Tag>
-        <Tag {...args} withIcon purpose="warning">
-          warning
-        </Tag>
-      </StoryVStack>
-
-      <StoryVStack>
-        <Tag {...args} appearance="strong" purpose="success">
-          success
-        </Tag>
-        <Tag {...args} appearance="strong" purpose="info">
-          info
-        </Tag>
-        <Tag {...args} appearance="strong" purpose="danger">
-          danger
-        </Tag>
-        <Tag {...args} appearance="strong" purpose="warning">
-          warning
-        </Tag>
-        <Tag {...args} appearance="strong">
-          default
-        </Tag>
+        {TAG_PURPOSES.map(p => (
+          <Tag {...args} key={`p-${p}`} purpose={p}>
+            {labelText(p)}
+          </Tag>
+        ))}
       </StoryVStack>
       <StoryVStack>
-        <Tag {...args} appearance="strong" withIcon purpose="success">
-          success
-        </Tag>
-        <Tag {...args} appearance="strong" withIcon purpose="info">
-          info
-        </Tag>
-        <Tag {...args} appearance="strong" withIcon purpose="danger">
-          danger
-        </Tag>
-        <Tag {...args} appearance="strong" withIcon purpose="warning">
-          warning
-        </Tag>
+        {TAG_PURPOSES.map(p =>
+          icons[p] ? (
+            <Tag {...args} withIcon key={`p-${p}`} purpose={p}>
+              {labelText(p)}
+            </Tag>
+          ) : (
+            ''
+          ),
+        )}
+      </StoryVStack>
+      <StoryVStack>
+        {TAG_PURPOSES.map(p => (
+          <Tag {...args} key={`p-${p}`} purpose={p} appearance="strong">
+            {labelText(p)}
+          </Tag>
+        ))}
+      </StoryVStack>
+      <StoryVStack>
+        {TAG_PURPOSES.map(p =>
+          icons[p] ? (
+            <Tag
+              {...args}
+              withIcon
+              key={`p-${p}`}
+              purpose={p}
+              appearance="strong"
+            >
+              {labelText(p)}
+            </Tag>
+          ) : (
+            ''
+          ),
+        )}
       </StoryVStack>
     </StoryHStack>
   ),

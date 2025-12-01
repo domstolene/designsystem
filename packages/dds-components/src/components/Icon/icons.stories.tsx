@@ -90,17 +90,15 @@ export const Overview = () => {
   const useCode = `<Icon icon={${iconState?.name}} />`;
   const copyConfirmation = (type: string) => (
     <div className={styles.message}>
-      <LocalMessage
-        width="fit-content"
-        message={`kopiert ${type}`}
-        purpose="success"
-      />
+      <LocalMessage width="fit-content" purpose="success">
+        kopiert {type}
+      </LocalMessage>
     </div>
   );
 
   return (
     <div className={styles.page}>
-      <LocalMessage message="Klikk på ikonet for mer info."></LocalMessage>
+      <LocalMessage>Klikk på ikonet for mer info.</LocalMessage>
       <Typography typographyType="bodySmall">
         Antall ikoner: {Object.keys(iconsObject).length}
       </Typography>

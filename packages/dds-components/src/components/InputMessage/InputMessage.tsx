@@ -1,4 +1,4 @@
-import { type ElementType } from 'react';
+import { type ElementType, type ReactNode } from 'react';
 
 import styles from './InputMessage.module.css';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
@@ -13,8 +13,8 @@ export type InputMessageType = 'error' | 'tip';
 export type InputMessageProps = BaseComponentProps<
   HTMLDivElement,
   {
-    /** Meldingen som vises til brukeren. */
-    message?: string;
+    /**Innhold. */
+    children?: ReactNode;
     /** Formålet med meldingen. Påvirker styling.
      * @default "error"
      */
@@ -23,7 +23,6 @@ export type InputMessageProps = BaseComponentProps<
 >;
 
 export const InputMessage = ({
-  message,
   messageType,
   id,
   className,
@@ -43,7 +42,7 @@ export const InputMessage = ({
 
   const tgCommonProps = {
     as: 'span' as ElementType,
-    children: message ?? children,
+    children,
   };
 
   return isError ? (
@@ -97,14 +96,17 @@ export const renderInputMessage = ({
   <>
     {errorMessage && (
       <InputMessage
-        message={errorMessage}
         messageType="error"
         id={errorMessageId}
         marginBlock={!noSpacing ? 'x0.125 0' : undefined}
-      />
+      >
+        {errorMessage}
+      </InputMessage>
     )}
     {tip && !errorMessage && (
-      <InputMessage message={tip} messageType="tip" id={tipId} />
+      <InputMessage messageType="tip" id={tipId}>
+        {tip}
+      </InputMessage>
     )}
   </>
 );

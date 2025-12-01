@@ -1,6 +1,7 @@
 import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as GlobalMessageStories from './GlobalMessage.stories';
+import { Tabs, Tab, TabList, TabPanels, TabPanel } from '../Tabs';
 
 <Meta of={GlobalMessageStories} />
 
@@ -13,7 +14,22 @@ import * as GlobalMessageStories from './GlobalMessage.stories';
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-globalmessage--default"
 />
 
-## Props
-
-<Canvas of={GlobalMessageStories.Preview} />
-<Controls of={GlobalMessageStories.Preview} />
+<Tabs>
+  <TabList>
+    <Tab>Preview</Tab>
+    <Tab>Varianter</Tab>
+    <Tab>Closable</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <Canvas of={GlobalMessageStories.Preview} />
+      <Controls of={GlobalMessageStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={GlobalMessageStories.Variants} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={GlobalMessageStories.Closable} />
+    </TabPanel>
+  </TabPanels>
+</Tabs>

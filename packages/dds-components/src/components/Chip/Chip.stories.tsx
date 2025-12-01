@@ -18,5 +18,5 @@ export default {
 type Story = StoryObj<typeof Chip>;
 
 export const Preview: Story = {
-  args: { text: 'Chip' },
+  args: { children: 'Chip' },
 };

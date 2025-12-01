@@ -58,7 +58,9 @@ function renderInputs(size: InputSize) {
 export const FormComponents = () => {
   return (
     <VStack gap="x1.5">
-      <LocalMessage message="Her tester vi om skjemakomponenter ser likt ut." />
+      <LocalMessage>
+        Her tester vi om skjemakomponenter ser likt ut.
+      </LocalMessage>
       <VStack gap="x0.25">
         <StoryLabel>Horisontal plassering på ikonene</StoryLabel>
         <VStack gap="x1">

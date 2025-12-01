@@ -13,14 +13,14 @@ export type ChipProps = BaseComponentProps<
   HTMLDivElement,
   {
     /** Teksten som vises i komponenten. */
-    text?: string;
+    children?: string;
     /** Ekstra logikk når `<Chip>` lukkes. */
     onClose?: () => void;
   }
 >;
 
 export const Chip = ({
-  text,
+  children,
   onClose,
   id,
   className,
@@ -47,14 +47,16 @@ export const Chip = ({
       )}
     >
       <TextOverflowEllipsisInner className={cn(typographyStyles['body-small'])}>
-        {text}
+        {children}
       </TextOverflowEllipsisInner>
       <Button
         size="xsmall"
         icon={CloseSmallIcon}
         purpose="tertiary"
         onClick={onClick}
-        aria-label={ariaLabel ?? t(texts.removeChip) + (text ? ` ${text}` : '')}
+        aria-label={
+          ariaLabel ?? t(texts.removeChip) + (children ? ` ${children}` : '')
+        }
       />
     </div>
   ) : null;
