@@ -38,8 +38,8 @@ interface CommonComponentProps<
 export type BaseComponentProps<
   TElement extends Element,
   TOtherProps extends object = object,
-  THTMLAttributesProps extends
-    HTMLAttributes<TElement> = HTMLAttributes<TElement>,
+  THTMLAttributesProps extends HTMLAttributes<TElement> =
+    HTMLAttributes<TElement>,
 > = Omit<THTMLAttributesProps, 'id' | 'className' | keyof TOtherProps> &
   TOtherProps &
   CommonComponentProps<THTMLAttributesProps, Ref<TElement>>;

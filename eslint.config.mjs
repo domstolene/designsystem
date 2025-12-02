@@ -17,7 +17,6 @@ export default [
       parserOptions: {
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
-        project: ['./tsconfig.json', './.storybook/tsconfig.json'],
       },
     },
     plugins: {
