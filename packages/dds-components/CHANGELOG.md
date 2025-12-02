@@ -1,5 +1,33 @@
 # @norges-domstoler/dds-components
 
+## 22.0.0
+
+### Major Changes
+
+- d34fa2a: Implementerer dark mode. `theme` prop i `<ThemeProvider>` og `<DdsProvider>` vil dermed støtte kun nye verdier: `'core-light'`, `'core-dark'`, `'public-light'`, `'public-dark'`. `'core-light'` er default. Se detaljer i [migreringsguide v21 til v22](https://design.domstol.no/987b33f71/p/16deeb-v21-til-v22).
+- 4f98a17: Fjerner støtte for props `text` og `message` på tvers av komponenter; støtter kun `children` istedet. Se detaljer i [migreringsguide v21 til v22](https://design.domstol.no/987b33f71/p/16deeb-v21-til-v22).
+- 272f309: Fjerner `<ThemeProvider>` fra eksponering og gjør `<DdsProvider>` påkrevd istedet. På denne måten samler vi alle globale providers fra Elsa under én eksponert provider.
+- bc87d17: Fjerner delkomponent `<NativeSelectPlaceholder>`. Vi anbefaler å ikke bruke placeholder med mindre det er en god grunn til det, da det fører til utfordringer knyttet til UU. Istedet oppfordrer vi til å inkludere en tom verdi `<option value=""></option>` i `<NativeSelect>` på toppen av valgalternativene.
+
+### Minor Changes
+
+- d34fa2a: Utvider støtte i `color` prop i typografikomponentene, `<Spinner>`, `<Icon>` og `<InlineButton>` til verdier `'text-on-primary-default'`, `'text-on-primary-medium'`, `'text-on-primary-subtle'`, `'text-on-primary-strong'`, `'text-on-secondary-default'`, `'text-on-secondary-medium'`, `'text-on-secondary-subtle'`, `'text-on-secondary-strong'`, `'text-on-tertiary-default'`, `'text-on-tertiary-medium'`, `'text-on-tertiary-subtle'`, `'text-on-tertiary-strong'`, `'text-on-data-default'`, `'text-on-data-subtle'`.
+- d34fa2a: Endrer visning av `<Tooltip>`: den viser ikke lenger en pil som peker mot anchor-elementet da rendering av `svg` har vært buggy og tok litt mye plass. Gjør også spacing internt i `<Tooltip>` og fra anchor-elementet mindre. Endringene kan påvirke layout hos konsumenten.
+- d34fa2a: Støtte for verdien `'surface-default'` i `background` prop i `<Paper>`.
+
+### Patch Changes
+
+- d34fa2a: All tekst i `<CookieBanner>` får riktig farge ut av boksen. Hvis du brukte f.eks. `color` prop i `<Link>` kan du fjerne det.
+- aae9817: Gjør trykkeflaten i kalenderknapp i `<DatePicker>` større slik at den er mer synlig på hover ved mørk modus.
+- 631c8c7: Standardisering av styling i dropdown; oppdaterer spacing og størrelser på tekst og ikon i dropdown i `<OverflowMenu>`, `<Select>` og `<SearchAutocompleteWrapper>`. Tekst i dropdown har fast stil for listeelementene (`dds-font-body-medium`) og header (`dds-icon-size-small`) uansett størrelse på selve komponenten og tema.
+- 631c8c7: Styling-endringer i `<Select>`:
+  - Valgt alternativ får en bakgrunnsfarge i dropdown slik at det er mer synlig.
+  - Endrer bakgrunnsfarge for alternativ i dropdown på hover til `dds-color-surface-hover-subtle`.
+  - Når et alternativ velges i `<Select isMulti>` forsvinner det ikke fra dropdown; den blir markert som i vanlig `<Select>`.
+  - Chip som viser valgt verdi i `<Select isMulti>` får bedre spacing og bakgrunnsfarge på hover i lukkeknapp.
+
+- 631c8c7: - `<OverflowMenu>` bruker skygge `dds-shadow-2`.
+
 ## 21.20.0
 
 (2025-11-17)
