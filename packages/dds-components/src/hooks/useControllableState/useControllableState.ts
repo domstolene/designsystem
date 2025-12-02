@@ -82,8 +82,10 @@ export function useControllableState<T>(
 /**
  * The `useControllableGroupState` hook returns the group value and handleChange function to control it.
  */
-export interface UseControllableGroupStateProps<T>
-  extends Pick<UseControllableStateProps<T>, 'defaultValue' | 'value'> {
+export interface UseControllableGroupStateProps<T> extends Pick<
+  UseControllableStateProps<T>,
+  'defaultValue' | 'value'
+> {
   onChange?: (event: ChangeEvent<HTMLInputElement>, value: T) => void;
 }
 
