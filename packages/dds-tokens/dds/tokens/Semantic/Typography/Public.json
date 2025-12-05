@@ -6,7 +6,7 @@
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.bold}",
           "fontSize": "{dds-font-size.x1}",
-          "lineHeight": "{dds-font-lineheight.rem-1_25}",
+          "lineHeight": "{dds-font-lineheight.body-short}",
           "letterSpacing": "{dds-font-letter-spacing.loose}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
           "textDecoration": "{dds-font-style.normal}"
@@ -75,7 +75,7 @@
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.bold}",
           "fontSize": "{dds-font-size.x1}",
-          "lineHeight": "{dds-font-lineheight.body-long}",
+          "lineHeight": "{dds-font-lineheight.heading}",
           "letterSpacing": "{dds-font-letter-spacing.loose}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
           "textDecoration": "{dds-font-style.normal}"
@@ -88,7 +88,7 @@
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.bold}",
           "fontSize": "{dds-font-size.x1_125}",
-          "lineHeight": "{dds-font-lineheight.body-long}",
+          "lineHeight": "{dds-font-lineheight.heading}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
           "textDecoration": "{dds-font-style.normal}"
@@ -101,7 +101,7 @@
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.bold}",
           "fontSize": "{dds-font-size.x1_25}",
-          "lineHeight": "{dds-font-lineheight.body-long}",
+          "lineHeight": "{dds-font-lineheight.heading}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
           "textDecoration": "{dds-font-style.normal}"
@@ -114,7 +114,7 @@
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.semi-bold}",
           "fontSize": "{dds-font-size.x1_5}",
-          "lineHeight": "{dds-font-lineheight.body-long}",
+          "lineHeight": "{dds-font-lineheight.heading}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
           "textDecoration": "{dds-font-style.normal}"
@@ -153,7 +153,7 @@
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.light}",
           "fontSize": "clamp(3rem, 1.333rem + 4.444vw, 4rem)",
-          "lineHeight": "{dds-font-lineheight.body-short}",
+          "lineHeight": "{dds-font-lineheight.heading}",
           "letterSpacing": "{dds-font-letter-spacing.tight}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
           "textDecoration": "{dds-font-style.normal}"
@@ -168,7 +168,7 @@
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.light}",
           "fontSize": "{dds-font-size.x1_5}",
-          "lineHeight": "{dds-font-lineheight.heading}",
+          "lineHeight": "{dds-font-lineheight.body-long}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.medium}",
           "textDecoration": "{dds-font-style.normal}"
@@ -198,7 +198,7 @@
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.normal}",
           "fontSize": "{dds-font-size.x0_875}",
-          "lineHeight": "{dds-font-lineheight.rem-1}",
+          "lineHeight": "{dds-font-lineheight.body-short}",
           "letterSpacing": "{dds-font-letter-spacing.loose}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
           "textDecoration": "{dds-font-style.normal}"
@@ -211,7 +211,7 @@
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.normal}",
           "fontSize": "{dds-font-size.x1}",
-          "lineHeight": "{dds-font-lineheight.rem-1_25}",
+          "lineHeight": "{dds-font-lineheight.body-short}",
           "letterSpacing": "{dds-font-letter-spacing.loose}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
           "textDecoration": "{dds-font-style.normal}"
@@ -224,7 +224,7 @@
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.normal}",
           "fontSize": "{dds-font-size.x1_125}",
-          "lineHeight": "{dds-font-lineheight.rem-1_5}",
+          "lineHeight": "{dds-font-lineheight.body-short}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
           "textDecoration": "{dds-font-style.normal}"
@@ -237,7 +237,7 @@
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.normal}",
           "fontSize": "{dds-font-size.x1_25}",
-          "lineHeight": "{dds-font-lineheight.rem-1_75}",
+          "lineHeight": "{dds-font-lineheight.body-short}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
           "textDecoration": "{dds-font-style.normal}"

@@ -536,10 +536,10 @@
     "heading": {
       "value": "130%",
       "type": "lineHeights",
-      "description": "Brukes på overskrifter for sider og artikler"
+      "description": "Brukes på sidetitler og overskrifter"
     },
     "body-short": {
-      "value": "120%",
+      "value": "130%",
       "type": "lineHeights",
       "description": "Brukes i komponenter"
     },
