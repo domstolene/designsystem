@@ -759,7 +759,7 @@
       }
     }
   },
-  "dds-icon-size": {
+  "dds-size-icon": {
     "large": {
       "value": "40px",
       "type": "dimension"
@@ -771,6 +771,11 @@
     "small": {
       "value": "16px",
       "type": "dimension"
+    },
+    "component": {
+      "value": "1.3em",
+      "type": "spacing",
+      "description": "Brukes i komponenter. Relativ til tekststørrelsen"
     }
   },
   "dds-breakpoint": {
