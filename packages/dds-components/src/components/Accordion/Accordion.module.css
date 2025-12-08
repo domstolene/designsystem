@@ -20,7 +20,3 @@
     color: var(--dds-color-text-action-hover);
   }
 }
-
-.body {
-  height: var(--dds-card-accordion-body-height);
-}

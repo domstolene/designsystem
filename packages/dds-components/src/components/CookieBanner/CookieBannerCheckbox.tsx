@@ -20,6 +20,7 @@ export function CookieBannerCheckbox({
   description,
   id,
   className,
+  style,
   htmlProps,
   ...rest
 }: CookieBannerCheckboxProps) {
@@ -28,6 +29,7 @@ export function CookieBannerCheckbox({
       {...getBaseHTMLProps(
         id,
         cn(className, styles['checkbox-label']),
+        style,
         htmlProps,
         rest,
       )}

@@ -1,7 +1,10 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
-import { commonArgTypes, ddsProviderDecorator } from '../../storybook';
+import {
+  commonArgTypesWithNodeChildren,
+  ddsProviderDecorator,
+} from '../../storybook';
 import { Button } from '../Button';
 import { EditIcon, MenuIcon, PersonIcon, TrashIcon } from '../Icon/icons';
 import { VStack } from '../layout';
@@ -17,7 +20,8 @@ import {
   OverflowMenuSpan,
 } from '.';
 
-const { className, htmlProps, ref } = commonArgTypes;
+const { className, htmlProps, ref, children, style } =
+  commonArgTypesWithNodeChildren;
 
 export default {
   title: 'dds-components/Components/OverflowMenu',
@@ -26,6 +30,8 @@ export default {
     className,
     htmlProps,
     ref,
+    children,
+    style,
   },
   parameters: {
     docs: {

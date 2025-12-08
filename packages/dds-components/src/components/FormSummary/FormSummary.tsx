@@ -20,13 +20,13 @@ export type FormSummaryProps = Pick<
 >;
 
 export const FormSummary = (props: FormSummaryProps) => {
-  const { children } = props;
+  const { children, padding } = props;
   return (
     <Paper
+      {...props}
       background="surface-default"
       border="border-subtle"
-      padding="x0.5 x0.5 x1 x0.75"
-      {...props}
+      padding={padding ?? 'x0.5 x0.5 x1 x0.75'}
     >
       {children}
     </Paper>

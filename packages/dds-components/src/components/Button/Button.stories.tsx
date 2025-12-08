@@ -23,6 +23,7 @@ export default {
     children: { control: 'text' },
     icon: { control: false },
     href: { table: categoryHtml },
+    'aria-label': { table: categoryHtml },
     target: htmlArgType,
     type: htmlArgType,
     onClick: htmlEventArgType,

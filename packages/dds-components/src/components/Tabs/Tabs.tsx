@@ -42,6 +42,7 @@ export const Tabs = ({
   width,
   children,
   className,
+  style,
   htmlProps,
   ...rest
 }: TabsProps) => {
@@ -80,7 +81,7 @@ export const Tabs = ({
       }}
     >
       <Box
-        {...getBaseHTMLProps(uniqueId, className, htmlProps, rest)}
+        {...getBaseHTMLProps(uniqueId, className, style, htmlProps, rest)}
         width={width}
       >
         {children}

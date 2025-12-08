@@ -1,7 +1,7 @@
 import { type Property } from 'csstype';
 
 import styles from './SkipToContent.module.css';
-import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { type BaseComponentProps } from '../../types';
 import { cn } from '../../utils';
 import { Contrast } from '../Contrast';
 import { Link } from '../Typography';
@@ -27,17 +27,25 @@ export const SkipToContent = ({
   top = 0,
   id,
   className,
-  htmlProps = {},
+  htmlProps,
+  style,
   ...rest
 }: SkipToContentProps) => {
-  const { className: htmlPropsClassName, style, ...restHtmlProps } = htmlProps;
-
   return (
     <Contrast
-      className={cn(className, htmlPropsClassName, styles.wrapper)}
-      style={{ ...style, top }}
+      padding="x0.25"
+      position="absolute"
+      textAlign="center"
+      overflow="hidden"
+      height="1px"
+      width="1px"
+      className={cn(className, styles.wrapper)}
+      style={style}
+      top={top}
     >
-      <Link {...getBaseHTMLProps(id, restHtmlProps, rest)}>{text}</Link>
+      <Link {...rest} {...htmlProps} id={id}>
+        {text}
+      </Link>
     </Contrast>
   );
 };

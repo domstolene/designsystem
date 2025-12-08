@@ -24,8 +24,6 @@ export default {
     disabled: { control: 'boolean', table: categoryHtml },
     checked: htmlArgType,
     defaultChecked: htmlArgType,
-    value: htmlArgType,
-    defaultValue: htmlArgType,
     name: htmlArgType,
     'aria-describedby': htmlArgType,
     onBlur: htmlEventArgType,

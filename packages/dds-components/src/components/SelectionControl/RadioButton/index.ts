@@ -1,3 +1,3 @@
 export * from './RadioButton';
-export * from './RadioButton.types';
+export type { RadioButtonProps, RadioValue } from './RadioButton.types';
 export * from './RadioButtonGroup';

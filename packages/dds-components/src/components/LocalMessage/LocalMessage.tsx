@@ -71,6 +71,7 @@ export const LocalMessage = ({
   children,
   id,
   className,
+  style,
   htmlProps,
   ...rest
 }: LocalMessageProps) => {
@@ -94,6 +95,7 @@ export const LocalMessage = ({
           closable && styles[`container--${layout}--closable`],
           styles[`container--${purpose}`],
         ),
+        style,
         htmlProps,
         rest,
       )}

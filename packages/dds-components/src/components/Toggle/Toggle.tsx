@@ -1,4 +1,9 @@
-import { type InputHTMLAttributes, type ReactNode, useId } from 'react';
+import {
+  type ComponentProps,
+  type InputHTMLAttributes,
+  type ReactNode,
+  useId,
+} from 'react';
 
 import styles from './Toggle.module.css';
 import { useControllableState } from '../../hooks/useControllableState';
@@ -53,11 +58,8 @@ export type ToggleProps = BaseComponentProps<
      * @default "medium"
      */
     size?: ToggleSize;
-  },
-  Omit<
-    InputHTMLAttributes<HTMLInputElement>,
-    'size' | 'onChange' | 'checked' | 'defaultChecked'
-  >
+  } & Pick<ComponentProps<'input'>, 'name' | 'aria-describedby' | 'onBlur'>,
+  InputHTMLAttributes<HTMLInputElement>
 >;
 
 export const Toggle = ({
@@ -71,6 +73,7 @@ export const Toggle = ({
   readOnly,
   isLoading,
   className,
+  style,
   htmlProps = {},
   ...rest
 }: ToggleProps) => {
@@ -100,6 +103,7 @@ export const Toggle = ({
         {...getBaseHTMLProps(
           uniqueId,
           cn(className, focusStyles['focusable-sibling']),
+          style,
           htmlProps,
           rest,
         )}

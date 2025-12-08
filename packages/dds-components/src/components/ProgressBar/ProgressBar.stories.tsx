@@ -2,6 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { PROGRESS_BAR_SIZES } from './ProgressBar';
 import {
+  categoryHtml,
   labelText,
   responsivePropsArgTypes,
   windowWidthDecorator,
@@ -14,6 +15,8 @@ export default {
   title: 'dds-components/Components/ProgressBar',
   component: ProgressBar,
   argTypes: {
+    max: { table: categoryHtml },
+    value: { table: categoryHtml },
     width: responsivePropsArgTypes.width,
   },
 } satisfies Meta<typeof ProgressBar>;

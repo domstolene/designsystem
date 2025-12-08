@@ -76,13 +76,13 @@ export const Grid = <T extends ElementType = 'div'>({
       {...getBaseHTMLProps(
         id,
         cn(className, styles['dds-grid-template-columns']),
+        { ...style, ...styleVariables },
         htmlProps,
         rest,
       )}
       marginInline={marginInline}
       columnGap={columnGap}
       rowGap={rowGap}
-      style={{ ...style, ...styleVariables }}
     />
   );
 };

@@ -24,6 +24,7 @@ export const Chip = ({
   onClose,
   id,
   className,
+  style,
   htmlProps = {},
   ...rest
 }: ChipProps) => {
@@ -42,6 +43,7 @@ export const Chip = ({
       {...getBaseHTMLProps(
         id,
         cn(className, styles.container),
+        style,
         restHTMLprops,
         rest,
       )}

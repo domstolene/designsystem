@@ -1,6 +1,5 @@
-import { type Properties, type Property } from 'csstype';
+import { type Property } from 'csstype';
 
-import styles from './CardExpandable.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -8,6 +7,7 @@ import {
 import { cn } from '../../../utils';
 import { useAccordionContext } from '../../helpers/AccordionBase';
 import baseStyles from '../../helpers/AccordionBase/AccordionBase.module.css';
+import { Box } from '../../layout';
 
 export type CardExpandableBodyProps = Omit<
   BaseComponentPropsWithChildren<
@@ -23,6 +23,7 @@ export type CardExpandableBodyProps = Omit<
 export const CardExpandableBody = ({
   children,
   className,
+  style,
   htmlProps,
   padding,
   ...rest
@@ -36,37 +37,28 @@ export const CardExpandableBody = ({
     ...restBodyProps
   } = bodyProps ?? {};
 
-  const styleVariables: Properties = {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-card-accordion-body-height' as any]: height + 'px',
-  };
-
-  const contentStyleVariables: Properties = {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-card-accordion-body-content-padding' as any]:
-      padding ??
-      'var(--dds-spacing-x1) calc(var(--dds-spacing-x2) + var(--dds-spacing-x0-75)) var(--dds-spacing-x2) var(--dds-spacing-x1-5)',
-  };
-
   return (
-    <div
+    <Box
       {...getBaseHTMLProps(
         id,
-        cn(className, baseStyles.body, styles.body, bodyContextCn),
+        cn(className, baseStyles.body, bodyContextCn),
+        style,
         htmlProps,
         rest,
       )}
       {...restBodyProps}
-      style={{ ...htmlProps?.style, ...styleVariables }}
+      height={`${height}px`}
     >
-      <div
+      <Box
+        padding={
+          padding ??
+          'var(--dds-spacing-x1) calc(var(--dds-spacing-x2) + var(--dds-spacing-x0-75)) var(--dds-spacing-x2) var(--dds-spacing-x1-5)'
+        }
         ref={bodyContentRef}
-        className={styles.body__content}
-        style={contentStyleVariables}
       >
         {children}
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 

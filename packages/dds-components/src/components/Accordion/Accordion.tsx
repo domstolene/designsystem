@@ -25,6 +25,7 @@ export const Accordion = ({
   id,
   children,
   className,
+  style,
   htmlProps,
   ...rest
 }: AccordionProps) => {
@@ -42,6 +43,7 @@ export const Accordion = ({
       {...getBaseHTMLProps(
         accordionId,
         cn(className, styles.container),
+        style,
         htmlProps,
         rest,
       )}

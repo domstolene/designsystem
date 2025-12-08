@@ -31,6 +31,7 @@ export const SearchSuggestions = ({
   id,
   searchId,
   className,
+  style,
   htmlProps,
   suggestions = [],
   showSuggestions,
@@ -62,6 +63,7 @@ export const SearchSuggestions = ({
             ? utilStyles['visibility-transition--open']
             : utilStyles['visibility-transition--closed'],
         ),
+        style,
         htmlProps,
         rest,
       )}

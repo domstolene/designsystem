@@ -2,13 +2,19 @@ import { type Story } from '@storybook/addon-docs/blocks';
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
-import { commonArgTypes, ddsProviderDecorator } from '../../storybook';
+import {
+  commonArgTypesWithNodeChildren,
+  ddsProviderDecorator,
+  responsivePropsArgTypes,
+} from '../../storybook';
 import { Button } from '../Button';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { Heading, Paragraph } from '../Typography';
 import { DRAWER_SIZES } from './Drawer';
 
 import { Drawer, DrawerGroup } from '.';
+
+const { width, maxWidth, minWidth } = responsivePropsArgTypes;
 
 const meta: Meta<typeof Drawer> = {
   title: 'dds-components/Components/Drawer',
@@ -19,9 +25,11 @@ const meta: Meta<typeof Drawer> = {
     },
   },
   argTypes: {
-    ...commonArgTypes,
+    ...commonArgTypesWithNodeChildren,
     parentElement: { control: false },
-    widthProps: { control: false },
+    width,
+    maxWidth,
+    minWidth,
   },
   decorators: [ddsProviderDecorator],
 };

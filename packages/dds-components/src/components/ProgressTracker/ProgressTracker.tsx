@@ -51,6 +51,7 @@ export const ProgressTracker: ProgressTrackerComponent = (() => {
     direction = 'column',
     children,
     className,
+    style,
     htmlProps = {},
     ...rest
   }: ProgressTrackerProps) => {
@@ -88,7 +89,7 @@ export const ProgressTracker: ProgressTrackerComponent = (() => {
       >
         <nav
           aria-label={ariaLabel ?? t(texts.stepProgression)}
-          {...getBaseHTMLProps(id, className, htmlProps, rest)}
+          {...getBaseHTMLProps(id, className, style, htmlProps, rest)}
         >
           <Box
             as={StylelessOList}

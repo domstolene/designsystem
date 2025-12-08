@@ -8,27 +8,32 @@ import {
   type Ref,
 } from 'react';
 
-import { cn } from '../../../dds-components/src/utils/dom';
-
-interface CommonComponentProps<
-  THTMLProps extends object,
-  TRef extends Ref<unknown>,
-> {
+interface HTMLRootProps {
   /**HTML id. */
   id?: string;
   /**HTML klassenavn. */
   className?: string;
-  /**Native HTML-attributter som vil settes på elementet som genereres. Untatt `id`, `className` (og eventuelle andre attributter spesifisert i dokumentasjonen) som settes på toppnivå. */
+  /**HTML inline style. */
+  style?: CSSProperties;
+}
+
+type CommonComponentProps<
+  THTMLProps extends object,
+  TRef extends Ref<unknown>,
+> = HTMLRootProps & {
+  /**Native HTML-attributter som vil settes på elementet som genereres.
+   * Untatt `id`, `className`, `style` og eventuelt andre ofte brukte native HTML-attributter spesifisert i dokumentasjonen.
+   * */
   htmlProps?: THTMLProps;
   /**Ref til komponenten. */
   ref?: TRef;
-}
+};
 
 /**
  * Basetype for props som eksponeres til konsumenter av designsystemet.
- * Lager en intersection-type med props som sendes inn og `id` og `htmlProps`
- * slik at man kan ha `HTMLAttributes`-props på komponenter som eksponeres
- * av designsystemet. Se også {@link BaseComponentPropsWithChildren} og
+ * - Rot: `id`, `className`, `style`, `TOtherProps`
+ * - `htmlProps`: resterende HTML-attributter.
+ * Se også {@link BaseComponentPropsWithChildren} og
  * {@link getBaseHTMLProps}.
  *
  * @template TElement Element-type som genereres av komponenten.
@@ -40,15 +45,16 @@ export type BaseComponentProps<
   TOtherProps extends object = object,
   THTMLAttributesProps extends HTMLAttributes<TElement> =
     HTMLAttributes<TElement>,
-> = Omit<THTMLAttributesProps, 'id' | 'className' | keyof TOtherProps> &
-  TOtherProps &
-  CommonComponentProps<THTMLAttributesProps, Ref<TElement>>;
+> = TOtherProps &
+  CommonComponentProps<
+    Omit<THTMLAttributesProps, keyof HTMLRootProps | keyof TOtherProps>,
+    Ref<TElement>
+  >;
 
 /**
  * Basetype for polymorfe props som eksponeres til konsumenter av designsystemet.
- * Lager en intersection-type med props som sendes inn og `id` og `htmlProps`
- * slik at man kan ha `ComponentPropsWithRef`-props på komponenter som eksponeres
- * av designsystemet.
+ * - Rot: `id`, `className`, `style`, `TOtherProps`
+ * - `htmlProps`: resterende props fra `TComponentProps`
  *
  * @template E `ElemenType` komponenten returnerer.
  * @template TOtherProps Andre props komponenten skal eksponere til konsumenter.
@@ -57,23 +63,23 @@ export type BaseComponentProps<
 export type PolymorphicBaseComponentProps<
   E extends ElementType,
   TOtherProps extends object = object,
-  TComponentProps extends object = ComponentPropsWithoutRef<E>,
-> = Omit<
-  TComponentProps,
-  'id' | 'className' | 'style' | 'ref' | keyof TOtherProps
-> &
-  TOtherProps &
-  CommonComponentProps<TComponentProps, ComponentPropsWithRef<E>['ref']> & {
-    /**HTML- eller React-element som returneres. */
+> = TOtherProps &
+  HTMLRootProps & {
+    /** HTML- eller React-element som returneres. */
     as?: E;
-    /**Inline style. */
-    style?: CSSProperties;
-  };
+    /** Barn. Blir ignorert hvis returnert HTML tag ikke støtter de. */
+    children?: React.ReactNode;
+  } & CommonComponentProps<
+    Omit<ComponentPropsWithoutRef<E>, keyof HTMLRootProps | keyof TOtherProps>,
+    ComponentPropsWithRef<E>['ref']
+  > &
+  Omit<
+    ComponentPropsWithoutRef<E>,
+    keyof HTMLRootProps | keyof TOtherProps | 'children' | 'ref'
+  >;
 
 /**
- * Utvidelese av {@link BaseComponentProps} med prop for `children`.
- *
- * {@link BaseComponentProps}
+ * Utvidelse av {@link BaseComponentProps} med prop for `children`.
  */
 export type BaseComponentPropsWithChildren<
   T extends Element,
@@ -88,37 +94,29 @@ export type BaseComponentPropsWithChildren<
   THTMLProps
 >;
 
-interface GetBaseHTMLProps {
-  <T extends Element>(
-    id: HTMLAttributes<T>['id'],
-    className: HTMLAttributes<T>['className'],
-    htmlProps: HTMLAttributes<T> | undefined,
-    unknownProps: object,
-  ): HTMLAttributes<T> & object;
-  <T extends Element>(
-    id: HTMLAttributes<T>['id'],
-    htmlProps: HTMLAttributes<T> | undefined,
-    unknownProps: object,
-  ): HTMLAttributes<T> & object;
+function pruneUndefined<T extends Record<string, unknown>>(obj: T) {
+  return Object.fromEntries(
+    Object.entries(obj).filter(([, v]) => v !== undefined),
+  ) as T;
 }
 
 /**
- * Slår sammen id, className, htmlProps og unknownProps til ett objekt
+ * Slår sammen id, className,htmlProps og unknownProps til ett objekt
  * som kan spreades som baseprops for en komponent. `unknownProps` er
  * med for å sikre at aria- og data- attributter blir spreadet, alle
  * komponenter må derfor ta hensyn til `...rest` når de leser props.
  *
  * Typisk bruk:
- * ```
+ * ```tsx
  * const Props = BaseComponentProps<HTMLElement, {
  *   propA: string,
  *   propB: string,
  * }>
  *
  * const MyComponent = (props: Props) => {
- *   const { propA, propB, id, className, htmlProps, ...rest } = props;
+ *   const { id, className, style, htmlProps, ...rest } = props;
  *
- *   const wrapperProps = getBaseHTMLProps(id, className, htmlProps, rest)
+ *   const wrapperProps = getBaseHTMLProps(id, className, style, htmlProps, rest)
  *
  *   return <div {...wrapperProps}>innhold</div>
  * }
@@ -131,51 +129,20 @@ interface GetBaseHTMLProps {
  *
  * Kan også kalles uten `className`-parameteret. Oppførselen er lik.
  */
-export const getBaseHTMLProps: GetBaseHTMLProps = <T extends Element>(
+export function getBaseHTMLProps<T extends Element>(
   id: HTMLAttributes<T>['id'],
-  htmlPropsOrClassName:
-    | HTMLAttributes<T>['className']
-    | (HTMLAttributes<T> | undefined),
-  htmlPropsOrUnknownProps: (HTMLAttributes<T> | undefined) | object,
-  unknownPropsOrUndefined?: object,
-): HTMLAttributes<T> & object => {
-  if (
-    typeof htmlPropsOrClassName === 'string' ||
-    unknownPropsOrUndefined != undefined
-  ) {
-    const {
-      id: idFromHtmlProps,
-      className: classNameFromHtmlProps,
-      ...restHTMLProps
-    } = (htmlPropsOrUnknownProps as HTMLAttributes<T> | undefined) ?? {};
+  className: HTMLAttributes<T>['className'],
+  style: HTMLAttributes<T>['style'],
+  htmlProps: HTMLAttributes<T> | undefined,
+  unknownProps: object,
+): HTMLAttributes<T> & object {
+  const out = pruneUndefined({
+    ...htmlProps,
+    ...unknownProps,
+    ...(className && { className }),
+    ...(id && { id }),
+    ...(style && { style }),
+  });
 
-    const propId = id ?? idFromHtmlProps;
-
-    const propClassName = cn(
-      htmlPropsOrClassName as string | undefined,
-      classNameFromHtmlProps,
-    );
-
-    return {
-      ...unknownPropsOrUndefined,
-      ...restHTMLProps,
-      ...(propClassName && { className: propClassName }),
-      ...(propId && { id: propId }),
-    };
-  } else {
-    const {
-      id: htmlPropsId,
-      className: htmlPropsClassName,
-      ...restHTMLProps
-    } = htmlPropsOrClassName ?? {};
-
-    const propId = id ?? htmlPropsId;
-
-    return {
-      ...htmlPropsOrUnknownProps,
-      ...restHTMLProps,
-      ...(htmlPropsClassName && { className: htmlPropsClassName }),
-      ...(propId && { id: propId }),
-    };
-  }
-};
+  return out;
+}

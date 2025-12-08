@@ -15,7 +15,11 @@ export const isAnchorTypographyProps = (
 export const Breadcrumb = ({ children, ref, ...rest }: BreadcrumbProps) => {
   if (isAnchorTypographyProps(rest)) {
     return (
-      <Link ref={ref as Ref<HTMLAnchorElement>} htmlProps={rest}>
+      <Link
+        ref={ref as Ref<HTMLAnchorElement>}
+        htmlProps={rest}
+        href={rest.href}
+      >
         {children}
       </Link>
     );

@@ -5,8 +5,8 @@ import { fn } from 'storybook/test';
 import {
   categoryCss,
   categoryHtml,
+  commonArgTypes,
   ddsProviderDecorator,
-  htmlArgType,
   labelText,
   windowWidthDecorator,
 } from '../../storybook';
@@ -15,6 +15,8 @@ import { INPUT_SIZES } from '../helpers/Input';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { PhoneInput, type PhoneInputValue } from '.';
+
+const { id, className, style } = commonArgTypes;
 
 export default {
   title: 'dds-components/Components/PhoneInput',
@@ -27,7 +29,9 @@ export default {
     selectRef: { control: false },
     value: { control: false },
     defaultValue: { control: false },
-    id: htmlArgType,
+    id,
+    className,
+    style,
   },
   args: { onChange: fn() },
   decorators: [ddsProviderDecorator],

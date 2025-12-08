@@ -12,7 +12,7 @@ import * as ContrastStories from './Contrast.stories';
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-contrast--default"
 />
 
-`<Contrast>` er en code-only komponent. Den returnerer en seksjon som inverterer tekstfargen (inkludert lenker), slik at kontrasten er riktig på invertert bakgrunn ut av boksen.
+`<Contrast>` er en code-only layout primitive; den er polymorf og støtter CSS-props som håndterer layout. Den returnerer en seksjon som inverterer tekstfargen (inkludert lenker), slik at kontrasten er riktig på invertert bakgrunn ut av boksen.
 På denne måten slipper konsumenten å tenke på fargene, og komponenten følger WCAG krav samt fargesystemet til Elsa.
 
 `<Contrast>` bruker CSS-variabler for å styre farger internt i Elsa komponentene, og CSS `color` regel for å sette farge ellers. Hvis du bruker elementer med egen `color`-styling kan det hende fargen ikke blir satt riktig.

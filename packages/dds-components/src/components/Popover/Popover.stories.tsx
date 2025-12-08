@@ -4,7 +4,7 @@ import { fn } from 'storybook/test';
 
 import { type Placement } from '../../hooks';
 import {
-  commonArgTypes,
+  commonArgTypesWithNodeChildren,
   ddsProviderDecorator,
   htmlEventArgType,
 } from '../../storybook';
@@ -26,7 +26,7 @@ const meta: Meta<typeof Popover> = {
     onBlur: htmlEventArgType,
     isOpen: { control: false },
     anchorRef: { control: false },
-    ...commonArgTypes,
+    ...commonArgTypesWithNodeChildren,
     sizeProps: { control: false },
   },
   args: { onBlur: fn(), onClose: fn() },
@@ -119,10 +119,7 @@ export const PlacementOverview: Story = {
       </div>
     );
     return (
-      <StoryHStack
-        justifyContent="center"
-        htmlProps={{ style: { paddingBlock: 'var(--dds-spacing-x6)' } }}
-      >
+      <StoryHStack justifyContent="center" paddingBlock="x6">
         <StoryVStack>
           {popover('top-start')}
           {popover('bottom-start')}

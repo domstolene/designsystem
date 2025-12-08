@@ -13,6 +13,7 @@ export type VStackProps<T extends ElementType = 'div'> =
 export const VStack = <T extends ElementType = 'div'>({
   id,
   className,
+  style,
   htmlProps,
   ...rest
 }: VStackProps<T>) => {
@@ -20,7 +21,7 @@ export const VStack = <T extends ElementType = 'div'>({
     <Box
       display="flex"
       flexDirection="column"
-      {...getBaseHTMLProps(id, className, htmlProps, rest)}
+      {...getBaseHTMLProps(id, className, style, htmlProps, rest)}
     />
   );
 };

@@ -33,6 +33,7 @@ export type CardExpandableHeaderProps = Omit<
 export const CardExpandableHeader = ({
   children,
   className,
+  style,
   htmlProps,
   padding,
   typographyType = 'headingLarge',
@@ -60,6 +61,7 @@ export const CardExpandableHeader = ({
           baseStyles['header-button'],
           focusable,
         ),
+        style,
         htmlProps,
         rest,
       )}

@@ -2,7 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import {
   categoryHtml,
-  commonArgTypes,
+  commonArgTypesWithNodeChildren,
   ddsProviderDecorator,
   labelText,
 } from '../../storybook';
@@ -19,7 +19,7 @@ export default {
     role: { control: 'text', table: categoryHtml },
     'aria-label': { table: categoryHtml },
     'aria-labelledby': { table: categoryHtml },
-    ...commonArgTypes,
+    ...commonArgTypesWithNodeChildren,
   },
   decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof ButtonGroup>;
