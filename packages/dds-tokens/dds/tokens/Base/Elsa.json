@@ -528,20 +528,19 @@
     }
   },
   "dds-font-lineheight": {
-    "body-long": {
+    "x1": {
       "value": "150%",
       "type": "lineHeights",
       "description": "Brukes på mengetekst og artikler"
     },
-    "heading": {
-      "value": "130%",
-      "type": "lineHeights",
-      "description": "Brukes på sidetitler og overskrifter"
+    "x3": {
+      "value": "120%",
+      "type": "lineHeights"
     },
-    "body-short": {
+    "x2": {
       "value": "130%",
       "type": "lineHeights",
-      "description": "Brukes i komponenter"
+      "description": "Brukes i komponenter og overskrifter"
     },
     "list": {
       "value": "200%",

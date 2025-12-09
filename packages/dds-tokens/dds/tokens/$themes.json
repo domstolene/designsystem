@@ -167,9 +167,6 @@
       "dds-grid.md.count": "55b53519d77065c8663dd872664b4e9c7f17f9b1",
       "dds-grid.xl.gutter-size": "066c6fcd8b3313602fb9e11f870ac71ac2c2922a",
       "dds-grid.xl.count": "36754c12ebd2222dffb91edae52b4ed89e7a86ea",
-      "dds-icon-size.large": "d18ee1ff051dccad772052ad8be42d4aa2a18717",
-      "dds-icon-size.medium": "014bd3d8d2a5c3157c6e0a8d89ffd44e06a50958",
-      "dds-icon-size.small": "fee9b4f945a3b881cb1fc7b64fc8c1b81fda6be7",
       "dds-breakpoint.xs": "1d9590aa1512c0baddf3bad9a42e7c1f57a00def",
       "dds-breakpoint.sm": "772471e5b722723ab3aa3051193ad46dda8ae8e3",
       "dds-breakpoint.md": "6d0f24af96c4958b83efbf5f603103c0aa181884",
@@ -274,7 +271,10 @@
       "dds-color-data.gray.600": "ddb07a662dda35e0277516cd8d039b9e5467c977",
       "dds-color-data.gray.700": "ff8e3ece26f77ef88888efc1bfbeec9e8ee3cbdf",
       "dds-color-data.gray.800": "f60948b1b80c59aecc8f971a2f15b4e20565c29e",
-      "dds-color-data.gray.900": "3f646ca965249fbd746b283ff26420cb01c1b300"
+      "dds-color-data.gray.900": "3f646ca965249fbd746b283ff26420cb01c1b300",
+      "dds-size-icon.large": "d18ee1ff051dccad772052ad8be42d4aa2a18717",
+      "dds-size-icon.medium": "014bd3d8d2a5c3157c6e0a8d89ffd44e06a50958",
+      "dds-size-icon.small": "fee9b4f945a3b881cb1fc7b64fc8c1b81fda6be7"
     },
     "$figmaCollectionId": "VariableCollectionId:9567:849",
     "$figmaModeId": "9567:2",
