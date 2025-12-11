@@ -28,12 +28,12 @@ export default {
 
 type Story = StoryObj<typeof InlineEditInput>;
 
-export const OverviewInputTypes: Story = {
+export const Preview: Story = {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: args => {
-    const [value, setValue] = useState('');
-    const [value2, setValue2] = useState('');
-    const [value3, setValue3] = useState('');
+    const [value, setValue] = useState('Input');
+    const [value2, setValue2] = useState('TextArea');
+    const [value3, setValue3] = useState('Select');
 
     return (
       <StoryVStack>
@@ -41,7 +41,7 @@ export const OverviewInputTypes: Story = {
         <InlineEditTextArea value={value2} onSetValue={setValue2} />
         <InlineEditSelect value={value3} onSetValue={setValue3}>
           <option></option>
-          <option>Alt 1</option>
+          <option>Select</option>
           <option>Alt 2</option>
         </InlineEditSelect>
       </StoryVStack>
