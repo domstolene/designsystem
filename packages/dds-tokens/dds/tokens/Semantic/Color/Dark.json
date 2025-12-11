@@ -171,12 +171,12 @@
     },
     "border": {
       "default": {
-        "value": "{dds-color-base.gray.600}",
+        "value": "{dds-color-base.gray.700}",
         "type": "color",
         "description": "Form components, togglebutton, secondary button, checkbox etc"
       },
       "subtle": {
-        "value": "{dds-color-base.gray.700}",
+        "value": "{dds-color-base.gray.600}",
         "type": "color",
         "description": "Dropdown, tooltip, overflow etc"
       },
@@ -206,7 +206,7 @@
         "description": "Tag.default"
       },
       "danger": {
-        "value": "{dds-color-base.danger.500}",
+        "value": "{dds-color-base.danger.600}",
         "type": "color",
         "description": "Tag.default, error message field"
       },
