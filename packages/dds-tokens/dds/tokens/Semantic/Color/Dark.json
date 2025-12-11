@@ -171,7 +171,7 @@
     },
     "border": {
       "default": {
-        "value": "{dds-color-base.gray.700}",
+        "value": "{dds-color-base.gray.500}",
         "type": "color",
         "description": "Form components, togglebutton, secondary button, checkbox etc"
       },
