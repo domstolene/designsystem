@@ -11,6 +11,7 @@ export const Card = (props: CardProps) => {
     cardRef,
     id,
     className,
+    style,
     htmlProps,
     ...rest
   } = props;
@@ -30,6 +31,7 @@ export const Card = (props: CardProps) => {
         {...getBaseHTMLProps(
           id,
           cn(classNames, focusStyles.focusable),
+          style,
           htmlProps,
           rest,
         )}
@@ -41,7 +43,10 @@ export const Card = (props: CardProps) => {
   }
 
   return (
-    <div {...getBaseHTMLProps(id, classNames, htmlProps, rest)} ref={cardRef} />
+    <div
+      {...getBaseHTMLProps(id, classNames, style, htmlProps, rest)}
+      ref={cardRef}
+    />
   );
 };
 

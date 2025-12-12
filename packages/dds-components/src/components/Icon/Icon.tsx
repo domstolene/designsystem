@@ -1,5 +1,3 @@
-import { type HTMLAttributes } from 'react';
-
 import { type SvgIcon } from './utils';
 import {
   type BaseComponentProps,
@@ -39,8 +37,7 @@ export type IconProps = BaseComponentProps<
      * @default "currentcolor"
      */
     color?: TextColor;
-  },
-  Omit<HTMLAttributes<SVGSVGElement>, 'color'>
+  }
 >;
 
 export function Icon(props: IconProps) {
@@ -50,6 +47,7 @@ export function Icon(props: IconProps) {
     color = 'currentcolor',
     icon,
     className,
+    style,
     htmlProps = {},
     ...rest
   } = props;
@@ -58,7 +56,7 @@ export function Icon(props: IconProps) {
   const size = getSize(iconSize);
 
   return icon({
-    ...getBaseHTMLProps(id, className, htmlProps, rest),
+    ...getBaseHTMLProps(id, className, style, htmlProps, rest),
     title,
     height: size,
     width: size,

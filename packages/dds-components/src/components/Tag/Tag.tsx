@@ -67,6 +67,7 @@ export const Tag = ({
   appearance = 'default',
   id,
   className,
+  style,
   children,
   htmlProps,
   withIcon,
@@ -85,6 +86,7 @@ export const Tag = ({
           withIcon && icon && styles['container--with-icon'],
           styles[`container--${purpose}--${appearance}`],
         ),
+        style,
         htmlProps,
         rest,
       )}

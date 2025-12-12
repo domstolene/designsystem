@@ -36,8 +36,7 @@ export type PaperProps<T extends ElementType = 'div'> =
       /**Bakgrunn. Støtter dds tokens. */
       background?: PaperBackground;
     } & ResponsiveProps &
-      PickedAttributes,
-    Omit<ComponentProps<T>, keyof PickedAttributes>
+      PickedAttributes
   >;
 
 export const Paper = <T extends ElementType = 'div'>({
@@ -68,10 +67,10 @@ export const Paper = <T extends ElementType = 'div'>({
           styles.background,
           border && styles.border,
         ),
+        { ...style, ...styleVariables },
         htmlProps,
         rest,
       )}
-      style={{ ...style, ...styleVariables }}
     />
   );
 };

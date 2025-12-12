@@ -53,6 +53,7 @@ export const RadioButtonGroup = <T extends string | number = string>({
   onChange,
   id,
   className,
+  style,
   htmlProps = {},
   ...rest
 }: RadioButtonGroupProps<T>) => {
@@ -91,6 +92,7 @@ export const RadioButtonGroup = <T extends string | number = string>({
       {...getBaseHTMLProps(
         id,
         cn(className, styles.container),
+        style,
         { ...htmlProps, 'aria-required': ariaRequired },
         rest,
       )}

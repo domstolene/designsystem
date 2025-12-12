@@ -4,7 +4,6 @@ import { type CheckboxProps } from './Checkbox.types';
 import { useCheckboxGroup } from './CheckboxGroupContext';
 import { getBaseHTMLProps } from '../../../types';
 import {
-  cn,
   readOnlyClickHandler,
   readOnlyKeyDownHandler,
   spaceSeparatedIdListGenerator,
@@ -26,6 +25,7 @@ export const Checkbox = ({
   'aria-describedby': ariaDescribedby,
   className,
   htmlProps = {},
+  style,
   children,
   ...rest
 }: CheckboxProps) => {
@@ -35,8 +35,6 @@ export const Checkbox = ({
 
   const hasLabel = !!label;
   const hasChildren = !!children;
-
-  const { style, className: htmlPropsClassName, ...restHtmlProps } = htmlProps;
 
   const isReadOnly = readOnly || checkboxGroup?.readOnly;
   const hasError = error || checkboxGroup?.error;
@@ -48,11 +46,11 @@ export const Checkbox = ({
       htmlFor={uniqueId}
       hasText={hasLabel || hasChildren}
       controlType="checkbox"
-      className={cn(className, htmlPropsClassName)}
+      className={className}
       style={style}
     >
       <HiddenInput
-        {...getBaseHTMLProps(uniqueId, restHtmlProps, rest)}
+        {...getBaseHTMLProps(uniqueId, undefined, undefined, htmlProps, rest)}
         name={name}
         disabled={isDisabled}
         aria-describedby={spaceSeparatedIdListGenerator([

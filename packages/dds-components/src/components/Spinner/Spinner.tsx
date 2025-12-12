@@ -34,6 +34,7 @@ export function Spinner(props: SpinnerProps) {
     id,
     className,
     htmlProps,
+    style,
     ...rest
   } = props;
 
@@ -55,12 +56,17 @@ export function Spinner(props: SpinnerProps) {
       viewBox="0 0 25 25"
       role="progressbar"
       aria-labelledby={uniqueId}
-      {...getBaseHTMLProps(id, cn(className, styles.svg), htmlProps, rest)}
-      style={{
-        ...htmlProps?.style,
-        width: size,
-        height: size,
-      }}
+      {...getBaseHTMLProps(
+        id,
+        cn(className, styles.svg),
+        {
+          ...style,
+          width: size,
+          height: size,
+        },
+        htmlProps,
+        rest,
+      )}
     >
       <title id={uniqueId}>{tooltip ?? t(commonTexts.loading)}</title>
       <circle

@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { commonArgTypes } from '../../../storybook';
+import { commonArgTypesWithNodeChildren } from '../../../storybook';
 import { Fieldset } from '../../Fieldset';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 import { Legend } from '../../Typography';
@@ -11,7 +11,7 @@ export default {
   title: 'dds-components/Components/Checkbox/CheckboxGroup',
   component: CheckboxGroup,
   argTypes: {
-    ...commonArgTypes,
+    ...commonArgTypesWithNodeChildren,
   },
 } satisfies Meta<typeof CheckboxGroup>;
 

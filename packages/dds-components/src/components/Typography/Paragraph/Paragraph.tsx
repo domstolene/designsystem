@@ -23,6 +23,7 @@ export type ParagraphProps = BaseComponentPropsWithChildren<
 export const Paragraph = ({
   id,
   className,
+  style,
   htmlProps,
   children,
   typographyType = 'bodyMedium',
@@ -30,7 +31,7 @@ export const Paragraph = ({
 }: ParagraphProps) => {
   return (
     <Typography
-      {...getBaseHTMLProps(id, className, htmlProps, rest)}
+      {...getBaseHTMLProps(id, className, style, htmlProps, rest)}
       typographyType={typographyType}
     >
       {children}

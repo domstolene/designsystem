@@ -31,6 +31,7 @@ export type AccordionHeaderProps = Omit<
 export const AccordionHeader = ({
   children,
   className,
+  style,
   htmlProps,
   typographyType = 'headingMedium',
   bold,
@@ -52,6 +53,7 @@ export const AccordionHeader = ({
           focusable,
           baseStyles['header-container'],
         ),
+        style,
         htmlProps,
         rest,
       )}

@@ -30,7 +30,7 @@ export type FileUploaderHookProps = {
   value: FileList | undefined;
   /**Callback for når fil-listen endres. */
   onChange: (newFiles: FileList) => void;
-  /**Hvilke filendelser eller mime-typer som filopplasteren skal akseptere. */
+  /**Filendelser eller mime-typer filopplasteren skal akseptere. */
   accept: Array<FileUploaderAccept> | undefined;
   /**Om filopplasteren er avslått eller ikke. */
   disabled?: boolean;

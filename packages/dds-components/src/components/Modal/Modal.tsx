@@ -68,6 +68,7 @@ export const Modal = ({
   initialFocusRef,
   scrollable,
   className,
+  style,
   htmlProps,
   ref,
   ...rest
@@ -137,6 +138,7 @@ export const Modal = ({
                 scrollable && styles['container-scrollable'],
                 utilStyles.scrollbar,
               ),
+              style,
               htmlProps,
               rest,
             )}

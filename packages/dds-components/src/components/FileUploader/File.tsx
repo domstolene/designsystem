@@ -102,8 +102,8 @@ export const File = (props: FileProps) => {
               type="button"
               onClick={removeFile}
               icon={CloseIcon}
+              aria-label={t(texts.removeFile(stateFile.name))}
               htmlProps={{
-                'aria-label': t(texts.removeFile(stateFile.name)),
                 'aria-invalid': !isValid ? true : undefined,
                 'aria-errormessage': !isValid
                   ? t(texts.invalidFile)

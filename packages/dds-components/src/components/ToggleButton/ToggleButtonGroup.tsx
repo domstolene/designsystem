@@ -31,6 +31,7 @@ export const ToggleButtonGroup = (props: ToggleButtonGroupProps) => {
     labelId,
     id,
     className,
+    style,
     htmlProps,
     ...rest
   } = props;
@@ -40,7 +41,7 @@ export const ToggleButtonGroup = (props: ToggleButtonGroupProps) => {
 
   return (
     <div
-      {...getBaseHTMLProps(id, className, htmlProps, rest)}
+      {...getBaseHTMLProps(id, className, style, htmlProps, rest)}
       role="group"
       aria-labelledby={label ? uniqueLabelId : undefined}
     >

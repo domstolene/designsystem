@@ -7,13 +7,14 @@ type OverflowMenuDividerProps = Omit<DividerProps, 'color'>;
 export const OverflowMenuDivider = ({
   id,
   className,
+  style,
   htmlProps,
   ...rest
 }: OverflowMenuDividerProps) => {
   return (
     <Box
       as={Divider}
-      {...getBaseHTMLProps(id, className, htmlProps, rest)}
+      {...getBaseHTMLProps(id, className, style, htmlProps, rest)}
       marginInline="x0.5"
       marginBlock="x0"
       color="subtle"

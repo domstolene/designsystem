@@ -16,6 +16,7 @@ export const ToggleButton = ({
   icon,
   size = 'small',
   className,
+  style,
   htmlProps,
   ...rest
 }: ToggleButtonProps) => {
@@ -29,6 +30,7 @@ export const ToggleButton = ({
         {...getBaseHTMLProps(
           uniqueId,
           cn(className, focusStyles['focusable-sibling']),
+          style,
           htmlProps,
           rest,
         )}

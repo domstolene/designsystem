@@ -38,6 +38,7 @@ export const Label = ({
   readOnly,
   id,
   className,
+  style,
   htmlProps,
   children,
   afterLabelContent,
@@ -60,6 +61,7 @@ export const Label = ({
     ...getBaseHTMLProps(
       id,
       cn(className, readOnly && styles['read-only']),
+      style,
       htmlProps,
       rest,
     ),

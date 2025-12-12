@@ -91,6 +91,7 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
   const {
     id,
     className,
+    style,
     htmlProps,
     index = 0,
     completed = false,
@@ -164,8 +165,8 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
     </>
   );
 
-  const ariaLabel = props['aria-label']
-    ? props['aria-label']
+  const ariaLabel = htmlProps?.['aria-label']
+    ? htmlProps?.['aria-label']
     : `${children}, ${stepNumber}. ${completed ? t(texts.completed) : t(texts.uncompleted)}`;
 
   return (
@@ -190,6 +191,7 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
               typographyStyles['a--nested__parent'],
               focusable,
             ),
+            style,
             htmlProps as ComponentPropsWithRef<'button'>,
             rest,
           )}
@@ -204,6 +206,7 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
           {...getBaseHTMLProps(
             id,
             cn(className, cn(styles['item-button'], styles['item-div'])),
+            style,
             htmlProps as ComponentPropsWithRef<'div'>,
             rest,
           )}

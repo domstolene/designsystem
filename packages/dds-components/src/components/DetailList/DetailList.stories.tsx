@@ -1,6 +1,9 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { commonArgTypes, windowWidthDecorator } from '../../storybook';
+import {
+  commonArgTypesWithNodeChildren,
+  windowWidthDecorator,
+} from '../../storybook';
 import { InlineButton } from '../InlineButton';
 
 import { DetailList, DetailListDesc, DetailListRow, DetailListTerm } from '.';
@@ -9,31 +12,17 @@ export default {
   title: 'dds-components/Components/DetailList',
   component: DetailList,
   argTypes: {
-    ...commonArgTypes,
+    ...commonArgTypesWithNodeChildren,
   },
-  decorators: [
-    Story => (
-      <>
-        <Story />
-        <style>{styling}</style>
-      </>
-    ),
-  ],
 } satisfies Meta<typeof DetailList>;
 
 type Story = StoryObj<typeof DetailList>;
-
-const styling = `
-          .story-text-right {
-          text-align: right;
-          }
-        `;
 
 const children = [
   <DetailListRow>
     <DetailListTerm>Term</DetailListTerm>
     <DetailListDesc>Beskrivelse</DetailListDesc>
-    <DetailListDesc className="story-text-right">
+    <DetailListDesc textAlign="right">
       <InlineButton
         onClick={() => {
           //kun for showcase
@@ -46,7 +35,7 @@ const children = [
   <DetailListRow>
     <DetailListTerm>Term</DetailListTerm>
     <DetailListDesc>Beskrivelse</DetailListDesc>
-    <DetailListDesc className="story-text-right">
+    <DetailListDesc textAlign="right">
       <InlineButton
         onClick={() => {
           //kun for showcase
@@ -59,7 +48,7 @@ const children = [
   <DetailListRow>
     <DetailListTerm>Term</DetailListTerm>
     <DetailListDesc>Beskrivelse</DetailListDesc>
-    <DetailListDesc className="story-text-right">
+    <DetailListDesc textAlign="right">
       <InlineButton
         onClick={() => {
           //kun for showcase
@@ -72,7 +61,7 @@ const children = [
   <DetailListRow>
     <DetailListTerm>Term</DetailListTerm>
     <DetailListDesc>Beskrivelse</DetailListDesc>
-    <DetailListDesc className="story-text-right">
+    <DetailListDesc textAlign="right">
       <InlineButton
         onClick={() => {
           //kun for showcase

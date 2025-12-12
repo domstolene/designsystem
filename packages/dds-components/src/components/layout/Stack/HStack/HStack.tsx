@@ -13,6 +13,7 @@ export type HStackProps<T extends ElementType = 'div'> =
 export const HStack = <T extends ElementType = 'div'>({
   id,
   className,
+  style,
   htmlProps,
   ...rest
 }: HStackProps<T>) => {
@@ -20,7 +21,7 @@ export const HStack = <T extends ElementType = 'div'>({
     <Box
       display="flex"
       flexDirection="row"
-      {...getBaseHTMLProps(id, className, htmlProps, rest)}
+      {...getBaseHTMLProps(id, className, style, htmlProps, rest)}
     />
   );
 };

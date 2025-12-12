@@ -2,29 +2,26 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
 import { ProgressTracker } from './ProgressTracker';
-import { commonArgTypes, ddsProviderDecorator } from '../../storybook';
+import {
+  commonArgTypesWithNodeChildren,
+  ddsProviderDecorator,
+} from '../../storybook';
 import { Button } from '../Button';
 import { Drawer, DrawerGroup } from '../Drawer';
-import { Fieldset, FieldsetGroup } from '../Fieldset';
 import {
-  ArrowRightIcon,
   AttachmentIcon,
   ChecklistIcon,
   ChevronRightIcon,
   GavelIcon,
   PersonIcon,
 } from '../Icon/icons';
-import { Box, Grid, HStack, ShowHide, VStack } from '../layout';
-import { Select } from '../Select';
-import { Checkbox } from '../SelectionControl/Checkbox';
-import { TextInput } from '../TextInput';
-import { Heading, Legend, Paragraph } from '../Typography';
+import { HStack, VStack } from '../layout';
 
 export default {
   title: 'dds-components/Components/ProgressTracker',
   component: ProgressTracker,
   argTypes: {
-    ...commonArgTypes,
+    ...commonArgTypesWithNodeChildren,
   },
   decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof ProgressTracker>;
@@ -44,7 +41,7 @@ export const Preview: Story = {
           {...args}
           activeStep={activeStep}
           onStepChange={step => setActiveStep(step)}
-          htmlProps={{ style: { maxWidth: '800px' } }}
+          style={{ maxWidth: '800px' }}
         >
           <ProgressTracker.Item completed={completedSteps.has(0)}>
             Steg 1
@@ -216,7 +213,7 @@ export const FutureStepsDisabled: Story = {
         <ProgressTracker
           {...args}
           activeStep={activeStep}
-          htmlProps={{ style: { maxWidth: '800px' } }}
+          style={{ maxWidth: '800px' }}
           onStepChange={step => setActiveStep(step)}
         >
           <ProgressTracker.Item
@@ -315,200 +312,4 @@ export const SmallScreen: Story = {
       </>
     );
   },
-};
-
-export const RealWorldRosponsiveExample: Story = {
-  render: args => {
-    const [activeStep, setActiveStep] = useState(0);
-    const [completedSteps, setCompletedSteps] = useState(new Set<number>());
-    const [progressTrackerDrawerOpen, setProgressTrackerDrawerOpen] =
-      useState(false);
-
-    const steps = [
-      'Rolle- og saksnummer',
-      'Kontaktinformasjon',
-      'Fakturainformasjon',
-      'Salærberegning',
-      'Fravær',
-      'Utlegg',
-      'Oppsummering',
-    ];
-    const stepItems = steps.map((step, index) => (
-      <ProgressTracker.Item key={step} completed={completedSteps.has(index)}>
-        {step}
-      </ProgressTracker.Item>
-    ));
-
-    const completeStep = (step: number) => {
-      setCompletedSteps(s => new Set([...s, activeStep]));
-      setActiveStep(step + 1);
-    };
-
-    const formSteps = [
-      <RolleSaksnummerForm onSubmit={() => completeStep(0)} />,
-      <Kontaktinformasjon onSubmit={() => completeStep(1)} />,
-      <Fakturainformasjon onSubmit={() => completeStep(2)} />,
-      <Heading level={2} typographyType="headingXlarge" withMargins>
-        Salærberegning
-      </Heading>,
-      <Heading level={2} typographyType="headingXlarge" withMargins>
-        Fravær
-      </Heading>,
-      <Heading level={2} typographyType="headingXlarge" withMargins>
-        Utlegg
-      </Heading>,
-      <Heading level={2} typographyType="headingXlarge" withMargins>
-        Oppsummering
-      </Heading>,
-    ];
-
-    return (
-      <Grid className="story-grid" gridTemplateColumns="26rem 1fr" gap="x6">
-        <div>
-          <ShowHide showBelow="md">
-            <DrawerGroup
-              isOpen={progressTrackerDrawerOpen}
-              setIsOpen={setProgressTrackerDrawerOpen}
-            >
-              <Button
-                purpose="secondary"
-                iconPosition="right"
-                icon={ChevronRightIcon}
-              >
-                Steg {activeStep + 1} av {steps.length}
-              </Button>
-              <Drawer>
-                <ProgressTracker
-                  {...args}
-                  activeStep={activeStep}
-                  onStepChange={newStep => setActiveStep(newStep)}
-                >
-                  {stepItems}
-                </ProgressTracker>
-              </Drawer>
-            </DrawerGroup>
-          </ShowHide>
-          {formSteps[activeStep]}
-        </div>
-        <Box hideBelow="md" marginBlock="x3 x1">
-          <ProgressTracker
-            {...args}
-            activeStep={activeStep}
-            onStepChange={newStep => setActiveStep(newStep)}
-          >
-            {stepItems}
-          </ProgressTracker>
-        </Box>
-      </Grid>
-    );
-  },
-};
-
-const RolleSaksnummerForm = ({ onSubmit }: { onSubmit: () => void }) => {
-  return (
-    <VStack gap="x1">
-      <Heading level={2} typographyType="headingXlarge" withMargins>
-        Rolle- og saksnummer
-      </Heading>
-      <Paragraph typographyType="leadMedium">
-        Vi trenger å vite litt om deg og saken før vi logger deg inn på neste
-        steg.
-      </Paragraph>
-      <form
-        onSubmit={event => {
-          event.preventDefault();
-          onSubmit();
-        }}
-      >
-        <Fieldset>
-          <Legend withMargins>Saksopplysninger</Legend>
-          <FieldsetGroup>
-            <TextInput label="Rettens saksnummer" required />
-            <Select
-              label="Din rolle"
-              required
-              options={[{ value: 'advokat', label: 'Advokat' }]}
-            />
-          </FieldsetGroup>
-        </Fieldset>
-        <Box marginBlock="x2 x1">
-          <Button icon={ArrowRightIcon} iconPosition="right">
-            Neste steg
-          </Button>
-        </Box>
-      </form>
-    </VStack>
-  );
-};
-
-const Kontaktinformasjon = ({ onSubmit }: { onSubmit: () => void }) => {
-  return (
-    <VStack>
-      <Heading level={2} typographyType="headingXlarge" withMargins>
-        Kontaktinformasjon
-      </Heading>
-      <VStack
-        as="form"
-        gap="x1.5"
-        onSubmit={event => {
-          event.preventDefault();
-          onSubmit();
-        }}
-        className="story-form-wrapper"
-      >
-        <Checkbox label="Jeg sender inn faktura på vegne av noen andre" />
-
-        <Fieldset>
-          <Legend withMargins>Hvor jobber du?</Legend>
-          <div className="story-form-wrapper">
-            <TextInput label="Firmanavn" required />
-            <TextInput label="Organisasjonsnummer" required />
-          </div>
-        </Fieldset>
-        <Button
-          htmlProps={{ style: { marginTop: '2rem' } }}
-          icon={ArrowRightIcon}
-          iconPosition="right"
-        >
-          Neste steg
-        </Button>
-      </VStack>
-    </VStack>
-  );
-};
-
-const Fakturainformasjon = ({ onSubmit }: { onSubmit: () => void }) => {
-  return (
-    <VStack>
-      <Heading level={2} typographyType="headingXlarge" withMargins>
-        Fakturainformasjon
-      </Heading>
-      <form
-        onSubmit={event => {
-          event.preventDefault();
-          onSubmit();
-        }}
-        className="story-form-wrapper"
-      >
-        <Fieldset>
-          <div className="story-form-wrapper">
-            <TextInput
-              label="Fakturanummer eller annen unik referanse"
-              required
-            />
-            <TextInput label="KID-nummer" />
-            <TextInput label="Kontonummer" required />
-          </div>
-        </Fieldset>
-        <Checkbox label="Ikke beregn 25% moms" />
-        <Button
-          className="story-step-button"
-          icon={ArrowRightIcon}
-          iconPosition="right"
-        >
-          Neste steg
-        </Button>
-      </form>
-    </VStack>
-  );
 };

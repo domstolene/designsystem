@@ -4,7 +4,6 @@ import { type RadioButtonProps, type RadioValue } from './RadioButton.types';
 import { useRadioButtonGroup } from './RadioButtonGroupContext';
 import { getBaseHTMLProps } from '../../../types';
 import {
-  cn,
   readOnlyChangeHandler,
   readOnlyClickHandler,
   readOnlyKeyDownHandler,
@@ -49,10 +48,9 @@ export const RadioButton = ({
   'aria-describedby': ariaDescribedby,
   className,
   htmlProps = {},
+  style,
   ...rest
 }: RadioButtonProps) => {
-  const { className: htmlPropsClassName, style, ...restHtmlProps } = htmlProps;
-
   const generatedId = useId();
   const uniqueId = id ?? `${generatedId}-radioButton`;
   const hasChildren = !!children;
@@ -83,13 +81,13 @@ export const RadioButton = ({
     <Label
       disabled={isDisabled}
       style={style}
-      className={cn(className, htmlPropsClassName)}
+      className={className}
       hasText={hasLabel || hasChildren}
       htmlFor={uniqueId}
       controlType="radio"
     >
       <HiddenInput
-        {...getBaseHTMLProps(uniqueId, restHtmlProps, rest)}
+        {...getBaseHTMLProps(uniqueId, undefined, undefined, htmlProps, rest)}
         type="radio"
         name={name ?? radioButtonGroup?.name}
         disabled={isDisabled}

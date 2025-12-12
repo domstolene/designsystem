@@ -47,6 +47,7 @@ export const GlobalMessage = ({
   children,
   id,
   className,
+  style,
   htmlProps,
   ...rest
 }: GlobalMessageProps) => {
@@ -63,6 +64,7 @@ export const GlobalMessage = ({
           styles[`container--${purpose}`],
           typographyStyles['body-medium'],
         ),
+        style,
         htmlProps,
         rest,
       )}

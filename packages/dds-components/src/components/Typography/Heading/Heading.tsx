@@ -47,6 +47,7 @@ export type HeadingProps = BaseComponentPropsWithChildren<
 export const Heading = ({
   id,
   className,
+  style,
   htmlProps,
   children,
   typographyType,
@@ -60,7 +61,7 @@ export const Heading = ({
 
   return (
     <Typography
-      {...getBaseHTMLProps(id, className, htmlProps, rest)}
+      {...getBaseHTMLProps(id, className, style, htmlProps, rest)}
       typographyType={standardTypographyType}
       as={headingElement}
     >

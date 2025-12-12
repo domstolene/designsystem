@@ -32,7 +32,13 @@ export const commonArgTypes: Partial<ArgTypes> = {
   id: htmlArgType,
   className: htmlArgType,
   htmlProps: htmlArgType,
+  style: htmlArgType,
   ref: { control: { disable: true } },
+};
+
+export const commonArgTypesWithNodeChildren: Partial<ArgTypes> = {
+  ...commonArgTypes,
+  children: { control: { disable: true } },
 };
 
 export const htmlEventArgType: Partial<ArgTypes> = {

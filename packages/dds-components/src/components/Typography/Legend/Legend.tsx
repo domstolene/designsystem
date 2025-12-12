@@ -22,13 +22,14 @@ export type LegendProps = BaseComponentPropsWithChildren<
 export const Legend = ({
   id,
   className,
+  style,
   htmlProps,
   typographyType = 'headingLarge',
   ...rest
 }: LegendProps) => {
   return (
     <Typography
-      {...getBaseHTMLProps(id, className, htmlProps, rest)}
+      {...getBaseHTMLProps(id, className, style, htmlProps, rest)}
       as="legend"
       typographyType={typographyType}
     />

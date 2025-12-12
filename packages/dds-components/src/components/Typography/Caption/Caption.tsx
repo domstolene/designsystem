@@ -15,13 +15,14 @@ export type CaptionProps = BaseComponentPropsWithChildren<
 export const Caption = ({
   id,
   className,
+  style,
   htmlProps,
   children,
   ...rest
 }: CaptionProps) => {
   return (
     <Typography
-      {...getBaseHTMLProps(id, className, htmlProps, rest)}
+      {...getBaseHTMLProps(id, className, style, htmlProps, rest)}
       typographyType="headingLarge"
       as="caption"
     >

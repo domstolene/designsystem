@@ -41,4 +41,13 @@ describe('<Button>', () => {
     expect(button).toBeDisabled();
     expect(onClick).not.toHaveBeenCalled();
   });
+  it('is disabled', async () => {
+    const onClick = vi.fn();
+    render(<Button onClick={onClick} htmlProps={{ disabled: true }} />);
+    const button = screen.getByRole('button');
+    await userEvent.click(button);
+
+    expect(button).toBeDisabled();
+    expect(onClick).not.toHaveBeenCalled();
+  });
 });

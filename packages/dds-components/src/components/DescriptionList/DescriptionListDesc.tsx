@@ -20,10 +20,19 @@ export const DescriptionListDesc = ({
   icon,
   id,
   className,
+  style,
   htmlProps,
   ...rest
 }: DescriptionListDescProps) => (
-  <dd {...getBaseHTMLProps(id, cn(className, styles.desc), htmlProps, rest)}>
+  <dd
+    {...getBaseHTMLProps(
+      id,
+      cn(className, styles.desc),
+      style,
+      htmlProps,
+      rest,
+    )}
+  >
     {icon && <Icon icon={icon} />} {children}
   </dd>
 );

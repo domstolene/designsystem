@@ -32,8 +32,5 @@ export type ToggleBarProps<T extends string | number> =
       /**Bredden til komponenten. Bredden fordeles likt mellom barna.  */
       width?: ResponsiveProps['width'];
     },
-    Omit<
-      InputHTMLAttributes<HTMLInputElement>,
-      'value' | 'onChange' | 'size' | 'width'
-    >
+    InputHTMLAttributes<HTMLInputElement>
   >;

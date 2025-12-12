@@ -1,4 +1,4 @@
-import { type InputHTMLAttributes } from 'react';
+import { type ComponentProps, type InputHTMLAttributes } from 'react';
 
 import { type BaseComponentProps } from '../../../types';
 import { type SelectionControlCommonProps } from '../common/SelectionControl.types';
@@ -21,9 +21,7 @@ export type CheckboxProps = BaseComponentProps<
     /**Brukes ved nøstet struktur der alle `<Checkbox>` som hører til en gruppe kan bli valgt ved å trykke på en forelder `<Checkbox>`.
      * Hvis enkelte `<Checkbox>` blir valgt men ikke alle, skal forelder `<Checkbox>` få tilstanden `indeterminate` - verken valgt eller ikke. */
     indeterminate?: boolean;
-  } & CheckboxPickedHTMLAttributes,
-  Omit<
-    InputHTMLAttributes<HTMLInputElement>,
-    keyof CheckboxPickedHTMLAttributes
-  >
+  } & CheckboxPickedHTMLAttributes &
+    Pick<ComponentProps<'input'>, 'required'>,
+  InputHTMLAttributes<HTMLInputElement>
 >;

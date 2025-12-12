@@ -97,6 +97,7 @@ export const Popover = ({
   anchorRef,
   isOpen: propIsOpen,
   onClose: propOnClose,
+  style,
   ref,
   ...rest
 }: PopoverProps) => {
@@ -196,6 +197,10 @@ export const Popover = ({
           utilStyles[`visibility-transition--${openCn}`],
           focusStyles.focusable,
         ),
+        {
+          ...style,
+          ...floatStyling,
+        },
         htmlProps,
         rest,
       )}
@@ -207,10 +212,6 @@ export const Popover = ({
       width={width}
       maxWidth={maxWidth}
       minWidth={minWidth}
-      style={{
-        ...htmlProps.style,
-        ...floatStyling,
-      }}
       role="dialog"
       elevation={3}
       border="border-subtle"

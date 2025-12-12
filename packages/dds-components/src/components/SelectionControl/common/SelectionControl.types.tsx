@@ -1,3 +1,5 @@
+import { type ReactNode } from 'react';
+
 import { type Direction } from '../../../types';
 
 export interface SelectionControlCommonProps {
@@ -9,6 +11,8 @@ export interface SelectionControlCommonProps {
   error?: boolean;
   /**Inputelementet blir `readonly` - den kan ikke interageres med. Brukes bl.a. til å presentere input brukeren har fylt ut andre steder. */
   readOnly?: boolean;
+  /**Barn. Brukes når komponenten skal ha unik layout eller lignende. */
+  children?: ReactNode;
 }
 
 export interface SelectionControlGroupCommonProps {

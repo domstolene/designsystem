@@ -27,6 +27,7 @@ export const DescriptionList = ({
   children,
   id,
   className,
+  style,
   htmlProps,
   ...rest
 }: DescriptionListProps) => (
@@ -44,6 +45,7 @@ export const DescriptionList = ({
         styles[`list--${appearance}`],
         styles[`list--${direction}`],
       ),
+      style,
       htmlProps,
       rest,
     )}

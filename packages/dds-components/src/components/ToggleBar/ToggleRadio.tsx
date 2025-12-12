@@ -21,11 +21,6 @@ export const typographyTypes: Record<ToggleBarSize, StaticTypographyType> = {
   xsmall: 'bodyXsmall',
 };
 
-type PickedInputHTMLAttributes = Pick<
-  InputHTMLAttributes<HTMLInputElement>,
-  'name' | 'checked' | 'value' | 'onChange' | 'aria-label' | 'aria-labelledby'
->;
-
 export type ToggleRadioProps = BaseComponentProps<
   HTMLInputElement,
   {
@@ -33,8 +28,10 @@ export type ToggleRadioProps = BaseComponentProps<
     label?: string;
     /**Ikonet som vises i komponenten. */
     icon?: SvgIcon;
-  } & PickedInputHTMLAttributes,
-  Omit<InputHTMLAttributes<HTMLInputElement>, keyof PickedInputHTMLAttributes>
+  } & Pick<
+    InputHTMLAttributes<HTMLInputElement>,
+    'name' | 'checked' | 'value' | 'onChange' | 'aria-label' | 'aria-labelledby'
+  >
 >;
 
 /**Beregner om en ToggleRadio skal være checked eller ikke.
@@ -74,6 +71,7 @@ export const ToggleRadio = ({
   label,
   htmlProps,
   className,
+  style,
   id,
   ...rest
 }: ToggleRadioProps) => {
@@ -94,6 +92,7 @@ export const ToggleRadio = ({
         {...getBaseHTMLProps(
           uniqueId,
           cn(className, focusStyles['focusable-sibling']),
+          style,
           htmlProps,
           rest,
         )}

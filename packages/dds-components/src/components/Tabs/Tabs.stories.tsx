@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import {
   StoryLabel,
-  commonArgTypes,
+  commonArgTypesWithNodeChildren,
   labelText,
   responsivePropsArgTypes,
   windowWidthDecorator,
@@ -20,7 +20,7 @@ export default {
   component: Tabs,
   argTypes: {
     width: responsivePropsArgTypes.width,
-    ...commonArgTypes,
+    ...commonArgTypesWithNodeChildren,
     addTabButtonProps: { control: false },
   },
 } satisfies Meta<typeof Tabs>;
@@ -228,7 +228,7 @@ export const TabOverflow: Story = {
         Hvis den totale bredden til fanene går utover tilgjengelig bredde vil
         horisontal scrollbar vises.
       </Paragraph>
-      <Tabs {...args} htmlProps={{ style: { width: '200px' } }}>
+      <Tabs {...args} style={{ width: '200px' }}>
         <TabList>
           <Tab>Fane 1</Tab>
           <Tab>Fane 2</Tab>

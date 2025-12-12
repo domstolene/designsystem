@@ -1,6 +1,6 @@
 import { type StoryObj } from '@storybook/react-vite';
 
-import { commonArgTypes } from '../../storybook';
+import { commonArgTypesWithNodeChildren } from '../../storybook';
 
 import { ToggleButton, ToggleButtonGroup } from '.';
 
@@ -8,7 +8,7 @@ export default {
   title: 'dds-components/Components/ToggleButton/ToggleButtonGroup',
   component: ToggleButtonGroup,
   argTypes: {
-    ...commonArgTypes,
+    ...commonArgTypesWithNodeChildren,
     labelId: { control: false },
   },
 };

@@ -40,6 +40,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
     onCurrentPageChange,
     id,
     className,
+    style,
     htmlProps,
     ...rest
   } = props;
@@ -103,6 +104,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
       {...getBaseHTMLProps(
         id,
         cn(className, styles.bar, !!navigation && styles['bar--with-nav']),
+        style,
         htmlProps,
         rest,
       )}

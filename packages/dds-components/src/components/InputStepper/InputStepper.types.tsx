@@ -37,8 +37,5 @@ export type InputStepperProps = BaseComponentProps<
     /** Funksjon for å håndtere onChange    */
     onChange?: (value: number) => void;
   } & InputProps,
-  Omit<
-    InputHTMLAttributes<HTMLInputElement>,
-    'defaultValue' | 'onChange' | 'width' | 'value'
-  >
+  Omit<InputHTMLAttributes<HTMLInputElement>, 'height'>
 >;

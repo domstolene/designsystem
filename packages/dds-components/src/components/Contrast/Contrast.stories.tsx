@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { ddsProviderDecorator } from '../../storybook';
+import { ddsProviderDecorator, responsivePropsArgTypes } from '../../storybook';
 import { BackLink } from '../BackLink';
 import { Breadcrumb, Breadcrumbs } from '../Breadcrumbs';
 import {
@@ -17,10 +17,11 @@ import { Link, Paragraph } from '../Typography';
 import { Contrast } from '.';
 
 const meta: Meta<typeof Contrast> = {
-  title: 'dds-components/Components/Contrast',
+  title: 'dds-components/Layout primitives/Contrast',
   component: Contrast,
   argTypes: {
     as: { control: 'text' },
+    ...responsivePropsArgTypes,
   },
   decorators: [ddsProviderDecorator],
 };

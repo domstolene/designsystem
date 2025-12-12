@@ -1,9 +1,9 @@
 import { type InputHTMLAttributes } from 'react';
 
-import { type BaseComponentPropsWithChildren } from '../../../types';
+import { type BaseComponentProps } from '../../../types';
 import { type SelectionControlCommonProps } from '../common/SelectionControl.types';
 
-type PickedInputHTMLAttributes = Pick<
+export type RadioPickedInputHTMLAttributes = Pick<
   InputHTMLAttributes<HTMLInputElement>,
   | 'name'
   | 'readOnly'
@@ -14,10 +14,9 @@ type PickedInputHTMLAttributes = Pick<
   | 'aria-describedby'
 >;
 
-export type RadioButtonProps = BaseComponentPropsWithChildren<
+export type RadioButtonProps = BaseComponentProps<
   HTMLInputElement,
-  SelectionControlCommonProps & PickedInputHTMLAttributes,
-  Omit<InputHTMLAttributes<HTMLInputElement>, keyof PickedInputHTMLAttributes>
+  SelectionControlCommonProps & RadioPickedInputHTMLAttributes
 >;
 
-export type RadioValue = PickedInputHTMLAttributes['value'];
+export type RadioValue = RadioPickedInputHTMLAttributes['value'];

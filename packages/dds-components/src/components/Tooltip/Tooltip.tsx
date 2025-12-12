@@ -167,9 +167,8 @@ export const Tooltip = ({
 
   return (
     <Box
-      {...getBaseHTMLProps(id, className, htmlProps, rest)}
+      {...getBaseHTMLProps(id, className, style, htmlProps, rest)}
       width="fit-content"
-      style={style}
       onMouseLeave={combineHandlers(closeTooltip, onMouseLeave)}
       onMouseOver={combineHandlers(openTooltip, onMouseOver)}
     >

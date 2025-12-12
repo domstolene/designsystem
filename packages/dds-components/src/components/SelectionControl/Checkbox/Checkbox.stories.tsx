@@ -3,7 +3,7 @@ import { fn } from 'storybook/test';
 
 import {
   categoryHtml,
-  commonArgTypes,
+  commonArgTypesWithNodeChildren,
   htmlArgType,
   htmlEventArgType,
 } from '../../../storybook';
@@ -16,7 +16,7 @@ export default {
   component: Checkbox,
   argTypes: {
     disabled: { table: categoryHtml },
-    ...commonArgTypes,
+    ...commonArgTypesWithNodeChildren,
     'aria-describedby': htmlArgType,
     name: htmlArgType,
     checked: htmlArgType,

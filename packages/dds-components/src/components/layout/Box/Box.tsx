@@ -50,6 +50,7 @@ export const Box = <T extends ElementType = 'div'>({
   flexWrap,
   flexBasis,
   flexFlow,
+  wordBreak,
   htmlProps,
   ...rest
 }: BoxProps<T>) => {
@@ -87,6 +88,7 @@ export const Box = <T extends ElementType = 'div'>({
     ...getResponsiveCSSProperties(flexWrap, 'r', 'wrap'),
     ...getResponsiveCSSProperties(flexBasis, 'r', 'basis'),
     ...getResponsiveCSSProperties(flexFlow, 'r', 'flow'),
+    ...getResponsiveCSSProperties(wordBreak, 'r', 'word-break'),
   };
 
   return (
@@ -128,11 +130,12 @@ export const Box = <T extends ElementType = 'div'>({
           flexWrap && styles['dds-wrap'],
           flexBasis && styles['dds-basis'],
           flexFlow && styles['dds-flow'],
+          wordBreak && styles['dds-word-break'],
         ),
+        { ...style, ...responsiveStyles },
         htmlProps,
         rest,
       )}
-      style={{ ...style, ...responsiveStyles }}
     />
   );
 };

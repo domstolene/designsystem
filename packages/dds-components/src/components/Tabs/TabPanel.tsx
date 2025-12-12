@@ -23,13 +23,14 @@ export const TabPanel = ({
   children,
   id,
   className,
+  style,
   htmlProps,
   padding = 'x0.25',
   ...rest
 }: TabPanelProps) => (
   <Box
     padding={padding}
-    {...getBaseHTMLProps(id, cn(className, focusable), htmlProps, rest)}
+    {...getBaseHTMLProps(id, cn(className, focusable), style, htmlProps, rest)}
     tabIndex={0}
     role="tabpanel"
     hidden={!active}

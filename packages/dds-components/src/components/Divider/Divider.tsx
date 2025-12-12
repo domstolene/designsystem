@@ -21,6 +21,7 @@ export const Divider = ({
   color = 'default',
   id,
   className,
+  style,
   htmlProps,
   ...rest
 }: DividerProps) => {
@@ -29,6 +30,7 @@ export const Divider = ({
       {...getBaseHTMLProps(
         id,
         cn(className, styles.divider, styles[`divider--${color}`]),
+        style,
         htmlProps,
         rest,
       )}

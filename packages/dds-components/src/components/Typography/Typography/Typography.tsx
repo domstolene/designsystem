@@ -15,7 +15,10 @@ import {
   isLegend,
 } from './Typography.utils';
 import { ElementAs } from '../../../polymorphic';
-import { type BaseComponentProps, getBaseHTMLProps } from '../../../types';
+import {
+  type BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '../../../types';
 import { cn } from '../../../utils';
 import { getTextColor, isTextColor } from '../../../utils/color';
 import { focusable } from '../../helpers/styling/focus.module.css';
@@ -23,7 +26,7 @@ import { Icon } from '../../Icon';
 import { OpenExternalIcon } from '../../Icon/icons';
 import typographyStyles from '../typographyStyles.module.css';
 
-type AnchorTypographyProps = BaseComponentProps<
+type AnchorTypographyProps = BaseComponentPropsWithChildren<
   HTMLAnchorElement,
   {
     /**nativ `href`-prop ved `typographyType='a'`.  */
@@ -38,12 +41,12 @@ type AnchorTypographyProps = BaseComponentProps<
   AnchorHTMLAttributes<HTMLAnchorElement>
 >;
 
-type LabelTypographyProps = BaseComponentProps<
+type LabelTypographyProps = BaseComponentPropsWithChildren<
   HTMLLabelElement,
   HTMLAttributes<HTMLLabelElement>
 >;
 
-type OtherTypographyProps = BaseComponentProps<
+type OtherTypographyProps = BaseComponentPropsWithChildren<
   HTMLElement,
   HTMLAttributes<HTMLElement>
 >;
@@ -86,8 +89,6 @@ export const Typography = (props: TypographyProps) => {
     ...rest
   } = props;
 
-  const { style: htmlPropsStyle, ...restHtmlProps } = htmlProps;
-
   const as = propAs ? propAs : getElementType(typographyType);
   const typographyCn = getTypographyCn(typographyType);
 
@@ -122,15 +123,14 @@ export const Typography = (props: TypographyProps) => {
           italic && typographyStyles.italic,
           as === 'a' && focusable,
         ),
-        restHtmlProps,
+        {
+          ...style,
+          color: color && !isTextColor(color) ? getTextColor(color) : undefined,
+        },
+        htmlProps,
         rest,
       )}
       as={as}
-      style={{
-        ...htmlPropsStyle,
-        ...style,
-        color: color && !isTextColor(color) ? getTextColor(color) : undefined,
-      }}
       rel={relProp}
       target={targetProp}
     >

@@ -51,6 +51,7 @@ export function CookieBanner({
   checkboxes,
   id,
   className,
+  style,
   htmlProps,
   maxHeight = 'calc(100vh - 100px)',
   width = 'fit-content',
@@ -85,6 +86,7 @@ export function CookieBanner({
           utilStyles['scrollable-y'],
           typographyStyles['tertiary-medium'],
         ),
+        style,
         htmlProps,
         rest,
       )}

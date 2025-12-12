@@ -39,10 +39,6 @@ import { HStack, Paper, type ResponsiveProps, VStack } from '../layout';
 export const DRAWER_SIZES = createSizes('small', 'medium', 'large');
 export type DrawerSize = (typeof DRAWER_SIZES)[number];
 export type DrawerPlacement = 'left' | 'right';
-export type WidthProps = Pick<
-  ResponsiveProps,
-  'minWidth' | 'maxWidth' | 'width'
->;
 
 export type DrawerProps = Omit<
   BaseComponentPropsWithChildren<
@@ -63,13 +59,11 @@ export type DrawerProps = Omit<
        * @default themeProviderRef
        */
       parentElement?: HTMLElement;
-      /**Custom props for breddehåndtering ved behov. Kan settes per brekkpunkt eller samme verdi for alle. */
-      widthProps?: WidthProps;
       /**
        * Om `<Drawer>` skal vises med backdrop som gråer ut bakgrunnen.
        */
       withBackdrop?: boolean;
-    }
+    } & Pick<ResponsiveProps, 'minWidth' | 'maxWidth' | 'width'>
   >,
   'id'
 >;
@@ -81,8 +75,11 @@ export const Drawer = ({
   parentElement,
   size = 'small',
   className,
+  style,
   htmlProps,
-  widthProps = {},
+  maxWidth,
+  minWidth = '300px',
+  width,
   withBackdrop,
   ref,
   ...rest
@@ -97,7 +94,6 @@ export const Drawer = ({
   const portalTarget = parentElement ?? themeContext?.el;
 
   const { isOpen = false, onClose, drawerId, triggerEl } = useDrawerContext();
-  const { minWidth, maxWidth, width } = widthProps;
 
   const hasHeader = !!header;
   const headerId = hasHeader ? `${drawerId}-header` : undefined;
@@ -157,7 +153,7 @@ export const Drawer = ({
       position="fixed"
       top="0"
       height="100%"
-      minWidth={minWidth ? minWidth : '300px'}
+      minWidth={minWidth}
       maxWidth={maxWidth ? maxWidth : getMaxWidth(size)}
       width={width}
       display="flex"
@@ -174,6 +170,7 @@ export const Drawer = ({
           styles[`container--${placement}-${isOpenCn}`],
           focusStyles['focusable--inset'],
         ),
+        style,
         htmlProps,
         rest,
       )}

@@ -16,22 +16,29 @@ export const ShowHide = <T extends ElementType = 'div'>({
   hideBelow,
   showBelow,
   className,
+  style,
   htmlProps,
   id,
+  as: C,
   ...rest
-}: ShowHideProps<T>) => (
-  <ElementAs
-    {...getBaseHTMLProps(
-      id,
-      cn(
-        className,
-        hideBelow && styles[`${hideBelow}-hide-below`],
-        showBelow && showBelow !== 'xl' && styles[`${showBelow}-hide-above`],
-      ),
-      htmlProps,
-      rest,
-    )}
-  />
-);
+}: ShowHideProps<T>) => {
+  const as = C ?? 'div';
+  return (
+    <ElementAs
+      as={as}
+      {...getBaseHTMLProps(
+        id,
+        cn(
+          className,
+          hideBelow && styles[`${hideBelow}-hide-below`],
+          showBelow && showBelow !== 'xl' && styles[`${showBelow}-hide-above`],
+        ),
+        style,
+        htmlProps,
+        rest,
+      )}
+    />
+  );
+};
 
 ShowHide.displayName = 'ShowHide';

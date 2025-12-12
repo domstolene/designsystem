@@ -1,13 +1,10 @@
 import { type Property } from 'csstype';
-import {
-  type AnchorHTMLAttributes,
-  type InputHTMLAttributes,
-  type RefObject,
-} from 'react';
+import { type AnchorHTMLAttributes, type RefObject } from 'react';
 
 import { type BaseComponentPropsWithChildren } from '../../types';
 import { type CheckboxPickedHTMLAttributes } from '../SelectionControl/Checkbox';
 import { type SelectionControlCommonProps } from '../SelectionControl/common/SelectionControl.types';
+import { type RadioPickedInputHTMLAttributes } from '../SelectionControl/RadioButton/RadioButton.types';
 
 export type CardAppearance = 'filled' | 'border';
 
@@ -33,7 +30,10 @@ export type InfoCardProps = BaseCardProps<HTMLDivElement> & {
 
 export type NavigationCardProps = BaseCardProps<HTMLAnchorElement> & {
   cardType: 'navigation';
-} & Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 'href' | 'target'>;
+} & Pick<
+    AnchorHTMLAttributes<HTMLAnchorElement>,
+    'href' | 'target' | 'onClick'
+  >;
 
 export type ExpandableCardProps = BaseCardProps<HTMLDivElement> & {
   cardType: 'expandable';
@@ -59,9 +59,6 @@ export type CardSelectableProps = BaseComponentPropsWithChildren<
         left?: Property.Left;
         top?: Property.Top;
       };
-    } & CheckboxPickedHTMLAttributes,
-  Omit<
-    InputHTMLAttributes<HTMLInputElement>,
-    keyof CheckboxPickedHTMLAttributes
-  >
+    } & RadioPickedInputHTMLAttributes &
+    CheckboxPickedHTMLAttributes
 >;

@@ -1,6 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
+import { Checkbox } from '../SelectionControl/Checkbox';
+
 import { BackLink } from '.';
 
 describe('<BackLink>', () => {
@@ -35,5 +37,14 @@ describe('<BackLink>', () => {
     render(<BackLink label={label} href={href} as={role} />);
 
     expect(screen.getByRole(role)).toBeInTheDocument();
+  });
+  it('renders checkbox when React component returning checkbox is passed', () => {
+    const label = 'link';
+    const href = '#';
+
+    render(<BackLink label={label} href={href} as={Checkbox} />);
+
+    expect(screen.getByRole('checkbox')).toBeInTheDocument();
+    expect(screen.queryByRole('link')).not.toBeInTheDocument();
   });
 });

@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { CardSelectable } from './CardSelectable';
 import { CardSelectableGroup } from './CardSelectableGroup';
 import {
-  commonArgTypes,
+  commonArgTypesWithNodeChildren,
   ddsProviderDecorator,
   responsivePropsArgTypes,
 } from '../../../storybook';
@@ -30,7 +30,7 @@ export default {
   title: 'dds-components/Components/Card/CardSelectable/Group',
   component: CardSelectableGroup,
   argTypes: {
-    ...commonArgTypes,
+    ...commonArgTypesWithNodeChildren,
     alignItems,
     flexDirection,
     columnGap,

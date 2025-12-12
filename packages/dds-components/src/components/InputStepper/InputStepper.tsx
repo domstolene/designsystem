@@ -21,6 +21,7 @@ import { renderLabel } from '../Typography/Label/Label.utils';
 export const InputStepper = ({
   id,
   className,
+  style,
   label,
   decreaseButtonLabel,
   increaseButtonLabel,
@@ -70,11 +71,11 @@ export const InputStepper = ({
     return {
       purpose: 'secondary',
       size: componentSize,
-      'aria-controls': uniqueId,
       onClick: isPlus ? handleMinus : handlePlus,
       icon: isPlus ? MinusIcon : PlusIcon,
       'aria-label': isPlus ? decreaseLabel : increaseLabel,
       className: cn(styles[`stepButton--${type}`], styles['stepButton']),
+      htmlProps: { 'aria-controls': uniqueId },
     };
   }
 
@@ -100,7 +101,7 @@ export const InputStepper = ({
   };
 
   return (
-    <div className={className}>
+    <div className={className} style={style}>
       {renderLabel({
         label,
         htmlFor: uniqueId,
@@ -115,13 +116,14 @@ export const InputStepper = ({
         {hideButtons ? null : <Button {...buttonProps('plus')} />}
         <Box
           as={StatefulInput}
+          {...getBaseHTMLProps(uniqueId, undefined, undefined, htmlProps, rest)}
           width="100%"
           type="text"
           inputMode="numeric"
           pattern="-?[0-9]+"
           id={uniqueId}
           componentSize={componentSize}
-          {...getBaseHTMLProps(uniqueId, styles.textInput, htmlProps, rest)}
+          className={styles.textInput}
           value={inputValue}
           onChange={handleInput}
           hasErrorMessage={hasErrorMessage}
