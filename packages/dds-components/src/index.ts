@@ -64,4 +64,5 @@ export * from './components/ToggleBar';
 export * from './components/ToggleButton';
 export * from './components/Tooltip';
 export * from './components/Typography';
+export { useTheme } from './components/ThemeProvider';
 export * from './components/VisuallyHidden';
