@@ -26,6 +26,7 @@ export const InputMessage = ({
   messageType,
   id,
   className,
+  style,
   htmlProps,
   children,
   ...rest
@@ -37,7 +38,13 @@ export const InputMessage = ({
     width: 'fit-content',
     maxWidth: '100%',
     wordBreak: 'break-word',
-    ...getBaseHTMLProps(id, cn(className, styles.container), htmlProps, rest),
+    ...getBaseHTMLProps(
+      id,
+      cn(className, styles.container),
+      style,
+      htmlProps,
+      rest,
+    ),
   };
 
   const tgCommonProps = {

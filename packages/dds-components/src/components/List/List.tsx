@@ -15,7 +15,7 @@ export type ListTypographyType = TypographyBodyType | 'inherit';
 export type ListProps = BaseComponentPropsWithChildren<
   HTMLUListElement | HTMLOListElement,
   {
-    /**Spesifiserer om komponenten skal returnere `<ul />` (punktliste) eller `<ol />` (nummerert liste).
+    /**Spesifiserer om komponenten skal returnere `<ul>` (punktliste) eller `<ol>` (nummerert liste).
      * @default "unordered"
      */
     listType?: ListType;
@@ -32,6 +32,7 @@ export const List = ({
   children,
   id,
   className,
+  style,
   htmlProps,
   ...rest
 }: ListProps) => {
@@ -39,7 +40,7 @@ export const List = ({
 
   return (
     <List
-      {...getBaseHTMLProps(id, className, htmlProps, rest)}
+      {...getBaseHTMLProps(id, className, style, htmlProps, rest)}
       className={cn(
         styles.list,
         styles[`list--${listType}`],

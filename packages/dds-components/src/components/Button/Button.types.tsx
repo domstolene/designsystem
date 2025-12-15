@@ -20,7 +20,7 @@ export type IconPosition = 'left' | 'right';
 
 type PickedHTMLAttributes = Pick<
   ButtonHTMLAttributes<HTMLButtonElement>,
-  'onClick' | 'onFocus' | 'onBlur' | 'type'
+  'onClick' | 'onFocus' | 'onBlur' | 'type' | 'aria-label'
 >;
 
 export type ButtonProps = BaseComponentProps<
@@ -55,5 +55,5 @@ export type ButtonProps = BaseComponentProps<
     /**Nativt `target`-attributt. Kan settes når knappen er et `<a>`-element.  */
     target?: string;
   } & PickedHTMLAttributes,
-  Omit<ButtonHTMLAttributes<HTMLButtonElement>, keyof PickedHTMLAttributes>
+  ButtonHTMLAttributes<HTMLButtonElement>
 >;

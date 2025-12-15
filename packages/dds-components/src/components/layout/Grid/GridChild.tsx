@@ -66,10 +66,10 @@ export const GridChild = <T extends ElementType = 'div'>({
           columnsOccupied === 'firstHalf' && styles['child--first-half'],
           columnsOccupied === 'secondHalf' && styles['child--second-half'],
         ),
+        { ...style, ...styleVariables },
         htmlProps,
         rest,
       )}
-      style={{ ...style, ...styleVariables }}
     />
   );
 };

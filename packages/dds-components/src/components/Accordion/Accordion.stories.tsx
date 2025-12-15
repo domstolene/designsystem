@@ -1,7 +1,10 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
-import { commonArgTypes, ddsProviderDecorator } from '../../storybook';
+import {
+  commonArgTypesWithNodeChildren,
+  ddsProviderDecorator,
+} from '../../storybook';
 import { Button } from '../Button';
 import {
   DetailList,
@@ -20,7 +23,7 @@ export default {
   title: 'dds-components/Components/Accordion',
   component: Accordion,
   argTypes: {
-    ...commonArgTypes,
+    ...commonArgTypesWithNodeChildren,
   },
   decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof Accordion>;

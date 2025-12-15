@@ -1,12 +1,6 @@
 .wrapper {
-  padding: var(--dds-spacing-x0-25);
   box-sizing: border-box;
-  position: absolute;
-  text-align: center;
-  overflow: hidden;
   clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  width: 1px;
   white-space: nowrap;
   opacity: 0;
 

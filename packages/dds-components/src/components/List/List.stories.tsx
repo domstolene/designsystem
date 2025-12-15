@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { commonArgTypes } from '../../storybook';
+import { commonArgTypesWithNodeChildren } from '../../storybook';
 import { StoryHStack } from '../layout/Stack/utils';
 import { Typography } from '../Typography';
 
@@ -10,7 +10,7 @@ export default {
   title: 'dds-components/Components/List',
   component: List,
   argTypes: {
-    ...commonArgTypes,
+    ...commonArgTypesWithNodeChildren,
   },
 } satisfies Meta<typeof List>;
 

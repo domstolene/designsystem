@@ -36,6 +36,7 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
     children,
     id,
     className,
+    style,
     htmlProps = {},
     ...rest
   } = props;
@@ -65,6 +66,7 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
       {...getBaseHTMLProps(
         id,
         cn(className, styles.container),
+        style,
         { ...htmlProps, 'aria-required': ariaRequired },
         rest,
       )}

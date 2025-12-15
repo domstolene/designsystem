@@ -17,8 +17,5 @@ export type ToggleButtonProps = BaseComponentProps<
      */
     size?: (typeof TOGGLE_BUTTON_SIZES)[number];
   } & CheckboxPickedHTMLAttributes,
-  Omit<
-    InputHTMLAttributes<HTMLInputElement>,
-    keyof CheckboxPickedHTMLAttributes | 'size'
-  >
+  InputHTMLAttributes<HTMLInputElement>
 >;

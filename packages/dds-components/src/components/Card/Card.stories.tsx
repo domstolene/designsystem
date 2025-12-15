@@ -1,8 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
-import { fn } from 'storybook/test';
 
-import { commonArgTypes, htmlEventArgType } from '../../storybook';
+import { commonArgTypesWithNodeChildren } from '../../storybook';
 import {
   DescriptionList,
   DescriptionListDesc,
@@ -23,11 +22,9 @@ export default {
   title: 'dds-components/Components/Card',
   component: Card,
   argTypes: {
-    ...commonArgTypes,
+    ...commonArgTypesWithNodeChildren,
     cardRef: { control: false },
-    onClick: htmlEventArgType,
   },
-  args: { onClick: fn() },
 } satisfies Meta<typeof Card>;
 
 type Story = StoryObj<typeof Card>;

@@ -16,11 +16,12 @@ export type FieldsetProps = BaseComponentPropsWithChildren<
 export const Fieldset = ({
   id,
   className,
+  style,
   htmlProps,
   ...rest
 }: FieldsetProps) => (
   <fieldset
-    {...getBaseHTMLProps(id, cn(className, container), htmlProps, rest)}
+    {...getBaseHTMLProps(id, cn(className, container), style, htmlProps, rest)}
   />
 );
 
