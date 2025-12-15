@@ -41,16 +41,16 @@
   ],
   "devDependencies": {
     "@norges-domstoler/storybook-components": "workspace:*",
-    "@testing-library/react": "^16.3.0",
+    "@testing-library/react": "^16.3.1",
     "@types/react": "19.2.7",
-    "react": "19.2.1",
+    "react": "19.2.3",
     "typed-css-modules": "^0.9.1",
-    "autoprefixer": "^10.4.22",
+    "autoprefixer": "^10.4.23",
     "csstype": "3.2.3",
     "postcss": "^8.5.6",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3",
-    "vite": "^7.2.7",
+    "vite": "^7.3.0",
     "vitest": "^4.0.15"
   },
   "peerDependencies": {
