@@ -81,7 +81,7 @@ export const Tag = ({
         id,
         cn(
           className,
-          typographyStyles['body-small'],
+          typographyStyles['body-short-medium'],
           styles.container,
           withIcon && icon && styles['container--with-icon'],
           styles[`container--${purpose}--${appearance}`],
@@ -91,7 +91,7 @@ export const Tag = ({
         rest,
       )}
     >
-      {withIcon && icon && <Icon icon={icon} iconSize="small" />}
+      {withIcon && icon && <Icon icon={icon} iconSize="component" />}
       <TextOverflowEllipsisInner>{children}</TextOverflowEllipsisInner>
     </TextOverflowEllipsisWrapper>
   );

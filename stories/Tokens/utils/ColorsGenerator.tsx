@@ -177,7 +177,11 @@ export const DataColorsBaseGenerator = () => {
             <Heading level={2} typographyType="headingXsmall">
               {tokenName}
             </Heading>
-            <Typography as="span" typographyType="bodySmall" color="textMedium">
+            <Typography
+              as="span"
+              typographyType="bodyShortSmall"
+              color="textMedium"
+            >
               {token.value}
             </Typography>
           </VStack>,
@@ -235,7 +239,11 @@ export const ColorsBaseGenerator = () => {
             <Heading level={2} typographyType="headingXsmall">
               {tokenName}
             </Heading>
-            <Typography as="span" typographyType="bodySmall" color="textMedium">
+            <Typography
+              as="span"
+              typographyType="bodyShortSmall"
+              color="textMedium"
+            >
               {token.value}
             </Typography>
           </VStack>,

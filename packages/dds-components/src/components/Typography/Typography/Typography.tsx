@@ -74,7 +74,7 @@ const isAnchorProps = (
 
 export const Typography = (props: TypographyProps) => {
   const {
-    typographyType = 'bodyMedium',
+    typographyType = 'bodyLongMedium',
     as: propAs,
     children,
     bold,

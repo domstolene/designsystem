@@ -31,7 +31,7 @@ type Story = StoryObj<typeof ToggleBar>;
 
 const toggleRadios = (label?: boolean, icon?: boolean) => {
   const radios = [];
-  for (let i = 1; i <= 3; i++) {
+  for (let i = 1; i <= 5; i++) {
     radios.push(
       <ToggleRadio
         key={i}

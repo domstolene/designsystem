@@ -7,10 +7,12 @@ import {
   getBaseHTMLProps,
 } from '../../../types';
 import { cn } from '../../../utils';
-import { AnimatedChevronUpDownIcon, StylelessButton } from '../../helpers';
+import { StylelessButton } from '../../helpers';
 import { useAccordionContext } from '../../helpers/AccordionBase';
 import baseStyles from '../../helpers/AccordionBase/AccordionBase.module.css';
 import { focusable } from '../../helpers/styling/focus.module.css';
+import { Icon } from '../../Icon';
+import { AnimatedChevronUpDownIcon } from '../../Icon/icons/animated';
 import { type StaticTypographyType, getTypographyCn } from '../../Typography';
 import typographyStyles from '../../Typography/typographyStyles.module.css';
 
@@ -50,6 +52,7 @@ export const CardExpandableHeader = ({
   };
 
   const { id, ...restHeaderProps } = headerProps ?? {};
+  const iconState = isExpanded ? 'up' : 'down';
 
   return (
     <StylelessButton
@@ -71,7 +74,6 @@ export const CardExpandableHeader = ({
       <div
         style={containerStyleVariables}
         className={cn(
-          baseStyles['header-container'],
           styles['header-container'],
           typographyStyles[getTypographyCn(typographyType)],
           bold && typographyStyles.bold,
@@ -79,9 +81,10 @@ export const CardExpandableHeader = ({
       >
         <div className={(baseStyles.header__content, styles.header__content)}>
           {children}
-          <AnimatedChevronUpDownIcon
+          <Icon
+            icon={AnimatedChevronUpDownIcon}
             className={styles['header-container__chevron']}
-            isUp={isExpanded}
+            iconState={iconState}
           />
         </div>
       </div>

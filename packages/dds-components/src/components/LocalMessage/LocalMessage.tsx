@@ -105,6 +105,7 @@ export const LocalMessage = ({
       gap="x0.5"
     >
       <Icon
+        iconSize="component"
         icon={icons[purpose]}
         className={cn(styles.icon, styles.container__icon)}
       />

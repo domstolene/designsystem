@@ -316,7 +316,7 @@ export const PhoneInput = ({
         <Box width="100%" className={inputStyles['input-group']}>
           <span
             className={cn(
-              typographyStyles[`body-${componentSize}`],
+              typographyStyles[`body-short-${componentSize}`],
               inputStyles['input-group__absolute-el'],
               styles['calling-code'],
             )}

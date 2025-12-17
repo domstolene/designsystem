@@ -122,7 +122,7 @@ export const Toggle = ({
       <span className={cn(styles.track, focusStyles['focus-styled-sibling'])}>
         <span className={styles.thumb}>
           {isLoading ? (
-            <Spinner size={`var(--dds-icon-size-${size})`} />
+            <Spinner size={`var(--dds-size-icon-${size})`} />
           ) : (
             <Icon
               className={styles.checkmark}

@@ -1,6 +1,6 @@
-import { type SvgProps } from './types';
 import { cn, getTextColor } from '../../../utils';
 import styles from '../Icon.module.css';
+import { type SvgProps } from './types';
 
 const size = 24;
 const sizeCSS = 'var(--dds-size-icon-medium)';

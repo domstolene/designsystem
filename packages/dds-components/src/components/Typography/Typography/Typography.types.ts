@@ -2,15 +2,21 @@ import { type ElementType } from 'react';
 
 import { type TextColor } from '../../../utils/color';
 
-export type TypographyBodyType =
+export type TypographyBodyShortType =
   | 'bodyShortXsmall'
   | 'bodyShortSmall'
   | 'bodyShortMedium'
-  | 'bodyShortLarge'
+  | 'bodyShortLarge';
+
+export type TypographyBodyLongType =
   | 'bodyLongXsmall'
   | 'bodyLongSmall'
   | 'bodyLongMedium'
   | 'bodyLongLarge';
+
+export type TypographyBodyType =
+  | TypographyBodyLongType
+  | TypographyBodyShortType;
 
 export type TypographyHeadingType =
   | 'headingXxsmall'

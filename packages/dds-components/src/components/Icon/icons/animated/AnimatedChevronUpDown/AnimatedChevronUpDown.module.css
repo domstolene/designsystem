@@ -1,21 +1,18 @@
 .svg {
-  display: inline-block;
-  flex-shrink: 0;
-  position: relative;
-  text-align: center;
-  vertical-align: middle;
-  --dds-chevron-transition: transform 0.2s linear;
+  @media (prefers-reduced-motion: no-preference) {
+    --dds-chevron-transition: transform 0.2s linear;
+  }
 }
 
 .group {
   transition: var(--dds-chevron-transition);
 }
 
-.group--up {
+.svg--up .group {
   transform: translateY(-3px);
 }
 
-.group--down {
+.svg--down .group {
   transform: translateY(3px);
 }
 
@@ -26,16 +23,16 @@
   transform-origin: center;
 }
 
-.left--up {
+.svg--up .left {
   transform: rotate(-45deg);
 }
-.left--down {
+.svg--down .left {
   transform: rotate(45deg);
 }
 
-.right--up {
+.svg--up .right {
   transform: rotate(45deg);
 }
-.right--down {
+.svg--down .right {
   transform: rotate(-45deg);
 }

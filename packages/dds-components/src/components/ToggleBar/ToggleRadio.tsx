@@ -8,6 +8,7 @@ import styles from './ToggleBar.module.css';
 import { type ToggleBarSize } from './ToggleBar.types';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
+import buttonStyles from '../Button/Button.module.css';
 import { HiddenInput } from '../helpers';
 import focusStyles from '../helpers/styling/focus.module.css';
 import { Icon } from '../Icon';
@@ -15,10 +16,10 @@ import { type SvgIcon } from '../Icon/utils';
 import { type StaticTypographyType, Typography } from '../Typography';
 
 export const typographyTypes: Record<ToggleBarSize, StaticTypographyType> = {
-  large: 'bodyLarge',
-  medium: 'bodyMedium',
-  small: 'bodySmall',
-  xsmall: 'bodyXsmall',
+  large: 'bodyShortLarge',
+  medium: 'bodyShortMedium',
+  small: 'bodyShortSmall',
+  xsmall: 'bodyShortXsmall',
 };
 
 export type ToggleRadioProps = BaseComponentProps<
@@ -83,8 +84,14 @@ export const ToggleRadio = ({
     onChange?.(event);
     group?.onChange?.(event);
   };
+  const hasLabel = !!label;
+  const hasIcon = !!icon;
 
-  const contentTypeCn = label ? 'with-text' : 'just-icon';
+  const contentTypeCn = !hasLabel
+    ? 'just-icon'
+    : !hasIcon
+      ? 'just-text'
+      : 'with-text-and-icon';
 
   return (
     <label htmlFor={uniqueId} className={styles.label}>
@@ -109,11 +116,13 @@ export const ToggleRadio = ({
         typographyType={typographyTypes[group.size]}
         className={cn(
           styles.content,
-          styles[`content--${group.size}--${contentTypeCn}`],
+          buttonStyles[contentTypeCn],
+          hasLabel && hasIcon && buttonStyles['with-icon-left'],
+          buttonStyles[`button--${group.size}`],
           focusStyles['focus-styled-sibling'],
         )}
       >
-        {icon && <Icon icon={icon} iconSize="inherit" />}
+        {icon && <Icon icon={icon} iconSize="component" />}
         {label && <span>{label}</span>}
       </Typography>
     </label>

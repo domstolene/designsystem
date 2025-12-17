@@ -26,7 +26,7 @@ export const StatefulInput = ({
       className,
       styles['input--stateful'],
       styles[`input--${componentSize}`],
-      typographyStyles[`body-${componentSize}`],
+      typographyStyles[`body-short-${componentSize}`],
       hasErrorMessage && styles['input--stateful-danger'],
     )}
     {...rest}

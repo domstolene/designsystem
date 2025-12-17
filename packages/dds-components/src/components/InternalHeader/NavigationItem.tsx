@@ -16,7 +16,7 @@ export const NavigationItem = ({ isCurrent, ...rest }: NavigationItemProps) => (
     className={cn(
       styles['nav-list__item__link'],
       isCurrent && styles['nav-list__item__link--active'],
-      typographyStyles['body-medium'],
+      typographyStyles['body-short-medium'],
       focusable,
     )}
   />

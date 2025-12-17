@@ -98,67 +98,83 @@
 }
 
 :where(.input--small) {
-  padding: var(--dds-spacing-x0-5) var(--dds-spacing-x0-75);
+  padding: var(--dds-spacing-x0-5);
 }
 
 :where(.input--xsmall) {
-  padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-5);
+  padding: var(--dds-spacing-x0-25);
 }
 
 .input-with-icon--large {
   padding-left: calc(
-    var(--dds-spacing-x0-75) + var(--dds-size-icon-medium) +
+    var(--dds-spacing-x0-75) + var(--dds-size-icon-component) +
       var(--dds-spacing-lg-icon-text-gap)
   );
 }
 
 .input-with-icon--medium {
   padding-left: calc(
-    var(--dds-spacing-x0-75) + var(--dds-size-icon-medium) +
+    var(--dds-spacing-x0-75) + var(--dds-size-icon-component) +
       var(--dds-spacing-md-icon-text-gap)
   );
 }
 
 .input-with-icon--small {
   padding-left: calc(
-    var(--dds-spacing-x0-75) + var(--dds-size-icon-medium) +
+    var(--dds-spacing-x0-75) + var(--dds-size-icon-component) +
       var(--dds-spacing-sm-icon-text-gap)
   );
 }
 
 .input-with-icon--xsmall {
   padding-left: calc(
-    var(--dds-spacing-x0-5) + var(--dds-size-icon-small) +
+    var(--dds-spacing-x0-5) + var(--dds-size-icon-component) +
       var(--dds-spacing-xs-icon-text-gap)
   );
 }
 
 .input-with-el-right--large {
   padding-inline-end: calc(
-    var(--dds-spacing-x0-75) + var(--dds-size-icon-medium) +
+    var(--dds-spacing-x0-75) + var(--dds-size-icon-component) +
       var(--dds-spacing-x0-5)
   );
 }
 
 .input-with-el-right--medium {
   padding-inline-end: calc(
-    var(--dds-spacing-x0-75) + var(--dds-size-icon-medium) +
+    var(--dds-spacing-x0-75) + var(--dds-size-icon-component) +
       var(--dds-spacing-x0-5)
   );
 }
 
 .input-with-el-right--small {
   padding-inline-end: calc(
-    var(--dds-spacing-x0-75) + var(--dds-size-icon-medium) +
+    var(--dds-spacing-x0-75) + var(--dds-size-icon-component) +
       var(--dds-spacing-x0-5)
   );
 }
 
 .input-with-el-right--xsmall {
   padding-inline-end: calc(
-    var(--dds-spacing-x0-5) + var(--dds-size-icon-small) +
+    var(--dds-spacing-x0-5) + var(--dds-size-icon-component) +
       var(--dds-spacing-xs-icon-text-gap)
   );
+}
+
+.el-right--large {
+  right: var(--dds-spacing-x0-75);
+}
+
+.el-right--medium {
+  right: var(--dds-spacing-x0-75);
+}
+
+.el-right--small {
+  right: var(--dds-spacing-x0-5);
+}
+
+.el-right--xsmall {
+  right: var(--dds-spacing-x0-25);
 }
 
 :where(.input--with-affix) {

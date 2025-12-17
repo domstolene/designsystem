@@ -1,4 +1,10 @@
-import { type SvgIcon } from './utils';
+import { type ComponentType } from 'react';
+
+import {
+  type IconStatesOf,
+  type SvgIcon,
+  type SvgPropsWithState,
+} from './utils';
 import {
   type BaseComponentProps,
   createSizes,
@@ -32,11 +38,11 @@ export const ICON_SIZES = createSizes(
 );
 export type IconSize = (typeof ICON_SIZES)[number];
 
-export type IconProps = BaseComponentProps<
+export type IconProps<I extends SvgIcon = SvgIcon> = BaseComponentProps<
   SVGSVGElement,
   {
     /**Ikonet importert fra `@norges-domstoler/dds-components`. */
-    icon: SvgIcon;
+    icon: I;
     /**Størrelsen på ikonet.
      * @default "medium"
      */
@@ -45,10 +51,15 @@ export type IconProps = BaseComponentProps<
      * @default "currentcolor"
      */
     color?: TextColor;
-  }
+    /**
+     * Ikon-state hvis ikonet kan animeres; types basert på ikon valgt i `icon` prop. Statiske ikoner støtter ikke propen.
+     */
+    iconState?: IconStatesOf<I>;
+  },
+  SvgPropsWithState<I>
 >;
 
-export function Icon(props: IconProps) {
+export function Icon<I extends SvgIcon = SvgIcon>(props: IconProps<I>) {
   const {
     id,
     iconSize = 'medium',
@@ -56,21 +67,26 @@ export function Icon(props: IconProps) {
     icon,
     className,
     style,
-    htmlProps = {},
+    htmlProps,
+    iconState,
     ...rest
   } = props;
-  const { title, 'aria-hidden': ariaHidden = true } = htmlProps;
 
   const size = getSize(iconSize);
+  const C = icon as ComponentType<SvgPropsWithState<I>>;
 
-  return icon({
-    ...getBaseHTMLProps(id, className, style, htmlProps, rest),
-    title,
-    height: size,
-    width: size,
-    fill: color,
-    'aria-hidden': ariaHidden,
-  });
+  return (
+    <C
+      {...getBaseHTMLProps(id, className, style, htmlProps, {
+        ...rest,
+      })}
+      height={size}
+      width={size}
+      fill={color}
+      aria-hidden={htmlProps?.['aria-hidden'] ?? true}
+      iconState={iconState}
+    />
+  );
 }
 
 Icon.displayName = 'Icon';
