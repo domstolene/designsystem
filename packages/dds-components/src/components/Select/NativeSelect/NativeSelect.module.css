@@ -83,9 +83,9 @@
 }
 
 .clear-button--small {
-  right: calc(var(--dds-spacing-x0-5) + var(--dds-icon-size-small));
+  right: calc(var(--dds-spacing-x0-5) + var(--dds-size-icon-small));
 }
 
 .clear-button--medium {
-  right: calc(var(--dds-spacing-x0-5) + var(--dds-icon-size-medium));
+  right: calc(var(--dds-spacing-x0-5) + var(--dds-size-icon-medium));
 }

@@ -37,7 +37,12 @@ export const SkipToContent = ({
       className={cn(className, htmlPropsClassName, styles.wrapper)}
       style={{ ...style, top }}
     >
-      <Link {...getBaseHTMLProps(id, restHtmlProps, rest)}>{text}</Link>
+      <Link
+        {...getBaseHTMLProps(id, restHtmlProps, rest)}
+        typographyType="bodyShortMedium"
+      >
+        {text}
+      </Link>
     </Contrast>
   );
 };

@@ -120,7 +120,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
           applicationName
         )}
       </Typography>
-      <Typography typographyType="bodyMedium" as="span">
+      <Typography typographyType="bodyShortMedium" as="span">
         {applicationDesc}
       </Typography>
       {(hasContextMenu || navigation !== null) && (

@@ -61,7 +61,7 @@ const control = {
     },
     hasIcon: {
       paddingLeft:
-        'calc(var(--dds-spacing-x0-75) + var(--dds-icon-size-medium) + var(--dds-spacing-md-icon-text-gap))',
+        'calc(var(--dds-spacing-x0-75) + var(--dds-size-icon-medium) + var(--dds-spacing-md-icon-text-gap))',
     },
   },
   small: {
@@ -72,7 +72,7 @@ const control = {
     },
     hasIcon: {
       paddingLeft:
-        'calc(var(--dds-spacing-x0-75) + var(--dds-icon-size-medium) + var(--dds-spacing-sm-icon-text-gap))',
+        'calc(var(--dds-spacing-x0-75) + var(--dds-size-icon-medium) + var(--dds-spacing-sm-icon-text-gap))',
     },
   },
   xsmall: {
@@ -83,7 +83,7 @@ const control = {
     },
     hasIcon: {
       paddingLeft:
-        'calc(var(--dds-spacing-x0-5) + var(--dds-icon-size-small) + var(--dds-spacing-xs-icon-text-gap))',
+        'calc(var(--dds-spacing-x0-5) + var(--dds-size-icon-small) + var(--dds-spacing-xs-icon-text-gap))',
     },
   },
 };

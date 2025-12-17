@@ -24,18 +24,6 @@ export type TableSortCellProps = {
   onClick: (event: MouseEvent<HTMLButtonElement>) => void;
 } & Omit<TableCellProps, 'type'>;
 
-const makeSortIcon = (isSorted?: boolean, sortOrder?: SortOrder) => {
-  if (!isSorted || !sortOrder) {
-    return <Icon icon={UnfoldMoreIcon} iconSize="inherit" />;
-  }
-
-  return sortOrder === 'ascending' ? (
-    <Icon icon={ChevronDownIcon} iconSize="inherit" />
-  ) : (
-    <Icon icon={ChevronUpIcon} iconSize="inherit" />
-  );
-};
-
 export const SortCell = ({
   isSorted,
   sortOrder,
@@ -44,6 +32,12 @@ export const SortCell = ({
   ...rest
 }: TableSortCellProps) => {
   const { t } = useTranslation();
+  const SortIcon = () => {
+    if (!isSorted || !sortOrder) return UnfoldMoreIcon;
+    if (sortOrder === 'ascending') return ChevronDownIcon;
+    return ChevronUpIcon;
+  };
+
   return (
     <Cell
       type="head"
@@ -55,7 +49,7 @@ export const SortCell = ({
         aria-description={t(texts.changeSort)}
         className={cn(styles['sort-button'], focusable)}
       >
-        {children} {makeSortIcon(isSorted, sortOrder)}
+        {children} <Icon icon={SortIcon()} iconSize="component" />
       </StylelessButton>
     </Cell>
   );

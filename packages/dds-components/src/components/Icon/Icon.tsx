@@ -8,22 +8,30 @@ import {
 } from '../../types';
 import { type TextColor } from '../../utils';
 
-const getSize = (iconSize: IconSize): string => {
+export const getSize = (iconSize: IconSize): string => {
   switch (iconSize) {
     case 'small':
-      return 'var(--dds-icon-size-small)';
+      return 'var(--dds-size-icon-small)';
     case 'medium':
-      return 'var(--dds-icon-size-medium)';
+      return 'var(--dds-size-icon-medium)';
     case 'large':
-      return 'var(--dds-icon-size-large)';
+      return 'var(--dds-size-icon-large)';
+    case 'component':
+      return 'var(--dds-size-icon-component)';
     case 'inherit':
       return '1em';
     default:
-      return 'var(--dds-icon-size-medium)';
+      return 'var(--dds-size-icon-medium)';
   }
 };
 
-export const ICON_SIZES = createSizes('small', 'medium', 'large', 'inherit');
+export const ICON_SIZES = createSizes(
+  'small',
+  'medium',
+  'large',
+  'inherit',
+  'component',
+);
 export type IconSize = (typeof ICON_SIZES)[number];
 
 export type IconProps = BaseComponentProps<

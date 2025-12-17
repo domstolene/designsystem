@@ -4,8 +4,9 @@ import styles from './Chip.module.css';
 import { createTexts, useTranslation } from '../../i18n';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils/dom';
-import { Button } from '../Button';
+import { InlineIconButton } from '../helpers/InlineIconButton';
 import { CloseSmallIcon } from '../Icon/icons';
+import { Box } from '../layout';
 import { TextOverflowEllipsisInner } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
@@ -38,25 +39,27 @@ export const Chip = ({
   };
 
   return isOpen ? (
-    <div
+    <Box
+      display="inline-flex"
+      alignItems="center"
+      maxWidth="100%"
+      gap="x0.125"
+      padding="x0.25 x0.125 x0.25 x0.5"
       {...getBaseHTMLProps(
         id,
-        cn(className, styles.container),
+        cn(className, typographyStyles['body-short-medium'], styles.container),
         restHTMLprops,
         rest,
       )}
     >
-      <TextOverflowEllipsisInner className={cn(typographyStyles['body-small'])}>
-        {text}
-      </TextOverflowEllipsisInner>
-      <Button
-        size="xsmall"
+      <TextOverflowEllipsisInner>{text}</TextOverflowEllipsisInner>
+      <InlineIconButton
+        size="component"
         icon={CloseSmallIcon}
-        purpose="tertiary"
         onClick={onClick}
         aria-label={ariaLabel ?? t(texts.removeChip) + (text ? ` ${text}` : '')}
       />
-    </div>
+    </Box>
   ) : null;
 };
 

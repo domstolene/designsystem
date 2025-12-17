@@ -107,56 +107,56 @@
 
 .input-with-icon--large {
   padding-left: calc(
-    var(--dds-spacing-x0-75) + var(--dds-icon-size-medium) +
+    var(--dds-spacing-x0-75) + var(--dds-size-icon-medium) +
       var(--dds-spacing-lg-icon-text-gap)
   );
 }
 
 .input-with-icon--medium {
   padding-left: calc(
-    var(--dds-spacing-x0-75) + var(--dds-icon-size-medium) +
+    var(--dds-spacing-x0-75) + var(--dds-size-icon-medium) +
       var(--dds-spacing-md-icon-text-gap)
   );
 }
 
 .input-with-icon--small {
   padding-left: calc(
-    var(--dds-spacing-x0-75) + var(--dds-icon-size-medium) +
+    var(--dds-spacing-x0-75) + var(--dds-size-icon-medium) +
       var(--dds-spacing-sm-icon-text-gap)
   );
 }
 
 .input-with-icon--xsmall {
   padding-left: calc(
-    var(--dds-spacing-x0-5) + var(--dds-icon-size-small) +
+    var(--dds-spacing-x0-5) + var(--dds-size-icon-small) +
       var(--dds-spacing-xs-icon-text-gap)
   );
 }
 
 .input-with-el-right--large {
   padding-inline-end: calc(
-    var(--dds-spacing-x0-75) + var(--dds-icon-size-medium) +
+    var(--dds-spacing-x0-75) + var(--dds-size-icon-medium) +
       var(--dds-spacing-x0-5)
   );
 }
 
 .input-with-el-right--medium {
   padding-inline-end: calc(
-    var(--dds-spacing-x0-75) + var(--dds-icon-size-medium) +
+    var(--dds-spacing-x0-75) + var(--dds-size-icon-medium) +
       var(--dds-spacing-x0-5)
   );
 }
 
 .input-with-el-right--small {
   padding-inline-end: calc(
-    var(--dds-spacing-x0-75) + var(--dds-icon-size-medium) +
+    var(--dds-spacing-x0-75) + var(--dds-size-icon-medium) +
       var(--dds-spacing-x0-5)
   );
 }
 
 .input-with-el-right--xsmall {
   padding-inline-end: calc(
-    var(--dds-spacing-x0-5) + var(--dds-icon-size-small) +
+    var(--dds-spacing-x0-5) + var(--dds-size-icon-small) +
       var(--dds-spacing-xs-icon-text-gap)
   );
 }
@@ -182,9 +182,9 @@
 }
 
 :where(.input-group__absolute-el--small) {
-  left: var(--dds-spacing-x0-75);
+  left: var(--dds-spacing-x0-5);
 }
 
 :where(.input-group__absolute-el--xsmall) {
-  left: var(--dds-spacing-x0-5);
+  left: var(--dds-spacing-x0-25);
 }

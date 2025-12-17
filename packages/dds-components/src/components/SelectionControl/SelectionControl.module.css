@@ -15,7 +15,7 @@
 
 .group--column {
   flex-direction: column;
-  gap: var(--dds-spacing-x0-5);
+  gap: var(--dds-spacing-x0-75);
 }
 
 .label {
@@ -78,10 +78,10 @@ input[data-indeterminate='true'] ~ .selection-control:after {
   .selection-control:after {
     border: solid var(--dds-color-icon-on-action);
     border-width: 0 1px 1px 0;
-    left: 6px;
-    top: 1px;
-    width: 5px;
-    height: 10px;
+    left: 35%;
+    top: 10%;
+    width: 30%;
+    height: 60%;
     transform: rotate(45deg);
   }
 
@@ -99,8 +99,8 @@ input[data-indeterminate='true'] ~ .selection-control:after {
   .selection-control:after {
     border-radius: var(--dds-border-radius-rounded);
     background-color: var(--dds-color-icon-on-action);
-    height: 8px;
-    width: 8px;
+    height: 45%;
+    width: 45%;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -145,8 +145,8 @@ input[data-indeterminate='true'] ~ .selection-control:after {
   border-color: var(--dds-color-border-default);
   background-color: var(--dds-color-surface-field-default);
   border-radius: var(--dds-border-radius-input);
-  height: var(--dds-selection-control-height);
-  width: var(--dds-selection-control-height);
+  height: var(--dds-size-icon-component);
+  width: var(--dds-size-icon-component);
   &:after {
     content: '';
     position: absolute;

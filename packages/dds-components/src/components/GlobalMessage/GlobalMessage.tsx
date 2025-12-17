@@ -59,7 +59,7 @@ export const GlobalMessage = ({
           className,
           styles.container,
           styles[`container--${purpose}`],
-          typographyStyles['body-medium'],
+          typographyStyles['body-short-medium'],
         ),
         htmlProps,
         rest,

@@ -3,7 +3,7 @@ import { cn, getTextColor } from '../../../utils';
 import styles from '../Icon.module.css';
 
 const size = 24;
-const sizeCSS = 'var(--dds-icon-size-medium)';
+const sizeCSS = 'var(--dds-size-icon-medium)';
 
 export function SvgWrapper({
   height,

@@ -1,12 +1,3 @@
 .container {
   word-break: break-word;
 }
-
-/* Plasserer ikonet sentrert i forhold til første linja av teksten.
-*  Trekker fra 1px slik at det ser ut som i Figma; CSS håndterer linjehøyde annerledes.
-*/
-.icon {
-  margin-top: calc(
-    (var(--dds-font-lineheight-x1) * 1em - var(--dds-icon-size-small)) / 2 - 1px
-  );
-}

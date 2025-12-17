@@ -188,7 +188,7 @@ export const Tooltip = ({
           border="border-subtle"
           className={cn(
             styles.paper,
-            typographyStyles['body-medium'],
+            typographyStyles['body-short-medium'],
             utilStyles['visibility-transition'],
             utilStyles[`visibility-transition--${openCn}`],
           )}

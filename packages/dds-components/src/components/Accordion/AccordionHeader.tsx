@@ -6,7 +6,7 @@ import {
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
-import { AnimatedChevronUpDown, StylelessButton } from '../helpers';
+import { AnimatedChevronUpDownIcon, StylelessButton } from '../helpers';
 import { useAccordionContext } from '../helpers/AccordionBase';
 import baseStyles from '../helpers/AccordionBase/AccordionBase.module.css';
 import { focusable } from '../helpers/styling/focus.module.css';
@@ -57,17 +57,6 @@ export const AccordionHeader = ({
       )}
       {...restHeaderProps}
     >
-      <Box
-        as="span"
-        marginInline="x0 x0.5"
-        className={baseStyles.header__chevron}
-      >
-        <AnimatedChevronUpDown
-          width="var(--dds-icon-size-medium)"
-          height="var(--dds-spacing-x0-5)"
-          isUp={isExpanded}
-        />
-      </Box>
       <div
         className={cn(
           baseStyles.header__content,
@@ -75,6 +64,11 @@ export const AccordionHeader = ({
           bold && typographyStyles.bold,
         )}
       >
+        <AnimatedChevronUpDownIcon
+          iconSize="component"
+          className={styles.chevron}
+          isUp={isExpanded}
+        />
         {children}
       </div>
     </Box>

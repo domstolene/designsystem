@@ -85,7 +85,7 @@ export const LocalMessage = ({
         id,
         cn(
           className,
-          typographyStyles['body-medium'],
+          typographyStyles['body-short-medium'],
           styles.container,
           styles[`container--${layout}`],
           closable && styles[`container--${layout}--closable`],

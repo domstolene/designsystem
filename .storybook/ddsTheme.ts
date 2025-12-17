@@ -3,7 +3,7 @@ import elsaLogoHigh from './images/Elsa-logo-hoy.png';
 import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 
 /** Storybook bruker core som tema */
-const theme = ddsTokens.core;
+const theme = ddsTokens['core-light'];
 
 export default create({
   base: 'light',

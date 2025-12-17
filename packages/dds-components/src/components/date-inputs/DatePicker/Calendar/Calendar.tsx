@@ -16,7 +16,7 @@ import { CalendarGrid } from './CalendarGrid';
 import { createTexts, useTranslation } from '../../../../i18n';
 import { Button } from '../../../Button';
 import { ArrowLeftIcon, ArrowRightIcon } from '../../../Icon/icons';
-import { HStack } from '../../../layout';
+import { HStack, VStack } from '../../../layout';
 import { Heading } from '../../../Typography';
 import styles from '../../common/DateInput.module.css';
 import { CalendarPopoverContext } from '../CalendarPopover';
@@ -60,7 +60,7 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
   };
 
   return (
-    <div {...calendarProps} className={styles.calendar}>
+    <VStack {...calendarProps} gap="x0.25" height="337px">
       <HStack justifyContent="space-between" alignItems="center">
         <Button
           type="button"
@@ -90,7 +90,7 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
         />
       </HStack>
       <CalendarGrid state={state} />
-    </div>
+    </VStack>
   );
 }
 

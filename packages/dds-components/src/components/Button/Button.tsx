@@ -61,15 +61,15 @@ export const Button = ({
     noContent && styles['no-content'],
     fullWidth && styles['button--full-width'],
     loading && styles['button--is-loading'],
-    typographyStyles[`body-${size}`],
+    typographyStyles[`body-short-${size}`],
     focusable,
   );
 
   const iconElement = hasIcon && (
     <Icon
       icon={icon}
-      iconSize="inherit"
-      className={cn(styles.icon, loading && invisible)}
+      iconSize="component"
+      className={cn(loading && invisible)}
     />
   );
 
@@ -88,14 +88,13 @@ export const Button = ({
       {loading && (
         <span className={cn(!noContent && styles['spinner-wrapper--absolute'])}>
           <Spinner
-            size="1em"
+            size="var(--dds-size-icon-component)"
             color={
               purpose === 'primary' || purpose === 'danger'
                 ? 'iconOnAction'
                 : 'iconDefault'
             }
             tooltip={spinnerTooltip}
-            className={styles.icon}
           />
         </span>
       )}

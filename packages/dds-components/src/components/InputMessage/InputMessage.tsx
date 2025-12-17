@@ -7,6 +7,7 @@ import { Icon } from '../Icon';
 import { ErrorIcon } from '../Icon/icons';
 import { Box, type BoxProps, Paper, type ResponsiveProps } from '../layout';
 import { Typography } from '../Typography/Typography/Typography';
+import tgStyles from '../Typography/typographyStyles.module.css';
 
 export type InputMessageType = 'error' | 'tip';
 
@@ -53,24 +54,20 @@ export const InputMessage = ({
       padding="x0.25 x0.5"
       background="surface-danger-default"
       borderRadius="surface"
+      className={tgStyles['body-short-small']}
     >
       <Icon
         icon={ErrorIcon}
-        iconSize="small"
-        className={styles.icon}
+        iconSize="component"
         color="icon-on-danger-default"
       />
-      <Typography
-        {...tgCommonProps}
-        typographyType="bodySmall"
-        color="textDefault"
-      />
+      {tgCommonProps.children}
     </Paper>
   ) : (
     <Box {...commonProps}>
       <Typography
         {...tgCommonProps}
-        typographyType="bodyXsmall"
+        typographyType="bodyShortXsmall"
         color="textSubtle"
       />
     </Box>

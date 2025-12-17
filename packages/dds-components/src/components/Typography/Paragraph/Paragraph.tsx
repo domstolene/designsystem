@@ -25,7 +25,7 @@ export const Paragraph = ({
   className,
   htmlProps,
   children,
-  typographyType = 'bodyMedium',
+  typographyType = 'bodyLongMedium',
   ...rest
 }: ParagraphProps) => {
   return (

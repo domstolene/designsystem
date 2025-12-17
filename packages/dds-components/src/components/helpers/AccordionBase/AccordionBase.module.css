@@ -7,21 +7,10 @@
   border-radius: inherit;
 }
 
-.header-container {
-  display: flex;
-  align-items: center;
-}
-
 .header__content {
   text-align: left;
-}
-
-.header__chevron {
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: var(--dds-icon-size-medium);
-  width: var(--dds-icon-size-medium);
 }
 
 .body {

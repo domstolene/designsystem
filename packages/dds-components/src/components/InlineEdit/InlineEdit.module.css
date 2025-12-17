@@ -60,7 +60,7 @@
 .edit-icon-textarea {
   position: absolute;
   top: calc(
-    ((var(--dds-font-lineheight-x1) * 1em - var(--dds-icon-size-small)) / 2) +
+    ((var(--dds-font-lineheight-x1) * 1em - var(--dds-size-icon-small)) / 2) +
       var(--dds-spacing-x0-25)
   );
 }
@@ -71,5 +71,5 @@
 }
 
 .clear-button {
-  right: calc(var(--dds-spacing-x0-75) + var(--dds-icon-size-small));
+  right: calc(var(--dds-spacing-x0-75) + var(--dds-size-icon-small));
 }

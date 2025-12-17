@@ -1,27 +1,49 @@
-import { type Property } from 'csstype';
-
 import styles from './Chevron.module.css';
+import { getBaseHTMLProps } from '../../../types';
 import { cn } from '../../../utils';
+import { type IconProps } from '../../Icon';
+import { getSize } from '../../Icon/Icon';
+import { type SvgProps, SvgWrapper } from '../../Icon/utils';
 
-const svgChevronLeftPath =
-  'M 1 0 L 5 4 C 5 4 5 4 5 4 L 4 5 C 4 5 4 5 4 5 C 4 5 4 5 4 5 L 0 1 C 0 1 0 1 0 1 L 1 0 C 1 0 1 0 1 0 C 1 0 1 0 1 0 L 1 0 Z';
-const svgChevronRightPath =
-  'M 3 4 L 7 0 L 8 1 C 8 1 8 1 8 1 L 4 5 L 3 4 C 3 4 3 4 3 4 L 3 4 Z';
+type SvgChevronProps = SvgProps & { isUp?: boolean };
 
-interface SvgChevronProps {
-  isUp?: boolean;
-  height?: Property.Height;
-  width?: Property.Width;
+export function AnimatedChevronUpDown(props: SvgChevronProps) {
+  const { isUp, className } = props;
+  const stateCn = isUp ? 'up' : 'down';
+  return (
+    <SvgWrapper {...props} className={cn(styles.svg, className)}>
+      <g className={cn(styles.group, styles[`group--${stateCn}`])}>
+        <line
+          stroke="currentColor"
+          strokeWidth="2px"
+          className={cn(styles.left, styles[`left--${stateCn}`])}
+          x1="4"
+          y1="12"
+          x2="12"
+          y2="12"
+        ></line>
+        <line
+          stroke="currentColor"
+          strokeWidth="2px"
+          className={cn(styles.right, styles[`right--${stateCn}`])}
+          x1="20"
+          y1="12"
+          x2="12"
+          y2="12"
+        ></line>
+      </g>
+    </SvgWrapper>
+  );
 }
 
 /**
- * Animert chevron der armene beveger seg uavhengig av hverandre.
+ * Animert chevron-ikon der armene beveger seg uavhengig av hverandre.
  *
  * @component
- * @param {SvgChevronProps} props - Props for komponenten.
+ * @param {AnimatedChevronUpDownIcon} props - Props for komponenten.
  * @param {boolean} props.isUp - om chevron peker opp.
- * @param {Property.Height} props.height - høyde.
- * @param {Property.Width} props.width - bredde.
+ * @param {IconSize} props.iconSize - størrelse.
+ * @param {TextColor} props.color - farge.
  *
  * @returns {JSX.Element} Et `<svg>`-element som animeres basert props.
 
@@ -29,34 +51,34 @@ interface SvgChevronProps {
  * ```tsx
  * const [isExpanded, setIsExpanded] = useState(false);
  * <button onClick={() => setIsExpanded(!isExpanded)}>
- *    <AnimatedChevronUpDown isUp={isExpanded} />
+ *    <AnimatedChevronUpDownIcon isUp={isExpanded} />
  * </button>
  * ```
  */
 
-export const AnimatedChevronUpDown = ({
-  isUp,
-  height = '5px',
-  width = '8px',
-}: SvgChevronProps) => {
-  const stateCn = isUp ? 'up' : 'down';
-  return (
-    <svg
-      viewBox="0 0 8 5"
-      fill="currentColor"
-      className={cn(styles.svg)}
-      style={{ height, width }}
-    >
-      <g className={cn(styles.group, styles[`group--${stateCn}`])}>
-        <path
-          d={svgChevronLeftPath}
-          className={cn(styles.left, styles[`left--${stateCn}`])}
-        />
-        <path
-          d={svgChevronRightPath}
-          className={cn(styles.right, styles[`right--${stateCn}`])}
-        />
-      </g>
-    </svg>
-  );
-};
+type AnimatedChevronUpDownIcon = Omit<IconProps, 'icon'> & { isUp?: boolean };
+
+export function AnimatedChevronUpDownIcon(props: AnimatedChevronUpDownIcon) {
+  const {
+    id,
+    iconSize = 'medium',
+    color = 'currentcolor',
+    className,
+    htmlProps = {},
+    ...rest
+  } = props;
+  const { title, 'aria-hidden': ariaHidden = true } = htmlProps;
+
+  const size = getSize(iconSize);
+
+  return AnimatedChevronUpDown({
+    ...getBaseHTMLProps(id, className, htmlProps, rest),
+    title,
+    height: size,
+    width: size,
+    fill: color,
+    'aria-hidden': ariaHidden,
+  });
+}
+
+AnimatedChevronUpDownIcon.displayName = 'AnimatedChevronUpDownIcon';

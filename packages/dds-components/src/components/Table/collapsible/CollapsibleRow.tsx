@@ -15,7 +15,7 @@ import {
   spaceSeparatedIdListGenerator,
 } from '../../../utils';
 import { DescriptionList, DescriptionListTerm } from '../../DescriptionList';
-import { AnimatedChevronUpDown, StylelessButton } from '../../helpers';
+import { AnimatedChevronUpDownIcon, StylelessButton } from '../../helpers';
 import { focusable } from '../../helpers/styling/focus.module.css';
 import { VisuallyHidden } from '../../VisuallyHidden';
 import { Table, type TableRowProps } from '../normal';
@@ -140,10 +140,8 @@ export const CollapsibleRow = ({
             aria-controls={idList}
             className={cn(styles['collapse-button'], focusable)}
           >
-            <AnimatedChevronUpDown
+            <AnimatedChevronUpDownIcon
               isUp={childrenCollapsed ? false : true}
-              height="8px"
-              width="12px"
             />
           </StylelessButton>
         </Table.Cell>
