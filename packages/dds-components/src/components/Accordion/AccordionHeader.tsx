@@ -51,7 +51,6 @@ export const AccordionHeader = ({
           styles['header-button'],
           baseStyles['header-button'],
           focusable,
-          baseStyles['header-container'],
         ),
         style,
         htmlProps,

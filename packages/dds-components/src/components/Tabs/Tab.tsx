@@ -114,7 +114,7 @@ export const Tab = ({
           styles[`tab--${size}--${tabContentDirection}`],
           active && styles['tab--active'],
           styles[`tab--${tabContentDirection}`],
-          typographyStyles[`body-${size}`],
+          typographyStyles[`body-short-${size}`],
           focusStyles['focusable--inset'],
         ),
         style,
@@ -128,7 +128,7 @@ export const Tab = ({
       onKeyDown={handleOnKeyDown}
       tabIndex={focus ? 0 : -1}
     >
-      {icon && <Icon icon={icon} iconSize="inherit" />}
+      {icon && <Icon icon={icon} iconSize="component" />}
       <span>{children}</span>
     </button>
   );

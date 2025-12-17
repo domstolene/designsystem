@@ -15,10 +15,10 @@ import { type SvgIcon } from '../Icon/utils';
 import { type StaticTypographyType, Typography } from '../Typography';
 
 export const typographyTypes: Record<ToggleBarSize, StaticTypographyType> = {
-  large: 'bodyLarge',
-  medium: 'bodyMedium',
-  small: 'bodySmall',
-  xsmall: 'bodyXsmall',
+  large: 'bodyShortLarge',
+  medium: 'bodyShortMedium',
+  small: 'bodyShortSmall',
+  xsmall: 'bodyShortXsmall',
 };
 
 export type ToggleRadioProps = BaseComponentProps<
@@ -113,7 +113,7 @@ export const ToggleRadio = ({
           focusStyles['focus-styled-sibling'],
         )}
       >
-        {icon && <Icon icon={icon} iconSize="inherit" />}
+        {icon && <Icon icon={icon} iconSize="component" />}
         {label && <span>{label}</span>}
       </Typography>
     </label>

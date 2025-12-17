@@ -65,6 +65,7 @@ export function AnimatedChevronUpDownIcon(props: AnimatedChevronUpDownIcon) {
     color = 'currentcolor',
     className,
     htmlProps = {},
+    style,
     ...rest
   } = props;
   const { title, 'aria-hidden': ariaHidden = true } = htmlProps;
@@ -72,7 +73,7 @@ export function AnimatedChevronUpDownIcon(props: AnimatedChevronUpDownIcon) {
   const size = getSize(iconSize);
 
   return AnimatedChevronUpDown({
-    ...getBaseHTMLProps(id, className, htmlProps, rest),
+    ...getBaseHTMLProps(id, className, style, htmlProps, rest),
     title,
     height: size,
     width: size,

@@ -141,6 +141,7 @@ export const CollapsibleRow = ({
             className={cn(styles['collapse-button'], focusable)}
           >
             <AnimatedChevronUpDownIcon
+              iconSize="component"
               isUp={childrenCollapsed ? false : true}
             />
           </StylelessButton>

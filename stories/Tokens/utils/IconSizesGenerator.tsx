@@ -5,7 +5,7 @@ import { type TokenBreakpointJsonObject } from './Tokens.types';
 import { Table } from '../../../packages/dds-components/src/index';
 
 export const IconSizesGenerator = () => {
-  const tokens: TokenBreakpointJsonObject = jsonBase['dds-icon-size'];
+  const tokens: TokenBreakpointJsonObject = jsonBase['dds-size-icon'];
   const cssStyle = ` .dds-icon-size-preview {
                 border: 1px solid var(--dds-color-border-default);
             }
@@ -16,7 +16,7 @@ export const IconSizesGenerator = () => {
 
     for (const key in tokens) {
       const token = tokens[key];
-      const tokenName = `--dds-icon-size-${key}`;
+      const tokenName = `--dds-size-icon-${key}`;
       rows.push(
         <Table.Row key={tokenName}>
           <Table.Cell>{tokenName}</Table.Cell>

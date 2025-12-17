@@ -1,8 +1,6 @@
 import { type ElementType, type ReactNode } from 'react';
 
-import styles from './InputMessage.module.css';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
-import { cn } from '../../utils';
 import { Icon } from '../Icon';
 import { ErrorIcon } from '../Icon/icons';
 import { Box, type BoxProps, Paper, type ResponsiveProps } from '../layout';
@@ -39,13 +37,7 @@ export const InputMessage = ({
     width: 'fit-content',
     maxWidth: '100%',
     wordBreak: 'break-word',
-    ...getBaseHTMLProps(
-      id,
-      cn(className, styles.container),
-      style,
-      htmlProps,
-      rest,
-    ),
+    ...getBaseHTMLProps(id, className, style, htmlProps, rest),
   };
 
   const tgCommonProps = {
@@ -56,7 +48,7 @@ export const InputMessage = ({
   return isError ? (
     <Paper
       {...commonProps}
-      gap="x0.25"
+      gap="x0.125"
       padding="x0.25 x0.5"
       background="surface-danger-default"
       borderRadius="surface"

@@ -54,7 +54,7 @@ export const Chip = ({
         rest,
       )}
     >
-      <TextOverflowEllipsisInner>{text}</TextOverflowEllipsisInner>
+      <TextOverflowEllipsisInner>{children}</TextOverflowEllipsisInner>
       <InlineIconButton
         size="component"
         icon={CloseSmallIcon}

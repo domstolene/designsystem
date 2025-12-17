@@ -195,8 +195,8 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
   const customClearIndicator = useCallback(
     (
       props: ClearIndicatorProps<Option, IsMulti, GroupBase<Option>>,
-    ): ReactNode => <DDSClearIndicator {...props} size={componentSize} />,
-    [componentSize],
+    ): ReactNode => <DDSClearIndicator {...props} />,
+    [],
   );
 
   const customDropdownIndicator = useCallback(
@@ -205,7 +205,7 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
     ): ReactNode => (
       <DDSDropdownIndicator {...props} componentSize={componentSize} />
     ),
-    [componentSize],
+    [],
   );
 
   const customControl = useCallback(

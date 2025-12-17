@@ -1,11 +1,11 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { OpenExternalIcon as OpenExternal } from './icons/openExternal';
+import { ICON_SIZES } from './Icon';
 import { StoryLabel, commonArgTypes, labelText } from '../../storybook';
+import { VStack } from '../layout';
+import { OpenExternalIcon as OpenExternal } from './icons/openExternal';
 import { StoryHStack } from '../layout/Stack/utils';
 import { Paragraph } from '../Typography';
-import { ICON_SIZES } from './Icon';
-import { VStack } from '../layout';
 
 import { Icon } from '.';
 
@@ -51,7 +51,7 @@ export const Inherit: Story = {
     iconSize: 'inherit',
   },
   render: args => (
-    <Paragraph typographyType="bodyLarge">
+    <Paragraph typographyType="bodyLongLarge">
       <Icon {...args} /> Tekst
     </Paragraph>
   ),

@@ -139,14 +139,14 @@ export const Styled: Story = {
   render: args => (
     <Accordion {...args}>
       <AccordionHeader
-        typographyType="bodyMedium"
+        typographyType="bodyShortMedium"
         className="custom-header"
         bold
       >
         Dekning av reiseutgifter
       </AccordionHeader>
       <AccordionBody className="custom-panel">
-        <Paragraph typographyType="bodySmall">
+        <Paragraph typographyType="bodyLongSmall">
           I sivile saker avtales dekning av utgifter med den part som innkalte
           deg. I straffesaker har du krav på reise- og kostgodtgjørelse (
           <Link href="#">

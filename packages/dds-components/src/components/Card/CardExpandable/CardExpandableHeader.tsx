@@ -71,7 +71,6 @@ export const CardExpandableHeader = ({
       <div
         style={containerStyleVariables}
         className={cn(
-          baseStyles['header-container'],
           styles['header-container'],
           typographyStyles[getTypographyCn(typographyType)],
           bold && typographyStyles.bold,
