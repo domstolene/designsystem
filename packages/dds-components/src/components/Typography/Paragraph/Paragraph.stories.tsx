@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
+import { ddsProviderDecorator } from '../../../storybook';
 import { StoryVStack } from '../../layout/Stack/utils';
 import { storyTypographyHtmlAttrs } from '../storyUtils';
 import { Typography } from '../Typography';
@@ -12,6 +13,7 @@ export default {
   argTypes: {
     ...storyTypographyHtmlAttrs,
   },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof Paragraph>;
 
 type Story = StoryObj<typeof Paragraph>;

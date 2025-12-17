@@ -1,6 +1,6 @@
 import { type Meta } from '@storybook/react-vite';
 
-import { themeProviderDecorator } from '../../storybook';
+import { ddsProviderDecorator } from '../../storybook';
 
 export {
   FormWithSteps,
@@ -13,7 +13,7 @@ const meta: Meta = {
     layout: 'fullscreen',
     docs: { canvas: { inline: false } },
   },
-  decorators: [Story => themeProviderDecorator(<Story />)],
+  decorators: [ddsProviderDecorator],
 };
 
 export default meta;

@@ -31,11 +31,3 @@
 .header-container__chevron {
   margin-left: var(--dds-spacing-x0-5);
 }
-
-.body {
-  height: var(--dds-card-accordion-body-height);
-}
-
-.body__content {
-  padding: var(--dds-card-accordion-body-content-padding);
-}

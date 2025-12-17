@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
-import { commonArgTypes } from '../../../storybook';
+import { commonArgTypes, ddsProviderDecorator } from '../../../storybook';
 import { Button } from '../../Button';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 
@@ -14,6 +14,7 @@ export default {
     ...commonArgTypes,
     value: { control: false },
   },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof RadioButtonGroup>;
 
 type Story = StoryObj<typeof RadioButtonGroup>;

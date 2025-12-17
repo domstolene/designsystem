@@ -1,8 +1,4 @@
-import {
-  type AnchorHTMLAttributes,
-  type ComponentPropsWithoutRef,
-  type ElementType,
-} from 'react';
+import { type AnchorHTMLAttributes, type ElementType } from 'react';
 
 import { ElementAs } from '../../../polymorphic';
 import {
@@ -37,8 +33,7 @@ export type LinkProps<T extends ElementType = 'a'> =
       /**Spesifiserer typografistil basert på utvalget for brødtekst. Arver hvis ikke oppgitt. */
       typographyType?: TypographyBodyType;
     } & BaseTypographyProps &
-      PickedHTMLAttributes,
-    Omit<ComponentPropsWithoutRef<T>, keyof PickedHTMLAttributes | 'color'>
+      PickedHTMLAttributes
   >;
 
 export const Link = <T extends ElementType = 'a'>({
@@ -57,6 +52,15 @@ export const Link = <T extends ElementType = 'a'>({
   ...rest
 }: LinkProps<T>) => {
   const as = propAs ? propAs : 'a';
+  const isAnchor = as === 'a';
+
+  const aProps = isAnchor
+    ? {
+        rel: 'noopener noreferrer',
+        target: external ? '_blank' : target,
+      }
+    : {};
+
   return (
     <ElementAs
       as={as}
@@ -74,16 +78,14 @@ export const Link = <T extends ElementType = 'a'>({
           focusable,
           getColorCn(color),
         ),
+        {
+          ...style,
+          color: color && !isTextColor(color) ? getTextColor(color) : undefined,
+        },
         htmlProps,
         rest,
       )}
-      rel="noopener noreferer"
-      target={external ? '_blank' : target}
-      style={{
-        ...htmlProps?.style,
-        ...style,
-        color: color && !isTextColor(color) ? getTextColor(color) : undefined,
-      }}
+      {...aProps}
     >
       {children}
       {external && (

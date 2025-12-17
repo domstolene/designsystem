@@ -6,12 +6,12 @@ import { describe, expect, it, vi } from 'vitest';
 import { Search } from '.';
 
 describe('<Search>', () => {
-  it('should render a searchbox', () => {
+  it('renders a searchbox', () => {
     render(<Search />);
     const search = screen.getByRole('searchbox');
     expect(search).toBeInTheDocument();
   });
-  it('should render a search button with a label', () => {
+  it('renders a search button with a label', () => {
     const label = 'Søk';
     render(<Search buttonProps={{ onClick: () => null, label: label }} />);
     const button = screen.getByRole('button');
@@ -32,7 +32,7 @@ describe('<Search>', () => {
       `${id}-tip`,
     );
   });
-  it('should render combobox when using autocomplete version', () => {
+  it('renders combobox when using autocomplete version', () => {
     render(
       <Search.AutocompleteWrapper data={{ array: [] }}>
         <Search />
@@ -41,7 +41,7 @@ describe('<Search>', () => {
     expect(screen.getByRole('combobox')).toBeInTheDocument();
   });
 
-  it('should render search suggestions wrapper', () => {
+  it('renders search suggestions wrapper', () => {
     render(
       <Search.AutocompleteWrapper data={{ array: [] }}>
         <Search />
@@ -50,7 +50,7 @@ describe('<Search>', () => {
     expect(screen.getByLabelText('Søkeforslag')).toBeInTheDocument();
   });
 
-  it('should render specified search suggestion', async () => {
+  it('renders specified search suggestion', async () => {
     const text = 'text';
     render(
       <Search.AutocompleteWrapper data={{ array: [text] }}>
@@ -65,7 +65,7 @@ describe('<Search>', () => {
     expect(screen.getByText(text)).toBeInTheDocument();
   });
 
-  it('should not render search suggestion when query is too short', async () => {
+  it('does not render search suggestion when query is too short', async () => {
     const text = 'text';
     const queryLength = 3;
     render(
@@ -80,7 +80,7 @@ describe('<Search>', () => {
     expect(option).not.toBeInTheDocument();
   });
 
-  it('Search should have aria-expanded=true when suggestions list present and false when not', async () => {
+  it('has aria-expanded=true when suggestions list present and false when not', async () => {
     const text = 'text';
     render(
       <Search.AutocompleteWrapper data={{ array: [text] }}>
@@ -94,7 +94,7 @@ describe('<Search>', () => {
     expect(input).toHaveAttribute('aria-expanded', 'true');
   });
 
-  it('menuitem should get focus when using arrows to navigate', async () => {
+  it('menuitem gets focus when using arrows to navigate', async () => {
     const text = 'text';
     render(
       <Search.AutocompleteWrapper data={{ array: [text] }}>
@@ -104,7 +104,7 @@ describe('<Search>', () => {
 
     const input = screen.getByRole('combobox');
     await userEvent.type(input, `${text}`);
-    const menuitem = screen.getByText(text);
+    const menuitem = screen.getByRole('button', { name: `${text} søk` });
     expect(menuitem).not.toHaveFocus();
 
     await act(async () => {
@@ -114,7 +114,7 @@ describe('<Search>', () => {
     expect(menuitem).toHaveFocus();
   });
 
-  it('should run function on suggestion click', async () => {
+  it('calls suggestion click event', async () => {
     const event = vi.fn();
     const text = 'text';
     render(

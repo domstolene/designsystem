@@ -68,11 +68,14 @@ export const CardSelectableGroup = <T extends string | number = string>({
   id,
   tipId,
   className,
+  style,
   htmlProps = {},
-  'aria-describedby': ariaDescribedby,
   ...rest
 }: CardSelectableGroupProps<T>) => {
-  const { 'aria-required': ariaRequired = false } = htmlProps;
+  const {
+    'aria-required': ariaRequired = false,
+    'aria-describedby': ariaDescribedby,
+  } = htmlProps;
 
   const generatedId = useId();
   const uniqueGroupId = id ?? `${generatedId}-cardSelectableGroup`;
@@ -108,6 +111,7 @@ export const CardSelectableGroup = <T extends string | number = string>({
       {...getBaseHTMLProps(
         uniqueGroupId,
         className,
+        style,
         { ...htmlProps, 'aria-required': ariaRequired },
         rest,
       )}

@@ -1,4 +1,4 @@
-import { type CSSProperties, type ElementType } from 'react';
+import { type ElementType } from 'react';
 
 import { type TextColor } from '../../../utils/color';
 
@@ -123,8 +123,6 @@ export interface BaseTypographyProps {
    * `body` og `lead`-typer får margin på bunnen, `heading`-typer får margin på bunnen og padding på toppen mens label får margin topp og bunn.
    * */
   withMargins?: boolean;
-  /**HTML style. */
-  style?: CSSProperties;
 }
 
 export type TypographyComponentProps = BaseTypographyProps & {

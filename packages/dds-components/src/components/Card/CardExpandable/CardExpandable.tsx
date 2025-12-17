@@ -25,6 +25,7 @@ export const CardExpandable = ({
   id,
   children,
   className,
+  style,
   htmlProps,
   ...rest
 }: CardExpandableProps) => {
@@ -42,6 +43,7 @@ export const CardExpandable = ({
       {...getBaseHTMLProps(
         accordionId,
         cn(className, styles['container']),
+        style,
         htmlProps,
         rest,
       )}

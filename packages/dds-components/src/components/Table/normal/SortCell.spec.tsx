@@ -5,7 +5,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { Table } from '.';
 
 describe('<SortCell>', () => {
-  it('should render columnheader and button', () => {
+  it('renders columnheader and button', () => {
     render(
       <Table>
         <Table.Head>
@@ -18,7 +18,7 @@ describe('<SortCell>', () => {
     expect(screen.getByRole('columnheader')).toBeInTheDocument();
     expect(screen.getByRole('button')).toBeInTheDocument();
   });
-  it('should run onclick event', async () => {
+  it('calls onclick event', async () => {
     const event = vi.fn();
     render(
       <Table>
@@ -34,7 +34,7 @@ describe('<SortCell>', () => {
     expect(event).toHaveBeenCalled();
   });
 
-  it('should have aria-sort', () => {
+  it('has aria-sort', () => {
     render(
       <Table>
         <Table.Head>

@@ -4,10 +4,13 @@ import { focusVisible, focusVisibleTransitionValue } from '../helpers';
 import { scrollbarStyling } from '../helpers';
 import { type InputSize } from '../helpers/Input';
 
-type SelectTypography = Record<
-  InputSize,
-  { font: string; letterSpacing: string; fontStyle?: string }
->;
+interface StaticSelectTypography {
+  font: string;
+  letterSpacing: string;
+  fontStyle?: string;
+}
+
+type SelectTypography = Record<InputSize, StaticSelectTypography>;
 
 const optionTypography: SelectTypography = {
   medium: {
@@ -39,9 +42,9 @@ const multiValueLabelTypography: SelectTypography = {
   },
 };
 
-const groupHeadingTypography = {
-  font: 'var(--dds-font-body-xsmall)',
-  letterSpacing: 'var(--dds-font-body-xsmall-letter-spacing)',
+const groupHeadingTypography: StaticSelectTypography = {
+  font: 'var(--dds-font-heading-xsmall)',
+  letterSpacing: 'var(--dds-font-heading-xsmall-letter-spacing)',
 };
 
 const typography = {
@@ -183,10 +186,15 @@ export const getCustomStyles = <TOption>(
     display: 'flex',
     borderRadius: 'var(--dds-border-radius-surface)',
     backgroundColor: 'var(--dds-color-surface-medium)',
+    marginBlock: '-2px',
   }),
   multiValueLabel: (provided, state) => ({
-    ...provided,
-    padding: '0 var(--dds-spacing-x0-25)',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+    boxSizing: 'border-box',
+    padding:
+      'var(--dds-spacing-x0-125) 0 var(--dds-spacing-x0-125) var(--dds-spacing-x0-25)',
     ...typography.multiValueLabel[size],
     color: 'var(--dds-color-text-default)',
     ...(state.selectProps.isDisabled && {
@@ -205,12 +213,17 @@ export const getCustomStyles = <TOption>(
           boxSizing: 'border-box',
           display: 'flex',
           alignItems: 'center',
+          borderEndEndRadius: 'var(--dds-border-radius-surface)',
+          borderStartEndRadius: 'var(--dds-border-radius-surface)',
           '@media (prefers-reduced-motion: no-preference)': {
             transition: 'color 0.2s, background-color 0.2s, box-shadow 0.2s',
           },
           color: 'var(--dds-color-icon-default)',
-
           padding: '0 var(--dds-spacing-x0-25)',
+          fontSize: 'var(--dds-font-size-x1-125)',
+          '&:hover': {
+            backgroundColor: 'var(--dds-color-surface-hover-default)',
+          },
         },
   menu: () => ({
     boxSizing: 'border-box',
@@ -233,9 +246,9 @@ export const getCustomStyles = <TOption>(
   }),
   groupHeading: () => ({
     ...typography.groupHeading,
-    color: 'var(--dds-color-text-medium)',
-    paddingInline: 'var(--dds-spacing-x0-75)',
-    paddingBlock: 'var(--dds-spacing-x0-5) var(--dds-spacing-x0-125)',
+    color: 'var(--dds-color-text-default)',
+    padding:
+      'var(--dds-spacing-x0-75) var(--dds-spacing-x0-75) 0 var(--dds-spacing-x0-75)',
   }),
   menuList: () => ({
     maxHeight: '300px',
@@ -252,15 +265,18 @@ export const getCustomStyles = <TOption>(
     gap: 'var(--dds-spacing-x0-25)',
     padding: 'var(--dds-spacing-x0-75)',
     backgroundColor: 'var(--dds-color-surface-default)',
-    ...typography.option[size],
+    ...typography.option.medium,
     color: 'var(--dds-color-text-default)',
     '@media (prefers-reduced-motion: no-preference)': {
       transition: 'color 0.2s, background-color 0.2s',
     },
     '&:hover': {
       color: 'var(--dds-color-text-default)',
-      backgroundColor: 'var(--dds-color-surface-hover-default)',
+      backgroundColor: 'var(--dds-color-surface-hover-subtle)',
     },
+    ...(state.isSelected && {
+      backgroundColor: 'var(--dds-color-surface-selected-default)',
+    }),
     // egen stil siden react-select bruker focus-state og hover-styling samtidig; ikke nødvendig hvis de kan skilles.
     ...(state.isFocused && {
       outline: 'var(--dds-color-border-action-hover) 2px solid',

@@ -2,7 +2,8 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { CookieBanner } from './CookieBanner';
 import {
-  commonArgTypes,
+  commonArgTypesWithNodeChildren,
+  ddsProviderDecorator,
   responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../storybook';
@@ -17,7 +18,7 @@ const meta: Meta<typeof CookieBanner> = {
   title: 'dds-components/Components/CookieBanner',
   component: CookieBanner,
   argTypes: {
-    ...commonArgTypes,
+    ...commonArgTypesWithNodeChildren,
     position,
     left,
     right,
@@ -25,7 +26,9 @@ const meta: Meta<typeof CookieBanner> = {
     bottom,
     maxHeight,
     width,
+    checkboxes: { control: { disable: true } },
   },
+  decorators: [ddsProviderDecorator],
 };
 
 export default meta;

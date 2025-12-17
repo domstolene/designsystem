@@ -1,5 +1,5 @@
 import { create } from 'storybook/theming';
-import elsaLogoHigh from './images/Elsa-logo-hoy.png';
+
 import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 
 /** Storybook bruker core som tema */
@@ -10,7 +10,7 @@ export default create({
 
   brandTitle: 'Elsa - Domstolenes Designsystem',
   brandUrl: 'https://design.domstol.no',
-  brandImage: elsaLogoHigh,
+  brandImage: '/Elsa-logo-hoy.png',
 
   // Interaction color
   colorSecondary: theme.ddsColorSurfaceActionSelected,

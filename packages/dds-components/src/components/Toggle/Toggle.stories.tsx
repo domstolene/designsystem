@@ -5,6 +5,7 @@ import { fn } from 'storybook/test';
 import {
   categoryHtml,
   commonArgTypes,
+  ddsProviderDecorator,
   htmlArgType,
   htmlEventArgType,
   labelText,
@@ -23,14 +24,13 @@ export default {
     disabled: { control: 'boolean', table: categoryHtml },
     checked: htmlArgType,
     defaultChecked: htmlArgType,
-    value: htmlArgType,
-    defaultValue: htmlArgType,
     name: htmlArgType,
     'aria-describedby': htmlArgType,
     onBlur: htmlEventArgType,
     ...commonArgTypes,
   },
   args: { onChange: fn(), onBlur: fn() },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof Toggle>;
 
 type Story = StoryObj<typeof Toggle>;

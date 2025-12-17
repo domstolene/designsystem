@@ -18,15 +18,19 @@ type Story = StoryObj<typeof InputMessage>;
 export const Preview: Story = {
   args: {
     messageType: 'error',
-    message: 'Feilmelding',
+    children: 'Feilmelding',
   },
 };
 
 export const Overview: Story = {
   render: args => (
     <StoryHStack>
-      <InputMessage {...args} messageType="error" message="Feilmelding" />
-      <InputMessage {...args} messageType="tip" message="Hjelpetekst" />
+      <InputMessage {...args} messageType="error">
+        Feilmelding
+      </InputMessage>
+      <InputMessage {...args} messageType="tip">
+        Hjelpetekst
+      </InputMessage>
     </StoryHStack>
   ),
 };

@@ -6,6 +6,7 @@ import {
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
+import { Box } from '../layout';
 
 export type DescriptionListGroupProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
@@ -26,15 +27,24 @@ export const DescriptionListGroup = ({
   maxWidth,
   id,
   className,
+  style,
   htmlProps,
   ...rest
 }: DescriptionListGroupProps) => (
-  <div
-    {...getBaseHTMLProps(id, cn(className, styles.group), htmlProps, rest)}
-    style={{ ...htmlProps?.style, maxWidth, minWidth, margin }}
+  <Box
+    {...getBaseHTMLProps(
+      id,
+      cn(className, styles.group),
+      style,
+      htmlProps,
+      rest,
+    )}
+    maxWidth={maxWidth}
+    minWidth={minWidth}
+    margin={margin}
   >
     {children}
-  </div>
+  </Box>
 );
 
 DescriptionListGroup.displayName = 'DescriptionListGroup';

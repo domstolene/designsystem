@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { Fieldset } from './Fieldset';
-import { categoryHtml, commonArgTypes } from '../../storybook';
+import { categoryHtml, commonArgTypesWithNodeChildren } from '../../storybook';
 import { TextInput } from '../TextInput';
 import { Legend } from '../Typography';
 import { FieldsetGroup } from './FieldsetGroup';
@@ -11,7 +11,7 @@ export default {
   component: Fieldset,
   argTypes: {
     disabled: { table: categoryHtml },
-    ...commonArgTypes,
+    ...commonArgTypesWithNodeChildren,
   },
 } satisfies Meta<typeof Fieldset>;
 

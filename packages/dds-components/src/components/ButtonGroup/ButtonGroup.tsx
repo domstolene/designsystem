@@ -45,6 +45,7 @@ export const ButtonGroup = ({
   children,
   id,
   className,
+  style,
   htmlProps,
   direction = 'row',
   buttonSize = 'medium',
@@ -57,6 +58,7 @@ export const ButtonGroup = ({
       {...getBaseHTMLProps(
         id,
         cn(className, styles.group, styles[`group--${direction}`]),
+        style,
         htmlProps,
         rest,
       )}

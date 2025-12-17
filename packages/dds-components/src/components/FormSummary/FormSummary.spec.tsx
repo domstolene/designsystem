@@ -12,44 +12,44 @@ import {
 } from './FormSummary.components';
 
 describe('<FormSummary>', () => {
-  it('should render children', () => {
+  it('renders children', () => {
     const text = 'text';
     render(<FormSummary>{text}</FormSummary>);
     expect(screen.getByText(text)).toBeInTheDocument();
   });
-  it('should render button', () => {
+  it('renders button', () => {
     render(<FormSummaryEditButton />);
     expect(screen.getByRole('button')).toBeInTheDocument();
   });
-  it('should render heading', () => {
+  it('renders heading', () => {
     render(<FormSummaryHeading />);
     expect(screen.getByRole('heading')).toBeInTheDocument();
   });
 
-  it('should render label', () => {
+  it('renders label', () => {
     const label = 'Label';
     render(<FormSummaryLabel>{label}</FormSummaryLabel>);
     expect(screen.getByText(label)).toBeInTheDocument();
   });
 
-  it('should render value', () => {
+  it('renders value', () => {
     const value = 'Value';
     render(<FormSummaryValue>{value}</FormSummaryValue>);
     expect(screen.getByText(value)).toBeInTheDocument();
   });
 
-  it('should render error message', () => {
+  it('renders error message', () => {
     const msg = 'Msg';
     render(<FormSummaryError>{msg}</FormSummaryError>);
     expect(screen.getByText(msg)).toBeInTheDocument();
   });
 
-  it('should render spinner when loading value', () => {
+  it('renders spinner when loading value', () => {
     render(<FormSummaryValue isLoading />);
     expect(screen.getByRole('progressbar')).toBeInTheDocument();
   });
 
-  it('should have accessible empty value', () => {
+  it('has accessible empty value', () => {
     render(<FormSummaryEmptyValue />);
     expect(screen.getByText('Ikke fylt ut')).toBeInTheDocument();
     expect(

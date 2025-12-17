@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { LanguageProvider, createTexts, useLanguage, useTranslation } from '.';
+import { LanguageProvider, useLanguage } from './LanguageProvider';
+import { createTexts, useTranslation } from './translation';
 
 function TestComponent() {
   const lang = useLanguage();

@@ -1,12 +1,17 @@
 import '@norges-domstoler/dds-components/index.css';
-import { useEffect, useState } from 'react';
-import type { Preview } from '@storybook/react-vite';
-import { DocsContainer, Unstyled } from '@storybook/addon-docs/blocks';
 import {
+  DocsContainer,
+  type DocsContainerProps,
+  Unstyled,
+} from '@storybook/addon-docs/blocks';
+import type { Preview } from '@storybook/react-vite';
+import { type PropsWithChildren, useEffect, useState } from 'react';
+
+import {
+  DdsProvider,
+  type DdsTheme,
   ToggleBar,
   ToggleRadio,
-  ThemeProvider,
-  DdsTheme,
 } from '@norges-domstoler/dds-components';
 
 // Setter bakgrunn i Canvas basert på verdien til --dds-color-bg-default i ThemeProvider
@@ -43,11 +48,14 @@ const preview: Preview = {
       },
     },
     docs: {
-      container: ({ children, context }) => (
+      container: ({
+        children,
+        context,
+      }: PropsWithChildren<DocsContainerProps>) => (
         <DocsContainer context={context}>
           <Unstyled>
             {/**Setter fast theme for Storybook preview */}
-            <ThemeProvider>{children}</ThemeProvider>
+            <DdsProvider language="nb">{children}</DdsProvider>
           </Unstyled>
         </DocsContainer>
       ),
@@ -64,9 +72,9 @@ const preview: Preview = {
     (Story, context) => {
       if (context.parameters.disableGlobalDecorator) {
         return (
-          <ThemeProvider>
+          <DdsProvider language="nb">
             <Story />
-          </ThemeProvider>
+          </DdsProvider>
         );
       }
 
@@ -78,7 +86,7 @@ const preview: Preview = {
       }, [theme]);
 
       return (
-        <ThemeProvider theme={theme}>
+        <DdsProvider theme={theme} language="nb">
           <div
             className="theme-toggle-bar-wrapper"
             id={`theme-toggle-bar-wrapper-${nameCounter}`}
@@ -99,7 +107,7 @@ const preview: Preview = {
             </ToggleBar>
           </div>
           <Story />
-        </ThemeProvider>
+        </DdsProvider>
       );
     },
   ],

@@ -6,6 +6,7 @@ import { InputStepper } from './InputStepper';
 import {
   categoryHtml,
   commonArgTypes,
+  ddsProviderDecorator,
   labelText,
   responsivePropsArgTypes,
   windowWidthDecorator,
@@ -25,6 +26,7 @@ export default {
     width: responsivePropsArgTypes.width,
   },
   args: { onChange: fn() },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof InputStepper>;
 
 type Story = StoryObj<typeof InputStepper>;

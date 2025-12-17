@@ -21,6 +21,7 @@ export const CardSelectable = (props: CardSelectableProps) => {
     'aria-describedby': ariaDescribedby,
     className,
     htmlProps,
+    style,
     ...rest
   } = props;
 
@@ -76,14 +77,16 @@ Provide \`cardType\` either via a parent <CardSelectableGroup> or directly on th
   };
 
   const sharedProps = {
-    ...getBaseHTMLProps(id, classNames, htmlProps, rest),
-    htmlProps: {
-      ...htmlProps,
-      style: {
-        ...htmlProps?.style,
+    ...getBaseHTMLProps(
+      id,
+      classNames,
+      {
+        ...style,
         ...customStyles,
       },
-    },
+      htmlProps,
+      rest,
+    ),
     disabled,
     readOnly,
     error,

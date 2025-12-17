@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { Caption } from './Caption';
 
 describe('<Caption>', () => {
-  it('should have text', () => {
+  it('renders text', () => {
     const text = 'text';
     render(
       <table>
@@ -13,7 +13,7 @@ describe('<Caption>', () => {
     );
     expect(screen.getByText(text)).toBeInTheDocument();
   });
-  it('should render a caption', () => {
+  it('renders a caption', () => {
     render(
       <table>
         <Caption />

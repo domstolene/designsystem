@@ -3,9 +3,9 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { Select } from './Select';
 import {
   categoryHtml,
+  ddsProviderDecorator,
   labelText,
   responsivePropsArgTypes,
-  themeProviderDecorator,
 } from '../../storybook';
 import { INPUT_SIZES } from '../helpers/Input';
 import { CourtIcon } from '../Icon/icons';
@@ -31,7 +31,7 @@ const meta: Meta<typeof Select<Option, true>> = {
       exclude: ['style', 'className', 'items', 'value', 'defaultValue'],
     },
   },
-  decorators: [Story => themeProviderDecorator(<Story />)],
+  decorators: [ddsProviderDecorator],
 };
 
 export default meta;

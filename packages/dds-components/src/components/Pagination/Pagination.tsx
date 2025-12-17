@@ -86,6 +86,7 @@ export const Pagination = ({
   onSelectOptionChange,
   id,
   className,
+  style,
   htmlProps,
   ref,
   ...rest
@@ -196,6 +197,7 @@ export const Pagination = ({
 
   const isOnFirstPage = activePage === 1;
   const isOnLastPage = activePage === pagesLength;
+  const baseHTMLProps = getBaseHTMLProps(id, className, style, htmlProps, rest);
 
   const navigation = withPagination ? (
     <Box
@@ -206,7 +208,7 @@ export const Pagination = ({
       alignItems="center"
       {...(!withSelect &&
         !withCounter && {
-          ...getBaseHTMLProps(id, className, htmlProps, rest),
+          ...baseHTMLProps,
         })}
     >
       <ShowHide
@@ -323,7 +325,7 @@ export const Pagination = ({
       flexWrap="wrap"
       flexDirection={styleUpToBreakpoint('column', smallScreenBreakpoint)}
       alignItems={styleUpToBreakpoint('center', smallScreenBreakpoint)}
-      {...getBaseHTMLProps(id, className, htmlProps, rest)}
+      {...baseHTMLProps}
     >
       <div className={styles.indicators}>
         {withSelect && (

@@ -1,5 +1,3 @@
-import { type Property } from 'csstype';
-
 import styles from './Modal.module.css';
 import {
   type BaseComponentPropsWithChildren,
@@ -7,6 +5,7 @@ import {
 } from '../../types';
 import { cn } from '../../utils';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
+import { Box, type ResponsiveProps } from '../layout';
 
 export type ModalBodyProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
@@ -14,7 +13,7 @@ export type ModalBodyProps = BaseComponentPropsWithChildren<
     /**Gjør at innholdet kan scrolles. Det må eventuelt settes (max)bredde og (max)høyde styling på både denne subkomponenten og `<Modal />`.  */
     scrollable?: boolean;
     /**Høyde på container. Kan resultere i scrolling. */
-    height?: Property.Height;
+    height?: ResponsiveProps['height'];
   }
 >;
 
@@ -22,13 +21,15 @@ export const ModalBody = ({
   children,
   id,
   className,
+  style,
   scrollable,
   htmlProps,
   height,
   ...rest
 }: ModalBodyProps) => {
   return (
-    <div
+    <Box
+      height={height}
       {...getBaseHTMLProps(
         id,
         cn(
@@ -37,13 +38,13 @@ export const ModalBody = ({
           scrollable && utilStyles['scrollable-y'],
           styles.body,
         ),
+        style,
         htmlProps,
         rest,
       )}
-      style={{ ...htmlProps?.style, height: height }}
     >
       {children}
-    </div>
+    </Box>
   );
 };
 

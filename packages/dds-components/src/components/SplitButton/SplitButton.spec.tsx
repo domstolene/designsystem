@@ -19,12 +19,12 @@ const item: SplitButtonSecondaryActionsProps = [
 ];
 
 describe('<SplitButton>', () => {
-  it('should render two buttons', () => {
+  it('renders two buttons', () => {
     render(<SplitButton primaryAction={primary} secondaryActions={item} />);
-    const button = screen.getAllByRole('button');
-    expect(button).toHaveLength(2);
+    const buttons = screen.getAllByRole('button');
+    expect(buttons).toHaveLength(2);
   });
-  it('should show OverflowMenu on menu button click', async () => {
+  it('shows OverflowMenu on menu button click', async () => {
     render(<SplitButton primaryAction={primary} secondaryActions={item} />);
     const menu = screen.queryByRole('menu');
     expect(menu).not.toBeInTheDocument();
@@ -36,7 +36,7 @@ describe('<SplitButton>', () => {
     expect(menuOpened).toHaveAttribute('aria-hidden', 'false');
   });
 
-  it('should run onclick event from primary action button', async () => {
+  it('calls onclick event from primary action button', async () => {
     const event = vi.fn();
     render(
       <SplitButton
@@ -51,7 +51,7 @@ describe('<SplitButton>', () => {
     expect(event).toHaveBeenCalled();
   });
 
-  it('should run onclick event from context menu', async () => {
+  it('calls onclick event from context menu', async () => {
     const event = vi.fn();
     render(
       <SplitButton
@@ -66,7 +66,7 @@ describe('<SplitButton>', () => {
     expect(event).toHaveBeenCalled();
   });
 
-  it('should hide menu after Esc keydown', async () => {
+  it('hides menu after Esc keydown', async () => {
     render(<SplitButton secondaryActions={item} primaryAction={primary} />);
     const menuButton = screen.getByLabelText('Flere handlinger');
     fireEvent.click(menuButton!);

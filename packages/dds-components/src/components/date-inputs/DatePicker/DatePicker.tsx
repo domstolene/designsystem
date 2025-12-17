@@ -23,7 +23,8 @@ import {
 } from '../utils/useFocusManagerRef';
 
 export interface DatePickerProps
-  extends Omit<AriaDatePickerProps<CalendarDate>, 'granularity'>,
+  extends
+    Omit<AriaDatePickerProps<CalendarDate>, 'granularity'>,
     Pick<DateFieldProps<CalendarDate>, 'componentSize' | 'tip' | 'style'>,
     Pick<ResponsiveProps, 'width'> {
   ref?: Ref<HTMLElement>;

@@ -6,7 +6,7 @@ import { CopyIcon } from './icons/copy';
 import styles from './IconStory.module.css';
 import { type SvgIcon, type SvgProps } from './utils';
 import { StylelessButton, cn, icons } from '../..';
-import { themeProviderDecorator } from '../../storybook';
+import { ddsProviderDecorator } from '../../storybook';
 import { Button } from '../Button';
 import { focusable } from '../helpers/styling/focus.module.css';
 import { LocalMessage } from '../LocalMessage';
@@ -16,7 +16,7 @@ import { Heading, Typography } from '../Typography';
 const meta: Meta = {
   title: 'Icons/Overview',
   parameters: { docs: { canvas: { sourceState: 'none' } } },
-  decorators: [Story => themeProviderDecorator(<Story />)],
+  decorators: [ddsProviderDecorator],
 };
 
 export default meta;
@@ -90,17 +90,15 @@ export const Overview = () => {
   const useCode = `<Icon icon={${iconState?.name}} />`;
   const copyConfirmation = (type: string) => (
     <div className={styles.message}>
-      <LocalMessage
-        width="fit-content"
-        message={`kopiert ${type}`}
-        purpose="success"
-      />
+      <LocalMessage width="fit-content" purpose="success">
+        kopiert {type}
+      </LocalMessage>
     </div>
   );
 
   return (
     <div className={styles.page}>
-      <LocalMessage message="Klikk på ikonet for mer info."></LocalMessage>
+      <LocalMessage>Klikk på ikonet for mer info.</LocalMessage>
       <Typography typographyType="bodySmall">
         Antall ikoner: {Object.keys(iconsObject).length}
       </Typography>

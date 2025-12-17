@@ -45,6 +45,7 @@ export type FavStarProps = BaseComponentPropsWithChildren<
 export const FavStar = ({
   id,
   className,
+  style,
   onChange,
   checked: checkedProp,
   defaultChecked,
@@ -53,9 +54,10 @@ export const FavStar = ({
   ...rest
 }: FavStarProps) => {
   const { t } = useTranslation();
-  const { style, ...props } = getBaseHTMLProps(
+  const { ...props } = getBaseHTMLProps(
     id,
     cn(className),
+    style,
     htmlProps,
     rest,
   );

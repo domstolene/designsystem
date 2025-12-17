@@ -1,6 +1,3 @@
-import { type Properties } from 'csstype';
-
-import styles from './Accordion.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -17,6 +14,7 @@ export type AccordionBodyProps = Omit<
 export const AccordionBody = ({
   children,
   className,
+  style,
   htmlProps,
   ...rest
 }: AccordionBodyProps) => {
@@ -29,26 +27,22 @@ export const AccordionBody = ({
     ...restBodyProps
   } = bodyProps ?? {};
 
-  const styleVariables: Properties = {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-card-accordion-body-height' as any]: height + 'px',
-  };
-
   return (
-    <div
+    <Box
+      height={`${height}px`}
       {...getBaseHTMLProps(
         id,
-        cn(className, styles.body, bodyContextCn),
+        cn(className, bodyContextCn),
+        style,
         htmlProps,
         rest,
       )}
       {...restBodyProps}
-      style={{ ...htmlProps?.style, ...styleVariables }}
     >
       <Box ref={bodyContentRef} padding="x0.5 x1.5 x2 x1">
         {children}
       </Box>
-    </div>
+    </Box>
   );
 };
 

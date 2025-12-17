@@ -1,7 +1,8 @@
 import { type HTMLAttributes, type ReactNode } from 'react';
 
 import { Paper, VStack } from '../layout';
-import { Heading, type HeadingLevel, Paragraph } from '../Typography';
+import { Heading, type HeadingLevel, Typography } from '../Typography';
+import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export type EmptyContentProps = {
   /**Tittel - kort oppsummering. */
@@ -11,12 +12,12 @@ export type EmptyContentProps = {
    */
   headerHeadingLevel?: HeadingLevel;
   /**Melding - beskrivelse og forklaring på hvordan brukeren kan få innhold. Kan inneholde lenker og andre interaktive elementer. */
-  message: ReactNode;
-} & HTMLAttributes<HTMLDivElement>;
+  children: ReactNode;
+} & Omit<HTMLAttributes<HTMLDivElement>, 'children'>;
 
 export function EmptyContent({
   headerText,
-  message,
+  children,
   headerHeadingLevel = 2,
 
   ...rest
@@ -34,13 +35,20 @@ export function EmptyContent({
       borderRadius="surface"
       {...rest}
     >
-      <VStack maxWidth="70ch" gap="x1" textAlign="center">
+      <VStack
+        maxWidth="70ch"
+        gap="x1"
+        textAlign="center"
+        className={typographyStyles['text-color--medium']}
+      >
         {headerText && (
           <Heading level={headerHeadingLevel} typographyType="headingMedium">
             {headerText}
           </Heading>
         )}
-        <Paragraph color="text-medium">{message}</Paragraph>
+        <Typography as="div" color="text-medium">
+          {children}
+        </Typography>
       </VStack>
     </Paper>
   );

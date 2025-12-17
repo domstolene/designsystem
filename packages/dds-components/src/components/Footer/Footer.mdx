@@ -5,15 +5,18 @@ import {
 } from '@norges-domstoler/storybook-components';
 import * as FooterStories from './Footer.stories';
 import { FooterListHeader, FooterLogo } from '.';
+import { Tabs, Tab, TabList, TabPanels, TabPanel } from '../Tabs';
+import { Divider } from '../Divider';
 
 <Meta of={FooterStories} />
 
 # Footer
 
 <ComponentLinkRow
-  docsHref="https://design.domstol.no/987b33f71/p/802ff0-button/b/32e1a2"
-  figmaHref="https://www.figma.com/design/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?node-id=17100-91741"
-  githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Footer"
+  docsHref="802ff0-button"
+  figmaHref="node-id=17100-91741"
+  githubHref={{ folder: 'components', comp: 'Footer' }}
+  storybookHref={{ folder: 'components', comp: 'footer' }}
 />
 
 `<Footer>` er en fleksibel komponent som tillatter å bygge en footer fra bunn av.
@@ -31,46 +34,58 @@ Følgende subkomponenter er tilgjengelige:
 - `<FooterListGroup>` - layout-komponent for `<FooterListHeader>` og `<FooterList>`.
 - `<FooterSocialsListGroup>` - layout-komponent for `<FooterListHeader>` og `<FooterSocialsList>`.
 
-## Demo
+## Delkomponenter
 
-Du kan åpne [alenestående demo](https://domstolene.github.io/designsystem/?path=/story/dds-components-components-footer--default) og endre bredden til nettleservinduet for å se implementasjonen av brekkpunktene.
+<Tabs>
+  <TabList>
+    <Tab>Demo</Tab>
+    <Tab>Logo</Tab>
+    <Tab>ListHeader</Tab>
+    <Tab>List/ListGroup</Tab>
+    <Tab>SocialsList/SocialsListGroup</Tab>
+    <Tab>Left</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      Du kan åpne [alenestående demo](https://domstolene.github.io/designsystem/?path=/story/dds-components-components-footer--default) og endre bredden til nettleservinduet for å se implementasjonen av brekkpunktene.
 
-<Canvas of={FooterStories.Preview} />
-<Controls of={FooterStories.Preview} />
+      <Canvas of={FooterStories.Preview} />
+      <Controls of={FooterStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      `<FooterLogo>`. Kan overskrives til egen logo ved behov.
 
-## Subkomponenter
+      <Canvas of={FooterStories.Logo} />
+      <ArgTypes of={FooterLogo} />
+    </TabPanel>
+    <TabPanel>
+      `<FooterListHeader>` - overskrift for en liste. Returnerer `<h2>`, slik at overskriftshierarkiet opprettholdes uansett innhold ellers på siden.
 
-### FooterLogo
+      <Canvas of={FooterStories.ListHeader} />
+      <ArgTypes of={FooterListHeader} />
+    </TabPanel>
+    <TabPanel>
+      - `<FooterList>` - liste med elementer.
+      - `<FooterListGroup>` - container som grupperer sammen liste og overskrift.
 
-Logo. Kan overskrives til egen logo ved behov.
+      <Canvas of={FooterStories.ListExample} />
+    </TabPanel>
+    <TabPanel>
+      - `<FooterSocialsList>` - liste med lenker til sosiale medier.
+      - `<FooterSocialsListGroup>` - container som grupperer sammen liste og overskrift.
 
-<Canvas of={FooterStories.Logo} />
-<ArgTypes of={FooterLogo} />
+      <Canvas of={FooterStories.Socials} />
+    </TabPanel>
+    <TabPanel>
+      `<FooterLeft>` - venstre seksjonen i footer. Kan brukes som container for logo og liste med sosiale medier.
 
-### FooterListHeader
+      <Canvas of={FooterStories.Left} />
+    </TabPanel>
 
-Overskrift for en liste. Returnerer `<h2>`, slik at overskriftshierarkiet opprettholdes uansett innhold ellers på siden.
+  </TabPanels>
+</Tabs>
 
-<Canvas of={FooterStories.ListHeader} />
-<ArgTypes of={FooterListHeader} />
-
-### FooterList, FooterListGroup
-
-Liste med elementer. `<FooterListGroup>` er en container som grupperer sammen liste og overskrift.
-
-<Canvas of={FooterStories.ListExample} />
-
-### FooterSocialsGroup, FooterSocialsList
-
-Gruppering for seksjon med lenker til sosiale medier.
-
-<Canvas of={FooterStories.Socials} />
-
-### FooterLeft
-
-Venstre seksjonen i footer. Kan brukes som container for logo og liste med sosiale medier.
-
-<Canvas of={FooterStories.Left} />
+<Divider />
 
 ## Eksempler
 

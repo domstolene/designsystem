@@ -32,12 +32,12 @@ const TestComponentSmallScreen = () => {
 };
 
 describe('<Breadcrumbs>', () => {
-  it('should have nav with accessible name', () => {
+  it('has nav with accessible name', () => {
     render(<Breadcrumbs />);
     const breadcrumbs = screen.getByRole('navigation');
     expect(breadcrumbs).toHaveAccessibleName('Brødsmulesti');
   });
-  it('should render 4 breadcrumbs', () => {
+  it('renders 4 breadcrumbs', () => {
     render(<TestComponent />);
     const breadcrumbItems = screen.getAllByRole('listitem');
     expect(breadcrumbItems[0].textContent).toBe(page1);
@@ -47,13 +47,13 @@ describe('<Breadcrumbs>', () => {
     expect(breadcrumbItems[3].textContent).toBe(page4);
   });
   describe('Breadcrumbs with small screen variant', () => {
-    it('should render button for truncated children', () => {
+    it('renders button for truncated children', () => {
       render(<TestComponentSmallScreen />);
       const button = screen.getByRole('button');
       expect(button).toHaveAccessibleName('Vis brødsmule 2 til 3');
       expect(button).toHaveAttribute('aria-expanded', 'false');
     });
-    it('should show menu on button click', async () => {
+    it('shows menu on button click', async () => {
       render(<TestComponentSmallScreen />);
       const menu = screen.queryByRole('menu');
       expect(menu).not.toBeInTheDocument();
@@ -65,13 +65,13 @@ describe('<Breadcrumbs>', () => {
       expect(menuOpened).toBeInTheDocument();
       expect(button).toHaveAttribute('aria-expanded', 'true');
     });
-    it('should render 2 lists', () => {
+    it('renders 2 lists', () => {
       render(<TestComponentSmallScreen />);
 
       const breadcrumbItems = screen.getAllByRole('list');
       expect(breadcrumbItems).toHaveLength(2);
     });
-    it('should render 4 breadcrumbs in large screen list', () => {
+    it('renders 4 breadcrumbs in large screen list', () => {
       render(<TestComponentSmallScreen />);
 
       const list = screen.getAllByRole('list')[0];
@@ -81,7 +81,7 @@ describe('<Breadcrumbs>', () => {
 
       expect(items).toHaveLength(4);
     });
-    it('should render 3 breadcrumbs in small screen list', () => {
+    it('renders 3 breadcrumbs in small screen list', () => {
       render(<TestComponentSmallScreen />);
 
       const list = screen.getAllByRole('list')[1];
@@ -91,7 +91,7 @@ describe('<Breadcrumbs>', () => {
 
       expect(items).toHaveLength(3);
     });
-    it('should render 7 breadcrumbs', () => {
+    it('renders 7 breadcrumbs', () => {
       render(<TestComponentSmallScreen />);
 
       const breadcrumbItems = screen.getAllByRole('listitem');
@@ -105,7 +105,7 @@ describe('<Breadcrumbs>', () => {
       expect(breadcrumbItems[5].textContent).toBe(page2 + page3);
       expect(breadcrumbItems[6].textContent).toBe(page4);
     });
-    it('should have 2 truncated children with text and href', async () => {
+    it('has 2 truncated children with text and href', async () => {
       const h1 = '#1';
       const h2 = '#2';
 

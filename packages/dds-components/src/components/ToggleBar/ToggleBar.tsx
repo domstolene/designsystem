@@ -21,6 +21,7 @@ export const ToggleBar = <T extends string | number = string>(
     width,
     htmlProps,
     className,
+    style,
     id,
     ...rest
   } = props;
@@ -47,7 +48,7 @@ export const ToggleBar = <T extends string | number = string>(
       }}
     >
       <VStack
-        {...getBaseHTMLProps(id, className, htmlProps, rest)}
+        {...getBaseHTMLProps(id, className, style, htmlProps, rest)}
         width={width}
         gap="x0.125"
         role="radiogroup"

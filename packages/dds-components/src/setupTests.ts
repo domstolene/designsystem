@@ -50,3 +50,13 @@ vi.stubGlobal('matchMedia', (query: string) => ({
 
 // Mock scrollTo
 vi.stubGlobal('scrollTo', vi.fn());
+
+// Mock i18n
+vi.mock('./i18n', () => ({
+  useLanguage: () => 'nb',
+  useTranslation: () => ({
+    t: (text: Record<string, string>) => text['nb'],
+    lang: 'nb',
+  }),
+  createTexts: (texts: Record<string, any>) => texts,
+}));

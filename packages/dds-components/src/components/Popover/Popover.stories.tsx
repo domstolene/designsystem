@@ -4,9 +4,9 @@ import { fn } from 'storybook/test';
 
 import { type Placement } from '../../hooks';
 import {
-  commonArgTypes,
+  commonArgTypesWithNodeChildren,
+  ddsProviderDecorator,
   htmlEventArgType,
-  themeProviderDecorator,
 } from '../../storybook';
 import { Button } from '../Button';
 import { InlineButton } from '../InlineButton';
@@ -20,13 +20,13 @@ import { Popover, PopoverGroup } from '.';
 const meta: Meta<typeof Popover> = {
   title: 'dds-components/Components/Popover',
   component: Popover,
-  decorators: [Story => themeProviderDecorator(<Story />)],
+  decorators: [ddsProviderDecorator],
   argTypes: {
     header: { control: 'text' },
     onBlur: htmlEventArgType,
     isOpen: { control: false },
     anchorRef: { control: false },
-    ...commonArgTypes,
+    ...commonArgTypesWithNodeChildren,
     sizeProps: { control: false },
   },
   args: { onBlur: fn(), onClose: fn() },
@@ -119,10 +119,7 @@ export const PlacementOverview: Story = {
       </div>
     );
     return (
-      <StoryHStack
-        justifyContent="center"
-        htmlProps={{ style: { paddingBlock: 'var(--dds-spacing-x6)' } }}
-      >
+      <StoryHStack justifyContent="center" paddingBlock="x6">
         <StoryVStack>
           {popover('top-start')}
           {popover('bottom-start')}
@@ -250,7 +247,9 @@ export const Custom: Story = {
     const id = 'id';
     return (
       <StoryVStack alignItems="center">
-        <LocalMessage purpose="warning" message="Brukes kun ved corner cases" />
+        <LocalMessage purpose="warning">
+          Brukes kun ved corner cases
+        </LocalMessage>
 
         <Button
           ref={bRef}

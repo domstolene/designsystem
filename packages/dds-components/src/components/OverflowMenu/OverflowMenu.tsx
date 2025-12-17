@@ -16,6 +16,7 @@ export const OverflowMenu = ({
   className,
   htmlProps = {},
   ref,
+  style,
   ...rest
 }: OverflowMenuProps) => {
   const { isOpen, floatStyling, setFloatOptions, menuRef, menuId } =
@@ -24,8 +25,6 @@ export const OverflowMenu = ({
   useEffect(() => {
     setFloatOptions?.({ placement, offset });
   }, [placement, offset]);
-
-  const { style = {}, ...restHTMLProps } = htmlProps;
   const openCn = isOpen ? 'open' : 'closed';
 
   return (
@@ -43,14 +42,14 @@ export const OverflowMenu = ({
           utilStyles['visibility-transition'],
           utilStyles[`visibility-transition--${openCn}`],
         ),
-        restHTMLProps,
+        { ...style, ...floatStyling },
+        htmlProps,
         rest,
       )}
       role="menu"
       aria-hidden={!isOpen}
-      elevation={1}
+      elevation={2}
       border="border-default"
-      style={{ ...style, ...floatStyling }}
     />
   );
 };

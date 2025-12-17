@@ -5,8 +5,8 @@ import { Button } from '../Button/Button';
 
 import { ButtonGroup } from '.';
 
-describe('<ButtonGroup />', () => {
-  it('should render a button', () => {
+describe('<ButtonGroup>', () => {
+  it('renders a button', () => {
     render(
       <ButtonGroup>
         <Button />
@@ -16,7 +16,7 @@ describe('<ButtonGroup />', () => {
 
     expect(button).toBeInTheDocument();
   });
-  it('should render three buttons', () => {
+  it('renders three buttons', () => {
     render(
       <ButtonGroup>
         <Button />
@@ -28,13 +28,13 @@ describe('<ButtonGroup />', () => {
 
     expect(buttons).toHaveLength(3);
   });
-  it('should have role=group as default', () => {
+  it('has group role as default', () => {
     render(<ButtonGroup />);
     const group = screen.getByRole('group');
 
     expect(group).toBeInTheDocument();
   });
-  it('should have role=toolbar', () => {
+  it('has toolbar role', () => {
     render(<ButtonGroup role="toolbar" />);
     const toolbar = screen.getByRole('toolbar');
 

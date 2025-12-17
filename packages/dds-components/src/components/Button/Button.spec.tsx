@@ -5,7 +5,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { Button } from '.';
 
 describe('<Button>', () => {
-  it('should have a label', () => {
+  it('has a label', () => {
     const label = 'button label';
     render(<Button>{label}</Button>);
 
@@ -35,6 +35,15 @@ describe('<Button>', () => {
   it('disables the button if it is in a loading state', async () => {
     const onClick = vi.fn();
     render(<Button loading onClick={onClick} />);
+    const button = screen.getByRole('button');
+    await userEvent.click(button);
+
+    expect(button).toBeDisabled();
+    expect(onClick).not.toHaveBeenCalled();
+  });
+  it('is disabled', async () => {
+    const onClick = vi.fn();
+    render(<Button onClick={onClick} htmlProps={{ disabled: true }} />);
     const button = screen.getByRole('button');
     await userEvent.click(button);
 

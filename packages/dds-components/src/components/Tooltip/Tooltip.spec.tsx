@@ -10,7 +10,7 @@ const text = 'text';
 
 describe('<Tooltip>', () => {
   describe('persistent', async () => {
-    it('should not make tooltip accessible initially ', async () => {
+    it('does not make tooltip accessible initially ', async () => {
       render(
         <Tooltip text={text}>
           <Button />
@@ -22,7 +22,7 @@ describe('<Tooltip>', () => {
       });
     });
 
-    it('should render tooltip text', async () => {
+    it('renders tooltip text', async () => {
       render(
         <Tooltip text={text}>
           <Button />
@@ -33,7 +33,7 @@ describe('<Tooltip>', () => {
         expect(textElement).toBeInTheDocument();
       });
     });
-    it('should make tooltip accessible on hover', async () => {
+    it('makes tooltip accessible on hover', async () => {
       const user = userEvent.setup();
       render(
         <Tooltip text={text}>
@@ -48,7 +48,7 @@ describe('<Tooltip>', () => {
       });
     });
 
-    it('should make tooltip accessible on focus', async () => {
+    it('makes tooltip accessible on focus', async () => {
       render(
         <Tooltip text={text}>
           <Button />
@@ -62,7 +62,7 @@ describe('<Tooltip>', () => {
       });
     });
 
-    it('anchor element should have tooltip text as accessible description', async () => {
+    it('anchor element has tooltip text as accessible description', async () => {
       const id = 'id';
       render(
         <Tooltip text={text} tooltipId={id}>
@@ -73,7 +73,7 @@ describe('<Tooltip>', () => {
       expect(anchorElement).toHaveAccessibleDescription(text);
     });
 
-    it('should give tooltip aria-hidden=false on focus', async () => {
+    it('gives tooltip aria-hidden=false on focus', async () => {
       render(
         <Tooltip text={text}>
           <Button />
@@ -91,7 +91,7 @@ describe('<Tooltip>', () => {
       });
     });
 
-    it('should give tooltip aria-hidden=true on blur', async () => {
+    it('gives tooltip aria-hidden=true on blur', async () => {
       render(
         <Tooltip text={text}>
           <Button />
@@ -110,7 +110,7 @@ describe('<Tooltip>', () => {
       });
     });
 
-    it('should give tooltip aria-hidden=false on mouse over', async () => {
+    it('gives tooltip aria-hidden=false on mouse over', async () => {
       render(
         <Tooltip text={text}>
           <Button />
@@ -123,7 +123,7 @@ describe('<Tooltip>', () => {
       );
     });
 
-    it('should give tooltip aria-hidden=true on mouse leave', async () => {
+    it('gives tooltip aria-hidden=true on mouse leave', async () => {
       const user = userEvent.setup();
       render(
         <Tooltip text={text}>
@@ -138,7 +138,7 @@ describe('<Tooltip>', () => {
       );
     });
 
-    it('should call button onFocus event', async () => {
+    it('calls button onFocus event', async () => {
       const event = vi.fn();
       render(
         <Tooltip text={text}>
@@ -152,7 +152,7 @@ describe('<Tooltip>', () => {
       });
     });
 
-    it('should call button onBlur event', async () => {
+    it('calls button onBlur event', async () => {
       const event = vi.fn();
       render(
         <Tooltip text={text}>
@@ -167,7 +167,7 @@ describe('<Tooltip>', () => {
       });
     });
 
-    it('should call container onMouseOver event', async () => {
+    it('calls container onMouseOver event', async () => {
       const event = vi.fn();
       const testId = 'test1';
       render(
@@ -183,7 +183,7 @@ describe('<Tooltip>', () => {
       expect(event).toHaveBeenCalled();
     });
 
-    it('should call container onMouseLeave event', async () => {
+    it('calls container onMouseLeave event', async () => {
       const event = vi.fn();
       const user = userEvent.setup();
       const testId = 'test1';
@@ -201,7 +201,7 @@ describe('<Tooltip>', () => {
       expect(event).toHaveBeenCalled();
     });
 
-    it('should close on Esc', async () => {
+    it('closes on Esc', async () => {
       const user = userEvent.setup();
 
       render(
@@ -222,7 +222,7 @@ describe('<Tooltip>', () => {
     });
   });
   describe('not persistent', () => {
-    it('should not render tooltip initially', async () => {
+    it('does not render tooltip initially', async () => {
       render(
         <Tooltip keepMounted={false} text={text}>
           <Button />
@@ -233,7 +233,7 @@ describe('<Tooltip>', () => {
       });
     });
 
-    it('should render tooltip on hover', async () => {
+    it('renders tooltip on hover', async () => {
       const user = userEvent.setup();
       render(
         <Tooltip keepMounted={false} text={text}>
@@ -248,7 +248,7 @@ describe('<Tooltip>', () => {
       });
     });
 
-    it('should render tooltip on focus', async () => {
+    it('renders tooltip on focus', async () => {
       render(
         <Tooltip keepMounted={false} text={text}>
           <Button />
@@ -262,7 +262,7 @@ describe('<Tooltip>', () => {
       });
     });
 
-    it('should render tooltip text when mounted', async () => {
+    it('renders tooltip text when mounted', async () => {
       render(
         <Tooltip keepMounted={false} text={text}>
           <Button />
@@ -276,7 +276,7 @@ describe('<Tooltip>', () => {
       });
     });
 
-    it('anchor element should not have accessible description when tooltip not mounted', async () => {
+    it('anchor element does not have accessible description when tooltip not mounted', async () => {
       const id = 'id';
       render(
         <Tooltip keepMounted={false} text={text} tooltipId={id}>
@@ -287,7 +287,7 @@ describe('<Tooltip>', () => {
       expect(anchorElement).not.toHaveAccessibleDescription();
     });
 
-    it('anchor element should have tooltip text as accessible description', async () => {
+    it('anchor element does have tooltip text as accessible description', async () => {
       const id = 'id';
       const user = userEvent.setup();
       render(
@@ -302,7 +302,7 @@ describe('<Tooltip>', () => {
       });
     });
 
-    it('should call button onFocus event', async () => {
+    it('calls button onFocus event', async () => {
       const event = vi.fn();
 
       render(
@@ -317,7 +317,7 @@ describe('<Tooltip>', () => {
       });
     });
 
-    it('should call button onBlur event', async () => {
+    it('calls button onBlur event', async () => {
       const event = vi.fn();
       render(
         <Tooltip keepMounted={false} text={text}>
@@ -332,7 +332,7 @@ describe('<Tooltip>', () => {
       });
     });
 
-    it('should call container onMouseOver event', async () => {
+    it('calls container onMouseOver event', async () => {
       const event = vi.fn();
       const testId = 'test1';
       render(
@@ -353,7 +353,7 @@ describe('<Tooltip>', () => {
       expect(event).toHaveBeenCalled();
     });
 
-    it('should call container onMouseLeave event', async () => {
+    it('calls container onMouseLeave event', async () => {
       const event = vi.fn();
 
       const testId = 'test1';
@@ -375,7 +375,7 @@ describe('<Tooltip>', () => {
       expect(event).toHaveBeenCalled();
     });
 
-    it('should not use aria-hidden', async () => {
+    it('does not use aria-hidden', async () => {
       const user = userEvent.setup();
       render(
         <Tooltip keepMounted={false} text={text}>
@@ -392,7 +392,7 @@ describe('<Tooltip>', () => {
       });
     });
 
-    it('should close on Esc', async () => {
+    it('closes on Esc', async () => {
       const user = userEvent.setup();
 
       render(

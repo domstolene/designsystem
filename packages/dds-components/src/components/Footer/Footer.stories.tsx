@@ -28,44 +28,20 @@ const socials = (
     <FooterListHeader>Følg oss</FooterListHeader>
     <FooterSocialsList>
       <li>
-        <Link
-          href="/"
-          htmlProps={{
-            style: { display: 'block' },
-          }}
-        >
-          <Icon
-            icon={FacebookIcon}
-            htmlProps={{ style: { display: 'block' } }}
-          />
+        <Link href="/" style={{ display: 'block' }}>
+          <Icon icon={FacebookIcon} style={{ display: 'block' }} />
         </Link>
         <VisuallyHidden>Facebook</VisuallyHidden>
       </li>
       <li>
-        <Link
-          href="/"
-          htmlProps={{
-            style: { display: 'block' },
-          }}
-        >
-          <Icon
-            icon={InstagramIcon}
-            htmlProps={{ style: { display: 'block' } }}
-          />
+        <Link href="/" style={{ display: 'block' }}>
+          <Icon icon={InstagramIcon} style={{ display: 'block' }} />
           <VisuallyHidden>Instagram</VisuallyHidden>
         </Link>
       </li>
       <li>
-        <Link
-          href="/"
-          htmlProps={{
-            style: { display: 'block' },
-          }}
-        >
-          <Icon
-            icon={LinkedInIcon}
-            htmlProps={{ style: { display: 'block' } }}
-          />
+        <Link href="/" style={{ display: 'block' }}>
+          <Icon icon={LinkedInIcon} style={{ display: 'block' }} />
           <VisuallyHidden>LinkedIn</VisuallyHidden>
         </Link>
       </li>

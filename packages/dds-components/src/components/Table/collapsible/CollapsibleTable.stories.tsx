@@ -1,10 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { ScreenSize, useScreenSize } from '../../../hooks';
-import {
-  themeProviderDecorator,
-  windowWidthDecorator,
-} from '../../../storybook';
+import { ddsProviderDecorator, windowWidthDecorator } from '../../../storybook';
 import { Button } from '../../Button';
 import { FavStar } from '../../FavStar';
 import { Icon } from '../../Icon';
@@ -35,7 +32,7 @@ const meta: Meta<typeof CollapsibleTable> = {
       exclude: ['headerValues', 'definingColumnIndex'],
     },
   },
-  decorators: [Story => themeProviderDecorator(<Story />)],
+  decorators: [ddsProviderDecorator],
 };
 
 export default meta;

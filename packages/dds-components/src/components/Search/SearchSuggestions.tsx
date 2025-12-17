@@ -1,22 +1,19 @@
 import { type MouseEvent } from 'react';
 
-import { type SearchProps } from './Search';
 import styles from './Search.module.css';
-import { typographyTypes } from './Search.utils';
 import { SearchSuggestionItem } from './SearchSuggestionItem';
 import { useRoveFocus } from '../../hooks';
 import { createTexts, useTranslation } from '../../i18n';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn, derivativeIdGenerator } from '../../utils';
 import { StylelessList } from '../helpers';
+import { DropdownHeader } from '../helpers/Dropdown/DropdownHeader';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
-import { Box, Paper } from '../layout';
-import { getTypographyCn } from '../Typography';
-import typographyStyles from '../Typography/typographyStyles.module.css';
+import { Paper } from '../layout';
 
 export type SearchSuggestionsProps = BaseComponentProps<
   HTMLDivElement,
-  Pick<SearchProps, 'componentSize'> & {
+  {
     /**Forslag som vises i listen. */
     suggestions?: Array<string>;
     /** Om listen skal vises. */
@@ -34,10 +31,10 @@ export const SearchSuggestions = ({
   id,
   searchId,
   className,
+  style,
   htmlProps,
   suggestions = [],
   showSuggestions,
-  componentSize = 'medium',
   onSuggestionClick,
   maxSuggestions,
   ...rest
@@ -66,6 +63,7 @@ export const SearchSuggestions = ({
             ? utilStyles['visibility-transition--open']
             : utilStyles['visibility-transition--closed'],
         ),
+        style,
         htmlProps,
         rest,
       )}
@@ -78,14 +76,9 @@ export const SearchSuggestions = ({
       overflowY="scroll"
       marginBlock="x0.25 0"
     >
-      <Box
-        as="h2"
-        paddingInline="0 x1"
-        id={suggestionsHeaderId}
-        className={typographyStyles['body-xsmall']}
-      >
+      <DropdownHeader id={suggestionsHeaderId}>
         {t(texts.searchSuggestions)}
-      </Box>
+      </DropdownHeader>
       <StylelessList role="listbox" aria-labelledby={suggestionsHeaderId}>
         {suggestionsToRender.map((suggestion, index) => {
           return (
@@ -97,11 +90,6 @@ export const SearchSuggestions = ({
                 onClick={onSuggestionClick}
                 aria-setsize={suggestionsToRender.length}
                 aria-posinset={index}
-                className={
-                  typographyStyles[
-                    getTypographyCn(typographyTypes[componentSize])
-                  ]
-                }
               >
                 {suggestion}
               </SearchSuggestionItem>

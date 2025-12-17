@@ -14,17 +14,18 @@ export type ChipProps = BaseComponentProps<
   HTMLDivElement,
   {
     /** Teksten som vises i komponenten. */
-    text?: string;
+    children?: string;
     /** Ekstra logikk når `<Chip>` lukkes. */
     onClose?: () => void;
   }
 >;
 
 export const Chip = ({
-  text,
+  children,
   onClose,
   id,
   className,
+  style,
   htmlProps = {},
   ...rest
 }: ChipProps) => {
@@ -48,6 +49,7 @@ export const Chip = ({
       {...getBaseHTMLProps(
         id,
         cn(className, typographyStyles['body-short-medium'], styles.container),
+        style,
         restHTMLprops,
         rest,
       )}
@@ -57,7 +59,9 @@ export const Chip = ({
         size="component"
         icon={CloseSmallIcon}
         onClick={onClick}
-        aria-label={ariaLabel ?? t(texts.removeChip) + (text ? ` ${text}` : '')}
+        aria-label={
+          ariaLabel ?? t(texts.removeChip) + (children ? ` ${children}` : '')
+        }
       />
     </Box>
   ) : null;

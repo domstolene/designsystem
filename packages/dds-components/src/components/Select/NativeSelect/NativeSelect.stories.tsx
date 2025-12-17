@@ -3,6 +3,7 @@ import { fn } from 'storybook/test';
 
 import {
   categoryHtml,
+  ddsProviderDecorator,
   htmlEventArgType,
   labelText,
   responsivePropsArgTypes,
@@ -12,7 +13,7 @@ import { INPUT_SIZES } from '../../helpers/Input';
 import { CourtIcon } from '../../Icon/icons';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 
-import { NativeSelect, NativeSelectPlaceholder } from '.';
+import { NativeSelect } from '.';
 
 export default {
   title: 'dds-components/Components/Select/NativeSelect',
@@ -29,6 +30,7 @@ export default {
     onChange: htmlEventArgType,
   },
   args: { onChange: fn() },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof NativeSelect>;
 
 type Story = StoryObj<typeof NativeSelect>;
@@ -138,7 +140,7 @@ export const Groups: Story = {
     label: 'Label',
     children: (
       <>
-        <NativeSelectPlaceholder />
+        <option value=""></option>
         <optgroup label="Group 1">
           <option>Option 1</option>
           <option>Option 2</option>

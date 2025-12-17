@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { List, ListItem } from '.';
 
 describe('<List>', () => {
-  it('should be an unordered list by default', () => {
+  it('is an unordered list by default', () => {
     render(
       <List>
         <ListItem />
@@ -13,7 +13,7 @@ describe('<List>', () => {
     const list = screen.getByRole('list');
     expect(list.nodeName).toEqual('UL');
   });
-  it('should be an ordered list', () => {
+  it('is an ordered list', () => {
     render(
       <List listType="ordered">
         <ListItem />
@@ -22,7 +22,7 @@ describe('<List>', () => {
     const list = screen.getByRole('list');
     expect(list.nodeName).toEqual('OL');
   });
-  it('should render three list items', () => {
+  it('renders three list items', () => {
     render(
       <List>
         <ListItem />
@@ -33,7 +33,7 @@ describe('<List>', () => {
     const listItems = screen.getAllByRole('listitem');
     expect(listItems).toHaveLength(3);
   });
-  it('should render list item text', () => {
+  it('renders list item text', () => {
     const text = 'item 1';
     render(
       <List>

@@ -21,8 +21,10 @@ export const typographyTypes: Record<InputSize, StaticTypographyType> = {
   xsmall: 'bodyXsmall',
 };
 
-interface DateSegmentProps
-  extends Pick<Required<DatePickerProps>, 'componentSize'> {
+interface DateSegmentProps extends Pick<
+  Required<DatePickerProps>,
+  'componentSize'
+> {
   segment: DateSegmentType;
   state: DateFieldState;
   errorMessageId?: string;

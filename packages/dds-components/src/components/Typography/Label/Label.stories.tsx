@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { categoryHtml } from '../../../storybook';
+import { categoryHtml, ddsProviderDecorator } from '../../../storybook';
 import { HelpIcon } from '../../Icon/icons';
 import { InlineButton } from '../../InlineButton';
 import { Popover, PopoverGroup } from '../../Popover';
@@ -16,6 +16,7 @@ export default {
     htmlFor: { control: false, table: categoryHtml },
     ...storyTypographyHtmlAttrs,
   },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof Label>;
 
 type Story = StoryObj<typeof Label>;

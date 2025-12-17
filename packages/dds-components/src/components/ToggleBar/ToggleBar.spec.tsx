@@ -26,26 +26,26 @@ const TestComponent = () => {
 };
 
 describe('<ToggleBar>', () => {
-  it('should set default checked state', () => {
+  it('sets default checked state', () => {
     render(<TestComponent />);
     const input = screen.getAllByRole('radio')[0];
     expect(input).toBeChecked();
   });
 
-  it('should update checked state when selecting a radio button', async () => {
+  it('updates checked state when selecting a radio button', async () => {
     render(<TestComponent />);
     const radio = screen.getAllByRole('radio')[2];
     await userEvent.click(radio);
     expect(radio).toBeChecked();
   });
-  it('should get focus on click', async () => {
+  it('gets focus on click', async () => {
     render(<TestComponent />);
     const radio = screen.getAllByRole('radio')[1];
     await userEvent.click(radio);
 
     expect(radio).toHaveFocus();
   });
-  it('ToggleBar should have radiogroup as role', () => {
+  it('ToggleBar has radiogroup as role', () => {
     render(
       <ToggleBar>
         <ToggleRadio />
@@ -55,7 +55,7 @@ describe('<ToggleBar>', () => {
     expect(radioGroup).toBeInTheDocument();
   });
 
-  it('ToggleBar should have aria-labelledby as label id when label provided', () => {
+  it('ToggleBar has aria-labelledby as label id when label provided', () => {
     const label = 'label';
     render(
       <ToggleBar label={label}>

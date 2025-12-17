@@ -15,6 +15,7 @@ export const VisuallyHidden = <T extends ElementType = 'span'>({
   id,
   as: asProp,
   className,
+  style,
   htmlProps,
   ...rest
 }: VisuallyHiddenProps<T>) => {
@@ -25,6 +26,7 @@ export const VisuallyHidden = <T extends ElementType = 'span'>({
       {...getBaseHTMLProps(
         id,
         cn(className, utilStyles['visually-hidden']),
+        style,
         htmlProps,
         rest,
       )}

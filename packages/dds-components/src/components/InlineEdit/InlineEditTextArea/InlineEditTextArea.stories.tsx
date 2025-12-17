@@ -5,6 +5,7 @@ import { fn } from 'storybook/test';
 import { InlineEditTextArea } from './InlineEditTextArea';
 import {
   categoryCss,
+  ddsProviderDecorator,
   htmlEventArgType,
   windowWidthDecorator,
 } from '../../../storybook';
@@ -27,6 +28,7 @@ export default {
       exclude: ['inputRef'],
     },
   },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof InlineEditTextArea>;
 
 type Story = StoryObj<typeof InlineEditTextArea>;

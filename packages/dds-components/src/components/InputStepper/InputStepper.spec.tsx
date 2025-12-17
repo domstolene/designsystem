@@ -6,44 +6,42 @@ import { describe, expect, it } from 'vitest';
 import { InputStepper } from './InputStepper';
 import { Button } from '../Button';
 
-describe('<InputStepper />', () => {
-  it('should render two buttons', () => {
+describe('<InputStepper>', () => {
+  it('renders two buttons', () => {
     render(<InputStepper maxValue={5} />);
     const buttonElements = screen.getAllByRole('button');
     expect(buttonElements.length).toEqual(2);
   });
-  it('should render text input', () => {
+  it('renders text input', () => {
     render(<InputStepper maxValue={5} />);
     const inputElement = screen.getByRole('textbox');
     expect(inputElement).toBeInTheDocument();
   });
-  it('should render label', () => {
+  it('renders label', () => {
     const label = 'label';
     render(<InputStepper label={label} maxValue={5} />);
     expect(screen.getByText(label)).toBeInTheDocument();
   });
-  it('should render error message', () => {
+  it('renders error message', () => {
     const errorMessage = 'this is an error';
     render(
       <InputStepper label="Label" maxValue={5} errorMessage={errorMessage} />,
     );
     expect(screen.getByText(errorMessage)).toBeInTheDocument();
   });
-  it('should have accessible name assosiated with buttons', () => {
+  it('has accessible name assosiated with buttons', () => {
     const label = 'label';
     render(<InputStepper label={label} maxValue={5} />);
     const buttonElements = screen.getAllByRole('button');
     expect(buttonElements[0]).toHaveAccessibleName(`Reduser ${label} med 1`);
     expect(buttonElements[1]).toHaveAccessibleName(`Øk ${label} med 1`);
   });
-  it('should have label assosiated with input', () => {
+  it('has label assosiated with input', () => {
     const label = 'label';
     render(<InputStepper label={label} maxValue={5} />);
-    const inputElementId = screen.getByRole('textbox').getAttribute('id');
-    const labelNode = screen.getByText(label);
-    expect(labelNode.getAttribute('for')).toEqual(inputElementId);
+    expect(screen.getByRole('textbox')).toHaveAccessibleName(label);
   });
-  it('should have accessible description and invalid state when errorMessage is provided', () => {
+  it('has accessible description and invalid state when errorMessage is provided', () => {
     const errorMessage = 'this is an errorMessage';
     render(
       <InputStepper label="Label" errorMessage={errorMessage} maxValue={5} />,
@@ -53,12 +51,12 @@ describe('<InputStepper />', () => {
     );
     expect(screen.getByRole('textbox')).toHaveAttribute('aria-invalid', 'true');
   });
-  it('should have accessible description when tip is provided', () => {
+  it('has accessible description when tip is provided', () => {
     const tip = 'this is a tip';
     render(<InputStepper label="Label" tip={tip} maxValue={5} />);
     expect(screen.getByRole('textbox')).toHaveAccessibleDescription(tip);
   });
-  it('should increment on click on plus button', async () => {
+  it('increments on click on plus button', async () => {
     const label = 'label';
     render(<InputStepper label={label} defaultValue={1} maxValue={5} />);
     const inputField = screen.getByRole('textbox');
@@ -69,7 +67,7 @@ describe('<InputStepper />', () => {
     await userEvent.click(button);
     expect(inputField).toHaveValue('2');
   });
-  it('should decrement on click on minus button', async () => {
+  it('decrements on click on minus button', async () => {
     const label = 'label';
     render(<InputStepper label={label} defaultValue={1} maxValue={5} />);
     const inputField = screen.getByRole('textbox');
@@ -80,7 +78,7 @@ describe('<InputStepper />', () => {
     await userEvent.click(button);
     expect(inputField).toHaveValue('0');
   });
-  it('should not increment past the maxValue', async () => {
+  it('does not increment past the maxValue', async () => {
     const label = 'label';
     render(<InputStepper label={label} defaultValue={1} maxValue={3} />);
     const inputField = screen.getByRole('textbox');
@@ -95,7 +93,7 @@ describe('<InputStepper />', () => {
     await userEvent.click(button);
     expect(inputField).toHaveValue('3');
   });
-  it('should not decrement past the minValue', async () => {
+  it('does not decrement past the minValue', async () => {
     const label = 'label';
     render(
       <InputStepper label={label} defaultValue={3} maxValue={5} minValue={1} />,
@@ -112,7 +110,7 @@ describe('<InputStepper />', () => {
     await userEvent.click(button);
     expect(inputField).toHaveValue('1');
   });
-  it('should receive a typed user input', async () => {
+  it('receives a typed user input', async () => {
     const label = 'label';
     render(<InputStepper label={label} maxValue={5} />);
     const inputField = screen.getByRole('textbox');
@@ -121,13 +119,10 @@ describe('<InputStepper />', () => {
     await userEvent.type(inputField, '5');
     expect(inputField).toHaveValue('5');
   });
-  it.fails(
-    'should not allow initialization with negative numbers',
-    async () => {
-      render(<InputStepper minValue={-2} maxValue={5} />);
-    },
-  );
-  it('should support controlledState', async () => {
+  it.fails('does not allow initialization with negative numbers', async () => {
+    render(<InputStepper minValue={-2} maxValue={5} />);
+  });
+  it('supports controlledState', async () => {
     const ControlledComponent = () => {
       const [value, setValue] = useState(4);
       return (
@@ -162,13 +157,13 @@ describe('<InputStepper />', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Nullstill' }));
     expect(inputField).toHaveValue('0');
   });
-  it('should render as readOnly if readOnly is set', async () => {
+  it('is readOnly', async () => {
     const label = 'label';
     render(<InputStepper label={label} maxValue={5} readOnly />);
     const inputField = screen.getByRole('textbox');
     expect(inputField).toHaveAttribute('readonly');
   });
-  it('should render as disabled if disabled is set', async () => {
+  it('is disabled', async () => {
     const label = 'label';
     render(<InputStepper label={label} maxValue={5} disabled />);
     const inputField = screen.getByRole('textbox');

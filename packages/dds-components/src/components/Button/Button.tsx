@@ -1,4 +1,5 @@
 import {
+  type ButtonHTMLAttributes,
   type FocusEventHandler,
   type HTMLAttributes,
   type MouseEventHandler,
@@ -34,8 +35,9 @@ export const Button = ({
   id,
   ref,
   className,
+  style,
   htmlProps = {},
-  ...rest
+  ...props
 }: ButtonProps) => {
   const { purpose: groupPurpose, size: groupSize } = useButtonGroupContext();
   const { t } = useTranslation();
@@ -101,15 +103,21 @@ export const Button = ({
     </>
   );
 
+  const rest = props as ButtonHTMLAttributes<HTMLButtonElement>;
+  const { disabled: restDisabled, ...restFinal } = rest;
+
+  const htmlDisabled = htmlProps.disabled;
+  const isDisabled = (restDisabled ?? htmlDisabled ?? loading) === true;
+
   if (!href)
     return (
       <button
         ref={ref}
-        {...getBaseHTMLProps(id, buttonCn, htmlProps, rest)}
+        {...getBaseHTMLProps(id, buttonCn, style, htmlProps, restFinal)}
         onClick={onClick}
         onFocus={onFocus}
         onBlur={onBlur}
-        disabled={loading ?? rest.disabled}
+        disabled={isDisabled}
       >
         {content}
       </button>
@@ -121,9 +129,10 @@ export const Button = ({
         {...getBaseHTMLProps(
           id,
           buttonCn,
+          style,
           //TODO: fikse types ordentlig
           htmlProps as HTMLAttributes<HTMLAnchorElement>,
-          rest,
+          props,
         )}
         onClick={
           loading

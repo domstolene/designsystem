@@ -3,7 +3,7 @@ import { useState } from 'react';
 import styles from './InternalHeader.module.css';
 import { type InternalHeaderProps } from './InternalHeader.types';
 import { NavigationItem } from './NavigationItem';
-import { createTexts, useTranslation } from '../../i18n/translation';
+import { createTexts, useTranslation } from '../../i18n';
 import { getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
 import { Button } from '../Button';
@@ -40,6 +40,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
     onCurrentPageChange,
     id,
     className,
+    style,
     htmlProps,
     ...rest
   } = props;
@@ -103,6 +104,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
       {...getBaseHTMLProps(
         id,
         cn(className, styles.bar, !!navigation && styles['bar--with-nav']),
+        style,
         htmlProps,
         rest,
       )}

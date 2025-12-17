@@ -64,6 +64,7 @@ export const Tab = ({
   id,
   className,
   htmlProps = {},
+  style,
   width = '1fr',
   ref,
   ...rest
@@ -116,6 +117,7 @@ export const Tab = ({
           typographyStyles[`body-${size}`],
           focusStyles['focusable--inset'],
         ),
+        style,
         fixedHtmlProps,
         rest,
       )}

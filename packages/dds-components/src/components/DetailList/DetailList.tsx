@@ -37,6 +37,7 @@ export type DetailListProps = BaseComponentPropsWithChildren<
 export const DetailList = ({
   id,
   className,
+  style,
   htmlProps,
   withDividers = true,
   striped = true,
@@ -57,6 +58,7 @@ export const DetailList = ({
           striped && !smallScreenBreakpoint && styles['list--striped'],
           striped && smallScreenBreakpoint && styles['list--striped-with-bp'],
         ),
+        style,
         htmlProps,
         rest,
       )}

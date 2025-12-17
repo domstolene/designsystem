@@ -29,7 +29,7 @@ import {
   VStack,
   VisuallyHidden,
 } from '../../../src';
-import { themeProviderDecorator } from '../../../src/storybook';
+import { ddsProviderDecorator } from '../../../src/storybook';
 
 const meta: Meta = {
   title: 'Patterns/Form',
@@ -37,7 +37,7 @@ const meta: Meta = {
     layout: 'fullscreen',
     docs: { canvas: { inline: false } },
   },
-  decorators: [Story => themeProviderDecorator(<Story />)],
+  decorators: [ddsProviderDecorator],
 };
 
 export default meta;

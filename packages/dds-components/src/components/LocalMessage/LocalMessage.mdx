@@ -2,26 +2,25 @@ import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as LocalMessageStories from './LocalMessage.stories';
 import { Tabs, Tab, TabList, TabPanels, TabPanel } from '../Tabs';
+import { Divider } from '../Divider';
 
 <Meta of={LocalMessageStories} />
 
 # LocalMessage
 
 <ComponentLinkRow
-  docsHref="https://design.domstol.no/987b33f71/p/072ace-localmessage"
-  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A39"
-  githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/LocalMessage"
-  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-localmessage--default"
+  docsHref="072ace-localmessage"
+  figmaHref="node-id=155%3A39"
+  githubHref={{ folder: 'components', comp: 'LocalMessage' }}
+  storybookHref={{ folder: 'components', comp: 'localmessage' }}
 />
 
 <Tabs>
   <TabList>
     <Tab>Preview</Tab>
+    <Tab>Varianter</Tab>
     <Tab>Closable</Tab>
     <Tab>Vertical</Tab>
-    <Tab>Extra button</Tab>
-    <Tab>Complex</Tab>
-    <Tab>Responsive</Tab>
   </TabList>
   <TabPanels>
     <TabPanel>
@@ -29,22 +28,35 @@ import { Tabs, Tab, TabList, TabPanels, TabPanel } from '../Tabs';
       <Controls of={LocalMessageStories.Preview} />
     </TabPanel>
     <TabPanel>
+      <Canvas of={LocalMessageStories.Variants} />
+    </TabPanel>
+    <TabPanel>
       <Canvas of={LocalMessageStories.Closable} />
     </TabPanel>
     <TabPanel>
       <Canvas of={LocalMessageStories.Vertical} />
     </TabPanel>
-    <TabPanel>
-      Knappen skal stilles ved siden av lukkeknappen, ha samme størrelse som den
-      og `'secondary'` som formål. Bruk gjerne layout primitives for å oppnå
-      dette oppsettet.
-      <Canvas of={LocalMessageStories.WithExtraButton} />
-    </TabPanel>
-    <TabPanel>
-      <Canvas of={LocalMessageStories.ComplexContent} />
-    </TabPanel>
-    <TabPanel>
-      <Canvas of={LocalMessageStories.ResponsiveWidth} />
-    </TabPanel>
   </TabPanels>
 </Tabs>
+
+<Divider />
+
+## Eksempler
+
+### Ekstra knapp
+
+Knappen skal stilles ved siden av lukkeknappen, ha samme størrelse som den
+og `'secondary'` som formål. Bruk gjerne layout primitives for å oppnå
+dette oppsettet.
+
+<Canvas of={LocalMessageStories.WithExtraButton} />
+
+### Responsiv
+
+**OBS**: se eksempelet i egen story for riktig bredde av viewport.
+
+<Canvas of={LocalMessageStories.ResponsiveWidth} />
+
+### Kompleks innhold
+
+<Canvas of={LocalMessageStories.ComplexContent} />

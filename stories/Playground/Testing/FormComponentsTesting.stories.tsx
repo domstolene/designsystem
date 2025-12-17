@@ -15,12 +15,12 @@ import {
 } from '../../../packages/dds-components/src/index';
 import {
   StoryLabel,
-  themeProviderDecorator,
+  ddsProviderDecorator,
 } from '../../../packages/dds-components/src/storybook';
 
 const meta: Meta = {
   title: 'Playground/Testing',
-  decorators: [Story => themeProviderDecorator(<Story />)],
+  decorators: [ddsProviderDecorator],
 };
 export default meta;
 
@@ -44,6 +44,13 @@ function renderInputs(size: InputSize) {
         <option value=""></option>
         <option value="a">a</option>
       </NativeSelect>
+      <Select
+        isMulti
+        componentSize={size}
+        icon={icon}
+        options={[{ label: 'a', value: 'a' }]}
+        value={{ label: 'a', value: 'a' }}
+      />
     </>
   );
 }
@@ -51,7 +58,9 @@ function renderInputs(size: InputSize) {
 export const FormComponents = () => {
   return (
     <VStack gap="x1.5">
-      <LocalMessage message="Her tester vi om skjemakomponenter ser likt ut." />
+      <LocalMessage>
+        Her tester vi om skjemakomponenter ser likt ut.
+      </LocalMessage>
       <VStack gap="x0.25">
         <StoryLabel>Horisontal plassering på ikonene</StoryLabel>
         <VStack gap="x1">
@@ -63,9 +72,9 @@ export const FormComponents = () => {
       <VStack gap="x0.25">
         <StoryLabel> Høyde og vertikal plassering på ikonene</StoryLabel>
         <VStack gap="x1">
-          <HStack>{renderInputs('medium')}</HStack>
-          <HStack>{renderInputs('small')}</HStack>
-          <HStack>{renderInputs('xsmall')}</HStack>
+          <HStack width="fit-content">{renderInputs('medium')}</HStack>
+          <HStack width="fit-content">{renderInputs('small')}</HStack>
+          <HStack width="fit-content">{renderInputs('xsmall')}</HStack>
         </VStack>
       </VStack>
     </VStack>

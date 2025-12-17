@@ -1,9 +1,11 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
-import { LocalMessage } from './LocalMessage';
+import { L_MESSAGE_PURPOSES, LocalMessage } from './LocalMessage';
 import {
   commonArgTypes,
+  ddsProviderDecorator,
+  labelText,
   responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../storybook';
@@ -21,6 +23,7 @@ export default {
     ...commonArgTypes,
   },
   args: { onClose: fn() },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof LocalMessage>;
 
 type Story = StoryObj<typeof LocalMessage>;
@@ -31,29 +34,15 @@ export const Preview: Story = {
   },
 };
 
-export const Overview: Story = {
-  args: {
-    children: 'Dette er en lokal melding',
-  },
+export const Variants: Story = {
   render: args => (
-    <StoryHStack>
-      <StoryVStack>
-        <LocalMessage {...args} purpose="info" />
-        <LocalMessage {...args} purpose="success" />
-        <LocalMessage {...args} purpose="warning" />
-        <LocalMessage {...args} purpose="danger" />
-        <LocalMessage {...args} purpose="tips" />
-        <LocalMessage {...args} layout="vertical" />
-      </StoryVStack>
-      <StoryVStack>
-        <LocalMessage {...args} purpose="info" closable />
-        <LocalMessage {...args} purpose="success" closable />
-        <LocalMessage {...args} purpose="warning" closable />
-        <LocalMessage {...args} purpose="danger" closable />
-        <LocalMessage {...args} purpose="tips" closable />
-        <LocalMessage {...args} layout="vertical" closable />
-      </StoryVStack>
-    </StoryHStack>
+    <StoryVStack alignItems="stretch">
+      {L_MESSAGE_PURPOSES.map(p => (
+        <LocalMessage {...args} key={`p-${p}`} purpose={p}>
+          {labelText(p)}
+        </LocalMessage>
+      ))}
+    </StoryVStack>
   ),
 };
 

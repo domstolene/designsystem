@@ -2,17 +2,18 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
 import { ArrowLeftIcon } from '../..';
-import { BUTTON_SIZES } from './Button.types';
+import { BUTTON_PURPOSES, BUTTON_SIZES } from './Button.types';
 import {
   categoryHtml,
   commonArgTypes,
+  ddsProviderDecorator,
   htmlArgType,
   htmlEventArgType,
   labelText,
 } from '../../storybook';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
-import { Button, type ButtonPurpose } from '.';
+import { Button } from '.';
 
 export default {
   title: 'dds-components/Components/Button',
@@ -22,6 +23,7 @@ export default {
     children: { control: 'text' },
     icon: { control: false },
     href: { table: categoryHtml },
+    'aria-label': { table: categoryHtml },
     target: htmlArgType,
     type: htmlArgType,
     onClick: htmlEventArgType,
@@ -29,6 +31,7 @@ export default {
     onFocus: htmlEventArgType,
   },
   args: { onClick: fn(), onBlur: fn(), onFocus: fn() },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof Button>;
 
 type Story = StoryObj<typeof Button>;
@@ -37,25 +40,18 @@ export const Preview: Story = {
   args: { children: 'Tekst' },
 };
 
-const purposes: Array<ButtonPurpose> = [
-  'primary',
-  'secondary',
-  'tertiary',
-  'danger',
-];
-
 export const Purposes: Story = {
   render: args => (
     <StoryHStack>
       <StoryVStack>
-        {purposes.map(purpose => (
+        {BUTTON_PURPOSES.map(purpose => (
           <Button key={`t-${purpose}`} {...args} purpose={purpose}>
             {labelText(purpose)}
           </Button>
         ))}
       </StoryVStack>
       <StoryVStack>
-        {purposes.map(purpose => (
+        {BUTTON_PURPOSES.map(purpose => (
           <Button
             key={`i-left-${purpose}`}
             {...args}
@@ -68,7 +64,7 @@ export const Purposes: Story = {
         ))}
       </StoryVStack>
       <StoryVStack>
-        {purposes.map(purpose => (
+        {BUTTON_PURPOSES.map(purpose => (
           <Button
             key={`i-${purpose}`}
             {...args}
@@ -119,26 +115,18 @@ export const Sizes: Story = {
 };
 
 export const OverviewLoading: Story = {
+  args: {
+    children: 'Tekst',
+  },
   render: args => (
     <StoryHStack>
-      <StoryVStack>
-        <Button {...args} purpose="primary" size="xsmall" loading />
-        <Button {...args} purpose="primary" size="small" loading />
-        <Button {...args} purpose="primary" size="medium" loading />
-        <Button {...args} purpose="primary" size="large" loading />
-      </StoryVStack>
-      <StoryVStack>
-        <Button {...args} purpose="secondary" size="xsmall" loading />
-        <Button {...args} purpose="secondary" size="small" loading />
-        <Button {...args} purpose="secondary" size="medium" loading />
-        <Button {...args} purpose="secondary" size="large" loading />
-      </StoryVStack>
-      <StoryVStack>
-        <Button {...args} purpose="danger" size="xsmall" loading />
-        <Button {...args} purpose="danger" size="small" loading />
-        <Button {...args} purpose="danger" size="medium" loading />
-        <Button {...args} purpose="danger" size="large" loading />
-      </StoryVStack>
+      {BUTTON_PURPOSES.map(p => (
+        <StoryVStack>
+          {BUTTON_SIZES.map(s => (
+            <Button {...args} key={`${p}-${s}`} purpose={p} size={s} loading />
+          ))}
+        </StoryVStack>
+      ))}
     </StoryHStack>
   ),
 };

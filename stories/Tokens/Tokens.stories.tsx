@@ -20,12 +20,14 @@ import {
   TabPanels,
   Tabs,
 } from '../../packages/dds-components/src';
+import { ddsProviderDecorator } from '../../packages/dds-components/src/storybook';
 
 const meta: Meta = {
   title: 'dds-design-tokens/Tokens',
   parameters: {
     disableGlobalDecorator: true,
   },
+  decorators: [ddsProviderDecorator],
 };
 export default meta;
 

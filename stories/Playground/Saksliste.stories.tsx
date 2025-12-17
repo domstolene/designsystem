@@ -12,9 +12,11 @@ import {
   Table,
   Tag,
 } from '../../packages/dds-components/src/index';
+import { ddsProviderDecorator } from '../../packages/dds-components/src/storybook';
 
 export default {
   title: 'Playground/Saksliste',
+  decorators: [ddsProviderDecorator],
 };
 
 const dødsfallItems = [
@@ -171,10 +173,9 @@ export const Saksliste = () => {
                   <Table.Cell>{item.innkommet}</Table.Cell>
                   <Table.Cell>{item.saksnummer}</Table.Cell>
                   <Table.Cell>
-                    <Tag
-                      text={item.status}
-                      purpose={index === 0 ? 'info' : 'warning'}
-                    ></Tag>
+                    <Tag purpose={index === 0 ? 'info' : 'warning'}>
+                      {item.status}
+                    </Tag>
                   </Table.Cell>
                   <Table.Cell>{item.saksbehandler}</Table.Cell>
                   <Table.Cell>{item.siktede}</Table.Cell>

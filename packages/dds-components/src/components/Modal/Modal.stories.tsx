@@ -2,7 +2,10 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useRef, useState } from 'react';
 import { fn } from 'storybook/test';
 
-import { commonArgTypes, themeProviderDecorator } from '../../storybook';
+import {
+  commonArgTypesWithNodeChildren,
+  ddsProviderDecorator,
+} from '../../storybook';
 import { Button } from '../Button';
 import { StoryHStack } from '../layout/Stack/utils';
 import { Search } from '../Search';
@@ -12,15 +15,15 @@ import { Modal, ModalActions, ModalBody } from '.';
 const meta: Meta<typeof Modal> = {
   title: 'dds-components/Components/Modal',
   component: Modal,
-  decorators: [Story => themeProviderDecorator(<Story />)],
+  decorators: [ddsProviderDecorator],
   argTypes: {
+    ...commonArgTypesWithNodeChildren,
     header: { control: 'text' },
     parentElement: { control: false },
     onClose: { control: false },
     isOpen: { control: false },
     triggerRef: { control: false },
     initialFocusRef: { control: false },
-    ...commonArgTypes,
   },
   args: { onClose: fn() },
   parameters: {
@@ -52,7 +55,7 @@ export const Preview: Story = {
           onClose={close}
           triggerRef={buttonRef}
           isOpen={!closed}
-          htmlProps={{ style: { width: '400px' } }}
+          style={{ width: '400px' }}
         >
           <ModalBody>Modal</ModalBody>
           <ModalActions>
@@ -146,9 +149,7 @@ export const Scrollable: Story = {
           isOpen={!closed}
           triggerRef={buttonRef}
           onClose={close}
-          htmlProps={{
-            style: { width: '300px' },
-          }}
+          style={{ width: '300px' }}
         >
           <ModalBody scrollable height="100px">
             Du kan vanligvis fritt velge hvilken advokat du vil ha som forsvarer

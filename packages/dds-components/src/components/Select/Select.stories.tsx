@@ -4,10 +4,10 @@ import { fn } from 'storybook/test';
 
 import {
   categoryHtml,
+  ddsProviderDecorator,
   htmlEventArgType,
   labelText,
   responsivePropsArgTypes,
-  themeProviderDecorator,
   windowWidthDecorator,
 } from '../../storybook';
 import { Button } from '../Button';
@@ -35,7 +35,7 @@ const meta: Meta<typeof Select> = {
     onBlur: htmlEventArgType,
     onFocus: htmlEventArgType,
   },
-  args: { onChange: fn(), onInputChange: fn(), onBlur: fn(), onFocus: fn() },
+  args: { onChange: fn(), onInputChange: fn() },
   parameters: {
     docs: {
       story: { height: '450px' },
@@ -44,7 +44,7 @@ const meta: Meta<typeof Select> = {
       exclude: ['style', 'className', 'items', 'value', 'defaultValue'],
     },
   },
-  decorators: [Story => themeProviderDecorator(<Story />)],
+  decorators: [ddsProviderDecorator],
 };
 
 export default meta;

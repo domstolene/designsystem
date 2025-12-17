@@ -1,19 +1,31 @@
 import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as TagStories from './Tag.stories';
+import { Tabs, Tab, TabList, TabPanels, TabPanel } from '../Tabs';
 
 <Meta of={TagStories} />
 
 # Tag
 
 <ComponentLinkRow
-  docsHref="https://design.domstol.no/987b33f71/p/19eec4-tag"
-  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=7766%3A151028"
-  githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Tag"
-  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-tag--default"
+  docsHref="19eec4-tag"
+  figmaHref="node-id=7766%3A151028"
+  githubHref={{ folder: 'components', comp: 'Tag' }}
+  storybookHref={{ folder: 'components', comp: 'tag' }}
 />
 
-## Props
-
-<Canvas of={TagStories.Preview} />
-<Controls of={TagStories.Preview} />
+<Tabs>
+  <TabList>
+    <Tab>Preview</Tab>
+    <Tab>Varianter</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <Canvas of={TagStories.Preview} />
+      <Controls of={TagStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={TagStories.Variants} />
+    </TabPanel>
+  </TabPanels>
+</Tabs>

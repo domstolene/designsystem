@@ -1,7 +1,11 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
-import { commonArgTypes, windowWidthDecorator } from '../../storybook';
+import {
+  commonArgTypes,
+  ddsProviderDecorator,
+  windowWidthDecorator,
+} from '../../storybook';
 import { EditIcon } from '../Icon/icons';
 import { StoryVStack } from '../layout/Stack/utils';
 
@@ -22,6 +26,7 @@ const meta: Meta<typeof InternalHeader> = {
       story: { height: '320px' },
     },
   },
+  decorators: [ddsProviderDecorator],
 };
 
 export default meta;

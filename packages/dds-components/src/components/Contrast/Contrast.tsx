@@ -1,20 +1,31 @@
+import { type ElementType } from 'react';
+
 import styles from './Contrast.module.css';
-import { ElementAs, type PolymorphicProps } from '../../polymorphic';
+import { getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
+import { Box, type BoxProps } from '../layout';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
-export type ContrastProps<T extends React.ElementType> = PolymorphicProps<T>;
+export type ContrastProps<T extends ElementType = 'div'> = BoxProps<T>;
 
-export const Contrast = <T extends React.ElementType>({
+export const Contrast = <T extends ElementType = 'div'>({
+  id,
   className,
-  as = 'div',
+  style,
+  htmlProps,
   ...rest
 }: ContrastProps<T>) => {
   return (
-    <ElementAs
-      as={as}
-      className={cn(className, typographyStyles.contrast, styles.container)}
-      {...rest}
+    <Box
+      {...getBaseHTMLProps(
+        id,
+        cn(className, typographyStyles.contrast, styles.container),
+        style,
+        htmlProps,
+        rest,
+      )}
     />
   );
 };
+
+Contrast.displayName = 'Contrast';

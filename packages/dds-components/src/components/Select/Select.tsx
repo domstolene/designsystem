@@ -128,6 +128,7 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
   ref,
   instanceId,
   afterLabelContent,
+  hideSelectedOptions,
   ...rest
 }: SelectProps<Option, IsMulti>) {
   const themeContext = useContext(ThemeContext);
@@ -241,6 +242,7 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
     defaultValue,
     isDisabled: !!isDisabled,
     isClearable,
+    hideSelectedOptions: hideSelectedOptions ? hideSelectedOptions : false,
     placeholder: placeholder ? placeholder : '',
     closeMenuOnSelect: closeMenuOnSelect
       ? closeMenuOnSelect

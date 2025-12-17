@@ -4,7 +4,11 @@ import { useState } from 'react';
 
 import { CardSelectable } from './CardSelectable';
 import { CardSelectableGroup } from './CardSelectableGroup';
-import { commonArgTypes, responsivePropsArgTypes } from '../../../storybook';
+import {
+  commonArgTypesWithNodeChildren,
+  ddsProviderDecorator,
+  responsivePropsArgTypes,
+} from '../../../storybook';
 import { Button } from '../../Button';
 import { VStack } from '../../layout';
 import { Typography } from '../../Typography';
@@ -26,7 +30,7 @@ export default {
   title: 'dds-components/Components/Card/CardSelectable/Group',
   component: CardSelectableGroup,
   argTypes: {
-    ...commonArgTypes,
+    ...commonArgTypesWithNodeChildren,
     alignItems,
     flexDirection,
     columnGap,
@@ -37,6 +41,7 @@ export default {
     margin,
     padding,
   },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof CardSelectableGroup>;
 
 type Story = StoryObj<typeof CardSelectableGroup>;

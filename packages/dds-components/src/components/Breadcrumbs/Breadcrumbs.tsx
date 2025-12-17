@@ -1,11 +1,8 @@
-import { Children, isValidElement } from 'react';
+import { Children, type ReactNode, isValidElement } from 'react';
 
 import styles from './Breadcrumbs.module.css';
 import { createTexts, useTranslation } from '../../i18n';
-import {
-  type BaseComponentPropsWithChildren,
-  getBaseHTMLProps,
-} from '../../types';
+import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
 import { Button } from '../Button';
 import { StylelessList } from '../helpers';
@@ -22,7 +19,7 @@ import { type BreadcrumbProps, isAnchorTypographyProps } from './Breadcrumb';
 import { type Breakpoint, HStack, type HStackProps } from '../layout';
 import tgStyles from '../Typography/typographyStyles.module.css';
 
-export type BreadcrumbsProps = BaseComponentPropsWithChildren<
+export type BreadcrumbsProps = BaseComponentProps<
   HTMLElement,
   {
     /**
@@ -30,6 +27,8 @@ export type BreadcrumbsProps = BaseComponentPropsWithChildren<
      * Trunkerer barn unntatt første og siste; trunkerte barn er tilgjengelige ved å trykke på trunkeringsknappen.
      */
     smallScreenBreakpoint?: Breakpoint;
+    /**`<Breadcrumb> barn.` */
+    children?: ReactNode;
   }
 >;
 
@@ -38,6 +37,7 @@ export const Breadcrumbs = ({
   smallScreenBreakpoint,
   id,
   className,
+  style,
   htmlProps,
   ...rest
 }: BreadcrumbsProps) => {
@@ -134,6 +134,7 @@ export const Breadcrumbs = ({
       {...getBaseHTMLProps(
         id,
         cn(className, tgStyles['body-short-medium']),
+        style,
         htmlProps,
         rest,
       )}

@@ -5,6 +5,7 @@ import { fn } from 'storybook/test';
 import { FileUploader } from './FileUploader';
 import {
   categoryHtml,
+  ddsProviderDecorator,
   responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../storybook';
@@ -23,6 +24,7 @@ export default {
     accept: { control: false },
   },
   args: { onChange: fn() },
+  decorators: [ddsProviderDecorator],
 } satisfies Meta<typeof FileUploader>;
 
 type Story = StoryObj<typeof FileUploader>;

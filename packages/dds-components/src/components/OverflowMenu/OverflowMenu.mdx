@@ -19,16 +19,18 @@ import {
   ComponentLinkRow,
 } from '@norges-domstoler/storybook-components';
 import * as OverflowMenuStories from './OverflowMenu.stories';
+import { Tabs, Tab, TabList, TabPanels, TabPanel } from '../Tabs';
+import { Divider } from '../Divider';
 
 <Meta of={OverflowMenuStories} />
 
 # OverflowMenu
 
 <ComponentLinkRow
-  docsHref="https://design.domstol.no/987b33f71/p/76d235-overflowmenu/b/5650fd"
-  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=5773%3A159680"
-  githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/OverflowMenu"
-  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-overflowmenu--default"
+  docsHref="76d235-overflowmenu"
+  figmaHref="node-id=5773%3A159680"
+  githubHref={{ folder: 'components', comp: 'OverflowMenu' }}
+  storybookHref={{ folder: 'components', comp: 'overflowmenu' }}
 />
 
 OverflowMenu er en komponent som viser og skjuler en meny med handlinger og/eller lenker når brukeren trykker på en knapp - anchor-elementet. Den består følgende elementer:
@@ -46,60 +48,70 @@ Menyen bygges med dedikerte delkomponenter som barn i `<OverflowMenu>`:
 - **`<OverflowMenuListHeader>`** - overskift for en liste. Brukes over `<OverflowMenuList>`.
 - **`<OverflowMenuDivider>`** - divider som kan brukes som skille mellom lister.
 
-## Props
+## Delkomponenter
 
-### OverflowMenu
+<Tabs>
+  <TabList>
+    <Tab>OverflowMenu</Tab>
+    <Tab>Group</Tab>
+    <Tab>List</Tab>
+    <Tab>ListHeader</Tab>
+    <Tab>Button</Tab>
+    <Tab>Link</Tab>
+    <Tab>Span</Tab>
+    <Tab>Divider</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      Hovedkomponenten `<OverflowMenu>`. Kan brukes kontrollert eller ikke kontrollert.
 
-Hovedkomponenten `<OverflowMenu>`. Kan brukes kontrollert eller ikke kontrollert.
+      **OBS!** Støtter ikke `id`; se [OverflowMenuGroup](#overflowmenugroup).
 
-**OBS!** Støtter ikke `id`; se [OverflowMenuGroup](#overflowmenugroup).
+      <Canvas>
+        <Story of={OverflowMenuStories.Preview} />
+      </Canvas>
+      <Controls of={OverflowMenuStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      `<OverflowMenuGroup>` - en wrapper som håndterer åpning/lukking og universell utforming ut av boksen. Den skal ha anchor-elementet som første barn og `<OverflowMenu>` som andre barn. Obligatorisk å bruke.
 
-<Canvas>
-  <Story of={OverflowMenuStories.Preview} />
-</Canvas>
-<Controls of={OverflowMenuStories.Preview} />
+      <ArgTypes of={OverflowMenuGroup} />
+    </TabPanel>
+    <TabPanel>
+      `<OverflowMenuList>` - liste med elementer. Returnerer `<ul>`.
+    </TabPanel>
+    <TabPanel>
+      `<OverflowMenuListHeader>` - overskrift for en liste ved behov. Returnerer `<h2>` inni `<li>` for å opprettholde overskriftshierarki på siden. Brukes som barn i `<OverflowMenuList>`.
+    </TabPanel>
+    <TabPanel>
+      `<OverflowMenuButton>` - knapp. Returnerer `<button>` inni `<li>`. Brukes som barn i `<OverflowMenuList>`.
 
-### OverflowMenuGroup
+      <ArgTypes of={OverflowMenuButton} />
 
-En wrapper som håndterer åpning/lukking og universell utforming ut av boksen. Den skal ha anchor-elementet som første barn og `<OverflowMenu>` som andre barn. Obligatorisk å bruke.
+      Støtter også alle native props.
+    </TabPanel>
+    <TabPanel>
+      `<OverflowMenuLink>` - lenke. Returnerer `<a>` inni `<li>`. Brukes som barn i `<OverflowMenuList>`.
 
-<ArgTypes of={OverflowMenuGroup} />
+      <ArgTypes of={OverflowMenuLink} />
+      Støtter også alle native props.
+    </TabPanel>
+    <TabPanel>
+      `<OverflowMenuSpan>` - statisk element. Returnerer `<span>` inni `<li>`. Brukes som barn i `<OverflowMenuList>`.
 
-### OverflowMenuList
+      <ArgTypes of={OverflowMenuSpan} />
+      Støtter også alle native props.
+    </TabPanel>
+    <TabPanel>
+      `<OverflowMenuDivider>` - skillelinje. Brukes mellom lister.
 
-Liste med elementer. Returnerer `<ul>`.
+      <ArgTypes of={OverflowMenuDivider} />
+    </TabPanel>
 
-### OverflowMenuButton
+  </TabPanels>
+</Tabs>
 
-Knapp. Returnerer `<button>` inni `<li>`. Brukes som barn i `<OverflowMenuList>`.
-
-<ArgTypes of={OverflowMenuButton} />
-
-Støtter også alle native props.
-
-### OverflowMenuLink
-
-Lenke. Returnerer `<a>` inni `<li>`. Brukes som barn i `<OverflowMenuList>`.
-
-<ArgTypes of={OverflowMenuLink} />
-Støtter også alle native props.
-
-### OverflowMenuSpan
-
-Statisk element. Returnerer `<span>` inni `<li>`. Brukes som barn i `<OverflowMenuList>`.
-
-<ArgTypes of={OverflowMenuSpan} />
-Støtter også alle native props.
-
-### OverflowMenuListHeader
-
-Overskrift for en liste ved behov. Returnerer `<h2>` inni `<li>` for å opprettholde overskriftshierarki på siden. Brukes som barn i `<OverflowMenuList>`.
-
-### OverflowMenuDivider
-
-Skillelinje. Brukes mellom lister.
-
-<ArgTypes of={OverflowMenuDivider} />
+<Divider />
 
 ## Bruk
 

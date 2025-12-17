@@ -5,7 +5,7 @@ import { fn } from 'storybook/test';
 import { TOGGLE_BAR_SIZES } from './ToggleBar.types';
 import {
   StoryLabel,
-  commonArgTypes,
+  commonArgTypesWithNodeChildren,
   labelText,
   responsivePropsArgTypes,
   windowWidthDecorator,
@@ -22,7 +22,7 @@ export default {
   argTypes: {
     width: responsivePropsArgTypes.width,
     value: { control: false },
-    ...commonArgTypes,
+    ...commonArgTypesWithNodeChildren,
   },
   args: { onChange: fn() },
 } satisfies Meta<typeof ToggleBar>;

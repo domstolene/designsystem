@@ -11,11 +11,11 @@ import { useRef, useState } from 'react';
 import { fn } from 'storybook/test';
 
 import {
+  ddsProviderDecorator,
   htmlArgType,
   htmlEventArgType,
   labelText,
   responsivePropsArgTypes,
-  themeProviderDecorator,
   windowWidthDecorator,
 } from '../../../storybook';
 import { Button } from '../../Button';
@@ -58,7 +58,7 @@ const meta: Meta<typeof DatePicker> = {
     onFocusChange: fn(),
     onOpenChange: fn(),
   },
-  decorators: [Story => themeProviderDecorator(<Story />)],
+  decorators: [ddsProviderDecorator],
 };
 
 export default meta;
