@@ -61,11 +61,6 @@
   &.button--is-loading.no-content {
     padding: var(--dds-spacing-x0-25);
   }
-
-  .icon {
-    /*TODO: bytte til icon size token for button når den er på plass*/
-    font-size: calc(var(--dds-font-lineheight-x1) * 1em);
-  }
 }
 
 .button--small {
@@ -89,11 +84,6 @@
   &.just-icon,
   &.button--is-loading.no-content {
     padding: var(--dds-spacing-x0-5);
-  }
-
-  .icon {
-    /*TODO: bytte til icon size token for button når den er på plass*/
-    font-size: calc(var(--dds-font-lineheight-x1) * 1em);
   }
 }
 
@@ -119,11 +109,6 @@
   &.button--is-loading.no-content {
     padding: var(--dds-spacing-x0-75);
   }
-
-  .icon {
-    /*TODO: bytte til icon size token for button når den er på plass*/
-    font-size: calc(var(--dds-font-lineheight-x1) * 1em);
-  }
 }
 
 .button--large {
@@ -147,11 +132,6 @@
   &.just-icon,
   &.button--is-loading.no-content {
     padding: var(--dds-spacing-x1);
-  }
-
-  .icon {
-    /*TODO: bytte til icon size token for button når den er på plass*/
-    font-size: calc(var(--dds-font-lineheight-x1) * 1em);
   }
 }
 

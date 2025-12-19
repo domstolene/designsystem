@@ -55,7 +55,6 @@ export function TimePicker({
     : undefined;
   const tipId = hasTip ? `${uniqueId}-tip` : undefined;
 
-  const iconSize = componentSize === 'xsmall' ? 'small' : 'medium';
   const disabled = props.isDisabled || !!fieldProps['aria-disabled'];
 
   const formattedSegments = formatTimeSegments(state.segments);
@@ -77,7 +76,7 @@ export function TimePicker({
       prefix={
         <Icon
           icon={TimeIcon}
-          iconSize={iconSize}
+          iconSize="component"
           className={cn(
             inputStyles['input-group__absolute-el'],
             inputStyles[`input-group__absolute-el--${componentSize}`],

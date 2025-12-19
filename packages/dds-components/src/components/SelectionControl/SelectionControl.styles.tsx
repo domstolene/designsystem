@@ -49,13 +49,13 @@ export const Label = ({
       display="flex"
       alignItems="center"
       width="fit-content"
-      paddingInline="calc(var(--dds-selection-control-height) + var(--dds-spacing-x0-5)) 0"
+      paddingInline="calc(var(--dds-size-icon-component) + var(--dds-spacing-x0-25)) 0"
       className={cn(
         className,
         styles.label,
         styles[`label--${controlType}`],
         !hasText && styles['label--no-text'],
-        typographyStyles['text-color--default'],
+        typographyStyles['body-short-medium'],
         disabled && typographyStyles['text-color--subtle'],
       )}
       {...rest}

@@ -8,7 +8,6 @@ import { commonTexts } from '../../../i18n/commonTexts';
 import {
   cn,
   derivativeIdGenerator,
-  getFormInputIconSize,
   readOnlyKeyDownHandler,
   readOnlyMouseDownHandler,
   spaceSeparatedIdListGenerator,
@@ -130,7 +129,11 @@ export const NativeSelect = ({
         readOnly,
         afterLabelContent,
       })}
-      <Box position="relative" width={inputWidth}>
+      <Box
+        position="relative"
+        width={inputWidth}
+        className={typographyStyles[`body-short-${componentSize}`]}
+      >
         {hasIcon && (
           <Icon
             icon={icon}
@@ -138,7 +141,7 @@ export const NativeSelect = ({
               inputStyles['input-group__absolute-el'],
               inputStyles[`input-group__absolute-el--${componentSize}`],
             )}
-            iconSize={getFormInputIconSize(componentSize)}
+            iconSize="component"
           />
         )}
         <select
@@ -154,7 +157,6 @@ export const NativeSelect = ({
             styles[`select--${componentSize}`],
             scrollbar,
             focusable,
-            typographyStyles[`body-${componentSize}`],
             hasErrorMessage && inputStyles['input--stateful-danger'],
             multiple && styles['select--multiple'],
             hasValue &&
@@ -180,15 +182,19 @@ export const NativeSelect = ({
           <ClearButton
             aria-label={t(commonTexts.clearSelect)}
             onClick={clearInput}
-            size={iconSize}
-            className={styles[`clear-button--${iconSize}`]}
+            size="component"
+            className={styles[`clear-button--${componentSize}`]}
           />
         )}
         {!multiple && (
           <Icon
             icon={ChevronDownIcon}
-            iconSize={iconSize}
-            className={cn(utilStyles['center-absolute-y'], styles.icon)}
+            iconSize="component"
+            className={cn(
+              utilStyles['center-absolute-y'],
+              styles.icon,
+              inputStyles[`el-right--${componentSize}`],
+            )}
           />
         )}
       </Box>

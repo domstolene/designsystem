@@ -38,7 +38,9 @@ export function CookieBannerCheckbox({
         <Typography as="span" typographyType="headingSmall">
           {headerText}
         </Typography>
-        <Typography as="span"> {description} </Typography>
+        <Typography as="span" typographyType="bodyLongSmall">
+          {description}
+        </Typography>
       </VStack>
     </Checkbox>
   );

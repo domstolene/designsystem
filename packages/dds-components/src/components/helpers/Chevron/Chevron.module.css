@@ -12,33 +12,30 @@
 }
 
 .group--up {
-  transform: translateY(3px);
+  transform: translateY(-3px);
 }
 
 .group--down {
-  transform: translateY(0);
+  transform: translateY(3px);
 }
 
-.left {
+.left,
+.right {
   transition: var(--dds-chevron-transition);
-  transform-origin: 1px 1px;
+  stroke-linecap: round;
+  transform-origin: center;
 }
 
 .left--up {
-  transform: rotate(-90deg) translateY(0);
+  transform: rotate(-45deg);
 }
 .left--down {
-  transform: rotate(0) translateY(0);
-}
-
-.right {
-  transition: var(--dds-chevron-transition);
-  transform-origin: 7px 1px;
+  transform: rotate(45deg);
 }
 
 .right--up {
-  transform: rotate(90deg) translateY(0);
+  transform: rotate(45deg);
 }
 .right--down {
-  transform: rotate(0) translateY(0);
+  transform: rotate(-45deg);
 }

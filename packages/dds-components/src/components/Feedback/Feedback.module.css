@@ -37,11 +37,11 @@
 }
 
 .button--horizontal {
-  width: var(--dds-icon-size-medium);
-  height: var(--dds-icon-size-medium);
+  width: var(--dds-size-icon-medium);
+  height: var(--dds-size-icon-medium);
 }
 
 .button--vertical {
-  width: var(--dds-icon-size-large);
-  height: var(--dds-icon-size-large);
+  width: var(--dds-size-icon-large);
+  height: var(--dds-size-icon-large);
 }

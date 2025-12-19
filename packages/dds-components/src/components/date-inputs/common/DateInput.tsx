@@ -9,6 +9,7 @@ import focusStyles from '../../helpers/styling/focus.module.css';
 import { renderInputMessage } from '../../InputMessage';
 import { Box } from '../../layout';
 import { renderLabel } from '../../Typography/Label/Label.utils';
+import tgStyles from '../../Typography/typographyStyles.module.css';
 import { type DatePickerProps } from '../DatePicker';
 import { CalendarPopoverContext } from '../DatePicker/CalendarPopover';
 
@@ -90,6 +91,7 @@ export function DateInput({
           inputStyles['input--hover'],
           inputStyles[`input--${componentSize}`],
           inputStyles[`input-with-icon--${componentSize}`],
+          tgStyles[`body-short-${componentSize}`],
           hasErrorMessage && inputStyles['input--stateful-danger'],
           styles['date-input'],
           clearable && styles[`date-input--${componentSize}--clearable`],

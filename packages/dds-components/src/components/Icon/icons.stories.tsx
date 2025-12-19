@@ -5,7 +5,7 @@ import { Icon } from './Icon';
 import { CopyIcon } from './icons/copy';
 import styles from './IconStory.module.css';
 import { type SvgIcon, type SvgProps } from './utils';
-import { StylelessButton, cn, icons } from '../..';
+import { StylelessButton, VStack, cn, icons } from '../..';
 import { ddsProviderDecorator } from '../../storybook';
 import { Button } from '../Button';
 import { focusable } from '../helpers/styling/focus.module.css';
@@ -71,17 +71,26 @@ export const Overview = () => {
     return Object.entries(iconsObject).map(([key, value]) => {
       const trimmedName = trim(key);
       return (
-        <StylelessButton
+        <VStack
+          as={StylelessButton}
+          justifyContent="center"
+          alignItems="center"
+          gap="x0.75"
+          height="6rem"
+          width={{ xs: '5rem', sm: '5rem', md: '5rem', lg: '5rem', xl: '6rem' }}
           key={key}
           onClick={() => onIconClick(key, value)}
           title={trimmedName}
           className={cn(styles.card, focusable)}
         >
           <Icon iconSize="large" icon={value} />
-          <Typography typographyType="bodyXsmall" className={styles.card__name}>
+          <Typography
+            typographyType="bodyShortXsmall"
+            className={styles.card__name}
+          >
             {trimmedName}
           </Typography>
-        </StylelessButton>
+        </VStack>
       );
     });
   };
@@ -97,9 +106,20 @@ export const Overview = () => {
   );
 
   return (
-    <div className={styles.page}>
+    <VStack
+      gap="x1.5"
+      margin="auto"
+      position="relative"
+      maxWidth={{
+        xs: '800px',
+        sm: '800px',
+        md: '800px',
+        lg: '1100px',
+        xl: '1350px',
+      }}
+    >
       <LocalMessage>Klikk på ikonet for mer info.</LocalMessage>
-      <Typography typographyType="bodySmall">
+      <Typography typographyType="bodyShortSmall">
         Antall ikoner: {Object.keys(iconsObject).length}
       </Typography>
       <div className={styles.overview}>{iconOverview()}</div>
@@ -153,6 +173,6 @@ export const Overview = () => {
           </div>
         </ModalBody>
       </Modal>
-    </div>
+    </VStack>
   );
 };

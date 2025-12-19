@@ -30,11 +30,6 @@
 
 .content--large--just-icon {
   padding: var(--dds-spacing-x1);
-
-  svg {
-    /*TODO: bytte til icon size token for button når den er på plass*/
-    font-size: calc(var(--dds-font-lineheight-x1) * 1em);
-  }
 }
 
 .content--large--with-text {
@@ -44,10 +39,6 @@
 
 .content--medium--just-icon {
   padding: var(--dds-spacing-x0-75);
-
-  svg {
-    font-size: calc(var(--dds-font-lineheight-x1) * 1em);
-  }
 }
 
 .content--medium--with-text {
@@ -57,10 +48,6 @@
 
 .content--small--just-icon {
   padding: var(--dds-spacing-x0-5);
-
-  svg {
-    font-size: calc(var(--dds-font-lineheight-x1) * 1em);
-  }
 }
 
 .content--small--with-text {
@@ -70,10 +57,6 @@
 
 .content--xsmall--just-icon {
   padding: var(--dds-spacing-x0-25);
-
-  svg {
-    font-size: calc(var(--dds-font-lineheight-x1) * 1em);
-  }
 }
 
 .content--xsmall--with-text {

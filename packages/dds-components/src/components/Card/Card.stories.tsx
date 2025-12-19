@@ -198,7 +198,7 @@ export const ExpandableCustom: Story = {
     <Card {...args} cardType="expandable" appearance="border">
       <CardExpandable>
         <CardExpandableHeader
-          typographyType="bodySmall"
+          typographyType="headingXsmall"
           padding="4px 12px"
           bold
           className="custom-header"
@@ -206,7 +206,7 @@ export const ExpandableCustom: Story = {
           Dekning av reiseutgifter
         </CardExpandableHeader>
         <CardExpandableBody padding="16px 12px">
-          <Paragraph typographyType="bodySmall">
+          <Paragraph typographyType="bodyLongSmall">
             I sivile saker avtales dekning av utgifter med den part som innkalte
             deg. I straffesaker har du krav på reise- og kostgodtgjørelse (
             <Link href="#">
