@@ -169,7 +169,7 @@ export function DDSControl<TValue, IsMulti extends boolean>(
     innerProps,
     ...rest
   } = props;
-
+  const hasIcon = !!icon;
   return (
     <Control
       {...rest}
@@ -185,10 +185,10 @@ export function DDSControl<TValue, IsMulti extends boolean>(
         rest.isDisabled && styles['control--disabled'],
         readOnly && styles['control--readonly'],
         inputStyles[`input--${componentSize}`],
-        inputStyles[`input-with-icon--${componentSize}`],
+        hasIcon && inputStyles[`input-with-icon--${componentSize}`],
       )}
     >
-      {icon && (
+      {hasIcon && (
         <Icon
           icon={icon}
           iconSize="component"
