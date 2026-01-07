@@ -2,11 +2,21 @@ import { type ElementType } from 'react';
 
 import { type TextColor } from '../../../utils/color';
 
+export type TypographyBodyShortType =
+  | 'bodyShortXsmall'
+  | 'bodyShortSmall'
+  | 'bodyShortMedium'
+  | 'bodyShortLarge';
+
+export type TypographyBodyLongType =
+  | 'bodyLongXsmall'
+  | 'bodyLongSmall'
+  | 'bodyLongMedium'
+  | 'bodyLongLarge';
+
 export type TypographyBodyType =
-  | 'bodyXsmall'
-  | 'bodySmall'
-  | 'bodyMedium'
-  | 'bodyLarge';
+  | TypographyBodyLongType
+  | TypographyBodyShortType;
 
 export type TypographyHeadingType =
   | 'headingXxsmall'
@@ -36,10 +46,14 @@ export type TypographyType =
 export type StaticTypographyType = OtherTypographyType | TypographyLabelType;
 
 export type HyphenTypographyType =
-  | 'body-xsmall'
-  | 'body-small'
-  | 'body-medium'
-  | 'body-large'
+  | 'body-short-xsmall'
+  | 'body-short-small'
+  | 'body-short-medium'
+  | 'body-short-large'
+  | 'body-long-xsmall'
+  | 'body-long-small'
+  | 'body-long-medium'
+  | 'body-long-large'
   | 'heading-xxsmall'
   | 'heading-xsmall'
   | 'heading-small'

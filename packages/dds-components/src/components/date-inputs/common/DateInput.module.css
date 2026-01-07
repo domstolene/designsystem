@@ -20,6 +20,7 @@
 .date-segment-container {
   display: flex;
   flex-direction: row;
+  font-family: var(--dds-font-family-monospace);
 }
 
 .segment {
@@ -28,7 +29,6 @@
   width: max-content;
   font-variant-numeric: tabular-nums;
   outline: none;
-  font-family: var(--dds-font-family-monospace);
 
   &:focus {
     background-color: var(--dds-color-surface-action-selected);
@@ -41,7 +41,6 @@
   width: 100%;
   font-variant-numeric: tabular-nums;
   pointer-events: none;
-  font-family: var(--dds-font-family-monospace);
 
   .segment:focus & {
     color: var(--dds-color-text-on-action);
@@ -83,7 +82,7 @@
 
 .popover-button {
   padding: 3px;
-  margin-inline-start: -3px;
+  margin-left: -3px;
 }
 
 .popover {
@@ -113,6 +112,10 @@
 .calendar__grid-element {
   width: 40px;
   height: 40px;
+}
+
+.calendar__th {
+  font-weight: normal;
 }
 
 .calendar__week-number {

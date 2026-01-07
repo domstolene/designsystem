@@ -1,0 +1,38 @@
+.svg {
+  @media (prefers-reduced-motion: no-preference) {
+    --dds-chevron-transition: transform 0.2s linear;
+  }
+}
+
+.group {
+  transition: var(--dds-chevron-transition);
+}
+
+.svg--up .group {
+  transform: translateY(-3px);
+}
+
+.svg--down .group {
+  transform: translateY(3px);
+}
+
+.left,
+.right {
+  transition: var(--dds-chevron-transition);
+  stroke-linecap: round;
+  transform-origin: center;
+}
+
+.svg--up .left {
+  transform: rotate(-45deg);
+}
+.svg--down .left {
+  transform: rotate(45deg);
+}
+
+.svg--up .right {
+  transform: rotate(45deg);
+}
+.svg--down .right {
+  transform: rotate(-45deg);
+}

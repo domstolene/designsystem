@@ -1,3 +1,4 @@
+import { DetailListContext } from './DetailList.context';
 import styles from './DetailList.module.css';
 import {
   type BaseComponentPropsWithChildren,
@@ -6,7 +7,7 @@ import {
 } from '../../types';
 import { cn } from '../../utils';
 import { type Breakpoint } from '../layout';
-import { DetailListContext } from './DetailList.context';
+import tgStyles from '../Typography/typographyStyles.module.css';
 
 export type DetailListSize = Extract<Size, 'large' | 'medium' | 'small'>;
 
@@ -50,6 +51,7 @@ export const DetailList = ({
         id,
         cn(
           className,
+          tgStyles[`body-short-${size}`],
           styles.list,
           styles[`list--${size}`],
           withDividers && styles['list--with-dividers'],

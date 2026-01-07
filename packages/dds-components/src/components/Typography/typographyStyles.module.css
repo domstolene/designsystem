@@ -83,10 +83,10 @@
 :where(.a--margins) {
   display: block;
   margin-top: 0;
-  margin-bottom: var(--dds-font-body-medium-paragraph-spacing);
+  margin-bottom: var(--dds-font-body-long-medium-paragraph-spacing);
 }
 
-:where(.a--external) > svg,
+:where(.a--external) > .svg,
 .a__icon {
   display: inline;
   margin: 0.1em 0.1em -0.1em;
@@ -98,56 +98,108 @@
   color: var(--dds-color-text-link-visited);
 }
 
-:where(.body-xsmall) {
+:where(.body-short-xsmall) {
   margin: 0;
-  font: var(--dds-font-body-xsmall);
-  letter-spacing: var(--dds-font-body-xsmall-letter-spacing);
+  font: var(--dds-font-body-short-xsmall);
+  letter-spacing: var(--dds-font-body-short-xsmall-letter-spacing);
   color: var(--dds-color-text-body);
 }
 
-:where(.body-xsmall--margins) {
+:where(.body-short-xsmall--margins) {
   display: block;
   margin-top: 0;
-  margin-bottom: var(--dds-font-body-xsmall-paragraph-spacing);
+  margin-bottom: var(--dds-font-body-short-xsmall-paragraph-spacing);
 }
 
-:where(.body-small) {
+:where(.body-short-small) {
   margin: 0;
-  font: var(--dds-font-body-small);
-  letter-spacing: var(--dds-font-body-small-letter-spacing);
+  font: var(--dds-font-body-short-small);
+  letter-spacing: var(--dds-font-body-short-small-letter-spacing);
   color: var(--dds-color-text-body);
 }
 
-:where(.body-small--margins) {
+:where(.body-short-small--margins) {
   display: block;
   margin-top: 0;
-  margin-bottom: var(--dds-font-body-small-paragraph-spacing);
+  margin-bottom: var(--dds-font-body-short-small-paragraph-spacing);
 }
 
-:where(.body-medium) {
+:where(.body-short-medium) {
   margin: 0;
-  font: var(--dds-font-body-medium);
-  letter-spacing: var(--dds-font-body-medium-letter-spacing);
+  font: var(--dds-font-body-short-medium);
+  letter-spacing: var(--dds-font-body-short-medium-letter-spacing);
   color: var(--dds-color-text-body);
 }
 
-:where(.body-medium--margins) {
+:where(.body-short-medium--margins) {
   display: block;
   margin-top: 0;
-  margin-bottom: var(--dds-font-body-medium-paragraph-spacing);
+  margin-bottom: var(--dds-font-body-short-medium-paragraph-spacing);
 }
 
-:where(.body-large) {
+:where(.body-short-large) {
   margin: 0;
-  font: var(--dds-font-body-large);
-  letter-spacing: var(--dds-font-body-large-letter-spacing);
+  font: var(--dds-font-body-short-large);
+  letter-spacing: var(--dds-font-body-short-large-letter-spacing);
   color: var(--dds-color-text-body);
 }
 
-:where(.body-large--margins) {
+:where(.body-short-large--margins) {
   display: block;
   margin-top: 0;
-  margin-bottom: var(--dds-font-body-large-paragraph-spacing);
+  margin-bottom: var(--dds-font-body-short-large-paragraph-spacing);
+}
+
+:where(.body-long-xsmall) {
+  margin: 0;
+  font: var(--dds-font-body-long-xsmall);
+  letter-spacing: var(--dds-font-body-long-xsmall-letter-spacing);
+  color: var(--dds-color-text-body);
+}
+
+:where(.body-long-xsmall--margins) {
+  display: block;
+  margin-top: 0;
+  margin-bottom: var(--dds-font-body-long-xsmall-paragraph-spacing);
+}
+
+:where(.body-long-small) {
+  margin: 0;
+  font: var(--dds-font-body-long-small);
+  letter-spacing: var(--dds-font-body-long-small-letter-spacing);
+  color: var(--dds-color-text-body);
+}
+
+:where(.body-long-small--margins) {
+  display: block;
+  margin-top: 0;
+  margin-bottom: var(--dds-font-body-long-small-paragraph-spacing);
+}
+
+:where(.body-long-medium) {
+  margin: 0;
+  font: var(--dds-font-body-long-medium);
+  letter-spacing: var(--dds-font-body-long-medium-letter-spacing);
+  color: var(--dds-color-text-body);
+}
+
+:where(.body-long-medium--margins) {
+  display: block;
+  margin-top: 0;
+  margin-bottom: var(--dds-font-body-long-medium-paragraph-spacing);
+}
+
+:where(.body-long-large) {
+  margin: 0;
+  font: var(--dds-font-body-long-large);
+  letter-spacing: var(--dds-font-body-long-large-letter-spacing);
+  color: var(--dds-color-text-body);
+}
+
+:where(.body-long-large--margins) {
+  display: block;
+  margin-top: 0;
+  margin-bottom: var(--dds-font-body-long-large-paragraph-spacing);
 }
 
 :where(.lead-medium) {

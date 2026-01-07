@@ -163,7 +163,7 @@ export const FileUploader = (props: FileUploaderProps) => {
   return (
     <Box
       id={uniqueId}
-      className={cn(className, typographyStyles['body-medium'])}
+      className={cn(className, typographyStyles['body-short-medium'])}
       width={width}
       {...rest}
     >

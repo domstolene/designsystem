@@ -52,23 +52,22 @@
 }
 
 .tab--medium--row {
-  padding: var(--dds-spacing-x0-75) var(--dds-spacing-x1)
-    var(--dds-spacing-x0-5);
+  padding: var(--dds-spacing-x0-75) var(--dds-spacing-x1);
   gap: var(--dds-spacing-md-icon-text-gap);
 }
 
 .tab--small--row {
-  padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-75);
+  padding: var(--dds-spacing-x0-5) var(--dds-spacing-x0-75);
   gap: var(--dds-spacing-sm-icon-text-gap);
 }
 
 .tab--medium--column {
-  padding: var(--dds-spacing-x0-5) var(--dds-spacing-x1);
+  padding: var(--dds-spacing-x0-75) var(--dds-spacing-x1);
   gap: var(--dds-spacing-x0-25);
 }
 
 .tab--small--column {
-  padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-75);
+  padding: var(--dds-spacing-x0-5) var(--dds-spacing-x0-75);
 }
 
 .tab--row {

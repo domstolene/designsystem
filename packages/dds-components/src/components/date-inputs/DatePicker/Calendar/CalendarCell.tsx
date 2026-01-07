@@ -62,7 +62,7 @@ export function CalendarCell({ date, state, onClose }: CalendarCellProps) {
           styles['calendar__cell-button'],
           isToday(date, timezone) && styles['calendar__cell-button--today'],
           styles[`calendar__cell-button--${variant}`],
-          typographyStyles['body-small'],
+          typographyStyles['body-short-small'],
           focusable,
         )}
       >

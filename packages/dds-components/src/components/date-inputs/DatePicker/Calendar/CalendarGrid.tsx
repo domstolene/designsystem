@@ -13,7 +13,7 @@ import { useContext } from 'react';
 import { CalendarCell } from './CalendarCell';
 import { createTexts, useTranslation } from '../../../../i18n';
 import { cn } from '../../../../utils';
-import typographyStyles from '../../../Typography/typographyStyles.module.css';
+import tgStyles from '../../../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../../../VisuallyHidden';
 import styles from '../../common/DateInput.module.css';
 import { getWeekNumber } from '../../utils/getWeekNumber';
@@ -44,11 +44,11 @@ export function CalendarGrid({ state, ...props }: CalendarGridProps) {
   ];
 
   const { showWeekNumbers, onClose } = useContext(CalendarPopoverContext);
-
-  const typographyCn = [
-    typographyStyles['body-xsmall'],
-    typographyStyles['text-color--subtle'],
-  ];
+  const thCn = cn(
+    styles['calendar__grid-element'],
+    tgStyles['text-color--subtle'],
+    styles.calendar__th,
+  );
   return (
     <table
       {...gridProps}
@@ -63,19 +63,18 @@ export function CalendarGrid({ state, ...props }: CalendarGridProps) {
         onKeyDown?.(e);
       }}
       cellPadding="0"
+      className={tgStyles['body-short-xsmall']}
     >
       <thead {...headerProps}>
         <tr>
           {showWeekNumbers && (
-            <th
-              className={cn(styles['calendar__grid-element'], ...typographyCn)}
-            >
+            <th className={cn(thCn)}>
               <span aria-hidden>#</span>
               <VisuallyHidden>{t(texts.weekNumber)}</VisuallyHidden>
             </th>
           )}
           {weekDays.map((day, index) => (
-            <th key={index} className={cn(...typographyCn)}>
+            <th key={index} className={thCn}>
               <span aria-hidden>{day.short}</span>
               <VisuallyHidden>{day.full}</VisuallyHidden>
             </th>
@@ -92,13 +91,7 @@ export function CalendarGrid({ state, ...props }: CalendarGridProps) {
           return (
             <tr key={weekIndex}>
               {showWeekNumbers && (
-                <td
-                  className={cn(
-                    styles['calendar__grid-element'],
-                    styles['calendar__week-number'],
-                    ...typographyCn,
-                  )}
-                >
+                <td className={cn(thCn, styles['calendar__week-number'])}>
                   {weekNumber}
                 </td>
               )}

@@ -47,7 +47,7 @@ export const DropdownItem = <T extends DropdownItemT = 'span'>({
   const itemCns = [
     styles.item,
     styles[purpose],
-    typographyStyles['body-medium'],
+    typographyStyles['body-short-medium'],
   ];
 
   const interactiveItemCns = [
@@ -76,7 +76,7 @@ export const DropdownItem = <T extends DropdownItemT = 'span'>({
       {loading && (
         <span className={cn(utilStyles['center-absolute'])}>
           <Spinner
-            size="var(--dds-icon-size-medium)"
+            size="var(--dds-size-icon-medium)"
             tooltip={loadingTooltip}
           />
         </span>

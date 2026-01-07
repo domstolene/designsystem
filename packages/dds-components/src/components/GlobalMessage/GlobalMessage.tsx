@@ -62,7 +62,7 @@ export const GlobalMessage = ({
           className,
           styles.container,
           styles[`container--${purpose}`],
-          typographyStyles['body-medium'],
+          typographyStyles['body-short-medium'],
         ),
         style,
         htmlProps,
@@ -72,7 +72,11 @@ export const GlobalMessage = ({
       <div
         className={cn(styles.content, closable && styles['content--closable'])}
       >
-        <Icon icon={icons[purpose]} className={styles.icon} />
+        <Icon
+          icon={icons[purpose]}
+          iconSize="component"
+          className={styles.icon}
+        />
         {children}
       </div>
 

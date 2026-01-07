@@ -1,12 +1,11 @@
 import { type ElementType, type ReactNode } from 'react';
 
-import styles from './InputMessage.module.css';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
-import { cn } from '../../utils';
 import { Icon } from '../Icon';
 import { ErrorIcon } from '../Icon/icons';
 import { Box, type BoxProps, Paper, type ResponsiveProps } from '../layout';
 import { Typography } from '../Typography/Typography/Typography';
+import tgStyles from '../Typography/typographyStyles.module.css';
 
 export type InputMessageType = 'error' | 'tip';
 
@@ -38,13 +37,7 @@ export const InputMessage = ({
     width: 'fit-content',
     maxWidth: '100%',
     wordBreak: 'break-word',
-    ...getBaseHTMLProps(
-      id,
-      cn(className, styles.container),
-      style,
-      htmlProps,
-      rest,
-    ),
+    ...getBaseHTMLProps(id, className, style, htmlProps, rest),
   };
 
   const tgCommonProps = {
@@ -55,28 +48,24 @@ export const InputMessage = ({
   return isError ? (
     <Paper
       {...commonProps}
-      gap="x0.25"
+      gap="x0.125"
       padding="x0.25 x0.5"
       background="surface-danger-default"
       borderRadius="surface"
+      className={tgStyles['body-short-small']}
     >
       <Icon
         icon={ErrorIcon}
-        iconSize="small"
-        className={styles.icon}
+        iconSize="component"
         color="icon-on-danger-default"
       />
-      <Typography
-        {...tgCommonProps}
-        typographyType="bodySmall"
-        color="textDefault"
-      />
+      {tgCommonProps.children}
     </Paper>
   ) : (
     <Box {...commonProps}>
       <Typography
         {...tgCommonProps}
-        typographyType="bodyXsmall"
+        typographyType="bodyShortXsmall"
         color="textSubtle"
       />
     </Box>

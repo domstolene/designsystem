@@ -38,8 +38,6 @@
 }
 
 .list--small {
-  font: var(--dds-font-body-small);
-  letter-spacing: var(--dds-font-body-small-letter-spacing);
   dt,
   dd {
     padding: var(--dds-spacing-x0-5);
@@ -47,8 +45,6 @@
 }
 
 .list--medium {
-  font: var(--dds-font-body-medium);
-  letter-spacing: var(--dds-font-body-medium-letter-spacing);
   dt,
   dd {
     padding: var(--dds-spacing-x0-75);
@@ -56,8 +52,6 @@
 }
 
 .list--large {
-  font: var(--dds-font-body-medium);
-  letter-spacing: var(--dds-font-body-medium-letter-spacing);
   dt,
   dd {
     padding-block: var(--dds-spacing-x1-5);

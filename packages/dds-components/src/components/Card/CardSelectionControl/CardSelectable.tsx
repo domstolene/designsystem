@@ -68,14 +68,9 @@ Provide \`cardType\` either via a parent <CardSelectableGroup> or directly on th
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ['--dds-selection-control-card-padding' as any]:
       padding ??
-      'var(--dds-spacing-x1-5) var(--dds-spacing-x1-5) var(--dds-spacing-x1-5) calc(var(--dds-selection-control-height) + var(--dds-spacing-x0-5) + var(--dds-spacing-x1-5))',
+      'var(--dds-spacing-x1-5) var(--dds-spacing-x1-5) var(--dds-spacing-x1-5) calc(var(--dds-size-icon-component) + var(--dds-spacing-x0-5) + var(--dds-spacing-x1-5))',
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-selection-control-card-control-top' as any]:
-      top ??
-      `calc(
-        (var(--dds-font-lineheight-x1) * 1em - var(--dds-icon-size-small)) / 2 -
-        1px + var(--dds-spacing-x1-5)
-        )`,
+    ['--dds-selection-control-card-control-top' as any]: top,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ['--dds-selection-control-card-control-left' as any]:
       left ?? `var(--dds-spacing-x1-5)`,

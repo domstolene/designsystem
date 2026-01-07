@@ -6,11 +6,11 @@ import {
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
-import { type TypographyBodyType, getTypographyCn } from '../Typography';
+import { type TypographyBodyLongType, getTypographyCn } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export type ListType = 'ordered' | 'unordered';
-export type ListTypographyType = TypographyBodyType | 'inherit';
+export type ListTypographyType = TypographyBodyLongType | 'inherit';
 
 export type ListProps = BaseComponentPropsWithChildren<
   HTMLUListElement | HTMLOListElement,

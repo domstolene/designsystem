@@ -119,7 +119,7 @@ export const TextArea = ({
           hasErrorMessage && inputStyles['input--stateful-danger'],
           styles.textarea,
           scrollbar,
-          typographyStyles['body-medium'],
+          typographyStyles['body-long-medium'],
           focusable,
         )}
         {...rest}

@@ -36,7 +36,6 @@ export const inlineEditCns = (
   showEditingIcon?: boolean,
 ) => [
   styles['inline-input'],
-  typographyStyles['body-medium'],
   hasErrorState && styles['inline-input--danger'],
   showEditingIcon && styles['inline-input--with-icon'],
 ];
@@ -44,12 +43,20 @@ export const inlineEditCns = (
 export const inlineInputCns = (
   hasErrorState?: boolean,
   showEditingIcon?: boolean,
-) => [...inlineEditCns(hasErrorState, showEditingIcon), focusable];
+) => [
+  ...inlineEditCns(hasErrorState, showEditingIcon),
+  typographyStyles['body-short-medium'],
+  focusable,
+];
 
 export const inlineTextareaCns = (
   hasErrorState?: boolean,
   showEditingIcon?: boolean,
-) => [...inlineInputCns(hasErrorState, showEditingIcon), utilStyles.scrollbar];
+) => [
+  ...inlineInputCns(hasErrorState, showEditingIcon),
+  typographyStyles['body-long-medium'],
+  utilStyles.scrollbar,
+];
 
 export const inlineSelectCns = (
   hasErrorState?: boolean,
@@ -57,6 +64,7 @@ export const inlineSelectCns = (
   hasValue?: boolean,
 ) => [
   ...inlineEditCns(hasErrorState, showEditingIcon),
+  typographyStyles['body-short-medium'],
   styles['inline-select'],
   hasValue && styles['inline-select--with-clear-button'],
   focusStyles['focusable-focus'],

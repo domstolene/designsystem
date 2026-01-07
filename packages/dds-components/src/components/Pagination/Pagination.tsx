@@ -320,14 +320,19 @@ export const Pagination = ({
   ) : (
     <Box
       display="flex"
-      gap="x0.75"
+      gap="x0.5"
       justifyContent="space-between"
       flexWrap="wrap"
       flexDirection={styleUpToBreakpoint('column', smallScreenBreakpoint)}
       alignItems={styleUpToBreakpoint('center', smallScreenBreakpoint)}
       {...baseHTMLProps}
     >
-      <div className={styles.indicators}>
+      <Box
+        display="grid"
+        gap="x0.5"
+        alignItems="center"
+        className={styles.indicators}
+      >
         {withSelect && (
           <Select
             options={tSelectOptions}
@@ -344,7 +349,7 @@ export const Pagination = ({
           />
         )}
         {withCounter && (
-          <Paragraph>
+          <Paragraph typographyType="bodyShortMedium">
             {t(
               texts.showsAmountOfTotalItems(
                 activePageFirstItem,
@@ -354,7 +359,7 @@ export const Pagination = ({
             )}
           </Paragraph>
         )}
-      </div>
+      </Box>
       {navigation}
     </Box>
   );

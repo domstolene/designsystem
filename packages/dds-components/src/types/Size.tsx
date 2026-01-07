@@ -6,6 +6,7 @@ export const SIZES = [
   'xlarge',
   'xxlarge',
   'inherit',
+  'component',
 ] as const;
 
 export type Size = (typeof SIZES)[number];

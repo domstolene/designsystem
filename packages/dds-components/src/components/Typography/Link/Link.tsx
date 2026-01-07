@@ -15,7 +15,7 @@ import {
   getColorCn,
   getTypographyCn,
 } from '../Typography';
-import typographyStyles from '../typographyStyles.module.css';
+import tgStyles from '../typographyStyles.module.css';
 
 type PickedHTMLAttributes = Pick<
   AnchorHTMLAttributes<HTMLAnchorElement>,
@@ -68,13 +68,13 @@ export const Link = <T extends ElementType = 'a'>({
         id,
         cn(
           className,
-          typographyStyles.a,
-          external && typographyStyles['a--external'],
-          withVisited && typographyStyles['a--visited'],
-          typographyType && typographyStyles[getTypographyCn(typographyType)],
+          tgStyles.a,
+          external && tgStyles['a--external'],
+          withVisited && tgStyles['a--visited'],
+          typographyType && tgStyles[getTypographyCn(typographyType)],
           typographyType &&
             withMargins &&
-            typographyStyles[`${getTypographyCn(typographyType)}--margins`],
+            tgStyles[`${getTypographyCn(typographyType)}--margins`],
           focusable,
           getColorCn(color),
         ),
@@ -88,7 +88,13 @@ export const Link = <T extends ElementType = 'a'>({
       {...aProps}
     >
       {children}
-      {external && <Icon iconSize="inherit" icon={OpenExternalIcon} />}
+      {external && (
+        <Icon
+          iconSize="inherit"
+          icon={OpenExternalIcon}
+          className={tgStyles.svg}
+        />
+      )}
     </ElementAs>
   );
 };

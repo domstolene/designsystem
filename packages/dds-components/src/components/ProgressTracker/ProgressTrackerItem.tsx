@@ -146,13 +146,14 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
         className={cn(
           styles['item-number'],
           styles[`item-number--${itemStateCn[itemState]}`],
-          typographyStyles['body-small'],
+          typographyStyles['body-short-small'],
         )}
       >
         {stepNumberContent}
       </Box>
       <Typography
         as="div"
+        typographyType="bodyShortMedium"
         className={cn(
           styles['item-text'],
           typographyStyles['a--nested__child'],

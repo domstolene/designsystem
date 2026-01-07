@@ -531,17 +531,16 @@
     "x1": {
       "value": "150%",
       "type": "lineHeights",
-      "description": "Brukes på str ×1_25 og mindre "
-    },
-    "x2": {
-      "value": "135%",
-      "type": "lineHeights",
-      "description": "Brukes på str x1.5, ×2 og ×3 "
+      "description": "Brukes på mengetekst og artikler"
     },
     "x3": {
       "value": "120%",
+      "type": "lineHeights"
+    },
+    "x2": {
+      "value": "130%",
       "type": "lineHeights",
-      "description": "Brukes på str ×3 og større"
+      "description": "Brukes i komponenter og overskrifter"
     },
     "list": {
       "value": "200%",
@@ -759,7 +758,7 @@
       }
     }
   },
-  "dds-icon-size": {
+  "dds-size-icon": {
     "large": {
       "value": "40px",
       "type": "dimension"
@@ -771,6 +770,11 @@
     "small": {
       "value": "16px",
       "type": "dimension"
+    },
+    "component": {
+      "value": "1.3em",
+      "type": "spacing",
+      "description": "Brukes i komponenter. Relativ til tekststørrelsen"
     }
   },
   "dds-breakpoint": {

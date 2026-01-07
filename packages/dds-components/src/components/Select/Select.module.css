@@ -14,18 +14,6 @@
   max-width: 100%;
 }
 
-.icon--medium {
-  left: var(--dds-spacing-x0-75);
-}
-
-.icon--small {
-  left: var(--dds-spacing-x0-75);
-}
-
-.icon--xsmall {
-  left: var(--dds-spacing-x0-5);
-}
-
 .control {
   &:hover:not(.control--readonly) .dropdown-indicator,
   &:focus-within .dropdown-indicator {
