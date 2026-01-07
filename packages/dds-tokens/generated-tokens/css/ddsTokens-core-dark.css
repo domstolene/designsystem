@@ -233,14 +233,14 @@
   --dds-color-surface-scrollbar: #545c62; /* Used for scrollbar */
   --dds-color-surface-notification: #d83737; /* bg on a notification */
   --dds-color-surface-skeleton: #545c62; /* Used for skeleton */
-  --dds-color-border-default: #545c62; /* Form components, togglebutton, secondary button, checkbox etc */
-  --dds-color-border-subtle: #3a4146; /* Dropdown, tooltip, overflow etc */
+  --dds-color-border-default: #77838c; /* Form components, togglebutton, secondary button, checkbox etc */
+  --dds-color-border-subtle: #545c62; /* Dropdown, tooltip, overflow etc */
   --dds-color-border-inverse: #acbbc6; /* Border or divider on surface.inverse */
   --dds-color-border-action-default: #589ac6; /* Used in progress tracker */
   --dds-color-border-action-hover: #9fc5de; /* Hover on secondary button etc */
   --dds-color-border-success: #519852; /* Used with tag-default */
   --dds-color-border-warning: #ccba35; /* Tag.default */
-  --dds-color-border-danger: #d83737; /* Tag.default, error message field */
+  --dds-color-border-danger: #ad2c2c; /* Tag.default, error message field */
   --dds-color-border-info: #5197c5; /* Tag.default */
   --dds-color-border-on-action: #181a1c; /* Used on primary split button */
   --dds-color-text-default: #ffffff; /* default text, heading, body. on surface.hover */
