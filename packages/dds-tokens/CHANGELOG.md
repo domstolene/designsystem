@@ -1,11 +1,40 @@
 # @norges-domstoler/dds-design-tokens
 
+## 9.0.0
+
+### Major Changes
+
+- d34fa2a: Implementerer dark mode og splitter alle temaer i variantene `light` og `dark`. Dette kan føre til uforutsigbare endringer i farger hvis design tokens ikke brukes riktig fra før av. Detaljer i [migreringsguiden v8 til v9](https://design.domstol.no/987b33f71/p/236941-v8-til-v9).
+
+### Minor Changes
+
+- d34fa2a: Nye design tokens:
+  - `dds-color-text-on-primary-default`; Brukes på `dds-color-brand-primary-default`.
+  - `dds-color-text-on-primary-subtle`; Brukes på `dds-color-brand-primary-subtle`.
+  - `dds-color-text-on-primary-medium`; Brukes på `dds-color-brand-primary-medium`.
+  - `dds-color-text-on-primary-strong`; Brukes på `dds-color-brand-primary-strong`.
+  - `dds-color-text-on-secondary-default`; Brukes på `dds-color-brand-secondary-default`.
+  - `dds-color-text-on-secondary-subtle`; Brukes på `dds-color-brand-secondary-subtle`.
+  - `dds-color-text-on-secondary-medium`; Brukes på `dds-color-brand-secondary-medium`.
+  - `dds-color-text-on-secondary-strong`; Brukes på `dds-color-brand-secondary-strong`.
+  - `dds-color-text-on-tertiary-default`; Brukes på `dds-color-brand-tertiary-default`.
+  - `dds-color-text-on-tertiary-subtle`; Brukes på `dds-color-brand-tertiary-subtle`.
+  - `dds-color-text-on-tertiary-medium`; Brukes på `dds-color-brand-tertiary-medium`.
+  - `dds-color-text-on-tertiary-strong`; Brukes på `dds-color-brand-tertiary-strong`.
+  - `dds-color-text-on-data-default`; Brukes på alle `data`-fargene with `default` mod.
+  - `dds-color-text-on-data-subtle`; Brukes på alle `data`-fargene with `subtle` mod.
+
+- 9f6bc86: Justerer på fargene for datavisualisering. Det anbefales å dobbeltsjekke at fargene brukes riktig samt ser riktig ut i kontekst hos konsumentene.
+
+### Patch Changes
+
+- 4dcf1c3: Utbedrer farge i design tokens `dds-border-default`, `-sublte` og `-danger` i core-dark og public-dark.
+
 ## 8.0.2
 
 ### Patch Changes
 
 - 064033f: Endringer i skalering av fontstørrelse på mindre skjermer.
-
   - Core tema: Kun xxlarge som blir skalert ned.
   - Public tema: xxlarge og xlarge blir skalert ned.
 
