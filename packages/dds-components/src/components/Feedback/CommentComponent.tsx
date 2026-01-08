@@ -40,7 +40,7 @@ export const CommentComponent = ({
       <span className={styles['rating-submitted-title']}>
         <Icon
           icon={rating === 'positive' ? ThumbUpFilledIcon : ThumbDownFilledIcon}
-          color="iconActionResting"
+          color="icon-action-resting"
           iconSize={getIconSize(layout)}
         />
         <Paragraph>{ratingSubmittedTitle} </Paragraph>

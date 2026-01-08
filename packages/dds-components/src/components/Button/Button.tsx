@@ -93,8 +93,8 @@ export const Button = ({
             size="1em"
             color={
               purpose === 'primary' || purpose === 'danger'
-                ? 'iconOnAction'
-                : 'iconDefault'
+                ? 'icon-on-action'
+                : 'icon-default'
             }
             tooltip={spinnerTooltip}
             className={styles.icon}

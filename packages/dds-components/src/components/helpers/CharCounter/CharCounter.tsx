@@ -24,7 +24,7 @@ export function CharCounter(props: CharCounterProps) {
       className={styles.container}
       as="div"
       typographyType="bodyXsmall"
-      color="textSubtle"
+      color="text-subtle"
     >
       <span aria-hidden>
         {current}/{max}
