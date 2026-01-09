@@ -74,10 +74,6 @@ export const changeRGBAAlpha = (value: string, alpha: number): string => {
   return value.replace(/[\d.]+\)$/g, alpha.toString() + ')');
 };
 
-/**
- * Tekstfarger i kebab-case; camelCase blir deprecated, og kebab-case blir standarden for props som refererer til CSS-variabler.
- * TODO: fjerne cameCase på et tidspunkt.
- */
 const TEXT_COLORS = [
   'text-on-action',
   'text-on-inverse',
@@ -122,68 +118,17 @@ const TEXT_COLORS = [
   'icon-medium',
 ] as const;
 
-const TEXT_COLORS_CAMEL = [
-  'textOnAction',
-  'textOnInverse',
-  'textOnStatusDefault',
-  'textOnStatusStrong',
-  'textActionResting',
-  'textActionHover',
-  'textActionVisited',
-  'textDefault',
-  'textRequiredfield',
-  'textSubtle',
-  'textMedium',
-  'textOnNotification',
-  'iconOnAction',
-  'iconOnInfoDefault',
-  'iconOnSuccessDefault',
-  'iconOnDangerDefault',
-  'iconOnWarningDefault',
-  'iconOnInfoStrong',
-  'iconOnSuccessStrong',
-  'iconOnDangerStrong',
-  'iconOnWarningStrong',
-  'iconOnInverse',
-  'iconActionResting',
-  'iconActionHover',
-  'iconDefault',
-  'iconSubtle',
-  'iconMedium',
-] as const;
-
 type DDSTextColor = (typeof TEXT_COLORS)[number];
-type DDSTextColorCamel = (typeof TEXT_COLORS_CAMEL)[number];
 
-const TEXT_COLOR_VALUES_CAMEL: Record<DDSTextColorCamel, string> =
-  TEXT_COLORS_CAMEL.reduce(
-    (acc, key) => {
-      const kebab = key.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-      acc[key] = `var(--dds-color-${kebab})`;
-      return acc;
-    },
-    {} as Record<DDSTextColorCamel, string>,
-  );
+const TEXT_COLOR_VALUES: Record<DDSTextColor, string> = TEXT_COLORS.reduce(
+  (acc, key) => {
+    acc[key] = `var(--dds-color-${key})`;
+    return acc;
+  },
+  {} as Record<DDSTextColor, string>,
+);
 
-const TEXT_COLOR_VALUES_KEBAB: Record<DDSTextColor, string> =
-  TEXT_COLORS.reduce(
-    (acc, key) => {
-      acc[key] = `var(--dds-color-${key})`;
-      return acc;
-    },
-    {} as Record<DDSTextColor, string>,
-  );
-
-export type TextColor = DDSTextColor | DDSTextColorCamel | Property.Color;
-
-export const isTextColorCamel = (
-  value: unknown,
-): value is DDSTextColorCamel => {
-  return (
-    typeof value === 'string' &&
-    TEXT_COLORS_CAMEL.includes(value as DDSTextColorCamel)
-  );
-};
+export type TextColor = DDSTextColor | Property.Color;
 
 export const isTextColor = (value: unknown): value is DDSTextColor => {
   return (
@@ -192,7 +137,6 @@ export const isTextColor = (value: unknown): value is DDSTextColor => {
 };
 
 export const getTextColor = (color: TextColor): string => {
-  if (isTextColorCamel(color)) return TEXT_COLOR_VALUES_CAMEL[color];
-  if (isTextColor(color)) return TEXT_COLOR_VALUES_KEBAB[color];
+  if (isTextColor(color)) return TEXT_COLOR_VALUES[color];
   return color;
 };

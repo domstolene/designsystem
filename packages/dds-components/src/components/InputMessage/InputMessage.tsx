@@ -69,7 +69,7 @@ export const InputMessage = ({
       <Typography
         {...tgCommonProps}
         typographyType="bodySmall"
-        color="textDefault"
+        color="text-default"
       />
     </Paper>
   ) : (
@@ -77,7 +77,7 @@ export const InputMessage = ({
       <Typography
         {...tgCommonProps}
         typographyType="bodyXsmall"
-        color="textSubtle"
+        color="text-subtle"
       />
     </Box>
   );
