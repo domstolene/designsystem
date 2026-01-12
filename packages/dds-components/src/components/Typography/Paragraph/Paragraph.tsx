@@ -14,7 +14,9 @@ import {
 export type ParagraphProps = BaseComponentPropsWithChildren<
   HTMLParagraphElement,
   {
-    /**Spesifiserer typografistil basert på utvalget for brødtekst og ingress.  */
+    /** Spesifiserer typografistil basert på utvalget for brødtekst og ingress.
+     * @default 'BodyLongMedium'
+     */
     typographyType?: TypographyBodyType | TypographyLeadType;
   } & BaseTypographyProps,
   Omit<HTMLAttributes<HTMLParagraphElement>, 'color'>
@@ -26,7 +28,7 @@ export const Paragraph = ({
   style,
   htmlProps,
   children,
-  typographyType = 'bodyMedium',
+  typographyType = 'bodyLongMedium',
   ...rest
 }: ParagraphProps) => {
   return (

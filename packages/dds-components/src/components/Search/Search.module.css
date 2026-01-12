@@ -10,6 +10,7 @@
   &[type='search']::-webkit-search-results-decoration {
     -webkit-appearance: none;
   }
+  font: inherit;
 }
 
 .clear-button {

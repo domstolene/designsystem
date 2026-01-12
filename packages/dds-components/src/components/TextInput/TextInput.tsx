@@ -8,7 +8,6 @@ import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-import { getFormInputIconSize } from '../../utils/icon';
 import { renderCharCounter } from '../helpers/CharCounter';
 import { StatefulInput, getDefaultText, getInputWidth } from '../helpers/Input';
 import inputStyles from '../helpers/Input/Input.module.css';
@@ -16,6 +15,7 @@ import { Icon } from '../Icon';
 import { renderInputMessage } from '../InputMessage';
 import { Box } from '../layout';
 import { renderLabel } from '../Typography/Label/Label.utils';
+import tgStyles from '../Typography/typographyStyles.module.css';
 
 export const TextInput = ({
   label,
@@ -131,16 +131,27 @@ export const TextInput = ({
 
   let extendedInput = null;
 
+  const affixCns = [
+    inputStyles['input-group__absolute-el'],
+    styles.affix,
+    disabled && styles['affix--disabled'],
+  ];
+
   if (hasIcon) {
     extendedInput = (
-      <Box className={inputStyles['input-group']} width={inputWidth}>
+      <Box
+        className={cn(
+          inputStyles['input-group'],
+          tgStyles[`body-short-${componentSize}`],
+        )}
+        width={inputWidth}
+      >
         <Icon
           icon={icon}
-          iconSize={getFormInputIconSize(componentSize)}
+          iconSize="component"
           className={cn(
             inputStyles['input-group__absolute-el'],
             inputStyles[`input-group__absolute-el--${componentSize}`],
-            styles[`icon--${componentSize}`],
           )}
         />
         <StatefulInput
@@ -165,7 +176,7 @@ export const TextInput = ({
             ref={prefixRef}
             aria-hidden
             className={cn(
-              styles.affix,
+              ...affixCns,
               styles.prefix,
               disabled && styles['affix--disabled'],
             )}
@@ -186,6 +197,7 @@ export const TextInput = ({
             ref={suffixRef}
             aria-hidden
             className={cn(
+              ...affixCns,
               styles.affix,
               styles.suffix,
               disabled && styles['affix--disabled'],

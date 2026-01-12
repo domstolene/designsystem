@@ -25,17 +25,29 @@ export const Preview: Story = {
 export const Overview: Story = {
   render: args => (
     <StoryVStack>
-      <Paragraph {...args} typographyType="bodyXsmall">
-        {args.children || 'bodyXsmall'}
+      <Paragraph {...args} typographyType="bodyShortXsmall">
+        {args.children || 'bodyShortXsmall'}
       </Paragraph>
-      <Paragraph {...args} typographyType="bodySmall">
-        {args.children || 'bodySmall'}
+      <Paragraph {...args} typographyType="bodyShortSmall">
+        {args.children || 'bodyShortSmall'}
       </Paragraph>
-      <Paragraph {...args} typographyType="bodyMedium">
-        {args.children || 'bodyMedium'}
+      <Paragraph {...args} typographyType="bodyShortMedium">
+        {args.children || 'bodyShortMedium'}
       </Paragraph>
-      <Paragraph {...args} typographyType="bodyLarge">
-        {args.children || 'bodyLarge'}
+      <Paragraph {...args} typographyType="bodyShortLarge">
+        {args.children || 'bodyShortLarge'}
+      </Paragraph>
+      <Paragraph {...args} typographyType="bodyLongXsmall">
+        {args.children || 'bodyLongXsmall'}
+      </Paragraph>
+      <Paragraph {...args} typographyType="bodyLongSmall">
+        {args.children || 'bodyLongSmall'}
+      </Paragraph>
+      <Paragraph {...args} typographyType="bodyLongMedium">
+        {args.children || 'bodyLongMedium'}
+      </Paragraph>
+      <Paragraph {...args} typographyType="bodyLongLarge">
+        {args.children || 'bodyLongLarge'}
       </Paragraph>
       <Paragraph {...args} typographyType="leadMedium">
         {args.children || 'leadMedium'}

@@ -64,7 +64,11 @@ export const Form = () => {
             Dette er et eksempel på en ingress. Den består ofte av et par
             setninger. En setning til.
           </Paragraph>
-          <Paragraph withMargins typographyType="bodySmall" color="text-subtle">
+          <Paragraph
+            withMargins
+            typographyType="bodyLongSmall"
+            color="text-subtle"
+          >
             Obligatoriske felter er merket med{' '}
             <Typography as="span" color="text-requiredfield">
               *
@@ -304,7 +308,11 @@ export const FormWithSteps = () => {
             Dette er et eksempel på en ingress. Den består ofte av et par
             setninger. En setning til.
           </Paragraph>
-          <Paragraph typographyType="bodySmall" color="text-subtle" withMargins>
+          <Paragraph
+            typographyType="bodyLongSmall"
+            color="text-subtle"
+            withMargins
+          >
             Obligatoriske felter er merket med{' '}
             <Typography as="span" color="text-requiredfield">
               *
@@ -526,7 +534,7 @@ export const FormWithStepsCustomGrid = () => {
               Dette er et eksempel på en ingress. Den består ofte av et par
               setninger. En setning til.
             </Paragraph>
-            <Paragraph typographyType="bodySmall" color="text-subtle">
+            <Paragraph typographyType="bodyLongSmall" color="text-subtle">
               Obligatoriske felter er merket med{' '}
               <Typography as="span" color="text-requiredfield">
                 *
@@ -618,7 +626,7 @@ export const ExitForm = () => {
               </Paragraph>
               <Paragraph
                 withMargins
-                typographyType="bodySmall"
+                typographyType="bodyLongSmall"
                 color="text-subtle"
               >
                 Obligatoriske felter er merket med{' '}

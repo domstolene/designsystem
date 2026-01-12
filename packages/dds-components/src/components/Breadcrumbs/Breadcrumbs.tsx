@@ -17,6 +17,7 @@ import {
 } from '../OverflowMenu';
 import { type BreadcrumbProps, isAnchorTypographyProps } from './Breadcrumb';
 import { type Breakpoint, HStack, type HStackProps } from '../layout';
+import tgStyles from '../Typography/typographyStyles.module.css';
 
 export type BreadcrumbsProps = BaseComponentProps<
   HTMLElement,
@@ -43,7 +44,7 @@ export const Breadcrumbs = ({
   const chevronIcon = (
     <Icon
       className={cn(styles.icon)}
-      iconSize="inherit"
+      iconSize="component"
       icon={ChevronRightIcon}
     />
   );
@@ -130,7 +131,13 @@ export const Breadcrumbs = ({
   };
   return (
     <nav
-      {...getBaseHTMLProps(id, className, style, htmlProps, rest)}
+      {...getBaseHTMLProps(
+        id,
+        cn(className, tgStyles['body-short-medium']),
+        style,
+        htmlProps,
+        rest,
+      )}
       aria-label={t(texts.breadcrumbs)}
     >
       <HStack

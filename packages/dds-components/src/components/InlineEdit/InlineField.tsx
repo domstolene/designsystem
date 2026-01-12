@@ -85,7 +85,7 @@ export function InlineField<T extends EditElementTag>(
   };
 
   const cnArgs = [hasErrorState, !isEditing && !hideIcon];
-  const iconSize = 'small';
+  const iconSize = 'component';
   function makeIcon(icon: SvgIcon, className: string) {
     return (
       <Icon

@@ -16,10 +16,7 @@
 }
 
 .indicators {
-  display: grid;
   grid-auto-flow: column;
-  align-items: center;
-  gap: var(--dds-spacing-x0-75);
 }
 
 .truncation-icon {

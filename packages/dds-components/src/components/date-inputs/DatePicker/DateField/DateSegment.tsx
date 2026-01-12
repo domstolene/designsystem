@@ -6,20 +6,9 @@ import type {
 import { useRef } from 'react';
 
 import { cn, spaceSeparatedIdListGenerator } from '../../../../utils';
-import { type InputSize } from '../../../helpers/Input';
-import {
-  type StaticTypographyType,
-  getTypographyCn,
-} from '../../../Typography';
 import typographyStyles from '../../../Typography/typographyStyles.module.css';
 import styles from '../../common/DateInput.module.css';
 import { type DatePickerProps } from '../DatePicker';
-
-export const typographyTypes: Record<InputSize, StaticTypographyType> = {
-  medium: 'bodyMedium',
-  small: 'bodySmall',
-  xsmall: 'bodyXsmall',
-};
 
 interface DateSegmentProps extends Pick<
   Required<DatePickerProps>,
@@ -51,7 +40,7 @@ export function DateSegment({
       className={cn(
         segmentProps.className,
         styles.segment,
-        typographyStyles[getTypographyCn(typographyTypes[componentSize])],
+        typographyStyles[`body-short-${componentSize}`],
       )}
       style={{
         ...segmentProps.style,
@@ -66,7 +55,7 @@ export function DateSegment({
         className={cn(
           styles.segment__placeholder,
           !segment.isPlaceholder && styles['segment__placeholder--invisible'],
-          typographyStyles[getTypographyCn(typographyTypes[componentSize])],
+          typographyStyles[`body-short-${componentSize}`],
         )}
       >
         {segment.placeholder}

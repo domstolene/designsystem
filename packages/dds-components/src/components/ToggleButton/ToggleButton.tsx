@@ -41,11 +41,11 @@ export const ToggleButton = ({
           styles.content,
           styles[size],
           hasIcon && styles['content--with-icon'],
-          typographyStyles[`body-${size}`],
+          typographyStyles[`body-short-${size}`],
           focusStyles['focus-styled-sibling'],
         )}
       >
-        {hasIcon && <Icon icon={icon} iconSize="inherit" />} {label}
+        {hasIcon && <Icon icon={icon} iconSize="component" />} {label}
       </span>
     </Box>
   );

@@ -2,7 +2,7 @@ import { type AriaButtonProps, useButton } from '@react-aria/button';
 import { useRef } from 'react';
 
 import type { DateFieldProps } from './DateField';
-import { cn, getFormInputIconSize } from '../../../../utils';
+import { cn } from '../../../../utils';
 import { InlineIconButton } from '../../../helpers/InlineIconButton';
 import inputStyles from '../../../helpers/Input/Input.module.css';
 import { focusable } from '../../../helpers/styling/focus.module.css';
@@ -36,7 +36,7 @@ export function CalendarButton({
         inputStyles[`input-group__absolute-el--${componentSize}`],
       )}
       icon={CalendarIcon}
-      size={getFormInputIconSize(componentSize)}
+      size="component"
     />
   );
 }

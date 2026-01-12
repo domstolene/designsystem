@@ -12,11 +12,12 @@ import {
 } from 'react-select';
 
 import styles from './Select.module.css';
-import { cn, getFormInputIconSize } from '../../utils';
+import { cn } from '../../utils';
 import { type InputSize } from '../helpers/Input';
 import inputStyles from '../helpers/Input/Input.module.css';
 import { Icon, type IconSize, type SvgIcon } from '../Icon';
-import { CheckIcon, ChevronDownIcon, CloseSmallIcon } from '../Icon/icons';
+import { CheckIcon, CloseSmallIcon } from '../Icon/icons';
+import { AnimatedChevronUpDownIcon } from '../Icon/icons/animated';
 
 const {
   Option,
@@ -85,11 +86,10 @@ export const DDSNoOptionsMessage = <TValue, IsMulti extends boolean>(
 ) => <NoOptionsMessage {...props}>Ingen treff</NoOptionsMessage>;
 
 export const DDSClearIndicator = <TValue, IsMulti extends boolean>({
-  size,
   ...props
-}: ClearIndicatorProps<TValue, IsMulti> & { size: InputSize }) => (
+}: ClearIndicatorProps<TValue, IsMulti>) => (
   <ClearIndicator {...props}>
-    <Icon icon={CloseSmallIcon} iconSize={getIndicatorIconSize(size)} />
+    <Icon icon={CloseSmallIcon} iconSize="component" />
   </ClearIndicator>
 );
 
@@ -105,14 +105,20 @@ export const DDSDropdownIndicator = <TValue, IsMulti extends boolean>(
   props: DropdownIndicatorProps<TValue, IsMulti> & { componentSize: InputSize },
 ): ReactNode => {
   const { className, componentSize, ...rest } = props;
+  const iconState = rest.selectProps.menuIsOpen ? 'up' : 'down';
   return (
     <DropdownIndicator
       {...rest}
-      className={cn(className, styles['dropdown-indicator'])}
+      className={cn(
+        className,
+        styles['dropdown-indicator'],
+        inputStyles[`el-right--${componentSize}`],
+      )}
     >
       <Icon
-        icon={ChevronDownIcon}
-        iconSize={getIndicatorIconSize(componentSize)}
+        icon={AnimatedChevronUpDownIcon}
+        iconSize="component"
+        iconState={iconState}
       />
     </DropdownIndicator>
   );
@@ -165,7 +171,7 @@ export function DDSControl<TValue, IsMulti extends boolean>(
     innerProps,
     ...rest
   } = props;
-
+  const hasIcon = !!icon;
   return (
     <Control
       {...rest}
@@ -180,15 +186,17 @@ export function DDSControl<TValue, IsMulti extends boolean>(
         styles.control,
         rest.isDisabled && styles['control--disabled'],
         readOnly && styles['control--readonly'],
+        inputStyles[`input--${componentSize}`],
+        hasIcon && inputStyles[`input-with-icon--${componentSize}`],
       )}
     >
-      {icon && (
+      {hasIcon && (
         <Icon
           icon={icon}
-          iconSize={getFormInputIconSize(componentSize)}
+          iconSize="component"
           className={cn(
             inputStyles['input-group__absolute-el'],
-            styles[`icon--${componentSize}`],
+            inputStyles[`input-group__absolute-el--${componentSize}`],
           )}
         />
       )}

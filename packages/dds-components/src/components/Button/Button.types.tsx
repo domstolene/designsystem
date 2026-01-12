@@ -5,7 +5,7 @@ import {
   createPurposes,
   createSizes,
 } from '../../types';
-import { type SvgIcon } from '../Icon/utils';
+import { type IconStatesOf, type SvgIcon } from '../Icon/utils';
 
 export const BUTTON_SIZES = createSizes('xsmall', 'small', 'medium', 'large');
 export const BUTTON_PURPOSES = createPurposes(
@@ -23,7 +23,7 @@ type PickedHTMLAttributes = Pick<
   'onClick' | 'onFocus' | 'onBlur' | 'type' | 'aria-label'
 >;
 
-export type ButtonProps = BaseComponentProps<
+export type ButtonProps<I extends SvgIcon = SvgIcon> = BaseComponentProps<
   HTMLButtonElement,
   {
     /** Størrelsen på knappen.
@@ -47,7 +47,11 @@ export type ButtonProps = BaseComponentProps<
      */
     loadingTooltip?: string;
     /**Ikonet som ligger i knappen.  */
-    icon?: SvgIcon;
+    icon?: I;
+    /**
+     * Ikon-state hvis ikonet kan animeres; types basert på ikon valgt i `icon` prop. Statiske ikoner støtter ikke propen.
+     */
+    iconState?: IconStatesOf<I>;
     /**Knapp med full bredde. */
     fullWidth?: boolean;
     /**URL for knapper som skal brukes som lenke. Knappen blir til et `<a>`-element. */

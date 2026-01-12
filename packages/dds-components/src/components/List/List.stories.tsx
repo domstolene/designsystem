@@ -62,21 +62,19 @@ export const Overview: Story = {
         </div>
       );
     };
+
+    const VariantOverview = (listType: Props['listType']) => (
+      <StoryHStack>
+        {ListVariant({ typographyType: 'bodyLongXsmall', listType })}
+        {ListVariant({ typographyType: 'bodyLongSmall', listType })}
+        {ListVariant({ typographyType: 'bodyLongMedium', listType })}
+        {ListVariant({ typographyType: 'bodyLongLarge', listType })}
+      </StoryHStack>
+    );
     return (
       <>
-        <StoryHStack gap={undefined}>
-          {ListVariant({ typographyType: 'bodyXsmall', listType: 'unordered' })}
-          {ListVariant({ typographyType: 'bodySmall', listType: 'unordered' })}
-          {ListVariant({ typographyType: 'bodyMedium', listType: 'unordered' })}
-          {ListVariant({ typographyType: 'bodyLarge', listType: 'unordered' })}
-        </StoryHStack>
-
-        <StoryHStack>
-          {ListVariant({ typographyType: 'bodyXsmall', listType: 'ordered' })}
-          {ListVariant({ typographyType: 'bodySmall', listType: 'ordered' })}
-          {ListVariant({ typographyType: 'bodyMedium', listType: 'ordered' })}
-          {ListVariant({ typographyType: 'bodyLarge', listType: 'ordered' })}
-        </StoryHStack>
+        {VariantOverview('unordered')}
+        {VariantOverview('ordered')}
       </>
     );
   },

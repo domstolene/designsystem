@@ -43,7 +43,7 @@ export const AddTabButton = ({
         className,
         styles.tab,
         styles[`tab--${tabContentDirection}`],
-        typographyStyles[`body-${size}`],
+        typographyStyles[`body-short-${size}`],
         focusStyles['focusable--inset'],
       )}
     >
