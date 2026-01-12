@@ -153,21 +153,22 @@ export const getCustomStyles = <TOption>(
     overflow: 'hidden',
     boxSizing: 'border-box',
   }),
-  multiValue: () => ({
+  multiValue: (provided, state) => ({
     boxSizing: 'border-box',
     minWidth: 0,
     display: 'flex',
     borderRadius: 'var(--dds-border-radius-surface)',
     backgroundColor: 'var(--dds-color-surface-medium)',
-    marginBlock: '-2px',
+    ...((state.selectProps.isDisabled || isReadOnly) && {
+      boxShadow: '0 0 0 1px var(--dds-color-border-subtle) inset',
+    }),
   }),
   multiValueLabel: (provided, state) => ({
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
     boxSizing: 'border-box',
-    padding:
-      'var(--dds-spacing-x0-125) 0 var(--dds-spacing-x0-125) var(--dds-spacing-x0-25)',
+    padding: 'var(--dds-spacing-x0-125) var(--dds-spacing-x0-25)',
     ...typography.multiValueLabel[size],
     color: 'var(--dds-color-text-default)',
     ...(state.selectProps.isDisabled && {
@@ -192,7 +193,7 @@ export const getCustomStyles = <TOption>(
             transition: 'color 0.2s, background-color 0.2s, box-shadow 0.2s',
           },
           color: 'var(--dds-color-icon-default)',
-          padding: '0 var(--dds-spacing-x0-25)',
+          padding: '0 var(--dds-spacing-x0-125)',
           fontSize: 'var(--dds-font-size-x1-125)',
           '&:hover': {
             backgroundColor: 'var(--dds-color-surface-hover-default)',
