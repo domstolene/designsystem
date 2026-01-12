@@ -43,7 +43,7 @@ export const Sizes: Story = {
 };
 
 export const CustomColor: Story = {
-  args: { icon, color: 'iconActionResting' },
+  args: { icon, color: 'icon-action-resting' },
 };
 
 export const Inherit: Story = {

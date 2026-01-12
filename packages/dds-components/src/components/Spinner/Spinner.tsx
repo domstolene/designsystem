@@ -29,7 +29,7 @@ export type SpinnerProps = BaseComponentProps<
 export function Spinner(props: SpinnerProps) {
   const {
     size = 'var(--dds-size-icon-medium)',
-    color = 'iconActionResting',
+    color = 'icon-action-resting',
     tooltip,
     id,
     className,

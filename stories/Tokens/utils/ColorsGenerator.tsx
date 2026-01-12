@@ -180,7 +180,7 @@ export const DataColorsBaseGenerator = () => {
             <Typography
               as="span"
               typographyType="bodyShortSmall"
-              color="textMedium"
+              color="text-medium"
             >
               {token.value}
             </Typography>
@@ -242,7 +242,7 @@ export const ColorsBaseGenerator = () => {
             <Typography
               as="span"
               typographyType="bodyShortSmall"
-              color="textMedium"
+              color="text-medium"
             >
               {token.value}
             </Typography>

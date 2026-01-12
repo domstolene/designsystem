@@ -95,8 +95,8 @@ export const Button = <I extends SvgIcon>({
             size="var(--dds-size-icon-component)"
             color={
               purpose === 'primary' || purpose === 'danger'
-                ? 'iconOnAction'
-                : 'iconDefault'
+                ? 'icon-on-action'
+                : 'icon-default'
             }
             tooltip={spinnerTooltip}
           />

@@ -66,7 +66,7 @@ export const InputMessage = ({
       <Typography
         {...tgCommonProps}
         typographyType="bodyShortXsmall"
-        color="textSubtle"
+        color="text-subtle"
       />
     </Box>
   );
