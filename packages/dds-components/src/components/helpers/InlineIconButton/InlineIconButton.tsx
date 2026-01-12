@@ -10,7 +10,7 @@ import { focusable } from '../styling/focus.module.css';
 
 export type InlineIconButtonProps = Required<Pick<ButtonProps, 'icon'>> &
   ComponentPropsWithRef<'button'> & {
-    size: ExtractStrict<ButtonSize, 'large' | 'medium' | 'small'>;
+    size: ExtractStrict<ButtonSize, 'large' | 'medium' | 'small'> | 'component';
     color?: TextColor;
   };
 

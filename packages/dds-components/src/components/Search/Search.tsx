@@ -8,14 +8,12 @@ import {
 import { useAutocompleteSearch } from './AutocompleteSearch.context';
 import styles from './Search.module.css';
 import { type SearchButtonProps, type SearchSize } from './Search.types';
-import { typographyTypes } from './Search.utils';
 import { SearchSuggestions } from './SearchSuggestions';
 import { useCombinedRef } from '../../hooks';
 import { createTexts, useTranslation } from '../../i18n';
 import {
   cn,
   derivativeIdGenerator,
-  getFormInputIconSize,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { createClearChangeEvent } from '../../utils/createClearChangeEvent';
@@ -23,24 +21,13 @@ import { Button } from '../Button';
 import { ClearButton } from '../helpers/ClearButton';
 import { Input, type InputProps } from '../helpers/Input';
 import inputStyles from '../helpers/Input/Input.module.css';
-import { Icon, type IconSize } from '../Icon';
+import { Icon } from '../Icon';
 import { SearchIcon } from '../Icon/icons';
 import { renderInputMessage } from '../InputMessage';
 import { Box, Grid, HStack } from '../layout';
-import { getTypographyCn } from '../Typography';
 import { renderLabel } from '../Typography/Label/Label.utils';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../VisuallyHidden';
-
-const getIconSize = (size: SearchSize): Exclude<IconSize, 'inherit'> => {
-  switch (size) {
-    case 'large':
-      return 'medium';
-    case 'medium':
-    case 'small':
-      return getFormInputIconSize(size);
-  }
-};
 
 export type SearchProps = Pick<InputProps, 'tip' | 'label'> & {
   /**Størrelsen på komponenten. */
@@ -112,12 +99,15 @@ export const Search = ({
     <HStack
       position="relative"
       width={!showSearchButton ? width : undefined}
-      className={!showSearchButton ? className : undefined}
+      className={cn(
+        !showSearchButton && className,
+        typographyStyles[`body-short-${componentSize}`],
+      )}
     >
       {showIcon && (
         <Icon
           icon={SearchIcon}
-          iconSize={getIconSize(componentSize)}
+          iconSize="component"
           className={cn(
             inputStyles['input-group__absolute-el'],
             inputStyles[`input-group__absolute-el--${componentSize}`],
@@ -149,7 +139,6 @@ export const Search = ({
           inputStyles[`input--${componentSize}`],
           showIcon && inputStyles[`input-with-icon--${componentSize}`],
           inputStyles[`input-with-el-right--${componentSize}`],
-          typographyStyles[getTypographyCn(typographyTypes[componentSize])],
         )}
       />
       {hasSuggestions && (
@@ -169,7 +158,7 @@ export const Search = ({
       )}
       {hasValue && (
         <ClearButton
-          size={getIconSize(componentSize)}
+          size="component"
           aria-label={t(texts.clearSearch)}
           onClick={clearInput}
           className={styles['clear-button']}

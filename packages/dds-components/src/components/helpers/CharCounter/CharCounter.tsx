@@ -23,7 +23,7 @@ export function CharCounter(props: CharCounterProps) {
       id={uniqueId}
       className={styles.container}
       as="div"
-      typographyType="bodyXsmall"
+      typographyType="bodyShortXsmall"
       color="text-subtle"
     >
       <span aria-hidden>

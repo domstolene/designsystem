@@ -20,9 +20,9 @@
   --dds-font-weight-normal: 400;
   --dds-font-weight-semi-bold: 500;
   --dds-font-weight-bold: 600;
-  --dds-font-lineheight-x1: 1.5; /* Brukes på str ×1_25 og mindre  */
-  --dds-font-lineheight-x2: 1.35; /* Brukes på str x1.5, ×2 og ×3  */
-  --dds-font-lineheight-x3: 1.2; /* Brukes på str ×3 og større */
+  --dds-font-lineheight-x1: 1.5; /* Brukes på mengetekst og artikler */
+  --dds-font-lineheight-x3: 1.2;
+  --dds-font-lineheight-x2: 1.3; /* Brukes i komponenter og overskrifter */
   --dds-font-lineheight-list: 2; /* Brukes på lister */
   --dds-font-letter-spacing-tight: -0.01em; /* Brukes på str ×2.5 og større */
   --dds-font-letter-spacing-normal: 0em; /* Brukes på str ×1 og opp til og med ×2 */
@@ -62,9 +62,10 @@
   --dds-grid-md-count: 12;
   --dds-grid-xl-gutter-size: 24px;
   --dds-grid-xl-count: 12;
-  --dds-icon-size-large: 40px;
-  --dds-icon-size-medium: 24px;
-  --dds-icon-size-small: 16px;
+  --dds-size-icon-large: 40px;
+  --dds-size-icon-medium: 24px;
+  --dds-size-icon-small: 16px;
+  --dds-size-icon-component: 1.3em; /* Brukes i komponenter. Relativ til tekststørrelsen */
   --dds-breakpoint-xs: 1px;
   --dds-breakpoint-sm: 600px;
   --dds-breakpoint-md: 960px;
@@ -306,20 +307,24 @@
   --dds-border-radius-input: 2px; /* All input fields, and check boxes */
   --dds-border-radius-chip: 4px; /* Chips and tags */
   --dds-border-radius-rounded: 9999px; /* Rounded and circular components such as radiobutton, toggle, togglebutton and progress tracker */
-  --dds-font-label-medium: 600 0.875rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Label for form components */
-  --dds-font-body-xsmall: 400 0.75rem/1.5 'IBM Plex Sans', Arial, sans-serif; /*  used with xsmall button and input fields */
-  --dds-font-body-small: 400 0.875rem/1.5 'IBM Plex Sans', Arial, sans-serif; /*  used with small button and input fields */
-  --dds-font-body-medium: 400 1rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* standard body text, used with medium button and input fields */
-  --dds-font-body-large: 400 1.125rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Used for large button and large search */
-  --dds-font-heading-xxsmall: 600 0.75rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Default h6 */
-  --dds-font-heading-xsmall: 600 0.875rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Default h5 */
-  --dds-font-heading-small: 600 1rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Default h4 */
-  --dds-font-heading-medium: 600 1.125rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Default h3 */
-  --dds-font-heading-large: 400 clamp(1.25rem, 0.833rem + 1.111vw, 1.5rem)/1.35 'IBM Plex Sans', Arial, sans-serif; /* Default h2 */
-  --dds-font-heading-xlarge: 400 clamp(1.5rem, 0.667rem + 2.222vw, 2rem)/1.35 'IBM Plex Sans', Arial, sans-serif; /* Default H1 */
-  --dds-font-heading-xxlarge: 300 clamp(2.5rem, 1.667rem + 2.222vw, 3rem)/1.2 'IBM Plex Sans', Arial, sans-serif; /* Display or extra large page title (h1) */
+  --dds-font-label-medium: 600 0.875rem/1.3 'IBM Plex Sans', Arial, sans-serif; /* Label for form components */
+  --dds-font-body-long-xsmall: 400 0.75rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Xsmall body text for editorial content */
+  --dds-font-body-long-small: 400 0.875rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Small body text for editorial content */
+  --dds-font-body-long-medium: 400 1rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Default body text for editorial content */
+  --dds-font-body-long-large: 400 1.125rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Large body text for editorial content */
+  --dds-font-heading-xxsmall: 600 0.75rem/1.3 'IBM Plex Sans', Arial, sans-serif; /* Default h6 */
+  --dds-font-heading-xsmall: 600 0.875rem/1.3 'IBM Plex Sans', Arial, sans-serif; /* Default h5 */
+  --dds-font-heading-small: 600 1rem/1.3 'IBM Plex Sans', Arial, sans-serif; /* Default h4 */
+  --dds-font-heading-medium: 600 1.125rem/1.3 'IBM Plex Sans', Arial, sans-serif; /* Default h3 */
+  --dds-font-heading-large: 400 clamp(1.25rem, 0.833rem + 1.111vw, 1.5rem)/1.3 'IBM Plex Sans', Arial, sans-serif; /* Default h2 */
+  --dds-font-heading-xlarge: 400 clamp(1.5rem, 0.667rem + 2.222vw, 2rem)/1.3 'IBM Plex Sans', Arial, sans-serif; /* Default H1 */
+  --dds-font-heading-xxlarge: 300 clamp(2.5rem, 1.667rem + 2.222vw, 3rem)/1.3 'IBM Plex Sans', Arial, sans-serif; /* Display or extra large page title (h1) */
   --dds-font-lead-medium: 300 1.125rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Lead brukes som ingress når man skriver artikler etc */
   --dds-font-code-medium: 400 1rem/1.5 'IBM Plex Mono', 'Courier New', monospace; /* Brukes for kodesnutter etc */
+  --dds-font-body-short-xsmall: 400 0.75rem/1.3 'IBM Plex Sans', Arial, sans-serif; /*  used with xsmall button and input fields */
+  --dds-font-body-short-small: 400 0.875rem/1.3 'IBM Plex Sans', Arial, sans-serif; /*  used with small button and input fields */
+  --dds-font-body-short-medium: 400 1rem/1.3 'IBM Plex Sans', Arial, sans-serif; /* Used with medium button and input fields */
+  --dds-font-body-short-large: 400 1.125rem/1.3 'IBM Plex Sans', Arial, sans-serif; /* Used for large button and large search */
   --dds-font-heading-xxlarge-letter-spacing: -0.01em;
   --dds-font-heading-xxlarge-paragraph-spacing: 0.4em;
   --dds-font-heading-xlarge-letter-spacing: 0em;
@@ -334,18 +339,26 @@
   --dds-font-heading-xsmall-paragraph-spacing: 0.4em;
   --dds-font-heading-xxsmall-letter-spacing: 0.01em;
   --dds-font-heading-xxsmall-paragraph-spacing: 0.4em;
-  --dds-font-body-large-letter-spacing: 0em;
-  --dds-font-body-large-paragraph-spacing: 1em;
-  --dds-font-body-medium-letter-spacing: 0em;
-  --dds-font-body-medium-paragraph-spacing: 1em;
-  --dds-font-body-small-letter-spacing: 0.01em;
-  --dds-font-body-small-paragraph-spacing: 1em;
-  --dds-font-body-xsmall-letter-spacing: 0.01em;
-  --dds-font-body-xsmall-paragraph-spacing: 1em;
+  --dds-font-body-long-large-letter-spacing: 0em;
+  --dds-font-body-long-large-paragraph-spacing: 1em;
+  --dds-font-body-long-medium-letter-spacing: 0em;
+  --dds-font-body-long-medium-paragraph-spacing: 1em;
+  --dds-font-body-long-small-letter-spacing: 0.01em;
+  --dds-font-body-long-small-paragraph-spacing: 1em;
+  --dds-font-body-long-xsmall-letter-spacing: 0.01em;
+  --dds-font-body-long-xsmall-paragraph-spacing: 1em;
   --dds-font-lead-medium-letter-spacing: 0em;
   --dds-font-lead-medium-paragraph-spacing: 1em;
   --dds-font-code-medium-letter-spacing: 0em;
   --dds-font-code-medium-paragraph-spacing: 1em;
   --dds-font-label-medium-letter-spacing: 0.01em;
   --dds-font-label-medium-paragraph-spacing: 1em;
+  --dds-font-body-short-large-letter-spacing: 0em;
+  --dds-font-body-short-large-paragraph-spacing: 1em;
+  --dds-font-body-short-medium-letter-spacing: 0em;
+  --dds-font-body-short-medium-paragraph-spacing: 1em;
+  --dds-font-body-short-small-letter-spacing: 0.01em;
+  --dds-font-body-short-small-paragraph-spacing: 1em;
+  --dds-font-body-short-xsmall-letter-spacing: 0.01em;
+  --dds-font-body-short-xsmall-paragraph-spacing: 1em;
 }

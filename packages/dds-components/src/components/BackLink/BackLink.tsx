@@ -2,12 +2,12 @@ import { type ComponentPropsWithRef, type ElementType } from 'react';
 
 import styles from './BackLink.module.css';
 import { createTexts, useTranslation } from '../../i18n';
-import { ElementAs } from '../../polymorphic';
 import { cn } from '../../utils';
 import { focusable } from '../helpers/styling/focus.module.css';
 import { Icon } from '../Icon';
 import { ArrowLeftIcon } from '../Icon/icons';
-import typographyStyles from '../Typography/typographyStyles.module.css';
+import { HStack } from '../layout';
+import tgStyles from '../Typography/typographyStyles.module.css';
 
 export type BackLinkProps = {
   /**
@@ -23,20 +23,24 @@ export type BackLinkProps = {
 export const BackLink = ({ label, ref, as = 'a', ...rest }: BackLinkProps) => {
   const { t } = useTranslation();
   return (
-    <nav ref={ref} aria-label={t(texts.goBack)}>
-      <ElementAs
+    <nav
+      ref={ref}
+      aria-label={t(texts.goBack)}
+      className={tgStyles['body-short-medium']}
+    >
+      <HStack
         as={as}
-        className={cn(typographyStyles.a, focusable)}
+        className={cn(tgStyles.a, focusable)}
         rel="noopener noreferer"
         {...rest}
       >
         <Icon
           icon={ArrowLeftIcon}
-          iconSize="inherit"
-          className={cn(typographyStyles.a__icon, styles.icon)}
+          iconSize="component"
+          className={cn(styles.icon)}
         />
         {label}
-      </ElementAs>
+      </HStack>
     </nav>
   );
 };

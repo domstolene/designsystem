@@ -89,7 +89,7 @@ export const LocalMessage = ({
         id,
         cn(
           className,
-          typographyStyles['body-medium'],
+          typographyStyles['body-short-medium'],
           styles.container,
           styles[`container--${layout}`],
           closable && styles[`container--${layout}--closable`],
@@ -105,6 +105,7 @@ export const LocalMessage = ({
       gap="x0.5"
     >
       <Icon
+        iconSize="component"
         icon={icons[purpose]}
         className={cn(styles.icon, styles.container__icon)}
       />

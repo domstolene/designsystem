@@ -3,7 +3,6 @@ export * from './combineHandlers';
 export * from './dom';
 export * from './getFocusableElements';
 export * from './getScrollbarSize';
-export * from './icon';
 export * from './idGenerator';
 export * from './object';
 export * from './readonlyEventHandlers';

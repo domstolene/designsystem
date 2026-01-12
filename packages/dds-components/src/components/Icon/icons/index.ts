@@ -159,3 +159,4 @@ export * from './trendingUp';
 export * from './trendingDown';
 export * from './libraryAdd';
 export * from './helpSimple';
+export * from './animated';

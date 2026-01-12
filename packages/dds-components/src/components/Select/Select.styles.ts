@@ -14,31 +14,31 @@ type SelectTypography = Record<InputSize, StaticSelectTypography>;
 
 const optionTypography: SelectTypography = {
   medium: {
-    font: 'var(--dds-font-body-medium)',
-    letterSpacing: 'var(--dds-font-body-medium-letter-spacing)',
+    font: 'var(--dds-font-body-short-medium)',
+    letterSpacing: 'var(--dds-font-body-short-medium-letter-spacing)',
   },
   small: {
-    font: 'var(--dds-font-body-small)',
-    letterSpacing: 'var(--dds-font-body-small-letter-spacing)',
+    font: 'var(--dds-font-body-short-small)',
+    letterSpacing: 'var(--dds-font-body-short-small-letter-spacing)',
   },
   xsmall: {
-    font: 'var(--dds-font-body-xsmall)',
-    letterSpacing: 'var(--dds-font-body-xsmall-letter-spacing)',
+    font: 'var(--dds-font-body-short-xsmall)',
+    letterSpacing: 'var(--dds-font-body-short-xsmall-letter-spacing)',
   },
 };
 
 const multiValueLabelTypography: SelectTypography = {
   medium: {
-    font: 'var(--dds-font-body-small)',
-    letterSpacing: 'var(--dds-font-body-small-letter-spacing)',
+    font: 'var(--dds-font-body-short-small)',
+    letterSpacing: 'var(--dds-font-body-short-small-letter-spacing)',
   },
   small: {
-    font: 'var(--dds-font-body-small)',
-    letterSpacing: 'var(--dds-font-body-small-letter-spacing)',
+    font: 'var(--dds-font-body-short-small)',
+    letterSpacing: 'var(--dds-font-body-short-small-letter-spacing)',
   },
   xsmall: {
-    font: 'var(--dds-font-body-xsmall)',
-    letterSpacing: 'var(--dds-font-body-xsmall-letter-spacing)',
+    font: 'var(--dds-font-body-short-xsmall)',
+    letterSpacing: 'var(--dds-font-body-short-xsmall-letter-spacing)',
   },
 };
 
@@ -57,37 +57,13 @@ export const prefix = 'dds-select';
 
 const control = {
   medium: {
-    base: {
-      paddingBlock: 'var(--dds-spacing-x0-75)',
-      paddingLeft: 'var(--dds-spacing-x0-75)',
-      ...optionTypography.medium,
-    },
-    hasIcon: {
-      paddingLeft:
-        'calc(var(--dds-spacing-x0-75) + var(--dds-icon-size-medium) + var(--dds-spacing-md-icon-text-gap))',
-    },
+    ...optionTypography.medium,
   },
   small: {
-    base: {
-      paddingBlock: 'var(--dds-spacing-x0-5)',
-      paddingLeft: 'var(--dds-spacing-x0-75)',
-      ...optionTypography.small,
-    },
-    hasIcon: {
-      paddingLeft:
-        'calc(var(--dds-spacing-x0-75) + var(--dds-icon-size-medium) + var(--dds-spacing-sm-icon-text-gap))',
-    },
+    ...optionTypography.small,
   },
   xsmall: {
-    base: {
-      paddingBlock: 'var(--dds-spacing-x0-25)',
-      paddingLeft: 'var(--dds-spacing-x0-5)',
-      ...optionTypography.xsmall,
-    },
-    hasIcon: {
-      paddingLeft:
-        'calc(var(--dds-spacing-x0-5) + var(--dds-icon-size-small) + var(--dds-spacing-xs-icon-text-gap))',
-    },
+    ...optionTypography.xsmall,
   },
 };
 
@@ -108,9 +84,7 @@ export const getCustomStyles = <TOption>(
     borderColor: 'var(--dds-color-border-default)',
     backgroundColor: 'var(--dds-color-surface-default)',
     transition: `box-shadow 0.2s, border-color 0.2s, ${focusVisibleTransitionValue}`,
-    paddingRight: 'var(--dds-spacing-x0-5)',
-    ...control[size].base,
-    ...(hasIcon && control[size].hasIcon),
+    ...control[size],
     '&:hover': {
       ...(!isReadOnly && {
         borderColor: 'var(--dds-color-border-action-hover)',
@@ -155,7 +129,6 @@ export const getCustomStyles = <TOption>(
   indicatorSeparator: () => ({}),
   dropdownIndicator: (provided, state) => ({
     display: 'inline-flex',
-    transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : '',
     '@media (prefers-reduced-motion: no-preference)': {
       transition: 'color 0.2s, transform 0.2s',
     },
@@ -180,21 +153,22 @@ export const getCustomStyles = <TOption>(
     overflow: 'hidden',
     boxSizing: 'border-box',
   }),
-  multiValue: () => ({
+  multiValue: (provided, state) => ({
     boxSizing: 'border-box',
     minWidth: 0,
     display: 'flex',
     borderRadius: 'var(--dds-border-radius-surface)',
     backgroundColor: 'var(--dds-color-surface-medium)',
-    marginBlock: '-2px',
+    ...((state.selectProps.isDisabled || isReadOnly) && {
+      boxShadow: '0 0 0 1px var(--dds-color-border-subtle) inset',
+    }),
   }),
   multiValueLabel: (provided, state) => ({
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
     boxSizing: 'border-box',
-    padding:
-      'var(--dds-spacing-x0-125) 0 var(--dds-spacing-x0-125) var(--dds-spacing-x0-25)',
+    padding: 'var(--dds-spacing-x0-125) var(--dds-spacing-x0-25)',
     ...typography.multiValueLabel[size],
     color: 'var(--dds-color-text-default)',
     ...(state.selectProps.isDisabled && {
@@ -219,7 +193,7 @@ export const getCustomStyles = <TOption>(
             transition: 'color 0.2s, background-color 0.2s, box-shadow 0.2s',
           },
           color: 'var(--dds-color-icon-default)',
-          padding: '0 var(--dds-spacing-x0-25)',
+          padding: '0 var(--dds-spacing-x0-125)',
           fontSize: 'var(--dds-font-size-x1-125)',
           '&:hover': {
             backgroundColor: 'var(--dds-color-surface-hover-default)',

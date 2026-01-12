@@ -18,9 +18,9 @@
   $dds-font-weight-normal: var(--dds-font-weight-normal);
   $dds-font-weight-semi-bold: var(--dds-font-weight-semi-bold);
   $dds-font-weight-bold: var(--dds-font-weight-bold);
-  $dds-font-lineheight-x1: var(--dds-font-lineheight-x1); /* Brukes på str ×1_25 og mindre  */
-  $dds-font-lineheight-x2: var(--dds-font-lineheight-x2); /* Brukes på str x1.5, ×2 og ×3  */
-  $dds-font-lineheight-x3: var(--dds-font-lineheight-x3); /* Brukes på str ×3 og større */
+  $dds-font-lineheight-x1: var(--dds-font-lineheight-x1); /* Brukes på mengetekst og artikler */
+  $dds-font-lineheight-x3: var(--dds-font-lineheight-x3);
+  $dds-font-lineheight-x2: var(--dds-font-lineheight-x2); /* Brukes i komponenter og overskrifter */
   $dds-font-lineheight-list: var(--dds-font-lineheight-list); /* Brukes på lister */
   $dds-font-letter-spacing-tight: var(--dds-font-letter-spacing-tight); /* Brukes på str ×2.5 og større */
   $dds-font-letter-spacing-normal: var(--dds-font-letter-spacing-normal); /* Brukes på str ×1 og opp til og med ×2 */
@@ -60,9 +60,10 @@
   $dds-grid-md-count: var(--dds-grid-md-count);
   $dds-grid-xl-gutter-size: var(--dds-grid-xl-gutter-size);
   $dds-grid-xl-count: var(--dds-grid-xl-count);
-  $dds-icon-size-large: var(--dds-icon-size-large);
-  $dds-icon-size-medium: var(--dds-icon-size-medium);
-  $dds-icon-size-small: var(--dds-icon-size-small);
+  $dds-size-icon-large: var(--dds-size-icon-large);
+  $dds-size-icon-medium: var(--dds-size-icon-medium);
+  $dds-size-icon-small: var(--dds-size-icon-small);
+  $dds-size-icon-component: var(--dds-size-icon-component); /* Brukes i komponenter. Relativ til tekststørrelsen */
   $dds-breakpoint-xs: var(--dds-breakpoint-xs);
   $dds-breakpoint-sm: var(--dds-breakpoint-sm);
   $dds-breakpoint-md: var(--dds-breakpoint-md);
@@ -305,10 +306,10 @@
   $dds-border-radius-chip: var(--dds-border-radius-chip); /* Chips and tags */
   $dds-border-radius-rounded: var(--dds-border-radius-rounded); /* Rounded and circular components such as radiobutton, toggle, togglebutton and progress tracker */
   $dds-font-label-medium: var(--dds-font-label-medium); /* Label for form components */
-  $dds-font-body-xsmall: var(--dds-font-body-xsmall); /*  used with xsmall button and input fields */
-  $dds-font-body-small: var(--dds-font-body-small); /*  used with small button and input fields */
-  $dds-font-body-medium: var(--dds-font-body-medium); /* standard body text, used with medium button and input fields */
-  $dds-font-body-large: var(--dds-font-body-large); /* Used for large button and large search */
+  $dds-font-body-long-xsmall: var(--dds-font-body-long-xsmall); /* Xsmall body text for editorial content */
+  $dds-font-body-long-small: var(--dds-font-body-long-small); /* Small body text for editorial content */
+  $dds-font-body-long-medium: var(--dds-font-body-long-medium); /* Default body text for editorial content */
+  $dds-font-body-long-large: var(--dds-font-body-long-large); /* Large body text for editorial content */
   $dds-font-heading-xxsmall: var(--dds-font-heading-xxsmall); /* Default h6 */
   $dds-font-heading-xsmall: var(--dds-font-heading-xsmall); /* Default h5 */
   $dds-font-heading-small: var(--dds-font-heading-small); /* Default h4 */
@@ -318,6 +319,10 @@
   $dds-font-heading-xxlarge: var(--dds-font-heading-xxlarge); /* Display or extra large page title (h1) */
   $dds-font-lead-medium: var(--dds-font-lead-medium); /* Lead brukes som ingress når man skriver artikler etc */
   $dds-font-code-medium: var(--dds-font-code-medium); /* Brukes for kodesnutter etc */
+  $dds-font-body-short-xsmall: var(--dds-font-body-short-xsmall); /*  used with xsmall button and input fields */
+  $dds-font-body-short-small: var(--dds-font-body-short-small); /*  used with small button and input fields */
+  $dds-font-body-short-medium: var(--dds-font-body-short-medium); /* Used with medium button and input fields */
+  $dds-font-body-short-large: var(--dds-font-body-short-large); /* Used for large button and large search */
   $dds-font-heading-xxlarge-letter-spacing: var(--dds-font-heading-xxlarge-letter-spacing);
   $dds-font-heading-xxlarge-paragraph-spacing: var(--dds-font-heading-xxlarge-paragraph-spacing);
   $dds-font-heading-xlarge-letter-spacing: var(--dds-font-heading-xlarge-letter-spacing);
@@ -332,17 +337,25 @@
   $dds-font-heading-xsmall-paragraph-spacing: var(--dds-font-heading-xsmall-paragraph-spacing);
   $dds-font-heading-xxsmall-letter-spacing: var(--dds-font-heading-xxsmall-letter-spacing);
   $dds-font-heading-xxsmall-paragraph-spacing: var(--dds-font-heading-xxsmall-paragraph-spacing);
-  $dds-font-body-large-letter-spacing: var(--dds-font-body-large-letter-spacing);
-  $dds-font-body-large-paragraph-spacing: var(--dds-font-body-large-paragraph-spacing);
-  $dds-font-body-medium-letter-spacing: var(--dds-font-body-medium-letter-spacing);
-  $dds-font-body-medium-paragraph-spacing: var(--dds-font-body-medium-paragraph-spacing);
-  $dds-font-body-small-letter-spacing: var(--dds-font-body-small-letter-spacing);
-  $dds-font-body-small-paragraph-spacing: var(--dds-font-body-small-paragraph-spacing);
-  $dds-font-body-xsmall-letter-spacing: var(--dds-font-body-xsmall-letter-spacing);
-  $dds-font-body-xsmall-paragraph-spacing: var(--dds-font-body-xsmall-paragraph-spacing);
+  $dds-font-body-long-large-letter-spacing: var(--dds-font-body-long-large-letter-spacing);
+  $dds-font-body-long-large-paragraph-spacing: var(--dds-font-body-long-large-paragraph-spacing);
+  $dds-font-body-long-medium-letter-spacing: var(--dds-font-body-long-medium-letter-spacing);
+  $dds-font-body-long-medium-paragraph-spacing: var(--dds-font-body-long-medium-paragraph-spacing);
+  $dds-font-body-long-small-letter-spacing: var(--dds-font-body-long-small-letter-spacing);
+  $dds-font-body-long-small-paragraph-spacing: var(--dds-font-body-long-small-paragraph-spacing);
+  $dds-font-body-long-xsmall-letter-spacing: var(--dds-font-body-long-xsmall-letter-spacing);
+  $dds-font-body-long-xsmall-paragraph-spacing: var(--dds-font-body-long-xsmall-paragraph-spacing);
   $dds-font-lead-medium-letter-spacing: var(--dds-font-lead-medium-letter-spacing);
   $dds-font-lead-medium-paragraph-spacing: var(--dds-font-lead-medium-paragraph-spacing);
   $dds-font-code-medium-letter-spacing: var(--dds-font-code-medium-letter-spacing);
   $dds-font-code-medium-paragraph-spacing: var(--dds-font-code-medium-paragraph-spacing);
   $dds-font-label-medium-letter-spacing: var(--dds-font-label-medium-letter-spacing);
   $dds-font-label-medium-paragraph-spacing: var(--dds-font-label-medium-paragraph-spacing);
+  $dds-font-body-short-large-letter-spacing: var(--dds-font-body-short-large-letter-spacing);
+  $dds-font-body-short-large-paragraph-spacing: var(--dds-font-body-short-large-paragraph-spacing);
+  $dds-font-body-short-medium-letter-spacing: var(--dds-font-body-short-medium-letter-spacing);
+  $dds-font-body-short-medium-paragraph-spacing: var(--dds-font-body-short-medium-paragraph-spacing);
+  $dds-font-body-short-small-letter-spacing: var(--dds-font-body-short-small-letter-spacing);
+  $dds-font-body-short-small-paragraph-spacing: var(--dds-font-body-short-small-paragraph-spacing);
+  $dds-font-body-short-xsmall-letter-spacing: var(--dds-font-body-short-xsmall-letter-spacing);
+  $dds-font-body-short-xsmall-paragraph-spacing: var(--dds-font-body-short-xsmall-paragraph-spacing);

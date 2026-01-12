@@ -15,7 +15,7 @@ export type SpinnerProps = BaseComponentProps<
      */
     color?: TextColor;
     /**Størrelse; Setter høyde og bredde på spinneren.
-     * @default "var(--dds-icon-size-medium)"
+     * @default "var(--dds-size-icon-medium)"
      */
     size?: Property.Width;
     /**Tekst som vises ved hover.
@@ -28,7 +28,7 @@ export type SpinnerProps = BaseComponentProps<
 
 export function Spinner(props: SpinnerProps) {
   const {
-    size = 'var(--dds-icon-size-medium)',
+    size = 'var(--dds-size-icon-medium)',
     color = 'icon-action-resting',
     tooltip,
     id,

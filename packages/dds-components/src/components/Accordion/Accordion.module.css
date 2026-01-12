@@ -17,6 +17,16 @@
 
   &:hover {
     background-color: var(--dds-color-surface-hover-default);
-    color: var(--dds-color-text-action-hover);
+    .chevron {
+      color: var(--dds-color-text-action-hover);
+    }
   }
+}
+
+.body {
+  height: var(--dds-card-accordion-body-height);
+}
+
+.chevron {
+  margin-inline-end: var(--dds-spacing-x0-5);
 }

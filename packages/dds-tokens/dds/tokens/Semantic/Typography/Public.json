@@ -6,7 +6,7 @@
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.bold}",
           "fontSize": "{dds-font-size.x1}",
-          "lineHeight": "{dds-font-lineheight.x1}",
+          "lineHeight": "{dds-font-lineheight.x2}",
           "letterSpacing": "{dds-font-letter-spacing.loose}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
           "textDecoration": "{dds-font-style.normal}"
@@ -15,7 +15,7 @@
         "description": "Label for form components"
       }
     },
-    "body": {
+    "body-long": {
       "xsmall": {
         "value": {
           "fontFamily": "{dds-font-family.sans}",
@@ -27,7 +27,7 @@
           "textDecoration": "{dds-font-style.normal}"
         },
         "type": "typography",
-        "description": " used with xsmall button and input fields"
+        "description": "Xsmall body text for editorial content"
       },
       "small": {
         "value": {
@@ -40,7 +40,7 @@
           "textDecoration": "{dds-font-style.normal}"
         },
         "type": "typography",
-        "description": " used with small button and input fields"
+        "description": "Small body text for editorial content"
       },
       "medium": {
         "value": {
@@ -53,7 +53,7 @@
           "textDecoration": "{dds-font-style.normal}"
         },
         "type": "typography",
-        "description": "standard body text, used with medium button and input fields"
+        "description": "Default body text for editorial content"
       },
       "large": {
         "value": {
@@ -66,7 +66,7 @@
           "textDecoration": "{dds-font-style.normal}"
         },
         "type": "typography",
-        "description": "Used for large button and large search"
+        "description": "Large body text for editorial content"
       }
     },
     "heading": {
@@ -75,7 +75,7 @@
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.bold}",
           "fontSize": "{dds-font-size.x1}",
-          "lineHeight": "{dds-font-lineheight.x1}",
+          "lineHeight": "{dds-font-lineheight.x2}",
           "letterSpacing": "{dds-font-letter-spacing.loose}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
           "textDecoration": "{dds-font-style.normal}"
@@ -88,7 +88,7 @@
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.bold}",
           "fontSize": "{dds-font-size.x1_125}",
-          "lineHeight": "{dds-font-lineheight.x1}",
+          "lineHeight": "{dds-font-lineheight.x2}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
           "textDecoration": "{dds-font-style.normal}"
@@ -101,7 +101,7 @@
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.bold}",
           "fontSize": "{dds-font-size.x1_25}",
-          "lineHeight": "{dds-font-lineheight.x1}",
+          "lineHeight": "{dds-font-lineheight.x2}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
           "textDecoration": "{dds-font-style.normal}"
@@ -114,7 +114,7 @@
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.semi-bold}",
           "fontSize": "{dds-font-size.x1_5}",
-          "lineHeight": "{dds-font-lineheight.x1}",
+          "lineHeight": "{dds-font-lineheight.x2}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
           "textDecoration": "{dds-font-style.normal}"
@@ -153,7 +153,7 @@
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.light}",
           "fontSize": "clamp(3rem, 1.333rem + 4.444vw, 4rem)",
-          "lineHeight": "{dds-font-lineheight.x3}",
+          "lineHeight": "{dds-font-lineheight.x2}",
           "letterSpacing": "{dds-font-letter-spacing.tight}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
           "textDecoration": "{dds-font-style.normal}"
@@ -170,7 +170,7 @@
           "fontSize": "{dds-font-size.x1_5}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
-          "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
+          "paragraphSpacing": "{dds-font-paragraph-spacing.medium}",
           "textDecoration": "{dds-font-style.normal}"
         },
         "type": "typography",
@@ -190,6 +190,60 @@
         },
         "type": "typography",
         "description": "Brukes for kodesnutter etc"
+      }
+    },
+    "body-short": {
+      "xsmall": {
+        "value": {
+          "fontFamily": "{dds-font-family.sans}",
+          "fontWeight": "{dds-font-weight.normal}",
+          "fontSize": "{dds-font-size.x0_875}",
+          "lineHeight": "{dds-font-lineheight.x2}",
+          "letterSpacing": "{dds-font-letter-spacing.loose}",
+          "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
+          "textDecoration": "{dds-font-style.normal}"
+        },
+        "type": "typography",
+        "description": " used with xsmall button and input fields"
+      },
+      "small": {
+        "value": {
+          "fontFamily": "{dds-font-family.sans}",
+          "fontWeight": "{dds-font-weight.normal}",
+          "fontSize": "{dds-font-size.x1}",
+          "lineHeight": "{dds-font-lineheight.x2}",
+          "letterSpacing": "{dds-font-letter-spacing.loose}",
+          "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
+          "textDecoration": "{dds-font-style.normal}"
+        },
+        "type": "typography",
+        "description": " used with small button and input fields"
+      },
+      "medium": {
+        "value": {
+          "fontFamily": "{dds-font-family.sans}",
+          "fontWeight": "{dds-font-weight.normal}",
+          "fontSize": "{dds-font-size.x1_125}",
+          "lineHeight": "{dds-font-lineheight.x2}",
+          "letterSpacing": "{dds-font-letter-spacing.normal}",
+          "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
+          "textDecoration": "{dds-font-style.normal}"
+        },
+        "type": "typography",
+        "description": "Used with medium button and input fields"
+      },
+      "large": {
+        "value": {
+          "fontFamily": "{dds-font-family.sans}",
+          "fontWeight": "{dds-font-weight.normal}",
+          "fontSize": "{dds-font-size.x1_25}",
+          "lineHeight": "{dds-font-lineheight.x2}",
+          "letterSpacing": "{dds-font-letter-spacing.normal}",
+          "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
+          "textDecoration": "{dds-font-style.normal}"
+        },
+        "type": "typography",
+        "description": "Used for large button and large search"
       }
     }
   },
@@ -265,7 +319,7 @@
       }
     }
   },
-  "dds-font-body": {
+  "dds-font-body-long": {
     "large": {
       "letter-spacing": {
         "value": "{dds-font-letter-spacing.normal}",
@@ -333,6 +387,48 @@
   },
   "dds-font-label": {
     "medium": {
+      "letter-spacing": {
+        "value": "{dds-font-letter-spacing.loose}",
+        "type": "letterSpacing"
+      },
+      "paragraph-spacing": {
+        "value": "{dds-font-paragraph-spacing.small}",
+        "type": "paragraphSpacing"
+      }
+    }
+  },
+  "dds-font-body-short": {
+    "large": {
+      "letter-spacing": {
+        "value": "{dds-font-letter-spacing.normal}",
+        "type": "letterSpacing"
+      },
+      "paragraph-spacing": {
+        "value": "{dds-font-paragraph-spacing.small}",
+        "type": "paragraphSpacing"
+      }
+    },
+    "medium": {
+      "letter-spacing": {
+        "value": "{dds-font-letter-spacing.normal}",
+        "type": "letterSpacing"
+      },
+      "paragraph-spacing": {
+        "value": "{dds-font-paragraph-spacing.small}",
+        "type": "paragraphSpacing"
+      }
+    },
+    "small": {
+      "letter-spacing": {
+        "value": "{dds-font-letter-spacing.loose}",
+        "type": "letterSpacing"
+      },
+      "paragraph-spacing": {
+        "value": "{dds-font-paragraph-spacing.small}",
+        "type": "paragraphSpacing"
+      }
+    },
+    "xsmall": {
       "letter-spacing": {
         "value": "{dds-font-letter-spacing.loose}",
         "type": "letterSpacing"

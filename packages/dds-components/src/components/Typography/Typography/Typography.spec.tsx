@@ -18,7 +18,11 @@ describe('<Typography>', () => {
     expect(screen.getByRole('heading')).toBeInTheDocument();
   });
   it('renders paragraph', () => {
-    render(<Typography typographyType="bodySmall" />);
+    render(<Typography typographyType="bodyLongSmall" />);
     expect(screen.getByRole('paragraph')).toBeInTheDocument();
+  });
+  it('renders button', () => {
+    render(<Typography as="button" />);
+    expect(screen.getByRole('button')).toBeInTheDocument();
   });
 });

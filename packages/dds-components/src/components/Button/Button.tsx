@@ -14,11 +14,11 @@ import { cn } from '../../utils';
 import { useButtonGroupContext } from '../ButtonGroup/ButtonGroup.context';
 import { focusable } from '../helpers/styling/focus.module.css';
 import { invisible } from '../helpers/styling/utilStyles.module.css';
-import { Icon } from '../Icon';
+import { Icon, type SvgIcon } from '../Icon';
 import { Spinner } from '../Spinner';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
-export const Button = ({
+export const Button = <I extends SvgIcon>({
   children,
   purpose = 'primary',
   size = 'medium',
@@ -29,6 +29,7 @@ export const Button = ({
   loadingTooltip,
   fullWidth = false,
   icon,
+  iconState,
   onClick,
   onFocus,
   onBlur,
@@ -38,7 +39,7 @@ export const Button = ({
   style,
   htmlProps = {},
   ...props
-}: ButtonProps) => {
+}: ButtonProps<I>) => {
   const { purpose: groupPurpose, size: groupSize } = useButtonGroupContext();
   const { t } = useTranslation();
   const spinnerTooltip = loadingTooltip ?? t(texts.saving);
@@ -63,15 +64,16 @@ export const Button = ({
     noContent && styles['no-content'],
     fullWidth && styles['button--full-width'],
     loading && styles['button--is-loading'],
-    typographyStyles[`body-${size}`],
+    typographyStyles[`body-short-${size}`],
     focusable,
   );
 
   const iconElement = hasIcon && (
     <Icon
       icon={icon}
-      iconSize="inherit"
-      className={cn(styles.icon, loading && invisible)}
+      iconSize="component"
+      className={cn(loading && invisible)}
+      iconState={iconState}
     />
   );
 
@@ -90,14 +92,13 @@ export const Button = ({
       {loading && (
         <span className={cn(!noContent && styles['spinner-wrapper--absolute'])}>
           <Spinner
-            size="1em"
+            size="var(--dds-size-icon-component)"
             color={
               purpose === 'primary' || purpose === 'danger'
                 ? 'icon-on-action'
                 : 'icon-default'
             }
             tooltip={spinnerTooltip}
-            className={styles.icon}
           />
         </span>
       )}

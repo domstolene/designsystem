@@ -31,8 +31,6 @@
 }
 
 .table--small {
-  font: var(--dds-font-body-small);
-  letter-spacing: var(--dds-font-body-small-letter-spacing);
   td,
   th {
     padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-5);
@@ -55,8 +53,6 @@
 }
 
 .table--medium {
-  font: var(--dds-font-body-medium);
-  letter-spacing: var(--dds-font-body-medium-letter-spacing);
   th {
     font: var(--dds-font-heading-small);
   }
@@ -67,8 +63,6 @@
 }
 
 .table--large {
-  font: var(--dds-font-body-medium);
-  letter-spacing: var(--dds-font-body-medium-letter-spacing);
   th {
     font: var(--dds-font-heading-small);
   }
@@ -150,8 +144,6 @@
 }
 
 .collapse-button {
-  height: var(--dds-icon-size-medium);
-  width: var(--dds-icon-size-medium);
   border-radius: var(--dds-border-radius-button);
   margin-left: auto;
   margin-right: auto;

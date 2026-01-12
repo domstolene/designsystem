@@ -179,7 +179,7 @@ export const DataColorsBaseGenerator = () => {
             </Heading>
             <Typography
               as="span"
-              typographyType="bodySmall"
+              typographyType="bodyShortSmall"
               color="text-medium"
             >
               {token.value}
@@ -241,7 +241,7 @@ export const ColorsBaseGenerator = () => {
             </Heading>
             <Typography
               as="span"
-              typographyType="bodySmall"
+              typographyType="bodyShortSmall"
               color="text-medium"
             >
               {token.value}

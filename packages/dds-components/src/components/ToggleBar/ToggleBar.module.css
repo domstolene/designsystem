@@ -13,10 +13,7 @@
   box-sizing: border-box;
   cursor: pointer;
   background-color: var(--dds-color-surface-default);
-  border-right: 1px solid var(--dds-color-border-default);
-  border-top: 1px solid var(--dds-color-border-default);
-  border-bottom: 1px solid var(--dds-color-border-default);
-  border-color: var(--dds-color-border-default);
+  border: 1px solid var(--dds-color-border-default);
 
   @media (prefers-reduced-motion: no-preference) {
     transition:
@@ -28,72 +25,23 @@
   }
 }
 
-.content--large--just-icon {
-  padding: var(--dds-spacing-x1);
-
-  svg {
-    /*TODO: bytte til icon size token for button når den er på plass*/
-    font-size: calc(var(--dds-font-lineheight-x1) * 1em);
-  }
-}
-
-.content--large--with-text {
-  padding: var(--dds-spacing-x1) var(--dds-spacing-x2);
-  gap: var(--dds-spacing-lg-icon-text-gap);
-}
-
-.content--medium--just-icon {
-  padding: var(--dds-spacing-x0-75);
-
-  svg {
-    font-size: calc(var(--dds-font-lineheight-x1) * 1em);
-  }
-}
-
-.content--medium--with-text {
-  padding: var(--dds-spacing-x0-75) var(--dds-spacing-x1-5);
-  gap: var(--dds-spacing-md-icon-text-gap);
-}
-
-.content--small--just-icon {
-  padding: var(--dds-spacing-x0-5);
-
-  svg {
-    font-size: calc(var(--dds-font-lineheight-x1) * 1em);
-  }
-}
-
-.content--small--with-text {
-  padding: var(--dds-spacing-x0-5) var(--dds-spacing-x1);
-  gap: var(--dds-spacing-sm-icon-text-gap);
-}
-
-.content--xsmall--just-icon {
-  padding: var(--dds-spacing-x0-25);
-
-  svg {
-    font-size: calc(var(--dds-font-lineheight-x1) * 1em);
-  }
-}
-
-.content--xsmall--with-text {
-  padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-75);
-  gap: var(--dds-spacing-xs-icon-text-gap);
-}
-
 .label {
   &:hover .content {
     background-color: var(--dds-color-surface-hover-default);
   }
 
   &:first-child .content {
-    border-left: 1px solid var(--dds-color-border-default);
+    margin-inline-end: -1px;
     border-top-left-radius: var(--dds-border-radius-button);
     border-bottom-left-radius: var(--dds-border-radius-button);
   }
   &:last-child .content {
     border-top-right-radius: var(--dds-border-radius-button);
     border-bottom-right-radius: var(--dds-border-radius-button);
+  }
+
+  &:not(:first-child):not(:last-child) .content {
+    margin-inline-end: -1px;
   }
 
   input:checked + .content {

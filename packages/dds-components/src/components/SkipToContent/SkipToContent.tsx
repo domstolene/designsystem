@@ -43,7 +43,7 @@ export const SkipToContent = ({
       style={style}
       top={top}
     >
-      <Link {...rest} {...htmlProps} id={id}>
+      <Link {...rest} {...htmlProps} id={id} typographyType="bodyShortMedium">
         {text}
       </Link>
     </Contrast>

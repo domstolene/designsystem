@@ -22,6 +22,7 @@ export default {
     ...commonArgTypes,
     children: { control: 'text' },
     icon: { control: false },
+    iconState: { control: false },
     href: { table: categoryHtml },
     'aria-label': { table: categoryHtml },
     target: htmlArgType,

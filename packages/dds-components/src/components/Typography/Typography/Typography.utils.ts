@@ -3,7 +3,6 @@ import { type ElementType } from 'react';
 import {
   type HyphenTypographyType,
   type InlineElement,
-  type TypographyBodyType,
   type TypographyHeadingType,
   type TypographyType,
 } from './Typography.types';
@@ -13,10 +12,6 @@ import {
   isTextColor,
 } from '../../../utils';
 import typographyStyles from '../typographyStyles.module.css';
-
-export const defaultTypographyType: TypographyBodyType = 'bodyMedium';
-export const defaultTypographyTypeClassName: HyphenTypographyType =
-  'body-medium';
 
 export const getElementType = (element: TypographyType): ElementType => {
   switch (element) {
@@ -37,10 +32,14 @@ export const getElementType = (element: TypographyType): ElementType => {
       return 'h1';
     case 'labelMedium':
       return 'label';
-    case 'bodyXsmall':
-    case 'bodySmall':
-    case 'bodyMedium':
-    case 'bodyLarge':
+    case 'bodyShortXsmall':
+    case 'bodyShortSmall':
+    case 'bodyShortMedium':
+    case 'bodyShortLarge':
+    case 'bodyLongXsmall':
+    case 'bodyLongSmall':
+    case 'bodyLongMedium':
+    case 'bodyLongLarge':
     case 'leadMedium':
     default:
       return 'p';

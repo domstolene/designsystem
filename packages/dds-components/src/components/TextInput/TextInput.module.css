@@ -14,27 +14,11 @@
   width: 100%;
 }
 
-.icon--medium {
-  left: var(--dds-spacing-x0-75);
-}
-
-.icon--small {
-  left: var(--dds-spacing-x0-75);
-}
-
-.icon--xsmall {
-  left: var(--dds-spacing-x0-5);
-}
-
 .affix {
-  position: absolute;
   height: 100%;
-  top: 50%;
-  transform: translateY(-50%);
   display: flex;
   align-items: center;
   pointer-events: none;
-  z-index: var(--dds-zindex-absolute-element);
 }
 
 .prefix {

@@ -27,29 +27,41 @@ export const Preview: Story = {
 export const OverviewBody: Story = {
   render: args => (
     <StoryVStack>
-      <Typography {...args} typographyType="bodyXsmall">
-        bodyXsmall - Når du kommer inn i rettssalen, blir du bedt om å stå ved
-        vitneboksen. Så blir du spurt om hva du heter, hvor du bor og så videre.
-        Deretter om du på noen måte er i slekt med tiltalte, fornærmede eller
-        partene i saken.
+      <Typography {...args} typographyType="bodyShortXsmall">
+        bodyShortXsmall - kort tekst.
       </Typography>
-      <Typography {...args} typographyType="bodySmall">
-        bodySmall - Når du kommer inn i rettssalen, blir du bedt om å stå ved
-        vitneboksen. Så blir du spurt om hva du heter, hvor du bor og så videre.
-        Deretter om du på noen måte er i slekt med tiltalte, fornærmede eller
-        partene i saken.
+      <Typography {...args} typographyType="bodyShortSmall">
+        bodyShortSmall - kort tekst.
       </Typography>
-      <Typography {...args} typographyType="bodyMedium">
-        bodyMedium - Når du kommer inn i rettssalen, blir du bedt om å stå ved
-        vitneboksen. Så blir du spurt om hva du heter, hvor du bor og så videre.
-        Deretter om du på noen måte er i slekt med tiltalte, fornærmede eller
-        partene i saken.
+      <Typography {...args} typographyType="bodyShortMedium">
+        bodyShortMedium - kort tekst.
       </Typography>
-      <Typography {...args} typographyType="bodyLarge">
-        bodyLarge - Når du kommer inn i rettssalen, blir du bedt om å stå ved
-        vitneboksen. Så blir du spurt om hva du heter, hvor du bor og så videre.
-        Deretter om du på noen måte er i slekt med tiltalte, fornærmede eller
-        partene i saken.
+      <Typography {...args} typographyType="bodyShortLarge">
+        bodyShortLarge - kort tekst.
+      </Typography>
+      <Typography {...args} typographyType="bodyLongXsmall">
+        bodyLongXsmall - Når du kommer inn i rettssalen, blir du bedt om å stå
+        ved vitneboksen. Så blir du spurt om hva du heter, hvor du bor og så
+        videre. Deretter om du på noen måte er i slekt med tiltalte, fornærmede
+        eller partene i saken.
+      </Typography>
+      <Typography {...args} typographyType="bodyLongSmall">
+        bodyLongSmall - Når du kommer inn i rettssalen, blir du bedt om å stå
+        ved vitneboksen. Så blir du spurt om hva du heter, hvor du bor og så
+        videre. Deretter om du på noen måte er i slekt med tiltalte, fornærmede
+        eller partene i saken.
+      </Typography>
+      <Typography {...args} typographyType="bodyLongMedium">
+        bodyLongMedium - Når du kommer inn i rettssalen, blir du bedt om å stå
+        ved vitneboksen. Så blir du spurt om hva du heter, hvor du bor og så
+        videre. Deretter om du på noen måte er i slekt med tiltalte, fornærmede
+        eller partene i saken.
+      </Typography>
+      <Typography {...args} typographyType="bodyLongLarge">
+        bodyLongLarge - Når du kommer inn i rettssalen, blir du bedt om å stå
+        ved vitneboksen. Så blir du spurt om hva du heter, hvor du bor og så
+        videre. Deretter om du på noen måte er i slekt med tiltalte, fornærmede
+        eller partene i saken.
       </Typography>
     </StoryVStack>
   ),

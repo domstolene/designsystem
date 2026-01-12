@@ -37,7 +37,6 @@
   /*Sizes*/
   --dds-input-default-width: 320px;
   --dds-input-default-width-xsmall: 210px;
-  --dds-selection-control-height: 18px;
   --dds-spacing-xs-icon-text-gap: var(--dds-spacing-x0-25);
   --dds-spacing-sm-icon-text-gap: var(--dds-spacing-x0-25);
   --dds-spacing-md-icon-text-gap: var(--dds-spacing-x0-5);
@@ -48,7 +47,7 @@
 }
 
 .global-styles {
-  font: var(--dds-font-body-medium);
-  letter-spacing: var(--dds-font-body-medium-letter-spacing);
+  font: var(--dds-font-body-long-medium);
+  letter-spacing: var(--dds-font-body-long-medium-letter-spacing);
   color: var(--dds-color-text-default);
 }

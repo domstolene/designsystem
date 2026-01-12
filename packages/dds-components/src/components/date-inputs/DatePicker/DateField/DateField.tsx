@@ -71,7 +71,6 @@ export function DateField({
       segment.type !== 'literal' && segment.placeholder !== segment.text,
   );
   const hasValue = !!state.value || hasPartialValue;
-  const clearButtonSize = componentSize === 'medium' ? 'medium' : 'small';
   const clearDate = () => {
     state.setValue(null);
   };
@@ -110,7 +109,7 @@ export function DateField({
               styles['clear-button'],
               !hasValue && styles['clear-button--inactive'],
             )}
-            size={clearButtonSize}
+            size="component"
             onClick={clearDate}
           />
         )

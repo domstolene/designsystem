@@ -94,10 +94,11 @@ export const File = (props: FileProps) => {
           <>
             <Icon
               icon={isValid ? CheckCircledIcon : ErrorIcon}
+              iconSize="component"
               className={styles[`file__icon--${isValid ? 'valid' : 'invalid'}`]}
             />
             <Button
-              size="small"
+              size="xsmall"
               purpose="tertiary"
               type="button"
               onClick={removeFile}
