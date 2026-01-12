@@ -11,17 +11,21 @@ import {
 } from 'react';
 
 import styles from './AccordionBase.module.css';
-import { useIsMounted } from '../../../hooks';
+import { useControllableState, useIsMounted } from '../../../hooks';
 import { type Nullable } from '../../../types';
 import { cn, useElementHeight } from '../../../utils';
 
 export interface AccordionConfig {
   /**
-   * Om accordion skal være utvidet ved første render.
+   * Ukontrollerttilstand: om utvidbare delen skal være utvidet ved første render.
    */
-  initiallyExpanded?: boolean;
+  isInitiallyExpanded?: boolean;
   /**
-   * Callback som blir kalt når brukeren trykker på header.
+   * Kontrollert tilstand: om utvidbare delen er utvidet.
+   */
+  isExpanded?: boolean;
+  /**
+   * Callback når tilstanden endres.
    */
   onChange?: (expanded: boolean) => void;
   /**
@@ -142,38 +146,29 @@ export interface AccordionState {
  */
 
 export const useAccordion = ({
-  initiallyExpanded = false,
+  isInitiallyExpanded = false,
+  isExpanded: isExpandedProp,
   onChange,
   id,
 }: AccordionConfig): AccordionState => {
-  const [isExpanded, setIsExpanded] = useState(initiallyExpanded);
+  const [isExpanded, setIsExpanded] = useControllableState<boolean>({
+    onChange,
+    defaultValue: isInitiallyExpanded,
+    value: isExpandedProp,
+  });
 
   const generatedId = useId();
   const accordionId = id ?? `${generatedId}-accordion`;
 
-  const openAccordion = () => {
-    setIsExpanded(true);
-  };
-
-  const closeAccordion = () => {
-    setIsExpanded(false);
-  };
-
-  useEffect(() => {
-    setIsExpanded(isExpanded);
-  }, [isExpanded]);
+  const openAccordion = useCallback(() => setIsExpanded(true), [setIsExpanded]);
+  const closeAccordion = useCallback(
+    () => setIsExpanded(false),
+    [setIsExpanded],
+  );
 
   const toggleExpanded = useCallback(() => {
-    setIsExpanded(prevExpanded => {
-      const newExpanded = !prevExpanded;
-
-      if (onChange) {
-        onChange(newExpanded);
-      }
-
-      return newExpanded;
-    });
-  }, [onChange]);
+    setIsExpanded(prev => !prev);
+  }, [setIsExpanded]);
 
   const bodyContentRef = useRef<HTMLDivElement>(null);
 

@@ -105,14 +105,17 @@ export const Controlled: Story = {
     const [isExpanded, setIsExpanded] = useState(true);
 
     return (
-      <Accordion
-        {...args}
-        isExpanded={isExpanded}
-        onChange={() => setIsExpanded(!isExpanded)}
-      >
-        <AccordionHeader>Header</AccordionHeader>
-        <AccordionBody>Content</AccordionBody>
-      </Accordion>
+      <>
+        utvided: {isExpanded.toString()}
+        <Accordion
+          {...args}
+          isExpanded={isExpanded}
+          onChange={() => setIsExpanded(!isExpanded)}
+        >
+          <AccordionHeader>Header</AccordionHeader>
+          <AccordionBody>Content</AccordionBody>
+        </Accordion>
+      </>
     );
   },
 };
@@ -185,9 +188,7 @@ export const Custom: Story = {
   ],
   render: () => {
     const { isExpanded, bodyContentRef, headerProps, bodyProps } = useAccordion(
-      {
-        initiallyExpanded: false,
-      },
+      {},
     );
 
     const { height, ...restBodyProps } = bodyProps;
