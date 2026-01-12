@@ -165,15 +165,18 @@ export const ExpandableControlled: Story = {
     const [isExpanded, setIsExpanded] = useState(true);
 
     return (
-      <Card {...args} cardType="expandable">
-        <CardExpandable
-          isExpanded={isExpanded}
-          onChange={() => setIsExpanded(!isExpanded)}
-        >
-          <CardExpandableHeader>Header</CardExpandableHeader>
-          <CardExpandableBody>Content</CardExpandableBody>
-        </CardExpandable>
-      </Card>
+      <>
+        Utvidet: {isExpanded.toString()}
+        <Card {...args} cardType="expandable">
+          <CardExpandable
+            isExpanded={isExpanded}
+            onChange={() => setIsExpanded(!isExpanded)}
+          >
+            <CardExpandableHeader>Header</CardExpandableHeader>
+            <CardExpandableBody>Content</CardExpandableBody>
+          </CardExpandable>
+        </Card>
+      </>
     );
   },
 };
