@@ -15,7 +15,7 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/react": "^19.2.7",
+    "@types/react": "^19.2.8",
     "react": "^19.2.3",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3"
