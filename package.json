@@ -79,9 +79,9 @@
   },
   "volta": {
     "node": "24.1.0",
-    "pnpm": "10.20.0"
+    "pnpm": "10.28.0"
   },
-  "packageManager": "pnpm@10.20.0",
+  "packageManager": "pnpm@10.28.0",
   "peerDependencies": {
     "webpack": "^5.94.0"
   }
