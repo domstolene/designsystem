@@ -1,33 +1,27 @@
-import { type ComponentPropsWithRef, type Ref } from 'react';
+import {
+  type ComponentPropsWithRef,
+  type ElementType,
+  type PropsWithChildren,
+} from 'react';
 
+import { ElementAs } from '../../polymorphic';
 import { Link } from '../Typography';
+import { isLinkLike } from './Breadcrumbs.utils';
 
-export type BreadcrumbProps =
-  | ComponentPropsWithRef<'a'>
-  | ComponentPropsWithRef<'span'>;
+export type BreadcrumbProps<E extends ElementType = 'a'> = {
+  as?: E;
+} & PropsWithChildren<ComponentPropsWithRef<E>>;
 
-export const isAnchorTypographyProps = (
-  props: BreadcrumbProps,
-): props is ComponentPropsWithRef<'a'> => {
-  return (props as ComponentPropsWithRef<'a'>).href != undefined;
-};
-
-export const Breadcrumb = ({ children, ref, ...rest }: BreadcrumbProps) => {
-  if (isAnchorTypographyProps(rest)) {
-    return (
-      <Link
-        ref={ref as Ref<HTMLAnchorElement>}
-        htmlProps={rest}
-        href={rest.href}
-      >
-        {children}
-      </Link>
-    );
-  }
+export const Breadcrumb = <E extends ElementType = 'a'>({
+  as: propAs = 'a',
+  children,
+  ...rest
+}: BreadcrumbProps<E>) => {
+  const as = !isLinkLike(rest) ? 'span' : propAs === 'a' ? Link : propAs;
   return (
-    <span ref={ref} {...rest}>
+    <ElementAs as={as} {...rest}>
       {children}
-    </span>
+    </ElementAs>
   );
 };
 

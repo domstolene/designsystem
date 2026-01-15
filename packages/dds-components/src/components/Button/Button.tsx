@@ -1,14 +1,9 @@
-import {
-  type ButtonHTMLAttributes,
-  type FocusEventHandler,
-  type HTMLAttributes,
-  type MouseEventHandler,
-  type RefObject,
-} from 'react';
+import { type ButtonHTMLAttributes, type ElementType } from 'react';
 
 import styles from './Button.module.css';
 import { type ButtonProps } from './Button.types';
 import { createTexts, useTranslation } from '../../i18n';
+import { ElementAs } from '../../polymorphic';
 import { getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
 import { useButtonGroupContext } from '../ButtonGroup/ButtonGroup.context';
@@ -18,13 +13,12 @@ import { Icon, type SvgIcon } from '../Icon';
 import { Spinner } from '../Spinner';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
-export const Button = <I extends SvgIcon>({
+export const Button = <I extends SvgIcon, T extends ElementType = 'button'>({
+  as: propAs,
   children,
   purpose = 'primary',
   size = 'medium',
   iconPosition = 'left',
-  href,
-  target,
   loading,
   loadingTooltip,
   fullWidth = false,
@@ -37,9 +31,9 @@ export const Button = <I extends SvgIcon>({
   ref,
   className,
   style,
-  htmlProps = {},
+  htmlProps,
   ...props
-}: ButtonProps<I>) => {
+}: ButtonProps<I, T>) => {
   const { purpose: groupPurpose, size: groupSize } = useButtonGroupContext();
   const { t } = useTranslation();
   const spinnerTooltip = loadingTooltip ?? t(texts.saving);
@@ -108,50 +102,32 @@ export const Button = <I extends SvgIcon>({
   const rest = props as ButtonHTMLAttributes<HTMLButtonElement>;
   const { disabled: restDisabled, ...restFinal } = rest;
 
-  const htmlDisabled = htmlProps.disabled;
+  const htmlDisabled = htmlProps?.disabled;
   const isDisabled = (restDisabled ?? htmlDisabled ?? loading) === true;
 
-  if (!href)
-    return (
-      <button
-        ref={ref}
-        {...getBaseHTMLProps(id, buttonCn, style, htmlProps, restFinal)}
-        onClick={onClick}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        disabled={isDisabled}
-      >
-        {content}
-      </button>
-    );
-  else if (href)
-    return (
-      <a
-        ref={ref as RefObject<HTMLAnchorElement | null>}
-        {...getBaseHTMLProps(
-          id,
-          buttonCn,
-          style,
-          //TODO: fikse types ordentlig
-          htmlProps as HTMLAttributes<HTMLAnchorElement>,
-          props,
-        )}
-        onClick={
-          loading
-            ? undefined
-            : //TODO: fikse types ordentlig
-              (onClick as unknown as MouseEventHandler<HTMLAnchorElement>)
-        }
-        //TODO: fikse types ordentlig
-        onFocus={onFocus as unknown as FocusEventHandler<HTMLAnchorElement>}
-        onBlur={onBlur as unknown as FocusEventHandler<HTMLAnchorElement>}
-        href={href}
-        rel="noreferrer noopener"
-        target={target}
-      >
-        {content}
-      </a>
-    );
+  const as = propAs ? propAs : 'button';
+  const isAnchor = as === 'a';
+
+  const aProps = isAnchor
+    ? {
+        rel: 'noopener noreferrer',
+      }
+    : {};
+
+  return (
+    <ElementAs
+      as={as}
+      ref={ref}
+      {...getBaseHTMLProps(id, buttonCn, style, htmlProps, restFinal)}
+      onClick={onClick}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      disabled={isDisabled}
+      {...aProps}
+    >
+      {content}
+    </ElementAs>
+  );
 };
 
 Button.displayName = 'Button';
