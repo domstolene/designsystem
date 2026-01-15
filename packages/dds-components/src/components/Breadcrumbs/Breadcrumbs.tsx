@@ -8,6 +8,7 @@ import { Button } from '../Button';
 import { StylelessList } from '../helpers';
 import { Icon } from '../Icon';
 import { ChevronRightIcon, MoreHorizontalIcon } from '../Icon/icons';
+import { type Breakpoint, HStack, type HStackProps } from '../layout';
 import {
   OverflowMenu,
   OverflowMenuGroup,
@@ -16,7 +17,6 @@ import {
   OverflowMenuSpan,
 } from '../OverflowMenu';
 import { type BreadcrumbProps, isAnchorTypographyProps } from './Breadcrumb';
-import { type Breakpoint, HStack, type HStackProps } from '../layout';
 import tgStyles from '../Typography/typographyStyles.module.css';
 
 export type BreadcrumbsProps = BaseComponentProps<
