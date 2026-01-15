@@ -15,8 +15,9 @@ import {
   OverflowMenuList,
   OverflowMenuSpan,
 } from '../OverflowMenu';
-import { type BreadcrumbProps, isAnchorTypographyProps } from './Breadcrumb';
+import { type BreadcrumbProps } from './Breadcrumb';
 import { type Breakpoint, HStack, type HStackProps } from '../layout';
+import { isLinkLike } from './Breadcrumbs.utils';
 import tgStyles from '../Typography/typographyStyles.module.css';
 
 export type BreadcrumbsProps = BaseComponentProps<
@@ -75,9 +76,10 @@ export const Breadcrumbs = ({
     childrenArray.length > 2
       ? childrenArray.slice(1, childrenArray.length - 1).map((item, index) => {
           if (isValidElement<BreadcrumbProps>(item)) {
-            if (isAnchorTypographyProps(item.props)) {
+            const props = item.props;
+            if (isLinkLike(props)) {
               return (
-                <OverflowMenuLink key={index} href={item.props.href}>
+                <OverflowMenuLink key={index} href={props.href}>
                   {item.props.children}
                 </OverflowMenuLink>
               );
