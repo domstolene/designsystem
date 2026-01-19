@@ -5,22 +5,19 @@ import {
 } from '../../types';
 import { cn } from '../../utils';
 import {
+  type AccordionConfig,
   AccordionContextProvider,
   useAccordion,
 } from '../helpers/AccordionBase';
 
 export type AccordionProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
-  {
-    /**Spesifiserer om body skal være utvidet ved innlastning. */
-    isExpanded?: boolean;
-    /**For å lytte til endringer i expanded-state. */
-    onChange?: (expanded: boolean) => void;
-  }
+  Pick<AccordionConfig, 'isExpanded' | 'isInitiallyExpanded' | 'onChange'>
 >;
 
 export const Accordion = ({
-  isExpanded = false,
+  isInitiallyExpanded = false,
+  isExpanded,
   onChange,
   id,
   children,
@@ -36,7 +33,7 @@ export const Accordion = ({
     bodyContentRef,
     headerProps,
     bodyProps,
-  } = useAccordion({ initiallyExpanded: isExpanded, onChange, id });
+  } = useAccordion({ isInitiallyExpanded, isExpanded, onChange, id });
 
   return (
     <div
