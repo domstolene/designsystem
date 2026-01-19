@@ -1,5 +1,8 @@
 import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
-import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
 import * as ButtonStories from './Button.stories';
 
 <Meta of={ButtonStories} />
@@ -17,6 +20,43 @@ import * as ButtonStories from './Button.stories';
 
 <Canvas of={ButtonStories.Preview} />
 <Controls of={ButtonStories.Preview} />
+
+## Bruk som lenke
+
+### Vanlig
+
+Bruk `as` prop slik at komponenten kan returnere vanlig lenke.
+
+<Source code={`
+
+<Button as='a' href="/saker">
+  Mine saker
+</Button>
+`} />
+
+### Klient-side ruting
+
+Bruk `as` prop slik at komponenten kan returnere lenke fra rammeverket du bruker.
+
+#### `react-router`
+
+<Source code={`
+import { Link } from "react-router";
+
+<Button as={Link} to="/saker">
+  Mine saker
+</Button>
+`} />
+
+#### `Next.js`
+
+<Source code={`
+import NextLink from 'next/link';
+
+<Button as={NextLink} href="/saker">
+  Mine saker
+</Button>
+`} />
 
 ## Retningslinjer
 
