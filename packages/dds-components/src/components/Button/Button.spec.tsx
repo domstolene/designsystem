@@ -18,11 +18,19 @@ describe('<Button>', () => {
     expect(button).toBeInTheDocument();
   });
 
-  it('renders an anchor element if href prop is provided', () => {
-    render(<Button href="/" />);
+  it('renders a caption element if prop as is provided', () => {
+    render(<Button as="caption" />);
+    const button = screen.getByRole('caption');
+
+    expect(button).toBeInTheDocument();
+  });
+
+  it('renders an anchor element if prop as and href are provided', () => {
+    render(<Button as="a" href="/" />);
     const button = screen.getByRole('link');
 
     expect(button).toBeInTheDocument();
+    expect(button).toHaveAttribute('href', '/');
   });
   it('calls onClick when button is clicked', async () => {
     const onClick = vi.fn();

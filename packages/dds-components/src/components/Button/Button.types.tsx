@@ -1,7 +1,11 @@
-import { type ButtonHTMLAttributes, type ReactNode } from 'react';
+import {
+  type ButtonHTMLAttributes,
+  type ElementType,
+  type ReactNode,
+} from 'react';
 
 import {
-  type BaseComponentProps,
+  type PolymorphicBaseComponentProps,
   createPurposes,
   createSizes,
 } from '../../types';
@@ -23,8 +27,11 @@ type PickedHTMLAttributes = Pick<
   'onClick' | 'onFocus' | 'onBlur' | 'type' | 'aria-label'
 >;
 
-export type ButtonProps<I extends SvgIcon = SvgIcon> = BaseComponentProps<
-  HTMLButtonElement,
+export type ButtonProps<
+  I extends SvgIcon = SvgIcon,
+  T extends ElementType = 'button',
+> = PolymorphicBaseComponentProps<
+  T,
   {
     /** Størrelsen på knappen.
      *  @default "medium"
@@ -54,10 +61,5 @@ export type ButtonProps<I extends SvgIcon = SvgIcon> = BaseComponentProps<
     iconState?: IconStatesOf<I>;
     /**Knapp med full bredde. */
     fullWidth?: boolean;
-    /**URL for knapper som skal brukes som lenke. Knappen blir til et `<a>`-element. */
-    href?: string;
-    /**Nativt `target`-attributt. Kan settes når knappen er et `<a>`-element.  */
-    target?: string;
-  } & PickedHTMLAttributes,
-  ButtonHTMLAttributes<HTMLButtonElement>
+  } & PickedHTMLAttributes
 >;
