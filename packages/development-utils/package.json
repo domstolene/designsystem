@@ -41,7 +41,7 @@
   ],
   "devDependencies": {
     "@norges-domstoler/storybook-components": "workspace:*",
-    "@testing-library/react": "^16.3.1",
+    "@testing-library/react": "^16.3.2",
     "@types/react": "19.2.8",
     "react": "19.2.3",
     "typed-css-modules": "^0.9.1",
