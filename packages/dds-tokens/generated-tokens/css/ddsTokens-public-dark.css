@@ -248,13 +248,13 @@
   --dds-color-text-medium: #e9ebec; /* Label, etc */
   --dds-color-text-subtle: #d6dadd; /* Disabled or less important text */
   --dds-color-text-on-inverse: #ffffff; /* On surface.inverse */
-  --dds-color-text-danger: #e47373; /* Error text on paper, or default or subtle surafce/bg */
+  --dds-color-text-danger: #efafaf; /* Error text on paper, or default or subtle surafce/bg */
   --dds-color-text-on-action: #0b0d0e; /* On surface.action (primary and danger button) */
   --dds-color-text-on-status-default: #ffffff; /* On default status surfaces */
   --dds-color-text-on-status-strong: #0b0d0e; /* On status surfaces with strong prop */
   --dds-color-text-action-resting: #9fc5de; /* Link, number in progress tracker */
   --dds-color-text-action-hover: #e7f1f7; /* Hover on text.action */
-  --dds-color-text-requiredfield: #e47373; /* Asterix to indicate required field */
+  --dds-color-text-requiredfield: #efafaf; /* Asterix to indicate required field */
   --dds-color-text-action-visited: #cca9e1; /* Used for visited links */
   --dds-color-text-action-visited-on-inverse: #cca9e1; /* Used for visited links on inverse surfaces */
   --dds-color-text-on-notification: #ffffff; /* Used on surface.notification */
@@ -287,7 +287,7 @@
   --dds-color-icon-on-danger-strong: #0b0d0e; /* On surface.danger-strong */
   --dds-color-icon-on-info-default: #c8e3f5; /* On surface.info-default */
   --dds-color-icon-on-info-strong: #0b0d0e; /* On surface.info-strong */
-  --dds-color-icon-danger: #e47373; /* Error icon on paper, or default or subtle surafce/bg */
+  --dds-color-icon-danger: #efafaf; /* Error icon on paper, or default or subtle surafce/bg */
   --dds-color-brand-primary-default: #354754; /* Primary brand color */
   --dds-color-brand-primary-subtle: #2a3943; /* Primary brand color */
   --dds-color-brand-primary-medium: #405767; /* Primary brand color */
