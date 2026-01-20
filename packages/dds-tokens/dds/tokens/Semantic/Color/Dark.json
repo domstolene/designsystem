@@ -243,7 +243,7 @@
         "description": "On surface.inverse"
       },
       "danger": {
-        "value": "{dds-color-base.danger.350}",
+        "value": "{dds-color-base.danger.200}",
         "type": "color",
         "description": "Error text on paper, or default or subtle surafce/bg"
       },
@@ -273,7 +273,7 @@
         "description": "Hover on text.action"
       },
       "requiredfield": {
-        "value": "{dds-color-base.danger.350}",
+        "value": "{dds-color-base.danger.200}",
         "type": "color",
         "description": "Asterix to indicate required field"
       },
@@ -440,7 +440,7 @@
         "description": "On surface.info-strong"
       },
       "danger": {
-        "value": "{dds-color-base.danger.350}",
+        "value": "{dds-color-base.danger.200}",
         "type": "color",
         "description": "Error icon on paper, or default or subtle surafce/bg"
       }
