@@ -15,7 +15,10 @@ import {
   useRoveFocus,
 } from '../../hooks';
 
-type FocusableElement = HTMLButtonElement | HTMLAnchorElement;
+type FocusableElement =
+  | HTMLButtonElement
+  | HTMLAnchorElement
+  | HTMLInputElement;
 
 interface CommonContextProps {
   isOpen: boolean;

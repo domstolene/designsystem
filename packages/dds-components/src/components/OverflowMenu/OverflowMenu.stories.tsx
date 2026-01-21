@@ -8,6 +8,7 @@ import {
 import { Button } from '../Button';
 import { EditIcon, MenuIcon, PersonIcon, TrashIcon } from '../Icon/icons';
 import { VStack } from '../layout';
+import { OverflowMenuToggle } from './components/OverflowMenuToggle';
 
 import {
   OverflowMenu,
@@ -64,26 +65,20 @@ export const Preview: Story = {
                   //kun for showcase
                 }}
               >
-                Handling
+                Knapp
               </OverflowMenuButton>
+              <OverflowMenuToggle>Toggle</OverflowMenuToggle>
             </OverflowMenuList>
             <OverflowMenuDivider />
-            <OverflowMenuListHeader>Header</OverflowMenuListHeader>
+            <OverflowMenuListHeader>Varianter</OverflowMenuListHeader>
             <OverflowMenuList>
-              <OverflowMenuButton
-                onClick={() => {
-                  //kun for showcase
-                }}
-              >
-                Handling
-              </OverflowMenuButton>
               <OverflowMenuButton
                 loading
                 onClick={() => {
                   //kun for showcase
                 }}
               >
-                Handling 2
+                Loading knapp
               </OverflowMenuButton>
               <OverflowMenuButton
                 onClick={() => {
@@ -91,7 +86,7 @@ export const Preview: Story = {
                 }}
                 icon={EditIcon}
               >
-                Rediger
+                Med ikon
               </OverflowMenuButton>
               <OverflowMenuButton
                 onClick={() => {
@@ -100,7 +95,7 @@ export const Preview: Story = {
                 icon={TrashIcon}
                 purpose="danger"
               >
-                Slett
+                Danger
               </OverflowMenuButton>
             </OverflowMenuList>
           </OverflowMenu>

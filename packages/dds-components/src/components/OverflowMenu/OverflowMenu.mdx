@@ -13,6 +13,7 @@ import {
   OverflowMenuList,
   OverflowMenuSpan,
   OverflowMenuListHeader,
+  OverflowMenuToggle,
 } from '.';
 import {
   Source,
@@ -44,6 +45,7 @@ Menyen bygges med dedikerte delkomponenter som barn i `<OverflowMenu>`:
 - **`<OverflowMenuList>`** - en liste med elementer.
 - **`<OverflowMenuButton>`** - knapp. Brukes som barn i `<OverflowMenuList>`.
 - **`<OverflowMenuLink>`** - lenke. Brukes som barn i `<OverflowMenuList>`.
+- **`<OverflowMenuToggle>`** - menyelement med `<Toggle>` inni. Brukes som barn i `<OverflowMenuList>`.
 - **`<OverflowMenuSpan>`** - statisk element. Brukes som barn i `<OverflowMenuList>`.
 - **`<OverflowMenuListHeader>`** - overskift for en liste. Brukes over `<OverflowMenuList>`.
 - **`<OverflowMenuDivider>`** - divider som kan brukes som skille mellom lister.
@@ -58,6 +60,7 @@ Menyen bygges med dedikerte delkomponenter som barn i `<OverflowMenu>`:
     <Tab>ListHeader</Tab>
     <Tab>Button</Tab>
     <Tab>Link</Tab>
+    <Tab>Toggle</Tab>
     <Tab>Span</Tab>
     <Tab>Divider</Tab>
   </TabList>
@@ -95,6 +98,11 @@ Menyen bygges med dedikerte delkomponenter som barn i `<OverflowMenu>`:
 
       <ArgTypes of={OverflowMenuLink} />
       Støtter også alle native props.
+    </TabPanel>
+    <TabPanel>
+      `<OverflowMenuToggle>` - lenke. Returnerer `<Toggle>` inni `<li>`. Brukes som barn i `<OverflowMenuList>`.
+
+      <ArgTypes of={OverflowMenuToggle} />
     </TabPanel>
     <TabPanel>
       `<OverflowMenuSpan>` - statisk element. Returnerer `<span>` inni `<li>`. Brukes som barn i `<OverflowMenuList>`.
