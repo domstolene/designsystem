@@ -91,7 +91,9 @@ export const Toggle = ({
   return (
     <label
       htmlFor={uniqueId}
+      style={style}
       className={cn(
+        className,
         styles.label,
         styles[size],
         isLoading && styles['label--is-loading'],
@@ -102,8 +104,8 @@ export const Toggle = ({
       <HiddenInput
         {...getBaseHTMLProps(
           uniqueId,
-          cn(className, focusStyles['focusable-sibling']),
-          style,
+          focusStyles['focusable-sibling'],
+          undefined,
           htmlProps,
           rest,
         )}

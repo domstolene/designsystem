@@ -5,17 +5,26 @@ import {
   type DropdownItemProps,
   type StylelessButton,
 } from '../helpers';
+import { type Toggle } from '../Toggle';
 
-export type OverflowMenuButtonProps = DropdownItemProps<typeof StylelessButton>;
+export type OverflowMenuButtonProps = Omit<
+  DropdownItemProps<typeof StylelessButton>,
+  'as'
+>;
 
 export type OverflowMenuLinkProps = Omit<
   DropdownItemProps<'a'>,
-  keyof DropdownItemButtonProps
+  keyof DropdownItemButtonProps | 'as'
 >;
 
 export type OverflowMenuSpanProps = Omit<
   DropdownItemProps<'span'>,
-  keyof DropdownItemButtonProps
+  keyof DropdownItemButtonProps | 'as'
+>;
+
+export type OverflowMenuToggleProps = Omit<
+  DropdownItemProps<typeof Toggle>,
+  keyof DropdownItemButtonProps | 'as' | 'purpose' | 'icon'
 >;
 
 export type OverflowMenuProps = Omit<

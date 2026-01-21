@@ -6,6 +6,7 @@ import { type ButtonProps } from '../../Button';
 import { Icon, type SvgIcon } from '../../Icon';
 import { Box } from '../../layout';
 import { Spinner } from '../../Spinner';
+import { type Toggle } from '../../Toggle';
 import typographyStyles from '../../Typography/typographyStyles.module.css';
 import {
   type StylelessButton,
@@ -14,14 +15,14 @@ import {
 import focusStyles from '../styling/focus.module.css';
 import utilStyles from '../styling/utilStyles.module.css';
 
-type DropdownItemT = 'span' | 'a' | typeof StylelessButton;
+type DropdownItemT = 'span' | 'a' | typeof StylelessButton | typeof Toggle;
 
 export type DropdownItemButtonProps = {
   /**Asynkron `onClick` event; håndterer loading status, slik at menyen ikke lukker seg under loading. */
   onClickAsync?: MouseEventHandler<HTMLButtonElement>;
 } & Pick<ButtonProps, 'loading' | 'loadingTooltip'>;
 
-export type DropdownItemProps<T extends DropdownItemT = 'span'> = {
+export interface DropdownItemCustomProps<T extends DropdownItemT = 'span'> {
   as?: T;
   /**Ikon som vises ved teksten. **OBS!** Settes i tillegg til `children` for riktig layout. */
   icon?: SvgIcon;
@@ -29,10 +30,14 @@ export type DropdownItemProps<T extends DropdownItemT = 'span'> = {
    * @default "default"
    */
   purpose?: 'default' | 'danger';
-} & DropdownItemButtonProps &
-  (T extends typeof StylelessButton
-    ? StylelessButtonProps
-    : ComponentPropsWithRef<T>);
+}
+
+export type DropdownItemProps<T extends DropdownItemT = 'span'> =
+  DropdownItemCustomProps<T> &
+    DropdownItemButtonProps &
+    (T extends typeof StylelessButton
+      ? StylelessButtonProps
+      : ComponentPropsWithRef<T>);
 
 export const DropdownItem = <T extends DropdownItemT = 'span'>({
   icon,
@@ -41,7 +46,6 @@ export const DropdownItem = <T extends DropdownItemT = 'span'>({
   purpose = 'default',
   loading,
   loadingTooltip,
-  'aria-disabled': ariaDisabled,
   ...rest
 }: DropdownItemProps<T>) => {
   const itemCns = [
@@ -69,8 +73,9 @@ export const DropdownItem = <T extends DropdownItemT = 'span'>({
       alignItems="center"
       padding="x0.75"
       gap="x0.25"
+      width="100%"
       className={cn(className, ...cns, loading && styles['item--loading'])}
-      aria-disabled={loading ? true : ariaDisabled ? ariaDisabled : undefined}
+      aria-disabled={loading ? true : undefined}
       {...rest}
     >
       {loading && (
