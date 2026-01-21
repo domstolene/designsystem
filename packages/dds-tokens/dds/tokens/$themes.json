@@ -6,10 +6,10 @@
       "Base/Elsa": "enabled"
     },
     "$figmaStyleReferences": {
-      "dds-shadow.1": "S:ba186c5a2001dfa8783f73aa441297307fb71006,",
-      "dds-shadow.2": "S:d95affabf4f39b9e44e5842ef520946aa4ddaf5f,",
-      "dds-shadow.3": "S:c0179eb41ad46d1128e057d6df7938c85f06cdfe,",
-      "dds-shadow.4": "S:b4edca369a01a597171a6043dbcb0f069055ef50,"
+      "dds-shadow-base.1-light": "S:ba186c5a2001dfa8783f73aa441297307fb71006,",
+      "dds-shadow-base.2-light": "S:d95affabf4f39b9e44e5842ef520946aa4ddaf5f,",
+      "dds-shadow-base.3-light": "S:c0179eb41ad46d1128e057d6df7938c85f06cdfe,",
+      "dds-shadow-base.4-light": "S:b4edca369a01a597171a6043dbcb0f069055ef50,"
     },
     "$figmaVariableReferences": {
       "dds-color-base.primary.50": "ce67835ec5df10d6e3e864ea139719c6c16fee00",
@@ -235,7 +235,8 @@
       "Base/Elsa": "source",
       "Semantic/Color/Light": "enabled",
       "Semantic/Typography/Core": "enabled",
-      "Semantic/BorderRadius/Core": "enabled"
+      "Semantic/BorderRadius/Core": "enabled",
+      "Semantic/Shadow/Light": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:9567:917",
     "$figmaModeId": "9567:3",
@@ -397,7 +398,8 @@
       "Base/Elsa": "source",
       "Semantic/Color/Dark": "enabled",
       "Semantic/Typography/Core": "enabled",
-      "Semantic/BorderRadius/Core": "enabled"
+      "Semantic/BorderRadius/Core": "enabled",
+      "Semantic/Shadow/Dark": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:9567:917",
     "$figmaModeId": "12927:0",
@@ -544,9 +546,9 @@
       "Base/Elsa": "source",
       "Semantic/Color/Light": "enabled",
       "Semantic/Typography/Public": "enabled",
-      "Semantic/BorderRadius/Public": "enabled"
+      "Semantic/BorderRadius/Public": "enabled",
+      "Semantic/Shadow/Light": "enabled"
     },
-    "group": "Theme",
     "$figmaCollectionId": "VariableCollectionId:9567:917",
     "$figmaModeId": "12927:1",
     "$figmaVariableReferences": {
@@ -681,7 +683,8 @@
       "dds-color-data.09.default": "8e906474817d7bf52354d5b3985b4323a5d1e67f",
       "dds-color-data.09.subtle": "7e52b99a06db540bff7aaaca63a84bf46447344c",
       "dds-color-data.09.border": "6708126d5d40021a97a7536f637ef90d89019458"
-    }
+    },
+    "group": "Theme"
   },
   {
     "id": "8faf92b69becfac450ce30357ecf6ff857b9231e",
@@ -706,9 +709,9 @@
       "Base/Elsa": "source",
       "Semantic/Color/Dark": "enabled",
       "Semantic/Typography/Public": "enabled",
-      "Semantic/BorderRadius/Public": "enabled"
+      "Semantic/BorderRadius/Public": "enabled",
+      "Semantic/Shadow/Dark": "enabled"
     },
-    "group": "Theme",
     "$figmaCollectionId": "VariableCollectionId:9567:917",
     "$figmaModeId": "12927:2",
     "$figmaVariableReferences": {
@@ -843,6 +846,7 @@
       "dds-color-data.09.default": "8e906474817d7bf52354d5b3985b4323a5d1e67f",
       "dds-color-data.09.subtle": "7e52b99a06db540bff7aaaca63a84bf46447344c",
       "dds-color-data.09.border": "6708126d5d40021a97a7536f637ef90d89019458"
-    }
+    },
+    "group": "Theme"
   }
 ]

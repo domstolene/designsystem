@@ -1,0 +1,19 @@
+{
+  "dds-shadow": {
+    "large": {
+      "value": "{dds-shadow-base.4-dark}",
+      "type": "boxShadow",
+      "description": "Dialoger. Eksempel: modal, drawer, popover"
+    },
+    "medium": {
+      "value": "{dds-shadow-base.2-dark}",
+      "type": "boxShadow",
+      "description": "Dropdowns. Eksempel: overflowmenu, dropdown"
+    },
+    "small": {
+      "value": "{dds-shadow-base.1-dark}",
+      "type": "boxShadow",
+      "description": "Eksempel: tooltip"
+    }
+  }
+}

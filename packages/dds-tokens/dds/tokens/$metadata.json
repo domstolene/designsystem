@@ -6,6 +6,8 @@
     "Semantic/Typography/Core",
     "Semantic/Typography/Public",
     "Semantic/BorderRadius/Public",
-    "Semantic/BorderRadius/Core"
+    "Semantic/BorderRadius/Core",
+    "Semantic/Shadow/Light",
+    "Semantic/Shadow/Dark"
   ]
 }
