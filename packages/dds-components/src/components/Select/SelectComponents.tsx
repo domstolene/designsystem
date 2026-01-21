@@ -97,7 +97,7 @@ export const DDSMultiValueRemove = <TValue, IsMulti extends boolean>(
   props: MultiValueRemoveProps<TValue, IsMulti>,
 ) => (
   <MultiValueRemove {...props}>
-    <Icon icon={CloseSmallIcon} iconSize="inherit" />
+    <Icon icon={CloseSmallIcon} iconSize="component" />
   </MultiValueRemove>
 );
 
