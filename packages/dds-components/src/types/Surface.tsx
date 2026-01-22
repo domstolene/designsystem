@@ -76,5 +76,5 @@ export const isBorderRadius = (value: unknown): value is BorderRadius => {
 };
 
 export const isElevation = (value: unknown): value is Elevation => {
-  return typeof value === 'number' && ELEVATIONS.includes(value as Elevation);
+  return typeof value === 'string' && ELEVATIONS.includes(value as Elevation);
 };
