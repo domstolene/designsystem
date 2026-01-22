@@ -183,7 +183,7 @@ export const Tooltip = ({
           role="tooltip"
           aria-hidden={ariaHidden}
           style={{ ...positionStyles.floating }}
-          elevation={1}
+          elevation="small"
           border="border-subtle"
           className={cn(
             styles.paper,

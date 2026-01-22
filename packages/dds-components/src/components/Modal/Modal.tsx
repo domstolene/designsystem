@@ -149,7 +149,7 @@ export const Modal = ({
             tabIndex={-1}
             aria-labelledby={headerId}
             id={modalId}
-            elevation={4}
+            elevation="large"
           >
             <HStack
               paddingBlock="0 x0.75"

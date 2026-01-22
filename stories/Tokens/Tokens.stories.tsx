@@ -95,7 +95,20 @@ export const IconSizes = () => {
 };
 
 export const Shadows = () => {
-  return <Wrapper> {ShadowsGenerator()}</Wrapper>;
+  return (
+    <Wrapper>
+      <Tabs>
+        <TabList>
+          <Tab>Light</Tab>
+          <Tab>Dark</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>{ShadowsGenerator('light')}</TabPanel>
+          <TabPanel>{ShadowsGenerator('dark')}</TabPanel>
+        </TabPanels>
+      </Tabs>
+    </Wrapper>
+  );
 };
 
 export const Spacing = () => {

@@ -3,6 +3,7 @@ import { type Meta } from '@storybook/react-vite';
 import {
   BorderRadiusBaseGenerator,
   ColorsBaseGenerator,
+  ShadowsBaseGenerator,
   wrapperStyle,
 } from './utils';
 import { ddsProviderDecorator } from '../../packages/dds-components/src/storybook';
@@ -22,4 +23,8 @@ export const ColorsBase = () => {
 
 export const BorderRadiusBase = () => {
   return <div style={wrapperStyle}>{BorderRadiusBaseGenerator()}</div>;
+};
+
+export const ShadowsBase = () => {
+  return <div style={wrapperStyle}>{ShadowsBaseGenerator()}</div>;
 };

@@ -37,6 +37,7 @@ const themes = [
     sources: [
       'Base/Elsa.json',
       'Semantic/Color/Light.json',
+      'Semantic/Shadow/Light.json',
       'Semantic/BorderRadius/Core.json',
       'Semantic/Typography/Core.json',
     ],
@@ -46,6 +47,7 @@ const themes = [
     sources: [
       'Base/Elsa.json',
       'Semantic/Color/Dark.json',
+      'Semantic/Shadow/Dark.json',
       'Semantic/BorderRadius/Core.json',
       'Semantic/Typography/Core.json',
     ],
@@ -55,6 +57,7 @@ const themes = [
     sources: [
       'Base/Elsa.json',
       'Semantic/Color/Light.json',
+      'Semantic/Shadow/Light.json',
       'Semantic/BorderRadius/Public.json',
       'Semantic/Typography/Public.json',
     ],
@@ -64,6 +67,7 @@ const themes = [
     sources: [
       'Base/Elsa.json',
       'Semantic/Color/Dark.json',
+      'Semantic/Shadow/Dark.json',
       'Semantic/BorderRadius/Public.json',
       'Semantic/Typography/Public.json',
     ],

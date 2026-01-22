@@ -40,7 +40,7 @@ export const Styled: Story = {
   args: {
     border: 'border-default',
     background: 'surface-info-default',
-    elevation: 2,
+    elevation: 'medium',
     padding: 'x1.5',
     maxWidth: '20rem',
     children: 'Dette er en styled Paper',
@@ -50,7 +50,7 @@ export const Styled: Story = {
 export const Branded: Story = {
   args: {
     background: 'brand-secondary-subtle',
-    elevation: 2,
+    elevation: 'medium',
     padding: 'x1.5',
     maxWidth: '20rem',
     children: 'Dette er en branded Paper',

@@ -161,7 +161,7 @@ export const CalendarPopoverContent = ({
   if (!isOpen) return null;
 
   const paperStyleProps: PaperProps = {
-    elevation: 2,
+    elevation: 'medium',
     border: 'border-default',
     padding: 'x0.75',
   };

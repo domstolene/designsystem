@@ -97,6 +97,7 @@ export function CookieBanner({
       maxHeight={maxHeight}
       border="border-default"
       background="brand-tertiary-medium"
+      elevation="large"
     >
       <VStack maxWidth="70ch" gap="x1">
         {hasBp && isCollapsedOnBreakpoint ? (

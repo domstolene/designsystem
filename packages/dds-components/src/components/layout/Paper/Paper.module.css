@@ -12,17 +12,14 @@
   margin: 0;
 }
 
-:where(.shadow--1) {
-  box-shadow: var(--dds-shadow-1);
+:where(.shadow--small) {
+  box-shadow: var(--dds-shadow-small);
 }
-:where(.shadow--2) {
-  box-shadow: var(--dds-shadow-2);
+:where(.shadow--medium) {
+  box-shadow: var(--dds-shadow-medium);
 }
-:where(.shadow--3) {
-  box-shadow: var(--dds-shadow-3);
-}
-:where(.shadow--4) {
-  box-shadow: var(--dds-shadow-4);
+:where(.shadow--large) {
+  box-shadow: var(--dds-shadow-large);
 }
 
 :where(.border-radius--button) {
