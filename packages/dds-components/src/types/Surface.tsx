@@ -7,7 +7,7 @@ export const BORDER_RADII = [
   '0',
 ] as const;
 
-export const ELEVATIONS = [1, 2, 3, 4] as const;
+export const ELEVATIONS = ['small', 'medium', 'large'] as const;
 
 export const BORDER_COLORS = [
   'border-default',
@@ -76,5 +76,5 @@ export const isBorderRadius = (value: unknown): value is BorderRadius => {
 };
 
 export const isElevation = (value: unknown): value is Elevation => {
-  return typeof value === 'number' && ELEVATIONS.includes(value as Elevation);
+  return typeof value === 'string' && ELEVATIONS.includes(value as Elevation);
 };

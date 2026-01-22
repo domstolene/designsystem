@@ -48,10 +48,6 @@
   --dds-spacing-x4: 4rem;
   --dds-spacing-x6: 6rem;
   --dds-spacing-x10: 10rem;
-  --dds-shadow-1: 1px 2px 4px 0px rgba(11, 13, 14, 10%);
-  --dds-shadow-2: 2px 4px 8px 0px rgba(11, 13, 14, 10%);
-  --dds-shadow-3: 4px 8px 16px 0px rgba(11, 13, 14, 10%);
-  --dds-shadow-4: 8px 16px 32px 0px rgba(11, 13, 14, 10%);
   --dds-grid-xs-gutter-size: 16px;
   --dds-grid-xs-count: 4;
   --dds-grid-sm-gutter-size: 16px;
@@ -302,6 +298,9 @@
   --dds-color-brand-tertiary-strong: #ffd6ca; /* Tertiary brand color */
   --dds-color-focus-outside: #f1f8fd; /* Contrast to .inside */
   --dds-color-focus-inside: #2a4b61; /* Contrast to .outside */
+  --dds-shadow-large: 8px 16px 32px 0px rgba(11, 13, 14, 80%); /* Dialoger. Eksempel: modal, drawer, popover */
+  --dds-shadow-medium: 2px 4px 8px 0px rgba(11, 13, 14, 80%); /* Dropdowns. Eksempel: overflowmenu, dropdown */
+  --dds-shadow-small: 1px 2px 4px 0px rgba(11, 13, 14, 80%); /* Eksempel: tooltip */
   --dds-border-radius-button: 2px; /* For use in button component and togglebutton */
   --dds-border-radius-surface: 4px; /* Most surfaces, for example cards, papers, messages, backgrounds in GUI */
   --dds-border-radius-input: 2px; /* All input fields, and check boxes */

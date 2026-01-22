@@ -213,7 +213,7 @@ export const Popover = ({
       maxWidth={maxWidth}
       minWidth={minWidth}
       role="dialog"
-      elevation={3}
+      elevation="large"
       border="border-subtle"
     >
       {header && (

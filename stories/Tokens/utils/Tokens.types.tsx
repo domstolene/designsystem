@@ -49,3 +49,5 @@ export type TokenShadowJsonObject = Record<
     type: string;
   }>
 >;
+
+export type TokenShadowSemanticJsonObject = TokenGenericJsonObject;

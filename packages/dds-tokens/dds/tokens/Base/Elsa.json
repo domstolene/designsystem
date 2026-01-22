@@ -660,8 +660,8 @@
       "type": "dimension"
     }
   },
-  "dds-shadow": {
-    "1": {
+  "dds-shadow-base": {
+    "1-light": {
       "value": {
         "x": "1px",
         "y": "2px",
@@ -670,9 +670,22 @@
         "color": "rgba( {dds-color-base.gray.black}, 10%)",
         "type": "dropShadow"
       },
-      "type": "boxShadow"
+      "type": "boxShadow",
+      "description": "Xsmall skygge i light mode"
     },
-    "2": {
+    "1-dark": {
+      "value": {
+        "x": "1px",
+        "y": "2px",
+        "blur": "4px",
+        "spread": "0px",
+        "color": "rgba( {dds-color-base.gray.black}, 80%)",
+        "type": "dropShadow"
+      },
+      "type": "boxShadow",
+      "description": "Xsmall skygge i dark mode"
+    },
+    "2-light": {
       "value": {
         "x": "2px",
         "y": "4px",
@@ -681,9 +694,22 @@
         "color": "rgba( {dds-color-base.gray.black}, 10%)",
         "type": "dropShadow"
       },
-      "type": "boxShadow"
+      "type": "boxShadow",
+      "description": "Small skygge i light mode"
     },
-    "3": {
+    "2-dark": {
+      "value": {
+        "x": "2px",
+        "y": "4px",
+        "blur": "8px",
+        "spread": "0px",
+        "color": "rgba( {dds-color-base.gray.black}, 80%)",
+        "type": "dropShadow"
+      },
+      "type": "boxShadow",
+      "description": "Small skygge i dark mode"
+    },
+    "3-light": {
       "value": {
         "x": "4px",
         "y": "8px",
@@ -692,9 +718,22 @@
         "color": "rgba( {dds-color-base.gray.black}, 10%)",
         "type": "dropShadow"
       },
-      "type": "boxShadow"
+      "type": "boxShadow",
+      "description": "Medium skygge i light mode"
     },
-    "4": {
+    "3-dark": {
+      "value": {
+        "x": "4px",
+        "y": "8px",
+        "blur": "16px",
+        "spread": "0px",
+        "color": "rgba( {dds-color-base.gray.black}, 80%)",
+        "type": "dropShadow"
+      },
+      "type": "boxShadow",
+      "description": "Medium skygge i dark mode"
+    },
+    "4-light": {
       "value": {
         "x": "8px",
         "y": "16px",
@@ -703,7 +742,20 @@
         "color": "rgba( {dds-color-base.gray.black}, 10%)",
         "type": "dropShadow"
       },
-      "type": "boxShadow"
+      "type": "boxShadow",
+      "description": "Large skygge i light mode"
+    },
+    "4-dark": {
+      "value": {
+        "x": "8px",
+        "y": "16px",
+        "blur": "32px",
+        "spread": "0px",
+        "color": "rgba( {dds-color-base.gray.black}, 80%)",
+        "type": "dropShadow"
+      },
+      "type": "boxShadow",
+      "description": "Large skygge i dark mode"
     }
   },
   "dds-grid": {

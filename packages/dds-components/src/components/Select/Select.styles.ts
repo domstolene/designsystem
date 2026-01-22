@@ -200,7 +200,7 @@ export const getCustomStyles = <TOption>(
     boxSizing: 'border-box',
     position: 'absolute',
     width: '100%',
-    boxShadow: 'var(--dds-shadow-2)',
+    boxShadow: 'var(--dds-shadow-medium)',
     zIndex: 100,
     transition: '0.2s',
     border: '1px solid var(--dds-color-border-default)',

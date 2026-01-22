@@ -174,7 +174,7 @@ export const Drawer = ({
         htmlProps,
         rest,
       )}
-      elevation={4}
+      elevation="large"
       aria-labelledby={headerId}
     >
       <HStack
