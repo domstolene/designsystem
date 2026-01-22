@@ -29,6 +29,7 @@
   width: max-content;
   font-variant-numeric: tabular-nums;
   outline: none;
+  font-family: var(--dds-font-family-monospace);
 
   &:focus {
     background-color: var(--dds-color-surface-action-selected);
