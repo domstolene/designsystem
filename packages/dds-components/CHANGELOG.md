@@ -1,5 +1,84 @@
 # @norges-domstoler/dds-components
 
+## 22.0.0
+
+### Major Changes
+
+- 346e039: Deler opp `widthProps` i `<Drawer>` til å være individuelle props istedet: `width`, `max-width`, `min-width`.
+- c2c25e7: Potensielt breaking i `<OverflowMenu>`:
+  - Fjerner støtte for `aria-disabled`, da den er relevant kun internt ved bruk av `loading` tilstand. Konsumentene har ikke brukt `aria-disabled`, men lokale typings kan være nødvendige å oppdatere.
+  - Fjerner støtte for `as` prop i alle delkomponenter for menyelementer i `<OverflowMenu>`; den skulle brukes kun intern og ikke bli eksponert til konsumentene.
+
+- 3a709ab: Endrer støttede verdier for `elevation` prop i `<Paper>` fra: `1`, `2`, `3`, `4` til: `small`, `medium`, `large`.
+- 826c597: `typographyType` prop i `<Typography>`, `<Link>` og `<Paragraph>` splitter verdier for body i body-short og body-long. `<List>` støtter kun verdier for body-long. Se detaljer i [migreringsguiden v21 til v22](https://design.domstol.no/987b33f71/p/16deeb-v21-til-v22). Typene er oppdatert slik:
+
+  ```ts
+  type TypographyShortBodyType =
+    | 'bodyShortXsmall'
+    | 'bodyShortSmall'
+    | 'bodyShortMedium'
+    | 'bodyShortLarge';
+
+  type TypographyLongBodyType =
+    | 'bodyLongXsmall'
+    | 'bodyLongSmall'
+    | 'bodyLongMedium'
+    | 'bodyLongLarge';
+
+  type TypographyBodyType = TypographyShortBodyType | TypographyLongBodyType;
+  ```
+
+- 364c8f1: Gjør `<Button>` komponent polymorf via bruk av `as` prop; det er nå mulig å bruke lenke-komponenter fra rammeverk som Next.js og react-router direkte via `as` prop. Dette betyr også at komponenten ikke vil lenger returnere `<a>` tag hvis kun `href` prop blir brukt; `as` prop må brukes i tillegg.
+- 3efc865: Endringer i `<Accordion>` og `<CardExpandable>`: `isExpanded` prop brukes nå til kontrollert tilstand. For å sette initiell ukontrollert tilstand brukes ny prop `isInitiallyExpanded`.
+- d34fa2a: Implementerer dark mode. `theme` prop i `<ThemeProvider>` og `<DdsProvider>` vil dermed støtte kun nye verdier: `'core-light'`, `'core-dark'`, `'public-light'`, `'public-dark'`. `'core-light'` er default. Se detaljer i [migreringsguide v21 til v22](https://design.domstol.no/987b33f71/p/16deeb-v21-til-v22).
+- 4f337cf: Fjerner enkelte ikoner. Se detaljer i [migreringsguiden v21 til v22](https://design.domstol.no/987b33f71/p/16deeb-v21-til-v22).
+- c2c25e7: Potensielt breaking i `<Toggle>`: props `className` og `style` påvirker nå rotelementet , ikke `<input>`. Denne endringen kan være breaking med tanke på styling hos konsumentene.
+- 4f98a17: Fjerner støtte for props `text` og `message` på tvers av komponenter; støtter kun `children` istedet. Se detaljer i [migreringsguide v21 til v22](https://design.domstol.no/987b33f71/p/16deeb-v21-til-v22).
+- 082283a: Fjerner støtte for tekstfarger i camelCase for `color` prop i `<Icon>`, `<Spinner>` og alle typografikomponenter. Vi standardiserer bruk av kebab-case for CSS-props istedet. Denne endringer gjør at aksisterende verdier i camelCase ikke gir feil, men vil ikke referere til farger fra Elsa i CSS. Bruk av camelCase vil dermed knekke kun visuelt og må gåes gjennom manuelt. Se detaljer i [migreringsguide v21 til v22](https://design.domstol.no/987b33f71/p/16deeb-v21-til-v22).
+- 272f309: Fjerner `<ThemeProvider>` fra eksponering og gjør `<DdsProvider>` påkrevd istedet. På denne måten samler vi alle globale providers fra Elsa under én eksponert provider.
+- bc87d17: Fjerner delkomponent `<NativeSelectPlaceholder>`. Vi anbefaler å ikke bruke placeholder med mindre det er en god grunn til det, da det fører til utfordringer knyttet til UU. Istedet oppfordrer vi til å inkludere en tom verdi `<option value=""></option>` i `<NativeSelect>` på toppen av valgalternativene.
+- 346e039: Endringer i `htmlProps` prop (som støttes i de fleste komponenter), se [detaljer i migreringsguide v21 til v22](https://design.domstol.no/987b33f71/p/16deeb-v21-til-v22):
+  - `style` prop flyttes ut av `htmlProps` til roten. I tillegg blir `className` og `id` ikke lengre støttet både på roten og i `htmlProps`.
+  - Fikser bug der alle HTML-attributter var støttet både under `htmlProps` og på roten. Alle HTML-attributter (med individuelle unntak spesifisert i dokumentasjonen for hver komponent) støttes nå kun under `htmlProps`. Denne endringen fører til mye strengere typings og krever at konsumentene sjekker om HTML-attributter settes riktig i alle komponenter som støtter `htmlProps`.
+  - `<Contrast>` defineres nå som layout primitive; den bruker `<Box>` under panseret og støtter samme props. Det betyr at den bruker nå `htmlProps` som andre komponenter, med props `style`, `className`, `id` og `as` på roten.
+  - `aria-label` prop er nå støttet på roten av `<Button>`.
+
+### Minor Changes
+
+- d34fa2a: Utvider støtte i `color` prop i typografikomponentene, `<Spinner>`, `<Icon>` og `<InlineButton>` til verdier `'text-on-primary-default'`, `'text-on-primary-medium'`, `'text-on-primary-subtle'`, `'text-on-primary-strong'`, `'text-on-secondary-default'`, `'text-on-secondary-medium'`, `'text-on-secondary-subtle'`, `'text-on-secondary-strong'`, `'text-on-tertiary-default'`, `'text-on-tertiary-medium'`, `'text-on-tertiary-subtle'`, `'text-on-tertiary-strong'`, `'text-on-data-default'`, `'text-on-data-subtle'`.
+- 826c597: Utvider `iconSize` prop i `<Icon>` til å støtte verdi `'component'`. Denne brukes når ikone står ved siden av tekst i en knapp, header i trekkspill o.l.
+- d34fa2a: Endrer visning av `<Tooltip>`: den viser ikke lenger en pil som peker mot anchor-elementet da rendering av `svg` har vært buggy og tok litt mye plass. Gjør også spacing internt i `<Tooltip>` og fra anchor-elementet mindre. Endringene kan påvirke layout hos konsumenten.
+- 346e039: `height` prop i `<ModalBody>` er utvidet til å være responsiv (støtter verdier per brekkpunkt).
+- 346e039: Ny responsiv prop `textAlign` i `<DetailListDesc>`. Den tillater å sømløst stille innhold etter behov, f.eks. knapper til høyre.
+- d34fa2a: Støtte for verdien `'surface-default'` i `background` prop i `<Paper>`.
+- 0c9bd97: Støtte for `iconState` prop i `<Icon>` og `<Button>` for animerte ikoner. Hvis ikonet satt i `icon` prop støtter animasjon via states vil `iconState` prop bli støttet med dedikerte verdier for det spesifikke ikonet.
+- c2c25e7: Ny delkomponent i `<OverflowMenu>`: `<OverflowMenuToggle>`. Den brukes til `<Toggle>` i menyen, som styring mellom lys/mørk modus. Den støtter samme props som `<Toggle>`.
+- 0c9bd97: Nytt ikon: `<AnimatedChevronUpDownIcon>`. Støtter samme props som alle andre ikoner, men kan animeres opp/ned via `iconState` prop i tillegg, f.eks: `<Icon icon={AnimatedChevronUpDownIcon} iconState="up" />`.
+- 826c597: Endrer nesting i HTML i `<AccordionHeader>` og `<CardExpandableHeader>` slik at chevron kan arve størrelse fra overskriftsteksten. Kan påvirke spacing og layout hos konsumenten på en uforutsigbar måte.
+- 346e039: `height` prop i `<ModalBody>` er utvidet til å være responsiv (støtter verdier per brekkpunkt).
+
+### Patch Changes
+
+- d34fa2a: All tekst i `<CookieBanner>` får riktig farge ut av boksen. Hvis du brukte f.eks. `color` prop i `<Link>` kan du fjerne det.
+- 346e039: Fikser bug der `disabled` prop under `htmlProps` ikke fungerte i `<Button>`.
+- aae9817: Gjør trykkeflaten i kalenderknapp i `<DatePicker>` større slik at den er mer synlig på hover ved mørk modus.
+- ac2cbf8: Exporterer useTheme fra ThemeProvider
+- 0c9bd97: Utbedrer og standardiserer styling på animert chevron i `<Select>`, `<CollapsibleRow>`, `<AccordionHeader>` og `<CardExpandableHeader>`.
+- 631c8c7: Standardisering av styling i dropdown; oppdaterer spacing og størrelser på tekst og ikon i dropdown i `<OverflowMenu>`, `<Select>` og `<SearchAutocompleteWrapper>`. Tekst i dropdown har fast stil for listeelementene (`dds-font-body-medium`) og header (`dds-icon-size-small`) uansett størrelse på selve komponenten og tema.
+- cd5d976: Fikser spacing/størrelser i chip for multivalue i `<Select>` som gjorde komponenten høyere enn andre inputkomponenter.
+- 631c8c7: Styling-endringer i `<Select>`:
+  - Valgt alternativ får en bakgrunnsfarge i dropdown slik at det er mer synlig.
+  - Endrer bakgrunnsfarge for alternativ i dropdown på hover til `dds-color-surface-hover-subtle`.
+  - Når et alternativ velges i `<Select isMulti>` forsvinner det ikke fra dropdown; den blir markert som i vanlig `<Select>`.
+  - Chip som viser valgt verdi i `<Select isMulti>` får bedre spacing og bakgrunnsfarge på hover i lukkeknapp.
+
+- 17665ad: Oppdaterer tekstfarge i `<Card appearance="filled">` til `dds-color-text-on-primary-subtle`, slik at vi sørger for riktig kontrast på bakgrunn med brand-farge.
+- 178b07a: Gir chip med valgt verdi i `<Select isMulti>` bedre spacing og border ved tilstandene `isDisabled` og `readOnly` for bedre lesbarhet.
+- 826c597: Endrer design på lukkeknapp i `<Chip>`.
+- 631c8c7: - `<OverflowMenu>` bruker skygge `dds-shadow-2`.
+- 826c597: Oppdaterer alle komponenter til å bruke nye typografistiler `dds-font-body-short-<størrelse>` og `dds-font-body-long-<størrelse>` internt. Vil påvirke linjehøyde i de fleste komponenter.
+- 346e039: Fikser bug der layout prop `wordBreak` ikke var satt opp riktig i layout primitives.
+
 ## 21.20.0
 
 (2025-11-17)
