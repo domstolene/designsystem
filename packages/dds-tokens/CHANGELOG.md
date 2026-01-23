@@ -1,11 +1,50 @@
 # @norges-domstoler/dds-design-tokens
 
+## 9.0.0
+
+(2026-01-23)
+
+### Major Changes
+
+- 826c597: Endringer i typografistilene `dds-font-body-<størrelse>`:
+  - De splittes i `dds-font-body-short-<størrelse>` og `dds-font-body-long-<størrelse>`. `short` varianten er ment til bruk for tekster som ikke tar flere linjer, som knappetekst, tekst i inputfelt o.l. `long` er ment for artikler og andre tekster som kan være lengre.
+
+- d34fa2a: Implementerer dark mode og splitter alle temaer i variantene `light` og `dark`. Dette kan føre til uforutsigbare endringer i farger hvis design tokens ikke brukes riktig fra før av. Detaljer i [migreringsguiden v8 til v9](https://design.domstol.no/987b33f71/p/236941-v8-til-v9).
+- 3a709ab: Endringer i design tokens for shadows. Detaljer i [migreringsguiden v8 til v9](https://design.domstol.no/987b33f71/p/236941-v8-til-v9).
+- 826c597: Endrer navn på alle `dds-icon-size` design tokens til `dds-size-icon` slik at de følger standarden for navngiving, f.eks. `dds-size-icon-small`.
+
+### Minor Changes
+
+- d34fa2a: Nye design tokens:
+  - `dds-color-text-on-primary-default`; Brukes på `dds-color-brand-primary-default`.
+  - `dds-color-text-on-primary-subtle`; Brukes på `dds-color-brand-primary-subtle`.
+  - `dds-color-text-on-primary-medium`; Brukes på `dds-color-brand-primary-medium`.
+  - `dds-color-text-on-primary-strong`; Brukes på `dds-color-brand-primary-strong`.
+  - `dds-color-text-on-secondary-default`; Brukes på `dds-color-brand-secondary-default`.
+  - `dds-color-text-on-secondary-subtle`; Brukes på `dds-color-brand-secondary-subtle`.
+  - `dds-color-text-on-secondary-medium`; Brukes på `dds-color-brand-secondary-medium`.
+  - `dds-color-text-on-secondary-strong`; Brukes på `dds-color-brand-secondary-strong`.
+  - `dds-color-text-on-tertiary-default`; Brukes på `dds-color-brand-tertiary-default`.
+  - `dds-color-text-on-tertiary-subtle`; Brukes på `dds-color-brand-tertiary-subtle`.
+  - `dds-color-text-on-tertiary-medium`; Brukes på `dds-color-brand-tertiary-medium`.
+  - `dds-color-text-on-tertiary-strong`; Brukes på `dds-color-brand-tertiary-strong`.
+  - `dds-color-text-on-data-default`; Brukes på alle `data`-fargene with `default` mod.
+  - `dds-color-text-on-data-subtle`; Brukes på alle `data`-fargene with `subtle` mod.
+
+- 826c597: Ny token: `dds-size-icon-component`. Brukes når ikonet står ved siden av kort tekst typisk i en komponent, som knapp eller inpputfelt. Verdien er relatert til tekststørrelsen.
+- 9f6bc86: Justerer på fargene for datavisualisering. Det anbefales å dobbeltsjekke at fargene brukes riktig samt ser riktig ut i kontekst hos konsumentene.
+
+### Patch Changes
+
+- a97cbd6: Tilpasser verdier i design tokens `dds-color-text-danger`, `dds-color-text-requiredfield` og `dds-color-icon-danger` i dark mode for bedre kontrast.
+- 826c597: Justerer på verdier i base design tokens `dds-font-lineheight` og endrer deres bruk i Elsa: `x1` brukes på mengetekst og artikler, mens `x2` brukes i komponenter og overskrifter. Kan påvirke spacing hos konsumenten på en uforutsigbar måte.
+- 4dcf1c3: Utbedrer farge i design tokens `dds-border-default`, `-sublte` og `-danger` i core-dark og public-dark.
+
 ## 8.0.2
 
 ### Patch Changes
 
 - 064033f: Endringer i skalering av fontstørrelse på mindre skjermer.
-
   - Core tema: Kun xxlarge som blir skalert ned.
   - Public tema: xxlarge og xlarge blir skalert ned.
 
