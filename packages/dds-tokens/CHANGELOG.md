@@ -2,6 +2,8 @@
 
 ## 9.0.0
 
+(2026-01-23)
+
 ### Major Changes
 
 - 826c597: Endringer i typografistilene `dds-font-body-<størrelse>`:
