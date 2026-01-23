@@ -2,6 +2,8 @@
 
 ## 22.0.0
 
+(2026-01-23)
+
 ### Major Changes
 
 - 346e039: Deler opp `widthProps` i `<Drawer>` til å være individuelle props istedet: `width`, `max-width`, `min-width`.
