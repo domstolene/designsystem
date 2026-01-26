@@ -24,7 +24,6 @@
     "react": "^16 || ^17 || ^18 || ^19"
   },
   "dependencies": {
-    "@norges-domstoler/dds-design-tokens": "workspace:*",
-    "@storybook/addon-docs": "10.1.11"
+    "@norges-domstoler/dds-design-tokens": "workspace:*"
   }
 }
