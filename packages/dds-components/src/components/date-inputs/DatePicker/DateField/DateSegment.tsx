@@ -55,7 +55,6 @@ export function DateSegment({
         className={cn(
           styles.segment__placeholder,
           !segment.isPlaceholder && styles['segment__placeholder--invisible'],
-          typographyStyles[`body-short-${componentSize}`],
         )}
       >
         {segment.placeholder}
