@@ -222,7 +222,7 @@
   --dds-color-surface-warning-strong: #f4e04d; /* tag strong value */
   --dds-color-surface-info-default: #2a4b61; /* tag, message */
   --dds-color-surface-info-strong: #75b9e6; /* tag strong value */
-  --dds-color-surface-paper-default: #3a4146; /* modal, drawer, popover etc */
+  --dds-color-surface-paper-default: #303438; /* modal, drawer, popover etc */
   --dds-color-surface-backdrop-default: #0b0d0e80; /* background overlay for modals (50%) */
   --dds-color-surface-field-default: #0b0d0e; /* Form elements (textinput, datepicker etc) */
   --dds-color-surface-field-disabled: #303438; /* disabled state on surface.field */

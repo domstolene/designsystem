@@ -129,7 +129,7 @@
         "description": "tag strong value"
       },
       "paper-default": {
-        "value": "{dds-color-base.gray.700}",
+        "value": "{dds-color-base.gray.800}",
         "type": "color",
         "description": "modal, drawer, popover etc"
       },
