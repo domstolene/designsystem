@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 22.0.1
+
+### Patch Changes
+
+- 0fb5fc4: Fikser bug der font i `<DatePicker>` dato og `<TimePicker>` tidspunkt ikke var monospace.
+
 ## 22.0.0
 
 (2026-01-23)
