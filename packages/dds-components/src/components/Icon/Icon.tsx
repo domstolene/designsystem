@@ -30,9 +30,9 @@ export const getSize = (iconSize: IconSize): string => {
 };
 
 export const ICON_SIZES = createSizes(
-  'small',
-  'medium',
   'large',
+  'medium',
+  'small',
   'inherit',
   'component',
 );
