@@ -34,20 +34,24 @@
   position: relative;
 }
 
+.header__icon {
+  vertical-align: text-bottom;
+}
+
 .message {
   position: absolute;
   right: 50%;
 }
 
-.code-block {
-  background-color: var(--dds-color-surface-inverse-default);
-  padding: var(--dds-spacing-x0-5) var(--dds-spacing-x1);
-  border-radius: var(--dds-border-radius-surface);
-  code.icon-code {
-    background-color: var(--dds-color-surface-inverse-default) !important;
-    border-color: transparent !important;
-    color: var(--dds-color-text-on-inverse);
-  }
+.code-paper {
+  border-top: 1px solid var(--dds-color-border-subtle);
+}
+
+pre.icon-code {
+  white-space: pre-wrap;
+  padding: var(--dds-spacing-x0-5);
+  border-color: transparent !important;
+  margin: 0;
 }
 
 .card__badge {
