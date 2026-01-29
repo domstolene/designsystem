@@ -1,0 +1,13 @@
+import { type SvgProps, SvgWrapper } from '../utils';
+
+export function PanelLeftIcon(props: SvgProps) {
+  return (
+    <SvgWrapper {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19 2.25C20.5188 2.25 21.75 3.48122 21.75 5V19C21.75 20.5188 20.5188 21.75 19 21.75H5C3.48122 21.75 2.25 20.5188 2.25 19V5C2.25 3.48122 3.48122 2.25 5 2.25H19ZM9.75 20.25H19C19.6904 20.25 20.25 19.6904 20.25 19V5C20.25 4.30964 19.6904 3.75 19 3.75H9.75V20.25ZM5 3.75C4.30964 3.75 3.75 4.30964 3.75 5V19C3.75 19.6904 4.30964 20.25 5 20.25H8.25V3.75H5Z"
+      />
+    </SvgWrapper>
+  );
+}

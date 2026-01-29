@@ -18,6 +18,7 @@ const meta: Meta = {
   parameters: {
     disableGlobalDecorator: true,
   },
+  tags: ['!autodocs'],
   decorators: [ddsProviderDecorator],
 };
 
