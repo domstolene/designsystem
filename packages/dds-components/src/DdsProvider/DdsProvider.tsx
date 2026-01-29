@@ -13,3 +13,5 @@ export function DdsProvider({ language, theme, children }: DdsProviderProps) {
     </LanguageProvider>
   );
 }
+
+export { type DdsTheme } from '../components/ThemeProvider';

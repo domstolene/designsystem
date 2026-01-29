@@ -12,7 +12,7 @@ import {
   type DdsTheme,
   ToggleBar,
   ToggleRadio,
-} from '@norges-domstoler/dds-components';
+} from '../packages/dds-components/src';
 
 // Setter bakgrunn i Canvas basert på verdien til --dds-color-bg-default i ThemeProvider
 const setCanvasBackgroundFromTheme = (counter: number) => {
