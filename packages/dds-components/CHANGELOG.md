@@ -1,5 +1,19 @@
 # @norges-domstoler/dds-components
 
+## 22.1.0
+
+### Minor Changes
+
+- f834766: Migrerer alle ikoner til nytt ikonsett Lucide. De er funksjonelt uforandret, men vil se annerledes ut.
+- f834766: Nye ikoner: `BriefcaseIcon`, `BuildingIcon`, `GroupIcon`, `RowsIcon`, `PanelLeftIcon`, `EditAltIcon`, `LocationOffIcon`, `FlagIcon`, `FlagFilledIcon`, `SunIcon`, `MoonIcon`, `SupportIcon`, `NotebookPenIcon`, `MapIcon`, `StickyNoteIcon`.
+
+### Patch Changes
+
+- 1902686: Fikser bug der `type DdsTheme` ike ble eksponert til konsumentene.
+- f834766: Fikser typos i ikonnavn `FullscreenExitIcon` og `StarHalfFilledIcon`; ikonene var ikke brukt av noen.
+- f834766: Justerer på `AnimatedChevronUpDown` så den passer inn med nye ikonsettet.
+- 0fb5fc4: Fikser bug der font i `<DatePicker>` dato og `<TimePicker>` tidspunkt ikke var monospace.
+
 ## 22.0.0
 
 (2026-01-23)
