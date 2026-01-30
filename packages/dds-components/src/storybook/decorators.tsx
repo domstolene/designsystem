@@ -8,6 +8,7 @@ import { Paragraph } from '../components/Typography';
 import { useWindowResize } from '../hooks';
 import { LanguageContext } from '../i18n';
 
+/**Decorator for story: wrapper story i default language og theme context. Brukes hvis story krever context fra DdsProvider. */
 export const ddsProviderDecorator: Decorator = Story => {
   const themeRef = useRef<HTMLDivElement>(null);
 
@@ -27,6 +28,7 @@ export const ddsProviderDecorator: Decorator = Story => {
   );
 };
 
+/**Decorator for story: dynamisk viser brukkpunkter og skjermbredde. Brukes i responsive eksempler. */
 export const windowWidthDecorator = (Story: ReactNode, intro?: string) => {
   const [width, setWidth] = useState<number>(window.innerWidth);
 
