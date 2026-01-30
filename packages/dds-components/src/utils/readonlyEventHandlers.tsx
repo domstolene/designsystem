@@ -6,9 +6,9 @@ import {
   type MouseEvent,
   type MouseEventHandler,
 } from 'react';
-
 // Handlers ved readonly, da det ikke støttes ut av boksen for enkelte inputelementer (select, radio, checkbox)
 
+/** MouseDownHandler ved readonly for select, radio, checkbox. */
 export const readOnlyMouseDownHandler = <T,>(
   readOnly?: boolean,
   onMouseDown?: MouseEventHandler<T>,
@@ -25,6 +25,7 @@ export const readOnlyMouseDownHandler = <T,>(
 
 type ReadOnlyKeyDownHandlerType = 'select' | 'selectionControl' | 'file';
 
+/** KeyDownHandler ved readonly for select, radio, checkbox. */
 export const readOnlyKeyDownHandler = <T,>(
   type: ReadOnlyKeyDownHandlerType,
   readOnly?: boolean,
@@ -49,6 +50,7 @@ export const readOnlyKeyDownHandler = <T,>(
   };
 };
 
+/** ChangeHandler ved readonly for select, radio, checkbox. */
 export const readOnlyChangeHandler = <T,>(
   readOnly?: boolean,
   onChange?: ChangeEventHandler<T>,
@@ -61,6 +63,7 @@ export const readOnlyChangeHandler = <T,>(
   };
 };
 
+/** ClickHandler ved readonly for select, radio, checkbox. */
 export const readOnlyClickHandler = <T,>(
   readOnly?: boolean,
   onClick?: MouseEventHandler<T>,
