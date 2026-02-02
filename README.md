@@ -20,7 +20,7 @@ I koden brukes prefikset `dds` for å spesifisere assosiasjon med designsystemet
 
 ## 🤝 Bidra
 
-Team Elsa setter pris på alle bidrag! Se [CONTRIBUTING.md](CONTRIBUTING.md) for å komme i gang.
+Team Elsa setter pris på alle bidrag! Se [CONTRIBUTING.md](CONTRIBUTING.md) for å komme i gang. Sjekk også ut Slack kanalen [#team-elsa-intern](https://domstoladm.slack.com/archives/C0AAV9F9KUM).
 
 ## 📜 Lisenser
 

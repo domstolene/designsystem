@@ -1,6 +1,6 @@
 # Bidra
 
-Vi setter pris på at du vil gjøre Elsa bedre! Ta gjerne kontakt med team Elsa i [#designsystemet-elsa](https://domstoladm.slack.com/archives/C01HNLSPTT9) på Slack for å diskutere bidraget.
+Vi setter pris på at du vil gjøre Elsa bedre! Vi bruker Slack kanalen [#team-elsa-intern](https://domstoladm.slack.com/archives/C0AAV9F9KUM) for samarbeid med faste bidragsytere. Ellers ta gjerne kontakt med team Elsa i [#designsystemet-elsa](https://domstoladm.slack.com/archives/C01HNLSPTT9) for å diskutere bidraget.
 
 ## Innhold
 
@@ -32,13 +32,19 @@ Installer dependencies:
 pnpm install
 ```
 
-Kjør utviklingsmiljøet:
+Bygg løsningen:
+
+```shell
+pnpm build
+```
+
+Kjør dev server:
 
 ```shell
 pnpm dev
 ```
 
-Kjør Storybook (demoside og playground):
+Kjør Storybook (utviklingsmiljø, demoside og playground):
 
 ```shell
 pnpm storybook
@@ -59,13 +65,9 @@ npm link pakke
 
 `pakke` må tilsvare `name` som er satt i `pakke/package.json`, for eksempel `@norges-domstoler/dds-components`.
 
-### Finner ikke pakken
+### Branch preview
 
-Skal ikke egentlig være nødvendig, men hvis du får en feilmeldinger om at den ikke finner en av pakkene kan du prøve:
-
-```Shell
-pnpm build
-```
+Vi bruker Cloudflare Pages til å deploye til Storybook ved ny PR. Preview er nyttig ved code review.
 
 ### Testing
 
@@ -91,9 +93,9 @@ pnpm test:components <KomponentNavn>.spec.tsx
 
 #### Visuell testing
 
-Hvis din kode kan resultere i visuelle endringer i komponenter eller design tokens, kjør visuelle tester via Storybook sin Chromatic integrasjon.
+Vi kjører visuell testing med Chromatic i Storybook on push. Hvis din commit resulterer i visuelle endringer i Storybook vil de dukke opp i [nyeste Chromatic build](https://www.chromatic.com/builds?appId=685279c6f45f55e818f8f255). Disse skal godkjennes/avslåes, enten av deg eller reviewer (spørs på kontekst). Avslåtte endringer må fikses, så kjøres tester på nytt.
 
-Du kan gjøre det direkte i nettleseren i Storybook ved å trykke på "Run tests" i global widget:
+Du kan kjøre visuelle tester direkte i nettleseren i Storybook ved å trykke på "Run tests" i global widget:
 
 ![image](https://github.com/user-attachments/assets/766db2a9-6617-493b-9ee4-17c526313e45)
 
@@ -101,27 +103,25 @@ Tester kan også kjøres per komponent via fanen "Visual tests":
 
 ![image](https://github.com/user-attachments/assets/cc52dd61-264b-460b-b969-84b5339b6983)
 
-Hvis forskjeller er funnet, aksepterer du de som er ønsket, fikser de som er uønsket og kjører tester på nytt. Les mer i Storybook docs: [kjør visuelle tester](https://storybook.js.org/docs/writing-tests/visual-testing#run-visual-tests) og [se over endringer](https://storybook.js.org/docs/writing-tests/visual-testing#review-changes).
-
 Du kan også kjøre en kommando for å se resultatet i terminalen:
 
 ```Shell
 pnpm chromatic
 ```
 
+Les mer i Storybook docs: [kjør visuelle tester](https://storybook.js.org/docs/writing-tests/visual-testing#run-visual-tests) og [se over endringer](https://storybook.js.org/docs/writing-tests/visual-testing#review-changes).
+
 ## Konvensjoner
 
 ### Språk
 
-- **Norsk:** dokumentasjon i design.domstol.no, `.mdx`-filer, `.md`-filer, [JSDoc](https://jsdoc.app/) som dokumenterer komponenter og hooks, pull requests.
+- **Norsk:** dokumentasjon i design.domstol.no, `.mdx`-filer, `.md`-filer, pull requests, [JSDoc](https://jsdoc.app/) som dokumenterer props og annen kode.
 
-- **Engelsk:** kode, utviklingsrelaterte uttrykk i dokumentasjon som gir mest mening på engelsk, f.eks. "property"
+- **Engelsk:** kode, utviklingsrelaterte uttrykk i dokumentasjon som gir mest mening på engelsk, f.eks. "property".
 
 ### Pull request
 
-- ID som tilsvarer Jira-saken i tittelen. Eksempel: `ELSA1-23 Ny komponent: Button`.
-- Commits bør også ha ID fra Jira i tittelen.
-- Beskriv kort men tydelig hva bidraget er.
+- Bruk PR-malen
 - Bruk [Markdown](https://www.markdownguide.org/basic-syntax/) slik at det er tydelig hva du refererer til. F.eks. et HTML element, en funksjon og en CSS-klasse bør bruke kode-markdown.
 - Ta med skjermdumper eller videoer av resultatet hvis relevant.
 - Squash gjerne dine commits.
@@ -172,14 +172,14 @@ I innstillinger:
 Hver komponent skal ligge i egen mappe, der navnet er <KomponentNavn>. Mappen skal inneholde:
 
 - **Komponentfil:** `<KomponentNavn>.tsx`
-- **Css-fil:** inneholder relevant styling vha CSS modules: `<komponentNavn>.module.css`
-- **Testfil:** med tilhørende tester: `<KomponentNavn>.spec.tsx`
-- **Stories-fil:** med tilhørende stories: `<KomponentNavn>.stories.tsx`
-- **Docs-fil:** tilhørende teknisk dokumentasjon: `<KomponentNavn>.mdx`
+- **Css-fil:** - styling vha CSS modules: `<komponentNavn>.module.css`
+- **Testfil:** - tester: `<KomponentNavn>.spec.tsx`
+- **Stories-fi -l:** - stories: `<KomponentNavn>.stories.tsx`
+- **Docs-fil:** - teknisk dokumentasjon: `<KomponentNavn>.mdx`
 - **Index-fil:** `index.ts` for eksportering
-- **_(Ved behov) Types-fil:_** hvis komponenten har mange types eller flere delkomponenter deler types, kan det være relevant å flytte det ut til egen fil: `<KomponentNavn>.types.tsx`
+- **_(Ved behov) Types-fil:_** - hvis komponenten har mange types eller flere delkomponenter deler types, kan det være relevant å flytte det ut til egen fil: `<KomponentNavn>.types.tsx`
 
-Det kan også være relevant med flere filer, f. eks. RadioButton inneholder komponentfilene `RadioButton.tsx` og `RadioButtonGroup.tsx`, samt tilhørende css-, testing- og stories-filer for begge.
+Det kan også være relevant med flere filer, f. eks. RadioButton inneholder komponentfilene `RadioButton.tsx` og `RadioButtonGroup.tsx`, samt CSS-, testing- og stories-filer for begge.
 
 ```
 ├── <KomponentNavn>
@@ -199,12 +199,13 @@ Her bygges selve komponenten. Du kan følge en enkel mal:
 ```JSX
 import styles from './Component.module.css';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { cn } from '../../utils';
 
 export type ComponentSize = 'small' | 'medium';
 
 //BaseComponentProps eller BaseComponentPropsWithChildren for props
 // Bruk JSDoc og beskriv hver prop
-export type ComponentProps = BaseComponentPropsChildren<
+export type ComponentProps = BaseComponentProps<
 HTMLDivElement,
 {
     /**
@@ -214,26 +215,23 @@ HTMLDivElement,
     size: ComponentSize;
 }>;
 
-// Komponenten, helst med forwardRef
-export const Component = forwardRef<HTMLAnchorElement, ComponentProps>((props, ref)=>{
-    const { children, id, className, htmlProps, size, ...rest } = props;
+// Komponenten
+export const Component = (props: ComponentProps) =>{
+    const { id, className, htmlProps, size, ...rest } = props;
 
     return (
         <div
-        // Bruk getBaseHTMLProps, slik at konsumenter ikke får alle native HTML-attributter i tooltip.
+            // Bruk getBaseHTMLProps, slik at konsumenter ikke får alle native HTML-attributter i tooltip.
             {...getBaseHTMLProps(
                 id,
-                className,
+                // CSS styling, bruk cn() for å kombinere klasser
+                cn(className, styles.container, styles[size]),
                 restHTMLprops,
                 rest
             )}
-            // CSS styling, bruk cn() for å kombinere klasser
-            className={cn(styles.container, styles[size])}
-            ref={ref} >
-            {children}
-        </div>
+        />
     )
-});
+};
 ```
 
 ### Css-fil
@@ -264,7 +262,7 @@ Eksempel:
 
 ### Stories-fil
 
-Vi bruker Storybook som demoside og playground. Hver komponent skal ha minst en av grunnleggende stories (begge hvis relevant):
+Vi bruker Storybook som utviklingsmiljø, demoside og playground. Hver komponent skal ha minst en av grunnleggende stories (begge hvis relevant):
 
 - **Preview**, for bare-bones eksempel
 - **Overview**, der visuelle varianter og bruken av relevante props presenteres
@@ -276,21 +274,19 @@ Du kan følge en enkel mal for stories-fila:
 ```JSX
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { Button } from '.';
+import { commonArgTypes, labelText } from '../../storybook';
 
 // config
 export default {
   title: 'dds-components/Button',
   component: Button,
-  // kontrollere  for demo
+  // kontrollere  for demo hvis default ikke passer
   argTypes: {
-    label: { control: 'text' },
-    loading: { control: 'boolean' },
-    fullWidth: { control: 'boolean' },
-    href: { control: 'text' },
+    children: { control: 'text' },
+    // ved bruk av BaseComponentProps formater felles props likt
+    ...commonArgTypes,
     // ekskluderte kontrollere;
     // bruk på props som ikke trenger å styres med i demo
-    htmlProps: { control: false },
-    target: { control: false },
     icon: { control: false },
   }
 } satisfies Meta<typeof Button>;
@@ -304,7 +300,7 @@ export const Preview: Story = {
 
 ```
 
-#### StoryVStack og StoryHStack
+#### `<StoryVStack> og <StoryHStack>`
 
 Hvis du viser flere varianter i en enkel story kan du bruke `<StoryVStack>` og `<StoryHStack>`-helpers til å oppnå riktig layout. De bruker fornuftige defaults for typiske avstander. Ved behov kan de overskrives, se [Stack-komponenten](https://design.domstol.no/987b33f71/p/8539cc-stack) for hva som støttes.
 
@@ -316,12 +312,11 @@ import { StoryVStack } from '../layout/Stack/utils';
 
 // Demo med stack
 export const Sizes: Story = {
-    args: { children: 'Tekst' },
     render: args => (
         <StoryVStack>
-        <Button {...args} size="small" />
-        <Button {...args} size="medium" />
-        <Button {...args} size="large" />
+        <Button {...args} size="small">Small</Button>
+        <Button {...args} size="medium">Medium</Button>
+        <Button {...args} size="large">Large</Button>
         </StoryVStack>
     )
 };
@@ -331,6 +326,8 @@ export const Sizes: Story = {
 ### Docs-fil
 
 Docs-fila er en `.mdx` fil som inneholder teknisk dokumentasjon og viser Storybook demoer. Den bruker en blanding av markdown og JSX, og vises som en docs-story i Elsa Storybook.
+
+Vi har en liten intern pakke `@norges-domstoler/storybook-components` for komponenter og hjelpere vi bruker i Storybook docs for standardisert visning.
 
 Enkel mal for docs-fila:
 
@@ -344,31 +341,22 @@ import * as delkomponentStories from './DelkomponentNavn.stories'
 
 # KomponentNavn
 
-// Lenker til andre ressurser
-// Hopp over de som ikek er relevante
+// Lenker til tilknyttede ressurser; hør med Elsa team.
 <ComponentLinkRow
   docsHref="link"
-  storybookHref="link"
   figmaHref="link"
-  githubHref="link"
+  githubHref={{ folder: 'components', comp: 'Komponentnavn' }}
+  storybookHref={{ folder: 'components', comp: 'komponentnavn' }}
 />
-
-## Props
 
 // Referanse til primære storien, ofte komponentStories.Preview.
 // Bruk Canvas for demo og Controls for kotrollere.
+// Kan bruke `<Tabs>` ved flere eksempler eller delkomponenter; Hør med Elsa team.
 <Canvas of={komponentStories.Preview} />
 <Controls of={komponentStories.Preview} />
 
-// Hvis det er delkomponenter, vis demoer for de også.
-### Delkomponent
-
-<Canvas of={delkomponentStories.Preview} />
-
-// Eksempler ved behov
+// Eksempler med manuell kode ved behov
 ## Eksempler
-
-<Canvas of={komponentStories.Example} />
 
 <Source code={`
 import { KomponentNavn } from '@norges-domstoler/pakkenavn';
@@ -378,20 +366,24 @@ import { KomponentNavn } from '@norges-domstoler/pakkenavn';
 // Retningslinjer for utviklere
 ## Retningslinjer
 
-/*...*/
+/*...liste eller seksjoner med retningslinjer...*/
 ```
 
 ### Testfil
 
-Vi bruker Vitest og React Testing Library for testing. For komponenter som bruker React portal har vi custom `portalRender` funksjon som erstatter RTL sin `render`; den wrapper komponenten i provider som genererer `<div>` portalen bruker.
+Vi bruker Vitest og React Testing Library for testing.
 
-Testene skal sørger for riktig oppførsel: blir teksten i en wrapper rendret, blir inputfeltet `disabled` ved bruk av dedikert prop osv. Ha med også UU-relaterte tester, som å sjekke om interaktive elementer får tilgjengelig navn og instrukser.
+Testene sørger for riktig oppførsel på overordnet nivå: blir teksten i en wrapper rendret, blir inputfeltet `disabled` ved bruk av dedikert prop osv. Ha også med UU-relaterte tester, som å sjekke om elementer får tilgjengelig navn og instrukser.
 
 Du kan kjøre testene i filen din:
 
 ```shell
 pnpm test:components KomponentNavn.spec.tsx
 ```
+
+#### `portalRender()`
+
+For komponenter som bruker React portal (`<Modal>` osv.) har vi custom `portalRender()` funksjon som erstatter RTL sin `render`; disse komponentene krever å bli rendret inni `<DdsProvider>`, så vi genererer DOM-noden portalen bruker.
 
 ### Index-fil
 
@@ -402,6 +394,7 @@ Eksportering av komponenten:
 // src/components/Button/index.ts
 export * from './RadioButton';
 
+// global
 // ../../../index.ts
 export * from './components/Button';
 ```
@@ -410,11 +403,12 @@ export * from './components/Button';
 
 Gjenbrukbare ressurser som løser typiske problemstillinger.
 
-- `helpers/`: delkomponenter (`<Paper>`, `<Input>` osv.)
-- `styling/`: styling på tvers av komponenter, som fokusring (`focus.module.css`), fjerning av default styling og normalisering.
-- `hooks/`: React hooks, dokumentert under [Hooks](https://zeroheight.com/987b33f71/p/389796).
-- `test/`: mocks til testing av komponenter.
-- `types/`: typings, bl.a. `type BaseComponentProps`
+- `helpers/`: delkomponenter o.l. (`<Backdrop>`, `<Input>`, `<StylelessList>` osv.)
+- `hooks/`: React hooks
+- `i18n/`: oversettelsesmodul
+- `polymorphic/`: polymorfi
+- `storybook/`: stories-hjelpere for `dds-components` pakken (`<StoryLabel>` osv.)
+- `types/`: globale typings, bl.a. `type BaseComponentProps`
 - `utils/`: assorterte utilities.
 
 ### Kvalitetskontroll
@@ -433,7 +427,7 @@ Ikoner er JSX-elementer som returnerer `<svg>`. Under `dds-components/src/compon
 - Komponenten `<Icon>`
 - `icons/`: selve ikonene som `.tsx` filer.
 - `utils/`: utilities for ikon
-- `icons.stories.tsx`: katalog med ikoner
+- `overview-page/`: katalog med ikoner
 
 ### Legge til ikon
 
@@ -441,19 +435,15 @@ Ikoner er JSX-elementer som returnerer `<svg>`. Under `dds-components/src/compon
 
 Få taket i svg-koden til ikonet i Figma DDS Foundations; hvis det ikke finnes skal det legges inn der først.
 
-Det finnes flere måter å få taket i koden på. Du kan for eksempel bruke [SVG to JSX Figma plugin](https://www.figma.com/community/plugin/749818562498396194/SVG-to-JSX), eller bruke dev mode.
-
-Du kan også lagre ikonet midlertidig. Eksporter ikonet ved å velge det, sette Export-typen til SVG under Design og trykke på "Export"-knappen.
-
 #### I kode
 
 Når du har svg-koden tilgjengelig, kopier **kun barna til `<svg>`** (`<path>`, `<rect>`, `<cicrle>` osv. **OBS!** Ikke ta med fill-attributtet, fargen skal ikke være hardkodet). For eksempel:
 
 ```HTML
-<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- kopier kun <path>! -->
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <!-- kopier kun barna til svg! -->
     <!-- Ikke ta med fill! -->
-    <path d="M6.70817 9.33333C8.80225 9.33333 10.4998 7.50516 10.4998 5.25H2.9165C2.9165 7.50516 4.61409 9.33333 6.70817 9.33333Z" />
+    <path d="ikon-sin-path" />
 </svg>
 ```
 
@@ -487,15 +477,15 @@ pnpm --filter "@norges-domstoler/dds-design-tokens" add -D style-dictionary
 
 ### Generere variabler
 
-Designansvarlig i team Elsa oppdaterer tokens i Figma; dette vil generere en PR via integrasjon med GitHub. Videre skal man dra branchen lokalt og bygge styling-variabler i CSS, SCSS og TS.
+Designansvarlig i team Elsa oppdaterer tokens i Figma. De blir automatisk synced med `.json`-filene i kodebasen. Dette vil generere en PR via integrasjon med GitHub og generere stylingvariabler (CSS, SCSS og JS).
 
-Generer stylingvariabler:
+Stylingvariabler kan ved behov genereres manuelt:
 
 ```Shell
 pnpm generate:tokens
 ```
 
-Genererte variabler ligger i `/build` organisert etter plattform.
+Genererte variabler ligger i `/generated-tokens` organisert etter plattform.
 
 ## Release notes
 
