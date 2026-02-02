@@ -143,29 +143,6 @@ export const PlacementOverview: Story = {
   },
 };
 
-export const Controlled: Story = {
-  render: args => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    return (
-      <VStack>
-        åpen: {isOpen.toString()}
-        <PopoverGroup isOpen={isOpen} setIsOpen={setIsOpen}>
-          <Button>Åpne</Button>
-          <Popover {...args}>
-            <VStack>
-              <Paragraph withMargins>
-                Dette er en popover med tekst og knapp
-              </Paragraph>
-              <Button>Klikk</Button>
-            </VStack>
-          </Popover>
-        </PopoverGroup>
-      </VStack>
-    );
-  },
-};
-
 export const WithOnOpenAndOnClose: Story = {
   render: args => {
     const [text, setText] = useState('aktiver Popover');

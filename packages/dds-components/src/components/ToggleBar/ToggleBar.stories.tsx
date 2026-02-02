@@ -1,5 +1,4 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
-import { useState } from 'react';
 import { fn } from 'storybook/test';
 
 import { TOGGLE_BAR_SIZES } from './ToggleBar.types';
@@ -76,40 +75,6 @@ export const Sizes: Story = {
           </VStack>
         ))}
       </StoryHStack>
-    );
-  },
-};
-
-export const Controlled: Story = {
-  render: args => {
-    const [value, setValue] = useState<string | undefined>('Alt2');
-    return (
-      <>
-        <ToggleBar
-          {...args}
-          name="test"
-          value={value}
-          onChange={(_event, value) => {
-            setValue(value);
-          }}
-        >
-          {toggleRadios(true)}
-        </ToggleBar>
-      </>
-    );
-  },
-};
-
-export const WithLongWords: Story = {
-  render: args => {
-    return (
-      <>
-        <ToggleBar {...args} name="test">
-          <ToggleRadio value="alt1" label="Parter" />
-          <ToggleRadio value="alt2" label="Slutning" />
-          <ToggleRadio value="alt3" label="Vedlegg" />
-        </ToggleBar>
-      </>
     );
   },
 };

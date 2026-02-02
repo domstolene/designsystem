@@ -1,6 +1,9 @@
 import { Canvas, Meta, ArgTypes, Controls } from '@storybook/addon-docs/blocks';
 import { ToggleRadio } from '.';
-import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
 import * as ToggleBarStories from './ToggleBar.stories';
 
 <Meta of={ToggleBarStories} />
@@ -41,3 +44,22 @@ Radioknapp.
 <ArgTypes of={ToggleRadio} />
 
 Native HTML-attributter `'name'`, `'checked'`, `'value'`, `'onChange'`, `'aria-labelledby'`, `'aria-label'` støttes på toppnivå.
+
+## Kontrollert
+
+<Source
+  code={`
+  import { ToggleBar, ToggleRadio Button } from '@norges-domstoler/dds-components';
+
+const [checked, setValue] = useState('Alt1');
+
+  <ToggleBar
+    checked={checked}
+    onChange={(_event, value) => {
+      setValue(value);
+    }}
+  >
+    <ToggleRadio label="Alt1" value="Alt1" />
+    <ToggleRadio label="Alt2" value="Alt2" />
+</ToggleBar>
+`} />

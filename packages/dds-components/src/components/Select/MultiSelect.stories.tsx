@@ -60,16 +60,29 @@ export const Overview: Story = {
   render: args => (
     <StoryHStack>
       <StoryVStack>
-        <Select {...args} />
-        <Select {...args} isDisabled value={options[0]} />
-        <Select {...args} icon={CourtIcon} />
-        <Select {...args} tip="Dette er en hjelpetekst" />
+        <Select {...args} label="Required" required />
+        <Select {...args} label="Med ikon" icon={CourtIcon} />
+        <Select {...args} label="Med defaultValue" defaultValue={options[0]} />
+        <Select {...args} label="Med value" value={options[0]} />
+        <Select
+          {...args}
+          label="Med hjelpetekst"
+          tip="Dette er en hjelpetekst"
+        />
       </StoryVStack>
       <StoryVStack>
-        <Select {...args} required />
-        <Select {...args} readOnly value={options[0]} />
-        <Select {...args} errorMessage="Dette er en feilmelding" />
-        <Select {...args} placeholder="Annerledes placeholder" />
+        <Select {...args} label="isDisabled" isDisabled value={options[0]} />
+        <Select {...args} label="readOnly" readOnly value={options[0]} />
+        <Select
+          {...args}
+          label="Med placeholder"
+          placeholder="-- placeholder --"
+        />
+        <Select
+          {...args}
+          label="Med feilmelding"
+          errorMessage="Dette er en feilmelding"
+        />
       </StoryVStack>
     </StoryHStack>
   ),
@@ -107,24 +120,6 @@ export const Sizes: Story = {
         </StoryVStack>
       </StoryHStack>
     );
-  },
-};
-
-export const WithDefaultValue: Story = {
-  args: {
-    label: 'Label',
-    options: options,
-    isMulti: true,
-    defaultValue: options[0],
-  },
-};
-
-export const WithValue: Story = {
-  args: {
-    label: 'Label',
-    options: options,
-    isMulti: true,
-    value: options[0],
   },
 };
 

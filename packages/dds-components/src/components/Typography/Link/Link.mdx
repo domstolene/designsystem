@@ -23,10 +23,8 @@ import { Tabs, TabList, Tab, TabPanels, TabPanel } from '../../Tabs';
 <Tabs>
   <TabList>
     <Tab>Preview</Tab>
-    <Tab>Ekstern</Tab>
+    <Tab>Varianter</Tab>
     <Tab>Polymorf</Tab>
-    <Tab>Custom farge</Tab>
-    <Tab>Visited</Tab>
   </TabList>
   <TabPanels>
     <TabPanel>
@@ -34,20 +32,12 @@ import { Tabs, TabList, Tab, TabPanels, TabPanel } from '../../Tabs';
       <Controls of={LinkStories.Preview} />
     </TabPanel>
     <TabPanel>
-      Hvis URL fører til et eksternt nettested gjenspeiles det via en dedikert
-      prop.
-      <Canvas of={LinkStories.External} />
+      <Canvas of={LinkStories.Variants} />
     </TabPanel>
     <TabPanel>
       Komponenten kan returnere vilkårlig HTML- eller React-element. Brukes
       primært ved klient-side ruting.
       <Canvas of={LinkStories.As} />
-    </TabPanel>
-    <TabPanel>
-      <Canvas of={LinkStories.CustomColor} />
-    </TabPanel>
-    <TabPanel>
-      <Canvas of={LinkStories.Visited} />
     </TabPanel>
   </TabPanels>
 </Tabs>

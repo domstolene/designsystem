@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { commonArgTypesWithNodeChildren } from '../../storybook';
-import { CallIcon, HomeIcon } from '../Icon/icons';
+import { CallIcon } from '../Icon/icons';
 import { StoryVStack } from '../layout/Stack/utils';
 import { Link } from '../Typography';
 
@@ -46,15 +46,6 @@ export const Appearances: Story = {
         <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
       </DescriptionList>
     </StoryVStack>
-  ),
-};
-
-export const WithIcon: Story = {
-  render: args => (
-    <DescriptionList {...args}>
-      <DescriptionListTerm>Tittel</DescriptionListTerm>
-      <DescriptionListDesc icon={HomeIcon}>Beskrivelse</DescriptionListDesc>
-    </DescriptionList>
   ),
 };
 

@@ -10,6 +10,7 @@ import {
   ComponentLinkRow,
 } from '@norges-domstoler/storybook-components';
 import * as InternalHeaderStories from './InternalHeader.stories';
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from '../Tabs';
 
 <Meta of={InternalHeaderStories} />
 
@@ -34,10 +35,21 @@ vil `<InternalHeader>` også bli videreutviklet til å bli et felles
 navigasjonspunkt mellom ulike tjenester og applikasjoner. Lenker ti andre
 applikasjoner vil være tilgjengelige ved å trykke på det som i dag er navn på applikasjonen.
 
-## Props
-
-<Canvas of={InternalHeaderStories.WithNavigationAndContextMenu} />
-<Controls of={InternalHeaderStories.WithNavigationAndContextMenu} />
+<Tabs>
+  <TabList>
+    <Tab>Preview</Tab>
+    <Tab>Varianter</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <Canvas of={InternalHeaderStories.WithNavigationAndContextMenu} />
+      <Controls of={InternalHeaderStories.WithNavigationAndContextMenu} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={InternalHeaderStories.Variants} />
+    </TabPanel>
+  </TabPanels>
+</Tabs>
 
 ### Types
 
@@ -76,13 +88,7 @@ applikasjoner vil være tilgjengelige ved å trykke på det som i dag er navn p�
 `}
 />
 
-## Varianter
-
-### Navigasjon og kontekstmeny
-
-<Canvas of={InternalHeaderStories.WithNavigationAndContextMenu} />
-
-### Navigasjon og kontekstmeny - responsiv
+## Navigasjon og kontekstmeny - responsiv
 
 <Canvas of={InternalHeaderStories.ResponsiveWithNavigationAndContextMenu} />
 

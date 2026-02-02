@@ -37,31 +37,25 @@ export const Overview: Story = {
   render: args => (
     <StoryHStack>
       <StoryVStack>
-        <TextArea {...args} />
-        <TextArea {...args} disabled value="Disabled" />
+        <TextArea {...args} required label="Required" />
         <TextArea
           {...args}
-          errorMessage={
-            args.errorMessage ?? 'Dette er en feilmelding ved valideringsfeil'
-          }
+          errorMessage={args.errorMessage ?? 'Feilmelding ved valideringsfeil'}
         />
+        <TextArea {...args} label="Med tegnteller" maxLength={200} />
         <TextArea
           {...args}
           maxLength={200}
-          tip={'Dette er en hjelpetekst med tegnteller'}
+          tip={'Hjelpetekst med tegnteller'}
         />
       </StoryVStack>
       <StoryVStack>
-        <TextArea {...args} required value="Påkrevd" />
-        <TextArea {...args} readOnly value="Readonly" />
-        <TextArea {...args} tip={'Dette er en hjelpetekst'} />
+        <TextArea {...args} disabled label="Disabled" />
+        <TextArea {...args} readOnly label="Readonly" />
+        <TextArea {...args} tip={'Hjelpetekst'} />
       </StoryVStack>
     </StoryHStack>
   ),
-};
-
-export const WithCharacterCount: Story = {
-  args: { label: 'Label', maxLength: 200 },
 };
 
 export const ResponsiveWidth: Story = {

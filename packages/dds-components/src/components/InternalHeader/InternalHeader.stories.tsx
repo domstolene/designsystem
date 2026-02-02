@@ -2,11 +2,13 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
 import {
+  StoryLabel,
   commonArgTypes,
   ddsProviderDecorator,
   windowWidthDecorator,
 } from '../../storybook';
 import { EditIcon } from '../Icon/icons';
+import { VStack } from '../layout';
 import { StoryVStack } from '../layout/Stack/utils';
 
 import { InternalHeader } from '.';
@@ -40,13 +42,7 @@ const uniqueNavigationLink = {
   children: 'unik navlenke',
 };
 
-const longNavigationLink = {
-  href: '#',
-  children: 'Veldig veldig veldig velidg lang lenke her',
-};
-
 const navigationLinks = [navigationLink, navigationLink];
-const navigationLinksWithLong = [...navigationLinks, longNavigationLink];
 
 const user = {
   children: 'Navn Navnesen',
@@ -81,117 +77,62 @@ export const WithNavigationAndContextMenu: Story = {
   },
 };
 
-export const Responsive: Story = {
-  parameters: { docs: { story: { height: '520px' } } },
-  args: {
-    applicationName: 'Lovisa',
-    applicationDesc: 'Produktnavn',
-    navItems: navigationLinks,
-    contextMenuItems: menuElements,
-    user,
-    smallScreenBreakpoint: 'xs',
-  },
-  decorators: [
-    Story =>
-      windowWidthDecorator(
-        <Story />,
-        'Versjonen for liten skjerm vises ved xs brekkpunkt.',
-      ),
-  ],
-};
-
-export const WithCurrentPage: Story = {
-  args: {
-    applicationName: 'Lovisa',
-    applicationDesc: 'Produktnavn',
-    navItems: [navigationLink, uniqueNavigationLink],
-    contextMenuItems: menuElements,
-    user,
-    currentPageHref: '#',
-  },
-};
-
-export const Overview: Story = {
+export const Variants: Story = {
   args: {
     applicationName: 'Lovisa',
     applicationDesc: 'Produktnavn',
   },
   render: args => (
     <StoryVStack alignItems="stretch">
-      <InternalHeader {...args} />
-      <InternalHeader
-        {...args}
-        navItems={navigationLinks}
-        contextMenuItems={menuElements}
-        user={user}
-      />
-      <InternalHeader
-        {...args}
-        navItems={[navigationLink, uniqueNavigationLink]}
-        contextMenuItems={menuElements}
-        user={user}
-        currentPageHref="#"
-      />
-      <InternalHeader
-        {...args}
-        navItems={navigationLinks}
-        user={userWithHref}
-      />
-      <InternalHeader
-        {...args}
-        navItems={navigationLinks}
-        contextMenuItems={menuElements}
-        user={userWithHref}
-      />
-      <InternalHeader {...args} contextMenuItems={menuElements} user={user} />
-      <InternalHeader
-        {...args}
-        navItems={navigationLinks}
-        contextMenuItems={menuElements}
-        user={user}
-        smallScreenBreakpoint="xs"
-      />
-      <InternalHeader
-        {...args}
-        navItems={navigationLinks}
-        user={user}
-        smallScreenBreakpoint="xs"
-      />
+      <VStack>
+        <StoryLabel>Med navigasjon og kontekstmeny</StoryLabel>
+        <InternalHeader
+          {...args}
+          navItems={navigationLinks}
+          contextMenuItems={menuElements}
+          user={user}
+        />
+      </VStack>
+      <VStack>
+        <StoryLabel>Med aktiv side</StoryLabel>
+        <InternalHeader
+          {...args}
+          navItems={[navigationLink, uniqueNavigationLink]}
+          contextMenuItems={menuElements}
+          user={user}
+          currentPageHref="#"
+        />
+      </VStack>
+      <VStack>
+        <StoryLabel>Med lenke til bruker i kontekstmeny</StoryLabel>
+        <InternalHeader
+          {...args}
+          navItems={navigationLinks}
+          user={userWithHref}
+        />
+      </VStack>
+      <VStack>
+        <StoryLabel>Med statisk brukernavn i kontekstmeny</StoryLabel>
+        <InternalHeader {...args} contextMenuItems={menuElements} user={user} />
+      </VStack>
+      <VStack>
+        <StoryLabel>Med lenke til hjemmesiden</StoryLabel>
+        <InternalHeader {...args} applicationHref="#" />
+      </VStack>
+      <VStack gap="x0.5">
+        <StoryLabel>
+          Med navigasjon og kontekstmeny - versjon for liten skjerm
+        </StoryLabel>
+        <InternalHeader
+          {...args}
+          navItems={navigationLinks}
+          contextMenuItems={menuElements}
+          user={user}
+          smallScreenBreakpoint="xl"
+        />
+      </VStack>
     </StoryVStack>
   ),
-};
-
-export const ResponsiveWithNavigation: Story = {
-  parameters: { docs: { story: { height: '220px' } } },
-  args: {
-    applicationName: 'Lovisa',
-    applicationDesc: 'Produktnavn',
-    navItems: navigationLinks,
-    smallScreenBreakpoint: 'sm',
-  },
-  decorators: [
-    Story =>
-      windowWidthDecorator(
-        <Story />,
-        'Versjonen for liten skjerm vises ved sm brekkpunkt.',
-      ),
-  ],
-};
-
-export const ResponsiveWithContextMenu: Story = {
-  args: {
-    applicationName: 'Lovisa',
-    applicationDesc: 'Produktnavn',
-    contextMenuItems: menuElements,
-    smallScreenBreakpoint: 'sm',
-  },
-  decorators: [
-    Story =>
-      windowWidthDecorator(
-        <Story />,
-        'Versjonen for liten skjerm vises ved sm brekkpunkt.',
-      ),
-  ],
 };
 
 export const ResponsiveWithNavigationAndContextMenu: Story = {
@@ -211,28 +152,4 @@ export const ResponsiveWithNavigationAndContextMenu: Story = {
         'Versjonen for liten skjerm vises ved sm brekkpunkt.',
       ),
   ],
-};
-
-export const WithNavigationLongLink: Story = {
-  args: {
-    applicationName: 'Lovisa',
-    applicationDesc: 'Produktnavn',
-    navItems: navigationLinksWithLong,
-  },
-};
-
-export const NonInteractiveUserOnly: Story = {
-  args: {
-    applicationName: 'Lovisa',
-    applicationDesc: 'Produktnavn',
-    user: user,
-  },
-};
-
-export const WithHomeLink: Story = {
-  args: {
-    applicationName: 'Lovisa',
-    applicationDesc: 'Produktnavn',
-    applicationHref: '#',
-  },
 };

@@ -7,6 +7,7 @@ import {
   htmlArgType,
   htmlEventArgType,
 } from '../../../storybook';
+import { StoryVStack } from '../../layout/Stack/utils';
 import { Paragraph } from '../Paragraph';
 import { storyTypographyHtmlAttrs } from '../storyUtils';
 
@@ -34,19 +35,21 @@ export const Preview: Story = {
   args: showcaseProps,
 };
 
-export const External: Story = {
-  args: { ...showcaseProps, external: true },
-};
-
-export const Visited: Story = {
-  args: { ...showcaseProps, withVisited: true },
-};
-
-export const CustomColor: Story = {
-  args: {
-    ...showcaseProps,
-    color: 'text-default',
-  },
+export const Variants: Story = {
+  args: showcaseProps,
+  render: args => (
+    <StoryVStack>
+      <Link {...args} external>
+        External
+      </Link>
+      <Link {...args} withVisited>
+        Med visited styling
+      </Link>
+      <Link {...args} color="text-medium">
+        Custom farge
+      </Link>
+    </StoryVStack>
+  ),
 };
 
 export const As: Story = {

@@ -2,7 +2,6 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
 import { commonArgTypes, ddsProviderDecorator } from '../../../storybook';
-import { Button } from '../../Button';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 
 import { RadioButton, RadioButtonGroup } from '.';
@@ -90,28 +89,6 @@ export const Direction: Story = {
         <RadioButtonGroup {...args} direction="column" name={name()}>
           {children}
         </RadioButtonGroup>
-      </StoryVStack>
-    );
-  },
-};
-
-export const Controlled: Story = {
-  args: { label: 'Label', children },
-  render: args => {
-    const [value, setValue] = useState<number | undefined>();
-    return (
-      <StoryVStack>
-        <RadioButtonGroup
-          {...args}
-          name={name()}
-          value={value}
-          onChange={(_event, value) => {
-            setValue(value as number);
-          }}
-        />
-        <Button size="small" onClick={() => setValue(2)}>
-          Sett til 2
-        </Button>
       </StoryVStack>
     );
   },

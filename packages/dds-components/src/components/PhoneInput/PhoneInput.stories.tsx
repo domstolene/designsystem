@@ -1,5 +1,4 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
-import { useState } from 'react';
 import { fn } from 'storybook/test';
 
 import {
@@ -10,11 +9,10 @@ import {
   labelText,
   windowWidthDecorator,
 } from '../../storybook';
-import { Button } from '../Button';
 import { INPUT_SIZES } from '../helpers/Input';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
-import { PhoneInput, type PhoneInputValue } from '.';
+import { PhoneInput } from '.';
 
 const { id, className, style } = commonArgTypes;
 
@@ -101,29 +99,5 @@ export const ResponsiveWidth: Story = {
       lg: 'var(--dds-input-default-width)',
       xl: 'var(--dds-input-default-width)',
     },
-  },
-};
-
-export const Controlled: Story = {
-  render: args => {
-    const [value, setValue] = useState<PhoneInputValue | undefined>();
-
-    return (
-      <StoryVStack>
-        <PhoneInput {...args} onChange={setValue} value={value} />
-        <div>
-          <Button
-            onClick={() =>
-              setValue({
-                countryCode: 'SE',
-                phoneNumber: '99999999',
-              })
-            }
-          >
-            Sett svensk nummer
-          </Button>
-        </div>
-      </StoryVStack>
-    );
   },
 };

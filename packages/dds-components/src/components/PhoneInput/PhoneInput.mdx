@@ -1,5 +1,8 @@
 import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
-import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
 import * as PhoneInputStories from './PhoneInput.stories';
 
 <Meta of={PhoneInputStories} />
@@ -25,11 +28,26 @@ import * as PhoneInputStories from './PhoneInput.stories';
 <Canvas of={PhoneInputStories.Preview} />
 <Controls of={PhoneInputStories.Preview} />
 
-## Eksempler
+## Kontrollert
 
-### Kontrollert
+<Source code={`
+  import { PhoneInput, type PhoneInputValue } from '@norges-domstoler/dds-components';
+  
+  const [value, setValue] = useState<PhoneInputValue | undefined>();
 
-<Canvas of={PhoneInputStories.Controlled} />
+        <PhoneInput onChange={setValue} value={value} />
+          <Button
+            onClick={() =>
+              setValue({
+                countryCode: 'SE',
+                phoneNumber: '99999999',
+              })
+            }
+          >
+            Sett svensk nummer
+          </Button>
+
+`} />
 
 ## Retningslinjer
 

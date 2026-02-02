@@ -20,9 +20,7 @@ import { Tabs, Tab, TabList, TabPanel, TabPanels } from '../Tabs';
 <Tabs>
   <TabList>
     <Tab>Preview</Tab>
-    <Tab>Med select</Tab>
-    <Tab>Med counter</Tab>
-    <Tab>Med counter og select</Tab>
+    <Tab>Varianter</Tab>
   </TabList>
   <TabPanels>
     <TabPanel>
@@ -30,13 +28,7 @@ import { Tabs, Tab, TabList, TabPanel, TabPanels } from '../Tabs';
       <Controls of={PaginationStories.Preview} />
     </TabPanel>
     <TabPanel>
-      <Canvas of={PaginationStories.WithCounter} />
-    </TabPanel>
-    <TabPanel>
-      <Canvas of={PaginationStories.WithSelect} />
-    </TabPanel>
-    <TabPanel>
-      <Canvas of={PaginationStories.WithCounterAndSelect} />
+      <Canvas of={PaginationStories.Variants} />
     </TabPanel>
   </TabPanels>
 </Tabs>
@@ -63,6 +55,7 @@ Det brukes 1-indeksering slik at sidenummeret blir brukt som label i knappene.
     <Tab>Custom options</Tab>
     <Tab>Custom aktiv side</Tab>
     <Tab>Liten skjerm</Tab>
+    <Tab>Controlled</Tab>
 
   </TabList>
   <TabPanels>
@@ -77,5 +70,24 @@ Det brukes 1-indeksering slik at sidenummeret blir brukt som label i knappene.
       Bruk aktivt versjonen for liten skjerm. Sjekk hvilket brekkpunkt gir mest mening i din løsning.
       <Canvas of={PaginationStories.SmallScreen} />
     </TabPanel>
+    <TabPanel>
+      <Source code={` 
+        import { OverflowMenu, OverflowMenuGroup, Button } from '@norges-domstoler/dds-components';
+        
+        const [currentPage, setCurrentPage] = useState(1);
+        
+        <span>Ekstern kontroll:</span>
+        <Button onClick={() => setCurrentPage(1)}>
+          Gå til side 1
+        </Button>
+        <Pagination
+          activePage={currentPage}
+          onChange={(_, page) => {
+            setCurrentPage(page);
+          }}
+        />
+      `} />
+    </TabPanel>
+
   </TabPanels>
 </Tabs>

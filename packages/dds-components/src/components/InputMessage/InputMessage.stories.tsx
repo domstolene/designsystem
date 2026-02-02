@@ -22,7 +22,7 @@ export const Preview: Story = {
   },
 };
 
-export const Overview: Story = {
+export const Variants: Story = {
   render: args => (
     <StoryHStack>
       <InputMessage {...args} messageType="error">

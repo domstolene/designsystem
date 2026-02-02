@@ -1,5 +1,4 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
-import { useState } from 'react';
 import { fn } from 'storybook/test';
 
 import {
@@ -8,9 +7,8 @@ import {
   ddsProviderDecorator,
   windowWidthDecorator,
 } from '../../storybook';
-import { Button } from '../Button';
 import { VStack } from '../layout';
-import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
+import { StoryVStack } from '../layout/Stack/utils';
 
 import { Pagination } from '.';
 
@@ -95,18 +93,6 @@ export const VariantsSmallScreen: Story = {
   ),
 };
 
-export const WithSelect: Story = {
-  args: { itemsAmount: 100, withSelect: true },
-};
-
-export const WithCounter: Story = {
-  args: { itemsAmount: 100, withCounter: true },
-};
-
-export const WithCounterAndSelect: Story = {
-  args: { itemsAmount: 100, withCounter: true, withSelect: true },
-};
-
 export const SmallScreen: Story = {
   args: { itemsAmount: 100, smallScreenBreakpoint: 'xl' },
 };
@@ -139,51 +125,4 @@ export const Responsive: Story = {
 
 export const DefaultActivePage: Story = {
   args: { itemsAmount: 100, defaultActivePage: 6 },
-};
-
-export const Controlled: Story = {
-  args: { itemsAmount: 100 },
-  render: args => {
-    const ControlledExample = () => {
-      const [currentPage, setCurrentPage] = useState(1);
-
-      return (
-        <StoryVStack gap="x2">
-          <StoryHStack gap="x0.5" alignItems="center">
-            <span>Ekstern kontroll:</span>
-            <Button
-              size="small"
-              onClick={() => setCurrentPage(1)}
-              purpose={currentPage === 1 ? 'primary' : 'secondary'}
-            >
-              Gå til side 1
-            </Button>
-            <Button
-              size="small"
-              onClick={() => setCurrentPage(5)}
-              purpose={currentPage === 5 ? 'primary' : 'secondary'}
-            >
-              Gå til side 5
-            </Button>
-            <Button
-              size="small"
-              onClick={() => setCurrentPage(10)}
-              purpose={currentPage === 10 ? 'primary' : 'secondary'}
-            >
-              Gå til side 10
-            </Button>
-          </StoryHStack>
-          <Pagination
-            {...args}
-            activePage={currentPage}
-            onChange={(_, page) => {
-              setCurrentPage(page);
-            }}
-          />
-        </StoryVStack>
-      );
-    };
-
-    return <ControlledExample />;
-  },
 };

@@ -1,6 +1,4 @@
-import { Time } from '@internationalized/date';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { useState } from 'react';
 import { fn } from 'storybook/test';
 
 import {
@@ -9,7 +7,6 @@ import {
   labelText,
   responsivePropsArgTypes,
 } from '../../../storybook';
-import { Button } from '../../Button';
 import { INPUT_SIZES } from '../../helpers/Input';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 
@@ -45,50 +42,19 @@ export const Overview: Story = {
   render: args => (
     <StoryHStack>
       <StoryVStack>
-        <TimePicker {...args} />
-        <TimePicker {...args} isRequired />
+        <TimePicker {...args} isRequired label="Påkrevd" />
         <TimePicker
           {...args}
-          errorMessage={
-            args.errorMessage ?? 'Dette er en feilmelding ved valideringsfeil'
-          }
+          errorMessage={args.errorMessage ?? 'Feilmelding ved valideringsfeil'}
         />
       </StoryVStack>
       <StoryVStack>
-        <TimePicker {...args} isDisabled />
-        <TimePicker {...args} isReadOnly />
-        <TimePicker {...args} tip={args.tip ?? 'Dette er en hjelpetekst'} />
+        <TimePicker {...args} isDisabled label="Disabled" />
+        <TimePicker {...args} isReadOnly label="ReadOnly" />
+        <TimePicker {...args} tip={args.tip ?? 'Hjelpetekst'} />
       </StoryVStack>
     </StoryHStack>
   ),
-};
-
-export const Required: Story = {
-  args: { label: 'Tidspunkt', isRequired: true },
-};
-
-export const Controlled: Story = {
-  args: { label: 'Tidspunkt' },
-  render: args => {
-    const [value, setValue] = useState<Time | null>(new Time(12));
-
-    return (
-      <StoryVStack>
-        <TimePicker {...args} value={value} onChange={setValue} />
-        <Button onClick={() => setValue(new Time(12))}>
-          Sett til klokken 12
-        </Button>
-      </StoryVStack>
-    );
-  },
-};
-
-export const Error: Story = {
-  args: { label: 'Tidspunkt', errorMessage: 'Her er noe veldig galt! 😨' },
-};
-
-export const ReadOnly: Story = {
-  args: { label: 'Tidspunkt', isReadOnly: true },
 };
 
 export const Sizes: Story = {

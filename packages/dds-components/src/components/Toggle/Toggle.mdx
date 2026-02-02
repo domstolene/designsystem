@@ -1,5 +1,8 @@
 import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
-import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
 import * as ToggleStories from './Toggle.stories';
 import { Tabs, Tab, TabList, TabPanels, TabPanel } from '../Tabs';
 
@@ -27,7 +30,21 @@ import { Tabs, Tab, TabList, TabPanels, TabPanel } from '../Tabs';
       <Controls of={ToggleStories.Preview} />
     </TabPanel>
     <TabPanel>
-      <Canvas of={ToggleStories.Controlled} />
+      <Source
+        code={`
+        import { Toggle, Button } from '@norges-domstoler/dds-components';
+          
+          const [checked, setChecked] = useState(false);
+        <Toggle
+          checked={checked}
+          onChange={setChecked}
+          children="Ledetekst"
+        />
+        <Button onClick={() => setChecked(true)} size="small">
+          Slå på toggle
+        </Button>
+      `}
+      />
     </TabPanel>
   </TabPanels>
 </Tabs>

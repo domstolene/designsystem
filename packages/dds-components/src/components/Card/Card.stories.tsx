@@ -2,12 +2,6 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
 import { commonArgTypesWithNodeChildren } from '../../storybook';
-import {
-  DescriptionList,
-  DescriptionListDesc,
-  DescriptionListTerm,
-} from '../DescriptionList';
-import { Divider } from '../Divider';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { Heading, Link, Paragraph } from '../Typography';
 
@@ -131,22 +125,6 @@ export const Overview: Story = {
   ),
 };
 
-export const Navigation: Story = {
-  decorators: [
-    Story => (
-      <>
-        <Story />
-        {contentContainerStyle}
-      </>
-    ),
-  ],
-  args: {
-    children: <div className="story-container-padding">Content</div>,
-    cardType: 'navigation',
-    href: '#',
-  },
-};
-
 export const Expandable: Story = {
   args: {
     children: (
@@ -228,33 +206,6 @@ export const ExpandableCustom: Story = {
           </Paragraph>
         </CardExpandableBody>
       </CardExpandable>
-    </Card>
-  ),
-};
-
-export const Examples: Story = {
-  decorators: [
-    Story => (
-      <>
-        <Story />
-        {contentContainerStyle}
-      </>
-    ),
-  ],
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  render: (args: any) => (
-    <Card {...args}>
-      <div className="story-container-padding">
-        <DescriptionList>
-          <DescriptionListTerm>Title</DescriptionListTerm>
-          <DescriptionListDesc>Description</DescriptionListDesc>
-        </DescriptionList>
-        <Divider />
-        <DescriptionList>
-          <DescriptionListTerm>Title</DescriptionListTerm>
-          <DescriptionListDesc>Description</DescriptionListDesc>
-        </DescriptionList>
-      </div>
     </Card>
   ),
 };

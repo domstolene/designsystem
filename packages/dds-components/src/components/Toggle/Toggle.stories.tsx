@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
-import { useState } from 'react';
 import { fn } from 'storybook/test';
 
+import { TOGGLE_SIZES } from './Toggle';
 import {
   categoryHtml,
   commonArgTypes,
@@ -10,8 +10,6 @@ import {
   htmlEventArgType,
   labelText,
 } from '../../storybook';
-import { Button } from '../Button';
-import { TOGGLE_SIZES } from './Toggle';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { Toggle } from '.';
@@ -69,23 +67,4 @@ export const Sizes: Story = {
       ))}
     </StoryVStack>
   ),
-};
-
-export const Controlled: Story = {
-  render: args => {
-    const [checked, setChecked] = useState(false);
-    return (
-      <StoryVStack>
-        <Toggle
-          {...args}
-          checked={checked}
-          onChange={setChecked}
-          children="Ledetekst"
-        />
-        <Button onClick={() => setChecked(true)} size="small">
-          Slå på toggle
-        </Button>
-      </StoryVStack>
-    );
-  },
 };
