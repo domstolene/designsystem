@@ -2,6 +2,8 @@
 
 ## 9.0.1
 
+(2026-02-02)
+
 ### Patch Changes
 
 - 9bd92e9: Gjør `dds-color-surface-paper` mørkere i dark mode.
