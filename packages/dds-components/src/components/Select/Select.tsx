@@ -47,6 +47,7 @@ import {
   type InputSize,
   getInputWidth,
 } from '../helpers/Input';
+import inputStyles from '../helpers/Input/Input.module.css';
 import { renderInputMessage } from '../InputMessage';
 import { Box } from '../layout';
 import { ThemeContext } from '../ThemeProvider';
@@ -294,6 +295,7 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
         className,
         isDisabled && styles['container--disabled'],
         readOnly && styles['container--readonly'],
+        inputStyles['input-group'],
       )}
       style={style}
     >

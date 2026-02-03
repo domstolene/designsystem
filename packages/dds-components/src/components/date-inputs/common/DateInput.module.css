@@ -1,22 +1,3 @@
-.date-input {
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  gap: var(--dds-spacing-x0-5);
-}
-
-.date-input--medium--clearable {
-  padding-inline-end: var(--dds-spacing-x0-5);
-}
-
-.date-input--small--clearable {
-  padding-inline-end: var(--dds-spacing-x0-5);
-}
-
-.date-input--xsmall--clearable {
-  padding-inline-end: var(--dds-spacing-x0-25);
-}
-
 .date-segment-container {
   display: flex;
   flex-direction: row;
@@ -54,10 +35,6 @@
   width: 0;
 }
 
-.clear-button {
-  align-self: center;
-}
-
 .clear-button--inactive {
   visibility: hidden;
 }
@@ -78,7 +55,7 @@
 }
 
 /**------------------------------------------------------------------------
- * Klasser relaterte til kalender-popover
+ * Kalender-popover
  *------------------------------------------------------------------------*/
 
 .popover-button {

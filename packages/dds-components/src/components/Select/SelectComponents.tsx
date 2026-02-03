@@ -112,7 +112,7 @@ export const DDSDropdownIndicator = <TValue, IsMulti extends boolean>(
       className={cn(
         className,
         styles['dropdown-indicator'],
-        inputStyles[`el-right--${componentSize}`],
+        inputStyles[`input-with-el-right--${componentSize}`],
       )}
     >
       <Icon

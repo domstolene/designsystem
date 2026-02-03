@@ -6,6 +6,7 @@ import type {
 import { useRef } from 'react';
 
 import { cn, spaceSeparatedIdListGenerator } from '../../../../utils';
+import inputStyles from '../../../helpers/Input/Input.module.css';
 import typographyStyles from '../../../Typography/typographyStyles.module.css';
 import styles from '../../common/DateInput.module.css';
 import { type DatePickerProps } from '../DatePicker';
@@ -41,6 +42,7 @@ export function DateSegment({
         segmentProps.className,
         styles.segment,
         typographyStyles[`body-short-${componentSize}`],
+        inputStyles[`input--${componentSize}`],
       )}
       style={{
         ...segmentProps.style,

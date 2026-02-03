@@ -12,6 +12,8 @@ import {
   TextInput,
   TimePicker,
   VStack,
+  nativeDateToCalendarDate,
+  nativeDateToTime,
 } from '../../../packages/dds-components/src/index';
 import {
   StoryLabel,
@@ -26,30 +28,38 @@ export default meta;
 
 const icon = MailIcon;
 
+const value = 'test';
+const sValue = { label: 'test', value: 'test' };
+const date = new Date(2024, 2, 11, 2, 30);
+const dValue = nativeDateToCalendarDate(date);
+const tValue = nativeDateToTime(date);
+
 function renderInputs(size: InputSize) {
   return (
     <>
-      <TextInput componentSize={size} icon={icon} />
-      <DatePicker componentSize={size} />
-      <TimePicker componentSize={size} />
-      {size !== 'xsmall' && <Search componentSize={size} />}
-      <DatePicker componentSize={size} clearable />
+      <TextInput componentSize={size} icon={icon} defaultValue={value} />
+      <DatePicker componentSize={size} defaultValue={dValue} />
+      <TimePicker componentSize={size} defaultValue={tValue} />
+      {size !== 'xsmall' && (
+        <Search componentSize={size} defaultValue={value} />
+      )}
+      <DatePicker componentSize={size} defaultValue={dValue} clearable />
       <Select
         componentSize={size}
         icon={icon}
-        options={[{ label: 'a', value: 'a' }]}
-        value={{ label: 'a', value: 'a' }}
+        options={[sValue]}
+        defaultValue={sValue}
       />
-      <NativeSelect componentSize={size} icon={icon} value="a" clearable>
+      <NativeSelect componentSize={size} icon={icon} value="test" clearable>
         <option value=""></option>
-        <option value="a">a</option>
+        <option value="test">test</option>
       </NativeSelect>
       <Select
         isMulti
         componentSize={size}
         icon={icon}
-        options={[{ label: 'a', value: 'a' }]}
-        value={{ label: 'a', value: 'a' }}
+        options={[sValue]}
+        defaultValue={sValue}
       />
     </>
   );

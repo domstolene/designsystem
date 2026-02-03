@@ -86,29 +86,31 @@ export function DateInput({
         style={style}
         width={getInputWidth(width, 'fit-content')}
         className={cn(
-          inputStyles.input,
-          inputStyles['input--stateful'],
-          inputStyles['input--hover'],
-          inputStyles[`input--${componentSize}`],
-          inputStyles[`input-with-icon--${componentSize}`],
+          inputStyles['input-group'],
           tgStyles[`body-short-${componentSize}`],
-          hasErrorMessage && inputStyles['input--stateful-danger'],
-          styles['date-input'],
-          clearable && styles[`date-input--${componentSize}--clearable`],
-          focusStyles['focusable-within'],
-          isOpen && focusStyles.focused,
-          disabled && 'disabled',
-          disabled && inputStyles.disabled,
-          active && 'active',
-          readOnly && 'read-only',
-          readOnly && inputStyles['read-only'],
         )}
       >
         {button}
         <div
           {...fieldProps}
           ref={internalRef}
-          className={styles['date-segment-container']}
+          className={cn(
+            inputStyles.input,
+            inputStyles[`input--${componentSize}`],
+            inputStyles['input--stateful'],
+            inputStyles['input--hover'],
+            hasErrorMessage && inputStyles['input--stateful-danger'],
+            clearable && inputStyles[`input-with-el-right--${componentSize}`],
+            styles['date-segment-container'],
+            inputStyles[`input-with-icon--${componentSize}`],
+            isOpen && focusStyles.focused,
+            disabled && 'disabled',
+            disabled && inputStyles.disabled,
+            active && 'active',
+            readOnly && 'read-only',
+            readOnly && inputStyles['read-only'],
+            focusStyles['focusable-within'],
+          )}
         >
           {children}
         </div>

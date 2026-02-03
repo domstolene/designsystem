@@ -132,7 +132,10 @@ export const NativeSelect = ({
       <Box
         position="relative"
         width={inputWidth}
-        className={typographyStyles[`body-short-${componentSize}`]}
+        className={cn(
+          typographyStyles[`body-short-${componentSize}`],
+          inputStyles['input-group'],
+        )}
       >
         {hasIcon && (
           <Icon
@@ -193,7 +196,7 @@ export const NativeSelect = ({
             className={cn(
               utilStyles['center-absolute-y'],
               styles.icon,
-              inputStyles[`el-right--${componentSize}`],
+              inputStyles[`input-group__absolute-el-right--${componentSize}`],
             )}
           />
         )}

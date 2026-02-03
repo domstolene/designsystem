@@ -4,6 +4,14 @@
 
 .input-group {
   position: relative;
+  --dds-input-absolute-el-left-xsmall: var(--dds-spacing-x0-25);
+  --dds-input-absolute-el-left-small: var(--dds-spacing-x0-5);
+  --dds-input-absolute-el-left-medium: var(--dds-spacing-x0-75);
+  --dds-input-absolute-el-left-large: var(--dds-spacing-x0-75);
+  --dds-input-absolute-el-right-xsmall: var(--dds-spacing-x0-25);
+  --dds-input-absolute-el-right-small: var(--dds-spacing-x0-5);
+  --dds-input-absolute-el-right-medium: var(--dds-spacing-x0-75);
+  --dds-input-absolute-el-right-large: var(--dds-spacing-x0-75);
 }
 
 :where(.input) {
@@ -107,74 +115,74 @@
 
 .input-with-icon--large {
   padding-left: calc(
-    var(--dds-spacing-x0-75) + var(--dds-size-icon-component) +
+    var(--dds-input-absolute-el-left-large) + var(--dds-size-icon-component) +
       var(--dds-spacing-lg-icon-text-gap)
   );
 }
 
 .input-with-icon--medium {
   padding-left: calc(
-    var(--dds-spacing-x0-75) + var(--dds-size-icon-component) +
+    var(--dds-input-absolute-el-left-medium) + var(--dds-size-icon-component) +
       var(--dds-spacing-md-icon-text-gap)
   );
 }
 
 .input-with-icon--small {
   padding-left: calc(
-    var(--dds-spacing-x0-75) + var(--dds-size-icon-component) +
+    var(--dds-input-absolute-el-left-small) + var(--dds-size-icon-component) +
       var(--dds-spacing-sm-icon-text-gap)
   );
 }
 
 .input-with-icon--xsmall {
   padding-left: calc(
-    var(--dds-spacing-x0-5) + var(--dds-size-icon-component) +
+    var(--dds-input-absolute-el-left-xsmall) + var(--dds-size-icon-component) +
       var(--dds-spacing-xs-icon-text-gap)
   );
 }
 
 .input-with-el-right--large {
   padding-inline-end: calc(
-    var(--dds-spacing-x0-75) + var(--dds-size-icon-component) +
-      var(--dds-spacing-x0-5)
+    var(--dds-input-absolute-el-right-large) + var(--dds-size-icon-component) +
+      var(--dds-spacing-lg-icon-text-gap)
   );
 }
 
 .input-with-el-right--medium {
   padding-inline-end: calc(
-    var(--dds-spacing-x0-75) + var(--dds-size-icon-component) +
-      var(--dds-spacing-x0-5)
+    var(--dds-input-absolute-el-right-medium) + var(--dds-size-icon-component) +
+      var(--dds-spacing-md-icon-text-gap)
   );
 }
 
 .input-with-el-right--small {
   padding-inline-end: calc(
-    var(--dds-spacing-x0-75) + var(--dds-size-icon-component) +
-      var(--dds-spacing-x0-5)
+    var(--dds-input-absolute-el-right-small) + var(--dds-size-icon-component) +
+      var(--dds-spacing-sm-icon-text-gap)
   );
 }
 
 .input-with-el-right--xsmall {
   padding-inline-end: calc(
-    var(--dds-spacing-x0-5) + var(--dds-size-icon-component) +
+    var(--dds-input-absolute-el-right-xsmall) + var(--dds-size-icon-component) +
       var(--dds-spacing-xs-icon-text-gap)
   );
 }
 
-.el-right--large {
-  right: var(--dds-spacing-x0-75);
+.input-group__absolute-el-right--large {
+  right: var(--dds-input-absolute-el-left-large);
 }
 
-.el-right--medium {
-  right: var(--dds-spacing-x0-75);
+.input-group__absolute-el-right--medium {
+  right: var(--dds-input-absolute-el-left-medium);
 }
 
-.el-right--small {
-  right: var(--dds-spacing-x0-5);
+.input-group__absolute-el-right--small {
+  right: var(--dds-input-absolute-el-left-small);
 }
 
-.el-right--xsmall {
-  right: var(--dds-spacing-x0-25);
+.input-group__absolute-el-right--xsmall {
+  right: var(--dds-input-absolute-el-left-xsmall);
 }
 
 :where(.input--with-affix) {
@@ -190,17 +198,17 @@
 }
 
 :where(.input-group__absolute-el--large) {
-  left: var(--dds-spacing-x0-75);
+  left: var(--dds-input-absolute-el-left-large);
 }
 
 :where(.input-group__absolute-el--medium) {
-  left: var(--dds-spacing-x0-75);
+  left: var(--dds-input-absolute-el-left-medium);
 }
 
 :where(.input-group__absolute-el--small) {
-  left: var(--dds-spacing-x0-5);
+  left: var(--dds-input-absolute-el-left-small);
 }
 
 :where(.input-group__absolute-el--xsmall) {
-  left: var(--dds-spacing-x0-25);
+  left: var(--dds-input-absolute-el-left-xsmall);
 }
