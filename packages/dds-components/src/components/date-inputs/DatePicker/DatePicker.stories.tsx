@@ -4,10 +4,9 @@ import {
   Time,
   isWeekend,
   toCalendarDateTime,
-  today,
 } from '@internationalized/date';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { fn } from 'storybook/test';
 
 import {
@@ -69,76 +68,33 @@ export const Preview: Story = {
   args: { label: 'Dato' },
 };
 
-export const Clearable: Story = {
-  args: { label: 'Dato', clearable: true },
-};
-
-export const Overview: Story = {
-  args: { label: 'Label' },
+export const States: Story = {
+  args: {
+    value: new CalendarDate(2023, 12, 24),
+  },
   render: args => (
     <StoryHStack>
       <StoryVStack>
-        <DatePicker {...args} />
-        <DatePicker {...args} isRequired />
+        <DatePicker {...args} label="Disabled" isDisabled />
+        <DatePicker {...args} label="Readonly" isReadOnly />
+        <DatePicker {...args} label="Required" isRequired />
         <DatePicker
           {...args}
-          errorMessage={
-            args.errorMessage ?? 'Dette er en feilmelding ved valideringsfeil'
-          }
+          label="Weekends unavailable"
+          isDateUnavailable={date => isWeekend(date, 'no-NO')}
         />
       </StoryVStack>
       <StoryVStack>
-        <DatePicker {...args} isDisabled />
-        <DatePicker {...args} isReadOnly />
-        <DatePicker {...args} tip={args.tip ?? 'Dette er en hjelpetekst'} />
+        <DatePicker {...args} label="Clearable" clearable />
+        <DatePicker
+          {...args}
+          label="ErrorMessage"
+          errorMessage="Dette er en feilmelding ved valideringsfeil"
+        />
+        <DatePicker {...args} label="Tip" tip="Dette er en hjelpetekst" />
       </StoryVStack>
     </StoryHStack>
   ),
-};
-
-export const SmallScreen: Story = {
-  args: { label: 'Dato', smallScreenBreakpoint: 'xl' },
-};
-
-export const Responsive: Story = {
-  args: { label: 'Dato', smallScreenBreakpoint: 'sm' },
-  decorators: [
-    Story =>
-      windowWidthDecorator(
-        <Story />,
-        'Åpne kalender; versjonen for liten skjerm vises ved sm brekkpunkt og nedover.',
-      ),
-  ],
-};
-
-export const Required: Story = {
-  args: { label: 'Dato', isRequired: true },
-};
-
-export const Controlled: Story = {
-  args: { label: 'Dato' },
-  render: args => {
-    const [value, setValue] = useState<CalendarDate | null>(
-      new CalendarDate(2023, 8, 28),
-    );
-
-    return (
-      <StoryVStack>
-        <DatePicker label="Dato" {...args} value={value} onChange={setValue} />
-        <Button onClick={() => setValue(today('Europe/Oslo'))}>
-          Set today
-        </Button>
-      </StoryVStack>
-    );
-  },
-};
-
-export const WeekendsUnavailable: Story = {
-  args: { label: 'Dato', isDateUnavailable: date => isWeekend(date, 'no-NO') },
-};
-
-export const Error: Story = {
-  args: { label: 'Dato', errorMessage: 'Her er noe veldig galt! 😨' },
 };
 
 export const Sizes: Story = {
@@ -156,44 +112,19 @@ export const Sizes: Story = {
   ),
 };
 
-export const Tip: Story = {
-  args: {
-    label: 'Dato',
-    tip: 'Visste du at denne komponenten også kan ha en tip?',
-  },
+export const SmallScreen: Story = {
+  args: { label: 'Dato', smallScreenBreakpoint: 'xl' },
 };
 
-export const ReadOnly: Story = {
-  args: {
-    label: 'Dato',
-    isReadOnly: true,
-    value: new CalendarDate(2023, 12, 24),
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    label: 'Dato',
-    isDisabled: true,
-    value: new CalendarDate(2023, 12, 24),
-  },
-};
-
-export const CustomWidth: Story = {
-  args: { label: 'Dato', width: '1337px' },
-};
-
-export const ControlFocus: Story = {
-  args: { label: 'Dato' },
-  render: args => {
-    const ref = useRef<HTMLElement>(null);
-    return (
-      <StoryVStack>
-        <DatePicker label="Dato" {...args} ref={ref} />
-        <Button onClick={() => ref.current?.focus()}>Fokuser DatePicker</Button>
-      </StoryVStack>
-    );
-  },
+export const Responsive: Story = {
+  args: { label: 'Dato', smallScreenBreakpoint: 'sm' },
+  decorators: [
+    Story =>
+      windowWidthDecorator(
+        <Story />,
+        'Åpne kalender; versjonen for liten skjerm vises ved sm brekkpunkt og nedover.',
+      ),
+  ],
 };
 
 export const InsideModal: Story = {

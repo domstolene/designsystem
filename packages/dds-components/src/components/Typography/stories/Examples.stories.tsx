@@ -2,6 +2,7 @@ import { Heading, Paragraph } from '..';
 
 export default {
   title: 'dds-components/Components/Typography/Examples',
+  tags: ['!autodocs'],
 };
 
 export const Article = () => {
@@ -65,7 +66,7 @@ export const Article = () => {
         {`
         .story-article {
           max-width: 700px;
-          margin-top: -1rem; 
+          margin-top: -1rem;
         }
         `}
       </style>

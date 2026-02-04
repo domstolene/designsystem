@@ -1,8 +1,8 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
-import { useState } from 'react';
 import { fn } from 'storybook/test';
 
 import { InputStepper } from './InputStepper';
+import { INPUT_STEPPER_SIZES } from './InputStepper.types';
 import {
   categoryHtml,
   commonArgTypes,
@@ -11,8 +11,6 @@ import {
   responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../storybook';
-import { Button } from '../Button';
-import { INPUT_STEPPER_SIZES } from './InputStepper.types';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 export default {
@@ -78,38 +76,6 @@ export const Overview: Story = {
           <InputStepper {...args} label="Disabled" disabled />
         </StoryVStack>
       </StoryHStack>
-    );
-  },
-};
-export const Controlled: Story = {
-  args: {
-    maxValue: 5,
-  },
-  render: args => {
-    const [value, setValue] = useState(4);
-
-    return (
-      <StoryVStack>
-        <InputStepper
-          {...args}
-          label="Label"
-          value={value}
-          onChange={e => {
-            if (typeof e === 'number') {
-              setValue(e);
-            } else {
-              setValue(Number(e.target.value));
-            }
-          }}
-        />
-        <Button
-          onClick={() => {
-            setValue(0);
-          }}
-        >
-          Nullstill
-        </Button>
-      </StoryVStack>
     );
   },
 };

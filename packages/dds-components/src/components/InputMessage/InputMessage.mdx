@@ -1,6 +1,7 @@
 import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as InputMessageStories from './InputMessage.stories';
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from '../Tabs';
 
 <Meta of={InputMessageStories} />
 
@@ -17,7 +18,18 @@ import * as InputMessageStories from './InputMessage.stories';
 
 **OBS!** Komponenten brukes kun i corner cases der custom inputelementer må brukes istedenfor komponentene fra Elsa.
 
-## Props
-
-<Canvas of={InputMessageStories.Preview} />
-<Controls of={InputMessageStories.Preview} />
+<Tabs>
+  <TabList>
+    <Tab>Preview</Tab>
+    <Tab>Varianter</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <Canvas of={InputMessageStories.Preview} />
+      <Controls of={InputMessageStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={InputMessageStories.Variants} />
+    </TabPanel>
+  </TabPanels>
+</Tabs>

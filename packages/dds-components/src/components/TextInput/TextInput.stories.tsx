@@ -10,7 +10,7 @@ import {
   windowWidthDecorator,
 } from '../../storybook';
 import { INPUT_SIZES } from '../helpers/Input';
-import { MailIcon } from '../Icon/icons';
+import { CourtIcon, MailIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { LocalMessage } from '../LocalMessage';
 
@@ -43,17 +43,17 @@ export const States: Story = {
   render: args => (
     <StoryHStack>
       <StoryVStack>
+        <TextInput {...args} required value="Påkrevd" />
         <TextInput {...args} disabled value="Disabled" />
         <TextInput {...args} readOnly value="Readonly" />
-        <TextInput {...args} required value="Påkrevd" />
+        <TextInput {...args} value="Med ikon" icon={CourtIcon} />
       </StoryVStack>
       <StoryVStack>
-        <TextInput {...args} tip={args.tip ?? 'Dette er en hjelpetekst'} />
+        <TextInput {...args} value="Med tegnteller" maxLength={25} />
+        <TextInput {...args} tip={args.tip ?? 'Hjelpetekst'} />
         <TextInput
           {...args}
-          errorMessage={
-            args.errorMessage ?? 'Dette er en feilmelding ved valideringsfeil'
-          }
+          errorMessage={args.errorMessage ?? 'Feilmelding ved valideringsfeil'}
         />
       </StoryVStack>
     </StoryHStack>
@@ -88,10 +88,6 @@ export const Sizes: Story = {
   ),
 };
 
-export const WithIcon: Story = {
-  args: { label: 'Label', icon: MailIcon },
-};
-
 export const WithAffixes: Story = {
   render: args => (
     <StoryVStack>
@@ -117,14 +113,6 @@ export const WithAffixes: Story = {
       />
     </StoryVStack>
   ),
-};
-
-export const WithCharacterCount: Story = {
-  args: { label: 'Label', maxLength: 25 },
-};
-
-export const WithAriaRequired: Story = {
-  args: { label: 'Label', 'aria-required': true },
 };
 
 export const ResponsiveWidth: Story = {

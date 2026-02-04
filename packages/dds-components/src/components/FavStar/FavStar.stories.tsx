@@ -1,5 +1,5 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { fn } from 'storybook/test';
 
 import { FAVSTAR_SIZES, FavStar } from './FavStar';
@@ -11,12 +11,10 @@ import {
   htmlEventArgType,
   labelText,
 } from '../../storybook';
-import { Button } from '../Button';
 import { focusable } from '../helpers/styling/focus.module.css';
 import { Icon } from '../Icon';
 import { AttachmentIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
-import { Checkbox } from '../SelectionControl/Checkbox';
 import { Table } from '../Table';
 import { Tooltip } from '../Tooltip';
 import { Caption, Link } from '../Typography';
@@ -53,42 +51,12 @@ export const Sizes: Story = {
   ),
 };
 
-export const Controlled: Story = {
-  render: args => {
-    const [checked, setChecked] = useState(false);
-    return (
-      <>
-        <FavStar {...args} checked={checked} onChange={setChecked} />
-        <Checkbox
-          checked={checked}
-          onChange={e => setChecked(e.target.checked)}
-          label="Er favoritt?"
-        />
-      </>
-    );
-  },
-};
-
-export const UsingRef: Story = {
-  render: args => {
-    const favstarRef = useRef<HTMLInputElement>(null);
-    return (
-      <StoryVStack>
-        <FavStar {...args} ref={favstarRef} />
-        <Button size="small" onClick={() => favstarRef.current?.focus()}>
-          Focus
-        </Button>
-      </StoryVStack>
-    );
-  },
-};
-
 export const RealWorld: Story = {
   render: args => {
     const documents = [
       {
         id: 1,
-        name: 'Krav om sak inkl. 1 vedlegg fra Petter Sæther Moen.pdf',
+        name: 'Krav om sak inkl. 1 vedlegg.pdf',
         from: 'Ola Nordmann',
         to: 'Trøndelag tingrett',
         timestamp: '28.08.2023',
@@ -136,7 +104,7 @@ export const RealWorld: Story = {
               <Table.Cell></Table.Cell>
               <Table.Cell>Nr.</Table.Cell>
               <Table.Cell></Table.Cell>
-              <Table.Cell>Dokumentnavn</Table.Cell>
+              <Table.Cell>Dokument</Table.Cell>
               <Table.Cell>Avsender</Table.Cell>
               <Table.Cell>Mottakere</Table.Cell>
               <Table.Cell>Sendt</Table.Cell>

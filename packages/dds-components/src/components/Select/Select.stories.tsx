@@ -11,7 +11,6 @@ import {
   windowWidthDecorator,
 } from '../../storybook';
 import { Button } from '../Button';
-import { Drawer, DrawerGroup } from '../Drawer';
 import { INPUT_SIZES } from '../helpers/Input';
 import { CourtIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
@@ -57,14 +56,6 @@ const options = createSelectOptions(
   'Veldig langt alternativ her veldig langt alternativ her',
   'Alternativ 3',
   'Alternativ 4',
-);
-
-const optionsLong = createSelectOptions(
-  'Alternativ 1',
-  'Alternativ 2',
-  'Veldig langt alternativ her veldig langt alternativ her',
-  'Alternativ 3',
-  'Alternativ 4',
   'Alternativ 5',
   'Alternativ 6',
   'Alternativ 7',
@@ -97,16 +88,34 @@ export const Overview: Story = {
     return (
       <StoryHStack>
         <StoryVStack>
-          <Select {...args} />
-          <Select {...args} isDisabled value={options[3]} />
-          <Select {...args} icon={CourtIcon} />
-          <Select {...args} tip="Dette er en hjelpetekst" />
+          <Select {...args} label="Required" required />
+          <Select {...args} label="Med ikon" icon={CourtIcon} />
+          <Select
+            {...args}
+            label="Med placeholder"
+            placeholder="-- placeholder --"
+          />
+          <Select {...args} label="Med value" value={options[3]} />
+          <Select
+            {...args}
+            label="Med hjelpetekst"
+            tip="Dette er en hjelpetekst"
+          />
         </StoryVStack>
         <StoryVStack>
-          <Select {...args} required />
-          <Select {...args} readOnly value={options[3]} />
-          <Select {...args} errorMessage="Dette er en feilmelding" />
-          <Select {...args} placeholder="-- placeholder --" />
+          <Select {...args} label="IsDisabled" isDisabled value={options[3]} />
+          <Select {...args} label="ReadOnly" readOnly value={options[3]} />
+          <Select {...args} label="Med grupper" options={groupedOptions} />
+          <Select
+            {...args}
+            label="Med defaultValue"
+            defaultValue={options[3]}
+          />
+          <Select
+            {...args}
+            label="Med feilmelding"
+            errorMessage="Dette er en feilmelding"
+          />
         </StoryVStack>
       </StoryHStack>
     );
@@ -141,30 +150,6 @@ export const Sizes: Story = {
         </StoryVStack>
       </StoryHStack>
     );
-  },
-};
-
-export const WithGroups: Story = {
-  args: { label: 'Label', options: groupedOptions },
-};
-
-export const ManyItems: Story = {
-  args: { label: 'Label', options: optionsLong },
-};
-
-export const WithDefaultValue: Story = {
-  args: {
-    label: 'Label',
-    options: options,
-    defaultValue: options[0],
-  },
-};
-
-export const WithValue: Story = {
-  args: {
-    label: 'Label',
-    options: options,
-    value: options[0],
   },
 };
 
@@ -249,20 +234,6 @@ export const CustomElement: Story = {
     ),
   },
   render: args => <Select {...args} />,
-};
-
-export const InDrawer: Story = {
-  args: { label: 'Velg', options: options },
-  render: args => {
-    return (
-      <DrawerGroup>
-        <Button>Åpne skuff</Button>
-        <Drawer>
-          <Select {...args} />
-        </Drawer>
-      </DrawerGroup>
-    );
-  },
 };
 
 export const InModal: Story = {

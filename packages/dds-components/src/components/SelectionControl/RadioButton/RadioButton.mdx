@@ -1,5 +1,8 @@
 import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
-import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
 import * as RadioButtonStories from './RadioButton.stories';
 import * as RadioButtonGroupStories from './RadioButtonGroup.stories';
 
@@ -32,6 +35,26 @@ Wrapper for en `<RadioButton>` gruppe. Den håndtere universell utforming og opp
 
 <Canvas of={RadioButtonGroupStories.Preview} />
 <Controls of={RadioButtonGroupStories.Preview} />
+
+## Kontrollert
+
+<Source
+  code={`
+      import { RadioButton, RadioButtonGroup } from '@norges-domstoler/dds-components'
+      
+      const [value, setValue] = useState<number | undefined>();
+   
+      <RadioButtonGroup
+        value={value}
+        onChange={(_event, value) => {
+          setValue(value);
+        }}
+      >
+        <RadioButton value={1} label="Option 1" />
+        <RadioButton value={2} label="Option 2" />
+      </RadioButtonGroup>
+`}
+/>
 
 ## Retningslinjer
 

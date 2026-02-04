@@ -1,12 +1,22 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import {
+  StoryLabel,
   commonArgTypesWithNodeChildren,
+  labelText,
   windowWidthDecorator,
 } from '../../storybook';
 import { InlineButton } from '../InlineButton';
+import { VStack } from '../layout';
+import { StoryVStack } from '../layout/Stack/utils';
 
-import { DetailList, DetailListDesc, DetailListRow, DetailListTerm } from '.';
+import {
+  DETAIL_LIST_SIZES,
+  DetailList,
+  DetailListDesc,
+  DetailListRow,
+  DetailListTerm,
+} from '.';
 
 export default {
   title: 'dds-components/Components/DetailList',
@@ -77,19 +87,18 @@ export const Preview: Story = {
   render: args => <DetailList {...args}>{children}</DetailList>,
 };
 
-export const Small: Story = {
+export const Sizes: Story = {
   render: args => (
-    <DetailList {...args} size="small">
-      {children}
-    </DetailList>
-  ),
-};
-
-export const Large: Story = {
-  render: args => (
-    <DetailList {...args} size="large">
-      {children}
-    </DetailList>
+    <StoryVStack>
+      {DETAIL_LIST_SIZES.map(size => (
+        <VStack width="100%">
+          <StoryLabel>{labelText(size)}</StoryLabel>
+          <DetailList {...args} key={size} size={size}>
+            {children}
+          </DetailList>
+        </VStack>
+      ))}
+    </StoryVStack>
   ),
 };
 

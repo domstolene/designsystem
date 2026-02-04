@@ -2,14 +2,16 @@ import { DetailListContext } from './DetailList.context';
 import styles from './DetailList.module.css';
 import {
   type BaseComponentPropsWithChildren,
-  type Size,
+  createSizes,
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
 import { type Breakpoint } from '../layout';
 import tgStyles from '../Typography/typographyStyles.module.css';
 
-export type DetailListSize = Extract<Size, 'large' | 'medium' | 'small'>;
+export const DETAIL_LIST_SIZES = createSizes('small', 'medium', 'large');
+
+export type DetailListSize = (typeof DETAIL_LIST_SIZES)[number];
 
 export type DetailListProps = BaseComponentPropsWithChildren<
   HTMLDListElement,

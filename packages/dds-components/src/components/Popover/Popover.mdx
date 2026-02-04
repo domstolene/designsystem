@@ -97,6 +97,38 @@ Wrapper der anchor-elementet skal være første barnet og `<Popover>` skal være
 </PopoverGroup>
 `} />
 
+### Kontrollert
+
+<Source
+  code={`
+  import { Popover, PopoverGroup, Button } from '@norges-domstoler/dds-components';
+
+const [isOpen, setIsOpen] = useState(false);
+
+<PopoverGroup isOpen={isOpen} setIsOpen={setIsOpen}>
+  <Button>Åpne</Button>
+  <Popover>Dette er en popover</Popover>
+</PopoverGroup>
+`} />
+
+### Callbacks
+
+<Source
+  code={`
+  import { Popover, PopoverGroup, Button } from '@norges-domstoler/dds-components';
+    
+    const [text, setText] = useState('aktiver Popover');
+    const onOpen = () => setText('Popover ble åpnet');
+    const onClose = () => setText('Popover ble lukket');
+    
+    <span>{text}</span>
+    <PopoverGroup onClose={onClose} onOpen={onOpen}>
+      <Button>Åpne</Button>
+      <Popover>Dette er en popover</Popover>
+    </PopoverGroup>
+`}
+/>
+
 ## Retningslinjer
 
 - `<Popover>` skal dukke opp kun via eksplisitt interaksjon fra brukeren; Den skal for eksempel ikke vises når siden lastes inn - den kan bli plassert feil eller være i veien.

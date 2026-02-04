@@ -84,10 +84,3 @@ export const WithMargins: Story = {
     </div>
   ),
 };
-
-export const CustomColor: Story = {
-  args: {
-    children: 'Heading',
-    color: 'text-subtle',
-  },
-};

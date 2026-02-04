@@ -5,7 +5,6 @@ import { StoryLabel, commonArgTypes, labelText } from '../../storybook';
 import { VStack } from '../layout';
 import { OpenExternalIcon as OpenExternal } from './icons/openExternal';
 import { StoryHStack } from '../layout/Stack/utils';
-import { Paragraph } from '../Typography';
 
 import { Icon } from '.';
 
@@ -44,16 +43,4 @@ export const Sizes: Story = {
 
 export const CustomColor: Story = {
   args: { icon, color: 'icon-action-resting' },
-};
-
-export const Inherit: Story = {
-  args: {
-    icon,
-    iconSize: 'inherit',
-  },
-  render: args => (
-    <Paragraph typographyType="bodyLongLarge">
-      <Icon {...args} /> Tekst
-    </Paragraph>
-  ),
 };

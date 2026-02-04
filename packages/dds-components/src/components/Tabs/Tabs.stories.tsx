@@ -1,6 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
+import { TABS_SIZES } from './Tabs';
 import {
   StoryLabel,
   commonArgTypesWithNodeChildren,
@@ -11,7 +12,6 @@ import {
 import { NotificationsIcon } from '../Icon/icons';
 import { StoryVStack } from '../layout/Stack/utils';
 import { Paragraph } from '../Typography';
-import { TABS_SIZES } from './Tabs';
 
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '.';
 
@@ -55,17 +55,6 @@ export const Preview: Story = {
   ),
 };
 
-export const Direction: Story = {
-  render: args => (
-    <StoryVStack>
-      <Tabs {...args}>{tabList(true)}</Tabs>
-      <Tabs {...args} tabContentDirection="column">
-        {tabList(true)}
-      </Tabs>
-    </StoryVStack>
-  ),
-};
-
 export const Sizes: Story = {
   render: args => (
     <StoryVStack gap="x2.5">
@@ -84,15 +73,6 @@ export const Sizes: Story = {
         </StoryVStack>
       ))}
     </StoryVStack>
-  ),
-};
-
-export const WithIcon: Story = {
-  render: args => (
-    <Tabs {...args}>
-      {tabList(true)}
-      {tabPanels}
-    </Tabs>
   ),
 };
 

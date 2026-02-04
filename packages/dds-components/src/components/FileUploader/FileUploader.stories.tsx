@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { fn } from 'storybook/test';
 
 import { FileUploader } from './FileUploader';
+import { type FileList } from './FileUploader.types';
 import {
   categoryHtml,
   ddsProviderDecorator,
@@ -11,7 +12,6 @@ import {
 } from '../../storybook';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { Heading, Paragraph } from '../Typography';
-import { type FileList } from './FileUploader.types';
 
 export default {
   title: 'dds-components/Components/FileUploader',
@@ -33,7 +33,7 @@ const file = new File(['hello'], 'hello.png', { type: 'image/png' });
 
 export const Preview: Story = { args: { label: 'Label' } };
 
-export const Overview: Story = {
+export const States: Story = {
   render: () => (
     <StoryHStack>
       <StoryVStack>
@@ -45,9 +45,10 @@ export const Overview: Story = {
         <FileUploader label="Required" required onChange={() => null} />
         <FileUploader
           label="Error"
-          errorMessage="Feilmelding"
+          errorMessage="Feilmelding ved valideringsfeil"
           onChange={() => null}
         />
+        <FileUploader label="Tip" tip="Hjelpetekst" onChange={() => null} />
       </StoryVStack>
       <StoryVStack>
         <FileUploader label="Disabled" disabled onChange={() => null} />
@@ -64,30 +65,14 @@ export const Overview: Story = {
           onChange={() => null}
           initialFiles={[file]}
         />
+        <FileUploader
+          label="No drop zone"
+          withDragAndDrop={false}
+          onChange={() => null}
+        />
       </StoryVStack>
     </StoryHStack>
   ),
-};
-
-export const Controlled: Story = {
-  args: { label: 'Last opp fil', tip: 'Maks 1 fil', maxFiles: 1 },
-  render: args => {
-    const [files, setFiles] = useState<FileList>([]);
-
-    return (
-      <FileUploader
-        {...args}
-        value={files}
-        onChange={files => {
-          setFiles(files);
-        }}
-      />
-    );
-  },
-};
-
-export const NoZone: Story = {
-  args: { label: 'Last opp fil', withDragAndDrop: false },
 };
 
 export const PdfOnly: Story = {
@@ -141,8 +126,4 @@ export const ResponsiveWidth: Story = {
       xl: 'var(--dds-input-default-width)',
     },
   },
-};
-
-export const MaxOneFile: Story = {
-  args: { label: 'Label', maxFiles: 1, tip: 'Maks 1 fil' },
 };

@@ -28,20 +28,6 @@ export const InWrapper: Story = {
   ),
 };
 
-export const LongContent: Story = {
-  args: {
-    children: `Dette er en lang tekst. Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit. Donec tempus imperdiet leo, eget tempus nulla suscipit
-        vel. Curabitur accumsan dapibus elit, eu semper massa pulvinar vitae.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus
-        imperdiet leo, eget tempus nulla suscipit vel. Curabitur accumsan
-        dapibus elit, eu semper massa pulvinar vitae. Lorem ipsum dolor sit
-        amet, consectetur adipiscing elit. Donec tempus imperdiet leo, eget
-        tempus nulla suscipit vel. Curabitur accumsan dapibus elit, eu semper
-        massa pulvinar vitae.`,
-  },
-};
-
 export const ComplexContent: Story = {
   args: {
     headerText: 'Tittel',

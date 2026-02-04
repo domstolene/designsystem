@@ -22,9 +22,8 @@ import { Tabs, TabList, Tab, TabPanels, TabPanel } from '../Tabs';
 <Tabs>
   <TabList>
     <Tab>Demo</Tab>
-    <Tab>Controlled</Tab>
+    <Tab>Tilstander</Tab>
     <Tab>Kun PDF</Tab>
-    <Tab>Uten drag-and-drop</Tab>
     <Tab>Custom filliste</Tab>
   </TabList>
   <TabPanels>
@@ -33,13 +32,10 @@ import { Tabs, TabList, Tab, TabPanels, TabPanel } from '../Tabs';
       <Controls of={FileUploaderStories.Preview} />
     </TabPanel>
     <TabPanel>
-      <Canvas of={FileUploaderStories.Controlled} />
+      <Canvas of={FileUploaderStories.States} />
     </TabPanel>
     <TabPanel>
       <Canvas of={FileUploaderStories.PdfOnly} />
-    </TabPanel>
-    <TabPanel>
-      <Canvas of={FileUploaderStories.NoZone} />
     </TabPanel>
     <TabPanel>
       Hvis du har behov for annen visning av fillisten enn den interne i
@@ -53,9 +49,9 @@ import { Tabs, TabList, Tab, TabPanels, TabPanel } from '../Tabs';
 
 <Source
   code={`
-import { FileUploader } from '@norges-domstoler/dds-components';
+import { FileUploader, FileList } from '@norges-domstoler/dds-components';
 
-const [files, setFiles] = useState<Array<File>>([]);
+const [files, setFiles] = useState<FileList>([]);
 
 <FileUploader
   onChange={files => {

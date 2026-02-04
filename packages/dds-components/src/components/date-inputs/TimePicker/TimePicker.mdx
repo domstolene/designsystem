@@ -36,3 +36,15 @@ new Time(12, 0, 0)
 
 <TimePicker label="Tidspunkt" value={value} onChange={setValue} />
 `} />
+
+### Med native JS Date i stedet for @internationalized/date
+
+Vi anbefaler å bruke `@internationalized/date` for å representere tid, da den ikke er avhengig av brukers locale og tidssone.
+Om du derimot allikevel skulle ha behov for å bruke native JS Date, så har vi laget funksjoner for å oversette mellom native JS Date og `@internationalized/date`:
+
+<Source
+  code={`
+function nativeDateToTime(date: Date): Time;
+function calendarDateToNativeDate(date: CalendarDate, time?: Time): Date;
+`}
+/>

@@ -5,6 +5,7 @@ import {
   ComponentLinkRow,
 } from '@norges-domstoler/storybook-components';
 import * as DrawerStories from './Drawer.stories';
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from '../Tabs';
 
 <Meta of={DrawerStories} />
 
@@ -23,22 +24,30 @@ Drawer bygges med følgende elementer:
 - **Trigger-element**: valgrfritt element som styrer `<Drawer>`, typisk en knapp.
 - **`<DrawerGroup>`**: håndterer lukking/åpning og universell utforming. Den skal ha trigger-elementet som første barn og `<Drawer>` som andre barn.
 
-## Props
+## Delkomponenter
 
-### Drawer
+<Tabs>
+  <TabList>
+    <Tab>DrawerGroup</Tab>
+    <Tab>Drawer</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      En wrapper som håndterer åpning, lukking, ARIA og refs ut av boksen. Den skal ha trigger-elementet som første barn og `<Drawer>` som andre barn. Obligatorisk å bruke.
 
-Hovedkomponenten. Den kan brukes kontrollert eller ikke kontrollert.
+      <ArgTypes of={DrawerGroup} />
+    </TabPanel>
+    <TabPanel>
+      Hovedkomponenten. Den kan brukes kontrollert eller ikke kontrollert.
 
-**OBS!** Støtter ikke `id`; se [DrawerGroup](#drawergroup).
+      **OBS!** Støtter ikke `id`; se [DrawerGroup](#drawergroup).
 
-<Canvas of={DrawerStories.Preview} />
-<Controls of={DrawerStories.Preview} />
+      <Canvas of={DrawerStories.Preview} />
+      <Controls of={DrawerStories.Preview} />
+    </TabPanel>
 
-### DrawerGroup
-
-En wrapper som håndterer åpning, lukking, ARIA og refs ut av boksen. Den skal ha trigger-elementet som første barn og `<Drawer>` som andre barn. Obligatorisk å bruke.
-
-<ArgTypes of={DrawerGroup} />
+  </TabPanels>
+</Tabs>
 
 ## Bruk
 

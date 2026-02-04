@@ -5,7 +5,6 @@ import {
   ddsProviderDecorator,
   windowWidthDecorator,
 } from '../../storybook';
-import { StoryVStack } from '../layout/Stack/utils';
 
 import { Breadcrumb, Breadcrumbs } from '.';
 
@@ -33,18 +32,6 @@ export const Preview: Story = {
   args: {
     children,
   },
-};
-
-export const Overview: Story = {
-  args: {
-    children,
-  },
-  render: args => (
-    <StoryVStack>
-      <Breadcrumbs {...args} />
-      <Breadcrumbs {...args} smallScreenBreakpoint="xl" />
-    </StoryVStack>
-  ),
 };
 
 export const SmallScreen: Story = {

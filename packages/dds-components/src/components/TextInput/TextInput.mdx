@@ -21,8 +21,6 @@ import { Tabs, TabList, Tab, TabPanels, TabPanel } from '../Tabs';
     <Tab>Preview</Tab>
     <Tab>Tilsander</Tab>
     <Tab>Størrelser</Tab>
-    <Tab>maxLength</Tab>
-    <Tab>Ikon</Tab>
     <Tab>Affiks</Tab>
     <Tab>Responsiv</Tab>
   </TabList>
@@ -36,15 +34,6 @@ import { Tabs, TabList, Tab, TabPanels, TabPanel } from '../Tabs';
     </TabPanel>
     <TabPanel>
       <Canvas of={TextInputStories.Sizes} />
-    </TabPanel>
-    <TabPanel>
-      Når native attributtet `maxLength` brukes dukker det opp en tegnteller til høyre under inputfeltet:
-      For å ikke vise tegntelleren sett `withCharacterCounter=false`.
-
-      <Canvas of={TextInputStories.WithCharacterCount} />
-    </TabPanel>
-    <TabPanel>
-      <Canvas of={TextInputStories.WithIcon} />
     </TabPanel>
     <TabPanel>
       <Canvas of={TextInputStories.WithAffixes} />

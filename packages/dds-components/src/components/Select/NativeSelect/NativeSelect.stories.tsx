@@ -67,13 +67,59 @@ export const Overview: Story = {
     children,
   },
   render: args => (
-    <StoryVStack>
-      <NativeSelect {...args} required />
-      <NativeSelect {...args} readOnly />
-      <NativeSelect {...args} disabled />
-      <NativeSelect {...args} errorMessage="Dette er en feilmelding" />
-      <NativeSelect {...args} tip="Dette er en hjelpetekst" />
-    </StoryVStack>
+    <StoryHStack>
+      <StoryVStack>
+        <NativeSelect {...args} label="Required" required />
+        <NativeSelect {...args} label="Med value" value={options[0].value} />
+        <NativeSelect
+          {...args}
+          label="Med defaultValue"
+          defaultValue={options[0].value}
+        />
+        <NativeSelect
+          {...args}
+          label="Clearable"
+          clearable
+          defaultValue={options[0].value}
+        />
+        <NativeSelect
+          {...args}
+          label="Med feilmelding"
+          errorMessage="Dette er en feilmelding"
+        />
+      </StoryVStack>
+      <StoryVStack>
+        <NativeSelect
+          {...args}
+          label="ReadOnly"
+          readOnly
+          value={options[0].value}
+        />
+        <NativeSelect
+          {...args}
+          label="Disabled"
+          disabled
+          value={options[0].value}
+        />
+        <NativeSelect {...args} label="Med ikon" icon={CourtIcon} />
+        <NativeSelect {...args} label="Med grupper">
+          <option value=""></option>
+          <optgroup label="Group 1">
+            <option>Option 1</option>
+            <option>Option 2</option>
+          </optgroup>
+          <optgroup label="Group 2">
+            <option>Option 1</option>
+            <option>Option 2</option>
+          </optgroup>
+        </NativeSelect>
+        <NativeSelect
+          {...args}
+          label="Med hjelpetekst"
+          tip="Dette er en hjelpetekst"
+        />
+      </StoryVStack>
+    </StoryHStack>
   ),
 };
 
@@ -109,14 +155,6 @@ export const Sizes: Story = {
   ),
 };
 
-export const WithIcon: Story = {
-  args: {
-    label: 'Label',
-    children,
-    icon: CourtIcon,
-  },
-};
-
 export const ResponsiveWidth: Story = {
   decorators: [Story => windowWidthDecorator(<Story />)],
   args: {
@@ -128,36 +166,5 @@ export const ResponsiveWidth: Story = {
       lg: 'var(--dds-input-default-width)',
       xl: 'var(--dds-input-default-width)',
     },
-  },
-};
-
-export const Multi: Story = {
-  args: { label: 'Label', children, multiple: true },
-};
-
-export const Groups: Story = {
-  args: {
-    label: 'Label',
-    children: (
-      <>
-        <option value=""></option>
-        <optgroup label="Group 1">
-          <option>Option 1</option>
-          <option>Option 2</option>
-        </optgroup>
-        <optgroup label="Group 2">
-          <option>Option 1</option>
-          <option>Option 2</option>
-        </optgroup>
-      </>
-    ),
-  },
-};
-
-export const Clearable: Story = {
-  args: {
-    label: 'Label',
-    children,
-    clearable: true,
   },
 };
