@@ -1,5 +1,15 @@
 # @norges-domstoler/dds-components
 
+## 22.2.0
+
+### Minor Changes
+
+- 04e9309: Standardiserer styling i `<DatePicker>` med andre inputkomponenter, og enkelte CSS-kasser har virking på en annen `<div>` i strukturen. Komponenten ser likt ut, men uforventede visuelle endringer kan oppstå ved custom styling hos konsumenten.
+
+### Patch Changes
+
+- 04e9309: Justerer på spacing mellom tekst og ikon i xsmall-variant i alle inputkomponenter.
+
 ## 22.1.0
 
 (2026-02-02)
