@@ -1,0 +1,42 @@
+import { ArgTypes, Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
+import * as ErrorSummaryStories from './ErrorSummary.stories';
+import { ErrorSummaryItem } from '.';
+import { Tabs, Tab, TabList, TabPanels, TabPanel } from '../Tabs';
+import { Divider } from '../Divider';
+
+<Meta of={ErrorSummaryStories} />
+
+# ErrorSummary
+
+<ComponentLinkRow
+  docsHref="87f3a8-errorsummary"
+  figmaHref="node-id=24122-12845"
+  githubHref={{ folder: 'components', comp: 'ErrorSummary' }}
+  storybookHref={{ folder: 'components', comp: 'errorsummary' }}
+/>
+
+## Delkomponenter
+
+<Tabs>
+  <TabList>
+    <Tab>ErrorSummary</Tab>
+    <Tab>ErrorSummaryItem</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <Canvas of={ErrorSummaryStories.Preview} />
+      <Controls of={ErrorSummaryStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+    Listeelement med lenke som rendres en liste i `<ErrorSummary>`. Tar inn `<Link>` sine props og er polymorf.
+        <ArgTypes of={ErrorSummaryItem} />
+    </TabPanel>
+  </TabPanels>
+</Tabs>
+
+<Divider />
+
+## Bruk
+
+Genrerer `<ErrorSummary>` kun hvis det er flere enn ett inputfelt på siden. Lenker skal peke til inputfelt som har feil slik at de får fokus. På denne måten kan brukeren fikse feilen med en gang.

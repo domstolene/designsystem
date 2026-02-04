@@ -25,6 +25,7 @@ export * from './components/DetailList';
 export * from './components/Divider';
 export * from './components/Drawer';
 export * from './components/EmptyContent';
+export * from './components/ErrorSummary';
 export * from './components/FavStar';
 export * from './components/Feedback';
 export * from './components/Fieldset';
