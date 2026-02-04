@@ -21,6 +21,7 @@ import { Button } from '../Button';
 import { ClearButton } from '../helpers/ClearButton';
 import { Input, type InputProps } from '../helpers/Input';
 import inputStyles from '../helpers/Input/Input.module.css';
+import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Icon } from '../Icon';
 import { SearchIcon } from '../Icon/icons';
 import { renderInputMessage } from '../InputMessage';
@@ -102,6 +103,7 @@ export const Search = ({
       className={cn(
         !showSearchButton && className,
         typographyStyles[`body-short-${componentSize}`],
+        inputStyles['input-group'],
       )}
     >
       {showIcon && (
@@ -161,7 +163,10 @@ export const Search = ({
           size="component"
           aria-label={t(texts.clearSearch)}
           onClick={clearInput}
-          className={styles['clear-button']}
+          className={cn(
+            inputStyles[`input-group__absolute-el-right--${componentSize}`],
+            utilStyles['center-absolute-y'],
+          )}
         />
       )}
     </HStack>
