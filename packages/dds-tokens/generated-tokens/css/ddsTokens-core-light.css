@@ -197,6 +197,14 @@
   --dds-color-data-09-default: #007d79;
   --dds-color-data-09-subtle: #90ccc9;
   --dds-color-data-09-border: #007d79;
+  --dds-motion-duration-medium: 200ms; /* Brukes til de fleste animasjoner og hoveranimasjoner */
+  --dds-motion-duration-fast: 100ms; /* Rask animasjon. Brukes til delay for spinner */
+  --dds-motion-duration-slow: 400ms; /* Langsom animasjon. Brukes til spinneranimasjon */
+  --dds-motion-duration-xfast: 50ms; /* Veldig rask animasjon */
+  --dds-motion-duration-xslow: 600ms; /* Veldig langsom animasjon */
+  --dds-motion-duration-xxslow: 800ms; /* Ekstra langsom animasjon */
+  --dds-motion-easing-linear: linear; /* Linear curve. Brukes til hoveranimasjoner */
+  --dds-motion-easing-in-out: cubic-bezier(0.4, 0, 0.2, 1); /* Easing in and out. Brukes til de fleste animasjoner */
   --dds-color-bg-default: #ffffff; /* UI shell base color */
   --dds-color-bg-subtle: #f1f3f4; /* Alternative UI shell base color */
   --dds-color-surface-default: #ffffff; /* Default bg */
