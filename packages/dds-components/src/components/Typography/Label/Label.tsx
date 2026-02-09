@@ -7,7 +7,7 @@ import {
 } from '../../../types';
 import { RequiredMarker, cn } from '../../../utils';
 import { Icon } from '../../Icon';
-import { LockIcon } from '../../Icon/icons';
+import { LockFilledIcon } from '../../Icon/icons';
 import { type BaseTypographyProps, Typography } from '../Typography';
 
 type PickedHTMLAttributes = Pick<
@@ -48,7 +48,7 @@ export const Label = ({
     <>
       {readOnly && (
         <Icon
-          icon={LockIcon}
+          icon={LockFilledIcon}
           iconSize="small"
           className={styles['read-only__icon']}
         />
