@@ -60,6 +60,7 @@ export * from './filter';
 export * from './filterList';
 export * from './findInPage';
 export * from './flickr';
+export * from './floppyDisk';
 export * from './folder';
 export * from './folderAdd';
 export * from './folderShielded';
