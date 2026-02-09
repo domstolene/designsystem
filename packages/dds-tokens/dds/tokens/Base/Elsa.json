@@ -1284,5 +1284,51 @@
         "type": "color"
       }
     }
+  },
+  "dds-motion": {
+    "duration": {
+      "medium": {
+        "value": "200ms",
+        "type": "other",
+        "description": "Brukes til de fleste animasjoner og hoveranimasjoner"
+      },
+      "fast": {
+        "value": "100ms",
+        "type": "other",
+        "description": "Rask animasjon. Brukes til delay for spinner"
+      },
+      "slow": {
+        "value": "400ms",
+        "type": "other",
+        "description": "Langsom animasjon. Brukes til spinneranimasjon"
+      },
+      "xfast": {
+        "value": "50ms",
+        "type": "other",
+        "description": "Veldig rask animasjon"
+      },
+      "xslow": {
+        "value": "600ms",
+        "type": "other",
+        "description": "Veldig langsom animasjon"
+      },
+      "xxslow": {
+        "value": "800ms",
+        "type": "other",
+        "description": "Ekstra langsom animasjon"
+      }
+    },
+    "easing": {
+      "linear": {
+        "value": "linear",
+        "type": "other",
+        "description": "Linear curve. Brukes til hoveranimasjoner"
+      },
+      "in-out": {
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "type": "other",
+        "description": "Easing in and out. Brukes til de fleste animasjoner"
+      }
+    }
   }
 }
