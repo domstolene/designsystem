@@ -4,14 +4,59 @@ on:
   pull_request:
     branches: [main]
 jobs:
+  generate-tokens:
+    name: Generate design tokens if changed
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      tokens_changed: ${{ steps.filter.outputs.tokens }}
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          fetch-depth: 0
+
+      - name: Detect design token changes
+        id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            tokens:
+              - packages/dds-tokens/dds/tokens/**/*.json
+
+      - name: Install
+        if: steps.filter.outputs.tokens == 'true'
+        uses: ./.github/composite-actions/install
+
+      - name: Generate design tokens
+        if: steps.filter.outputs.tokens == 'true'
+        run: pnpm generate:tokens
+
+      - name: Commit generated design tokens
+        if: steps.filter.outputs.tokens == 'true' && github.event.pull_request.head.repo.full_name == github.repository
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: AgataJedryszek-da
+          author_email: agata.jedryszek@domstol.no
+          message: "Genererer stilvariabler i CSS, SCSS og JS basert på endringer i design tokens"
+          add: "packages/dds-tokens/generated-tokens/"
+
   build:
     name: Build
     runs-on: ubuntu-latest
+    needs: generate-tokens
     permissions:
       contents: read
     steps:
       - name: Checkout branch
         uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          fetch-depth: 0
 
       - name: Install
         uses: ./.github/composite-actions/install
@@ -30,11 +75,16 @@ jobs:
   tests:
     name: Tests
     runs-on: ubuntu-latest
+    needs: generate-tokens
     permissions:
       contents: read
     steps:
       - name: Checkout branch
         uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          fetch-depth: 0
 
       - name: Install
         uses: ./.github/composite-actions/install
@@ -53,11 +103,16 @@ jobs:
   eslint:
     name: ESLint
     runs-on: ubuntu-latest
+    needs: generate-tokens
     permissions:
       contents: read
     steps:
       - name: Checkout branch
         uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          fetch-depth: 0
 
       - name: Install
         uses: ./.github/composite-actions/install
@@ -71,11 +126,16 @@ jobs:
   types:
     name: TypeScript
     runs-on: ubuntu-latest
+    needs: generate-tokens
     permissions:
       contents: read
     steps:
       - name: Checkout branch
         uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          fetch-depth: 0
 
       - name: Cache turbo
         uses: actions/cache@v5
@@ -94,14 +154,40 @@ jobs:
   prettier:
     name: Prettier
     runs-on: ubuntu-latest
+    needs: generate-tokens
     permissions:
       contents: read
     steps:
       - name: Checkout branch
         uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          fetch-depth: 0
 
       - name: Install
         uses: ./.github/composite-actions/install
 
       - name: Run prettier
         run: pnpm format:check
+
+  chromatic-on-tokens:
+    name: Chromatic after token generation
+    runs-on: ubuntu-latest
+    needs: generate-tokens
+    if: needs.generate-tokens.outputs.tokens_changed == 'true'
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          fetch-depth: 0
+
+      - uses: ./.github/composite-actions/install
+
+      - uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
