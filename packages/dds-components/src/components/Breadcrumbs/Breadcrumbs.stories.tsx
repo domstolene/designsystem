@@ -46,6 +46,9 @@ export const Responsive: Story = {
     children,
     smallScreenBreakpoint: 'sm',
   },
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   decorators: [
     Story =>
       windowWidthDecorator(

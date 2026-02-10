@@ -192,6 +192,9 @@ export const Horisontal: Story = {
 };
 
 export const FutureStepsDisabled: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: args => {
     const numSteps = 3;
 

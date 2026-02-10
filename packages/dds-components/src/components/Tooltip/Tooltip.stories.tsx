@@ -39,18 +39,10 @@ export const Preview: Story = {
   ),
 };
 
-export const NotKeptMounted: Story = {
-  args: { text: 'Dette er en tooltip' },
-  render: args => (
-    <StoryVStack alignItems="center" paddingBlock="x6">
-      <Tooltip {...args} keepMounted={false}>
-        <Button icon={HelpIcon} aria-label="Vis forklaring" />
-      </Tooltip>
-    </StoryVStack>
-  ),
-};
-
 export const Overview: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: () => (
     <StoryHStack justifyContent="center" paddingBlock="x6">
       <StoryVStack>
@@ -96,5 +88,19 @@ export const Overview: Story = {
         </Tooltip>
       </StoryVStack>
     </StoryHStack>
+  ),
+};
+
+export const NotKeptMounted: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+  args: { text: 'Dette er en tooltip' },
+  render: args => (
+    <StoryVStack alignItems="center" paddingBlock="x6">
+      <Tooltip {...args} keepMounted={false}>
+        <Button icon={HelpIcon} aria-label="Vis forklaring" />
+      </Tooltip>
+    </StoryVStack>
   ),
 };

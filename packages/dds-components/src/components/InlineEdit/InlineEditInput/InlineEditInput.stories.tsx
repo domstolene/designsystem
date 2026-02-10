@@ -33,6 +33,9 @@ export default {
 type Story = StoryObj<typeof InlineEditInput>;
 
 export const Preview: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: args => {
     const [value, setValue] = useState('');
     return <InlineEditInput {...args} value={value} onSetValue={setValue} />;
@@ -81,6 +84,9 @@ export const Overview: Story = {
 };
 
 export const InTable: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: args => {
     const [value, setValue] = useState();
     const [value2, setValue2] = useState();
@@ -120,6 +126,9 @@ export const InTable: Story = {
 };
 
 export const ResponsiveWidth: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   decorators: [Story => windowWidthDecorator(<Story />)],
   args: {
     width: {

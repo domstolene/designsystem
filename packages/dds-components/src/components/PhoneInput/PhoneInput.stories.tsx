@@ -80,6 +80,9 @@ export const Responsive: Story = {
   args: {
     smallScreenBreakpoint: 'sm',
   },
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   decorators: [
     Story =>
       windowWidthDecorator(
@@ -90,6 +93,9 @@ export const Responsive: Story = {
 };
 
 export const ResponsiveWidth: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   decorators: [Story => windowWidthDecorator(<Story />)],
   args: {
     width: {

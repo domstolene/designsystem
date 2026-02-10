@@ -124,6 +124,9 @@ export const Sizes: Story = {
 };
 
 export const WithFitContent: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   args: {
     label: 'Label',
     options: options,

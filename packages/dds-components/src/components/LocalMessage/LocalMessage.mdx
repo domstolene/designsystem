@@ -18,9 +18,8 @@ import { Divider } from '../Divider';
 <Tabs>
   <TabList>
     <Tab>Preview</Tab>
+    <Tab>Formål</Tab>
     <Tab>Varianter</Tab>
-    <Tab>Closable</Tab>
-    <Tab>Vertical</Tab>
   </TabList>
   <TabPanels>
     <TabPanel>
@@ -28,13 +27,10 @@ import { Divider } from '../Divider';
       <Controls of={LocalMessageStories.Preview} />
     </TabPanel>
     <TabPanel>
+      <Canvas of={LocalMessageStories.Purposes} />
+    </TabPanel>
+    <TabPanel>
       <Canvas of={LocalMessageStories.Variants} />
-    </TabPanel>
-    <TabPanel>
-      <Canvas of={LocalMessageStories.Closable} />
-    </TabPanel>
-    <TabPanel>
-      <Canvas of={LocalMessageStories.Vertical} />
     </TabPanel>
   </TabPanels>
 </Tabs>

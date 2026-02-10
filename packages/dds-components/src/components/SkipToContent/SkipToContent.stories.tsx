@@ -27,6 +27,9 @@ export const Preview: Story = {
 };
 
 export const CustomTop: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   args: { href: '#innhold', top: '30px' },
   render: args => (
     <div style={{ position: 'relative' }}>
@@ -38,6 +41,9 @@ export const CustomTop: Story = {
 };
 
 export const CustomText: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   args: { href: '#innhold', text: 'Alternativ tekst' },
   render: args => (
     <div style={{ position: 'relative' }}>

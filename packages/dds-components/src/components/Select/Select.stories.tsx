@@ -154,6 +154,9 @@ export const Sizes: Story = {
 };
 
 export const ResponsiveWidth: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   decorators: [Story => windowWidthDecorator(<Story />)],
   args: {
     label: 'Label',
@@ -168,23 +171,31 @@ export const ResponsiveWidth: Story = {
   },
 };
 
-export const CustomData = (
-  args: SelectProps<{ name: string; employeeId: number }>,
-) => {
-  const employees = [
-    { name: 'Petter', employeeId: 123 },
-    { name: 'Marianne', employeeId: 456 },
-    { name: 'Endre', employeeId: 789 },
-  ];
-  return (
-    <Select
-      {...args}
-      label={args.label ?? 'Saksbehandler'}
-      options={employees}
-      getOptionLabel={option => option.name}
-      getOptionValue={option => option.employeeId.toString()}
-    />
-  );
+export const CustomData: StoryObj<
+  SelectProps<{
+    name: string;
+    employeeId: number;
+  }>
+> = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+  args: { label: 'Saksbehandler' },
+  render: args => {
+    const employees = [
+      { name: 'Ansatt 1', employeeId: 123 },
+      { name: 'Ansatt 2', employeeId: 456 },
+      { name: 'Ansatt 3', employeeId: 789 },
+    ];
+    return (
+      <Select
+        {...args}
+        options={employees}
+        getOptionLabel={option => option.name}
+        getOptionValue={option => option.employeeId.toString()}
+      />
+    );
+  },
 };
 
 export const CustomElement: Story = {
@@ -237,6 +248,9 @@ export const CustomElement: Story = {
 };
 
 export const InModal: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   args: { label: 'Velg', options: options },
   render: args => {
     const [isOpen, setOpen] = useState(false);

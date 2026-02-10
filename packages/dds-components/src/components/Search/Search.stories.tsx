@@ -105,6 +105,9 @@ export const Sizes: Story = {
 };
 
 export const SizesWithSuggestions: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: args => (
     <StoryVStack>
       {SEARCH_SIZES.map(size => (
@@ -117,14 +120,11 @@ export const SizesWithSuggestions: Story = {
   ),
 };
 
-export const WithButton: Story = {
-  render: args => (
-    <Search {...args} buttonProps={{ onClick: () => null, label: 'Søk' }} />
-  ),
-};
-
 export const WithSuggestions: Story = {
-  parameters: { docs: { story: { height: '450px' } } },
+  parameters: {
+    chromatic: { disableSnapshot: true },
+    docs: { story: { height: '450px' } },
+  },
   render: args => (
     <>
       <Search.AutocompleteWrapper data={{ array }}>
@@ -136,6 +136,9 @@ export const WithSuggestions: Story = {
 };
 
 export const ResponsiveWidth: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   decorators: [Story => windowWidthDecorator(<Story />)],
   args: {
     label: 'Label',

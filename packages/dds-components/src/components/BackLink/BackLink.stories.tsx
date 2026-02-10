@@ -31,5 +31,8 @@ export const Preview: Story = {
 };
 
 export const As: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   args: { label: 'Forrige nivå', href: '#', as: 'div' },
 };

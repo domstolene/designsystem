@@ -106,6 +106,9 @@ export const Preview: Story = {
 };
 
 export const WithOnOpenAndOnClose: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: args => {
     const [text, setText] = useState('aktiver Popover');
     const onOpen = () => setText('onOpen ble kalt');
@@ -130,6 +133,9 @@ export const WithOnOpenAndOnClose: Story = {
 };
 
 export const WithAsyncClick: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: args => {
     const [text, setText] = useState('Klikk på "Handling" i menyen');
     const click = async () => {

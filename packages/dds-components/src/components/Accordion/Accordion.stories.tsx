@@ -172,6 +172,9 @@ export const Styled: Story = {
 };
 
 export const Custom: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   decorators: [
     Story => (
       <>

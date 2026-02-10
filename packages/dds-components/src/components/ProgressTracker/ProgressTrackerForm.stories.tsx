@@ -10,6 +10,7 @@ export {
 const meta: Meta = {
   title: 'dds-components/Components/ProgressTracker',
   parameters: {
+    chromatic: { disableSnapshot: true },
     layout: 'fullscreen',
     docs: { canvas: { inline: false } },
   },

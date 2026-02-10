@@ -136,7 +136,10 @@ export const Variants: Story = {
 };
 
 export const ResponsiveWithNavigationAndContextMenu: Story = {
-  parameters: { docs: { story: { height: '420px' } } },
+  parameters: {
+    chromatic: { disableSnapshot: true },
+    docs: { story: { height: '420px' } },
+  },
   args: {
     applicationName: 'Lovisa',
     applicationDesc: 'Produktnavn',

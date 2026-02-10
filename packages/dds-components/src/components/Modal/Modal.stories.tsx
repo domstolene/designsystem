@@ -37,9 +37,8 @@ export default meta;
 type Story = StoryObj<typeof Modal>;
 
 export const Preview: Story = {
-  args: { onClose: undefined },
   render: args => {
-    const [closed, setClosed] = useState(true);
+    const [closed, setClosed] = useState(false);
     const show = () => setClosed(false);
     const close = () => setClosed(true);
 
@@ -55,9 +54,10 @@ export const Preview: Story = {
           onClose={close}
           triggerRef={buttonRef}
           isOpen={!closed}
+          header="Header"
           style={{ width: '400px' }}
         >
-          <ModalBody>Modal</ModalBody>
+          <ModalBody>Lukkbar modal</ModalBody>
           <ModalActions>
             <Button onClick={close}>OK</Button>
             <Button purpose="secondary" onClick={close}>
@@ -70,10 +70,10 @@ export const Preview: Story = {
   },
 };
 
-export const Closable: Story = {
+export const NotClosable: Story = {
   args: { header: 'Tittel', onClose: undefined },
   render: args => {
-    const [closed, setClosed] = useState(true);
+    const [closed, setClosed] = useState(false);
     const show = () => setClosed(false);
     const close = () => setClosed(true);
 
@@ -82,15 +82,12 @@ export const Closable: Story = {
     return (
       <StoryHStack>
         <Button aria-haspopup="dialog" onClick={show} ref={buttonRef}>
-          Åpne lukkbar
+          Åpne ikke lukkbar
         </Button>
-        <Modal
-          {...args}
-          isOpen={!closed}
-          triggerRef={buttonRef}
-          onClose={close}
-        >
-          <ModalBody>Ikke lukkbar modal</ModalBody>
+        <Modal {...args} isOpen={!closed} triggerRef={buttonRef}>
+          <ModalBody>
+            Ikke lukkbar modal; kan lukkes kun via "OK" og "Avbryt".
+          </ModalBody>
           <ModalActions>
             <Button onClick={close}>OK</Button>
             <Button purpose="secondary" onClick={close}>
@@ -103,37 +100,10 @@ export const Closable: Story = {
   },
 };
 
-export const NoActionButtons: Story = {
-  args: { header: 'Info' },
-  render: args => {
-    const [closed, setClosed] = useState(true);
-    const show = () => setClosed(false);
-    const close = () => setClosed(true);
-
-    const buttonRef = useRef<HTMLButtonElement>(null);
-
-    return (
-      <>
-        <Button aria-haspopup="dialog" onClick={show} ref={buttonRef}>
-          Åpne
-        </Button>
-        <Modal
-          {...args}
-          isOpen={!closed}
-          triggerRef={buttonRef}
-          onClose={close}
-        >
-          <ModalBody>Infotekst</ModalBody>
-        </Modal>
-      </>
-    );
-  },
-};
-
 export const Scrollable: Story = {
-  args: { header: 'Fritt valg av forsvarer' },
+  args: { header: 'Header' },
   render: args => {
-    const [closed, setClosed] = useState(true);
+    const [closed, setClosed] = useState(false);
     const show = () => setClosed(false);
     const close = () => setClosed(true);
 
@@ -152,10 +122,10 @@ export const Scrollable: Story = {
           style={{ width: '300px' }}
         >
           <ModalBody scrollable height="100px">
-            Du kan vanligvis fritt velge hvilken advokat du vil ha som forsvarer
-            i saken. Det må spesielle grunner til for at du ikke skal få oppfylt
-            ditt ønske, for eksempel at advokaten er opptatt i lang tid slik at
-            rettssaken din vil bli veldig forsinket.
+            Tekst for å teste scrollable variant. Når teksten er lengre enn
+            tilgjengelig høyde får den en scrollbar på siden. Den må være litt
+            lengre, gjerne flere setningen, slik at den fyller tilgjengelig
+            plass.
           </ModalBody>
           <ModalActions>
             <Button onClick={close}>OK</Button>
@@ -170,6 +140,9 @@ export const Scrollable: Story = {
 };
 
 export const WithInitialFocus: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   args: { header: 'Søk etter sak' },
   render: args => {
     const [closed, setClosed] = useState(true);

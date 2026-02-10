@@ -1,13 +1,12 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { ReturnFocusOnBlurExample } from './ReturnFocusOnBlurExample';
+import { hookParameters } from '../hooks.utils';
 
 const meta: Meta<typeof ReturnFocusOnBlurExample> = {
   title: 'dds-components/Hooks/useReturnFocusOnBlur',
   component: ReturnFocusOnBlurExample,
-  parameters: {
-    disableGlobalDecorator: true,
-  },
+  parameters: hookParameters,
   argTypes: {
     active: { control: false },
     triggerElement: { control: false },

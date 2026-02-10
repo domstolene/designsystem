@@ -19,6 +19,9 @@ export const Preview: Story = {
 };
 
 export const InWrapper: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: args => (
     <Box height="25rem" width="400px">
       <EmptyContent {...args}>

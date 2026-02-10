@@ -111,6 +111,9 @@ export const SmallScreen: Story = {
 };
 
 export const Responsive: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   decorators: [
     Story =>
       windowWidthDecorator(

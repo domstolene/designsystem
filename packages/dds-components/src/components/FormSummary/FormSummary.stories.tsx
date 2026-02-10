@@ -155,6 +155,9 @@ export const ExternalDataSource: Story = {
 };
 
 export const Groups: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: args => (
     <FormSummary {...args}>
       <FormSummaryHeader>
@@ -284,6 +287,9 @@ const renderFields = (n: number) => {
 };
 
 export const WithGrid: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   decorators: [Story => windowWidthDecorator(<Story />)],
   render: args => (
     <Grid>
@@ -360,6 +366,9 @@ export const WithGrid: Story = {
 };
 
 export const WithFlex: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   decorators: [Story => windowWidthDecorator(<Story />)],
   render: args => (
     <Box

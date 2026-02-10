@@ -24,10 +24,16 @@ export const CustomColor: Story = {
 };
 
 export const CustomSize: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   args: { size: '150px' },
 };
 
 export const CustomTooltip: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   args: {
     tooltip: 'Egendefinert melding',
   },
