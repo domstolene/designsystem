@@ -87,6 +87,7 @@ export * from './list';
 export * from './listAlt';
 export * from './location';
 export * from './lock';
+export * from './lockFilled';
 export * from './lockOpen';
 export * from './login';
 export * from './logout';

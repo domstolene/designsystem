@@ -95,6 +95,7 @@ import listAltSvg from '../svg/listAlt.svg?raw';
 import locationSvg from '../svg/location.svg?raw';
 import locationOffSvg from '../svg/locationOff.svg?raw';
 import lockSvg from '../svg/lock.svg?raw';
+import lockFilledSvg from '../svg/lockFilled.svg?raw';
 import lockOpenSvg from '../svg/lockOpen.svg?raw';
 import loginSvg from '../svg/login.svg?raw';
 import logoutSvg from '../svg/logout.svg?raw';
@@ -275,6 +276,7 @@ export const iconSvgs: Record<IconName, string> = {
   LocationIcon: locationSvg,
   LocationOffIcon: locationOffSvg,
   LockIcon: lockSvg,
+  LockFilledIcon: lockFilledSvg,
   LockOpenIcon: lockOpenSvg,
   LoginIcon: loginSvg,
   LogoutIcon: logoutSvg,
