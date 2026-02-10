@@ -65,6 +65,7 @@ import findInPageSvg from '../svg/findInPage.svg?raw';
 import flagSvg from '../svg/flag.svg?raw';
 import flagFilledSvg from '../svg/flagFilled.svg?raw';
 import flickrSvg from '../svg/flickr.svg?raw';
+import floppyDiskSvg from '../svg/floppydisk.svg?raw';
 import folderSvg from '../svg/folder.svg?raw';
 import folderAddSvg from '../svg/folderAdd.svg?raw';
 import folderShieldedSvg from '../svg/folderShielded.svg?raw';
@@ -240,6 +241,7 @@ export const iconSvgs: Record<IconName, string> = {
   FlagFilledIcon: flagFilledSvg,
   FlagIcon: flagSvg,
   FlickrIcon: flickrSvg,
+  FloppyDiskIcon: floppyDiskSvg,
   FolderAddIcon: folderAddSvg,
   FolderIcon: folderSvg,
   FolderShieldedIcon: folderShieldedSvg,
