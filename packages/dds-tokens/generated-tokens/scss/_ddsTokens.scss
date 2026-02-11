@@ -195,14 +195,6 @@
   $dds-color-data-09-default: var(--dds-color-data-09-default);
   $dds-color-data-09-subtle: var(--dds-color-data-09-subtle);
   $dds-color-data-09-border: var(--dds-color-data-09-border);
-  $dds-motion-duration-medium: var(--dds-motion-duration-medium); /* Brukes til de fleste animasjoner og hoveranimasjoner */
-  $dds-motion-duration-fast: var(--dds-motion-duration-fast); /* Rask animasjon. Brukes til delay for spinner */
-  $dds-motion-duration-slow: var(--dds-motion-duration-slow); /* Langsom animasjon. Brukes til spinneranimasjon */
-  $dds-motion-duration-xfast: var(--dds-motion-duration-xfast); /* Veldig rask animasjon */
-  $dds-motion-duration-xslow: var(--dds-motion-duration-xslow); /* Veldig langsom animasjon */
-  $dds-motion-duration-xxslow: var(--dds-motion-duration-xxslow); /* Ekstra langsom animasjon */
-  $dds-motion-easing-linear: var(--dds-motion-easing-linear); /* Linear curve. Brukes til hoveranimasjoner */
-  $dds-motion-easing-in-out: var(--dds-motion-easing-in-out); /* Easing in and out. Brukes til de fleste animasjoner */
   $dds-color-bg-default: var(--dds-color-bg-default); /* UI shell base color */
   $dds-color-bg-subtle: var(--dds-color-bg-subtle); /* Alternative UI shell base color */
   $dds-color-surface-default: var(--dds-color-surface-default); /* Default bg */
