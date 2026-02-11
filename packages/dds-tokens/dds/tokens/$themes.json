@@ -236,7 +236,8 @@
       "Semantic/Color/Light": "enabled",
       "Semantic/Typography/Core": "enabled",
       "Semantic/BorderRadius/Core": "enabled",
-      "Semantic/Shadow/Light": "enabled"
+      "Semantic/Shadow/Light": "enabled",
+      "Semantic/Motion/Elsa": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:9567:917",
     "$figmaModeId": "9567:3",
@@ -399,7 +400,8 @@
       "Semantic/Color/Dark": "enabled",
       "Semantic/Typography/Core": "enabled",
       "Semantic/BorderRadius/Core": "enabled",
-      "Semantic/Shadow/Dark": "enabled"
+      "Semantic/Shadow/Dark": "enabled",
+      "Semantic/Motion/Elsa": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:9567:917",
     "$figmaModeId": "12927:0",
@@ -547,7 +549,8 @@
       "Semantic/Color/Light": "enabled",
       "Semantic/Typography/Public": "enabled",
       "Semantic/BorderRadius/Public": "enabled",
-      "Semantic/Shadow/Light": "enabled"
+      "Semantic/Shadow/Light": "enabled",
+      "Semantic/Motion/Elsa": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:9567:917",
     "$figmaModeId": "12927:1",
@@ -710,7 +713,8 @@
       "Semantic/Color/Dark": "enabled",
       "Semantic/Typography/Public": "enabled",
       "Semantic/BorderRadius/Public": "enabled",
-      "Semantic/Shadow/Dark": "enabled"
+      "Semantic/Shadow/Dark": "enabled",
+      "Semantic/Motion/Elsa": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:9567:917",
     "$figmaModeId": "12927:2",
