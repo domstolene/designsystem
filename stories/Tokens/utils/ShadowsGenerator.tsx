@@ -133,7 +133,6 @@ export const ShadowsBaseGenerator = () => {
               }}
             ></div>
           </Table.Cell>
-          <Table.Cell>{copyButton(tokenName)}</Table.Cell>
         </Table.Row>,
       );
     }
@@ -151,7 +150,6 @@ export const ShadowsBaseGenerator = () => {
           <Table.Cell>
             <VisuallyHidden>Forhåndsvisning</VisuallyHidden>
           </Table.Cell>
-          <Table.Cell>Kopier</Table.Cell>
         </Table.Row>
       </Table.Head>
       <Table.Body>{generateBodyRows()}</Table.Body>

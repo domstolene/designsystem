@@ -5,7 +5,7 @@
 .header-button {
   @media (prefers-reduced-motion: no-preference) {
     transition:
-      box-shadow 0.2s,
+      box-shadow var(--dds-motion-hover),
       var(--dds-focus-transition);
   }
 
@@ -16,10 +16,6 @@
 
 .header-container {
   padding: var(--dds-card-accordion-header-container-padding);
-
-  @media (prefers-reduced-motion: no-preference) {
-    transition: box-shadow 0.2s;
-  }
 }
 
 .header__content {

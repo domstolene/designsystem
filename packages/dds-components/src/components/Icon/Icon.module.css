@@ -1,5 +1,5 @@
 .svg {
   display: inline-block;
-  transition: fill 0.2s;
+  transition: fill var(--dds-motion-hover);
   flex-shrink: 0;
 }

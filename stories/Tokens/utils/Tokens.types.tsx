@@ -1,17 +1,19 @@
 export type ThemeMain = 'core' | 'public';
 export type ThemeMode = 'light' | 'dark';
 
-interface Token<T> {
+interface Token<T = string> {
   value: T;
   type: string;
   description?: string;
 }
 
-export type TokenGenericJsonObject = Record<string, Token<string>>;
+export type TokenNode = Token;
 
-export type TokenColorJsonObject = Record<string, TokenGenericJsonObject>;
+export type TokenGroup = Record<string, TokenNode>;
 
-export type TokenTypographyBaseJsonObject = TokenGenericJsonObject;
+export type TokenColorJsonObject = Record<string, TokenGroup>;
+
+export type TokenTypographyBaseJsonObject = TokenGroup;
 
 export interface TokenTypographySemanticCssFont {
   fontFamily: string;
@@ -32,11 +34,17 @@ export type TokenTypographySemanticJsonObject = Record<
   Record<string, Token<TokenTypographySemanticJsonValue>>
 >;
 
-export type TokenGridJsonObject = Record<string, TokenGenericJsonObject>;
+export type TokenGridJsonObject = Record<string, TokenGroup>;
 
-export type TokenBreakpointJsonObject = TokenGenericJsonObject;
+export type TokenBreakpointJsonObject = TokenGroup;
 
-export type TokenBorderRadiusJsonObject = TokenGenericJsonObject;
+export type TokenMotionJsonObject = Record<string, TokenGroup>;
+
+export type TokenMotionSemanticJsonObject = Record<
+  string,
+  TokenNode | TokenGroup
+>;
+export type TokenBorderRadiusJsonObject = TokenGroup;
 
 export type TokenShadowJsonObject = Record<
   string,
@@ -50,4 +58,8 @@ export type TokenShadowJsonObject = Record<
   }>
 >;
 
-export type TokenShadowSemanticJsonObject = TokenGenericJsonObject;
+export type TokenShadowSemanticJsonObject = TokenGroup;
+
+export function isTokenNode(entry: TokenNode | TokenGroup): entry is TokenNode {
+  return typeof entry === 'object' && typeof entry.value === 'string';
+}

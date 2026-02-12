@@ -197,6 +197,10 @@
   --dds-color-data-09-default: #007d79;
   --dds-color-data-09-subtle: #90ccc9;
   --dds-color-data-09-border: #007d79;
+  --dds-motion-hover: 200ms linear; /* Hoveranimasjon */
+  --dds-motion-surface: 200ms cubic-bezier(0.4, 0, 0.2, 1); /* Default animasjon for fokusmarkering, åpne/lukke funksjonalitet. feks, modal, accordion etc */
+  --dds-motion-chevron: 200ms linear; /* Animert chevron */
+  --dds-motion-animation-skeleton: 800ms cubic-bezier(0.4, 0, 0.2, 1) infinite alternate; /* Skeleton animasjon */
   --dds-color-bg-default: #ffffff; /* UI shell base color */
   --dds-color-bg-subtle: #f1f3f4; /* Alternative UI shell base color */
   --dds-color-surface-default: #ffffff; /* Default bg */

@@ -195,6 +195,10 @@
   $dds-color-data-09-default: var(--dds-color-data-09-default);
   $dds-color-data-09-subtle: var(--dds-color-data-09-subtle);
   $dds-color-data-09-border: var(--dds-color-data-09-border);
+  $dds-motion-hover: var(--dds-motion-hover); /* Hoveranimasjon */
+  $dds-motion-surface: var(--dds-motion-surface); /* Default animasjon for fokusmarkering, åpne/lukke funksjonalitet. feks, modal, accordion etc */
+  $dds-motion-chevron: var(--dds-motion-chevron); /* Animert chevron */
+  $dds-motion-animation-skeleton: var(--dds-motion-animation-skeleton); /* Skeleton animasjon */
   $dds-color-bg-default: var(--dds-color-bg-default); /* UI shell base color */
   $dds-color-bg-subtle: var(--dds-color-bg-subtle); /* Alternative UI shell base color */
   $dds-color-surface-default: var(--dds-color-surface-default); /* Default bg */

@@ -12,6 +12,7 @@ import {
   TypographyGenerator,
   Wrapper,
 } from './utils';
+import { MotionGenerator } from './utils/MotionGenerator';
 import { ZIndexGenerator } from './utils/ZIndexGenerator';
 import {
   Tab,
@@ -114,6 +115,10 @@ export const Shadows = () => {
 
 export const Spacing = () => {
   return <Wrapper> {SpacingGenerator()}</Wrapper>;
+};
+
+export const Motion = () => {
+  return <Wrapper> {MotionGenerator()}</Wrapper>;
 };
 
 export const Typography = () => {

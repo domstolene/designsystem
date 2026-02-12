@@ -4,8 +4,9 @@ import {
   BorderRadiusBaseGenerator,
   ColorsBaseGenerator,
   ShadowsBaseGenerator,
-  wrapperStyle,
+  Wrapper,
 } from './utils';
+import { MotionBaseGenerator } from './utils/MotionGenerator';
 import { ddsProviderDecorator } from '../../packages/dds-components/src/storybook';
 
 const meta: Meta = {
@@ -19,13 +20,17 @@ const meta: Meta = {
 export default meta;
 
 export const ColorsBase = () => {
-  return <div style={wrapperStyle}>{ColorsBaseGenerator()}</div>;
+  return <Wrapper>{ColorsBaseGenerator()}</Wrapper>;
 };
 
 export const BorderRadiusBase = () => {
-  return <div style={wrapperStyle}>{BorderRadiusBaseGenerator()}</div>;
+  return <Wrapper>{BorderRadiusBaseGenerator()}</Wrapper>;
 };
 
 export const ShadowsBase = () => {
-  return <div style={wrapperStyle}>{ShadowsBaseGenerator()}</div>;
+  return <Wrapper>{ShadowsBaseGenerator()}</Wrapper>;
+};
+
+export const MotionBase = () => {
+  return <Wrapper>{MotionBaseGenerator()}</Wrapper>;
 };

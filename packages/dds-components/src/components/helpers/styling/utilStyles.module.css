@@ -56,7 +56,7 @@
 
 .visibility-transition {
   --dds-visiblity-transition: visibility 0.4s;
-  --dds-opacity-transition: opacity 0.2s;
+  --dds-opacity-transition: opacity var(--dds-motion-surface);
 
   opacity: 0;
   @media (prefers-reduced-motion: no-preference) {
