@@ -118,6 +118,9 @@ export const SmallScreen: Story = {
 
 export const Responsive: Story = {
   args: { label: 'Dato', smallScreenBreakpoint: 'sm' },
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   decorators: [
     Story =>
       windowWidthDecorator(
@@ -128,6 +131,9 @@ export const Responsive: Story = {
 };
 
 export const InsideModal: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   args: { label: 'Dato' },
   render: args => {
     const [isOpen, setOpen] = useState(true);
@@ -143,6 +149,9 @@ export const InsideModal: Story = {
 };
 
 export const DateAndTime: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   args: { label: 'Dato' },
   render: args => {
     const norwegianDateFormatter = new DateFormatter('no-NO', {
@@ -178,6 +187,9 @@ export const DateAndTime: Story = {
 };
 
 export const NativeDate: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   args: { label: 'Dato' },
   render: args => {
     const [date, setDate] = useState<Date>(new Date('June 18, 2025'));

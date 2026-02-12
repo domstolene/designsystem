@@ -92,6 +92,7 @@ export const Placement: Story = {
         iframeHeight: 800,
       },
     },
+    chromatic: { disableSnapshot: true },
   },
   args: {
     headerText: 'Tittel for banner',
@@ -165,6 +166,7 @@ export const PlacementWithCheckboxes: Story = {
         iframeHeight: 800,
       },
     },
+    chromatic: { disableSnapshot: true },
   },
   args: {
     headerText: 'Tittel for banner',
@@ -248,6 +250,9 @@ export const PlacementWithCheckboxes: Story = {
 };
 
 export const Collapsible: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   decorators: [
     Story =>
       windowWidthDecorator(

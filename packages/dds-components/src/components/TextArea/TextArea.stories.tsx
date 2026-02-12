@@ -59,6 +59,9 @@ export const Overview: Story = {
 };
 
 export const ResponsiveWidth: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   decorators: [Story => windowWidthDecorator(<Story />)],
   args: {
     label: 'Label',

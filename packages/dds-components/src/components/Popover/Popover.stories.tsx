@@ -43,8 +43,8 @@ type Story = StoryObj<typeof Popover>;
 
 export const Preview: Story = {
   render: args => (
-    <VStack>
-      <PopoverGroup>
+    <VStack alignItems="center">
+      <PopoverGroup isInitiallyOpen={true}>
         <Button>Åpne</Button>
         <Popover {...args}>
           <VStack>
@@ -60,7 +60,9 @@ export const Preview: Story = {
 };
 
 export const ContentOverview: Story = {
-  args: {},
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: args => (
     <StoryHStack justifyContent="center">
       <div>
@@ -107,6 +109,9 @@ export const ContentOverview: Story = {
 };
 
 export const PlacementOverview: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: args => {
     const popover = (placement: Placement) => (
       <div>
@@ -144,6 +149,9 @@ export const PlacementOverview: Story = {
 };
 
 export const WithOnOpenAndOnClose: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: args => {
     const [text, setText] = useState('aktiver Popover');
     const onOpen = () => setText('Popover ble åpnet');
@@ -191,6 +199,9 @@ export const Overflow: Story = {
 };
 
 export const InlineExample: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: args => {
     return (
       <Paragraph>
@@ -218,6 +229,9 @@ export const InlineExample: Story = {
 };
 
 export const Custom: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: args => {
     const [isOpen, setIsOpen] = useState(false);
     const bRef = useRef<HTMLButtonElement>(null);

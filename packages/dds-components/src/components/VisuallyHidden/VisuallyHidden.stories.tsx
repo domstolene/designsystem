@@ -34,6 +34,9 @@ export const Preview: Story = {
 };
 
 export const WithLink: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: args => (
     <>
       <Paragraph>Eksempeltekst på en nettside.</Paragraph>
@@ -53,6 +56,9 @@ export const WithLink: Story = {
 };
 
 export const TableButtons: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: args => (
     <Table.Wrapper>

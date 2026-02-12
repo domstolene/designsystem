@@ -1,13 +1,12 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { CombinedRefExample } from './CombinedRefExample';
+import { hookParameters } from '../hooks.utils';
 
 const meta: Meta<typeof CombinedRefExample> = {
   title: 'dds-components/Hooks/useCombinedRef',
   component: CombinedRefExample,
-  parameters: {
-    disableGlobalDecorator: true,
-  },
+  parameters: hookParameters,
   argTypes: {
     refs: { control: false },
   },

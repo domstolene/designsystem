@@ -48,14 +48,15 @@ export const WithColor: Story = {
   render: args => (
     <StoryVStack>
       <InlineButton {...args}>Vis mer</InlineButton>
-      <InlineButton {...args}>
-        <Icon icon={HelpIcon} />
-      </InlineButton>
+      <InlineButton {...args} icon={HelpIcon} />
     </StoryVStack>
   ),
 };
 
 export const Example: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: args => {
     const [isShown, show] = useState(false);

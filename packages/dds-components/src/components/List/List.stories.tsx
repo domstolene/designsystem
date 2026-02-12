@@ -103,6 +103,9 @@ export const Nested: Story = {
 };
 
 export const Example: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: args => (
     <div style={{ maxWidth: '700px' }}>
       <Typography withMargins>

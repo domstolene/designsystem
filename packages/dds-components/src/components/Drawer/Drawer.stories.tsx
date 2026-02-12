@@ -41,7 +41,7 @@ type Story = StoryObj<typeof Drawer>;
 export const Preview: Story = {
   args: { header: 'Tittel' },
   render: args => (
-    <DrawerGroup>
+    <DrawerGroup isInitiallyOpen>
       <Button>Åpne</Button>
       <Drawer {...args}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -59,6 +59,9 @@ export const Preview: Story = {
 
 export const WithBackdrop: Story = {
   args: { header: 'Tittel' },
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: args => (
     <DrawerGroup>
       <Button>Åpne</Button>
@@ -78,6 +81,9 @@ export const WithBackdrop: Story = {
 
 export const OverviewPlacement: Story = {
   args: { header: 'Tittel' },
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: args => (
     <StoryHStack>
       <DrawerGroup>
@@ -100,6 +106,9 @@ export const OverviewPlacement: Story = {
 
 export const Sizes: Story = {
   args: { header: 'Header' },
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: args => (
     <StoryHStack>
       {DRAWER_SIZES.map(size => (
@@ -135,6 +144,9 @@ export const Sizes: Story = {
 };
 
 export const WithOnCloseAndOnOpen: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   args: { header: 'Tittel' },
   render: args => {
     const [text, setText] = useState('Aktiver Drawer.');
@@ -166,6 +178,9 @@ export const WithOnCloseAndOnOpen: Story = {
 };
 
 export const LongContent: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   args: { header: 'Rettsmekling' },
   render: args => (
     <DrawerGroup>

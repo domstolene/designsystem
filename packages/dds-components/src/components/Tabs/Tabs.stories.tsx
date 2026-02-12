@@ -77,6 +77,9 @@ export const Sizes: Story = {
 };
 
 export const ActiveTab: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: args => {
     const [activeTab, setActiveTab] = useState(1);
     return (
@@ -150,6 +153,9 @@ export const WithAddTabButton: Story = {
 };
 
 export const WithWidth: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   args: { width: '500px' },
   render: args => (
     <>
@@ -163,6 +169,9 @@ export const WithWidth: Story = {
 };
 
 export const ResponsiveWidth: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   decorators: [Story => windowWidthDecorator(<Story />)],
   args: {
     width: {

@@ -245,6 +245,9 @@ const exampleStyle = (
 );
 
 export const Address: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   decorators: [
     Story => (
       <>
@@ -268,6 +271,9 @@ export const Address: Story = {
 };
 
 export const Logo: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   decorators: [
     Story => (
       <>
@@ -284,6 +290,9 @@ export const Logo: Story = {
 };
 
 export const ListHeader: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   decorators: [
     Story => (
       <>
@@ -300,6 +309,9 @@ export const ListHeader: Story = {
 };
 
 export const Left: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   decorators: [
     Story => (
       <>
@@ -318,6 +330,9 @@ export const Left: Story = {
   ),
 };
 export const ListExample: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   decorators: [
     Story => (
       <>
@@ -348,6 +363,9 @@ export const ListExample: Story = {
 };
 
 export const Socials: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   decorators: [
     Story => (
       <>

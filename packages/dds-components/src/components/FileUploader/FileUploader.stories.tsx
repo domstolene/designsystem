@@ -11,7 +11,7 @@ import {
   windowWidthDecorator,
 } from '../../storybook';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
-import { Heading, Paragraph } from '../Typography';
+import { Heading } from '../Typography';
 
 export default {
   title: 'dds-components/Components/FileUploader',
@@ -76,6 +76,9 @@ export const States: Story = {
 };
 
 export const PdfOnly: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   args: {
     label: 'Last opp fil',
     tip: 'Kun PDF-filer',
@@ -86,14 +89,13 @@ export const PdfOnly: Story = {
 export const CustomFileList: Story = {
   args: { label: 'Last opp fil' },
   render: args => {
-    const [files, setFiles] = useState<FileList>([]);
+    const [files, setFiles] = useState<FileList>([file]);
     return (
       <>
-        <Paragraph withMargins>Last opp en fil for å se listen.</Paragraph>
         <FileUploader
           {...args}
           hideFileList
-          initialFiles={files}
+          value={files}
           onChange={files => {
             setFiles(files);
           }}

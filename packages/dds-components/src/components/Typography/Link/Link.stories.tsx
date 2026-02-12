@@ -53,6 +53,9 @@ export const Variants: Story = {
 };
 
 export const As: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   args: {
     ...showcaseProps,
     as: 'span',

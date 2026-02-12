@@ -28,6 +28,9 @@ export const HorizontalLayout: Story = {
 };
 
 export const WithoutTextArea: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   args: {
     feedbackTextAreaExcluded: true,
   },
@@ -52,6 +55,9 @@ export const CustomLabels: Story = {
 };
 
 export const CustomButtonTooltip: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   args: {
     thumbUpTooltip: 'Liker',
     thumbDownTooltip: 'Liker ikke',
@@ -59,6 +65,9 @@ export const CustomButtonTooltip: Story = {
 };
 
 export const LoadingState: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: args => (
     <>
       <Feedback {...args} loading />

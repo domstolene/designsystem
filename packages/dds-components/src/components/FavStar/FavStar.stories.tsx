@@ -52,6 +52,9 @@ export const Sizes: Story = {
 };
 
 export const RealWorld: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: args => {
     const documents = [
       {

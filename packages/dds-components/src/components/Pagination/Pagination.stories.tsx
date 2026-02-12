@@ -98,6 +98,9 @@ export const SmallScreen: Story = {
 };
 
 export const CustomOptions: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   args: {
     itemsAmount: customOptionsItemsAmount,
     defaultItemsPerPage: customOptions[0].value,
@@ -108,6 +111,9 @@ export const CustomOptions: Story = {
 };
 
 export const Responsive: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   args: {
     smallScreenBreakpoint: 'sm',
     itemsAmount: 100,
@@ -124,5 +130,8 @@ export const Responsive: Story = {
 };
 
 export const DefaultActivePage: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   args: { itemsAmount: 100, defaultActivePage: 6 },
 };

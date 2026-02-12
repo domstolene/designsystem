@@ -11,7 +11,7 @@ import {
 } from '../../storybook';
 import { Button } from '../Button';
 import { HStack } from '../layout';
-import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
+import { StoryVStack } from '../layout/Stack/utils';
 import { List, ListItem } from '../List';
 import { Heading, Paragraph } from '../Typography';
 
@@ -34,7 +34,7 @@ export const Preview: Story = {
   },
 };
 
-export const Variants: Story = {
+export const Purposes: Story = {
   render: args => (
     <StoryVStack alignItems="stretch">
       {L_MESSAGE_PURPOSES.map(p => (
@@ -46,23 +46,19 @@ export const Variants: Story = {
   ),
 };
 
-export const Closable: Story = {
-  args: {
-    children: 'Dette er en lokal melding',
-    closable: true,
-  },
-};
-
-export const Vertical: Story = {
-  args: {
-    children: 'Dette er en lokal melding',
-    layout: 'vertical',
-  },
+export const Variants: Story = {
   render: args => (
-    <StoryHStack>
-      <LocalMessage {...args} />
-      <LocalMessage {...args} closable />
-    </StoryHStack>
+    <StoryVStack alignItems="stretch">
+      <LocalMessage {...args} closable>
+        Closable
+      </LocalMessage>
+      <LocalMessage {...args} layout="vertical">
+        Vertical
+      </LocalMessage>
+      <LocalMessage {...args} layout="vertical" closable>
+        Vertical closable
+      </LocalMessage>
+    </StoryVStack>
   ),
 };
 
@@ -81,6 +77,9 @@ export const WithExtraButton: Story = {
 };
 
 export const ResponsiveWidth: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   decorators: [Story => windowWidthDecorator(<Story />)],
   args: {
     children: 'Dette er en lokal melding',
@@ -95,9 +94,11 @@ export const ResponsiveWidth: Story = {
 };
 
 export const ComplexContent: Story = {
-  args: {},
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: args => (
-    <LocalMessage {...args} purpose={args.purpose} layout="vertical" closable>
+    <LocalMessage {...args} layout="vertical" closable>
       <Heading level={2} typographyType="headingLarge" withMargins>
         Dette er en viktig melding
       </Heading>
