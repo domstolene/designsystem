@@ -75,9 +75,9 @@
 .row {
   @media (prefers-reduced-motion: no-preference) {
     transition:
-      background-color var(--dds-motion-hover),
-      border-color var(--dds-motion-hover),
-      box-shadow var(--dds-motion-hover);
+      background-color var(--dds-motion-micro-state),
+      border-color var(--dds-motion-micro-state),
+      box-shadow var(--dds-motion-micro-state);
   }
 }
 
@@ -153,7 +153,7 @@
   color: inherit;
 
   @media (prefers-reduced-motion: no-preference) {
-    transition: all var(--dds-motion-hover);
+    transition: all var(--dds-motion-micro-state);
   }
 
   &:hover {

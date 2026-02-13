@@ -12,7 +12,7 @@
   border: 1px solid;
 
   @media (prefers-reduced-motion: no-preference) {
-    transition: all var(--dds-motion-hover);
+    transition: all var(--dds-motion-micro-state);
   }
 
   &:active:enabled {

@@ -18,7 +18,7 @@ export const focusVisible = {
 };
 
 export const focusVisibleTransitionValue =
-  'outline-offset var(--dds-motion-hover)';
+  'outline-offset var(--dds-motion-micro-state)';
 
 export const focusVisibleInset = {
   outline: 'var(--dds-color-focus-outside) 2px solid',

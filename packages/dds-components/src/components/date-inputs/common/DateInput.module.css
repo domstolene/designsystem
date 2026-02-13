@@ -110,7 +110,7 @@
   border: 1px solid;
   border-color: transparent;
   border-radius: var(--dds-border-radius-button);
-  transition: var(--dds-motion-hover);
+  transition: var(--dds-motion-micro-state);
 }
 
 .calendar__cell-button--today {

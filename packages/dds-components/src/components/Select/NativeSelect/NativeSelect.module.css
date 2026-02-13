@@ -28,7 +28,7 @@
       background-color: var(--dds-color-surface-hover-default);
     }
     @media (prefers-reduced-motion: no-preference) {
-      transition: background-color var(--dds-motion-hover);
+      transition: background-color var(--dds-motion-micro-state);
     }
   }
   optgroup {

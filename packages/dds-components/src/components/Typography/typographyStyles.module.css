@@ -74,8 +74,8 @@
 
   @media (prefers-reduced-motion: no-preference) {
     transition:
-      color var(--dds-motion-hover),
-      text-decoration-color var(--dds-motion-hover),
+      color var(--dds-motion-micro-state),
+      text-decoration-color var(--dds-motion-micro-state),
       var(--dds-focus-transition);
   }
 }

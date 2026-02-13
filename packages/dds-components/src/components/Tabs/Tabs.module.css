@@ -38,10 +38,10 @@
 
   @media (prefers-reduced-motion: no-preference) {
     transition:
-      box-shadow var(--dds-motion-hover),
-      border-bottom var(--dds-motion-hover),
-      color var(--dds-motion-hover),
-      background-color var(--dds-motion-hover),
+      box-shadow var(--dds-motion-micro-state),
+      border-bottom var(--dds-motion-micro-state),
+      color var(--dds-motion-micro-state),
+      background-color var(--dds-motion-micro-state),
       var(--dds-focus-transition);
   }
 

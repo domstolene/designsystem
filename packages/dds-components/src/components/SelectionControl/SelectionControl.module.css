@@ -155,10 +155,10 @@ input[data-indeterminate='true'] ~ .selection-control:after {
   }
   @media (prefers-reduced-motion: no-preference) {
     transition:
-      box-shadow var(--dds-motion-hover),
-      background-color var(--dds-motion-hover),
-      border var(--dds-motion-hover),
-      border-color var(--dds-motion-hover),
+      box-shadow var(--dds-motion-micro-state),
+      background-color var(--dds-motion-micro-state),
+      border var(--dds-motion-micro-state),
+      border-color var(--dds-motion-micro-state),
       var(--dds-focus-transition);
   }
 }
