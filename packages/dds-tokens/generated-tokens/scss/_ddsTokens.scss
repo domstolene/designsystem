@@ -195,7 +195,7 @@
   $dds-color-data-09-default: var(--dds-color-data-09-default);
   $dds-color-data-09-subtle: var(--dds-color-data-09-subtle);
   $dds-color-data-09-border: var(--dds-color-data-09-border);
-  $dds-motion-hover: var(--dds-motion-hover); /* Hoveranimasjon */
+  $dds-motion-micro-state: var(--dds-motion-micro-state); /* Animasjon for hover og andre states. feks. selected, pressed */
   $dds-motion-surface: var(--dds-motion-surface); /* Default animasjon for fokusmarkering, åpne/lukke funksjonalitet. feks, modal, accordion etc */
   $dds-motion-chevron: var(--dds-motion-chevron); /* Animert chevron */
   $dds-motion-animation-skeleton: var(--dds-motion-animation-skeleton); /* Skeleton animasjon */
