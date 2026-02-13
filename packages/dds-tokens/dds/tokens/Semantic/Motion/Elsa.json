@@ -1,9 +1,9 @@
 {
   "dds-motion": {
-    "hover": {
+    "micro-state": {
       "value": "{dds-motion-base.duration.medium} {dds-motion-base.easing.linear}",
       "type": "other",
-      "description": "Hoveranimasjon"
+      "description": "Animasjon for hover og andre states. feks. selected, pressed"
     },
     "surface": {
       "value": "{dds-motion-base.duration.medium} {dds-motion-base.easing.in-out}",
