@@ -1,5 +1,15 @@
 # @norges-domstoler/dds-components
 
+## 22.3.0
+
+(2026-02-13)
+
+### Minor Changes
+
+- 7b59bc3: Ny komponent: `<ErrorSummary>`. Brukes for å oppsummere feil brukeren må rette oppi før de kan gå videre, f.eks. sende inn skjema.
+- 2208c89: Nytt ikon: `LockFilledIcon`. Bytter til dette ikonet i `readOnly` variant av alle inputkomponenter.
+- c4c1a02: Nytt ikon: `FloppyDiskIcon`. Kan brukes som lagringsikon.
+
 ## 22.2.0
 
 (2026-02-09)
