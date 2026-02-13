@@ -236,7 +236,7 @@ export const getCustomStyles = <TOption>(
     gap: 'var(--dds-spacing-x0-25)',
     padding: 'var(--dds-spacing-x0-75)',
     backgroundColor: 'var(--dds-color-surface-default)',
-    ...typography.option.medium,
+    ...typography.option[size],
     color: 'var(--dds-color-text-default)',
     '@media (prefers-reduced-motion: no-preference)': {
       transition: 'color 0.2s, background-color 0.2s',
