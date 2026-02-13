@@ -2,6 +2,8 @@
 
 ## 22.3.0
 
+(2026-02-13)
+
 ### Minor Changes
 
 - 7b59bc3: Ny komponent: `<ErrorSummary>`. Brukes for å oppsummere feil brukeren må rette oppi før de kan gå videre, f.eks. sende inn skjema.
