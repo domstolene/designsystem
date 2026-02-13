@@ -38,13 +38,13 @@
       background: var(--dds-color-text-body);
       mask-size: 100%;
       mask-repeat: no-repeat;
-      mask-image: url('./bullets/jordskifterett_bullet1.svg');
+      mask-image: url('../Icon/svg/jordskifterett.svg');
     }
     ul > li:before {
-      mask-image: url('./bullets/lagmannsrett_bullet2.svg');
+      mask-image: url('../Icon/svg/lagmannsrett.svg');
     }
     ul > li > ul > li:before {
-      mask-image: url('./bullets/tingrett_bullet3.svg');
+      mask-image: url('../Icon/svg/tingrett.svg');
     }
   }
 }
