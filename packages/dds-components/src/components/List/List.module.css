@@ -12,12 +12,12 @@
 }
 
 .list--unordered {
-  --dds-list-ul-li-padding-left: 1em + var(--dds-spacing-x0-25);
+  --dds-list-bullet-size: 0.75em;
+  --dds-list-ul-li-padding-left: var(--dds-list-bullet-size) + 0.5em;
   list-style: none;
   padding-left: calc(
     var(--dds-spacing-x2) - (var(--dds-list-ul-li-padding-left))
   );
-  --dds-list-bullet-size: 1em;
 
   li {
     position: relative;
