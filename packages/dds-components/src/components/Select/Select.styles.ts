@@ -83,7 +83,7 @@ export const getCustomStyles = <TOption>(
     border: '1px solid',
     borderColor: 'var(--dds-color-border-default)',
     backgroundColor: 'var(--dds-color-surface-default)',
-    transition: `box-shadow 0.2s, border-color 0.2s, ${focusVisibleTransitionValue}`,
+    transition: `box-shadow var(--dds-motion-micro-state), border-color var(--dds-motion-micro-state), ${focusVisibleTransitionValue}`,
     ...control[size],
     '&:hover': {
       ...(!isReadOnly && {
@@ -130,7 +130,8 @@ export const getCustomStyles = <TOption>(
   dropdownIndicator: (provided, state) => ({
     display: 'inline-flex',
     '@media (prefers-reduced-motion: no-preference)': {
-      transition: 'color 0.2s, transform 0.2s',
+      transition:
+        'color var(--dds-motion-micro-state), transform var(--dds-motion-chevron)',
     },
     padding: 0,
     color: 'var(--dds-color-icon-default)',
@@ -190,7 +191,8 @@ export const getCustomStyles = <TOption>(
           borderEndEndRadius: 'var(--dds-border-radius-surface)',
           borderStartEndRadius: 'var(--dds-border-radius-surface)',
           '@media (prefers-reduced-motion: no-preference)': {
-            transition: 'color 0.2s, background-color 0.2s, box-shadow 0.2s',
+            transition:
+              'color var(--dds-motion-micro-state), background-color var(--dds-motion-micro-state), box-shadow var(--dds-motion-micro-state)',
           },
           '&:hover': {
             backgroundColor: 'var(--dds-color-surface-hover-default)',
@@ -202,7 +204,7 @@ export const getCustomStyles = <TOption>(
     width: '100%',
     boxShadow: 'var(--dds-shadow-medium)',
     zIndex: 100,
-    transition: '0.2s',
+    transition: 'var(--dds-motion-surface)',
     border: '1px solid var(--dds-color-border-default)',
     backgroundColor: 'var(--dds-color-surface-default)',
     borderRadius: 'var(--dds-border-radius-surface)',
@@ -239,7 +241,8 @@ export const getCustomStyles = <TOption>(
     ...typography.option.medium,
     color: 'var(--dds-color-text-default)',
     '@media (prefers-reduced-motion: no-preference)': {
-      transition: 'color 0.2s, background-color 0.2s',
+      transition:
+        'color var(--dds-motion-micro-state), background-color var(--dds-motion-micro-state)',
     },
     '&:hover': {
       color: 'var(--dds-color-text-default)',
@@ -268,7 +271,7 @@ export const getCustomStyles = <TOption>(
           borderRadius: 'var(--dds-border-radius-button)',
 
           '@media (prefers-reduced-motion: no-preference)': {
-            transition: 'background-color 0.2s',
+            transition: 'background-color var(--dds-motion-micro-state)',
           },
           '&:hover': {
             backgroundColor: 'var(--dds-color-surface-hover-default)',

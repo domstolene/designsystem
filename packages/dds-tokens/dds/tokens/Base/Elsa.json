@@ -1285,7 +1285,7 @@
       }
     }
   },
-  "dds-motion": {
+  "dds-motion-base": {
     "duration": {
       "medium": {
         "value": "200ms",

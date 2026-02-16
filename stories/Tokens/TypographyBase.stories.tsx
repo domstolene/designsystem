@@ -9,7 +9,7 @@ import {
   FontSizeGenerator,
   FontStyleGenerator,
   FontWeightGenerator,
-  wrapperStyle,
+  Wrapper,
 } from './utils';
 import { ddsProviderDecorator } from '../../packages/dds-components/src/storybook';
 
@@ -25,33 +25,33 @@ const meta: Meta = {
 export default meta;
 
 export const FontFamily = () => {
-  return <div style={wrapperStyle}>{FontFamilyGenerator()}</div>;
+  return <Wrapper>{FontFamilyGenerator()}</Wrapper>;
 };
 
 export const FontSize = () => {
-  return <div style={wrapperStyle}> {FontSizeGenerator()}</div>;
+  return <Wrapper> {FontSizeGenerator()}</Wrapper>;
 };
 
 export const FontWeight = () => {
-  return <div style={wrapperStyle}> {FontWeightGenerator()} </div>;
+  return <Wrapper> {FontWeightGenerator()} </Wrapper>;
 };
 
 export const FontStyle = () => {
-  return <div style={wrapperStyle}>{FontStyleGenerator()}</div>;
+  return <Wrapper>{FontStyleGenerator()}</Wrapper>;
 };
 
 export const LineHeight = () => {
-  return <div style={wrapperStyle}> {FontLineheightGenerator()}</div>;
+  return <Wrapper> {FontLineheightGenerator()}</Wrapper>;
 };
 
 export const LetterSpacing = () => {
-  return <div style={wrapperStyle}> {FontLetterSpacingGenerator()}</div>;
+  return <Wrapper> {FontLetterSpacingGenerator()}</Wrapper>;
 };
 
 export const ParagraphSpacing = () => {
-  return <div style={wrapperStyle}> {FontParagraphSpacingGenerator()}</div>;
+  return <Wrapper> {FontParagraphSpacingGenerator()}</Wrapper>;
 };
 
 export const DataVisualisation = () => {
-  return <div style={wrapperStyle}>{DataColorsBaseGenerator()}</div>;
+  return <Wrapper>{DataColorsBaseGenerator()}</Wrapper>;
 };

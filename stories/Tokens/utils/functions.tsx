@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { copyButton } from './CopyButton';
-import { type TokenGenericJsonObject } from './Tokens.types';
+import { type TokenGroup } from './Tokens.types';
 import {
   Box,
   type BoxProps,
@@ -30,13 +30,8 @@ export const tableStyle = {
   marginBottom: 'var(--dds-spacing-x1-5)',
 };
 
-export const wrapperStyle = {
-  maxWidth: '90ch',
-  marginInline: 'auto',
-};
-
 interface TokenOverviewTypographyBaseProps {
-  tokens: TokenGenericJsonObject;
+  tokens: TokenGroup;
   type: string;
   cssRule: string;
   hasDesc?: boolean;

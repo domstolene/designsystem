@@ -32,7 +32,7 @@
   --dds-focus-outline-offset: var(--dds-spacing-x0-125);
   --dds-focus-outline-inset: calc(0px - var(--dds-spacing-x0-25));
   --dds-focus-box-shadow: 0 0 0 2px var(--dds-color-focus-inside);
-  --dds-focus-transition: outline-offset 0.2s;
+  --dds-focus-transition: outline-offset var(--dds-motion-surface);
 
   /*Sizes*/
   --dds-input-default-width: 320px;
@@ -41,9 +41,6 @@
   --dds-spacing-sm-icon-text-gap: var(--dds-spacing-x0-25);
   --dds-spacing-md-icon-text-gap: var(--dds-spacing-x0-5);
   --dds-spacing-lg-icon-text-gap: var(--dds-spacing-x0-75);
-
-  /*Transitions*/
-  --dds-transition-duration-surface-move: 0.5s;
 }
 
 .global-styles {

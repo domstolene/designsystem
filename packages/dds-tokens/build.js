@@ -31,11 +31,13 @@ StyleDictionary.registerFormat({
 const srcPathBase = 'dds/tokens';
 const destPathBase = 'generated-tokens';
 
+const commonSources = ['Base/Elsa.json', 'Semantic/Motion/Elsa.json'];
+
 const themes = [
   {
     name: 'core-light',
     sources: [
-      'Base/Elsa.json',
+      ...commonSources,
       'Semantic/Color/Light.json',
       'Semantic/Shadow/Light.json',
       'Semantic/BorderRadius/Core.json',
@@ -45,7 +47,7 @@ const themes = [
   {
     name: 'core-dark',
     sources: [
-      'Base/Elsa.json',
+      ...commonSources,
       'Semantic/Color/Dark.json',
       'Semantic/Shadow/Dark.json',
       'Semantic/BorderRadius/Core.json',
@@ -55,7 +57,7 @@ const themes = [
   {
     name: 'public-light',
     sources: [
-      'Base/Elsa.json',
+      ...commonSources,
       'Semantic/Color/Light.json',
       'Semantic/Shadow/Light.json',
       'Semantic/BorderRadius/Public.json',
@@ -65,7 +67,7 @@ const themes = [
   {
     name: 'public-dark',
     sources: [
-      'Base/Elsa.json',
+      ...commonSources,
       'Semantic/Color/Dark.json',
       'Semantic/Shadow/Dark.json',
       'Semantic/BorderRadius/Public.json',

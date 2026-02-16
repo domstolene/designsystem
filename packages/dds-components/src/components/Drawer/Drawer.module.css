@@ -1,5 +1,4 @@
 .container {
-  --dds-transition-duration-drawer-move: 0.2s;
   /* Justering på spacing slik at fokusmarkering osv. ikke skjules ved overflow */
   --dds-drawer-content-container-padding: var(--dds-spacing-x0-25);
   --dds-drawer-container-padding: var(--dds-spacing-x1)
@@ -10,7 +9,7 @@
   z-index: var(--dds-zindex-drawer);
 
   @media (prefers-reduced-motion: no-preference) {
-    transition: transform var(--dds-transition-duration-drawer-move);
+    transition: transform var(--dds-motion-surface);
   }
 }
 

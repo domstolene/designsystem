@@ -17,7 +17,8 @@ export const focusVisible = {
   boxShadow: '0 0 0 2px var(--dds-color-focus-inside)',
 };
 
-export const focusVisibleTransitionValue = 'outline-offset 0.2s';
+export const focusVisibleTransitionValue =
+  'outline-offset var(--dds-motion-micro-state)';
 
 export const focusVisibleInset = {
   outline: 'var(--dds-color-focus-outside) 2px solid',
@@ -45,18 +46,6 @@ export const scrollbarStyling = {
   '&::-webkit-scrollbar-thumb': {
     background: 'var(--dds-color-surface-scrollbar)',
   },
-};
-
-export const visibilityTransition = (open: boolean) => {
-  return `
-      @media (prefers-reduced-motion: no-preference) {
-        transition:
-          visibility 0.4s,
-          opacity 0.2s;
-      }
-      visibility: ${open ? 'visible' : 'hidden'};
-      opacity: ${open ? 1 : 0};
-    `;
 };
 
 /**

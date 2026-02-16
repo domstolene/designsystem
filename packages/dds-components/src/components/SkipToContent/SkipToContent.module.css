@@ -5,7 +5,7 @@
   opacity: 0;
 
   @media (prefers-reduced-motion: no-preference) {
-    transition: opacity 0.2s;
+    transition: opacity var(--dds-motion-surface);
   }
 }
 

@@ -8,6 +8,7 @@
     "Semantic/BorderRadius/Public",
     "Semantic/BorderRadius/Core",
     "Semantic/Shadow/Light",
-    "Semantic/Shadow/Dark"
+    "Semantic/Shadow/Dark",
+    "Semantic/Motion/Elsa"
   ]
 }

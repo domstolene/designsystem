@@ -197,14 +197,10 @@
   --dds-color-data-09-default: #5dafad;
   --dds-color-data-09-subtle: #006461;
   --dds-color-data-09-border: #5dafad;
-  --dds-motion-duration-medium: 200ms; /* Brukes til de fleste animasjoner og hoveranimasjoner */
-  --dds-motion-duration-fast: 100ms; /* Rask animasjon. Brukes til delay for spinner */
-  --dds-motion-duration-slow: 400ms; /* Langsom animasjon. Brukes til spinneranimasjon */
-  --dds-motion-duration-xfast: 50ms; /* Veldig rask animasjon */
-  --dds-motion-duration-xslow: 600ms; /* Veldig langsom animasjon */
-  --dds-motion-duration-xxslow: 800ms; /* Ekstra langsom animasjon */
-  --dds-motion-easing-linear: linear; /* Linear curve. Brukes til hoveranimasjoner */
-  --dds-motion-easing-in-out: cubic-bezier(0.4, 0, 0.2, 1); /* Easing in and out. Brukes til de fleste animasjoner */
+  --dds-motion-micro-state: 200ms linear; /* Animasjon for hover og andre states. feks. selected, pressed */
+  --dds-motion-surface: 200ms cubic-bezier(0.4, 0, 0.2, 1); /* Default animasjon for fokusmarkering, åpne/lukke funksjonalitet. feks, modal, accordion etc */
+  --dds-motion-chevron: 200ms linear; /* Animert chevron */
+  --dds-motion-animation-skeleton: 800ms cubic-bezier(0.4, 0, 0.2, 1) infinite alternate; /* Skeleton animasjon */
   --dds-color-bg-default: #181a1c; /* UI shell base color */
   --dds-color-bg-subtle: #22272a; /* Alternative UI shell base color */
   --dds-color-surface-default: #181a1c; /* Default bg */

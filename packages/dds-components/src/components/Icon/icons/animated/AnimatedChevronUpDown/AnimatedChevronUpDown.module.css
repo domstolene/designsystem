@@ -1,6 +1,6 @@
 .svg {
   @media (prefers-reduced-motion: no-preference) {
-    --dds-chevron-transition: transform 0.2s linear;
+    --dds-chevron-transition: transform var(--dds-motion-chevron);
   }
 }
 

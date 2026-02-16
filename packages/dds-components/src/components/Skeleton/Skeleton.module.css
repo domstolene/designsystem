@@ -8,6 +8,11 @@
 }
 
 .container {
-  animation: ddsSkeletonAnimation 0.75s ease-out infinite alternate;
+  animation: ddsSkeletonAnimation var(--dds-motion-animation-skeleton);
   background-color: var(--dds-color-surface-skeleton);
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: 0.8;
+  }
 }
