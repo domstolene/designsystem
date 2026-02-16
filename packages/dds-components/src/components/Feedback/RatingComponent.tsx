@@ -55,7 +55,7 @@ export const RatingComponent = ({
             {button('positive', layout, thumbUpTooltip)}
           </Tooltip>
           <Tooltip text={thumbDownTooltip}>
-            <div>{button('negative', layout, thumbDownTooltip)}</div>
+            {button('negative', layout, thumbDownTooltip)}
           </Tooltip>
         </HStack>
       )}
