@@ -171,7 +171,7 @@ export const WithAsyncClick: Story = {
 
 export const WithinTable: Story = {
   parameters: { docs: { story: { height: '540px' } } },
-  render: _args => {
+  render: args => {
     return (
       <VStack>
         <Table size="small">
@@ -191,7 +191,7 @@ export const WithinTable: Story = {
                     size="xsmall"
                     icon={MoreVerticalIcon}
                   />
-                  <OverflowMenu>
+                  <OverflowMenu {...args}>
                     <OverflowMenuList>
                       <OverflowMenuLink icon={EditIcon}>
                         {'Dette er en lenke'}
