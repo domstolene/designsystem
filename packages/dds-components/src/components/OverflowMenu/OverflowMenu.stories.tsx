@@ -14,6 +14,7 @@ import {
   TrashIcon,
 } from '../Icon/icons';
 import { VStack } from '../layout';
+import { Table } from '../Table';
 import { OverflowMenuToggle } from './components/OverflowMenuToggle';
 
 import {
@@ -26,7 +27,6 @@ import {
   OverflowMenuListHeader,
   OverflowMenuSpan,
 } from '.';
-import { Table } from '../Table';
 
 const { className, htmlProps, ref, children, style } =
   commonArgTypesWithNodeChildren;
@@ -171,7 +171,7 @@ export const WithAsyncClick: Story = {
 
 export const WithinTable: Story = {
   parameters: { docs: { story: { height: '540px' } } },
-  render: args => {
+  render: _args => {
     return (
       <VStack>
         <Table size="small">
