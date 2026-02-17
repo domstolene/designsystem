@@ -7,6 +7,7 @@ import { getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Paper } from '../layout';
+import typographyStyles from '../Typography/typographyStyles.module.css';
 
 import { type OverflowMenuProps } from '.';
 
@@ -37,6 +38,7 @@ export const OverflowMenu = ({
         menuId,
         cn(
           className,
+          typographyStyles['body-short-medium'],
           styles.container,
           utilStyles.scrollbar,
           utilStyles['visibility-transition'],

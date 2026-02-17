@@ -6,7 +6,13 @@ import {
   ddsProviderDecorator,
 } from '../../storybook';
 import { Button } from '../Button';
-import { EditIcon, MenuIcon, PersonIcon, TrashIcon } from '../Icon/icons';
+import {
+  EditIcon,
+  MenuIcon,
+  MoreVerticalIcon,
+  PersonIcon,
+  TrashIcon,
+} from '../Icon/icons';
 import { VStack } from '../layout';
 import { OverflowMenuToggle } from './components/OverflowMenuToggle';
 
@@ -20,6 +26,7 @@ import {
   OverflowMenuListHeader,
   OverflowMenuSpan,
 } from '.';
+import { Table } from '../Table';
 
 const { className, htmlProps, ref, children, style } =
   commonArgTypesWithNodeChildren;
@@ -157,6 +164,48 @@ export const WithAsyncClick: Story = {
             <OverflowMenuDivider />
           </OverflowMenu>
         </OverflowMenuGroup>
+      </VStack>
+    );
+  },
+};
+
+export const WithinTable: Story = {
+  parameters: { docs: { story: { height: '540px' } } },
+  render: args => {
+    return (
+      <VStack>
+        <Table size="small">
+          <Table.Head>
+            <Table.Row>
+              <Table.Cell>Navn</Table.Cell>
+              <Table.Cell layout="right">Handlinger</Table.Cell>
+            </Table.Row>
+          </Table.Head>
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell>{'Navn Navnesen'}</Table.Cell>
+              <Table.Cell layout="right">
+                <OverflowMenuGroup>
+                  <Button
+                    purpose="tertiary"
+                    size="xsmall"
+                    icon={MoreVerticalIcon}
+                  />
+                  <OverflowMenu>
+                    <OverflowMenuList>
+                      <OverflowMenuLink icon={EditIcon}>
+                        {'Dette er en lenke'}
+                      </OverflowMenuLink>
+                      <OverflowMenuButton icon={EditIcon}>
+                        {'Dette er en knapp'}
+                      </OverflowMenuButton>
+                    </OverflowMenuList>
+                  </OverflowMenu>
+                </OverflowMenuGroup>
+              </Table.Cell>
+            </Table.Row>
+          </Table.Body>
+        </Table>
       </VStack>
     );
   },
