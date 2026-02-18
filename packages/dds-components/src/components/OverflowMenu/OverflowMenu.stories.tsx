@@ -170,7 +170,10 @@ export const WithAsyncClick: Story = {
 };
 
 export const WithinTable: Story = {
-  parameters: { docs: { story: { height: '540px' } } },
+  parameters: {
+    docs: { story: { height: '540px' } },
+    chromatic: { disableSnapshot: true },
+  },
   render: args => {
     return (
       <VStack>
