@@ -12,8 +12,11 @@ export function SvgWrapper({
   className,
   title,
   children,
+  // destructure for å unngå at `iconState` blir sendt videre til svg-elementet som ugyldig custom attribute.
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  iconState: _iconState,
   ...props
-}: SvgProps) {
+}: SvgProps & { iconState?: string }) {
   return (
     <svg
       {...props}

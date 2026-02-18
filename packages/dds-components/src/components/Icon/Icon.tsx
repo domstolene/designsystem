@@ -84,7 +84,7 @@ export function Icon<I extends SvgIcon = SvgIcon>(props: IconProps<I>) {
       width={size}
       fill={color}
       aria-hidden={htmlProps?.['aria-hidden'] ?? true}
-      iconState={iconState}
+      {...(iconState ? { iconState } : {})}
     />
   );
 }
