@@ -1,5 +1,22 @@
 # @norges-domstoler/dds-components
 
+## 22.4.0
+
+(2026-02-19)
+
+### Minor Changes
+
+- 18019c7: Nye ikoner:
+  - `CircleIcon` og `CircleFilledIcon`. Kan brukes til å indikere status og notifikasjoner, f.eks. ulest melding.
+  - `PaperPlaneIcon`. Brukes til sending.
+
+### Patch Changes
+
+- d15fffd: Utbedrer layout i `<Feedback>`, slik at tooltip legger seg riktig i forhold til tommel ned-knappen.
+- d676af7: Sett font-styling for OverflowMenu
+- e3a9461: Forhindrer at ugyldig custom attributt `iconState` settes på svg-elementet.
+- dbd098d: Migrerer alle komponenter fra hardkodede verdier til å bruke nye motion design tokens.
+
 ## 22.3.0
 
 (2026-02-13)
