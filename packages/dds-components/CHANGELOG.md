@@ -2,6 +2,8 @@
 
 ## 22.4.0
 
+(2026-02-19)
+
 ### Minor Changes
 
 - 18019c7: Nye ikoner:
