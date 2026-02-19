@@ -32,6 +32,8 @@ import chevronLastSvg from '../svg/chevronLast.svg?raw';
 import chevronLeftSvg from '../svg/chevronLeft.svg?raw';
 import chevronRightSvg from '../svg/chevronRight.svg?raw';
 import chevronUpSvg from '../svg/chevronUp.svg?raw';
+import circleSvg from '../svg/circle.svg?raw';
+import circleFilledSvg from '../svg/circleFilled.svg?raw';
 import closeSvg from '../svg/close.svg?raw';
 import closeCircledSvg from '../svg/closeCircled.svg?raw';
 import closeSmallSvg from '../svg/closeSmall.svg?raw';
@@ -116,6 +118,7 @@ import notificationsOffSvg from '../svg/notificationsOff.svg?raw';
 import onlineMeetingSvg from '../svg/onlineMeeting.svg?raw';
 import openExternalSvg from '../svg/openExternal.svg?raw';
 import panelLeftSvg from '../svg/panelLeft.svg?raw';
+import paperPlaneSvg from '../svg/paperplane.svg?raw';
 import payoutSvg from '../svg/payout.svg?raw';
 import pdfSvg from '../svg/pdf.svg?raw';
 import personSvg from '../svg/person.svg?raw';
@@ -205,6 +208,8 @@ export const iconSvgs: Record<IconName, string> = {
   ChevronLeftIcon: chevronLeftSvg,
   ChevronRightIcon: chevronRightSvg,
   ChevronUpIcon: chevronUpSvg,
+  CircleIcon: circleSvg,
+  CircleFilledIcon: circleFilledSvg,
   CloudIcon: cloudSvg,
   CloseCircledIcon: closeCircledSvg,
   CloseIcon: closeSvg,
@@ -302,6 +307,7 @@ export const iconSvgs: Record<IconName, string> = {
   OpenExternalIcon: openExternalSvg,
 
   PanelLeftIcon: panelLeftSvg,
+  PaperPlaneIcon: paperPlaneSvg,
   PayoutIcon: payoutSvg,
   PdfIcon: pdfSvg,
   PersonAddIcon: personAddSvg,
