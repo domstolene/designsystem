@@ -70,3 +70,10 @@ export interface RemoteFile {
 }
 
 export type FileList = Array<File | RemoteFile>;
+
+export type UploadStatus = 'uploading' | 'success' | 'error';
+
+export interface UploadInfo {
+  uploadStatus?: UploadStatus;
+  errorMessage?: string;
+}

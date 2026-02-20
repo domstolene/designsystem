@@ -3,7 +3,11 @@ import { type ComponentPropsWithRef, useId } from 'react';
 import { ErrorList } from './ErrorList';
 import { File } from './File';
 import styles from './FileUploader.module.css';
-import { type FileList } from './FileUploader.types';
+import {
+  type FileList,
+  type RemoteFile,
+  type UploadInfo,
+} from './FileUploader.types';
 import { type FileUploaderHookProps, useFileUploader } from './useFileUploader';
 import { createTexts, useTranslation } from '../../i18n';
 import {
@@ -22,6 +26,7 @@ import { Typography } from '../Typography';
 import { renderLabel } from '../Typography/Label/Label.utils';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../VisuallyHidden';
+import { type FileUploaderFile } from './fileUploaderReducer';
 
 export type FileUploaderProps = {
   /**Id til filopplasteren. */
@@ -44,6 +49,10 @@ export type FileUploaderProps = {
   withDragAndDrop?: boolean;
   /**Om listen med opplastede filer skal skjules. Brukes kun hvis listen blir vist på egen måte. */
   hideFileList?: boolean;
+  /** Map so lar konsumenten styre info om opplasting på hver fil: status og feilmelding. Brukes `deriveId()` som nøkkel. Statusinfo vises i fillisten. */
+  fileStatusMap?: Map<string, UploadInfo>;
+  /** Funksjon som genererer en ID for hver fil. Brukes som nøkkel i `fileStatusMap` for å kunne mappe status på opplasting av hver fil og vise det i fillisten. */
+  deriveId?: (file: File | RemoteFile) => string;
 } & Pick<ResponsiveProps, 'width'> &
   Partial<FileUploaderHookProps> &
   Omit<ComponentPropsWithRef<'div'>, 'onChange' | 'id'> &
@@ -71,6 +80,8 @@ export const FileUploader = (props: FileUploaderProps) => {
     hideFileList,
     className,
     afterLabelContent,
+    fileStatusMap,
+    deriveId,
     ...rest
   } = props;
 
@@ -111,18 +122,37 @@ export const FileUploader = (props: FileUploaderProps) => {
   const fileListId = derivativeIdGenerator(uniqueId, 'file-list');
   const fileListNameId = derivativeIdGenerator(uniqueId, 'file-list-name');
 
-  const fileListElements = stateFiles.map((stateFile, index) => (
-    <File
-      key={stateFile.name}
-      parentId={uniqueId}
-      index={index}
-      file={stateFile}
-      isValid={stateFile.errors.length === 0}
-      removeFile={() => removeFile(stateFile)}
-      disabled={disabled}
-      readOnly={readOnly}
-    />
-  ));
+  function toPublicFile(sf: FileUploaderFile): File | RemoteFile | null {
+    if (sf.file) return sf.file;
+    if (sf.url) return { name: sf.name, url: sf.url };
+    return null;
+  }
+
+  const fileListElements = stateFiles.map((stateFile, index) => {
+    const pf = toPublicFile(stateFile);
+    const id = deriveId
+      ? pf
+        ? deriveId(pf)
+        : stateFile.name
+      : (stateFile.url ?? stateFile.name);
+    const uploadStatus = fileStatusMap?.get(id)?.uploadStatus;
+    const errorMessage = fileStatusMap?.get(id)?.errorMessage;
+
+    return (
+      <File
+        key={stateFile.name}
+        parentId={uniqueId}
+        index={index}
+        file={stateFile}
+        isValid={stateFile.errors.length === 0}
+        removeFile={() => removeFile(stateFile)}
+        disabled={disabled}
+        readOnly={readOnly}
+        uploadStatus={uploadStatus}
+        errorMessage={errorMessage}
+      />
+    );
+  });
 
   const rootErrorsList = rootErrors.map((e, index) => ({
     id: derivativeIdGenerator(uniqueId, `error-${index}`),

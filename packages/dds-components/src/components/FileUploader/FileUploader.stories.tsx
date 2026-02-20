@@ -3,7 +3,11 @@ import { useState } from 'react';
 import { fn } from 'storybook/test';
 
 import { FileUploader } from './FileUploader';
-import { type FileList } from './FileUploader.types';
+import {
+  type FileList,
+  type RemoteFile,
+  type UploadInfo,
+} from './FileUploader.types';
 import {
   categoryHtml,
   ddsProviderDecorator,
@@ -113,6 +117,94 @@ export const CustomFileList: Story = {
           </>
         )}
       </>
+    );
+  },
+};
+
+export const Controlled: Story = {
+  args: { label: 'Last opp fil', accept: ['.pdf', 'application/pdf'] },
+  render: args => {
+    const [files, setFiles] = useState<FileList>();
+
+    console.log('files', files);
+    return (
+      <>
+        <FileUploader
+          {...args}
+          value={files}
+          onChange={files => {
+            setFiles(files);
+          }}
+        />
+      </>
+    );
+  },
+};
+
+export const MockedUpload: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+  args: { label: 'Last opp fil', accept: ['.pdf', 'application/pdf'] },
+  render: args => {
+    const [files, setFiles] = useState<FileList>();
+    const [statusMap, setStatusMap] = useState<Map<string, UploadInfo>>(
+      new Map(),
+    );
+    console.log('files', files);
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    function fakeUpload(_file: File) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          // 50% success, 50% failure
+          // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+          Math.random() < 0.5 ? resolve(true) : reject(new Error('Fail'));
+          // resolve(true);
+        }, 2000); // 2 seconds
+      });
+    }
+
+    const deriveId = (f: File | RemoteFile) => f.name;
+
+    function upload(file: File) {
+      const id = deriveId(file);
+      setStatusMap(m => new Map(m).set(id, { uploadStatus: 'uploading' }));
+
+      fakeUpload(file)
+        .then(() =>
+          setStatusMap(m => new Map(m).set(id, { uploadStatus: 'success' })),
+        )
+        .catch(() =>
+          setStatusMap(m =>
+            new Map(m).set(id, {
+              uploadStatus: 'error',
+              errorMessage: 'Opplastning var ikke vellykket.',
+            }),
+          ),
+        );
+    }
+
+    function handleChange(newFiles: FileList) {
+      setFiles(newFiles);
+
+      newFiles.forEach(file => {
+        if (file instanceof File) {
+          if (!statusMap.has(deriveId(file))) {
+            upload(file);
+          }
+        }
+      });
+    }
+
+    return (
+      <FileUploader
+        {...args}
+        value={files}
+        onChange={handleChange}
+        deriveId={deriveId}
+        fileStatusMap={statusMap}
+      />
     );
   },
 };
