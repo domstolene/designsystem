@@ -47,6 +47,66 @@ import { Tabs, TabList, Tab, TabPanels, TabPanel } from '../Tabs';
 
 ## Bruk
 
+### Med status på filopplasting
+
+Når filene lastes opp til APIet vil vi gjerne vise status (laster opp, suksess, feil) og eventuell feilmelding internt i fillisten. Bruk props `fileStatusMap` og `deriveId` til å identifisere filer og oppdatere deres statusinfo.
+
+<Source code={`const [files, setFiles] = useState<FileList>();
+    const [statusMap, setStatusMap] = useState<Map<string, UploadInfo>>(
+      new Map(),
+    );
+
+    // din funksjon
+    function apiUpload(file: File) {...}
+
+    const deriveId = (f: File | RemoteFile) => f.name;
+
+    function upload(file: File) {
+      const id = deriveId(file);
+      setStatusMap(m => new Map(m).set(id, { uploadStatus: 'uploading' }));
+
+      apiUpload(file)
+        .then(() =>
+          setStatusMap(m => new Map(m).set(id, { uploadStatus: 'success' })),
+        )
+        .catch(() =>
+          setStatusMap(m =>
+            new Map(m).set(id, {
+              uploadStatus: 'error',
+              errorMessage: 'Opplastning var ikke vellykket.',
+            }),
+          ),
+        );
+    }
+
+    function handleChange(newFiles: FileList) {
+      setFiles(newFiles);
+
+      newFiles.forEach(file => {
+        if (file instanceof File) {
+          if (!statusMap.has(deriveId(file))) {
+            upload(file);
+          }
+        }
+      });
+    }
+
+    return (
+      <FileUploader
+        {...args}
+        value={files}
+        onChange={handleChange}
+        deriveId={deriveId}
+        fileStatusMap={statusMap}
+      />
+    );`} />
+
+#### Eksempel
+
+<Canvas of={FileUploaderStories.WithUploadStatus} />
+
+### Kontrollert
+
 <Source
   code={`
 import { FileUploader, FileList } from '@norges-domstoler/dds-components';

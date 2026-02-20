@@ -1,10 +1,10 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { type ComponentProps, useState } from 'react';
-import { describe, expect, it, vi } from 'vitest';
+import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { FileUploader } from './FileUploader';
-import type { FileList } from './FileUploader.types';
+import type { FileList, RemoteFile } from './FileUploader.types';
 
 function FileUploaderTest(
   props: Omit<ComponentProps<typeof FileUploader>, 'value' | 'onChange'>,
@@ -24,6 +24,8 @@ const file = new File(['hello'], fileName, { type: 'image/png' });
 const file2 = new File(['hello2'], 'hello2.png', { type: 'image/png' });
 
 const deleteButtonName = `Fjern fil ${fileName}`;
+
+const deriveId = (f: File | RemoteFile) => f.name;
 
 describe('<FileUploader>', () => {
   it('accepts uploading files', async () => {
@@ -233,6 +235,128 @@ describe('<FileUploader>', () => {
       const fileInput = screen.getByTestId('file-uploader-input');
       await userEvent.upload(fileInput, file);
       expect(handleChange).not.toHaveBeenCalled();
+    });
+  });
+  describe('upload status', () => {
+    beforeAll(() => {
+      vi.spyOn(URL, 'createObjectURL').mockImplementation(() => 'blob://test');
+      vi.spyOn(URL, 'revokeObjectURL').mockImplementation(() => {
+        /* empty */
+      });
+    });
+
+    afterAll(() => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (URL.createObjectURL as any).mockRestore?.();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (URL.revokeObjectURL as any).mockRestore?.();
+    });
+
+    it('displays file, spinner and file delete button while uploading', async () => {
+      const id = deriveId(file);
+      const fileStatusMap = new Map([
+        [id, { uploadStatus: 'uploading' as const }],
+      ]);
+
+      render(
+        <FileUploader
+          value={[file]}
+          onChange={() => {
+            /* empty */
+          }}
+          fileStatusMap={fileStatusMap}
+          deriveId={deriveId}
+        />,
+      );
+
+      expect(await screen.findByText(fileName)).toBeInTheDocument();
+      expect(screen.queryByRole('progressbar')).toBeInTheDocument();
+      expect(
+        screen.queryByRole('button', { name: deleteButtonName }),
+      ).toBeInTheDocument();
+    });
+
+    it('displays file and file delete button while success', async () => {
+      const id = deriveId(file);
+      const fileStatusMap = new Map([
+        [id, { uploadStatus: 'success' as const }],
+      ]);
+
+      render(
+        <FileUploader
+          value={[file]}
+          onChange={() => {
+            /* empty */
+          }}
+          fileStatusMap={fileStatusMap}
+          deriveId={deriveId}
+        />,
+      );
+
+      expect(await screen.findByText(fileName)).toBeInTheDocument();
+      expect(screen.queryByRole('progressbar')).not.toBeInTheDocument();
+      expect(
+        screen.queryByRole('button', { name: deleteButtonName }),
+      ).toBeInTheDocument();
+    });
+
+    it('displays file, error message and file delete button while error', async () => {
+      const id = deriveId(file);
+      const errorMessage = 'Ikke vellykket';
+      const fileStatusMap = new Map([
+        [id, { uploadStatus: 'error' as const, errorMessage }],
+      ]);
+
+      render(
+        <FileUploader
+          value={[file]}
+          onChange={() => {
+            /* empty */
+          }}
+          fileStatusMap={fileStatusMap}
+          deriveId={deriveId}
+        />,
+      );
+
+      expect(await screen.findByText(fileName)).toBeInTheDocument();
+      expect(await screen.findByText(errorMessage)).toBeInTheDocument();
+      expect(screen.queryByRole('progressbar')).not.toBeInTheDocument();
+      expect(
+        screen.queryByRole('button', { name: deleteButtonName }),
+      ).toBeInTheDocument();
+    });
+
+    it('updates status on rerender (uploading to success)', async () => {
+      const id = deriveId(file);
+      const uploading = new Map([[id, { uploadStatus: 'uploading' as const }]]);
+      const success = new Map([[id, { uploadStatus: 'success' as const }]]);
+
+      const { rerender } = render(
+        <FileUploader
+          value={[file]}
+          onChange={() => {
+            /* empty */
+          }}
+          fileStatusMap={uploading}
+          deriveId={deriveId}
+        />,
+      );
+
+      expect(await screen.findByText(fileName)).toBeInTheDocument();
+      expect(screen.queryByRole('progressbar')).toBeInTheDocument();
+
+      rerender(
+        <FileUploader
+          value={[file]}
+          onChange={() => {
+            /* empty */
+          }}
+          fileStatusMap={success}
+          deriveId={deriveId}
+        />,
+      );
+
+      expect(screen.queryByRole('progressbar')).not.toBeInTheDocument();
     });
   });
 });

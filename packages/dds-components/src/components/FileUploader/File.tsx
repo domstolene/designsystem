@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { type ReactNode, useEffect, useState } from 'react';
 
 import { ErrorList } from './ErrorList';
 import styles from './FileUploader.module.css';
@@ -13,9 +13,11 @@ import { Button } from '../Button';
 import { Icon } from '../Icon';
 import { CheckCircledIcon, CloseIcon, ErrorIcon } from '../Icon/icons';
 import { Paper } from '../layout';
+import { Spinner } from '../Spinner';
 import { Link, Typography } from '../Typography';
+import { type UploadInfo } from './FileUploader.types';
 
-interface FileProps {
+type FileProps = {
   parentId: string;
   index: number;
   isValid: boolean;
@@ -23,7 +25,7 @@ interface FileProps {
   removeFile: () => void;
   disabled?: boolean;
   readOnly?: boolean;
-}
+} & UploadInfo;
 
 export const File = (props: FileProps) => {
   const { t } = useTranslation();
@@ -33,6 +35,8 @@ export const File = (props: FileProps) => {
     file: stateFile,
     removeFile,
     isValid,
+    uploadStatus,
+    errorMessage,
     disabled,
     readOnly,
   } = props;
@@ -54,8 +58,55 @@ export const File = (props: FileProps) => {
     message: e,
   }));
 
-  const inactive = disabled || readOnly;
+  if (errorMessage)
+    errorsList.push({
+      id: derivativeIdGenerator(
+        parentId,
+        `file-${index}-error-${errorsList.length}`,
+      ),
+      message: errorMessage,
+    });
 
+  const inactive = disabled || readOnly;
+  console.log('errorsList', errorsList);
+  console.log('errorsMessage', stateFile?.errorMessage);
+
+  type DisplayStatus = 'valid' | 'invalid' | 'uploading' | 'success' | 'error';
+  let displayStatus: DisplayStatus;
+
+  if (!isValid) displayStatus = 'invalid';
+  else if (uploadStatus) displayStatus = uploadStatus;
+  else displayStatus = 'valid';
+  const isInvalid = displayStatus === 'invalid';
+  const hasError = displayStatus === 'error' || isInvalid;
+  const hasErrorMessage = !!stateFile.errorMessage;
+
+  let statusIndicator: ReactNode;
+  switch (displayStatus) {
+    case 'uploading':
+      statusIndicator = <Spinner size="var(--dds-size-icon-component)" />;
+      break;
+    case 'success':
+    case 'valid':
+      statusIndicator = (
+        <Icon
+          icon={CheckCircledIcon}
+          iconSize="component"
+          className={styles[`file__icon--valid`]}
+        />
+      );
+      break;
+    case 'invalid':
+    case 'error':
+      statusIndicator = (
+        <Icon
+          icon={ErrorIcon}
+          iconSize="component"
+          className={styles[`file__icon--invalid`]}
+        />
+      );
+      break;
+  }
   return (
     <li>
       <Paper
@@ -68,12 +119,12 @@ export const File = (props: FileProps) => {
         border={
           disabled
             ? 'border-subtle'
-            : isValid
+            : !hasError
               ? 'border-default'
               : 'border-danger'
         }
         background={inactive ? 'surface-field-disabled' : 'surface-subtle'}
-        className={cn(!isValid && styles['file--invalid'])}
+        className={cn(hasError && styles['file--invalid'])}
       >
         <Typography
           as="span"
@@ -92,11 +143,7 @@ export const File = (props: FileProps) => {
         </Typography>
         {!inactive && (
           <>
-            <Icon
-              icon={isValid ? CheckCircledIcon : ErrorIcon}
-              iconSize="component"
-              className={styles[`file__icon--${isValid ? 'valid' : 'invalid'}`]}
-            />
+            {statusIndicator}
             <Button
               size="xsmall"
               purpose="tertiary"
@@ -108,7 +155,9 @@ export const File = (props: FileProps) => {
                 'aria-invalid': !isValid ? true : undefined,
                 'aria-errormessage': !isValid
                   ? t(texts.invalidFile)
-                  : undefined,
+                  : hasErrorMessage
+                    ? stateFile.errorMessage
+                    : undefined,
                 'aria-describedby': spaceSeparatedIdListGenerator(
                   errorsList.map(e => e.id),
                 ),
