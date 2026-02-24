@@ -32,6 +32,8 @@ export type LinkProps<T extends ElementType = 'a'> =
       withVisited?: boolean;
       /**Spesifiserer typografistil basert på utvalget for brødtekst. Arver hvis ikke oppgitt. */
       typographyType?: TypographyBodyType;
+      /**Tvinger komponenten til å behandle `as` som en anchor tag wrapper og forwarde anchor-spesifikke props (target, rel). Bruk når custom `as` komponent wrapper en `<a>` tag. */
+      isAnchor?: boolean;
     } & BaseTypographyProps &
       PickedHTMLAttributes
   >;
@@ -49,10 +51,11 @@ export const Link = <T extends ElementType = 'a'>({
   style,
   color,
   as: propAs,
+  isAnchor: propIsAnchor,
   ...rest
 }: LinkProps<T>) => {
   const as = propAs ? propAs : 'a';
-  const isAnchor = as === 'a';
+  const isAnchor = as === 'a' || propIsAnchor;
 
   const aProps = isAnchor
     ? {
