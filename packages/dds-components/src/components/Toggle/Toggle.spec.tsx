@@ -29,4 +29,19 @@ describe('<Toggle>', () => {
     await userEvent.click(toggle);
     expect(toggle).toHaveFocus();
   });
+  it('is disabled', async () => {
+    render(<Toggle disabled />);
+    const toggle = screen.getByRole('checkbox');
+    expect(toggle).toBeDisabled();
+  });
+  it('has loading status', async () => {
+    render(<Toggle isLoading />);
+    const spinner = screen.queryByRole('progressbar');
+    expect(spinner).toBeInTheDocument();
+  });
+  it('is disabled while loading', async () => {
+    render(<Toggle isLoading />);
+    const toggle = screen.getByRole('checkbox');
+    expect(toggle).toBeDisabled();
+  });
 });

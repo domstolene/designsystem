@@ -18,12 +18,13 @@ import { cn, readOnlyClickHandler, readOnlyKeyDownHandler } from '../../utils';
 import { HiddenInput } from '../helpers';
 import focusStyles from '../helpers/styling/focus.module.css';
 import { Icon } from '../Icon';
-import { CheckIcon, LockIcon } from '../Icon/icons';
+import { CheckIcon, LockFilledIcon, MoonIcon, SunIcon } from '../Icon/icons';
 import { Spinner } from '../Spinner';
 import { VisuallyHidden } from '../VisuallyHidden';
 
 export const TOGGLE_SIZES = createSizes('medium', 'large');
 export type ToggleSize = (typeof TOGGLE_SIZES)[number];
+export type ToggleVariant = 'default' | 'colorScheme';
 
 export type ToggleProps = BaseComponentProps<
   HTMLElement,
@@ -58,6 +59,11 @@ export type ToggleProps = BaseComponentProps<
      * @default "medium"
      */
     size?: ToggleSize;
+    /**
+     * Variant basert på bruksområde.
+     * @default "default"
+     */
+    variant?: ToggleVariant;
   } & Pick<ComponentProps<'input'>, 'name' | 'aria-describedby' | 'onBlur'>,
   InputHTMLAttributes<HTMLInputElement>
 >;
@@ -75,6 +81,7 @@ export const Toggle = ({
   className,
   style,
   htmlProps = {},
+  variant = 'default',
   ...rest
 }: ToggleProps) => {
   const { t } = useTranslation();
@@ -88,6 +95,25 @@ export const Toggle = ({
     onChange,
   });
 
+  const isColorScheme = variant === 'colorScheme';
+
+  const marker = isColorScheme ? (
+    <>
+      <Icon
+        className={styles['unchecked-icon']}
+        icon={SunIcon}
+        iconSize={iconSize}
+      />
+      <Icon
+        className={styles['checked-icon']}
+        icon={MoonIcon}
+        iconSize={iconSize}
+      />
+    </>
+  ) : (
+    <Icon className={styles.checkmark} icon={CheckIcon} iconSize={iconSize} />
+  );
+  console.log('disabled', disabled);
   return (
     <label
       htmlFor={uniqueId}
@@ -99,6 +125,7 @@ export const Toggle = ({
         isLoading && styles['label--is-loading'],
         disabled && styles['label--disabled'],
         readOnly && styles['label--read-only'],
+        isColorScheme && styles['label--color-scheme'],
       )}
     >
       <HiddenInput
@@ -112,7 +139,7 @@ export const Toggle = ({
         type="checkbox"
         checked={checked}
         onChange={e => setChecked(e.target.checked)}
-        disabled={isLoading ?? disabled}
+        disabled={isLoading ? isLoading : disabled}
         aria-readonly={readOnly}
         onKeyDown={readOnlyKeyDownHandler(
           'selectionControl',
@@ -126,18 +153,14 @@ export const Toggle = ({
           {isLoading ? (
             <Spinner size={`var(--dds-size-icon-${size})`} />
           ) : (
-            <Icon
-              className={styles.checkmark}
-              icon={CheckIcon}
-              iconSize={iconSize}
-            />
+            marker
           )}
         </span>
       </span>
       <span className={cn(readOnly && styles['labeltext--readonly'])}>
         {readOnly && (
           <Icon
-            icon={LockIcon}
+            icon={LockFilledIcon}
             iconSize="small"
             className={styles['icon--read-only']}
           />
