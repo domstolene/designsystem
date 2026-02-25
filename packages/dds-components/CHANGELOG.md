@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-components
 
+## 22.4.1
+
+(2026-02-25)
+
+### Patch Changes
+
+- f835685: Legger til `isAnchor`-prop i `<Link>`-komponenten som overstyrer hvorvidt polymorfe komponenter skal få anchor-attributter som `rel` og `target`.
+
 ## 22.4.0
 
 (2026-02-19)
