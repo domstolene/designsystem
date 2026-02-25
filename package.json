@@ -37,7 +37,7 @@
   "devDependencies": {
     "@changesets/cli": "^2.29.8",
     "@chromatic-com/storybook": "5.0.1",
-    "@eslint/js": "^9.39.2",
+    "@eslint/js": "^9.39.3",
     "@norges-domstoler/dds-components": "workspace:*",
     "@norges-domstoler/dds-design-tokens": "workspace:*",
     "@norges-domstoler/storybook-components": "workspace:*",
