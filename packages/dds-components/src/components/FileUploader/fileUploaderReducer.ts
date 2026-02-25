@@ -1,12 +1,14 @@
 import { type FileWithPath } from 'file-selector';
 import { type Reducer } from 'react';
 
-export interface FileUploaderFile {
+import { type UploadInfo } from './FileUploader.types';
+
+export type FileUploaderFile = {
   file?: FileWithPath;
   name: string;
   errors: Array<string>;
   url?: string;
-}
+} & UploadInfo;
 
 export type RootErrorList = Array<string>;
 
