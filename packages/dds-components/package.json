@@ -53,7 +53,7 @@
     "@testing-library/user-event": "^14.6.1",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
-    "autoprefixer": "^10.4.24",
+    "autoprefixer": "^10.4.27",
     "csstype": "3.2.3",
     "jsdom": "^28.1.0",
     "postcss": "^8.5.6",
