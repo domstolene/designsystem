@@ -1,3 +1,4 @@
+export * from './AccordionBase';
 export * from './Backdrop';
 export * from './Dropdown';
 export * from './HiddenInput';
