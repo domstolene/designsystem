@@ -86,6 +86,29 @@ export const WithDividers: Story = {
   ),
 };
 
+export const WithoutStripes: Story = {
+  render: args => (
+    <Table.Wrapper>
+      <Table {...args} withStripes={false}>
+        <Table.Head>
+          <Table.Row>{mappedHeaderCells}</Table.Row>
+        </Table.Head>
+        <Table.Body>
+          {mapCellContents(data, headerCells).map(row => (
+            <Table.Row key={row.toString()}>
+              {row.map(cellContent => (
+                <Table.Cell key={`body-${cellContent}`}>
+                  {cellContent}
+                </Table.Cell>
+              ))}
+            </Table.Row>
+          ))}
+        </Table.Body>
+      </Table>
+    </Table.Wrapper>
+  ),
+};
+
 export const Small: Story = {
   render: args => (
     <Table.Wrapper>
