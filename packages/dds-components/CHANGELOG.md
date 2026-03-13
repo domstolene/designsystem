@@ -1,5 +1,18 @@
 # @norges-domstoler/dds-components
 
+## 22.5.0
+
+### Minor Changes
+
+- 5f15b0e: Legger til `withStripes`-prop i `<Table>` som gjør det mulig å skru av vekselende bakgrunnsfarge på tabellrader.
+- 7d2493d: Ny prop i `<Toggle>`: `variant`. Den aksepterer verdier `'default'` og `'themeMode'`. `'default'` er standardverdien og komponenten i denne varianten er uendret. `'themeMode'` brukes når `<Toggle>` styrer mellom lys og mørk modus, der `checked` tilsvarer mørk modus.
+
+### Patch Changes
+
+- 7d2493d: Oppdaterer readOnly-ikon i `<Toggle>` til `LockFilledIcon`, slik at den er i tråd med andre inputkomponenter.
+- 7d2493d: Fikser bug der `<Toggle>` ikke kunne settes til `disabled` ved `isLoading="true"`.
+- ed94b95: Fikser bug der `useAccordion()` hook ikke var eksponert.
+
 ## 22.4.1
 
 (2026-02-25)
