@@ -2,6 +2,8 @@
 
 ## 22.5.0
 
+(2026-03-13)
+
 ### Minor Changes
 
 - 5f15b0e: Legger til `withStripes`-prop i `<Table>` som gjør det mulig å skru av vekselende bakgrunnsfarge på tabellrader.
