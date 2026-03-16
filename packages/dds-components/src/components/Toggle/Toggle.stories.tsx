@@ -46,12 +46,19 @@ export const States: Story = {
         <Toggle {...args} disabled children="disabled" />
         <Toggle {...args} readOnly children="readOnly" />
         <Toggle {...args} isLoading children="isLoading" />
+        <Toggle {...args} variant="colorScheme" children="colorScheme" />
       </StoryVStack>
       <StoryVStack>
         <Toggle {...args} checked children="checked" />
         <Toggle {...args} checked disabled children="disabled checked" />
         <Toggle {...args} checked readOnly children="readOnly checked" />
         <Toggle {...args} checked isLoading children="isLoading checked" />
+        <Toggle
+          {...args}
+          checked
+          variant="colorScheme"
+          children="colorScheme checked"
+        />
       </StoryVStack>
     </StoryHStack>
   ),
