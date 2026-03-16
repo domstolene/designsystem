@@ -34,7 +34,7 @@ export interface AccordionConfig {
   id?: string;
 }
 
-export interface AccordionHeaderProps {
+export interface UseAccordionHeaderProps {
   /**
    * `onClick` som kontrollerer lukking og åpning av accordion, og eventuelt `onChange` satt i config
    */
@@ -53,7 +53,7 @@ export interface AccordionHeaderProps {
   id: string;
 }
 
-export interface AccordionBodyProps {
+export interface UseAccordionBodyProps {
   /**
    * Id, settes for riktig bruk av aria-props.
    */
@@ -108,11 +108,11 @@ export interface AccordionState {
   /**
    * Props som settes på header-elementet.
    */
-  headerProps: AccordionHeaderProps;
+  headerProps: UseAccordionHeaderProps;
   /**
    * Props som settes på innholds-elementet.
    */
-  bodyProps: AccordionBodyProps;
+  bodyProps: UseAccordionBodyProps;
   /**
    * Ref som settes på wrapper inni innholds-elementet; Sørger for animasjon.
    */
@@ -193,14 +193,14 @@ export const useAccordion = ({
     }
   }, [isMounted]);
 
-  const headerProps: AccordionHeaderProps = {
+  const headerProps: UseAccordionHeaderProps = {
     id: `${accordionId}-header`,
     onClick: toggleExpanded,
     'aria-expanded': isExpanded,
     'aria-controls': `${accordionId}-body`,
   };
 
-  const bodyProps: AccordionBodyProps = {
+  const bodyProps: UseAccordionBodyProps = {
     id: `${accordionId}-body`,
     role: 'region',
     'aria-labelledby': `${accordionId}-header`,

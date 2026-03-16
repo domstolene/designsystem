@@ -30,6 +30,18 @@
   }
 }
 
+.table--with-stripes {
+  .row--body {
+    &:nth-of-type(even) {
+      background-color: var(--dds-color-surface-subtle);
+    }
+
+    &:nth-of-type(odd) {
+      background-color: var(--dds-color-surface-default);
+    }
+  }
+}
+
 .table--small {
   td,
   th {
@@ -40,7 +52,9 @@
     letter-spacing: var(--dds-font-heading-xsmall-letter-spacing);
     background-color: var(--dds-color-surface-default);
   }
+}
 
+.table--with-stripes.table--small {
   .row--body {
     &:nth-of-type(odd) {
       background-color: var(--dds-color-surface-subtle);
@@ -82,13 +96,8 @@
 }
 
 .row--body {
-  &:nth-of-type(even) {
-    background-color: var(--dds-color-surface-subtle);
-  }
+  background-color: var(--dds-color-surface-default);
 
-  &:nth-of-type(odd) {
-    background-color: var(--dds-color-surface-default);
-  }
   &.row--sum,
   &.row--sum:nth-of-type(even),
   &.row--sum:nth-of-type(odd) {

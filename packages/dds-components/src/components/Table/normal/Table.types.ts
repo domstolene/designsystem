@@ -14,6 +14,10 @@ export type TableProps = {
   stickyHeader?: boolean;
   /**Legger skillelinjer mellom radene. */
   withDividers?: boolean;
+  /**Rader veksler bakgrunnsfarge.
+   * @default true
+   */
+  withStripes?: boolean;
 } & ComponentPropsWithRef<'table'>;
 
 export type HeaderValues = Array<{ key: string; content: ReactNode }>;

@@ -6,14 +6,14 @@ import {
 } from 'react';
 
 import {
-  type AccordionBodyProps,
-  type AccordionHeaderProps,
+  type UseAccordionBodyProps,
+  type UseAccordionHeaderProps,
 } from './useAccordion';
 import { isEmpty } from '../../../utils';
 
 interface AccordionContext {
-  headerProps: AccordionHeaderProps;
-  bodyProps: AccordionBodyProps;
+  headerProps: UseAccordionHeaderProps;
+  bodyProps: UseAccordionBodyProps;
   isExpanded: boolean;
   toggleExpanded: () => void;
   bodyContentRef: RefObject<HTMLDivElement | null>;

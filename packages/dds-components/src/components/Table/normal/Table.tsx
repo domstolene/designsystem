@@ -8,6 +8,7 @@ export const Table = ({
   size = 'medium',
   stickyHeader,
   withDividers,
+  withStripes = true,
   className,
   children,
   ...rest
@@ -29,6 +30,7 @@ export const Table = ({
         styles.table,
         styles[`table--${size}`],
         withDividers && styles['table--with-dividers'],
+        withStripes && styles['table--with-stripes'],
         stickyHeader && styles['table--sticky-header'],
         scrollbar,
         tgStyles[`body-short-${tgSize()}`],
