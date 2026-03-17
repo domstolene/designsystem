@@ -1,18 +1,21 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { ddsProviderDecorator, responsivePropsArgTypes } from '../../storybook';
-import { BackLink } from '../BackLink';
-import { Breadcrumb, Breadcrumbs } from '../Breadcrumbs';
+import { VStack } from '..';
+import {
+  ddsProviderDecorator,
+  responsivePropsArgTypes,
+} from '../../../storybook';
+import { BackLink } from '../../BackLink';
+import { Breadcrumb, Breadcrumbs } from '../../Breadcrumbs';
 import {
   DescriptionList,
   DescriptionListDesc,
   DescriptionListTerm,
-} from '../DescriptionList';
-import { Icon } from '../Icon';
-import { ArrowLeftIcon } from '../Icon/icons';
-import { VStack } from '../layout';
-import { List, ListItem } from '../List';
-import { Link, Paragraph } from '../Typography';
+} from '../../DescriptionList';
+import { Icon } from '../../Icon';
+import { ArrowLeftIcon } from '../../Icon/icons';
+import { List, ListItem } from '../../List';
+import { Link, Paragraph } from '../../Typography';
 
 import { Contrast } from '.';
 

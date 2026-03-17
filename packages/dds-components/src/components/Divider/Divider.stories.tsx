@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { StoryLabel, commonArgTypes } from '../../storybook';
-import { Contrast } from '../Contrast';
+import { Contrast } from '../layout';
 
 import { Divider } from '.';
 

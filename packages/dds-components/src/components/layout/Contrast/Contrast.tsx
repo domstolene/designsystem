@@ -1,10 +1,10 @@
 import { type ElementType } from 'react';
 
+import { Box, type BoxProps } from '..';
 import styles from './Contrast.module.css';
-import { getBaseHTMLProps } from '../../types';
-import { cn } from '../../utils';
-import { Box, type BoxProps } from '../layout';
-import typographyStyles from '../Typography/typographyStyles.module.css';
+import { getBaseHTMLProps } from '../../../types';
+import { cn } from '../../../utils';
+import typographyStyles from '../../Typography/typographyStyles.module.css';
 
 export type ContrastProps<T extends ElementType = 'div'> = BoxProps<T>;
 

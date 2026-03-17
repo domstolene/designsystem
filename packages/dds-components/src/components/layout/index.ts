@@ -1,4 +1,5 @@
 export * from './Box';
+export * from './Contrast';
 export * from './Grid';
 export * from './Paper';
 export * from './ShowHide';
