@@ -1,3 +1,7 @@
+.container:focus-visible {
+  outline: none;
+}
+
 .checkbox-label {
   padding: 0 0 0 calc(var(--dds-size-icon-component) + var(--dds-spacing-x0-5));
   align-items: flex-start;
