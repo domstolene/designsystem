@@ -55,7 +55,7 @@
     "@types/react-dom": "19.2.3",
     "autoprefixer": "^10.4.27",
     "csstype": "3.2.3",
-    "jsdom": "^28.1.0",
+    "jsdom": "^29.0.0",
     "postcss": "^8.5.8",
     "react": "19.2.4",
     "react-dom": "19.2.4",
