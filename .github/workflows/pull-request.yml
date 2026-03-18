@@ -21,7 +21,7 @@ jobs:
 
       - name: Detect design token changes
         id: filter
-        uses: dorny/paths-filter@v3
+        uses: dorny/paths-filter@v4
         with:
           filters: |
             tokens:
