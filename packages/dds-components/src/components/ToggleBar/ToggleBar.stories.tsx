@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
-import { TOGGLE_BAR_SIZES } from './ToggleBar.types';
+import { TOGGLE_BAR_PURPOSES, TOGGLE_BAR_SIZES } from './ToggleBar.types';
 import {
   StoryLabel,
   commonArgTypesWithNodeChildren,
@@ -51,6 +51,26 @@ export const Preview: Story = {
       <ToggleRadio label="Alt3" value="Alt3" />
     </ToggleBar>
   ),
+};
+
+export const Purposes: Story = {
+  render: args => {
+    let name = 0;
+    return (
+      <StoryVStack>
+        {TOGGLE_BAR_PURPOSES.map(purpose => (
+          <ToggleBar
+            label={labelText(purpose)}
+            {...args}
+            name={`test${name++}`}
+            purpose={purpose}
+          >
+            {toggleRadios(true)}
+          </ToggleBar>
+        ))}
+      </StoryVStack>
+    );
+  },
 };
 
 export const Sizes: Story = {

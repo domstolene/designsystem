@@ -14,6 +14,7 @@ export const ToggleBar = <T extends string | number = string>(
   const {
     children,
     size = 'medium',
+    purpose = 'primary',
     label,
     onChange,
     value,
@@ -41,9 +42,10 @@ export const ToggleBar = <T extends string | number = string>(
   return (
     <ToggleBarContext
       value={{
-        size: size,
+        purpose,
+        size,
         onChange: handleChange,
-        name: name,
+        name,
         value: groupValue,
       }}
     >
