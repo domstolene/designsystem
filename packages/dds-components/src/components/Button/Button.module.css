@@ -64,6 +64,8 @@
 }
 
 .button--small {
+  /* Fixed min-height to ensure consistency between Safari and Chrome */
+  min-height: 2.26rem;
   &.just-text {
     padding: var(--dds-spacing-x0-5) var(--dds-spacing-x0-75);
   }
@@ -88,6 +90,8 @@
 }
 
 .button--medium {
+  /* Fixed min-height to ensure consistency between Safari and Chrome */
+  min-height: 2.95rem;
   &.just-text {
     padding: var(--dds-spacing-x0-75) var(--dds-spacing-x1);
   }
@@ -112,6 +116,8 @@
 }
 
 .button--large {
+  /* Fixed min-height to ensure consistency between Safari and Chrome */
+  min-height: 3.6rem;
   &.just-text {
     padding: var(--dds-spacing-x1) var(--dds-spacing-x1-5);
   }
