@@ -94,7 +94,10 @@ export const ToggleRadio = ({
       : 'with-text-and-icon';
 
   return (
-    <label htmlFor={uniqueId} className={styles.label}>
+    <label
+      htmlFor={uniqueId}
+      className={cn(styles.label, styles[`label--${group.purpose}`])}
+    >
       <HiddenInput
         {...getBaseHTMLProps(
           uniqueId,
