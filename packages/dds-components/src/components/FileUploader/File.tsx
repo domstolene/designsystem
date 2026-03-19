@@ -206,7 +206,6 @@ const texts = createTexts({
     no: 'Prøv igjen',
     nn: 'Prøv igjen',
     en: 'Try again',
-    // TODO: oversettelse
-    se: 'Prøv igjen',
+    se: 'Geahččal fas',
   },
 });
