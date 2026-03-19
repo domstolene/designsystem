@@ -3,7 +3,7 @@ import { type Property } from 'csstype';
 import styles from './SkipToContent.module.css';
 import { type BaseComponentProps } from '../../types';
 import { cn } from '../../utils';
-import { Contrast } from '../Contrast';
+import { Contrast } from '../layout';
 import { Link } from '../Typography';
 
 export type SkipToContentProps = BaseComponentProps<
