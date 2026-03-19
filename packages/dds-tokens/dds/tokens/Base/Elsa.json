@@ -541,11 +541,6 @@
       "value": "130%",
       "type": "lineHeights",
       "description": "Brukes i komponenter og overskrifter"
-    },
-    "list": {
-      "value": "200%",
-      "type": "lineHeights",
-      "description": "Brukes på lister"
     }
   },
   "dds-font-letter-spacing": {
@@ -580,6 +575,11 @@
       "value": "0.5em",
       "type": "paragraphSpacing",
       "description": "Brukes på str ×3 og større"
+    },
+    "list": {
+      "value": "0.5em",
+      "type": "paragraphSpacing",
+      "description": "Brukes mellom kulepunkter i lister"
     },
     "heading": {
       "value": "0.4em",

@@ -23,13 +23,13 @@
   --dds-font-lineheight-x1: 1.5; /* Brukes på mengetekst og artikler */
   --dds-font-lineheight-x3: 1.2;
   --dds-font-lineheight-x2: 1.3; /* Brukes i komponenter og overskrifter */
-  --dds-font-lineheight-list: 2; /* Brukes på lister */
   --dds-font-letter-spacing-tight: -0.01em; /* Brukes på str ×2.5 og større */
   --dds-font-letter-spacing-normal: 0em; /* Brukes på str ×1 og opp til og med ×2 */
   --dds-font-letter-spacing-loose: 0.01em; /* Brukes på størrelser under ×1 */
   --dds-font-paragraph-spacing-small: 1em; /* Brukes på str ×1_25 og mindre  */
   --dds-font-paragraph-spacing-medium: 0.66em; /* Brukes på str x1.5, ×2 og ×3  */
   --dds-font-paragraph-spacing-large: 0.5em; /* Brukes på str ×3 og større */
+  --dds-font-paragraph-spacing-list: 0.5em; /* Brukes mellom kulepunkter i lister */
   --dds-font-paragraph-spacing-heading: 0.4em; /* Brukes på på alle headere (bottom) */
   --dds-font-style-underline: underline;
   --dds-font-style-normal: none;
