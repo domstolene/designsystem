@@ -3,7 +3,7 @@
   margin: var(--dds-spacing-x1) 0;
   ul,
   ol {
-    margin: 0;
+    margin-block: var(--dds-font-paragraph-spacing-list);
   }
 }
 
@@ -31,7 +31,7 @@
       width: var(--dds-list-bullet-size);
       position: absolute;
       top: calc(
-        (var(--dds-font-lineheight-list) * 1em) / 2 -
+        (var(--dds-font-lineheight-x1) * 1em) / 2 -
           var(--dds-list-bullet-size) / 2
       );
       left: 0;
@@ -60,5 +60,5 @@
 }
 
 .li {
-  line-height: var(--dds-font-lineheight-list);
+  margin-bottom: var(--dds-font-paragraph-spacing-list);
 }
