@@ -19,14 +19,16 @@ import { Link, Paragraph, Typography } from '../Typography';
 
 import { Accordion, AccordionBody, AccordionHeader } from '.';
 
-export default {
+const meta: Meta<typeof Accordion> = {
   title: 'dds-components/Components/Accordion',
   component: Accordion,
   argTypes: {
     ...commonArgTypesWithNodeChildren,
   },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof Accordion>;
+};
+
+export default meta;
 
 type Story = StoryObj<typeof Accordion>;
 

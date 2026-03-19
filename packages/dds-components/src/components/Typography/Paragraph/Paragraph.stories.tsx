@@ -7,14 +7,16 @@ import { Typography } from '../Typography';
 
 import { Paragraph } from '.';
 
-export default {
+const meta: Meta<typeof Paragraph> = {
   title: 'dds-components/Components/Typography/Paragraph',
   component: Paragraph,
   argTypes: {
     ...storyTypographyHtmlAttrs,
   },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof Paragraph>;
+};
+
+export default meta;
 
 type Story = StoryObj<typeof Paragraph>;
 

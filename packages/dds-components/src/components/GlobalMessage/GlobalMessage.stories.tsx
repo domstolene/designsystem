@@ -9,7 +9,7 @@ import {
 } from '../../storybook';
 import { StoryVStack } from '../layout/Stack/utils';
 
-export default {
+const meta: Meta<typeof GlobalMessage> = {
   title: 'dds-components/Components/GlobalMessage',
   component: GlobalMessage,
   argTypes: {
@@ -17,7 +17,9 @@ export default {
   },
   args: { onClose: fn() },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof GlobalMessage>;
+};
+
+export default meta;
 
 type Story = StoryObj<typeof GlobalMessage>;
 

@@ -18,13 +18,15 @@ import {
   DetailListTerm,
 } from '.';
 
-export default {
+const meta: Meta<typeof DetailList> = {
   title: 'dds-components/Components/DetailList',
   component: DetailList,
   argTypes: {
     ...commonArgTypesWithNodeChildren,
   },
-} satisfies Meta<typeof DetailList>;
+};
+
+export default meta;
 
 type Story = StoryObj<typeof DetailList>;
 

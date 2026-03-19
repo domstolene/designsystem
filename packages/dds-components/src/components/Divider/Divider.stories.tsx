@@ -5,13 +5,15 @@ import { Contrast } from '../layout';
 
 import { Divider } from '.';
 
-export default {
+const meta: Meta<typeof Divider> = {
   title: 'dds-components/Components/Divider',
   component: Divider,
   argTypes: {
     ...commonArgTypes,
   },
-} satisfies Meta<typeof Divider>;
+};
+
+export default meta;
 
 type Story = StoryObj<typeof Divider>;
 

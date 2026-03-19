@@ -17,14 +17,16 @@ import {
 } from '../Icon/icons';
 import { HStack, VStack } from '../layout';
 
-export default {
+const meta: Meta<typeof ProgressTracker> = {
   title: 'dds-components/Components/ProgressTracker',
   component: ProgressTracker,
   argTypes: {
     ...commonArgTypesWithNodeChildren,
   },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof ProgressTracker>;
+};
+
+export default meta;
 
 type Story = StoryObj<typeof ProgressTracker>;
 

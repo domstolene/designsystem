@@ -7,13 +7,15 @@ import { Legend } from '../../Typography';
 
 import { Checkbox, CheckboxGroup } from '.';
 
-export default {
+const meta: Meta<typeof CheckboxGroup> = {
   title: 'dds-components/Components/Checkbox/CheckboxGroup',
   component: CheckboxGroup,
   argTypes: {
     ...commonArgTypesWithNodeChildren,
   },
-} satisfies Meta<typeof CheckboxGroup>;
+};
+
+export default meta;
 
 type Story = StoryObj<typeof CheckboxGroup>;
 

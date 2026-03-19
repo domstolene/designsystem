@@ -6,14 +6,16 @@ import { storyTypographyHtmlAttrs } from '../storyUtils';
 
 import { Caption } from '.';
 
-export default {
+const meta: Meta<typeof Caption> = {
   title: 'dds-components/Components/Typography/Caption',
   component: Caption,
   argTypes: {
     ...storyTypographyHtmlAttrs,
   },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof Caption>;
+};
+
+export default meta;
 
 type Story = StoryObj<typeof Caption>;
 

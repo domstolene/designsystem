@@ -9,7 +9,7 @@ import { storyTypographyHtmlAttrs } from '../storyUtils';
 
 import { Label } from '.';
 
-export default {
+const meta: Meta<typeof Label> = {
   title: 'dds-components/Components/Typography/Label',
   component: Label,
   argTypes: {
@@ -17,7 +17,9 @@ export default {
     ...storyTypographyHtmlAttrs,
   },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof Label>;
+};
+
+export default meta;
 
 type Story = StoryObj<typeof Label>;
 

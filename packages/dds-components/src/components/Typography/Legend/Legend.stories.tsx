@@ -4,14 +4,16 @@ import { Legend } from '..';
 import { ddsProviderDecorator } from '../../../storybook';
 import { storyTypographyHtmlAttrs } from '../storyUtils';
 
-export default {
+const meta: Meta<typeof Legend> = {
   title: 'dds-components/Components/Typography/Legend',
   component: Legend,
   argTypes: {
     ...storyTypographyHtmlAttrs,
   },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof Legend>;
+};
+
+export default meta;
 
 type Story = StoryObj<typeof Legend>;
 

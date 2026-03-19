@@ -5,7 +5,7 @@ import { commonArgTypes, ddsProviderDecorator } from '../../storybook';
 
 import { Chip } from '.';
 
-export default {
+const meta: Meta<typeof Chip> = {
   title: 'dds-components/Components/Chip',
   component: Chip,
   argTypes: {
@@ -13,7 +13,9 @@ export default {
   },
   args: { onClose: fn() },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof Chip>;
+};
+
+export default meta;
 
 type Story = StoryObj<typeof Chip>;
 
