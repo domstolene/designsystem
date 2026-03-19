@@ -1,4 +1,4 @@
-import { type RefObject, useEffect, useRef } from 'react';
+import { type RefObject, useLayoutEffect, useRef } from 'react';
 
 import { getFocusableElements } from '../../utils';
 
@@ -25,42 +25,47 @@ export function useFocusTrap<T extends HTMLElement>(
   active: boolean,
   initialFocusRef: RefObject<HTMLElement | null> | undefined = undefined,
 ): RefObject<T | null> {
-  const elementRef = useRef<T>(null);
+  const containerRef = useRef<T>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    const container = containerRef.current;
+
+    if (!active || !container) return;
+
+    if (initialFocusRef?.current) {
+      initialFocusRef.current.focus();
+    } else {
+      container.tabIndex = container.tabIndex || -1;
+      container.focus();
+    }
+
     function handleFocus(e: KeyboardEvent) {
-      if (e.key !== 'Tab' || !active || !elementRef.current) return;
+      if (e.key !== 'Tab') return;
 
-      const focusableElements = getFocusableElements(elementRef);
-      const firstElement = focusableElements[0];
-      const lastElement = focusableElements[focusableElements.length - 1];
+      const focusableEls = getFocusableElements(containerRef);
 
-      if (!e.shiftKey && document.activeElement === lastElement) {
-        firstElement.focus();
+      if (focusableEls.length < 1) return;
+
+      const firstEl = focusableEls[0];
+      const lastEl = focusableEls[focusableEls.length - 1];
+      const activeEl = document.activeElement;
+
+      if (!e.shiftKey && activeEl === lastEl) {
+        firstEl.focus();
         e.preventDefault();
       }
 
-      if (e.shiftKey && document.activeElement === firstElement) {
-        lastElement.focus();
+      if (e.shiftKey && activeEl === firstEl) {
+        lastEl.focus();
         e.preventDefault();
       }
     }
 
-    const element = elementRef.current;
-
-    if (element && active) {
-      if (initialFocusRef?.current) {
-        initialFocusRef.current.focus();
-      } else {
-        element.focus();
-        element.addEventListener('keydown', handleFocus);
-      }
-    }
-
+    document.addEventListener('keydown', handleFocus);
     return () => {
-      element?.removeEventListener('keydown', handleFocus);
+      document.removeEventListener('keydown', handleFocus);
     };
   }, [active]);
 
-  return elementRef;
+  return containerRef;
 }

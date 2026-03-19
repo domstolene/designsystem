@@ -1,5 +1,6 @@
 import { type ReactNode, useId, useState } from 'react';
 
+import { useCombinedRef, useFocusTrap } from '../../hooks';
 import { createTexts, useTranslation } from '../../i18n';
 import {
   type BaseComponentPropsWithChildren,
@@ -17,6 +18,7 @@ import {
   VStack,
 } from '../layout';
 import { Heading } from '../Typography';
+import styles from './CookieBanner.module.css';
 import {
   CookieBannerCheckbox,
   type CookieBannerCheckboxProps,
@@ -57,9 +59,12 @@ export function CookieBanner({
   width = 'fit-content',
   children,
   collapsedBreakpoint,
+  ref,
   ...rest
 }: CookieBannerProps) {
   const { t } = useTranslation();
+  const containerRef = useFocusTrap<HTMLDivElement>(true);
+  const combinedRef = useCombinedRef(containerRef, ref);
 
   const hasBp = !!collapsedBreakpoint;
   const [isCollapsedOnBreakpoint, setIsCollapsedOnBreakpoint] = useState(hasBp);
@@ -82,6 +87,7 @@ export function CookieBanner({
         id,
         cn(
           className,
+          styles.container,
           utilStyles.scrollbar,
           utilStyles['scrollable-y'],
           typographyStyles['tertiary-medium'],
@@ -90,6 +96,7 @@ export function CookieBanner({
         htmlProps,
         rest,
       )}
+      ref={combinedRef}
       role="region"
       aria-labelledby={headingId}
       padding={styleUpToBreakpoint('x1', 'sm', 'x1.5')}
