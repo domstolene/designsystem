@@ -10,7 +10,7 @@ export default create({
 
   brandTitle: 'Elsa - Domstolenes Designsystem',
   brandUrl: 'https://design.domstol.no',
-  brandImage: '/Elsa-logo-hoy.png',
+  brandImage: 'Elsa-logo-hoy.png',
 
   // Interaction color
   colorSecondary: theme.ddsColorSurfaceActionSelected,
