@@ -16,7 +16,7 @@ import { PhoneInput } from '.';
 
 const { id, className, style } = commonArgTypes;
 
-export default {
+const meta: Meta<typeof PhoneInput> = {
   title: 'dds-components/Components/PhoneInput',
   component: PhoneInput,
   argTypes: {
@@ -33,8 +33,9 @@ export default {
   },
   args: { onChange: fn() },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof PhoneInput>;
+};
 
+export default meta;
 type Story = StoryObj<typeof PhoneInput>;
 
 export const Preview: Story = { args: { label: 'Telefonnummer' } };

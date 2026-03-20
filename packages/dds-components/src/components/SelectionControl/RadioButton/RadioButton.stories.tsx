@@ -11,7 +11,7 @@ import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 
 import { RadioButton } from '.';
 
-export default {
+const meta: Meta<typeof RadioButton> = {
   title: 'dds-components/Components/RadioButton',
   component: RadioButton,
   argTypes: {
@@ -25,8 +25,9 @@ export default {
     onChange: htmlEventArgType,
   },
   args: { onChange: fn() },
-} satisfies Meta<typeof RadioButton>;
+};
 
+export default meta;
 type Story = StoryObj<typeof RadioButton>;
 
 export const Preview: Story = {

@@ -6,13 +6,15 @@ import { Typography } from '../Typography';
 
 import { List, ListItem, type ListProps } from '.';
 
-export default {
+const meta: Meta<typeof List> = {
   title: 'dds-components/Components/List',
   component: List,
   argTypes: {
     ...commonArgTypesWithNodeChildren,
   },
-} satisfies Meta<typeof List>;
+};
+
+export default meta;
 
 type Story = StoryObj<typeof List>;
 

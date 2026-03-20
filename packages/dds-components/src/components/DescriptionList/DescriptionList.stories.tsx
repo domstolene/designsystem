@@ -12,14 +12,15 @@ import {
   DescriptionListTerm,
 } from '.';
 
-export default {
+const meta: Meta<typeof DescriptionList> = {
   title: 'dds-components/Components/DescriptionList',
   component: DescriptionList,
-
   argTypes: {
     ...commonArgTypesWithNodeChildren,
   },
-} satisfies Meta<typeof DescriptionList>;
+};
+
+export default meta;
 
 type Story = StoryObj<typeof DescriptionList>;
 

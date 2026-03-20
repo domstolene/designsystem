@@ -6,15 +6,16 @@ import { storyTypographyHtmlAttrs } from '../storyUtils';
 
 import { Heading } from '.';
 
-export default {
+const meta: Meta<typeof Heading> = {
   title: 'dds-components/Components/Typography/Heading',
   component: Heading,
   argTypes: {
     ...storyTypographyHtmlAttrs,
   },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof Heading>;
+};
 
+export default meta;
 type Story = StoryObj<typeof Heading>;
 
 export const Preview: Story = {

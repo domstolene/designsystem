@@ -31,7 +31,7 @@ import {
 const { className, htmlProps, ref, children, style } =
   commonArgTypesWithNodeChildren;
 
-export default {
+const meta: Meta<typeof OverflowMenu> = {
   title: 'dds-components/Components/OverflowMenu',
   component: OverflowMenu,
   argTypes: {
@@ -47,7 +47,9 @@ export default {
     },
   },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof OverflowMenu>;
+};
+
+export default meta;
 
 type Story = StoryObj<typeof OverflowMenu>;
 

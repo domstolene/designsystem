@@ -5,13 +5,15 @@ import { StoryHStack } from '../layout/Stack/utils';
 
 import { InputMessage } from '.';
 
-export default {
+const meta: Meta<typeof InputMessage> = {
   title: 'dds-components/Components/InputMessage',
   component: InputMessage,
   argTypes: {
     ...commonArgTypes,
   },
-} satisfies Meta<typeof InputMessage>;
+};
+
+export default meta;
 
 type Story = StoryObj<typeof InputMessage>;
 
