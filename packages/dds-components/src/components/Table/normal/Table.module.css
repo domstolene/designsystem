@@ -14,7 +14,7 @@
 
 .table--with-dividers {
   .row--body {
-    border-bottom: 1px solid var(--dds-color-border-default);
+    border-bottom: 1px solid var(--dds-color-border-subtle);
   }
 
   .row--colapsible-header--open {
