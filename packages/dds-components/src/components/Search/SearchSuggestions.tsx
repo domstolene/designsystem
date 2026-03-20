@@ -116,6 +116,6 @@ const texts = createTexts({
     nb: 'Søkeforslag',
     nn: 'Søkeforslag',
     en: 'Search suggestions',
-    se: 'Ozanfálaldagat',
+    se: 'Ohcan evttohus',
   },
 });
