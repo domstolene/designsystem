@@ -1,5 +1,20 @@
 # @norges-domstoler/dds-components
 
+## 22.7.0
+
+### Minor Changes
+
+- 979ab8c: `<CookieBanner>` fanger nå tastaturfokus i en løkke, slik at brukeren ikke kan fokusere elementer bak komponenten ellers på nettsiden. Dette for å oppfylle UU-krav om synlig fokus.
+- 827d810: Støtte for ulike formål i `<ToggleBar>` med prop `purpose`. Den tar inn `'primary'` eller `'secondary'` med standardverdi `'primary'`. Styling er den samme hvis standerdverdien brukes.
+
+### Patch Changes
+
+- 9d5137d: Justerer på størrelser i `<List>`. Listeelementer har nå:
+  - samme linjehøyde som `body-long`-typografi
+  - margin på bunnen får ekstra luft mellom elementene
+
+- 0ec66bb: Legger til manglende samiske oversettelser.
+
 ## 22.6.0
 
 (2026-03-18)
