@@ -2,6 +2,7 @@ import { ArgTypes, Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as FormSummaryStories from './FormSummary.stories';
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from '../Tabs';
+import LinkTo from '@storybook/addon-links/react';
 import {
   FormSummaryEditButton,
   FormSummaryError,
@@ -25,6 +26,8 @@ import {
 />
 
 Komponent som oppsummerer utfylte felt i et skjema delt opp i steg. Består av flere delkomponenter og bruker `<dl>` som liste under panseret.
+
+Komponenten brukes i mønsteret <LinkTo title='Patterns/CheckAnswers' story='Docs'>Sjekk svar</LinkTo>.
 
 ## Delkomponenter
 

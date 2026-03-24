@@ -16,3 +16,18 @@ export function convertCamelToHyphen(value: string) {
 
 export const defaultPortalTarget = () =>
   document.getElementsByClassName('dds-themed')[0] as HTMLElement;
+
+/**
+ * Returnener verdien hvis den er truthy.
+ * Ellers returnerer `undefined`.
+ * Kan konfigureres til å beholde `0`.
+ */
+export function optAttr<T>(
+  value: T | undefined | null,
+  keepZero?: boolean,
+): T | undefined {
+  if (keepZero && value === 0) {
+    return value;
+  }
+  return value ? value : undefined;
+}
