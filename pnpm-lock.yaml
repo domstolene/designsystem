@@ -57,8 +57,8 @@ importers:
         specifier: ^8.57.1
         version: 8.57.1(eslint@9.39.2)(typescript@5.9.3)
       chromatic:
-        specifier: ^15.3.0
-        version: 15.3.0
+        specifier: ^16.0.0
+        version: 16.0.0
       eslint:
         specifier: ^9.39.2
         version: 9.39.2
@@ -2448,8 +2448,8 @@ packages:
       '@chromatic-com/playwright':
         optional: true
 
-  chromatic@15.3.0:
-    resolution: {integrity: sha512-ficw/Pz9OpBnPoWDRmuwFDwzLPSN0o90x6X+0+rbnMFYtDTPWXddW6R14jQ56SgYSByJ67OyHZg2gW6U6HF2Qw==}
+  chromatic@16.0.0:
+    resolution: {integrity: sha512-O81RVGDXXoreNeG894hjaUx08xep+C/BA6aJNMZkwSjH7Lln8IweZekBpBEoQPNNpjmHyZvcTIwN/aGitdK53Q==}
     hasBin: true
     peerDependencies:
       '@chromatic-com/cypress': ^0.*.* || ^1.0.0
@@ -4337,8 +4337,8 @@ packages:
     resolution: {integrity: sha512-g9ljZiwki/LfxmQADO3dEY1CbpmXT5Hm2fJ+QaGKwSXUylMybePR7/67YW7jOrrvjEgL1Fmz5kzyAjWVWLlucg==}
     engines: {node: '>=6'}
 
-  tapable@2.3.1:
-    resolution: {integrity: sha512-b+u3CEM6FjDHru+nhUSjDofpWSBp2rINziJWgApm72wwGasQ/wKXftZe4tI2Y5HPv6OpzXSZHOFq87H4vfsgsw==}
+  tapable@2.3.2:
+    resolution: {integrity: sha512-1MOpMXuhGzGL5TTCZFItxCc0AARf1EZFQkGqMm7ERKj8+Hgr5oLvJOVFcC+lRmR8hCe2S3jC4T5D7Vg/d7/fhA==}
     engines: {node: '>=6'}
 
   term-size@2.2.1:
@@ -7067,7 +7067,7 @@ snapshots:
 
   chromatic@13.3.5: {}
 
-  chromatic@15.3.0: {}
+  chromatic@16.0.0: {}
 
   chrome-trace-event@1.0.4: {}
 
@@ -7254,7 +7254,7 @@ snapshots:
   enhanced-resolve@5.20.1:
     dependencies:
       graceful-fs: 4.2.11
-      tapable: 2.3.1
+      tapable: 2.3.2
 
   enquirer@2.4.1:
     dependencies:
@@ -9189,7 +9189,7 @@ snapshots:
 
   tapable@2.3.0: {}
 
-  tapable@2.3.1: {}
+  tapable@2.3.2: {}
 
   term-size@2.2.1: {}
 
@@ -9608,7 +9608,7 @@ snapshots:
       mime-types: 2.1.35
       neo-async: 2.6.2
       schema-utils: 4.3.3
-      tapable: 2.3.1
+      tapable: 2.3.2
       terser-webpack-plugin: 5.4.0(esbuild@0.27.4)(webpack@5.105.2(esbuild@0.27.4))
       watchpack: 2.5.1
       webpack-sources: 3.3.4

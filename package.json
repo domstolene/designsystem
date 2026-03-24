@@ -48,7 +48,7 @@
     "@testing-library/dom": "^10.4.1",
     "@typescript-eslint/eslint-plugin": "^8.57.1",
     "@typescript-eslint/parser": "^8.57.1",
-    "chromatic": "^15.3.0",
+    "chromatic": "^16.0.0",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^4.4.4",
