@@ -37,7 +37,7 @@ jobs:
 
       - name: Commit generated design tokens
         if: steps.filter.outputs.tokens == 'true' && github.event.pull_request.head.repo.full_name == github.repository
-        uses: EndBug/add-and-commit@v9
+        uses: EndBug/add-and-commit@v10
         with:
           author_name: AgataJedryszek-da
           author_email: agata.jedryszek@domstol.no
