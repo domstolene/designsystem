@@ -1,5 +1,12 @@
 # @norges-domstoler/dds-design-tokens
 
+## 9.2.0
+
+### Minor Changes
+
+- 9d5137d: Nytt design token: `dds-font-paragraph-spacing-list`. Brukes mellom listeelementer i en liste, primært internt i designsystemet.
+- 9d5137d: Sletter design token `dds-font-lineheight-list`. Den ble ikke brukt av noen og resulterer ikke i breaking change.
+
 ## 9.1.0
 
 (2026-02-19)
