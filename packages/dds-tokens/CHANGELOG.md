@@ -2,6 +2,8 @@
 
 ## 9.2.0
 
+(2026-03-25)
+
 ### Minor Changes
 
 - 9d5137d: Nytt design token: `dds-font-paragraph-spacing-list`. Brukes mellom listeelementer i en liste, primært internt i designsystemet.
