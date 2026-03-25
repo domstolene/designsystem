@@ -4,10 +4,13 @@ import { focusVisible, focusVisibleTransitionValue } from '../helpers';
 import { scrollbarStyling } from '../helpers';
 import { type InputSize } from '../helpers/Input';
 
-interface StaticSelectTypography {
-  font: string;
-  letterSpacing: string;
-  fontStyle?: string;
+type FontToken<T extends string = string> = `var(--dds-font-${T})`;
+type LetterSpacingToken<T extends string = string> =
+  `var(--dds-font-${T}-letter-spacing)`;
+
+interface StaticSelectTypography<T extends string = string> {
+  font: FontToken<T>;
+  letterSpacing: LetterSpacingToken<T>;
 }
 
 type SelectTypography = Record<InputSize, StaticSelectTypography>;
@@ -26,6 +29,8 @@ const optionTypography: SelectTypography = {
     letterSpacing: 'var(--dds-font-body-short-xsmall-letter-spacing)',
   },
 };
+
+const controlTypography: SelectTypography = optionTypography;
 
 const multiValueLabelTypography: SelectTypography = {
   medium: {
@@ -49,28 +54,16 @@ const groupHeadingTypography: StaticSelectTypography = {
 
 const typography = {
   option: optionTypography,
+  control: controlTypography,
   multiValueLabel: multiValueLabelTypography,
   groupHeading: groupHeadingTypography,
 };
 
 export const prefix = 'dds-select';
 
-const control = {
-  medium: {
-    ...optionTypography.medium,
-  },
-  small: {
-    ...optionTypography.small,
-  },
-  xsmall: {
-    ...optionTypography.xsmall,
-  },
-};
-
 export const getCustomStyles = <TOption>(
   size: InputSize,
   hasError: boolean,
-  hasIcon: boolean,
   isReadOnly?: boolean,
 ): Partial<StylesConfig<TOption, boolean, GroupBase<TOption>>> => ({
   control: (provided, state) => ({
@@ -84,7 +77,7 @@ export const getCustomStyles = <TOption>(
     borderColor: 'var(--dds-color-border-default)',
     backgroundColor: 'var(--dds-color-surface-default)',
     transition: `box-shadow var(--dds-motion-micro-state), border-color var(--dds-motion-micro-state), ${focusVisibleTransitionValue}`,
-    ...control[size],
+    ...typography.control[size],
     '&:hover': {
       ...(!isReadOnly && {
         borderColor: 'var(--dds-color-border-action-hover)',
@@ -238,7 +231,7 @@ export const getCustomStyles = <TOption>(
     gap: 'var(--dds-spacing-x0-25)',
     padding: 'var(--dds-spacing-x0-75)',
     backgroundColor: 'var(--dds-color-surface-default)',
-    ...typography.option.medium,
+    ...typography.option[size],
     color: 'var(--dds-color-text-default)',
     '@media (prefers-reduced-motion: no-preference)': {
       transition:

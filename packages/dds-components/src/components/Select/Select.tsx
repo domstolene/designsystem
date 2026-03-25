@@ -145,7 +145,6 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
 
   const singleValueId = !isMulti ? `${uniqueId}-singleValue` : undefined;
   const hasErrorMessage = !!errorMessage;
-  const hasIcon = !!icon;
   const showRequiredStyling = !!(rest.required || ariaRequired);
 
   const tipId = derivativeIdGenerator(uniqueId, 'tip');
@@ -256,12 +255,7 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
     name: uniqueId,
     menuPortalTarget: portalTarget,
     classNamePrefix: prefix,
-    styles: getCustomStyles<Option>(
-      componentSize,
-      hasErrorMessage,
-      hasIcon,
-      readOnly,
-    ),
+    styles: getCustomStyles<Option>(componentSize, hasErrorMessage, readOnly),
     filterOption: (option, inputValue) => {
       const { label } = option;
       return searchFilter(label, inputValue) || inputValue === '';
