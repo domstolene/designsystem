@@ -3,5 +3,21 @@
   "projectId": "Project:685279c6f45f55e818f8f255",
   "zip": true,
   "debug": true,
-  "buildScriptName": "build:storybook"
+  "buildScriptName": "build:storybook",
+  "untraced": [
+    "package.json",
+    ".prettierrc",
+    "eslint.config.mjs",
+    "turbo.json",
+    "**/*.yaml",
+    "**/*.yml",
+    "**/*.md",
+    "**/*.mdx",
+    "**/vitest.config.ts",
+    "**/*.spec.tsx",
+    ".github/**",
+    ".changeset/**",
+    "packages/dds-formatting/**",
+    "packages/storybook-components/**"
+  ]
 }
