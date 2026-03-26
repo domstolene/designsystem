@@ -51,7 +51,7 @@ export const ErrorSummary = ({
         props,
       )}
       background="surface-danger-default"
-      padding="x1 x0.75 x1.5 x1"
+      padding="x1 x0.75 x0.25 x1"
     >
       {heading}
       <List>{children}</List>
