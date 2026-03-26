@@ -20,6 +20,10 @@ type DropdownItemT = 'span' | 'a' | typeof StylelessButton | typeof Toggle;
 export type DropdownItemButtonProps = {
   /**Asynkron `onClick` event; håndterer loading status, slik at menyen ikke lukker seg under loading. */
   onClickAsync?: MouseEventHandler<HTMLButtonElement>;
+  /**Egen styring av når menyen skal lukkes ved klikk på knapp i menyen. Bruker intern logikk som default. Støtter i tillegg egen funksjon og ingen lukking (`false`).
+   * @default true
+   */
+  closeMenuOnClickAsync?: boolean | ((close: () => void) => void);
 } & Pick<ButtonProps, 'loading' | 'loadingTooltip'>;
 
 export interface DropdownItemCustomProps<T extends DropdownItemT = 'span'> {
