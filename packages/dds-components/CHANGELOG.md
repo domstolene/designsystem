@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-components
 
+## 22.7.1
+
+### Patch Changes
+
+- 790519f: Reduserer top-padding til ErrorSummary komponenten.
+- e061852: Fjerner `fit-height` fra button for å unngå ulike knapphøyde i ulike nettlesere.
+- cd5fddb: Justerer typografistilen i nedtrekksliste i `<Select>` til å følge størrelsen på komponenten.
+
 ## 22.7.0
 
 (2026-03-25)
