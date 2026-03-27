@@ -2,6 +2,8 @@
 
 ## 22.7.1
 
+(2026-03-27)
+
 ### Patch Changes
 
 - 790519f: Reduserer top-padding til ErrorSummary komponenten.
