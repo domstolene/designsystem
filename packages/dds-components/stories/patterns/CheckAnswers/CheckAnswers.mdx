@@ -1,0 +1,66 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
+import {
+  Tabs,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+} from '../../../src/components/Tabs';
+import * as CheckAnswersStories from './CheckAnswers.stories';
+import * as FormSummaryStories from '../../../src/components/FormSummary/FormSummary.stories';
+import { Link } from '../../../src/components/Typography';
+import LinkTo from '@storybook/addon-links/react';
+
+<Meta of={CheckAnswersStories} />
+
+# Sjekk svar
+
+<ComponentLinkRow
+  docsHref="0874d8-sjekk-svar"
+  storybookHref={{ folder: 'Patterns', comp: 'check-answers--check-answers' }}
+/>
+
+## Hvordan implementere?
+
+Dette Sjekk svar-mønsteret brukes sammen med <LinkTo title='Patterns/Form' story='docs'>Skjema-mønsteret</LinkTo> og <LinkTo title='dds-components/components/FormSummary' story='docs'> `<FormSummary>` komponenten</LinkTo>. `<FormSummary>` brukes i siste steget i skjema og kalles "Oppsummering" el.l.
+
+Du trenger i utganspunktet ingen egen CSS styling.
+
+### Komponenter
+
+- **Skjemakomponenter, typografi og layout primitives**: se <LinkTo title='Patterns/Form' story='docs'>Skjema-mønsteret</LinkTo>.
+- **`<FormSummary>`**.
+
+### Styling
+
+- **Spacing**: komponenten `<FormSummary>` og dens delkomponenter har innbakt spacing som følger retningslinjer. Typografikomponenter bør brukes med `withMargins` prop. Sett i tillegg egen spacing for generiske containere; bruk gjerne [layout primitives](#layout-primitives).
+
+## Maler
+
+**OBS!** Layout blir ikke helt riktig i stories embedded i Docs med tanke på brekkpunkter; For layout se demoer/stories utenfor Docs.
+
+<Tabs>
+  <TabList>
+    <Tab>Sjekk svar</Tab>
+    <Tab>Layout med flex</Tab>
+    <Tab>Layout med grid</Tab>
+  </TabList>
+  <TabPanels paddingBlock='var(--dds-spacing-x1-5) 0'>
+    <TabPanel>
+      <Canvas of={CheckAnswersStories.CheckAnswers} />
+    </TabPanel>
+    <TabPanel>
+        Du ka bruke `flex` hvis flere `<FormSummary>` skal legges i flere kolonner. Da vil alle `<FormSummary>` få lengden til den lengste.
+      <Canvas of={FormSummaryStories.WithFlex} />
+    </TabPanel>
+    <TabPanel>
+        Du ka bruke `grid` hvis flere `<FormSummary>` skal legges i flere kolonner. Da vil hver `<FormSummary>` beholde lengden sin.
+      <Canvas of={FormSummaryStories.WithGrid} />
+    </TabPanel>
+
+  </TabPanels>
+</Tabs>
