@@ -32,12 +32,6 @@ Installer dependencies:
 pnpm install
 ```
 
-Bygg løsningen:
-
-```shell
-pnpm build
-```
-
 Kjør dev server:
 
 ```shell
@@ -51,6 +45,12 @@ pnpm storybook
 ```
 
 Storybook kjører på port `6006`.
+
+`dist`-mappa for hver pakke bygges én gang når `pnpm dev` kjøres. Du kan ellers bygge ved behov:
+
+```shell
+pnpm build
+```
 
 ### Linking
 
