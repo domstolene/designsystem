@@ -14,8 +14,7 @@
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
-    "downlevelIteration": true
+    "allowSyntheticDefaultImports": true
   },
   "include": ["packages", "stories", ".storybook"],
   "exclude": ["**/node_modules"]
