@@ -1,9 +1,10 @@
 import { type ComponentPropsWithRef } from 'react';
 
+import { useDetailListContext } from './DetailList.context';
 import styles from './DetailList.module.css';
 import { cn } from '../../utils';
 import { Box } from '../layout';
-import { useDetailListContext } from './DetailList.context';
+import tableStyles from '../Table/normal/Table.module.css';
 
 export type DetailListRowProps = ComponentPropsWithRef<'div'>;
 
@@ -16,7 +17,7 @@ export const DetailListRow = ({ className, ...rest }: DetailListRowProps) => {
       <Box
         display="table-row"
         hideBelow={hasBp ? bp : undefined}
-        className={cn(className, styles.row)}
+        className={cn(className, styles.row, tableStyles['row--body'])}
         {...rest}
       />
       {hasBp && (
@@ -24,7 +25,12 @@ export const DetailListRow = ({ className, ...rest }: DetailListRowProps) => {
           display="flex"
           flexDirection="column"
           showBelow={bp}
-          className={cn(className, styles.row, styles.column)}
+          className={cn(
+            className,
+            styles.row,
+            styles.column,
+            tableStyles['row--body'],
+          )}
           {...rest}
         />
       )}
