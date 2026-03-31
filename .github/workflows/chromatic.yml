@@ -1,6 +1,21 @@
 name: 'Chromatic'
 
-on: push
+on:
+  push:
+    paths-ignore:
+      - '.prettierrc'
+      - 'eslint.config.mjs'
+      - 'turbo.json'
+      - '**/*.yaml'
+      - '**/*.yml'
+      - '**/*.md'
+      - '**/*.mdx'
+      - '**/vitest.config.ts'
+      - '**/*.spec.tsx'
+      - '.github/**'
+      - '.changeset/**'
+      - 'packages/dds-formatting/**'
+      - 'packages/storybook-components/**'
 
 jobs:
   chromatic:
