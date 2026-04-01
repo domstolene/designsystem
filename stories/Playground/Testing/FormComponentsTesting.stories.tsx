@@ -7,6 +7,7 @@ import {
   LocalMessage,
   MailIcon,
   NativeSelect,
+  PhoneInput,
   Search,
   Select,
   TextInput,
@@ -33,6 +34,7 @@ const sValue = { label: 'test', value: 'test' };
 const date = new Date(2024, 2, 11, 2, 30);
 const dValue = nativeDateToCalendarDate(date);
 const tValue = nativeDateToTime(date);
+const phoneValue = { countryCode: 'NO', phoneNumber: '12345678' };
 
 function renderInputs(size: InputSize) {
   return (
@@ -61,6 +63,7 @@ function renderInputs(size: InputSize) {
         options={[sValue]}
         defaultValue={sValue}
       />
+      <PhoneInput componentSize={size} defaultValue={phoneValue} />
     </>
   );
 }
