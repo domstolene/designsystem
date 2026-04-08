@@ -1,5 +1,14 @@
 # @norges-domstoler/dds-components
 
+## 22.7.2
+
+(2026-04-08)
+
+### Patch Changes
+
+- feaa5d5: Fikser bug der inputfeltene i `<PhoneInput>` ikke var på linje med hverandre.
+- 739a696: Fikser farge på border i `<DetailList>`.
+
 ## 22.7.1
 
 (2026-03-27)
