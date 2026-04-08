@@ -313,7 +313,7 @@ export const PhoneInput = ({
             </option>
           ))}
         </NativeSelect>
-        <Box width="100%" className={inputStyles['input-group']}>
+        <Box width="100%" display="flex" className={inputStyles['input-group']}>
           <span
             className={cn(
               typographyStyles[`body-short-${componentSize}`],
