@@ -1,5 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
-import { fn } from 'storybook/test';
+import preview from '#.storybook/preview';
 
 import { TOGGLE_BAR_PURPOSES, TOGGLE_BAR_SIZES } from './ToggleBar.types';
 import {
@@ -15,7 +14,7 @@ import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { ToggleBar, ToggleRadio } from '.';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/ToggleBar',
   component: ToggleBar,
   argTypes: {
@@ -23,10 +22,7 @@ export default {
     value: { control: false },
     ...commonArgTypesWithNodeChildren,
   },
-  args: { onChange: fn() },
-} satisfies Meta<typeof ToggleBar>;
-
-type Story = StoryObj<typeof ToggleBar>;
+});
 
 const toggleRadios = (label?: boolean, icon?: boolean) => {
   const radios = [];
@@ -43,7 +39,7 @@ const toggleRadios = (label?: boolean, icon?: boolean) => {
   return <>{radios}</>;
 };
 
-export const Preview: Story = {
+export const Preview = meta.story({
   render: args => (
     <ToggleBar {...args} name="test">
       <ToggleRadio label="Alt1" value="Alt1" />
@@ -51,9 +47,9 @@ export const Preview: Story = {
       <ToggleRadio label="Alt3" value="Alt3" />
     </ToggleBar>
   ),
-};
+});
 
-export const Purposes: Story = {
+export const Purposes = meta.story({
   render: args => {
     let name = 0;
     return (
@@ -71,9 +67,9 @@ export const Purposes: Story = {
       </StoryVStack>
     );
   },
-};
+});
 
-export const Sizes: Story = {
+export const Sizes = meta.story({
   render: args => {
     let name = 0;
     return (
@@ -97,9 +93,9 @@ export const Sizes: Story = {
       </StoryHStack>
     );
   },
-};
+});
 
-export const WithWidth: Story = {
+export const WithWidth = meta.story({
   render: args => {
     return (
       <ToggleBar {...args} name="test" width="320px">
@@ -107,9 +103,9 @@ export const WithWidth: Story = {
       </ToggleBar>
     );
   },
-};
+});
 
-export const ResponsiveWidth: Story = {
+export const ResponsiveWidth = meta.story({
   decorators: [Story => windowWidthDecorator(<Story />)],
   args: {
     width: {
@@ -127,4 +123,4 @@ export const ResponsiveWidth: Story = {
       </ToggleBar>
     );
   },
-};
+});

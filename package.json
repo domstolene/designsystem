@@ -46,6 +46,8 @@
     "@storybook/addon-links": "10.3.5",
     "@storybook/react-vite": "10.3.5",
     "@testing-library/dom": "^10.4.1",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "19.2.3",
     "@typescript-eslint/eslint-plugin": "^8.58.2",
     "@typescript-eslint/parser": "^8.58.2",
     "chromatic": "^16.2.0",
@@ -84,5 +86,14 @@
   "packageManager": "pnpm@10.33.0",
   "peerDependencies": {
     "webpack": "^5.94.0"
+  },
+  "imports": {
+    "#*": [
+      "./*",
+      "./*.ts",
+      "./*.tsx",
+      "./*.js",
+      "./*.jsx"
+    ]
   }
 }

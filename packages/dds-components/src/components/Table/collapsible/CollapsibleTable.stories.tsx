@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { ScreenSize, useScreenSize } from '../../../hooks';
 import { ddsProviderDecorator, windowWidthDecorator } from '../../../storybook';
@@ -19,7 +19,14 @@ import { data, headerCells, mapCellContents } from '../normal/tableData';
 
 import { CollapsibleTable } from '.';
 
-const meta: Meta<typeof CollapsibleTable> = {
+const headerValues = headerCells.map(cell => {
+  return {
+    content: cell.name,
+    key: cell.name,
+  };
+});
+
+const meta = preview.meta({
   title: 'dds-components/Components/Table/CollapsibleTable',
   component: CollapsibleTable,
   parameters: {
@@ -32,12 +39,9 @@ const meta: Meta<typeof CollapsibleTable> = {
       exclude: ['headerValues', 'definingColumnIndex'],
     },
   },
+  args: { headerValues },
   decorators: [ddsProviderDecorator],
-};
-
-export default meta;
-
-type Story = StoryObj<typeof CollapsibleTable>;
+});
 
 const mappedHeaderCells = headerCells.map(headerCell => {
   return (
@@ -47,18 +51,11 @@ const mappedHeaderCells = headerCells.map(headerCell => {
   );
 });
 
-const headerValues = headerCells.map(cell => {
-  return {
-    content: cell.name,
-    key: cell.name,
-  };
-});
-
-export const SingleDefiningColumn: Story = {
+export const SingleDefiningColumn = meta.story({
+  args: { headerValues },
   render: args => (
     <CollapsibleTable
       {...args}
-      headerValues={headerValues}
       isCollapsed={args.isCollapsed !== false && true}
     >
       <Table.Head>
@@ -75,15 +72,14 @@ export const SingleDefiningColumn: Story = {
       </Table.Body>
     </CollapsibleTable>
   ),
-};
+});
 
-export const MultipleDefiningColumns: Story = {
+export const MultipleDefiningColumns = meta.story({
   render: args => (
     <Table.Wrapper>
       <CollapsibleTable
         {...args}
         isCollapsed={args.isCollapsed !== false && true}
-        headerValues={headerValues}
         definingColumnIndex={[0, 2]}
       >
         <Table.Head>
@@ -103,15 +99,14 @@ export const MultipleDefiningColumns: Story = {
       </CollapsibleTable>
     </Table.Wrapper>
   ),
-};
+});
 
-export const PrioritizedDefiningColumns: Story = {
+export const PrioritizedDefiningColumns = meta.story({
   render: args => (
     <Table.Wrapper>
       <CollapsibleTable
         {...args}
         isCollapsed={args.isCollapsed !== false && true}
-        headerValues={headerValues}
         definingColumnIndex={[2, 0]}
       >
         <Table.Head>
@@ -131,14 +126,13 @@ export const PrioritizedDefiningColumns: Story = {
       </CollapsibleTable>
     </Table.Wrapper>
   ),
-};
+});
 
-export const WithDividers: Story = {
+export const WithDividers = meta.story({
   render: args => (
     <CollapsibleTable
       {...args}
       withDividers
-      headerValues={headerValues}
       isCollapsed={args.isCollapsed !== false && true}
     >
       <Table.Head>
@@ -155,14 +149,13 @@ export const WithDividers: Story = {
       </Table.Body>
     </CollapsibleTable>
   ),
-};
+});
 
-export const Large: Story = {
+export const Large = meta.story({
   render: args => (
     <CollapsibleTable
       {...args}
       size="large"
-      headerValues={headerValues}
       isCollapsed={args.isCollapsed !== false && true}
     >
       <Table.Head>
@@ -179,15 +172,14 @@ export const Large: Story = {
       </Table.Body>
     </CollapsibleTable>
   ),
-};
+});
 
-export const StickyHeader: Story = {
+export const StickyHeader = meta.story({
   render: args => (
     <CollapsibleTable
       {...args}
       stickyHeader
       isCollapsed={args.isCollapsed !== false && true}
-      headerValues={headerValues}
       definingColumnIndex={[0, 2]}
     >
       <Table.Head>
@@ -211,18 +203,20 @@ export const StickyHeader: Story = {
       </Table.Body>
     </CollapsibleTable>
   ),
-};
+});
 
 const adminIcon = <Icon icon={PersonIcon} />;
 
-export const WithButtonAndIcons: Story = {
-  render: args => {
-    const headerValues = [
+export const WithButtonAndIcons = meta.story({
+  args: {
+    headerValues: [
       { content: 'Navn til venstre', key: 'Navn til venstre' },
       { content: 'Navn til høyre', key: 'Navn til høyre' },
       { content: 'Rolle', key: 'Rolle' },
       { content: 'Aksjoner', key: 'Aksjoner' },
-    ];
+    ],
+  },
+  render: args => {
     const deleteButton = (
       <Button
         purpose="secondary"
@@ -234,7 +228,7 @@ export const WithButtonAndIcons: Story = {
       </Button>
     );
     return (
-      <CollapsibleTable {...args} headerValues={headerValues} isCollapsed>
+      <CollapsibleTable {...args} isCollapsed>
         <Table.Head>
           <CollapsibleTable.Row>
             {headerValues.map(headerCell => {
@@ -263,9 +257,9 @@ export const WithButtonAndIcons: Story = {
       </CollapsibleTable>
     );
   },
-};
+});
 
-export const Responsive: Story = {
+export const Responsive = meta.story({
   render: args => {
     const screenSize = useScreenSize();
     return (
@@ -273,7 +267,6 @@ export const Responsive: Story = {
         <CollapsibleTable
           {...args}
           isCollapsed={screenSize <= ScreenSize.Small}
-          headerValues={headerValues}
         >
           <Table.Head>
             <CollapsibleTable.Row>{mappedHeaderCells}</CollapsibleTable.Row>
@@ -300,9 +293,9 @@ export const Responsive: Story = {
         'Kollapset versjon vises ved sm brekkpunkt.',
       ),
   ],
-};
+});
 
-export const ResposiveMultipleBreakpoints: Story = {
+export const ResposiveMultipleBreakpoints = meta.story({
   render: args => {
     const screenSize = useScreenSize();
     return (
@@ -310,7 +303,6 @@ export const ResposiveMultipleBreakpoints: Story = {
         <CollapsibleTable
           {...args}
           isCollapsed={screenSize <= ScreenSize.Small}
-          headerValues={headerValues}
           definingColumnIndex={screenSize === ScreenSize.XSmall ? [2] : [2, 0]}
         >
           <Table.Head>
@@ -338,7 +330,7 @@ export const ResposiveMultipleBreakpoints: Story = {
         'Ulike kollapsede versjoner vises ved xs og sm brekkpunkt.',
       ),
   ],
-};
+});
 
 const headers = [
   {
@@ -359,7 +351,7 @@ const headers = [
   { key: 'Mottakere', content: 'Mottakere' },
   { key: 'Sendt', content: 'Sendt' },
 ];
-export const Example: Story = {
+export const Example = meta.story({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: args => {
     const screenSize = useScreenSize();
@@ -423,4 +415,4 @@ export const Example: Story = {
       </CollapsibleTable>
     );
   },
-};
+});

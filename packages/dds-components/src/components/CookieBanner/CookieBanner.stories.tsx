@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { CookieBanner } from './CookieBanner';
 import {
@@ -14,7 +14,7 @@ import { Link } from '../Typography';
 const { position, left, right, top, bottom, maxHeight, width } =
   responsivePropsArgTypes;
 
-const meta: Meta<typeof CookieBanner> = {
+const meta = preview.meta({
   title: 'dds-components/Components/CookieBanner',
   component: CookieBanner,
   argTypes: {
@@ -29,13 +29,9 @@ const meta: Meta<typeof CookieBanner> = {
     checkboxes: { control: { disable: true } },
   },
   decorators: [ddsProviderDecorator],
-};
+});
 
-export default meta;
-
-type Story = StoryObj<typeof CookieBanner>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   args: {
     headerText: 'Tittel for banner',
     description: (
@@ -47,9 +43,9 @@ export const Preview: Story = {
     ),
     buttons: [{ children: 'Godkjenn alle' }, { children: 'Kun nødvendige' }],
   },
-};
+});
 
-export const WithCheckboxes: Story = {
+export const WithCheckboxes = meta.story({
   args: {
     headerText: 'Tittel for banner',
     description: (
@@ -80,16 +76,15 @@ export const WithCheckboxes: Story = {
       },
     ],
   },
-};
+});
 
-export const Placement: Story = {
+export const Placement = meta.story({
   decorators: [Story => windowWidthDecorator(<Story />)],
   parameters: {
     layout: 'fullscreen',
     docs: {
       story: {
         inline: false,
-        iframeHeight: 800,
       },
     },
     chromatic: { disableSnapshot: true },
@@ -154,16 +149,15 @@ export const Placement: Story = {
       </Box>
     );
   },
-};
+});
 
-export const PlacementWithCheckboxes: Story = {
+export const PlacementWithCheckboxes = meta.story({
   decorators: [Story => windowWidthDecorator(<Story />)],
   parameters: {
     layout: 'fullscreen',
     docs: {
       story: {
         inline: false,
-        iframeHeight: 800,
       },
     },
     chromatic: { disableSnapshot: true },
@@ -247,9 +241,9 @@ export const PlacementWithCheckboxes: Story = {
       </Box>
     );
   },
-};
+});
 
-export const Collapsible: Story = {
+export const Collapsible = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -272,4 +266,4 @@ export const Collapsible: Story = {
     ),
     buttons: [{ children: 'Godkjenn alle' }, { children: 'Kun nødvendige' }],
   },
-};
+});

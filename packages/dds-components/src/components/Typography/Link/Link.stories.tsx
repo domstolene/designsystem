@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
 import {
@@ -13,7 +13,7 @@ import { storyTypographyHtmlAttrs } from '../storyUtils';
 
 import { Link } from '.';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/Typography/Link',
   component: Link,
   argTypes: {
@@ -25,17 +25,15 @@ export default {
   },
   args: { onClick: fn() },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof Link>;
-
-type Story = StoryObj<typeof Link>;
+});
 
 const showcaseProps = { children: 'Link', href: 'https://www.domstol.no' };
 
-export const Preview: Story = {
+export const Preview = meta.story({
   args: showcaseProps,
-};
+});
 
-export const Variants: Story = {
+export const Variants = meta.story({
   args: showcaseProps,
   render: args => (
     <StoryVStack>
@@ -50,9 +48,9 @@ export const Variants: Story = {
       </Link>
     </StoryVStack>
   ),
-};
+});
 
-export const As: Story = {
+export const As = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -60,9 +58,9 @@ export const As: Story = {
     ...showcaseProps,
     as: 'span',
   },
-};
+});
 
-export const InText: Story = {
+export const InText = meta.story({
   args: showcaseProps,
   render: args => (
     <Paragraph>
@@ -89,4 +87,4 @@ export const InText: Story = {
       laborum.
     </Paragraph>
   ),
-};
+});

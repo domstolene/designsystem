@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { commonArgTypesWithNodeChildren } from '../../../storybook';
 import { Fieldset } from '../../Fieldset';
@@ -7,19 +7,15 @@ import { Legend } from '../../Typography';
 
 import { Checkbox, CheckboxGroup } from '.';
 
-const meta: Meta<typeof CheckboxGroup> = {
+const meta = preview.meta({
   title: 'dds-components/Components/Checkbox/CheckboxGroup',
   component: CheckboxGroup,
   argTypes: {
     ...commonArgTypesWithNodeChildren,
   },
-};
+});
 
-export default meta;
-
-type Story = StoryObj<typeof CheckboxGroup>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   args: {
     label: 'Label',
     children: [
@@ -28,7 +24,7 @@ export const Preview: Story = {
       <Checkbox key={2} label="Option 3" />,
     ],
   },
-};
+});
 
 const fieldsetStyling = `
 .fieldset-story-container div[role="group"] {
@@ -38,7 +34,7 @@ const fieldsetStyling = `
 }
 `;
 
-export const WithFieldset: Story = {
+export const WithFieldset = meta.story({
   decorators: [
     Story => (
       <>
@@ -64,9 +60,9 @@ export const WithFieldset: Story = {
       <CheckboxGroup {...args} className="fieldset-story-container" />
     </Fieldset>
   ),
-};
+});
 
-export const Overview: Story = {
+export const Overview = meta.story({
   args: {
     label: 'Label',
     children: [
@@ -90,4 +86,4 @@ export const Overview: Story = {
       </StoryVStack>
     </StoryHStack>
   ),
-};
+});

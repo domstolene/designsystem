@@ -1,11 +1,11 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { Paper } from '..';
 import { categoryCss, responsivePropsArgTypes } from '../../../storybook';
 
 import { Grid, GridChild } from '.';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Layout Primitives/Grid/GridChild',
   component: GridChild,
   argTypes: {
@@ -14,11 +14,9 @@ export default {
     columnsOccupied: { control: 'text' },
     ...responsivePropsArgTypes,
   },
-} satisfies Meta<typeof GridChild>;
+});
 
-type Story = StoryObj<typeof GridChild>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   decorators: [
     Story => (
       <>
@@ -45,4 +43,4 @@ export const Preview: Story = {
       </Grid>
     );
   },
-};
+});

@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
 import { TOGGLE_BUTTON_SIZES } from './ToggleButton.types';
@@ -14,7 +14,7 @@ import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { ToggleButton } from '.';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/ToggleButton',
   component: ToggleButton,
   argTypes: {
@@ -30,19 +30,17 @@ export default {
     icon: { control: false },
   },
   args: { onChange: fn(), onBlur: fn() },
-} satisfies Meta<typeof ToggleButton>;
+});
 
-type Story = StoryObj<typeof ToggleButton>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   args: { label: 'Tekst' },
-};
+});
 
-export const WithIcon: Story = {
+export const WithIcon = meta.story({
   args: { label: 'Tekst', icon: NotificationsIcon },
-};
+});
 
-export const Sizes: Story = {
+export const Sizes = meta.story({
   render: args => (
     <StoryHStack>
       <StoryVStack>
@@ -68,4 +66,4 @@ export const Sizes: Story = {
       </StoryVStack>
     </StoryHStack>
   ),
-};
+});

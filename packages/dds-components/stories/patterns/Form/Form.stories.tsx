@@ -1,4 +1,4 @@
-import { type Meta } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { type FormEvent, Fragment, useState } from 'react';
 
 import {
@@ -31,18 +31,16 @@ import {
 } from '../../../src';
 import { ddsProviderDecorator } from '../../../src/storybook';
 
-const meta: Meta = {
+const meta = preview.meta({
   title: 'Patterns/Form',
   parameters: {
     layout: 'fullscreen',
-    docs: { canvas: { inline: false } },
+    docs: { story: { inline: false } },
   },
   decorators: [ddsProviderDecorator],
-};
+});
 
-export default meta;
-
-export const Form = () => {
+export const Form = meta.story(() => {
   return (
     <>
       <InternalHeader
@@ -135,9 +133,9 @@ export const Form = () => {
       </Grid>
     </>
   );
-};
+});
 
-export const FormWithSteps = () => {
+export const FormWithSteps = meta.story(() => {
   const [activeStep, setActiveStep] = useState(0);
   const [completedSteps, setCompletedSteps] = useState(new Set<number>());
   const [progressTrackerDrawerOpen, setProgressTrackerDrawerOpen] =
@@ -376,9 +374,9 @@ export const FormWithSteps = () => {
       </Grid>
     </>
   );
-};
+});
 
-export const FormWithStepsCustomGrid = () => {
+export const FormWithStepsCustomGrid = meta.story(() => {
   const [activeStep, setActiveStep] = useState(0);
   const [completedSteps, setCompletedSteps] = useState(new Set<number>());
   const [progressTrackerDrawerOpen, setProgressTrackerDrawerOpen] =
@@ -589,9 +587,9 @@ export const FormWithStepsCustomGrid = () => {
       </Grid>
     </>
   );
-};
+});
 
-export const ExitForm = () => {
+export const ExitForm = meta.story(() => {
   const [isFormPage, setIsFormPage] = useState(true);
   const [showModal, setShowModal] = useState(false);
 
@@ -678,4 +676,4 @@ export const ExitForm = () => {
       </Grid>
     </>
   );
-};
+});

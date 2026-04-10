@@ -1,11 +1,11 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
 import { commonArgTypes, ddsProviderDecorator } from '../../storybook';
 
 import { Chip } from '.';
 
-const meta: Meta<typeof Chip> = {
+const meta = preview.meta({
   title: 'dds-components/Components/Chip',
   component: Chip,
   argTypes: {
@@ -13,12 +13,8 @@ const meta: Meta<typeof Chip> = {
   },
   args: { onClose: fn() },
   decorators: [ddsProviderDecorator],
-};
+});
 
-export default meta;
-
-type Story = StoryObj<typeof Chip>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   args: { children: 'Chip' },
-};
+});

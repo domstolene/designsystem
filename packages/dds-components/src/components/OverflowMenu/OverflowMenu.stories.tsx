@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { useState } from 'react';
 
 import {
@@ -32,7 +32,7 @@ import {
 const { className, htmlProps, ref, children, style } =
   commonArgTypesWithNodeChildren;
 
-const meta: Meta<typeof OverflowMenu> = {
+const meta = preview.meta({
   title: 'dds-components/Components/OverflowMenu',
   component: OverflowMenu,
   argTypes: {
@@ -48,13 +48,9 @@ const meta: Meta<typeof OverflowMenu> = {
     },
   },
   decorators: [ddsProviderDecorator],
-};
+});
 
-export default meta;
-
-type Story = StoryObj<typeof OverflowMenu>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   parameters: { docs: { story: { height: '540px' } } },
   render: args => {
     return (
@@ -113,9 +109,9 @@ export const Preview: Story = {
       </VStack>
     );
   },
-};
+});
 
-export const WithOnOpenAndOnClose: Story = {
+export const WithOnOpenAndOnClose = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -140,9 +136,9 @@ export const WithOnOpenAndOnClose: Story = {
       </VStack>
     );
   },
-};
+});
 
-export const WithAsyncClick: Story = {
+export const WithAsyncClick = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -169,9 +165,9 @@ export const WithAsyncClick: Story = {
       </VStack>
     );
   },
-};
+});
 
-export const WithNoMenuCloseOnAsyncClick: Story = {
+export const WithNoMenuCloseOnAsyncClick = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -201,9 +197,9 @@ export const WithNoMenuCloseOnAsyncClick: Story = {
       </VStack>
     );
   },
-};
+});
 
-export const CustomCloseOnAsyncClick: Story = {
+export const CustomCloseOnAsyncClick = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -239,9 +235,9 @@ export const CustomCloseOnAsyncClick: Story = {
       </VStack>
     );
   },
-};
+});
 
-export const WithinTable: Story = {
+export const WithinTable = meta.story({
   parameters: {
     docs: { story: { height: '540px' } },
     chromatic: { disableSnapshot: true },
@@ -284,4 +280,4 @@ export const WithinTable: Story = {
       </VStack>
     );
   },
-};
+});

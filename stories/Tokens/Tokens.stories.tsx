@@ -1,4 +1,4 @@
-import { type Meta } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import {
   BorderRadiusGenerator,
@@ -23,17 +23,16 @@ import {
 } from '../../packages/dds-components/src';
 import { ddsProviderDecorator } from '../../packages/dds-components/src/storybook';
 
-const meta: Meta = {
+const meta = preview.meta({
   title: 'dds-design-tokens/Tokens',
   parameters: {
     disableGlobalDecorator: true,
   },
   tags: ['!autodocs'],
   decorators: [ddsProviderDecorator],
-};
-export default meta;
+});
 
-export const BorderRadius = () => {
+export const BorderRadius = meta.story(() => {
   return (
     <Wrapper>
       <Tabs>
@@ -48,13 +47,13 @@ export const BorderRadius = () => {
       </Tabs>
     </Wrapper>
   );
-};
+});
 
-export const Breakpoints = () => {
+export const Breakpoints = meta.story(() => {
   return <Wrapper> {BreakpointsGenerator()}</Wrapper>;
-};
+});
 
-export const Colors = () => {
+export const Colors = meta.story(() => {
   return (
     <Wrapper>
       <Tabs>
@@ -69,9 +68,9 @@ export const Colors = () => {
       </Tabs>
     </Wrapper>
   );
-};
+});
 
-export const ColorsDataVisualisation = () => {
+export const ColorsDataVisualisation = meta.story(() => {
   return (
     <Wrapper>
       <Tabs>
@@ -86,17 +85,17 @@ export const ColorsDataVisualisation = () => {
       </Tabs>
     </Wrapper>
   );
-};
+});
 
-export const Grid = () => {
+export const Grid = meta.story(() => {
   return <Wrapper> {GridGenerator()}</Wrapper>;
-};
+});
 
-export const IconSizes = () => {
+export const IconSizes = meta.story(() => {
   return <Wrapper> {IconSizesGenerator()}</Wrapper>;
-};
+});
 
-export const Shadows = () => {
+export const Shadows = meta.story(() => {
   return (
     <Wrapper>
       <Tabs>
@@ -111,17 +110,17 @@ export const Shadows = () => {
       </Tabs>
     </Wrapper>
   );
-};
+});
 
-export const Spacing = () => {
+export const Spacing = meta.story(() => {
   return <Wrapper> {SpacingGenerator()}</Wrapper>;
-};
+});
 
-export const Motion = () => {
+export const Motion = meta.story(() => {
   return <Wrapper> {MotionGenerator()}</Wrapper>;
-};
+});
 
-export const Typography = () => {
+export const Typography = meta.story(() => {
   return (
     <Wrapper maxWidth="120ch">
       <Tabs>
@@ -136,8 +135,8 @@ export const Typography = () => {
       </Tabs>
     </Wrapper>
   );
-};
+});
 
-export const ZIndex = () => {
+export const ZIndex = meta.story(() => {
   return <Wrapper> {ZIndexGenerator()}</Wrapper>;
-};
+});

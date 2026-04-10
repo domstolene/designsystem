@@ -1,22 +1,20 @@
-import { type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { ddsProviderDecorator } from '../../storybook';
 
 import { Chip, ChipGroup } from '.';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/Chip/ChipGroup',
   component: ChipGroup,
   decorators: [ddsProviderDecorator],
-};
+});
 
-type Story = StoryObj<typeof ChipGroup>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   render: args => (
     <ChipGroup {...args}>
       <Chip>Chip 1</Chip>
       <Chip>Chip 2</Chip>
     </ChipGroup>
   ),
-};
+});

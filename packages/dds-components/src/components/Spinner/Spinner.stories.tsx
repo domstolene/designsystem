@@ -1,10 +1,10 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { commonArgTypes, ddsProviderDecorator } from '../../storybook';
 
 import { Spinner } from '.';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/Spinner',
   component: Spinner,
   argTypes: {
@@ -13,28 +13,26 @@ export default {
     ...commonArgTypes,
   },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof Spinner>;
+});
 
-type Story = StoryObj<typeof Spinner>;
+export const Preview = meta.story();
 
-export const Preview: Story = {};
-
-export const CustomColor: Story = {
+export const CustomColor = meta.story({
   args: { color: 'icon-on-success-default' },
-};
+});
 
-export const CustomSize: Story = {
+export const CustomSize = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
   args: { size: '150px' },
-};
+});
 
-export const CustomTooltip: Story = {
+export const CustomTooltip = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
   args: {
     tooltip: 'Egendefinert melding',
   },
-};
+});

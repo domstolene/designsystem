@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
 import {
@@ -15,7 +15,7 @@ import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 
 import { NativeSelect } from '.';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/Select/NativeSelect',
   component: NativeSelect,
   argTypes: {
@@ -31,9 +31,7 @@ export default {
   },
   args: { onChange: fn() },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof NativeSelect>;
-
-type Story = StoryObj<typeof NativeSelect>;
+});
 
 const options = [
   { value: 'Alternativ 1', label: 'Alternativ 1' },
@@ -54,14 +52,14 @@ const nativeOptions = options.map((item, index) => (
 
 const children = [<option value=""></option>, ...nativeOptions];
 
-export const Preview: Story = {
+export const Preview = meta.story({
   args: {
     label: 'Label',
     children,
   },
-};
+});
 
-export const Overview: Story = {
+export const Overview = meta.story({
   args: {
     label: 'Label',
     children,
@@ -121,9 +119,9 @@ export const Overview: Story = {
       </StoryVStack>
     </StoryHStack>
   ),
-};
+});
 
-export const Sizes: Story = {
+export const Sizes = meta.story({
   args: {
     label: 'Label',
     children,
@@ -153,9 +151,9 @@ export const Sizes: Story = {
       </StoryVStack>
     </StoryHStack>
   ),
-};
+});
 
-export const ResponsiveWidth: Story = {
+export const ResponsiveWidth = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -170,4 +168,4 @@ export const ResponsiveWidth: Story = {
       xl: 'var(--dds-input-default-width)',
     },
   },
-};
+});

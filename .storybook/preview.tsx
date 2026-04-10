@@ -1,10 +1,13 @@
 import '@norges-domstoler/dds-components/index.css';
+import addonA11y from '@storybook/addon-a11y';
+import addonDocs from '@storybook/addon-docs';
 import {
   DocsContainer,
   type DocsContainerProps,
   Unstyled,
 } from '@storybook/addon-docs/blocks';
-import type { Preview } from '@storybook/react-vite';
+import addonLinks from '@storybook/addon-links';
+import { definePreview } from '@storybook/react-vite';
 import { type PropsWithChildren, useEffect, useState } from 'react';
 
 import {
@@ -38,7 +41,7 @@ const setCanvasBackgroundFromTheme = (counter: number) => {
 
 let nameCounter = 0;
 
-const preview: Preview = {
+export default definePreview({
   parameters: {
     controls: { sort: 'requiredFirst' },
     options: {
@@ -113,6 +116,5 @@ const preview: Preview = {
   ],
 
   tags: ['autodocs'],
-};
-
-export default preview;
+  addons: [addonLinks(), addonA11y(), addonDocs()],
+});

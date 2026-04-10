@@ -1,5 +1,5 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
-import { useState } from 'react';
+import preview from '#.storybook/preview';
+import { type JSX, useState } from 'react';
 
 import {
   commonArgTypesWithNodeChildren,
@@ -19,29 +19,25 @@ import { Link, Paragraph, Typography } from '../Typography';
 
 import { Accordion, AccordionBody, AccordionHeader } from '.';
 
-const meta: Meta<typeof Accordion> = {
+const meta = preview.meta({
   title: 'dds-components/Components/Accordion',
   component: Accordion,
   argTypes: {
     ...commonArgTypesWithNodeChildren,
   },
   decorators: [ddsProviderDecorator],
-};
+});
 
-export default meta;
-
-type Story = StoryObj<typeof Accordion>;
-
-export const Preview: Story = {
-  render: args => (
+export const Preview = meta.story({
+  render: (args): JSX.Element => (
     <Accordion {...args}>
       <AccordionHeader>Header</AccordionHeader>
       <AccordionBody>Content</AccordionBody>
     </Accordion>
   ),
-};
+});
 
-export const Group: Story = {
+export const Group = meta.story({
   render: args => (
     <>
       <div>
@@ -100,9 +96,9 @@ export const Group: Story = {
       </div>
     </>
   ),
-};
+});
 
-export const Controlled: Story = {
+export const Controlled = meta.story({
   render: args => {
     const [isExpanded, setIsExpanded] = useState(true);
 
@@ -120,9 +116,9 @@ export const Controlled: Story = {
       </>
     );
   },
-};
+});
 
-export const Styled: Story = {
+export const Styled = meta.story({
   decorators: [
     Story => (
       <>
@@ -171,9 +167,9 @@ export const Styled: Story = {
       </AccordionBody>
     </Accordion>
   ),
-};
+});
 
-export const Custom: Story = {
+export const Custom = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -250,4 +246,4 @@ export const Custom: Story = {
       </div>
     );
   },
-};
+});

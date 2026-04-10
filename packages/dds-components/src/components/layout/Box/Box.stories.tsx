@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { useState } from 'react';
 
 import { useWindowResize } from '../../../hooks';
@@ -13,19 +13,16 @@ import {
 
 import { Box } from '.';
 
-const meta: Meta<typeof Box> = {
+const meta = preview.meta({
   title: 'dds-components/Layout Primitives/Box',
   component: Box,
   argTypes: {
     ...responsivePropsArgTypes,
   },
   decorators: [Story => windowWidthDecorator(<Story />)],
-};
-export default meta;
+});
 
-type Story = StoryObj<typeof Box>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   args: {
     style: {
       border: '1px solid var(--dds-color-border-default)',
@@ -34,9 +31,9 @@ export const Preview: Story = {
     height: { xs: '1rem', sm: '2rem', md: '6rem', lg: '8rem', xl: '10rem' },
     width: '6rem',
   },
-};
+});
 
-export const WithPaddingPerBreakpoint: Story = {
+export const WithPaddingPerBreakpoint = meta.story({
   args: {
     style: {
       border: '1px solid var(--dds-color-border-default)',
@@ -58,4 +55,4 @@ export const WithPaddingPerBreakpoint: Story = {
       </Box>
     );
   },
-};
+});

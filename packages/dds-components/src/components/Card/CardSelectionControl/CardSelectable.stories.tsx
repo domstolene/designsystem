@@ -1,5 +1,4 @@
-import { type Story } from '@storybook/addon-docs/blocks';
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
 import { CardSelectable } from './CardSelectable';
@@ -19,7 +18,7 @@ import {
   type CardSelectableType,
 } from '../Card.types';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/Card/CardSelectable',
   component: CardSelectable,
   argTypes: {
@@ -34,9 +33,7 @@ export default {
   },
 
   args: { onBlur: fn(), onChange: fn() },
-} satisfies Meta<typeof CardSelectable>;
-
-type Story = StoryObj<typeof CardSelectable>;
+});
 
 const cardExamples = (
   args: CardSelectableProps,
@@ -98,7 +95,7 @@ const cardExamples = (
   </StoryVStack>
 );
 
-export const Radio: Story = {
+export const Radio = meta.story({
   args: {
     children: 'Alternativ',
     cardType: 'radio',
@@ -108,8 +105,8 @@ export const Radio: Story = {
       <CardSelectable {...args} children="Alternativ" value={1} name="a" />
     );
   },
-};
-export const Overview: Story = {
+});
+export const Overview = meta.story({
   args: {
     children: 'Alternativ',
   },
@@ -123,16 +120,16 @@ export const Overview: Story = {
       </StoryHStack>
     );
   },
-};
+});
 
-export const Checkbox: Story = {
+export const Checkbox = meta.story({
   args: {
     children: 'Alternativ',
     cardType: 'checkbox',
   },
-};
+});
 
-export const CustomSpacing: Story = {
+export const CustomSpacing = meta.story({
   args: {
     children: 'Alternativ',
     cardType: 'checkbox',
@@ -142,9 +139,9 @@ export const CustomSpacing: Story = {
       top: 'calc(var(--dds-spacing-x2) + var(--dds-spacing-x0-25))',
     },
   },
-};
+});
 
-export const ComplexContent: Story = {
+export const ComplexContent = meta.story({
   args: {
     children: 'Alternativ',
     cardType: 'checkbox',
@@ -166,4 +163,4 @@ export const ComplexContent: Story = {
       </VStack>
     );
   },
-};
+});

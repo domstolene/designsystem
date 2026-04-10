@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import {
   categoryHtml,
@@ -12,7 +12,7 @@ import { StoryVStack } from '../layout/Stack/utils';
 
 import { ButtonGroup } from '.';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/ButtonGroup',
   component: ButtonGroup,
   argTypes: {
@@ -22,11 +22,9 @@ export default {
     ...commonArgTypesWithNodeChildren,
   },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof ButtonGroup>;
+});
 
-type Story = StoryObj<typeof ButtonGroup>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   render: args => (
     <ButtonGroup {...args}>
       <Button>Første</Button>
@@ -34,9 +32,9 @@ export const Preview: Story = {
       <Button>Tredje</Button>
     </ButtonGroup>
   ),
-};
+});
 
-export const Sizes: Story = {
+export const Sizes = meta.story({
   render: args => (
     <StoryVStack>
       {BUTTON_SIZES.map(size => (
@@ -48,9 +46,9 @@ export const Sizes: Story = {
       ))}
     </StoryVStack>
   ),
-};
+});
 
-export const Vertical: Story = {
+export const Vertical = meta.story({
   render: args => (
     <ButtonGroup {...args} direction="column">
       <Button>Første</Button>
@@ -58,4 +56,4 @@ export const Vertical: Story = {
       <Button>Tredje</Button>
     </ButtonGroup>
   ),
-};
+});

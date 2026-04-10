@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { Skeleton } from './Skeleton';
 import {
@@ -9,7 +9,7 @@ import {
 import { Box, VStack } from '../layout';
 import { StoryVStack } from '../layout/Stack/utils';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/Skeleton',
   component: Skeleton,
   argTypes: {
@@ -17,18 +17,16 @@ export default {
     height: responsivePropsArgTypes.height,
     borderRadius: { control: 'text', table: categoryCss },
   },
-} satisfies Meta<typeof Skeleton>;
+});
 
-type Story = StoryObj<typeof Skeleton>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   args: {
     width: '320px',
     height: 'var(--dds-spacing-x2)',
   },
-};
+});
 
-export const Overview: Story = {
+export const Overview = meta.story({
   args: {
     width: 'var(--dds-spacing-x2)',
     height: 'var(--dds-spacing-x2)',
@@ -39,9 +37,9 @@ export const Overview: Story = {
       <Skeleton {...args} width="320px" />
     </StoryVStack>
   ),
-};
+});
 
-export const Example: Story = {
+export const Example = meta.story({
   render: args => (
     <StoryVStack>
       <Skeleton
@@ -62,9 +60,9 @@ export const Example: Story = {
       />
     </StoryVStack>
   ),
-};
+});
 
-export const Responsive: Story = {
+export const Responsive = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -179,4 +177,4 @@ export const Responsive: Story = {
       </Box>
     </VStack>
   ),
-};
+});

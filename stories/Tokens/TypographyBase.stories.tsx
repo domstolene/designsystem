@@ -1,4 +1,4 @@
-import { type Meta } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import {
   DataColorsBaseGenerator,
@@ -13,45 +13,43 @@ import {
 } from './utils';
 import { ddsProviderDecorator } from '../../packages/dds-components/src/storybook';
 
-const meta: Meta = {
+const meta = preview.meta({
   title: 'dds-design-tokens/Tokens/Base',
   parameters: {
     disableGlobalDecorator: true,
   },
   tags: ['!autodocs'],
   decorators: [ddsProviderDecorator],
-};
+});
 
-export default meta;
-
-export const FontFamily = () => {
+export const FontFamily = meta.story(() => {
   return <Wrapper>{FontFamilyGenerator()}</Wrapper>;
-};
+});
 
-export const FontSize = () => {
+export const FontSize = meta.story(() => {
   return <Wrapper> {FontSizeGenerator()}</Wrapper>;
-};
+});
 
-export const FontWeight = () => {
+export const FontWeight = meta.story(() => {
   return <Wrapper> {FontWeightGenerator()} </Wrapper>;
-};
+});
 
-export const FontStyle = () => {
+export const FontStyle = meta.story(() => {
   return <Wrapper>{FontStyleGenerator()}</Wrapper>;
-};
+});
 
-export const LineHeight = () => {
+export const LineHeight = meta.story(() => {
   return <Wrapper> {FontLineheightGenerator()}</Wrapper>;
-};
+});
 
-export const LetterSpacing = () => {
+export const LetterSpacing = meta.story(() => {
   return <Wrapper> {FontLetterSpacingGenerator()}</Wrapper>;
-};
+});
 
-export const ParagraphSpacing = () => {
+export const ParagraphSpacing = meta.story(() => {
   return <Wrapper> {FontParagraphSpacingGenerator()}</Wrapper>;
-};
+});
 
-export const DataVisualisation = () => {
+export const DataVisualisation = meta.story(() => {
   return <Wrapper>{DataColorsBaseGenerator()}</Wrapper>;
-};
+});

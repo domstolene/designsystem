@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { useState } from 'react';
 import { fn } from 'storybook/test';
 
@@ -17,7 +17,7 @@ import {
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { Heading, Paragraph } from '../Typography';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/FileUploader',
   component: FileUploader,
   argTypes: {
@@ -29,15 +29,13 @@ export default {
   },
   args: { onChange: fn() },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof FileUploader>;
-
-type Story = StoryObj<typeof FileUploader>;
+});
 
 const file = new File(['hello'], 'hello.png', { type: 'image/png' });
 
-export const Preview: Story = { args: { label: 'Label' } };
+export const Preview = meta.story({ args: { label: 'Label' } });
 
-export const States: Story = {
+export const States = meta.story({
   render: () => (
     <StoryHStack>
       <StoryVStack>
@@ -77,9 +75,9 @@ export const States: Story = {
       </StoryVStack>
     </StoryHStack>
   ),
-};
+});
 
-export const PdfOnly: Story = {
+export const PdfOnly = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -88,9 +86,9 @@ export const PdfOnly: Story = {
     tip: 'Kun PDF-filer',
     accept: ['.pdf', 'application/pdf'],
   },
-};
+});
 
-export const CustomFileList: Story = {
+export const CustomFileList = meta.story({
   args: { label: 'Last opp fil' },
   render: args => {
     const [files, setFiles] = useState<FileList>([file]);
@@ -119,9 +117,9 @@ export const CustomFileList: Story = {
       </>
     );
   },
-};
+});
 
-export const WithUploadStatus: Story = {
+export const WithUploadStatus = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -202,9 +200,9 @@ export const WithUploadStatus: Story = {
       </>
     );
   },
-};
+});
 
-export const ResponsiveWidth: Story = {
+export const ResponsiveWidth = meta.story({
   decorators: [Story => windowWidthDecorator(<Story />)],
   args: {
     width: {
@@ -215,4 +213,4 @@ export const ResponsiveWidth: Story = {
       xl: 'var(--dds-input-default-width)',
     },
   },
-};
+});

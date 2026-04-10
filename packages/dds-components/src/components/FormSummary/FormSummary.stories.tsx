@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import {
   commonArgTypes,
@@ -34,7 +34,8 @@ const {
   marginBlock,
   marginInline,
 } = responsivePropsArgTypes;
-export default {
+
+const meta = preview.meta({
   title: 'dds-components/Components/FormSummary',
   component: FormSummary,
   argTypes: {
@@ -49,11 +50,9 @@ export default {
     width,
   },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof FormSummary>;
+});
 
-type Story = StoryObj<typeof FormSummary>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   render: args => (
     <FormSummary {...args}>
       <FormSummaryHeader>
@@ -112,9 +111,9 @@ export const Preview: Story = {
       </FormSummaryFields>
     </FormSummary>
   ),
-};
+});
 
-export const ExternalDataSource: Story = {
+export const ExternalDataSource = meta.story({
   render: args => (
     <VStack gap="x1">
       <FormSummary {...args}>
@@ -152,9 +151,9 @@ export const ExternalDataSource: Story = {
       </FormSummary>
     </VStack>
   ),
-};
+});
 
-export const Groups: Story = {
+export const Groups = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -232,9 +231,9 @@ export const Groups: Story = {
       </FormSummaryFields>
     </FormSummary>
   ),
-};
+});
 
-export const Steps: Story = {
+export const Steps = meta.story({
   render: args => (
     <VStack gap="x1">
       <FormSummary {...args}>
@@ -271,7 +270,7 @@ export const Steps: Story = {
       </FormSummary>
     </VStack>
   ),
-};
+});
 
 const renderFields = (n: number) => {
   const fields = [];
@@ -286,7 +285,7 @@ const renderFields = (n: number) => {
   return <FormSummaryFields>{fields}</FormSummaryFields>;
 };
 
-export const WithGrid: Story = {
+export const WithGrid = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -363,9 +362,9 @@ export const WithGrid: Story = {
       </GridChild>
     </Grid>
   ),
-};
+});
 
-export const WithFlex: Story = {
+export const WithFlex = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -456,4 +455,4 @@ export const WithFlex: Story = {
       </FormSummary>
     </Box>
   ),
-};
+});

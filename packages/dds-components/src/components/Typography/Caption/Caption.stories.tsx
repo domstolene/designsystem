@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { ddsProviderDecorator } from '../../../storybook';
 import { Table } from '../../Table';
@@ -6,24 +6,20 @@ import { storyTypographyHtmlAttrs } from '../storyUtils';
 
 import { Caption } from '.';
 
-const meta: Meta<typeof Caption> = {
+const meta = preview.meta({
   title: 'dds-components/Components/Typography/Caption',
   component: Caption,
   argTypes: {
     ...storyTypographyHtmlAttrs,
   },
   decorators: [ddsProviderDecorator],
-};
+});
 
-export default meta;
-
-type Story = StoryObj<typeof Caption>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   args: { children: 'Caption' },
-};
+});
 
-export const WithTable: Story = {
+export const WithTable = meta.story({
   args: { children: 'Caption', withMargins: true },
   render: args => (
     <Table>
@@ -42,4 +38,4 @@ export const WithTable: Story = {
       </Table.Body>
     </Table>
   ),
-};
+});

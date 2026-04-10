@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { categoryHtml, ddsProviderDecorator } from '../../../storybook';
 import { HelpIcon } from '../../Icon/icons';
@@ -9,7 +9,7 @@ import { storyTypographyHtmlAttrs } from '../storyUtils';
 
 import { Label } from '.';
 
-const meta: Meta<typeof Label> = {
+const meta = preview.meta({
   title: 'dds-components/Components/Typography/Label',
   component: Label,
   argTypes: {
@@ -17,21 +17,17 @@ const meta: Meta<typeof Label> = {
     ...storyTypographyHtmlAttrs,
   },
   decorators: [ddsProviderDecorator],
-};
+});
 
-export default meta;
-
-type Story = StoryObj<typeof Label>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   args: { children: 'Label' },
-};
+});
 
-export const readOnly: Story = {
+export const readOnly = meta.story({
   args: { children: 'Label', readOnly: true },
-};
+});
 
-export const afterLabelContent: Story = {
+export const afterLabelContent = meta.story({
   args: {
     children: 'Label',
     afterLabelContent: (
@@ -43,4 +39,4 @@ export const afterLabelContent: Story = {
       </PopoverGroup>
     ),
   },
-};
+});

@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
 import {
@@ -16,7 +16,7 @@ import { PhoneInput } from '.';
 
 const { id, className, style } = commonArgTypes;
 
-const meta: Meta<typeof PhoneInput> = {
+const meta = preview.meta({
   title: 'dds-components/Components/PhoneInput',
   component: PhoneInput,
   argTypes: {
@@ -33,14 +33,11 @@ const meta: Meta<typeof PhoneInput> = {
   },
   args: { onChange: fn() },
   decorators: [ddsProviderDecorator],
-};
+});
 
-export default meta;
-type Story = StoryObj<typeof PhoneInput>;
+export const Preview = meta.story({ args: { label: 'Telefonnummer' } });
 
-export const Preview: Story = { args: { label: 'Telefonnummer' } };
-
-export const Overview: Story = {
+export const Overview = meta.story({
   args: { label: 'Telefonnummer' },
   render: args => (
     <StoryHStack>
@@ -59,9 +56,9 @@ export const Overview: Story = {
       </StoryVStack>
     </StoryHStack>
   ),
-};
+});
 
-export const Sizes: Story = {
+export const Sizes = meta.story({
   args: { label: 'Label' },
   render: args => (
     <StoryVStack>
@@ -75,9 +72,9 @@ export const Sizes: Story = {
       ))}
     </StoryVStack>
   ),
-};
+});
 
-export const Responsive: Story = {
+export const Responsive = meta.story({
   args: {
     smallScreenBreakpoint: 'sm',
   },
@@ -91,9 +88,9 @@ export const Responsive: Story = {
         'Versjonen for liten skjerm vises ved sm brekkpunkt.',
       ),
   ],
-};
+});
 
-export const ResponsiveWidth: Story = {
+export const ResponsiveWidth = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -107,4 +104,4 @@ export const ResponsiveWidth: Story = {
       xl: 'var(--dds-input-default-width)',
     },
   },
-};
+});

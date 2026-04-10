@@ -1,9 +1,9 @@
-import { dirname } from 'node:path';
+import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import type { StorybookConfig } from '@storybook/react-vite';
+import { defineMain } from '@storybook/react-vite/node';
 
-const config: StorybookConfig = {
+export default defineMain({
   stories: [
     '../stories/**/*.stories.@(js|jsx|ts|tsx)',
     '../stories/**/*.@(md|mdx)',
@@ -28,6 +28,15 @@ const config: StorybookConfig = {
     options: {},
   },
 
+  viteFinal(config) {
+    config.resolve = config.resolve || {};
+    config.resolve.alias = {
+      ...(config.resolve.alias || {}),
+      '#.storybook': resolve(dirname(fileURLToPath(import.meta.url))),
+    };
+    return config;
+  },
+
   typescript: {
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
@@ -37,9 +46,7 @@ const config: StorybookConfig = {
         prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
     },
   },
-};
-
-export default config;
+});
 
 function getAbsolutePath(value: string): string {
   return dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)));

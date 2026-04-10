@@ -1,20 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { EnvironmentBannerProvider } from './EnvironmentBannerProvider';
 
-const meta: Meta<typeof EnvironmentBannerProvider> = {
+const meta = preview.meta({
   title: 'development-utils/EnvironmentBannerProvider',
   component: EnvironmentBannerProvider,
   parameters: {
     disableGlobalDecorator: true,
   },
-};
+});
 
-export default meta;
-
-type Story = StoryObj<typeof EnvironmentBannerProvider>;
-
-export const Preview: Story = {
-  args: { bannerPosition: 'fixed', environment: 'TEST' },
-  render: args => <EnvironmentBannerProvider {...args} />,
-};
+export const Preview: unknown = meta.story({
+  args: { bannerPosition: 'fixed', environment: 'TEST', children: null },
+});
