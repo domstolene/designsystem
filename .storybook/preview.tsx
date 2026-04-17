@@ -41,7 +41,7 @@ const setCanvasBackgroundFromTheme = (counter: number) => {
 
 let nameCounter = 0;
 
-export default definePreview({
+const preview = definePreview({
   parameters: {
     controls: { sort: 'requiredFirst' },
     options: {
@@ -118,3 +118,5 @@ export default definePreview({
   tags: ['autodocs'],
   addons: [addonLinks(), addonA11y(), addonDocs()],
 });
+
+export default preview satisfies unknown;
