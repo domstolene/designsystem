@@ -10,6 +10,6 @@ const meta = preview.meta({
   },
 });
 
-export const Preview: unknown = meta.story({
+export const Preview = meta.story({
   args: { bannerPosition: 'fixed', environment: 'TEST', children: null },
 });

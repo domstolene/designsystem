@@ -6,5 +6,6 @@
     ".eslintrc.cjs",
     "tsup.config.ts",
     "../../global.d.ts"
-  ]
+  ],
+  "exclude": ["**/*.stories.tsx"]
 }
