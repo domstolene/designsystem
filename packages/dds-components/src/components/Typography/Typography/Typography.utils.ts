@@ -3,6 +3,7 @@ import { type ElementType } from 'react';
 import {
   type HyphenTypographyType,
   type InlineElement,
+  TG_HEADING_TYPES,
   type TypographyHeadingType,
   type TypographyType,
 } from './Typography.types';
@@ -49,7 +50,7 @@ export const getElementType = (element: TypographyType): ElementType => {
 export const isHeading = (
   type: TypographyType,
 ): type is TypographyHeadingType => {
-  return true;
+  return TG_HEADING_TYPES.includes(type as TypographyHeadingType);
 };
 
 export const isLegend = (as: ElementType): boolean => {
