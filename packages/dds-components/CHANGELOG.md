@@ -1,5 +1,15 @@
 # @norges-domstoler/dds-components
 
+## 22.8.0
+
+### Minor Changes
+
+- 0085270: Ny prop i `<OverflowMenuButton>`: `closeMenuOnClickAsync`. Den tillater custom styring av lukking av menyen ved klikk på knappen og bruk av `clickAsync`: egen fuknsjon eller ingen lukking. Bruker intern logikk som default.
+
+### Patch Changes
+
+- f6a009a: Fjerner `-webkit`-prefixed CSS styling for scrollbar. Den var brukt grunnet Safari, som støtter standard CSS regler siden desember 2025.
+
 ## 22.7.2
 
 (2026-04-08)
