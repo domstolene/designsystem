@@ -18,14 +18,17 @@ export type TypographyBodyType =
   | TypographyBodyLongType
   | TypographyBodyShortType;
 
-export type TypographyHeadingType =
-  | 'headingXxsmall'
-  | 'headingXsmall'
-  | 'headingSmall'
-  | 'headingMedium'
-  | 'headingLarge'
-  | 'headingXlarge'
-  | 'headingXxlarge';
+export const TG_HEADING_TYPES = [
+  'headingXxsmall',
+  'headingXsmall',
+  'headingSmall',
+  'headingMedium',
+  'headingLarge',
+  'headingXlarge',
+  'headingXxlarge',
+] as const;
+
+export type TypographyHeadingType = (typeof TG_HEADING_TYPES)[number];
 
 export type TypographyLeadType = 'leadMedium';
 
