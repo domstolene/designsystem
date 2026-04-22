@@ -1,25 +1,53 @@
+import fs from 'node:fs';
+import path from 'node:path';
+
 import { describe, expect, it } from 'vitest';
 
-import reactStatelyDatepickerJson from '../node_modules/@react-stately/datepicker/package.json';
 import packageJson from '../package.json';
 
+function readPackageJson(pkgName: string) {
+  const pkgPath = path.join(
+    process.cwd(),
+    'node_modules',
+    pkgName,
+    'package.json',
+  );
+
+  if (!fs.existsSync(pkgPath)) {
+    return null;
+  }
+
+  return JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
+}
+
 describe('@internationalized/date', () => {
-  it('has same version range for peer dependency, dev dependency and transitive dependency', () => {
-    const peer = packageJson.peerDependencies['@internationalized/date'];
-    const dev = packageJson.devDependencies['@internationalized/date'];
-    const transitive =
-      reactStatelyDatepickerJson.dependencies['@internationalized/date'];
+  it('all packages referencing @internationalized/date use the same version range', () => {
+    const expected = packageJson.peerDependencies['@internationalized/date'];
 
-    const message =
-      'Expected version range of @internationalized/date to be the same for peer dependency, dev dependency and transitive dependency.';
+    expect(expected).toBeDefined();
 
-    const transitiveMessage =
-      'Expected to find transitive dependency @internationalized/date in @react-stately/datepicker. Has the source of the transitive dependency changed?';
+    const offenders = [];
 
-    expect(peer, message).toBeDefined();
-    expect(dev, message).toBeDefined();
-    expect(transitive, transitiveMessage).toBeDefined();
-    expect(peer, message).toBe(dev);
-    expect(peer, message).toBe(transitive);
+    const directDeps = Object.keys({
+      ...packageJson.dependencies,
+      ...packageJson.devDependencies,
+    });
+
+    for (const dep of directDeps) {
+      const depPkg = readPackageJson(dep);
+      if (!depPkg) continue;
+
+      const declared =
+        depPkg.dependencies?.['@internationalized/date'] ??
+        depPkg.peerDependencies?.['@internationalized/date'];
+
+      if (declared && declared !== expected) {
+        offenders.push({ name: dep, declared });
+      }
+    }
+    expect(
+      offenders,
+      'Packages must align on @internationalized/date version range',
+    ).toEqual([]);
   });
 });

@@ -45,12 +45,12 @@
     "@types/react": "19.2.14",
     "react": "19.2.5",
     "typed-css-modules": "^0.9.1",
-    "autoprefixer": "^10.4.27",
+    "autoprefixer": "^10.5.0",
     "csstype": "3.2.3",
-    "postcss": "^8.5.9",
+    "postcss": "^8.5.10",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3",
-    "vite": "^8.0.8",
+    "vite": "^8.0.9",
     "vitest": "^4.1.4"
   },
   "peerDependencies": {
