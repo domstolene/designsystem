@@ -1,5 +1,4 @@
-import { type Story } from '@storybook/addon-docs/blocks';
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { useState } from 'react';
 
 import {
@@ -16,12 +15,12 @@ import { Drawer, DrawerGroup } from '.';
 
 const { width, maxWidth, minWidth } = responsivePropsArgTypes;
 
-const meta: Meta<typeof Drawer> = {
+const meta = preview.meta({
   title: 'dds-components/Components/Drawer',
   component: Drawer,
   parameters: {
     docs: {
-      story: { height: '500px', scrollbar: false },
+      story: { height: '500px' },
     },
   },
   argTypes: {
@@ -32,13 +31,9 @@ const meta: Meta<typeof Drawer> = {
     minWidth,
   },
   decorators: [ddsProviderDecorator],
-};
+});
 
-export default meta;
-
-type Story = StoryObj<typeof Drawer>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   args: { header: 'Tittel' },
   render: args => (
     <DrawerGroup isInitiallyOpen>
@@ -55,9 +50,9 @@ export const Preview: Story = {
       </Drawer>
     </DrawerGroup>
   ),
-};
+});
 
-export const WithBackdrop: Story = {
+export const WithBackdrop = meta.story({
   args: { header: 'Tittel' },
   parameters: {
     chromatic: { disableSnapshot: true },
@@ -77,9 +72,9 @@ export const WithBackdrop: Story = {
       </Drawer>
     </DrawerGroup>
   ),
-};
+});
 
-export const OverviewPlacement: Story = {
+export const OverviewPlacement = meta.story({
   args: { header: 'Tittel' },
   parameters: {
     chromatic: { disableSnapshot: true },
@@ -102,9 +97,9 @@ export const OverviewPlacement: Story = {
       </DrawerGroup>
     </StoryHStack>
   ),
-};
+});
 
-export const Sizes: Story = {
+export const Sizes = meta.story({
   args: { header: 'Header' },
   parameters: {
     chromatic: { disableSnapshot: true },
@@ -141,9 +136,9 @@ export const Sizes: Story = {
       ))}
     </StoryHStack>
   ),
-};
+});
 
-export const WithOnCloseAndOnOpen: Story = {
+export const WithOnCloseAndOnOpen = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -175,9 +170,9 @@ export const WithOnCloseAndOnOpen: Story = {
       </StoryVStack>
     );
   },
-};
+});
 
-export const LongContent: Story = {
+export const LongContent = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -246,4 +241,4 @@ export const LongContent: Story = {
       </Drawer>
     </DrawerGroup>
   ),
-};
+});

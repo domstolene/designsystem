@@ -1,4 +1,4 @@
-import { type Meta } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { useEffect, useState } from 'react';
 
 import { ICON_SIZES, Icon } from '../Icon';
@@ -26,15 +26,13 @@ import { Heading, Typography } from '../../Typography';
 import { CopyIcon } from '../icons/copy';
 import { type SvgIcon } from '../utils';
 
-const meta: Meta = {
+const meta = preview.meta({
   title: 'Icons/Overview',
   tags: ['!autodocs'],
   decorators: [ddsProviderDecorator],
-};
+});
 
-export default meta;
-
-export const Overview = () => {
+export const Overview = meta.story(() => {
   interface IconState {
     name: IconName;
     icon: SvgIcon;
@@ -324,4 +322,4 @@ export const Overview = () => {
       </Modal>
     </VStack>
   );
-};
+});

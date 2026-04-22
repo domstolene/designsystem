@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { PROGRESS_BAR_SIZES } from './ProgressBar';
 import {
@@ -11,7 +11,7 @@ import { StoryVStack } from '../layout/Stack/utils';
 
 import { ProgressBar } from '.';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/ProgressBar',
   component: ProgressBar,
   argTypes: {
@@ -19,19 +19,17 @@ export default {
     value: { table: categoryHtml },
     width: responsivePropsArgTypes.width,
   },
-} satisfies Meta<typeof ProgressBar>;
+});
 
-type Story = StoryObj<typeof ProgressBar>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   args: {
     label: 'Label',
     value: 3,
     max: 5,
   },
-};
+});
 
-export const Overview: Story = {
+export const Overview = meta.story({
   args: {
     label: 'Label',
   },
@@ -44,8 +42,8 @@ export const Overview: Story = {
       <ProgressBar {...args} max={10} value={10} />
     </StoryVStack>
   ),
-};
-export const Sizes: Story = {
+});
+export const Sizes = meta.story({
   args: {
     label: 'Label',
     value: 3,
@@ -58,9 +56,9 @@ export const Sizes: Story = {
       ))}
     </StoryVStack>
   ),
-};
+});
 
-export const ResponsiveWidth: Story = {
+export const ResponsiveWidth = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -77,4 +75,4 @@ export const ResponsiveWidth: Story = {
       xl: 'var(--dds-input-default-width)',
     },
   },
-};
+});

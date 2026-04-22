@@ -23,7 +23,7 @@ type ContextMenuElementProps = {
   | ButtonHTMLAttributes<HTMLButtonElement>
 );
 
-interface InternaHeaderUserProps {
+export interface InternaHeaderUserProps {
   children: ReactNode;
   href?: string;
 }

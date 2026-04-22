@@ -34,7 +34,7 @@ export type BreakpointBasedProp<T> = Partial<Record<Breakpoint, T>>;
 
 export type ResponsiveProp<T> = T | BreakpointBasedProp<T>;
 
-interface PrimitiveLayoutProps {
+export interface PrimitiveLayoutProps {
   /** CSS `width`. Støtter verdi per brekkpunkt eller samme for alle skjermstørrelser. */
   width?: ResponsiveProp<Property.Width>;
   /** CSS `max-width`. Støtter verdi per brekkpunkt eller samme for alle skjermstørrelser. */

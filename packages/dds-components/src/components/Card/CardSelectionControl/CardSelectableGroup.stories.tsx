@@ -1,5 +1,4 @@
-import { type Story } from '@storybook/addon-docs/blocks';
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { useState } from 'react';
 
 import { CardSelectable } from './CardSelectable';
@@ -26,7 +25,7 @@ const {
   padding,
 } = responsivePropsArgTypes;
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/Card/CardSelectable/Group',
   component: CardSelectableGroup,
   argTypes: {
@@ -42,11 +41,9 @@ export default {
     padding,
   },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof CardSelectableGroup>;
+});
 
-type Story = StoryObj<typeof CardSelectableGroup>;
-
-export const Group: Story = {
+export const Group = meta.story({
   args: {
     display: 'flex',
     flexDirection: {
@@ -68,9 +65,9 @@ export const Group: Story = {
       </CardSelectableGroup>
     );
   },
-};
+});
 
-export const WithLabel: Story = {
+export const WithLabel = meta.story({
   args: {
     display: 'flex',
     gap: 'x1',
@@ -90,9 +87,9 @@ export const WithLabel: Story = {
       </VStack>
     );
   },
-};
+});
 
-export const WithCustomTip: Story = {
+export const WithCustomTip = meta.story({
   args: {
     display: 'flex',
     gap: 'x1',
@@ -113,9 +110,9 @@ export const WithCustomTip: Story = {
       </VStack>
     );
   },
-};
+});
 
-export const GroupWithInvisibleLabel: Story = {
+export const GroupWithInvisibleLabel = meta.story({
   args: {
     cardType: 'radio',
     display: 'flex',
@@ -132,9 +129,9 @@ export const GroupWithInvisibleLabel: Story = {
       </>
     );
   },
-};
+});
 
-export const WithErrorMessage: Story = {
+export const WithErrorMessage = meta.story({
   args: {
     display: 'flex',
     gap: 'x1',
@@ -157,9 +154,9 @@ export const WithErrorMessage: Story = {
       </>
     );
   },
-};
+});
 
-export const ControlledRadio: Story = {
+export const ControlledRadio = meta.story({
   args: {
     display: 'flex',
     gap: 'x1',
@@ -191,4 +188,4 @@ export const ControlledRadio: Story = {
       </>
     );
   },
-};
+});

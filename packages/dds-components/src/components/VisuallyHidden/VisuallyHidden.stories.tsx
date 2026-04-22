@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import {
   commonArgTypes,
@@ -11,7 +11,7 @@ import { Link, Paragraph } from '../Typography';
 
 import { VisuallyHidden } from '.';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/VisuallyHidden',
   component: VisuallyHidden,
   argTypes: {
@@ -20,20 +20,18 @@ export default {
     style: htmlArgType,
   },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof VisuallyHidden>;
+});
 
-type Story = StoryObj<typeof VisuallyHidden>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   render: args => (
     <>
       <Paragraph>Teksten under er usynlig.</Paragraph>
       <VisuallyHidden {...args}>Denne teksten er usynlig.</VisuallyHidden>
     </>
   ),
-};
+});
 
-export const WithLink: Story = {
+export const WithLink = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -53,9 +51,9 @@ export const WithLink: Story = {
       </Paragraph>
     </>
   ),
-};
+});
 
-export const TableButtons: Story = {
+export const TableButtons = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -92,4 +90,4 @@ export const TableButtons: Story = {
       </Table>
     </Table.Wrapper>
   ),
-};
+});

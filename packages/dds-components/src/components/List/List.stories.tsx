@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { commonArgTypesWithNodeChildren } from '../../storybook';
 import { StoryHStack } from '../layout/Stack/utils';
@@ -6,19 +6,15 @@ import { Typography } from '../Typography';
 
 import { List, ListItem, type ListProps } from '.';
 
-const meta: Meta<typeof List> = {
+const meta = preview.meta({
   title: 'dds-components/Components/List',
   component: List,
   argTypes: {
     ...commonArgTypesWithNodeChildren,
   },
-};
+});
 
-export default meta;
-
-type Story = StoryObj<typeof List>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   render: args => (
     <List {...args}>
       <ListItem>Item</ListItem>
@@ -26,9 +22,9 @@ export const Preview: Story = {
       <ListItem>Item</ListItem>
     </List>
   ),
-};
+});
 
-export const Overview: Story = {
+export const Overview = meta.story({
   render: args => {
     interface Props {
       typographyType: ListProps['typographyType'];
@@ -80,9 +76,9 @@ export const Overview: Story = {
       </>
     );
   },
-};
+});
 
-export const Nested: Story = {
+export const Nested = meta.story({
   render: args => (
     <List {...args}>
       <ListItem>Item</ListItem>
@@ -102,9 +98,9 @@ export const Nested: Story = {
       </ListItem>
     </List>
   ),
-};
+});
 
-export const Example: Story = {
+export const Example = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -128,4 +124,4 @@ export const Example: Story = {
       </Typography>
     </div>
   ),
-};
+});

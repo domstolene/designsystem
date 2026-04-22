@@ -14,8 +14,11 @@
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "#.storybook/*": ["./.storybook/*"]
+    }
   },
-  "include": ["packages", "stories", ".storybook"],
+  "include": ["packages", "stories", ".storybook", "global.d.ts"],
   "exclude": ["**/node_modules"]
 }

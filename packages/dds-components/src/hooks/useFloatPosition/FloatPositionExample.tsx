@@ -5,7 +5,7 @@ import { Paper } from '../../components/layout';
 
 export interface FloatPositionProps {
   /**`ref` til pilen. */
-  arrowRef: Parameters<typeof useFloatPosition>[0];
+  arrowRef?: Parameters<typeof useFloatPosition>[0];
   /**Alternativer: plassering i forhold til ankeret, offset og om posisjonen skal oppdateres ved hver animation frame.  */
   options: Parameters<typeof useFloatPosition>[1];
 }

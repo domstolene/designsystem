@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
 import { categoryHtml, htmlEventArgType } from '../../storybook';
@@ -6,7 +6,7 @@ import { StoryVStack } from '../layout/Stack/utils';
 
 import { Breadcrumb } from '.';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/Breadcrumbs/Breadcrumb',
   component: Breadcrumb,
   argTypes: {
@@ -17,24 +17,22 @@ export default {
     onClick: htmlEventArgType,
   },
   args: { onClick: fn() },
-} satisfies Meta<typeof Breadcrumb>;
+});
 
-type Story = StoryObj<typeof Breadcrumb>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   args: {
     children: 'Side',
     href: '/',
   },
-};
+});
 
-export const CurrentPage: Story = {
+export const CurrentPage = meta.story({
   args: {
     children: 'Side',
   },
-};
+});
 
-export const Overview: Story = {
+export const Overview = meta.story({
   render: args => (
     <StoryVStack>
       <Breadcrumb {...args} href="#">
@@ -43,4 +41,4 @@ export const Overview: Story = {
       <Breadcrumb {...args}>Siden du er på</Breadcrumb>
     </StoryVStack>
   ),
-};
+});

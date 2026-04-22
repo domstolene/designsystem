@@ -1,10 +1,10 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { Typography } from '..';
 import { categoryHtml } from '../../../storybook';
 import { storyTypographyHtmlAttrs } from '../storyUtils';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/Typography/Typography',
   component: Typography,
   argTypes: {
@@ -15,14 +15,12 @@ export default {
     as: { control: 'text' },
     ...storyTypographyHtmlAttrs,
   },
-} satisfies Meta<typeof Typography>;
+});
 
-type Story = StoryObj<typeof Typography>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   args: { children: 'Typography' },
-};
+});
 
-export const CustomColor: Story = {
+export const CustomColor = meta.story({
   args: { children: 'Typography', color: 'text-action-resting' },
-};
+});

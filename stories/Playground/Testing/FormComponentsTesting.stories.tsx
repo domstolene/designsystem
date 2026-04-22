@@ -1,4 +1,4 @@
-import { type Meta } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { type InputSize } from '../../../packages/dds-components/src/components/helpers/Input';
 import {
@@ -21,11 +21,10 @@ import {
   ddsProviderDecorator,
 } from '../../../packages/dds-components/src/storybook';
 
-const meta: Meta = {
+const meta = preview.meta({
   title: 'Playground/Testing',
   decorators: [ddsProviderDecorator],
-};
-export default meta;
+});
 
 const icon = MailIcon;
 
@@ -68,7 +67,7 @@ function renderInputs(size: InputSize) {
   );
 }
 
-export const FormComponents = () => {
+export const FormComponents = meta.story(() => {
   return (
     <VStack gap="x1.5">
       <LocalMessage>
@@ -92,4 +91,4 @@ export const FormComponents = () => {
       </VStack>
     </VStack>
   );
-};
+});

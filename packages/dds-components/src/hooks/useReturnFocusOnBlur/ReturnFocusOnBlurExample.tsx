@@ -8,7 +8,7 @@ export interface ReturnFocusOnBlurProps {
   /**Funksjon som kjører når fokus forlater container.*/
   onBlur: Parameters<typeof useReturnFocusOnBlur>[1];
   /**Elementet som skal få fokus når fokus forlater container. */
-  triggerElement: Parameters<typeof useReturnFocusOnBlur>[2];
+  triggerElement?: Parameters<typeof useReturnFocusOnBlur>[2];
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

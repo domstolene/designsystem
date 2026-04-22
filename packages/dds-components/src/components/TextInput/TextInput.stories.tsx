@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
 import {
@@ -16,7 +16,7 @@ import { LocalMessage } from '../LocalMessage';
 
 import { TextInput } from '.';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/TextInput',
   component: TextInput,
   argTypes: {
@@ -30,15 +30,13 @@ export default {
   },
   args: { onChange: fn() },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof TextInput>;
+});
 
-type Story = StoryObj<typeof TextInput>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   args: { label: 'Label' },
-};
+});
 
-export const States: Story = {
+export const States = meta.story({
   args: { label: 'Label' },
   render: args => (
     <StoryHStack>
@@ -58,9 +56,9 @@ export const States: Story = {
       </StoryVStack>
     </StoryHStack>
   ),
-};
+});
 
-export const Sizes: Story = {
+export const Sizes = meta.story({
   render: args => (
     <StoryHStack>
       <StoryVStack>
@@ -86,9 +84,9 @@ export const Sizes: Story = {
       </StoryVStack>
     </StoryHStack>
   ),
-};
+});
 
-export const WithAffixes: Story = {
+export const WithAffixes = meta.story({
   render: args => (
     <StoryVStack>
       <LocalMessage purpose="tips">
@@ -113,9 +111,9 @@ export const WithAffixes: Story = {
       />
     </StoryVStack>
   ),
-};
+});
 
-export const ResponsiveWidth: Story = {
+export const ResponsiveWidth = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -130,4 +128,4 @@ export const ResponsiveWidth: Story = {
       xl: 'var(--dds-input-default-width)',
     },
   },
-};
+});

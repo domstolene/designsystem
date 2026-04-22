@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { LocalMessage } from '../components/LocalMessage';
 import { type DdsTheme } from '../components/ThemeProvider';
@@ -8,15 +8,13 @@ import { type Language } from '../i18n/translation.types';
 
 import { DdsProvider } from '.';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/DdsProvider',
   component: DdsProvider,
   argTypes: {
     children: { control: false },
   },
-} satisfies Meta<typeof DdsProvider>;
-
-type Story = StoryObj<typeof DdsProvider>;
+});
 
 interface TCProps {
   lang?: Language;
@@ -63,7 +61,7 @@ function TranslationComponent(props: TCProps) {
   );
 }
 
-export const Preview: Story = {
+export const Preview = meta.story({
   args: {
     theme: 'public-light',
     language: 'en',
@@ -75,4 +73,4 @@ export const Preview: Story = {
       </DdsProvider>
     );
   },
-};
+});

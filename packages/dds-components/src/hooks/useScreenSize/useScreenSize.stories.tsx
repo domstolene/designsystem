@@ -1,16 +1,12 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { ScreenSizeExample } from './ScreenSizeExample';
 import { hookParameters } from '../hooks.utils';
 
-const meta: Meta<typeof ScreenSizeExample> = {
+const meta = preview.meta({
   title: 'dds-components/Hooks/useScreenSize',
   component: ScreenSizeExample,
   parameters: hookParameters,
-};
+});
 
-export default meta;
-
-type Story = StoryObj<typeof ScreenSizeExample>;
-
-export const Preview: Story = {};
+export const Preview = meta.story();

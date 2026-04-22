@@ -1,21 +1,19 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { categoryCss, commonArgTypes } from '../../storybook';
 
 import { SkipToContent } from '.';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/SkipToContent',
   component: SkipToContent,
   argTypes: {
     top: { control: 'text', table: categoryCss },
     ...commonArgTypes,
   },
-} satisfies Meta<typeof SkipToContent>;
+});
 
-type Story = StoryObj<typeof SkipToContent>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   args: { href: '#innhold' },
   render: args => (
     <div style={{ position: 'relative' }}>
@@ -24,9 +22,9 @@ export const Preview: Story = {
       <main id="innhold">Innhold</main>
     </div>
   ),
-};
+});
 
-export const CustomTop: Story = {
+export const CustomTop = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -38,9 +36,9 @@ export const CustomTop: Story = {
       <main id="innhold">Innhold</main>
     </div>
   ),
-};
+});
 
-export const CustomText: Story = {
+export const CustomText = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -52,4 +50,4 @@ export const CustomText: Story = {
       <main id="innhold">Innhold</main>
     </div>
   ),
-};
+});

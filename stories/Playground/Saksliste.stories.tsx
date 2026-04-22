@@ -1,3 +1,5 @@
+import preview from '#.storybook/preview';
+
 import {
   ArrowRightIcon,
   Button,
@@ -14,10 +16,10 @@ import {
 } from '../../packages/dds-components/src/index';
 import { ddsProviderDecorator } from '../../packages/dds-components/src/storybook';
 
-export default {
+const meta = preview.meta({
   title: 'Playground/Saksliste',
   decorators: [ddsProviderDecorator],
-};
+});
 
 const dødsfallItems = [
   {
@@ -98,7 +100,7 @@ const wrapperStyle = {
   width: '100%',
 };
 
-export const Saksliste = () => {
+export const Saksliste = meta.story(() => {
   return (
     <Grid as="div">
       <GridChild columnsOccupied="all">
@@ -204,4 +206,4 @@ export const Saksliste = () => {
       </GridChild>
     </Grid>
   );
-};
+});

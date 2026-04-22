@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
 import {
@@ -13,7 +13,7 @@ import { StoryVStack } from '../layout/Stack/utils';
 
 import { InternalHeader } from '.';
 
-const meta: Meta<typeof InternalHeader> = {
+const meta = preview.meta({
   title: 'dds-components/Components/InternalHeader',
   component: InternalHeader,
   argTypes: {
@@ -29,9 +29,8 @@ const meta: Meta<typeof InternalHeader> = {
     },
   },
   decorators: [ddsProviderDecorator],
-};
+});
 
-export default meta;
 const navigationLink = {
   href: '#',
   children: 'navlenke',
@@ -65,9 +64,7 @@ const menuElement = {
 
 const menuElements = [menuElement, menuElementWithIcon, menuElement];
 
-type Story = StoryObj<typeof InternalHeader>;
-
-export const WithNavigationAndContextMenu: Story = {
+export const WithNavigationAndContextMenu = meta.story({
   args: {
     applicationName: 'Lovisa',
     applicationDesc: 'Produktnavn',
@@ -75,9 +72,9 @@ export const WithNavigationAndContextMenu: Story = {
     contextMenuItems: menuElements,
     user,
   },
-};
+});
 
-export const Variants: Story = {
+export const Variants = meta.story({
   args: {
     applicationName: 'Lovisa',
     applicationDesc: 'Produktnavn',
@@ -133,9 +130,9 @@ export const Variants: Story = {
       </VStack>
     </StoryVStack>
   ),
-};
+});
 
-export const ResponsiveWithNavigationAndContextMenu: Story = {
+export const ResponsiveWithNavigationAndContextMenu = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
     docs: { story: { height: '420px' } },
@@ -155,4 +152,4 @@ export const ResponsiveWithNavigationAndContextMenu: Story = {
         'Versjonen for liten skjerm vises ved sm brekkpunkt.',
       ),
   ],
-};
+});

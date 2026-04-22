@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
 import { InputStepper } from './InputStepper';
@@ -13,7 +13,7 @@ import {
 } from '../../storybook';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/InputStepper',
   component: InputStepper,
   argTypes: {
@@ -25,20 +25,18 @@ export default {
   },
   args: { onChange: fn() },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof InputStepper>;
+});
 
-type Story = StoryObj<typeof InputStepper>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   args: {
     maxValue: 5,
   },
   render: args => {
     return <InputStepper {...args} label="Label" />;
   },
-};
+});
 
-export const Sizes: Story = {
+export const Sizes = meta.story({
   args: {
     maxValue: 5,
   },
@@ -56,9 +54,9 @@ export const Sizes: Story = {
       </StoryHStack>
     );
   },
-};
+});
 
-export const Overview: Story = {
+export const Overview = meta.story({
   args: {
     maxValue: 5,
   },
@@ -78,9 +76,9 @@ export const Overview: Story = {
       </StoryHStack>
     );
   },
-};
+});
 
-export const ResponsiveWidth: Story = {
+export const ResponsiveWidth = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -95,4 +93,4 @@ export const ResponsiveWidth: Story = {
     },
     maxValue: 5,
   },
-};
+});

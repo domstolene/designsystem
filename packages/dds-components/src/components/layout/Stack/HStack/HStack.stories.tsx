@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { HStack } from './HStack';
 import { Box } from '../..';
@@ -7,13 +7,13 @@ import {
   windowWidthDecorator,
 } from '../../../../storybook';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Layout Primitives/HStack',
   component: HStack,
   argTypes: {
     ...responsiveStackPropsArgTypes,
   },
-} satisfies Meta<typeof HStack>;
+});
 
 const ExampleElement = () => (
   <Box
@@ -25,9 +25,7 @@ const ExampleElement = () => (
   />
 );
 
-type Story = StoryObj<typeof HStack>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   args: {
     children: [
       <ExampleElement />,
@@ -36,9 +34,9 @@ export const Preview: Story = {
       <ExampleElement />,
     ],
   },
-};
+});
 
-export const StylingPerBreakpoint: Story = {
+export const StylingPerBreakpoint = meta.story({
   decorators: [Story => windowWidthDecorator(<Story />)],
   args: {
     style: {
@@ -65,4 +63,4 @@ export const StylingPerBreakpoint: Story = {
       <ExampleElement />,
     ],
   },
-};
+});

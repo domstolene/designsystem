@@ -1,24 +1,22 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { EmptyContent } from './EmptyContent';
 import { Box } from '../layout';
 import { Link } from '../Typography';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/EmptyContent',
   component: EmptyContent,
-} satisfies Meta<typeof EmptyContent>;
+  args: { children: 'Dette er en tekst.' },
+});
 
-type Story = StoryObj<typeof EmptyContent>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   args: {
     headerText: 'Tittel',
-    children: 'Dette er en tekst.',
   },
-};
+});
 
-export const InWrapper: Story = {
+export const InWrapper = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -29,9 +27,9 @@ export const InWrapper: Story = {
       </EmptyContent>
     </Box>
   ),
-};
+});
 
-export const ComplexContent: Story = {
+export const ComplexContent = meta.story({
   args: {
     headerText: 'Tittel',
   },
@@ -40,4 +38,4 @@ export const ComplexContent: Story = {
       Dette er en forklaring. Du kan <Link href="/">registrere en aktør</Link>.
     </EmptyContent>
   ),
-};
+});

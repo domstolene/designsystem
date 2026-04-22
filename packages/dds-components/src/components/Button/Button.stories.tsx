@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
 import { ArrowLeftIcon } from '../..';
@@ -15,7 +15,7 @@ import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { Button } from '.';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/Button',
   component: Button,
   argTypes: {
@@ -33,15 +33,13 @@ export default {
   },
   args: { onClick: fn(), onBlur: fn(), onFocus: fn() },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof Button>;
+});
 
-type Story = StoryObj<typeof Button>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   args: { children: 'Tekst' },
-};
+});
 
-export const Purposes: Story = {
+export const Purposes = meta.story({
   render: args => (
     <StoryHStack>
       <StoryVStack>
@@ -76,9 +74,9 @@ export const Purposes: Story = {
       </StoryVStack>
     </StoryHStack>
   ),
-};
+});
 
-export const Sizes: Story = {
+export const Sizes = meta.story({
   render: args => (
     <StoryHStack>
       <StoryVStack>
@@ -113,9 +111,9 @@ export const Sizes: Story = {
       </StoryVStack>
     </StoryHStack>
   ),
-};
+});
 
-export const OverviewLoading: Story = {
+export const OverviewLoading = meta.story({
   args: {
     children: 'Tekst',
   },
@@ -130,9 +128,9 @@ export const OverviewLoading: Story = {
       ))}
     </StoryHStack>
   ),
-};
+});
 
-export const OverviewFullWidth: Story = {
+export const OverviewFullWidth = meta.story({
   args: { fullWidth: true, children: 'Tekst' },
   render: args => (
     <StoryVStack>
@@ -149,16 +147,16 @@ export const OverviewFullWidth: Story = {
       </Button>
     </StoryVStack>
   ),
-};
+});
 
-export const TextWithIcon: Story = {
+export const TextWithIcon = meta.story({
   args: {
     children: 'Tekst og ikon',
     icon: ArrowLeftIcon,
     iconPosition: 'left',
   },
-};
+});
 
-export const Icon: Story = {
+export const Icon = meta.story({
   args: { icon: ArrowLeftIcon },
-};
+});

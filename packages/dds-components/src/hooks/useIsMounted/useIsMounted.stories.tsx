@@ -1,15 +1,12 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { IsMountedExample } from './IsMountedExample';
 import { hookParameters } from '../hooks.utils';
 
-const meta: Meta<typeof IsMountedExample> = {
+const meta = preview.meta({
   title: 'dds-components/Hooks/useIsMounted',
   component: IsMountedExample,
   parameters: hookParameters,
-};
+});
 
-export default meta;
-type Story = StoryObj<typeof IsMountedExample>;
-
-export const Preview: Story = {};
+export const Preview = meta.story();

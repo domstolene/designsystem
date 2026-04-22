@@ -1,9 +1,9 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { ReturnFocusOnBlurExample } from './ReturnFocusOnBlurExample';
 import { hookParameters } from '../hooks.utils';
 
-const meta: Meta<typeof ReturnFocusOnBlurExample> = {
+const meta = preview.meta({
   title: 'dds-components/Hooks/useReturnFocusOnBlur',
   component: ReturnFocusOnBlurExample,
   parameters: hookParameters,
@@ -11,9 +11,12 @@ const meta: Meta<typeof ReturnFocusOnBlurExample> = {
     active: { control: false },
     triggerElement: { control: false },
   },
-};
+  args: {
+    active: true,
+    onBlur: () => {
+      //placeholder
+    },
+  },
+});
 
-export default meta;
-type Story = StoryObj<typeof ReturnFocusOnBlurExample>;
-
-export const Preview: Story = {};
+export const Preview = meta.story();

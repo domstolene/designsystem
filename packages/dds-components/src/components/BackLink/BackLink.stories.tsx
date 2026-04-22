@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
 import {
@@ -9,7 +9,7 @@ import {
 
 import { BackLink } from '.';
 
-const meta: Meta<typeof BackLink> = {
+const meta = preview.meta({
   title: 'dds-components/Components/BackLink',
   component: BackLink,
   argTypes: {
@@ -20,19 +20,15 @@ const meta: Meta<typeof BackLink> = {
   },
   args: { onClick: fn() },
   decorators: [ddsProviderDecorator],
-};
+});
 
-export default meta;
-
-type Story = StoryObj<typeof BackLink>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   args: { label: 'Forrige nivå', href: '#' },
-};
+});
 
-export const As: Story = {
+export const As = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
   args: { label: 'Forrige nivå', href: '#', as: 'div' },
-};
+});

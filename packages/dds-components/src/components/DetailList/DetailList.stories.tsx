@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import {
   StoryLabel,
@@ -18,17 +18,13 @@ import {
   DetailListTerm,
 } from '.';
 
-const meta: Meta<typeof DetailList> = {
+const meta = preview.meta({
   title: 'dds-components/Components/DetailList',
   component: DetailList,
   argTypes: {
     ...commonArgTypesWithNodeChildren,
   },
-};
-
-export default meta;
-
-type Story = StoryObj<typeof DetailList>;
+});
 
 const children = [
   <DetailListRow>
@@ -85,11 +81,11 @@ const children = [
   </DetailListRow>,
 ];
 
-export const Preview: Story = {
+export const Preview = meta.story({
   render: args => <DetailList {...args}>{children}</DetailList>,
-};
+});
 
-export const Sizes: Story = {
+export const Sizes = meta.story({
   render: args => (
     <StoryVStack>
       {DETAIL_LIST_SIZES.map(size => (
@@ -102,17 +98,17 @@ export const Sizes: Story = {
       ))}
     </StoryVStack>
   ),
-};
+});
 
-export const SmallScreen: Story = {
+export const SmallScreen = meta.story({
   render: args => (
     <DetailList {...args} smallScreenBreakpoint="xl">
       {children}
     </DetailList>
   ),
-};
+});
 
-export const Responsive: Story = {
+export const Responsive = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -125,4 +121,4 @@ export const Responsive: Story = {
   ],
   args: { smallScreenBreakpoint: 'sm' },
   render: args => <DetailList {...args}>{children}</DetailList>,
-};
+});

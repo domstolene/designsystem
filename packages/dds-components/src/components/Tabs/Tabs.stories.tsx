@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { useState } from 'react';
 
 import { TABS_SIZES } from './Tabs';
@@ -15,7 +15,7 @@ import { Paragraph } from '../Typography';
 
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '.';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/Tabs',
   component: Tabs,
   argTypes: {
@@ -23,9 +23,7 @@ export default {
     ...commonArgTypesWithNodeChildren,
     addTabButtonProps: { control: false },
   },
-} satisfies Meta<typeof Tabs>;
-
-type Story = StoryObj<typeof Tabs>;
+});
 
 const tabList = (icon?: boolean) => {
   const tabIcon = icon ? NotificationsIcon : undefined;
@@ -46,16 +44,16 @@ const tabPanels = (
   </TabPanels>
 );
 
-export const Preview: Story = {
+export const Preview = meta.story({
   render: args => (
     <Tabs {...args}>
       {tabList()}
       {tabPanels}
     </Tabs>
   ),
-};
+});
 
-export const Sizes: Story = {
+export const Sizes = meta.story({
   render: args => (
     <StoryVStack gap="x2.5">
       {TABS_SIZES.map(size => (
@@ -74,9 +72,9 @@ export const Sizes: Story = {
       ))}
     </StoryVStack>
   ),
-};
+});
 
-export const ActiveTab: Story = {
+export const ActiveTab = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -89,9 +87,9 @@ export const ActiveTab: Story = {
       </Tabs>
     );
   },
-};
+});
 
-export const WithAddTabButton: Story = {
+export const WithAddTabButton = meta.story({
   render: args => {
     const [tooManyText, setTooManyText] = useState('');
     const [activeTab, setActiveTab] = useState(0);
@@ -150,9 +148,9 @@ export const WithAddTabButton: Story = {
       </>
     );
   },
-};
+});
 
-export const WithWidth: Story = {
+export const WithWidth = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -166,9 +164,9 @@ export const WithWidth: Story = {
       </Tabs>
     </>
   ),
-};
+});
 
-export const ResponsiveWidth: Story = {
+export const ResponsiveWidth = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -188,9 +186,9 @@ export const ResponsiveWidth: Story = {
       {tabPanels}
     </Tabs>
   ),
-};
+});
 
-export const DifferentWidths: Story = {
+export const DifferentWidths = meta.story({
   render: args => (
     <>
       <Paragraph withMargins>
@@ -208,9 +206,9 @@ export const DifferentWidths: Story = {
       </Tabs>
     </>
   ),
-};
+});
 
-export const TabOverflow: Story = {
+export const TabOverflow = meta.story({
   render: args => (
     <>
       <Paragraph withMargins>
@@ -235,4 +233,4 @@ export const TabOverflow: Story = {
       </Tabs>
     </>
   ),
-};
+});

@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { ErrorSummary } from './ErrorSummary';
 import { ErrorSummaryItem } from './ErrorSummaryItem';
@@ -7,7 +7,7 @@ import {
   ddsProviderDecorator,
 } from '../../storybook';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/ErrorSummary',
   component: ErrorSummary,
   argTypes: {
@@ -15,15 +15,13 @@ export default {
     heading: { control: 'text' },
   },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof ErrorSummary>;
+});
 
-type Story = StoryObj<typeof ErrorSummary>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   render: args => (
     <ErrorSummary {...args}>
       <ErrorSummaryItem>Epost må fylles ut</ErrorSummaryItem>
       <ErrorSummaryItem>Fødselsnummer må ha 11 sifre</ErrorSummaryItem>
     </ErrorSummary>
   ),
-};
+});
