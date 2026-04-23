@@ -1,5 +1,14 @@
 # @norges-domstoler/dds-components
 
+## 22.8.1
+
+(2026-04-23)
+
+### Patch Changes
+
+- 7db532c: Bytter font til IBM Plex Sans Var, variabel variant av fonten vår. Den gjør at rendering på Windows blir mer lesbar og lik MacOS. Vi beholder referansen "IBM Plex Sans", og endringen forplanter seg sømløst.
+- f21f4c4: Ikke animer Accordion, CardExpandable ved første innlast (render) når initielt expanded er satt til true
+
 ## 22.8.0
 
 ### Minor Changes
