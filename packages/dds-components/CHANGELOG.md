@@ -2,6 +2,8 @@
 
 ## 22.8.1
 
+(2026-04-23)
+
 ### Patch Changes
 
 - 7db532c: Bytter font til IBM Plex Sans Var, variabel variant av fonten vår. Den gjør at rendering på Windows blir mer lesbar og lik MacOS. Vi beholder referansen "IBM Plex Sans", og endringen forplanter seg sømløst.
