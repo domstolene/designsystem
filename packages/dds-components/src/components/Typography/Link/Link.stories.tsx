@@ -27,6 +27,8 @@ const meta = preview.meta({
   decorators: [ddsProviderDecorator],
 });
 
+export default meta;
+
 const showcaseProps = { children: 'Link', href: 'https://www.domstol.no' };
 
 export const Preview = meta.story({

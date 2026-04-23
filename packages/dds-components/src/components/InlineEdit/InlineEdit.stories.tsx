@@ -26,6 +26,8 @@ const meta = preview.meta({
   decorators: [ddsProviderDecorator],
 });
 
+export default meta;
+
 export const Preview = meta.story({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: args => {

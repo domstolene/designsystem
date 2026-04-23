@@ -15,6 +15,8 @@ const meta = preview.meta({
   },
 });
 
+export default meta;
+
 const ExampleElement = () => (
   <Box
     width="5rem"

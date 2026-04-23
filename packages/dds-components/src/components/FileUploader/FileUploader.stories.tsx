@@ -31,6 +31,8 @@ const meta = preview.meta({
   decorators: [ddsProviderDecorator],
 });
 
+export default meta;
+
 const file = new File(['hello'], 'hello.png', { type: 'image/png' });
 
 export const Preview = meta.story({ args: { label: 'Label' } });

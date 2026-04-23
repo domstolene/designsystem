@@ -19,6 +19,8 @@ const meta = preview.meta({
   },
 });
 
+export default meta;
+
 const icon = OpenExternal;
 
 export const Preview = meta.story({

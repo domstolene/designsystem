@@ -31,6 +31,8 @@ const meta = preview.meta({
   decorators: [ddsProviderDecorator],
 });
 
+export default meta;
+
 const navigationLink = {
   href: '#',
   children: 'navlenke',

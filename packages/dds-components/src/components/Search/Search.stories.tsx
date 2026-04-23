@@ -25,6 +25,8 @@ const meta = preview.meta({
   decorators: [ddsProviderDecorator],
 });
 
+export default meta;
+
 const array = [
   'lala',
   'ghostbusters',

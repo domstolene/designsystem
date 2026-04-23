@@ -26,6 +26,8 @@ const meta = preview.meta({
   },
 });
 
+export default meta;
+
 const children = [
   <DetailListRow>
     <DetailListTerm>Term</DetailListTerm>

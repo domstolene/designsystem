@@ -9,6 +9,8 @@ const meta = preview.meta({
   parameters: hookParameters,
 });
 
+export default meta;
+
 export const Preview = meta.story({
   args: {
     size: 4,

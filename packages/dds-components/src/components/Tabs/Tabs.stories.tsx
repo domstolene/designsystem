@@ -25,6 +25,8 @@ const meta = preview.meta({
   },
 });
 
+export default meta;
+
 const tabList = (icon?: boolean) => {
   const tabIcon = icon ? NotificationsIcon : undefined;
   return (

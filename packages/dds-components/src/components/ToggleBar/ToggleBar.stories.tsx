@@ -24,6 +24,8 @@ const meta = preview.meta({
   },
 });
 
+export default meta;
+
 const toggleRadios = (label?: boolean, icon?: boolean) => {
   const radios = [];
   for (let i = 1; i <= 3; i++) {
