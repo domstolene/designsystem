@@ -159,21 +159,15 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
 
   const onRootBlur = useCallback(() => dispatch({ type: 'blur' }), [dispatch]);
 
-  const onRootDragEnter = useCallback(
-    async (evt: React.DragEvent<TRootElement>) => {
-      preventDefaults(evt);
-
-      if (isEventWithFiles(evt)) {
-        const files = await getFilesFromEvent(evt);
-        const fileCount = files.length;
-
-        if (fileCount === 0) return;
-
-        dispatch({ type: 'dragEnter' });
-      }
-    },
-    [dispatch, accept, maxFiles],
-  );
+ const onRootDragEnter = useCallback(
+  (evt: React.DragEvent<TRootElement>) => {
+    preventDefaults(evt);
+    if (isEventWithFiles(evt)) {
+      dispatch({ type: 'dragEnter' });
+    }
+  },
+  [dispatch],
+);
 
   const onRootDragOver = useCallback((evt: React.DragEvent<TRootElement>) => {
     preventDefaults(evt);
