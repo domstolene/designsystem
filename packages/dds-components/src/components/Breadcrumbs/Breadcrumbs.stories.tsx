@@ -17,6 +17,8 @@ const meta = preview.meta({
   decorators: [ddsProviderDecorator],
 });
 
+export default meta;
+
 const children = [
   <Breadcrumb href="#">Side 1</Breadcrumb>,
   <Breadcrumb href="#">Side 2</Breadcrumb>,

@@ -16,6 +16,8 @@ export const Preview = meta.story({
   },
 });
 
+export default meta;
+
 export const InWrapper = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },

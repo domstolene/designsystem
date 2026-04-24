@@ -16,6 +16,8 @@ const meta = preview.meta({
   },
 });
 
+export default meta;
+
 interface TCProps {
   lang?: Language;
   theme?: DdsTheme;

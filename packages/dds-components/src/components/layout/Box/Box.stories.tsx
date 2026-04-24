@@ -22,6 +22,8 @@ const meta = preview.meta({
   decorators: [Story => windowWidthDecorator(<Story />)],
 });
 
+export default meta;
+
 export const Preview = meta.story({
   args: {
     style: {

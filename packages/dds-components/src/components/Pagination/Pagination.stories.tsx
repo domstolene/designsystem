@@ -23,6 +23,8 @@ const meta = preview.meta({
   decorators: [ddsProviderDecorator],
 });
 
+export default meta;
+
 const customOptionsItemsAmount = 100;
 const customOptions = [17, 32, customOptionsItemsAmount].map(o => ({
   label: o === customOptionsItemsAmount ? 'Alle' : o.toString(),

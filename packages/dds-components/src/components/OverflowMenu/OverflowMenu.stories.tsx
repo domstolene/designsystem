@@ -50,6 +50,8 @@ const meta = preview.meta({
   decorators: [ddsProviderDecorator],
 });
 
+export default meta;
+
 export const Preview = meta.story({
   parameters: { docs: { story: { height: '540px' } } },
   render: args => {

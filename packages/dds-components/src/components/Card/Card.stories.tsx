@@ -22,6 +22,8 @@ const meta = preview.meta({
   },
 });
 
+export default meta;
+
 const body = (
   <Paragraph>
     Content Content Content Content Content Content Content Content

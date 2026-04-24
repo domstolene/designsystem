@@ -28,6 +28,8 @@ const meta = preview.meta({
   decorators: [ddsProviderDecorator],
 });
 
+export default meta;
+
 const mappedHeaderCells = headerCells.map(headerCell => {
   return (
     <Table.Cell key={`head-${headerCell.dataName}`}>
