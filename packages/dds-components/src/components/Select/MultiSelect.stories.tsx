@@ -22,6 +22,10 @@ const meta: Meta<typeof Select<Option, true>> = {
     required: { control: { type: 'boolean' }, table: categoryHtml },
     readOnly: { control: { type: 'boolean' } },
     isLoading: { control: { type: 'boolean' } },
+    menuPlacement: {
+      options: ['bottom', 'auto', 'top'],
+      control: { type: 'radio' },
+    },
   },
   parameters: {
     docs: {
