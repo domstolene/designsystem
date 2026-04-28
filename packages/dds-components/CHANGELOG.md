@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-components
 
+## 22.8.2
+
+(2026-04-28)
+
+### Patch Changes
+
+- 8472c6d: Props menuPlacement kan nå brukes av Select. Hvis ingen props sendes med, er menuPlacement = "auto".
+
 ## 22.8.1
 
 (2026-04-23)
