@@ -33,6 +33,10 @@ const meta: Meta<typeof Select> = {
     onChange: htmlEventArgType,
     onBlur: htmlEventArgType,
     onFocus: htmlEventArgType,
+    menuPlacement: {
+      options: ['bottom', 'top', 'auto'],
+      control: { type: 'radio' },
+    },
   },
   args: { onChange: fn(), onInputChange: fn() },
   parameters: {

@@ -191,9 +191,9 @@ export const getCustomStyles = <TOption>(
             backgroundColor: 'var(--dds-color-surface-hover-default)',
           },
         },
-  menu: () => ({
+  menu: provided => ({
+    ...provided,
     boxSizing: 'border-box',
-    position: 'absolute',
     width: '100%',
     boxShadow: 'var(--dds-shadow-medium)',
     zIndex: 100,
