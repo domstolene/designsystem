@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { ddsProviderDecorator, labelText } from '../../storybook';
 import { BUTTON_SIZES } from '../Button/Button.types';
@@ -6,21 +6,6 @@ import { PlusCircledIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { SplitButton } from '.';
-
-export default {
-  title: 'dds-components/Components/SplitButton',
-  component: SplitButton,
-  parameters: {
-    docs: {
-      story: { height: '200px' },
-    },
-  },
-  argTypes: {
-    secondaryActions: { control: false },
-    primaryAction: { control: false },
-  },
-  decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof SplitButton>;
 
 const items = [
   {
@@ -34,16 +19,30 @@ const items = [
   },
 ];
 
-type Story = StoryObj<typeof SplitButton>;
-
-export const Preview: Story = {
+const meta = preview.meta({
+  title: 'dds-components/Components/SplitButton',
+  component: SplitButton,
+  parameters: {
+    docs: {
+      story: { height: '200px' },
+    },
+  },
+  argTypes: {
+    secondaryActions: { control: false },
+    primaryAction: { control: false },
+  },
   args: {
     primaryAction: { children: 'Tekst' },
     secondaryActions: items,
   },
-};
+  decorators: [ddsProviderDecorator],
+});
 
-export const Purposes: Story = {
+export default meta;
+
+export const Preview = meta.story({});
+
+export const Purposes = meta.story({
   render: args => (
     <StoryHStack>
       <StoryVStack>
@@ -62,9 +61,9 @@ export const Purposes: Story = {
       </StoryVStack>
     </StoryHStack>
   ),
-};
+});
 
-export const Sizes: Story = {
+export const Sizes = meta.story({
   render: args => (
     <StoryHStack>
       <StoryVStack>
@@ -73,7 +72,6 @@ export const Sizes: Story = {
             {...args}
             key={size}
             primaryAction={{ children: labelText(size) }}
-            secondaryActions={items}
             size={size}
           />
         ))}
@@ -86,18 +84,16 @@ export const Sizes: Story = {
               children: labelText(size),
               icon: PlusCircledIcon,
             }}
-            secondaryActions={items}
             size={size}
           />
         ))}
       </StoryVStack>
     </StoryHStack>
   ),
-};
+});
 
-export const FullWidth: Story = {
+export const FullWidth = meta.story({
   args: {
     primaryAction: { children: 'Tekst', fullWidth: true },
-    secondaryActions: items,
   },
-};
+});

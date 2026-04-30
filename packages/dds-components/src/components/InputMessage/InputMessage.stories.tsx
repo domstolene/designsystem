@@ -1,30 +1,31 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { commonArgTypes } from '../../storybook';
 import { StoryHStack } from '../layout/Stack/utils';
 
 import { InputMessage } from '.';
 
-const meta: Meta<typeof InputMessage> = {
+const meta = preview.meta({
   title: 'dds-components/Components/InputMessage',
   component: InputMessage,
   argTypes: {
     ...commonArgTypes,
   },
-};
+});
 
 export default meta;
 
-type Story = StoryObj<typeof InputMessage>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   args: {
     messageType: 'error',
     children: 'Feilmelding',
   },
-};
+});
 
-export const Variants: Story = {
+export const Variants = meta.story({
+  args: {
+    messageType: 'error',
+  },
   render: args => (
     <StoryHStack>
       <InputMessage {...args} messageType="error">
@@ -35,4 +36,4 @@ export const Variants: Story = {
       </InputMessage>
     </StoryHStack>
   ),
-};
+});

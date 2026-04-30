@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { type ChangeEvent, useEffect, useState } from 'react';
 
 import {
@@ -17,7 +17,7 @@ import { Link, Paragraph } from '../../Typography';
 
 import { Table } from '.';
 
-const meta: Meta<typeof Table> = {
+const meta = preview.meta({
   title: 'dds-components/Components/Table',
   component: Table,
   parameters: {
@@ -26,11 +26,9 @@ const meta: Meta<typeof Table> = {
     },
   },
   decorators: [ddsProviderDecorator],
-};
+});
 
 export default meta;
-
-type Story = StoryObj<typeof Table>;
 
 const mappedHeaderCells = headerCells.map(headerCell => {
   return (
@@ -40,7 +38,7 @@ const mappedHeaderCells = headerCells.map(headerCell => {
   );
 });
 
-export const Preview: Story = {
+export const Preview = meta.story({
   render: args => (
     <Table.Wrapper>
       <Table {...args}>
@@ -61,9 +59,9 @@ export const Preview: Story = {
       </Table>
     </Table.Wrapper>
   ),
-};
+});
 
-export const WithDividers: Story = {
+export const WithDividers = meta.story({
   render: args => (
     <Table.Wrapper>
       <Table {...args} withDividers>
@@ -84,9 +82,9 @@ export const WithDividers: Story = {
       </Table>
     </Table.Wrapper>
   ),
-};
+});
 
-export const WithoutStripes: Story = {
+export const WithoutStripes = meta.story({
   render: args => (
     <Table.Wrapper>
       <Table {...args} withStripes={false}>
@@ -107,9 +105,9 @@ export const WithoutStripes: Story = {
       </Table>
     </Table.Wrapper>
   ),
-};
+});
 
-export const Small: Story = {
+export const Small = meta.story({
   render: args => (
     <Table.Wrapper>
       <Table {...args} size="small">
@@ -130,9 +128,9 @@ export const Small: Story = {
       </Table>
     </Table.Wrapper>
   ),
-};
+});
 
-export const Large: Story = {
+export const Large = meta.story({
   render: args => (
     <Table.Wrapper>
       <Table {...args} size="large">
@@ -153,9 +151,9 @@ export const Large: Story = {
       </Table>
     </Table.Wrapper>
   ),
-};
+});
 
-export const StickyHeader: Story = {
+export const StickyHeader = meta.story({
   render: args => (
     <Table.Wrapper>
       <Table {...args} stickyHeader>
@@ -185,9 +183,9 @@ export const StickyHeader: Story = {
       </Table>
     </Table.Wrapper>
   ),
-};
+});
 
-export const Focusable: Story = {
+export const Focusable = meta.story({
   render: args => (
     <Table.Wrapper>
       <Table {...args}>
@@ -214,9 +212,9 @@ export const Focusable: Story = {
       </Table>
     </Table.Wrapper>
   ),
-};
+});
 
-export const Hoverable: Story = {
+export const Hoverable = meta.story({
   render: args => (
     <Table.Wrapper>
       <Table {...args}>
@@ -237,7 +235,7 @@ export const Hoverable: Story = {
       </Table>
     </Table.Wrapper>
   ),
-};
+});
 
 const adminIcon = <Icon icon={PersonIcon} />;
 const deleteButton = (
@@ -245,7 +243,7 @@ const deleteButton = (
     Fjern tilgang
   </Button>
 );
-export const WithButtonAndIcons: Story = {
+export const WithButtonAndIcons = meta.story({
   render: args => (
     <Table.Wrapper>
       <Table {...args}>
@@ -274,7 +272,7 @@ export const WithButtonAndIcons: Story = {
       </Table>
     </Table.Wrapper>
   ),
-};
+});
 
 const sumData = [
   {
@@ -295,7 +293,7 @@ const sumData = [
   },
 ];
 
-export const WithSum: Story = {
+export const WithSum = meta.story({
   render: args => (
     <Table.Wrapper>
       <Table {...args}>
@@ -324,9 +322,9 @@ export const WithSum: Story = {
       </Table>
     </Table.Wrapper>
   ),
-};
+});
 
-export const WithCheckbox: Story = {
+export const WithCheckbox = meta.story({
   render: args => {
     type chechboxRow = {
       id: string;
@@ -428,9 +426,9 @@ export const WithCheckbox: Story = {
       </Table.Wrapper>
     );
   },
-};
+});
 
-export const Complex: Story = {
+export const Complex = meta.story({
   render: args => (
     <Table.Wrapper>
       <Table {...args} stickyHeader>
@@ -503,9 +501,9 @@ export const Complex: Story = {
       </Table>
     </Table.Wrapper>
   ),
-};
+});
 
-export const Sortable: Story = {
+export const Sortable = meta.story({
   render: args => {
     const [headerSortCells, setHeaderSortCells] =
       useState<Array<HeaderCellToSort>>(headerCells);
@@ -601,9 +599,9 @@ export const Sortable: Story = {
       </Table.Wrapper>
     );
   },
-};
+});
 
-export const ColumnAndRowHeaders: Story = {
+export const ColumnAndRowHeaders = meta.story({
   render: args => (
     <Table.Wrapper>
       <Table {...args}>
@@ -635,9 +633,9 @@ export const ColumnAndRowHeaders: Story = {
       </Table>
     </Table.Wrapper>
   ),
-};
+});
 
-export const WithScroll: Story = {
+export const WithScroll = meta.story({
   render: args => (
     <>
       <Paragraph withMargins>
@@ -676,9 +674,9 @@ export const WithScroll: Story = {
       </Table.Wrapper>
     </>
   ),
-};
+});
 
-export const InteractiveContent: Story = {
+export const InteractiveContent = meta.story({
   render: args => (
     <Table.Wrapper>
       <Table {...args}>
@@ -707,4 +705,4 @@ export const InteractiveContent: Story = {
       </Table>
     </Table.Wrapper>
   ),
-};
+});

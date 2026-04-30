@@ -1,17 +1,16 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { MountTransitionExample } from './MountTransitionExample';
 import { hookParameters } from '../hooks.utils';
 
-const meta: Meta<typeof MountTransitionExample> = {
+const meta = preview.meta({
   title: 'dds-components/Hooks/useMountTransition',
   component: MountTransitionExample,
   parameters: hookParameters,
-};
+});
 
 export default meta;
-type Story = StoryObj<typeof MountTransitionExample>;
 
-export const Preview: Story = {
+export const Preview = meta.story({
   args: { isMounted: false, unmountDelay: 1000 },
-};
+});

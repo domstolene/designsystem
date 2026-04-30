@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
 import { L_MESSAGE_PURPOSES, LocalMessage } from './LocalMessage';
@@ -15,7 +15,7 @@ import { StoryVStack } from '../layout/Stack/utils';
 import { List, ListItem } from '../List';
 import { Heading, Paragraph } from '../Typography';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/LocalMessage',
   component: LocalMessage,
   argTypes: {
@@ -24,17 +24,17 @@ export default {
   },
   args: { onClose: fn() },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof LocalMessage>;
+});
 
-type Story = StoryObj<typeof LocalMessage>;
+export default meta;
 
-export const Preview: Story = {
+export const Preview = meta.story({
   args: {
     children: 'Dette er en lokal melding',
   },
-};
+});
 
-export const Purposes: Story = {
+export const Purposes = meta.story({
   render: args => (
     <StoryVStack alignItems="stretch">
       {L_MESSAGE_PURPOSES.map(p => (
@@ -44,9 +44,9 @@ export const Purposes: Story = {
       ))}
     </StoryVStack>
   ),
-};
+});
 
-export const Variants: Story = {
+export const Variants = meta.story({
   render: args => (
     <StoryVStack alignItems="stretch">
       <LocalMessage {...args} closable>
@@ -60,9 +60,9 @@ export const Variants: Story = {
       </LocalMessage>
     </StoryVStack>
   ),
-};
+});
 
-export const WithExtraButton: Story = {
+export const WithExtraButton = meta.story({
   args: {
     children: (
       <HStack justifyContent="space-between" gap="x0.75">
@@ -74,9 +74,9 @@ export const WithExtraButton: Story = {
     ),
     closable: true,
   },
-};
+});
 
-export const ResponsiveWidth: Story = {
+export const ResponsiveWidth = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -91,9 +91,9 @@ export const ResponsiveWidth: Story = {
       xl: 'fit-content',
     },
   },
-};
+});
 
-export const ComplexContent: Story = {
+export const ComplexContent = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -110,4 +110,4 @@ export const ComplexContent: Story = {
       </List>
     </LocalMessage>
   ),
-};
+});

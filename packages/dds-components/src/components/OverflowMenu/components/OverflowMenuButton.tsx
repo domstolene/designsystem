@@ -9,6 +9,7 @@ import { type OverflowMenuButtonProps } from '../OverflowMenu.types';
 export const OverflowMenuButton = ({
   onClick,
   onClickAsync,
+  closeMenuOnClickAsync = true,
   purpose = 'default',
   loading,
   ref,
@@ -30,17 +31,24 @@ export const OverflowMenuButton = ({
 
   const handleClick = async (e: MouseEvent<HTMLButtonElement>) => {
     if (isLoading) return;
+
+    const close = () => onClose?.();
+
     if (onClickAsync) {
       setInternalLoading(true);
+      const shouldAutoClose = closeMenuOnClickAsync === true;
+
       try {
         await onClickAsync(e);
+        if (typeof closeMenuOnClickAsync === 'function') {
+          closeMenuOnClickAsync(close);
+        } else if (shouldAutoClose) close();
       } finally {
         setInternalLoading(false);
-        onClose?.();
       }
     } else {
       onClick?.(e);
-      onClose?.();
+      close();
     }
   };
 

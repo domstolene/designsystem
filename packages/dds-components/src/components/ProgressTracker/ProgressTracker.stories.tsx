@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { useState } from 'react';
 
 import { ProgressTracker } from './ProgressTracker';
@@ -17,20 +17,18 @@ import {
 } from '../Icon/icons';
 import { HStack, VStack } from '../layout';
 
-const meta: Meta<typeof ProgressTracker> = {
+const meta = preview.meta({
   title: 'dds-components/Components/ProgressTracker',
   component: ProgressTracker,
   argTypes: {
     ...commonArgTypesWithNodeChildren,
   },
   decorators: [ddsProviderDecorator],
-};
+});
 
 export default meta;
 
-type Story = StoryObj<typeof ProgressTracker>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   render: args => {
     const numSteps = 3;
 
@@ -79,9 +77,9 @@ export const Preview: Story = {
       </VStack>
     );
   },
-};
+});
 
-export const WithIcons: Story = {
+export const WithIcons = meta.story({
   render: args => {
     const numSteps = 3;
 
@@ -140,9 +138,9 @@ export const WithIcons: Story = {
       </VStack>
     );
   },
-};
+});
 
-export const Horisontal: Story = {
+export const Horisontal = meta.story({
   render: args => {
     const numSteps = 3;
 
@@ -191,9 +189,9 @@ export const Horisontal: Story = {
       </VStack>
     );
   },
-};
+});
 
-export const FutureStepsDisabled: Story = {
+export const FutureStepsDisabled = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -254,9 +252,9 @@ export const FutureStepsDisabled: Story = {
       </VStack>
     );
   },
-};
+});
 
-export const SmallScreen: Story = {
+export const SmallScreen = meta.story({
   render: args => {
     const numSteps = 3;
 
@@ -317,4 +315,4 @@ export const SmallScreen: Story = {
       </>
     );
   },
-};
+});

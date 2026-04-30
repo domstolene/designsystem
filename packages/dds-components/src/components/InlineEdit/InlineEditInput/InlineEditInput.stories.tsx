@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { useState } from 'react';
 import { fn } from 'storybook/test';
 
@@ -12,7 +12,7 @@ import {
 import { StoryVStack } from '../../layout/Stack/utils';
 import { Table } from '../../Table/normal';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/InlineEdit/InlineEditInput',
   component: InlineEditInput,
   argTypes: {
@@ -29,10 +29,9 @@ export default {
     },
   },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof InlineEditInput>;
-type Story = StoryObj<typeof InlineEditInput>;
+});
 
-export const Preview: Story = {
+export const Preview = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -40,9 +39,9 @@ export const Preview: Story = {
     const [value, setValue] = useState('');
     return <InlineEditInput {...args} value={value} onSetValue={setValue} />;
   },
-};
+});
 
-export const Overview: Story = {
+export const Overview = meta.story({
   render: args => {
     const [value, setValue] = useState('');
     const [value2, setValue2] = useState('tekst');
@@ -81,9 +80,9 @@ export const Overview: Story = {
       </StoryVStack>
     );
   },
-};
+});
 
-export const InTable: Story = {
+export const InTable = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -123,9 +122,9 @@ export const InTable: Story = {
       </Table.Wrapper>
     );
   },
-};
+});
 
-export const ResponsiveWidth: Story = {
+export const ResponsiveWidth = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -139,4 +138,4 @@ export const ResponsiveWidth: Story = {
       xl: 'var(--dds-input-default-width)',
     },
   },
-};
+});

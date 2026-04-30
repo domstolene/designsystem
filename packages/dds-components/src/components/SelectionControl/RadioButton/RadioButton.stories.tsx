@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
 import {
@@ -11,7 +11,7 @@ import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 
 import { RadioButton } from '.';
 
-const meta: Meta<typeof RadioButton> = {
+const meta = preview.meta({
   title: 'dds-components/Components/RadioButton',
   component: RadioButton,
   argTypes: {
@@ -25,16 +25,15 @@ const meta: Meta<typeof RadioButton> = {
     onChange: htmlEventArgType,
   },
   args: { onChange: fn() },
-};
+});
 
 export default meta;
-type Story = StoryObj<typeof RadioButton>;
 
-export const Preview: Story = {
+export const Preview = meta.story({
   args: { label: 'Label' },
-};
+});
 
-export const Overview: Story = {
+export const Overview = meta.story({
   render: args => (
     <StoryHStack>
       <StoryVStack>
@@ -50,4 +49,4 @@ export const Overview: Story = {
       </StoryVStack>
     </StoryHStack>
   ),
-};
+});

@@ -1,11 +1,13 @@
+import preview from '#.storybook/preview';
+
 import { Heading, Paragraph } from '..';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/Typography/Examples',
   tags: ['!autodocs'],
-};
+});
 
-export const Article = () => {
+export const Article = meta.story(() => {
   return (
     <div className="story-article">
       <Heading level={1} withMargins>
@@ -72,4 +74,4 @@ export const Article = () => {
       </style>
     </div>
   );
-};
+});

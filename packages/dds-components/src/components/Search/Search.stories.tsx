@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
 import { SEARCH_SIZES } from './Search.utils';
@@ -13,7 +13,7 @@ import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { Search } from '.';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/Search',
   component: Search,
   argTypes: {
@@ -23,7 +23,9 @@ export default {
   },
   args: { onChange: fn() },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof Search>;
+});
+
+export default meta;
 
 const array = [
   'lala',
@@ -53,11 +55,9 @@ const elementsInfo = (
   </div>
 );
 
-type Story = StoryObj<typeof Search>;
+export const Preview = meta.story();
 
-export const Preview: Story = {};
-
-export const Overview: Story = {
+export const Overview = meta.story({
   render: args => (
     <StoryVStack>
       <Search {...args} />
@@ -80,9 +80,9 @@ export const Overview: Story = {
       <Search {...args} buttonProps={{ onClick: () => null, loading: true }} />
     </StoryVStack>
   ),
-};
+});
 
-export const Sizes: Story = {
+export const Sizes = meta.story({
   render: args => (
     <StoryHStack>
       <StoryVStack>
@@ -102,9 +102,9 @@ export const Sizes: Story = {
       </StoryVStack>
     </StoryHStack>
   ),
-};
+});
 
-export const SizesWithSuggestions: Story = {
+export const SizesWithSuggestions = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -118,9 +118,9 @@ export const SizesWithSuggestions: Story = {
       {elementsInfo}
     </StoryVStack>
   ),
-};
+});
 
-export const WithSuggestions: Story = {
+export const WithSuggestions = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
     docs: { story: { height: '450px' } },
@@ -133,9 +133,9 @@ export const WithSuggestions: Story = {
       {elementsInfo}
     </>
   ),
-};
+});
 
-export const ResponsiveWidth: Story = {
+export const ResponsiveWidth = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -150,4 +150,4 @@ export const ResponsiveWidth: Story = {
       xl: 'var(--dds-input-default-width)',
     },
   },
-};
+});

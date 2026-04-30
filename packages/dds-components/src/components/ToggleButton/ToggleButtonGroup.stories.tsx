@@ -1,21 +1,20 @@
-import { type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { commonArgTypesWithNodeChildren } from '../../storybook';
 
 import { ToggleButton, ToggleButtonGroup } from '.';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/ToggleButton/ToggleButtonGroup',
   component: ToggleButtonGroup,
+
   argTypes: {
     ...commonArgTypesWithNodeChildren,
     labelId: { control: false },
   },
-};
+});
 
-type Story = StoryObj<typeof ToggleButtonGroup>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   args: { label: 'Label' },
   render: args => (
     <ToggleButtonGroup {...args}>
@@ -25,4 +24,4 @@ export const Preview: Story = {
       <ToggleButton label="Tekst" />
     </ToggleButtonGroup>
   ),
-};
+});

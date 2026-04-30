@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import {
   commonArgTypesWithNodeChildren,
@@ -8,18 +8,16 @@ import {
 
 import { Breadcrumb, Breadcrumbs } from '.';
 
-const meta: Meta<typeof Breadcrumbs> = {
+const meta = preview.meta({
   title: 'dds-components/Components/Breadcrumbs',
   component: Breadcrumbs,
   argTypes: {
     ...commonArgTypesWithNodeChildren,
   },
   decorators: [ddsProviderDecorator],
-};
+});
 
 export default meta;
-
-type Story = StoryObj<typeof Breadcrumbs>;
 
 const children = [
   <Breadcrumb href="#">Side 1</Breadcrumb>,
@@ -28,20 +26,20 @@ const children = [
   <Breadcrumb>Siden du er på</Breadcrumb>,
 ];
 
-export const Preview: Story = {
+export const Preview = meta.story({
   args: {
     children,
   },
-};
+});
 
-export const SmallScreen: Story = {
+export const SmallScreen = meta.story({
   args: {
     children,
     smallScreenBreakpoint: 'xl',
   },
-};
+});
 
-export const Responsive: Story = {
+export const Responsive = meta.story({
   args: {
     children,
     smallScreenBreakpoint: 'sm',
@@ -56,4 +54,4 @@ export const Responsive: Story = {
         'Versjonen for liten skjerm vises ved sm brekkpunkt og nedover.',
       ),
   ],
-};
+});

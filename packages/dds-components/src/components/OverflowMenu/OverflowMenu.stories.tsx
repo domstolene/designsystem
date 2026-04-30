@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { useState } from 'react';
 
 import {
@@ -15,6 +15,7 @@ import {
 } from '../Icon/icons';
 import { VStack } from '../layout';
 import { Table } from '../Table';
+import { Paragraph } from '../Typography';
 import { OverflowMenuToggle } from './components/OverflowMenuToggle';
 
 import {
@@ -31,7 +32,7 @@ import {
 const { className, htmlProps, ref, children, style } =
   commonArgTypesWithNodeChildren;
 
-const meta: Meta<typeof OverflowMenu> = {
+const meta = preview.meta({
   title: 'dds-components/Components/OverflowMenu',
   component: OverflowMenu,
   argTypes: {
@@ -47,13 +48,11 @@ const meta: Meta<typeof OverflowMenu> = {
     },
   },
   decorators: [ddsProviderDecorator],
-};
+});
 
 export default meta;
 
-type Story = StoryObj<typeof OverflowMenu>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   parameters: { docs: { story: { height: '540px' } } },
   render: args => {
     return (
@@ -112,9 +111,9 @@ export const Preview: Story = {
       </VStack>
     );
   },
-};
+});
 
-export const WithOnOpenAndOnClose: Story = {
+export const WithOnOpenAndOnClose = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -139,9 +138,9 @@ export const WithOnOpenAndOnClose: Story = {
       </VStack>
     );
   },
-};
+});
 
-export const WithAsyncClick: Story = {
+export const WithAsyncClick = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -163,15 +162,84 @@ export const WithAsyncClick: Story = {
                 Handling
               </OverflowMenuButton>
             </OverflowMenuList>
-            <OverflowMenuDivider />
           </OverflowMenu>
         </OverflowMenuGroup>
       </VStack>
     );
   },
-};
+});
 
-export const WithinTable: Story = {
+export const WithNoMenuCloseOnAsyncClick = meta.story({
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+  render: args => {
+    const [text, setText] = useState('Klikk på "Handling" i menyen');
+    const click = async () => {
+      setText('Jobber...');
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      setText('Ferdig!');
+    };
+    return (
+      <VStack>
+        <span>{text}</span>
+        <OverflowMenuGroup>
+          <Button icon={MenuIcon} aria-label="Åpne meny" />
+          <OverflowMenu {...args}>
+            <OverflowMenuList>
+              <OverflowMenuButton
+                onClickAsync={click}
+                closeMenuOnClickAsync={false}
+              >
+                Handling
+              </OverflowMenuButton>
+            </OverflowMenuList>
+          </OverflowMenu>
+        </OverflowMenuGroup>
+      </VStack>
+    );
+  },
+});
+
+export const CustomCloseOnAsyncClick = meta.story({
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+  render: args => {
+    const [text, setText] = useState('Klikk på "Handling" i menyen.');
+
+    return (
+      <VStack>
+        <Paragraph>
+          Lukking av menyen er forsinket i forhold til når async-kall fullfører.
+        </Paragraph>
+        <Paragraph>{text}</Paragraph>
+        <OverflowMenuGroup>
+          <Button icon={MenuIcon} aria-label="Åpne meny" />
+          <OverflowMenu {...args}>
+            <OverflowMenuList>
+              <OverflowMenuButton
+                onClickAsync={async () => {
+                  setText('Jobber...');
+                  await new Promise(resolve => setTimeout(resolve, 2000));
+                  setText('Ferdig!');
+                }}
+                closeMenuOnClickAsync={async close => {
+                  await new Promise(r => setTimeout(r, 1000)); // det som skal fullføre
+                  close();
+                }}
+              >
+                Handling
+              </OverflowMenuButton>
+            </OverflowMenuList>
+          </OverflowMenu>
+        </OverflowMenuGroup>
+      </VStack>
+    );
+  },
+});
+
+export const WithinTable = meta.story({
   parameters: {
     docs: { story: { height: '540px' } },
     chromatic: { disableSnapshot: true },
@@ -214,4 +282,4 @@ export const WithinTable: Story = {
       </VStack>
     );
   },
-};
+});

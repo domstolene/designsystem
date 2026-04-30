@@ -15,8 +15,10 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    "downlevelIteration": true
+    "paths": {
+      "#.storybook/*": ["./.storybook/*"]
+    }
   },
-  "include": ["packages", "stories", ".storybook"],
+  "include": ["packages", "stories", ".storybook", "global.d.ts"],
   "exclude": ["**/node_modules"]
 }

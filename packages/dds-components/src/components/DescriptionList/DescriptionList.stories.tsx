@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { commonArgTypesWithNodeChildren } from '../../storybook';
 import { CallIcon } from '../Icon/icons';
@@ -12,19 +12,17 @@ import {
   DescriptionListTerm,
 } from '.';
 
-const meta: Meta<typeof DescriptionList> = {
+const meta = preview.meta({
   title: 'dds-components/Components/DescriptionList',
   component: DescriptionList,
   argTypes: {
     ...commonArgTypesWithNodeChildren,
   },
-};
+});
 
 export default meta;
 
-type Story = StoryObj<typeof DescriptionList>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   render: args => (
     <DescriptionList {...args}>
       <DescriptionListTerm>Tittel</DescriptionListTerm>
@@ -33,9 +31,9 @@ export const Preview: Story = {
       <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
     </DescriptionList>
   ),
-};
+});
 
-export const Appearances: Story = {
+export const Appearances = meta.story({
   render: () => (
     <StoryVStack>
       <DescriptionList appearance="default">
@@ -48,9 +46,9 @@ export const Appearances: Story = {
       </DescriptionList>
     </StoryVStack>
   ),
-};
+});
 
-export const Phone: Story = {
+export const Phone = meta.story({
   render: () => (
     <DescriptionList>
       <DescriptionListTerm>Tittel</DescriptionListTerm>
@@ -59,9 +57,9 @@ export const Phone: Story = {
       </DescriptionListDesc>
     </DescriptionList>
   ),
-};
+});
 
-export const Group: Story = {
+export const Group = meta.story({
   render: args => (
     <DescriptionList {...args}>
       <DescriptionListGroup>
@@ -83,10 +81,10 @@ export const Group: Story = {
       </DescriptionListGroup>
     </DescriptionList>
   ),
-};
+});
 
 const margin = 'var(--dds-spacing-x0-75)';
-export const Row: Story = {
+export const Row = meta.story({
   render: args => (
     <DescriptionList {...args} direction="row">
       <DescriptionListGroup margin={margin}>
@@ -123,4 +121,4 @@ export const Row: Story = {
       </DescriptionListGroup>
     </DescriptionList>
   ),
-};
+});

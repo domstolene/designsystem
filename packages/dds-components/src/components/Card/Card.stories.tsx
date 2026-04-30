@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { useState } from 'react';
 
 import { commonArgTypesWithNodeChildren } from '../../storybook';
@@ -12,16 +12,17 @@ import {
   CardExpandableHeader,
   CardSelectable,
 } from '.';
-export default {
+
+const meta = preview.meta({
   title: 'dds-components/Components/Card',
   component: Card,
   argTypes: {
     ...commonArgTypesWithNodeChildren,
     cardRef: { control: false },
   },
-} satisfies Meta<typeof Card>;
+});
 
-type Story = StoryObj<typeof Card>;
+export default meta;
 
 const body = (
   <Paragraph>
@@ -39,7 +40,7 @@ const contentContainerStyle = (
   </style>
 );
 
-export const Preview: Story = {
+export const Preview = meta.story({
   decorators: [
     Story => (
       <>
@@ -49,11 +50,15 @@ export const Preview: Story = {
     ),
   ],
   args: {
+    cardType: 'info',
     children: <div className="story-container-padding">Content</div>,
   },
-};
+});
 
-export const Overview: Story = {
+export const Overview = meta.story({
+  args: {
+    cardType: 'info',
+  },
   decorators: [
     Story => (
       <>
@@ -123,9 +128,9 @@ export const Overview: Story = {
       </StoryVStack>
     </StoryHStack>
   ),
-};
+});
 
-export const Expandable: Story = {
+export const Expandable = meta.story({
   args: {
     children: (
       <CardExpandable>
@@ -135,9 +140,12 @@ export const Expandable: Story = {
     ),
     cardType: 'expandable',
   },
-};
+});
 
-export const ExpandableControlled: Story = {
+export const ExpandableControlled = meta.story({
+  args: {
+    cardType: 'expandable',
+  },
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   render: (args: any) => {
     const [isExpanded, setIsExpanded] = useState(true);
@@ -157,9 +165,12 @@ export const ExpandableControlled: Story = {
       </>
     );
   },
-};
+});
 
-export const ExpandableCustom: Story = {
+export const ExpandableCustom = meta.story({
+  args: {
+    cardType: 'expandable',
+  },
   decorators: [
     Story => (
       <>
@@ -208,4 +219,4 @@ export const ExpandableCustom: Story = {
       </CardExpandable>
     </Card>
   ),
-};
+});

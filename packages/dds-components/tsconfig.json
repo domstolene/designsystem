@@ -6,6 +6,6 @@
     ".eslintrc.cjs",
     "vitest.config.ts",
     "tsup.config.ts",
-    "modules/custom.d.ts"
+    "../../global.d.ts"
   ]
 }

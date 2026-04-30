@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { useState } from 'react';
 import { fn } from 'storybook/test';
 
@@ -8,7 +8,7 @@ import { InlineEditTextArea } from './InlineEditTextArea/InlineEditTextArea';
 import { ddsProviderDecorator, htmlEventArgType } from '../../storybook';
 import { StoryVStack } from '../layout/Stack/utils';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/InlineEdit',
   component: InlineEditInput,
   argTypes: {
@@ -24,11 +24,11 @@ export default {
     },
   },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof InlineEditInput>;
+});
 
-type Story = StoryObj<typeof InlineEditInput>;
+export default meta;
 
-export const Preview: Story = {
+export const Preview = meta.story({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: args => {
     const [value, setValue] = useState('Input');
@@ -47,4 +47,4 @@ export const Preview: Story = {
       </StoryVStack>
     );
   },
-};
+});

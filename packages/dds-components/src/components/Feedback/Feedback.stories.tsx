@@ -1,11 +1,11 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { ddsProviderDecorator } from '../../storybook';
 import { Divider } from '../Divider';
 
 import { Feedback } from '.';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/Feedback',
   component: Feedback,
   argTypes: {
@@ -17,26 +17,26 @@ export default {
     },
   },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof Feedback>;
+});
 
-type Story = StoryObj<typeof Feedback>;
+export default meta;
 
-export const Preview: Story = {};
+export const Preview = meta.story();
 
-export const HorizontalLayout: Story = {
+export const HorizontalLayout = meta.story({
   args: { layout: 'horizontal' },
-};
+});
 
-export const WithoutTextArea: Story = {
+export const WithoutTextArea = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
   args: {
     feedbackTextAreaExcluded: true,
   },
-};
+});
 
-export const CustomLabels: Story = {
+export const CustomLabels = meta.story({
   args: {
     ratingLabel: 'Min egen label',
     positiveFeedbackLabel: 'Min egen positive label',
@@ -52,9 +52,9 @@ export const CustomLabels: Story = {
       <Feedback {...args} ratingValue="negative" />
     </>
   ),
-};
+});
 
-export const CustomButtonTooltip: Story = {
+export const CustomButtonTooltip = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -62,9 +62,9 @@ export const CustomButtonTooltip: Story = {
     thumbUpTooltip: 'Liker',
     thumbDownTooltip: 'Liker ikke',
   },
-};
+});
 
-export const LoadingState: Story = {
+export const LoadingState = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -75,4 +75,4 @@ export const LoadingState: Story = {
       <Feedback {...args} ratingValue="positive" loading />
     </>
   ),
-};
+});

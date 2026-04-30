@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
 import { TextArea } from './TextArea';
@@ -11,7 +11,7 @@ import {
 } from '../../storybook';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/TextArea',
   component: TextArea,
   argTypes: {
@@ -24,15 +24,15 @@ export default {
   },
   args: { onChange: fn() },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof TextArea>;
+});
 
-type Story = StoryObj<typeof TextArea>;
+export default meta;
 
-export const Preview: Story = {
+export const Preview = meta.story({
   args: { label: 'Label' },
-};
+});
 
-export const Overview: Story = {
+export const Overview = meta.story({
   args: { label: 'Label' },
   render: args => (
     <StoryHStack>
@@ -56,9 +56,9 @@ export const Overview: Story = {
       </StoryVStack>
     </StoryHStack>
   ),
-};
+});
 
-export const ResponsiveWidth: Story = {
+export const ResponsiveWidth = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -73,4 +73,4 @@ export const ResponsiveWidth: Story = {
       xl: 'var(--dds-input-default-width)',
     },
   },
-};
+});

@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
 import {
@@ -12,7 +12,7 @@ import { StoryVStack } from '../layout/Stack/utils';
 
 import { Pagination } from '.';
 
-const meta: Meta<typeof Pagination> = {
+const meta = preview.meta({
   title: 'dds-components/Components/Pagination',
   component: Pagination,
   argTypes: {
@@ -21,7 +21,8 @@ const meta: Meta<typeof Pagination> = {
   },
   args: { onChange: fn(), onSelectOptionChange: fn() },
   decorators: [ddsProviderDecorator],
-};
+});
+
 export default meta;
 
 const customOptionsItemsAmount = 100;
@@ -30,13 +31,11 @@ const customOptions = [17, 32, customOptionsItemsAmount].map(o => ({
   value: o,
 }));
 
-type Story = StoryObj<typeof Pagination>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   args: { itemsAmount: 100 },
-};
+});
 
-export const Variants: Story = {
+export const Variants = meta.story({
   args: { itemsAmount: 100 },
   render: args => (
     <StoryVStack gap="x2.5">
@@ -62,9 +61,9 @@ export const Variants: Story = {
       </VStack>
     </StoryVStack>
   ),
-};
+});
 
-export const VariantsSmallScreen: Story = {
+export const VariantsSmallScreen = meta.story({
   args: { itemsAmount: 100 },
   render: args => (
     <StoryVStack gap="x2.5">
@@ -91,13 +90,13 @@ export const VariantsSmallScreen: Story = {
       </VStack>
     </StoryVStack>
   ),
-};
+});
 
-export const SmallScreen: Story = {
+export const SmallScreen = meta.story({
   args: { itemsAmount: 100, smallScreenBreakpoint: 'xl' },
-};
+});
 
-export const CustomOptions: Story = {
+export const CustomOptions = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -108,9 +107,9 @@ export const CustomOptions: Story = {
     withSelect: true,
     selectOptions: customOptions,
   },
-};
+});
 
-export const Responsive: Story = {
+export const Responsive = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -127,11 +126,11 @@ export const Responsive: Story = {
         'Versjonen for liten skjerm vises ved sm brekkpunkt.',
       ),
   ],
-};
+});
 
-export const DefaultActivePage: Story = {
+export const DefaultActivePage = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
   args: { itemsAmount: 100, defaultActivePage: 6 },
-};
+});

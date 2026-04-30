@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
 import { TOGGLE_SIZES } from './Toggle';
@@ -14,7 +14,7 @@ import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { Toggle } from '.';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/Toggle',
   component: Toggle,
   argTypes: {
@@ -29,15 +29,15 @@ export default {
   },
   args: { onChange: fn(), onBlur: fn() },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof Toggle>;
+});
 
-type Story = StoryObj<typeof Toggle>;
+export default meta;
 
-export const Preview: Story = {
+export const Preview = meta.story({
   args: { children: 'Ledetekst' },
-};
+});
 
-export const States: Story = {
+export const States = meta.story({
   args: { children: 'Ledetekst' },
   render: args => (
     <StoryHStack>
@@ -62,9 +62,9 @@ export const States: Story = {
       </StoryVStack>
     </StoryHStack>
   ),
-};
+});
 
-export const Sizes: Story = {
+export const Sizes = meta.story({
   render: args => (
     <StoryVStack>
       {TOGGLE_SIZES.map(size => (
@@ -74,4 +74,4 @@ export const Sizes: Story = {
       ))}
     </StoryVStack>
   ),
-};
+});

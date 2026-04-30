@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
 import {
@@ -11,7 +11,7 @@ import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 
 import { Checkbox } from '.';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/Checkbox',
   component: Checkbox,
   argTypes: {
@@ -27,15 +27,15 @@ export default {
     onChange: htmlEventArgType,
   },
   args: { onChange: fn(), onBlur: fn() },
-} satisfies Meta<typeof Checkbox>;
+});
 
-type Story = StoryObj<typeof Checkbox>;
+export default meta;
 
-export const Preview: Story = {
+export const Preview = meta.story({
   args: { label: 'Label' },
-};
+});
 
-export const Overview: Story = {
+export const Overview = meta.story({
   render: args => (
     <StoryHStack>
       <StoryVStack>
@@ -68,4 +68,4 @@ export const Overview: Story = {
       </StoryVStack>
     </StoryHStack>
   ),
-};
+});

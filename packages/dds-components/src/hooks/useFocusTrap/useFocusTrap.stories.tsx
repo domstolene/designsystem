@@ -1,9 +1,9 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { FocusTrapExample } from './FocusTrapExample';
 import { hookParameters } from '../hooks.utils';
 
-const meta: Meta<typeof FocusTrapExample> = {
+const meta = preview.meta({
   title: 'dds-components/Hooks/useFocusTrap',
   component: FocusTrapExample,
   parameters: hookParameters,
@@ -11,10 +11,8 @@ const meta: Meta<typeof FocusTrapExample> = {
     active: { control: false },
     initialFocusRef: { control: false },
   },
-};
+});
 
 export default meta;
 
-type Story = StoryObj<typeof FocusTrapExample>;
-
-export const Preview: Story = {};
+export const Preview = meta.story();

@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { useState } from 'react';
 import { fn } from 'storybook/test';
 
@@ -13,7 +13,7 @@ import { Tooltip } from '../Tooltip';
 import { Paragraph } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/InlineButton',
   component: InlineButton,
   argTypes: {
@@ -24,23 +24,23 @@ export default {
   },
   args: { onClick: fn(), onBlur: fn(), onFocus: fn() },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof InlineButton>;
+});
 
-type Story = StoryObj<typeof InlineButton>;
+export default meta;
 
-export const Preview: Story = {
+export const Preview = meta.story({
   args: {
     children: 'Vis mer',
   },
-};
+});
 
-export const WithIcon: Story = {
+export const WithIcon = meta.story({
   args: {
     icon: HelpIcon,
   },
-};
+});
 
-export const WithColor: Story = {
+export const WithColor = meta.story({
   args: {
     children: 'Vis mer',
     color: 'text-subtle',
@@ -51,9 +51,9 @@ export const WithColor: Story = {
       <InlineButton {...args} icon={HelpIcon} />
     </StoryVStack>
   ),
-};
+});
 
-export const Example: Story = {
+export const Example = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -99,9 +99,9 @@ export const Example: Story = {
       </>
     );
   },
-};
+});
 
-export const ExampleIcon: Story = {
+export const ExampleIcon = meta.story({
   render: args => {
     return (
       <StoryVStack>
@@ -139,4 +139,4 @@ export const ExampleIcon: Story = {
       </StoryVStack>
     );
   },
-};
+});

@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import {
   commonResponsivePropsArgTypes,
@@ -10,19 +10,18 @@ import { Grid } from '../Grid';
 
 import { ShowHide } from '.';
 
-const meta: Meta<typeof ShowHide> = {
+const meta = preview.meta({
   title: 'dds-components/Layout Primitives/ShowHide',
   component: ShowHide,
   argTypes: {
     ...commonResponsivePropsArgTypes,
   },
   decorators: [Story => windowWidthDecorator(<Story />)],
-};
+});
+
 export default meta;
 
-type Story = StoryObj<typeof ShowHide>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   render: args => (
     <Grid gridTemplateColumns="150px 150px" gap="x1">
       <div>
@@ -45,10 +44,10 @@ export const Preview: Story = {
       </div>
     </Grid>
   ),
-};
+});
 
-export const SetBreakpoints: Story = {
+export const SetBreakpoints = meta.story({
   args: {
     children: 'Skjul eller vis meg ved å sette brekkpunkter i props',
   },
-};
+});

@@ -1,19 +1,20 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { RoveFocusExample } from './RoveFocusExample';
 import { hookParameters } from '../hooks.utils';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Hooks/useRoveFocus',
   component: RoveFocusExample,
   parameters: hookParameters,
-} as Meta<typeof RoveFocusExample>;
+});
 
-type Story = StoryObj<typeof RoveFocusExample>;
-export const Preview: Story = {
+export default meta;
+
+export const Preview = meta.story({
   args: {
     size: 4,
     active: true,
     direction: 'column',
   },
-};
+});

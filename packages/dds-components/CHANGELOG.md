@@ -1,5 +1,70 @@
 # @norges-domstoler/dds-components
 
+## 22.8.2
+
+(2026-04-28)
+
+### Patch Changes
+
+- 8472c6d: Props menuPlacement kan nå brukes av Select. Hvis ingen props sendes med, er menuPlacement = "auto".
+
+## 22.8.1
+
+(2026-04-23)
+
+### Patch Changes
+
+- 7db532c: Bytter font til IBM Plex Sans Var, variabel variant av fonten vår. Den gjør at rendering på Windows blir mer lesbar og lik MacOS. Vi beholder referansen "IBM Plex Sans", og endringen forplanter seg sømløst.
+- f21f4c4: Ikke animer Accordion, CardExpandable ved første innlast (render) når initielt expanded er satt til true
+
+## 22.8.0
+
+### Minor Changes
+
+- 0085270: Ny prop i `<OverflowMenuButton>`: `closeMenuOnClickAsync`. Den tillater custom styring av lukking av menyen ved klikk på knappen og bruk av `clickAsync`: egen fuknsjon eller ingen lukking. Bruker intern logikk som default.
+
+### Patch Changes
+
+- f6a009a: Fjerner `-webkit`-prefixed CSS styling for scrollbar. Den var brukt grunnet Safari, som støtter standard CSS regler siden desember 2025.
+
+## 22.7.2
+
+(2026-04-08)
+
+### Patch Changes
+
+- feaa5d5: Fikser bug der inputfeltene i `<PhoneInput>` ikke var på linje med hverandre.
+- 739a696: Fikser farge på border i `<DetailList>`.
+
+## 22.7.1
+
+(2026-03-27)
+
+### Patch Changes
+
+- 790519f: Reduserer top-padding til ErrorSummary komponenten.
+- e061852: Fjerner `fit-height` fra button for å unngå ulike knapphøyde i ulike nettlesere.
+- cd5fddb: Justerer typografistilen i nedtrekksliste i `<Select>` til å følge størrelsen på komponenten.
+
+## 22.7.0
+
+(2026-03-25)
+
+### Minor Changes
+
+- 979ab8c: `<CookieBanner>` fanger nå tastaturfokus i en løkke, slik at brukeren ikke kan fokusere elementer bak komponenten ellers på nettsiden. Dette for å oppfylle UU-krav om synlig fokus.
+- 827d810: Støtte for ulike formål i `<ToggleBar>` med prop `purpose`. Den tar inn `'primary'` eller `'secondary'` med standardverdi `'primary'`. Styling er den samme hvis standerdverdien brukes.
+
+### Patch Changes
+
+- 9d5137d: Justerer på størrelser i `<List>`. Listeelementer har nå:
+  - samme linjehøyde som `body-long`-typografi
+  - margin på bunnen får ekstra luft mellom elementene
+
+- 7ea9b45: Oppdater minsteversjon for @internationalized/date peer dependency.
+- 3d23cad: Endrer farge på skillelinjer i `<Table>` til `dds-color-border-subtle`.
+- 0ec66bb: Legger til manglende samiske oversettelser.
+
 ## 22.6.0
 
 (2026-03-18)

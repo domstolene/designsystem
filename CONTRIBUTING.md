@@ -32,12 +32,6 @@ Installer dependencies:
 pnpm install
 ```
 
-Bygg løsningen:
-
-```shell
-pnpm build
-```
-
 Kjør dev server:
 
 ```shell
@@ -51,6 +45,12 @@ pnpm storybook
 ```
 
 Storybook kjører på port `6006`.
+
+`dist`-mappa for hver pakke bygges én gang når `pnpm dev` kjøres. Du kan ellers bygge ved behov:
+
+```shell
+pnpm build
+```
 
 ### Linking
 
@@ -272,12 +272,12 @@ Spørs på komponenten kan det være relevant med flere stories: eksempel med ko
 Du kan følge en enkel mal for stories-fila:
 
 ```JSX
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { Button } from '.';
-import { commonArgTypes, labelText } from '../../storybook';
+import { commonArgTypes } from '../../storybook';
 
 // config
-export default {
+const meta = preview.meta({
   title: 'dds-components/Button',
   component: Button,
   // kontrollere  for demo hvis default ikke passer
@@ -289,14 +289,12 @@ export default {
     // bruk på props som ikke trenger å styres med i demo
     icon: { control: false },
   }
-} satisfies Meta<typeof Button>;
-
-type Story = StoryObj<typeof Button>;
+});
 
 // demo; kan ha default args for bedre showcase
-export const Preview: Story = {
+export const Preview: meta.story({
   args: { children: 'Tekst' }
-};
+});
 
 ```
 

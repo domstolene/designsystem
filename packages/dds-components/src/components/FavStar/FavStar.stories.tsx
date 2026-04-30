@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { useState } from 'react';
 import { fn } from 'storybook/test';
 
@@ -19,7 +19,7 @@ import { Table } from '../Table';
 import { Tooltip } from '../Tooltip';
 import { Caption, Link } from '../Typography';
 
-const meta: Meta<typeof FavStar> = {
+const meta = preview.meta({
   title: 'dds-components/Components/FavStar',
   component: FavStar,
   argTypes: {
@@ -30,15 +30,13 @@ const meta: Meta<typeof FavStar> = {
   },
   args: { onChange: fn() },
   decorators: [ddsProviderDecorator],
-};
+});
 
 export default meta;
 
-type Story = StoryObj<typeof FavStar>;
+export const Preview = meta.story();
 
-export const Preview: Story = {};
-
-export const Sizes: Story = {
+export const Sizes = meta.story({
   render: args => (
     <StoryHStack>
       {FAVSTAR_SIZES.map(size => (
@@ -49,9 +47,9 @@ export const Sizes: Story = {
       ))}
     </StoryHStack>
   ),
-};
+});
 
-export const RealWorld: Story = {
+export const RealWorld = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -177,4 +175,4 @@ export const RealWorld: Story = {
       </Table.Wrapper>
     );
   },
-};
+});

@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { ddsProviderDecorator } from '../../../storybook';
 import { StoryVStack } from '../../layout/Stack/utils';
@@ -6,23 +6,23 @@ import { storyTypographyHtmlAttrs } from '../storyUtils';
 
 import { Heading } from '.';
 
-const meta: Meta<typeof Heading> = {
+const meta = preview.meta({
   title: 'dds-components/Components/Typography/Heading',
   component: Heading,
   argTypes: {
     ...storyTypographyHtmlAttrs,
   },
   decorators: [ddsProviderDecorator],
-};
+});
 
 export default meta;
-type Story = StoryObj<typeof Heading>;
 
-export const Preview: Story = {
+export const Preview = meta.story({
   args: { children: 'Heading', level: 1 },
-};
+});
 
-export const LevelDefaults: Story = {
+export const LevelDefaults = meta.story({
+  args: { level: 1 },
   render: args => (
     <StoryVStack>
       <Heading {...args} level={1}>
@@ -45,9 +45,10 @@ export const LevelDefaults: Story = {
       </Heading>
     </StoryVStack>
   ),
-};
+});
 
-export const TypographyStyles: Story = {
+export const TypographyStyles = meta.story({
+  args: { level: 1 },
   render: args => (
     <StoryVStack>
       <Heading {...args} level={1} typographyType="headingXxlarge">
@@ -73,9 +74,9 @@ export const TypographyStyles: Story = {
       </Heading>
     </StoryVStack>
   ),
-};
+});
 
-export const WithMargins: Story = {
+export const WithMargins = meta.story({
   args: { children: 'Heading with margins', level: 1 },
   render: args => (
     <div
@@ -84,4 +85,4 @@ export const WithMargins: Story = {
       <Heading {...args} withMargins />
     </div>
   ),
-};
+});

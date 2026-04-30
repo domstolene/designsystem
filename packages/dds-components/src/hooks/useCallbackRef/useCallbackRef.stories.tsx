@@ -1,18 +1,22 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { CallbackRefExample } from './CallbackRefExample';
 import { hookParameters } from '../hooks.utils';
 
-const meta: Meta<typeof CallbackRefExample> = {
+const meta = preview.meta({
   title: 'dds-components/Hooks/useCallbackRef',
   component: CallbackRefExample,
   parameters: hookParameters,
   argTypes: {
     deps: { control: false },
   },
-};
+  args: {
+    callback: () => {
+      //test
+    },
+  },
+});
 
 export default meta;
-type Story = StoryObj<typeof CallbackRefExample>;
 
-export const Preview: Story = {};
+export const Preview = meta.story();

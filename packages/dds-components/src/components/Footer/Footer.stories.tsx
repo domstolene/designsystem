@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { Grid, GridChild, Link, Paragraph } from '../..';
 import { Icon } from '../Icon';
@@ -16,12 +16,12 @@ import {
   FooterSocialsList,
 } from '.';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/Footer',
   component: Footer,
-} satisfies Meta<typeof Footer>;
+});
 
-type Story = StoryObj<typeof Footer>;
+export default meta;
 
 const socials = (
   <FooterSocialsGroup>
@@ -49,7 +49,7 @@ const socials = (
   </FooterSocialsGroup>
 );
 
-export const Preview: Story = {
+export const Preview = meta.story({
   render: args => (
     <Footer {...args}>
       <Grid
@@ -121,9 +121,9 @@ export const Preview: Story = {
       </Grid>
     </Footer>
   ),
-};
+});
 
-export const FourColumns: Story = {
+export const FourColumns = meta.story({
   render: args => (
     <Footer {...args}>
       <Grid
@@ -232,7 +232,7 @@ export const FourColumns: Story = {
       </Grid>
     </Footer>
   ),
-};
+});
 
 const exampleStyle = (
   <style>
@@ -244,7 +244,7 @@ const exampleStyle = (
   </style>
 );
 
-export const Address: Story = {
+export const Address = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -268,9 +268,9 @@ export const Address: Story = {
       </FooterListGroup>
     </Footer>
   ),
-};
+});
 
-export const Logo: Story = {
+export const Logo = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -287,9 +287,9 @@ export const Logo: Story = {
       <FooterLogo />
     </Footer>
   ),
-};
+});
 
-export const ListHeader: Story = {
+export const ListHeader = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -306,9 +306,9 @@ export const ListHeader: Story = {
       <FooterListHeader>Om nettstedet</FooterListHeader>
     </Footer>
   ),
-};
+});
 
-export const Left: Story = {
+export const Left = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -328,8 +328,8 @@ export const Left: Story = {
       </FooterLeft>
     </Footer>
   ),
-};
-export const ListExample: Story = {
+});
+export const ListExample = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -360,9 +360,9 @@ export const ListExample: Story = {
       </FooterListGroup>
     </Footer>
   ),
-};
+});
 
-export const Socials: Story = {
+export const Socials = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -379,4 +379,4 @@ export const Socials: Story = {
       {socials}
     </Footer>
   ),
-};
+});

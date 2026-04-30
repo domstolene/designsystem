@@ -1,18 +1,23 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { OnKeyDownExample } from './OnKeyDownExample';
 import { hookParameters } from '../hooks.utils';
 
-const meta: Meta<typeof OnKeyDownExample> = {
+const meta = preview.meta({
   title: 'dds-components/Hooks/useOnKeyDown',
   component: OnKeyDownExample,
   parameters: hookParameters,
   argTypes: {
     key: { control: false },
   },
-};
+  args: {
+    key: '',
+    handler: () => {
+      //placeholder
+    },
+  },
+});
 
 export default meta;
-type Story = StoryObj<typeof OnKeyDownExample>;
 
-export const Preview: Story = {};
+export const Preview = meta.story();

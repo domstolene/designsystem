@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { useRef, useState } from 'react';
 import { fn } from 'storybook/test';
 
@@ -12,7 +12,7 @@ import { Search } from '../Search';
 
 import { Modal, ModalActions, ModalBody } from '.';
 
-const meta: Meta<typeof Modal> = {
+const meta = preview.meta({
   title: 'dds-components/Components/Modal',
   component: Modal,
   decorators: [ddsProviderDecorator],
@@ -31,12 +31,11 @@ const meta: Meta<typeof Modal> = {
       story: { height: '350px' },
     },
   },
-};
+});
+
 export default meta;
 
-type Story = StoryObj<typeof Modal>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   render: args => {
     const [closed, setClosed] = useState(false);
     const show = () => setClosed(false);
@@ -68,9 +67,9 @@ export const Preview: Story = {
       </>
     );
   },
-};
+});
 
-export const NotClosable: Story = {
+export const NotClosable = meta.story({
   args: { header: 'Tittel', onClose: undefined },
   render: args => {
     const [closed, setClosed] = useState(false);
@@ -98,9 +97,9 @@ export const NotClosable: Story = {
       </StoryHStack>
     );
   },
-};
+});
 
-export const Scrollable: Story = {
+export const Scrollable = meta.story({
   args: { header: 'Header' },
   render: args => {
     const [closed, setClosed] = useState(false);
@@ -137,9 +136,9 @@ export const Scrollable: Story = {
       </>
     );
   },
-};
+});
 
-export const WithInitialFocus: Story = {
+export const WithInitialFocus = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -177,4 +176,4 @@ export const WithInitialFocus: Story = {
       </>
     );
   },
-};
+});

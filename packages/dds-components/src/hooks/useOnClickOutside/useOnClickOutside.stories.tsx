@@ -1,9 +1,9 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { OnClickOutsideExample } from './OnClickOutsideExample';
 import { hookParameters } from '../hooks.utils';
 
-const meta: Meta<typeof OnClickOutsideExample> = {
+const meta = preview.meta({
   title: 'dds-components/Hooks/useOnClickOutside',
 
   component: OnClickOutsideExample,
@@ -11,10 +11,13 @@ const meta: Meta<typeof OnClickOutsideExample> = {
   argTypes: {
     element: { control: false },
   },
-};
+  args: {
+    handler: () => {
+      //placeholder
+    },
+  },
+});
 
 export default meta;
 
-type Story = StoryObj<typeof OnClickOutsideExample>;
-
-export const Preview: Story = {};
+export const Preview = meta.story();

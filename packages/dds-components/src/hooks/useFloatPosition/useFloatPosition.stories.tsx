@@ -1,19 +1,21 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { FloatPositionExample } from './FloatPositionExample';
 import { hookParameters } from '../hooks.utils';
 
-const meta: Meta<typeof FloatPositionExample> = {
+const meta = preview.meta({
   title: 'dds-components/Hooks/useFloatPosition',
   component: FloatPositionExample,
   parameters: hookParameters,
+  args: {
+    options: {},
+  },
   argTypes: {
     arrowRef: { control: false },
     options: { control: false },
   },
-};
+});
 
 export default meta;
-type Story = StoryObj<typeof FloatPositionExample>;
 
-export const Preview: Story = {};
+export const Preview = meta.story();

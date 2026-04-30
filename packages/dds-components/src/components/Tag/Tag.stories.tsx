@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { TAG_PURPOSES, icons } from './Tag';
 import { commonArgTypes, labelText } from '../../storybook';
@@ -6,22 +6,22 @@ import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { Tag } from '.';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/Tag',
   component: Tag,
   argTypes: {
     children: { control: 'text' },
     ...commonArgTypes,
   },
-} satisfies Meta<typeof Tag>;
+});
 
-type Story = StoryObj<typeof Tag>;
+export default meta;
 
-export const Preview: Story = {
+export const Preview = meta.story({
   args: { children: 'default' },
-};
+});
 
-export const Variants: Story = {
+export const Variants = meta.story({
   args: { children: 'default' },
   render: args => (
     <StoryHStack>
@@ -69,4 +69,4 @@ export const Variants: Story = {
       </StoryVStack>
     </StoryHStack>
   ),
-};
+});

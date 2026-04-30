@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import {
   categoryCss,
@@ -19,7 +19,7 @@ import { Heading } from '../../Typography';
 
 import { Grid, GridChild } from '.';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Layout Primitives/Grid',
   component: Grid,
   argTypes: {
@@ -27,11 +27,11 @@ export default {
     gridTemplateColumns: { control: 'text', table: categoryCss },
   },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof Grid>;
+});
 
-type Story = StoryObj<typeof Grid>;
+export default meta;
 
-export const Preview: Story = {
+export const Preview = meta.story({
   decorators: [
     Story =>
       windowWidthDecorator(
@@ -112,9 +112,9 @@ export const Preview: Story = {
       </Grid>
     );
   },
-};
+});
 
-export const PageExample: Story = {
+export const PageExample = meta.story({
   render: args => {
     return (
       <>
@@ -196,9 +196,9 @@ export const PageExample: Story = {
       </>
     );
   },
-};
+});
 
-export const JustRelativeColumns: Story = {
+export const JustRelativeColumns = meta.story({
   render: args => (
     <Grid {...args} maxWidth={{ lg: '750px', xl: '750px' }}>
       <GridChild columnsOccupied="all">
@@ -225,4 +225,4 @@ export const JustRelativeColumns: Story = {
       </GridChild>
     </Grid>
   ),
-};
+});

@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
 import {
@@ -12,7 +12,7 @@ import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { Tooltip } from '.';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Components/Tooltip',
   component: Tooltip,
   argTypes: {
@@ -22,13 +22,13 @@ export default {
     onMouseLeave: htmlEventArgType,
     onMouseOver: htmlEventArgType,
   },
-  args: { onMouseLeave: fn(), onMouseOver: fn() },
+  args: { onMouseLeave: fn(), onMouseOver: fn(), children: <></> },
   decorators: [ddsProviderDecorator],
-} satisfies Meta<typeof Tooltip>;
+});
 
-type Story = StoryObj<typeof Tooltip>;
+export default meta;
 
-export const Preview: Story = {
+export const Preview = meta.story({
   args: { text: 'Dette er en tooltip' },
   render: args => (
     <StoryVStack alignItems="center" paddingBlock="x6">
@@ -37,9 +37,9 @@ export const Preview: Story = {
       </Tooltip>
     </StoryVStack>
   ),
-};
+});
 
-export const Overview: Story = {
+export const Overview = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -89,9 +89,9 @@ export const Overview: Story = {
       </StoryVStack>
     </StoryHStack>
   ),
-};
+});
 
-export const NotKeptMounted: Story = {
+export const NotKeptMounted = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -103,4 +103,4 @@ export const NotKeptMounted: Story = {
       </Tooltip>
     </StoryVStack>
   ),
-};
+});

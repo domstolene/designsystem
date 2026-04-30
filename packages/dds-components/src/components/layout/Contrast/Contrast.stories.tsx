@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { VStack } from '..';
 import {
@@ -19,7 +19,7 @@ import { Link, Paragraph } from '../../Typography';
 
 import { Contrast } from '.';
 
-const meta: Meta<typeof Contrast> = {
+const meta = preview.meta({
   title: 'dds-components/Layout primitives/Contrast',
   component: Contrast,
   argTypes: {
@@ -27,12 +27,11 @@ const meta: Meta<typeof Contrast> = {
     ...responsivePropsArgTypes,
   },
   decorators: [ddsProviderDecorator],
-};
+});
 
 export default meta;
-type Story = StoryObj<typeof Contrast>;
 
-export const Preview: Story = {
+export const Preview = meta.story({
   render: args => (
     <Contrast {...args} style={{ padding: 'var(--dds-spacing-x2)' }}>
       <Paragraph>
@@ -41,8 +40,8 @@ export const Preview: Story = {
       </Paragraph>
     </Contrast>
   ),
-};
-export const Examples: Story = {
+});
+export const Examples = meta.story({
   render: args => (
     <Contrast {...args}>
       <VStack padding="x2" gap="x1">
@@ -65,4 +64,4 @@ export const Examples: Story = {
       </VStack>
     </Contrast>
   ),
-};
+});

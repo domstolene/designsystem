@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { useRef, useState } from 'react';
 import { fn } from 'storybook/test';
 
@@ -17,7 +17,7 @@ import { Paragraph } from '../Typography';
 
 import { Popover, PopoverGroup } from '.';
 
-const meta: Meta<typeof Popover> = {
+const meta = preview.meta({
   title: 'dds-components/Components/Popover',
   component: Popover,
   decorators: [ddsProviderDecorator],
@@ -35,13 +35,11 @@ const meta: Meta<typeof Popover> = {
       story: { height: '300px' },
     },
   },
-};
+});
 
 export default meta;
 
-type Story = StoryObj<typeof Popover>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   render: args => (
     <VStack alignItems="center">
       <PopoverGroup isInitiallyOpen={true}>
@@ -57,9 +55,9 @@ export const Preview: Story = {
       </PopoverGroup>
     </VStack>
   ),
-};
+});
 
-export const ContentOverview: Story = {
+export const ContentOverview = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -106,9 +104,9 @@ export const ContentOverview: Story = {
       </div>
     </StoryHStack>
   ),
-};
+});
 
-export const PlacementOverview: Story = {
+export const PlacementOverview = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -146,9 +144,9 @@ export const PlacementOverview: Story = {
       </StoryHStack>
     );
   },
-};
+});
 
-export const WithOnOpenAndOnClose: Story = {
+export const WithOnOpenAndOnClose = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -174,9 +172,9 @@ export const WithOnOpenAndOnClose: Story = {
       </VStack>
     );
   },
-};
+});
 
-export const Overflow: Story = {
+export const Overflow = meta.story({
   render: args => (
     <PopoverGroup>
       <Button>Åpne</Button>
@@ -196,9 +194,9 @@ export const Overflow: Story = {
       </Popover>
     </PopoverGroup>
   ),
-};
+});
 
-export const InlineExample: Story = {
+export const InlineExample = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -226,9 +224,9 @@ export const InlineExample: Story = {
       </Paragraph>
     );
   },
-};
+});
 
-export const Custom: Story = {
+export const Custom = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -272,4 +270,4 @@ export const Custom: Story = {
       </StoryVStack>
     );
   },
-};
+});

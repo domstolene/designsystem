@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { VStack } from './VStack';
 import { Box } from '../..';
@@ -7,13 +7,15 @@ import {
   windowWidthDecorator,
 } from '../../../../storybook';
 
-export default {
+const meta = preview.meta({
   title: 'dds-components/Layout Primitives/VStack',
   component: VStack,
   argTypes: {
     ...responsiveStackPropsArgTypes,
   },
-} satisfies Meta<typeof VStack>;
+});
+
+export default meta;
 
 const ExampleElement = () => (
   <Box
@@ -25,9 +27,7 @@ const ExampleElement = () => (
   />
 );
 
-type Story = StoryObj<typeof VStack>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   args: {
     children: [
       <ExampleElement />,
@@ -36,9 +36,9 @@ export const Preview: Story = {
       <ExampleElement />,
     ],
   },
-};
+});
 
-export const StylingPerBreakpoint: Story = {
+export const StylingPerBreakpoint = meta.story({
   decorators: [Story => windowWidthDecorator(<Story />)],
   args: {
     style: {
@@ -65,4 +65,4 @@ export const StylingPerBreakpoint: Story = {
       <ExampleElement />,
     ],
   },
-};
+});

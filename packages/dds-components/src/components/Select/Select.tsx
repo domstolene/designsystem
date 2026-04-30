@@ -40,7 +40,7 @@ import {
   searchFilter,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-import { readOnlyKeyDownHandler } from '../../utils/readonlyEventHandlers';
+import { readOnlyKeyDownHandler } from '../../utils';
 import {
   type CommonInputProps,
   type InputIconProps,
@@ -121,6 +121,7 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
   isClearable = true,
   placeholder,
   menuPortalTarget,
+  menuPlacement = 'auto',
   customOptionElement,
   customSingleValueElement,
   'data-testid': dataTestId,
@@ -145,7 +146,6 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
 
   const singleValueId = !isMulti ? `${uniqueId}-singleValue` : undefined;
   const hasErrorMessage = !!errorMessage;
-  const hasIcon = !!icon;
   const showRequiredStyling = !!(rest.required || ariaRequired);
 
   const tipId = derivativeIdGenerator(uniqueId, 'tip');
@@ -245,23 +245,15 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
     isClearable,
     hideSelectedOptions: hideSelectedOptions ? hideSelectedOptions : false,
     placeholder: placeholder ? placeholder : '',
-    closeMenuOnSelect: closeMenuOnSelect
-      ? closeMenuOnSelect
-      : isMulti
-        ? false
-        : true,
+    closeMenuOnSelect: closeMenuOnSelect ? closeMenuOnSelect : !isMulti,
     isMulti,
     instanceId: instanceId ?? useId(),
     inputId: uniqueId,
     name: uniqueId,
     menuPortalTarget: portalTarget,
+    menuPlacement,
     classNamePrefix: prefix,
-    styles: getCustomStyles<Option>(
-      componentSize,
-      hasErrorMessage,
-      hasIcon,
-      readOnly,
-    ),
+    styles: getCustomStyles<Option>(componentSize, hasErrorMessage, readOnly),
     filterOption: (option, inputValue) => {
       const { label } = option;
       return searchFilter(label, inputValue) || inputValue === '';

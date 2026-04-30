@@ -1,23 +1,21 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { StoryLabel, commonArgTypes } from '../../storybook';
 import { Contrast } from '../layout';
 
 import { Divider } from '.';
 
-const meta: Meta<typeof Divider> = {
+const meta = preview.meta({
   title: 'dds-components/Components/Divider',
   component: Divider,
   argTypes: {
     ...commonArgTypes,
   },
-};
+});
 
 export default meta;
 
-type Story = StoryObj<typeof Divider>;
-
-export const Preview: Story = {};
+export const Preview = meta.story();
 
 const contrastStyling = `
   .story-container {
@@ -25,7 +23,7 @@ const contrastStyling = `
     }
     `;
 
-export const Colors: Story = {
+export const Colors = meta.story({
   decorators: [
     Story => (
       <>
@@ -46,4 +44,4 @@ export const Colors: Story = {
       </Contrast>
     </>
   ),
-};
+});

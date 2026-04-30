@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import {
   CSSSelectArgType,
@@ -8,7 +8,7 @@ import {
 
 import { Paper } from '.';
 
-const meta: Meta<typeof Paper> = {
+const meta = preview.meta({
   title: 'dds-components/Layout Primitives/Paper',
   component: Paper,
   argTypes: {
@@ -21,12 +21,11 @@ const meta: Meta<typeof Paper> = {
     tabIndex: htmlArgType,
     role: htmlArgType,
   },
-};
+});
+
 export default meta;
 
-type Story = StoryObj<typeof Paper>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   args: {
     border: 'border-default',
     padding: 'x1.5',
@@ -34,9 +33,9 @@ export const Preview: Story = {
     children:
       'Dette er en Paper: layout-komponent med støtte for flate-styling',
   },
-};
+});
 
-export const Styled: Story = {
+export const Styled = meta.story({
   args: {
     border: 'border-default',
     background: 'surface-info-default',
@@ -45,9 +44,9 @@ export const Styled: Story = {
     maxWidth: '20rem',
     children: 'Dette er en styled Paper',
   },
-};
+});
 
-export const Branded: Story = {
+export const Branded = meta.story({
   args: {
     background: 'brand-secondary-subtle',
     elevation: 'medium',
@@ -55,4 +54,4 @@ export const Branded: Story = {
     maxWidth: '20rem',
     children: 'Dette er en branded Paper',
   },
-};
+});

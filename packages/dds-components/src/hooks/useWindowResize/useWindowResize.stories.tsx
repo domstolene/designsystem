@@ -1,15 +1,19 @@
-import { type Meta, type StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { WindowResizeExample } from './WindowResizeExample';
 import { hookParameters } from '../hooks.utils';
 
-const meta: Meta<typeof WindowResizeExample> = {
+const meta = preview.meta({
   title: 'dds-components/Hooks/useWindowResize',
   component: WindowResizeExample,
   parameters: hookParameters,
-};
+  args: {
+    handler: () => {
+      //placeholder
+    },
+  },
+});
 
 export default meta;
-type Story = StoryObj<typeof WindowResizeExample>;
 
-export const Preview: Story = {};
+export const Preview = meta.story({});

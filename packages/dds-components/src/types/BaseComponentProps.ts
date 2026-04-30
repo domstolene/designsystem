@@ -8,7 +8,7 @@ import {
   type Ref,
 } from 'react';
 
-interface HTMLRootProps {
+export interface HTMLRootProps {
   /**HTML id. */
   id?: string;
   /**HTML klassenavn. */
