@@ -90,7 +90,11 @@ export const DataColorsGenerator = (mode: ThemeMode) => {
   function generateBodyRows() {
     const rows: Array<React.JSX.Element> = [];
 
-    for (const key1 in tokens) {
+    const sortedKeys = Object.keys(tokens).sort(
+      (a, b) => Number(a) - Number(b),
+    );
+
+    for (const key1 of sortedKeys) {
       for (const key2 in tokens[key1]) {
         const token = tokens[key1][key2];
         let alpha = '';
