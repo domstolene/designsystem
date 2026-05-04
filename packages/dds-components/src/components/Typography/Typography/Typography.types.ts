@@ -1,6 +1,8 @@
 import { type ElementType } from 'react';
 
+import { type ExtractStrict } from '../../../types';
 import { type TextColor } from '../../../utils/color';
+import { type ResponsiveProps } from '../../layout';
 
 export type TypographyBodyShortType =
   | 'bodyShortXsmall'
@@ -123,6 +125,28 @@ export type InlineElement =
   | 'video'
   | 'wbr';
 
+export type BlockTypographyResponsiveProps = Pick<
+  ResponsiveProps,
+  | 'textAlign'
+  | 'wordBreak'
+  | 'display'
+  | 'margin'
+  | 'marginBlock'
+  | 'maxWidth'
+  | 'width'
+  | 'minWidth'
+>;
+
+export type InlineTypographyResponsiveProps = Pick<
+  BlockTypographyResponsiveProps,
+  'wordBreak' | 'textAlign' | 'marginBlock'
+> & {
+  display?: ExtractStrict<
+    ResponsiveProps['display'],
+    'block' | 'inline' | 'inline-block'
+  >;
+};
+
 export interface BaseTypographyProps {
   /**Tekstfarge fra utvalget eller custom. **OBS!** Bruk farger fra `@dds-design-tokens` med navn i kebab-case, f.eks. `text-subtle`. */
   color?: TextColor;
@@ -134,7 +158,12 @@ export interface BaseTypographyProps {
   withMargins?: boolean;
 }
 
-export type TypographyComponentProps = BaseTypographyProps & {
+export interface CommonInlineTypographyProps
+  extends BaseTypographyProps, InlineTypographyResponsiveProps {}
+export interface CommonBlockTypographyProps
+  extends BaseTypographyProps, BlockTypographyResponsiveProps {}
+
+export type TypographyComponentProps = CommonBlockTypographyProps & {
   /**Setter `bold` styling. */
   bold?: boolean;
   /**Setter `italic` styling. */

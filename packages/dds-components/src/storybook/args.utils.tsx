@@ -12,7 +12,7 @@ export interface ArgType {
   table?: { category: string };
 }
 
-type ResponsiveArgTypes<T> = {
+export type ResponsiveArgTypes<T> = {
   [k in keyof T]: ArgType;
 };
 

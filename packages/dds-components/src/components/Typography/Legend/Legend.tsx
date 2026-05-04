@@ -1,12 +1,10 @@
-import { type HTMLAttributes } from 'react';
-
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
 import { cn, optAttr } from '../../../utils';
 import {
-  type BaseTypographyProps,
+  type CommonBlockTypographyProps,
   Typography,
   type TypographyHeadingType,
 } from '../Typography';
@@ -14,13 +12,12 @@ import styles from '../typographyStyles.module.css';
 
 export type LegendProps = BaseComponentPropsWithChildren<
   HTMLLegendElement,
-  BaseTypographyProps & {
+  CommonBlockTypographyProps & {
     /**Typografistil basert på utvalget for HTML heading elementer.  */
     typographyType?: TypographyHeadingType;
     /**Setter standard spacing for `<Legend>` som er over et inputelement. */
     withMarginsOverInput?: boolean;
-  },
-  Omit<HTMLAttributes<HTMLLegendElement>, 'color'>
+  }
 >;
 
 export const Legend = ({

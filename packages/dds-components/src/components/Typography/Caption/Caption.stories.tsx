@@ -2,7 +2,7 @@ import preview from '#.storybook/preview';
 
 import { ddsProviderDecorator } from '../../../storybook';
 import { Table } from '../../Table';
-import { storyTypographyHtmlAttrs } from '../storyUtils';
+import { blockTgCommonArgTypes } from '../storyUtils';
 
 import { Caption } from '.';
 
@@ -10,7 +10,7 @@ const meta = preview.meta({
   title: 'dds-components/Components/Typography/Caption',
   component: Caption,
   argTypes: {
-    ...storyTypographyHtmlAttrs,
+    ...blockTgCommonArgTypes,
   },
   decorators: [ddsProviderDecorator],
 });

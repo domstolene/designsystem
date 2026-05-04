@@ -5,7 +5,7 @@ import { HelpIcon } from '../../Icon/icons';
 import { InlineButton } from '../../InlineButton';
 import { Popover, PopoverGroup } from '../../Popover';
 import { Paragraph } from '../Paragraph';
-import { storyTypographyHtmlAttrs } from '../storyUtils';
+import { inlineTgCommonArgTypes } from '../storyUtils';
 
 import { Label } from '.';
 
@@ -14,7 +14,7 @@ const meta = preview.meta({
   component: Label,
   argTypes: {
     htmlFor: { control: false, table: categoryHtml },
-    ...storyTypographyHtmlAttrs,
+    ...inlineTgCommonArgTypes,
   },
   decorators: [ddsProviderDecorator],
 });

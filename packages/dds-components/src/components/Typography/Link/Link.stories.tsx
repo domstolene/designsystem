@@ -9,7 +9,7 @@ import {
 } from '../../../storybook';
 import { StoryVStack } from '../../layout/Stack/utils';
 import { Paragraph } from '../Paragraph';
-import { storyTypographyHtmlAttrs } from '../storyUtils';
+import { inlineTgCommonArgTypes } from '../storyUtils';
 
 import { Link } from '.';
 
@@ -21,7 +21,7 @@ const meta = preview.meta({
     as: { control: 'text' },
     onClick: htmlEventArgType,
     target: htmlArgType,
-    ...storyTypographyHtmlAttrs,
+    ...inlineTgCommonArgTypes,
   },
   args: { onClick: fn() },
   decorators: [ddsProviderDecorator],

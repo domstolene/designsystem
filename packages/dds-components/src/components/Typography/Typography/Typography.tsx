@@ -14,7 +14,6 @@ import {
   isCaption,
   isLegend,
 } from './Typography.utils';
-import { ElementAs } from '../../../polymorphic';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -24,6 +23,7 @@ import { getTextColor, isTextColor } from '../../../utils/color';
 import { focusable } from '../../helpers/styling/focus.module.css';
 import { Icon } from '../../Icon';
 import { OpenExternalIcon } from '../../Icon/icons';
+import { Box } from '../../layout';
 import typographyStyles from '../typographyStyles.module.css';
 
 type AnchorTypographyProps = BaseComponentPropsWithChildren<
@@ -103,7 +103,7 @@ export const Typography = (props: TypographyProps) => {
   }
 
   return (
-    <ElementAs
+    <Box
       {...getBaseHTMLProps(
         id,
         cn(
@@ -136,7 +136,7 @@ export const Typography = (props: TypographyProps) => {
     >
       {children}
       {externalLinkProp && <Icon icon={OpenExternalIcon} iconSize="inherit" />}
-    </ElementAs>
+    </Box>
   );
 };
 
