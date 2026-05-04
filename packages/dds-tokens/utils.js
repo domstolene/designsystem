@@ -1,16 +1,35 @@
 import { fileHeader } from 'style-dictionary/utils';
 
-export const lastChars = (token, length) => {
+const lastChars = (token, length) => {
   if (token.value !== undefined) return token.value.toString().slice(-length);
 };
 
-export const hasRem = token => {
+const hasRem = token => {
   return lastChars(token, 3) === 'rem';
 };
 
-export const hasPxOrEm = token => {
+const hasPxOrEm = token => {
   return lastChars(token, 2) === 'px' || lastChars(token, 2) === 'em';
 };
+
+const hasFontFunc = token =>
+  token.type === 'typography' && token.value.includes('NaN');
+
+const buildFontShorthandWithFunc = token => {
+  const { fontFamily, fontWeight, fontSize, lineHeight } =
+    token.attributes.value;
+
+  return `${fontWeight} ${fontSize}/${lineHeight} ${fontFamily}`;
+};
+
+function handleTokenValue(token) {
+  let value;
+  if (hasFontFunc(token)) {
+    value = buildFontShorthandWithFunc(token);
+  } else value = token.value;
+
+  return value;
+}
 
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -22,6 +41,9 @@ function capitalizeFirstLetter(string) {
 export const filterOutBase = token =>
   !token.attributes.category.includes('base');
 
+export const numberTokenOutput = (token, unitLength) =>
+  `export const ${token.name} = "${token.value}";\nexport const ${token.name}Number${capitalizeFirstLetter(lastChars(token, unitLength))} = ${token.value.slice(0, -unitLength)};`;
+
 /**
  * Custom format for JS
  * Hvis en token er en størrelse (1px, 2rem osv),
@@ -30,18 +52,14 @@ export const filterOutBase = token =>
  * Slike tokens kan brukes f.eks. til offset i floating-ui.
  */
 
-export const numberTokenOutput = (token, unitLength) =>
-  `export const ${token.name} = "${token.value}";\nexport const ${token.name}Number${capitalizeFirstLetter(lastChars(token, unitLength))} = ${token.value.slice(0, -unitLength)};`;
-
 export const customJSFormat = async ({ dictionary, file }) => {
   const header = await fileHeader({ file, commentStyle: 'short' });
   return (
     header +
     dictionary.allTokens
       .map(token => {
-        let output = `export const ${token.name} = ${JSON.stringify(
-          token.value,
-        )};`;
+        const value = handleTokenValue(token);
+        let output = `export const ${token.name} = ${JSON.stringify(value)};`;
         if (!token.name.includes('LetterSpacing')) {
           if (hasRem(token)) {
             output = numberTokenOutput(token, 3);
@@ -78,7 +96,9 @@ export const customCSSFormat = async ({ dictionary, file }) => {
     `.${trimClassName(file.destination)} {\n` +
     dictionary.allTokens
       .map(token => {
-        let output = `  --${token.name}: ${token.value};`;
+        const value = handleTokenValue(token);
+
+        let output = `  --${token.name}: ${value};`;
         if (token.comment) {
           output += ` /* ${token.comment} */`;
         }
