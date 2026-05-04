@@ -20,32 +20,31 @@ Importer styling av komponentene i CSS:
 
 ## 🔨 Bruk
 
-Wrapp applikasjonen din i `<ThemeProvider>`.
+Wrapp applikasjonen din i `<DdsProvider>`.
 
-```js
-import * as React from 'react';
-import { createRoot } from 'react-dom/client';
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import {
   Button,
   TextInput,
-  ThemeProvider,
+  DdsProvider,
 } from '@norges-domstoler/dds-components';
 
-const App = () => (
-  <ThemeProvider>
-    <TextInput label="Input" />
-    <Button>Primary</Button>
-    <Button purpose="secondary" size="small">
-      Secondary
-    </Button>
-  </ThemeProvider>
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React>
+    <DdsProvider language="nb">
+      <TextInput label="Input" />
+      <Button>Primary</Button>
+      <Button purpose="secondary" size="small">
+        Secondary
+      </Button>
+    </DdsProvider>
+  </React>,
 );
-
-const root = createRoot(document.getElementById('root'));
-
-root.render(<App />);
 ```
 
 ## 📃 Komponenter
 
-Sjekk [Komponenter](https://design.domstol.no/987b33f71/p/438035-komponenter) for oversikt over alle komponenter, og [nyheter](https://design.domstol.no/987b33f71/p/438035-komponenter/t/page-438035-50469210-4) for status på nye komponenter.
+Sjekk [Komponenter](https://design.domstol.no/987b33f71/p/438035-komponenter) for oversikt over alle komponenter, og [Nyheter](https://design.domstol.no/987b33f71/p/66ec5c-nyheter) for status på nye komponenter.

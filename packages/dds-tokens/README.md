@@ -4,7 +4,7 @@
 
 Biblioteket inneholder design tokens brukt i [Elsa - domstolenes designsystem](https://design.domstol.no/): farger, typografi, osv. Design tokens kan brukes i domstolenes tjenester i bl.a. global styling og custom elementer. Ellers er det obligatorisk å bruke komponentbiblioteket [dds-components](https://www.npmjs.com/package/@norges-domstoler/dds-components) i domstolenes applikasjoner.
 
-Design tokens kommer i to temaer: Core og Public. Valg av tema styres med `<ThemeProvider>` komponent som ligger i `dds-components`.
+Design tokens kommer i flere temaer. Valg av tema styres med `<DdsProvider>` komponent som ligger i `dds-components`.
 
 ## 🔍 Oversikt
 
@@ -26,7 +26,7 @@ pnpm add @norges-domstoler/dds-design-tokens
 
 ## 🔨 Bruk
 
-Design tokens er eksportert som JS-konstanter, CSS-variabler og SCSS-variabler. De brukes i kombinasjon med `<ThemeProvider>` komponent fra `@norges-domstoler/dds-components` biblioteket for å sette riktig tema. CSS-variabler brukes direkte fra `@norges-domstoler/dds-components` - se [README](https://github.com/domstolene/designsystem/blob/main/packages/components/README.md).
+Design tokens er eksportert som JS-konstanter, CSS-variabler og SCSS-variabler. De brukes i kombinasjon med `<DdsProvider>` komponent fra `@norges-domstoler/dds-components` biblioteket for å sette riktig tema. CSS-variabler brukes direkte fra `@norges-domstoler/dds-components` - se [README](https://github.com/domstolene/designsystem/blob/main/packages/components/README.md).
 
 ### CSS
 
@@ -42,16 +42,16 @@ Design tokens er eksportert som JS-konstanter, CSS-variabler og SCSS-variabler. 
 }
 ```
 
-```js
-import { ThemeProvider } from '@norges-domstoler/dds-components';
+```jsx
+import { DdsProvider } from '@norges-domstoler/dds-components';
 import './styles.css';
 
 const Panel = <div className="panel"> tekst </div>;
 
 const App = () => (
-  <ThemeProvider>
+  <DdsProvider>
     <Panel />;
-  </ThemeProvider>
+  </DdsProvider>
 );
 ```
 
@@ -60,7 +60,7 @@ const App = () => (
 ```js
 import * as React from 'react';
 import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
-import { ThemeProvider, useTheme } from '@norges-domstoler/dds-components';
+import { DdsProvider, useTheme } from '@norges-domstoler/dds-components';
 
 const { theme } = useTheme();
 
@@ -70,9 +70,9 @@ const style = {
 };
 
 const App = () => (
-  <ThemeProvider>
+  <DdsProvider>
     <div style={style}>Tekst</div>;
-  </ThemeProvider>
+  </DdsProvider>
 );
 ```
 
@@ -91,14 +91,14 @@ SCSS-variabler refererer til CSS-variabler; theming skjer dermed utenfor SCSS. D
 ```
 
 ```js
-import { ThemeProvider } from '@norges-domstoler/dds-components';
+import { DdsProvider } from '@norges-domstoler/dds-components';
 import './_styles.scss';
 
 const Panel = <div className="panel"> tekst </div>;
 
 const App = () => (
-  <ThemeProvider>
+  <DdsProvider>
     <Panel />;
-  </ThemeProvider>
+  </DdsProvider>
 );
 ```
