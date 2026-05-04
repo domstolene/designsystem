@@ -4,11 +4,13 @@ import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
+import { cn, optAttr } from '../../../utils';
 import {
   type BaseTypographyProps,
   Typography,
   type TypographyHeadingType,
 } from '../Typography';
+import styles from '../typographyStyles.module.css';
 
 const getHeadingElement = (level: HeadingLevel): ElementType => `h${level}`;
 
@@ -40,6 +42,8 @@ export type HeadingProps = BaseComponentPropsWithChildren<
     level: HeadingLevel;
     /**Spesifiserer typografistil basert på utvalget for HTML heading elementer.  */
     typographyType?: TypographyHeadingType;
+    /**Setter standard spacing for `<Heading>` som er over et inputelement. */
+    withMarginsOverInput?: boolean;
   } & BaseTypographyProps,
   Omit<HTMLAttributes<HTMLHeadingElement>, 'color'>
 >;
@@ -52,6 +56,8 @@ export const Heading = ({
   children,
   typographyType,
   level,
+  withMargins,
+  withMarginsOverInput,
   ...rest
 }: HeadingProps) => {
   const headingElement: ElementType = getHeadingElement(level);
@@ -61,9 +67,19 @@ export const Heading = ({
 
   return (
     <Typography
-      {...getBaseHTMLProps(id, className, style, htmlProps, rest)}
+      {...getBaseHTMLProps(
+        id,
+        cn(
+          className,
+          withMarginsOverInput && styles['heading--margins-over-input'],
+        ),
+        style,
+        htmlProps,
+        rest,
+      )}
       typographyType={standardTypographyType}
       as={headingElement}
+      withMargins={optAttr(withMargins || withMarginsOverInput)}
     >
       {children}
     </Typography>
