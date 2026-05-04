@@ -5,8 +5,8 @@ import {
   customCSSFormat,
   customJSFormat,
   customSCSSFormat,
-  filterOutBase,
-} from './utils.js';
+} from './formats.js';
+import { filterOutBase } from './utils.js';
 
 console.log('Tokens build started...');
 console.log('\n==============================================');
