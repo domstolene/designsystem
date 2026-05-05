@@ -2,6 +2,8 @@
 
 ## 22.9.0
 
+(2026-05-05)
+
 ### Minor Changes
 
 - 0875bb6: Ny prop i `<Heading>` og `<Legend>`: `withMarginsOverInput`. Setter standard spacing for komponenten når den brukes over et inputelement.
