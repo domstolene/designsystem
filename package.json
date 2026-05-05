@@ -22,7 +22,8 @@
     "release": "changeset publish",
     "version:dev": "changeset version --snapshot dev",
     "release:dev": "changeset publish --tag dev",
-    "chromatic": "npx chromatic --project-token=chpt_e4cbe6b1aef0b79 --build-script-name=build:storybook"
+    "chromatic": "npx chromatic --project-token=chpt_e4cbe6b1aef0b79 --build-script-name=build:storybook",
+    "generate:component-template": "pnpm --filter @norges-domstoler/dds-components generate:component-template"
   },
   "repository": {
     "type": "git",
