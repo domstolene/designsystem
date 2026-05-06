@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
 import { useOverflowMenuContext } from './OverflowMenu.context';
 import styles from './OverflowMenu.module.css';
@@ -7,6 +8,7 @@ import { getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Paper } from '../layout';
+import { ThemeContext } from '../ThemeProvider';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
 import { type OverflowMenuProps } from '.';
@@ -14,6 +16,8 @@ import { type OverflowMenuProps } from '.';
 export const OverflowMenu = ({
   placement = 'bottom-end',
   offset = 2,
+  parentElement,
+  portal = true,
   className,
   htmlProps = {},
   ref,
@@ -22,13 +26,20 @@ export const OverflowMenu = ({
 }: OverflowMenuProps) => {
   const { isOpen, floatStyling, setFloatOptions, menuRef, menuId } =
     useOverflowMenuContext();
+  const themeContext = useContext(ThemeContext);
+
+  if (portal && !themeContext) {
+    throw new Error('OverflowMenu must be used within a DdsProvider');
+  }
+
+  const portalTarget = parentElement ?? themeContext?.el;
 
   useEffect(() => {
     setFloatOptions?.({ placement, offset });
   }, [placement, offset]);
   const openCn = isOpen ? 'open' : 'closed';
 
-  return (
+  const menu = (
     <Paper
       overflowY="auto"
       minWidth="180px"
@@ -54,6 +65,8 @@ export const OverflowMenu = ({
       border="border-default"
     />
   );
+
+  return portal && portalTarget ? createPortal(menu, portalTarget) : menu;
 };
 
 OverflowMenu.displayName = 'OverflowMenu';
