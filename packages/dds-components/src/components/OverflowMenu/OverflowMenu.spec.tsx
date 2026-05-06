@@ -1,7 +1,8 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 
+import { portalRender } from '../../test.utils';
 import { Button } from '../Button';
 
 import {
@@ -43,18 +44,18 @@ function TestComponent({ link, item, span }: props) {
 
 describe('<OverflowMenu>', () => {
   it('renders context menu item as link', () => {
-    render(<TestComponent link={link} />);
+    portalRender(<TestComponent link={link} />);
     const aElement = screen.getByText(text);
     expect(aElement).toBeInTheDocument();
     expect(aElement).toHaveAttribute('href', href);
   });
   it('renders static username', () => {
-    render(<TestComponent span={{ children: text }} />);
+    portalRender(<TestComponent span={{ children: text }} />);
     const element = screen.getByText(text);
     expect(element).toBeInTheDocument();
   });
   it('should show OverflowMenu on button click', async () => {
-    render(<TestComponent />);
+    portalRender(<TestComponent />);
     const menu = screen.queryByRole('menu');
     expect(menu).not.toBeInTheDocument();
     const menuButton = screen.getByRole('button');
@@ -67,7 +68,7 @@ describe('<OverflowMenu>', () => {
 
   it('calls onClose event on button click', async () => {
     const event = vi.fn();
-    render(
+    portalRender(
       <OverflowMenuGroup onClose={event}>
         <Button />
         <OverflowMenu />
@@ -84,7 +85,7 @@ describe('<OverflowMenu>', () => {
 
   it('calls onOpen event button click', async () => {
     const event = vi.fn();
-    render(
+    portalRender(
       <OverflowMenuGroup onOpen={event}>
         <Button />
         <OverflowMenu />
@@ -98,7 +99,7 @@ describe('<OverflowMenu>', () => {
   });
 
   it('hides menu after Esc keydown', async () => {
-    render(<TestComponent />);
+    portalRender(<TestComponent />);
     const menuButton = screen.getByRole('button');
     await userEvent.click(menuButton!);
     const menuOpened = screen.getByRole('menu');
@@ -110,9 +111,44 @@ describe('<OverflowMenu>', () => {
     expect(elQuery).not.toBeInTheDocument();
   });
 
+  it('renders menu in portal by default', async () => {
+    const { container } = portalRender(
+      <div data-testid="host">
+        <OverflowMenuGroup>
+          <Button />
+          <OverflowMenu />
+        </OverflowMenuGroup>
+      </div>,
+    );
+
+    await userEvent.click(screen.getByRole('button'));
+    const menu = screen.getByRole('menu');
+    const host = screen.getByTestId('host');
+    expect(menu).toBeInTheDocument();
+    expect(host.contains(menu)).toBe(false);
+    expect(container.contains(menu)).toBe(true);
+  });
+
+  it('renders menu inline when portal is disabled', async () => {
+    portalRender(
+      <div data-testid="host">
+        <OverflowMenuGroup>
+          <Button />
+          <OverflowMenu portal={false} />
+        </OverflowMenuGroup>
+      </div>,
+    );
+
+    await userEvent.click(screen.getByRole('button'));
+    const menu = screen.getByRole('menu');
+    const host = screen.getByTestId('host');
+    expect(menu).toBeInTheDocument();
+    expect(host.contains(menu)).toBe(true);
+  });
+
   describe('<OverflowMenuButton>', () => {
     it('renders context menu item as button', () => {
-      render(<TestComponent item={item} />);
+      portalRender(<TestComponent item={item} />);
       const buttonElement = screen.getByRole('button');
       expect(buttonElement).toBeInTheDocument();
     });
@@ -120,7 +156,7 @@ describe('<OverflowMenu>', () => {
     it('calls onClick event from context menu', async () => {
       const event = vi.fn();
       const item = { children: text, onClick: event };
-      render(<TestComponent item={item} />);
+      portalRender(<TestComponent item={item} />);
 
       const menuButton = screen.getByRole('button');
       await userEvent.click(menuButton);
@@ -131,7 +167,7 @@ describe('<OverflowMenu>', () => {
     });
     it('calls onClickAsync and close menu after it resolves', async () => {
       const asyncClick = vi.fn(() => Promise.resolve());
-      render(
+      portalRender(
         <TestComponent item={{ children: text, onClickAsync: asyncClick }} />,
       );
 
@@ -156,7 +192,7 @@ describe('<OverflowMenu>', () => {
           }),
       );
 
-      render(
+      portalRender(
         <TestComponent item={{ children: text, onClickAsync: asyncClick }} />,
       );
 
@@ -185,7 +221,7 @@ describe('<OverflowMenu>', () => {
           }),
       );
 
-      render(
+      portalRender(
         <TestComponent item={{ children: text, onClickAsync: asyncClick }} />,
       );
 

@@ -168,6 +168,14 @@ const onOpen = () => {
 </OverflowMenuGroup>
 `} />
 
+### Portal og clipping
+
+`<OverflowMenu>` bruker portal som default for å unngå clipping fra parent med begrenset høyde/bredde eller `overflow: hidden`. Hvis du trenger at menyen skal rendres inline i samme container kan du bruke `portal={false}`.
+
+<Canvas>
+  <Story of={OverflowMenuStories.PortalClippingComparison} />
+</Canvas>
+
 ### Kontrollert
 
 <Source
