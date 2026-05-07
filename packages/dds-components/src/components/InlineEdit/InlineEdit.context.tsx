@@ -21,13 +21,11 @@ export interface InlineEditContextType {
   emptiable: boolean;
 }
 
-type InlineEditContextProviderType = Partial<
-  InlineEditContextType & {
-    children: ReactNode;
-    onSetValue?: (value: string) => void;
-    inputRef: RefObject<HTMLElement | null>;
-  }
->;
+type InlineEditContextProviderType = Partial<InlineEditContextType> & {
+  children: ReactNode;
+  onSetValue?: (value: string) => void;
+  inputRef: RefObject<HTMLElement | null>;
+};
 
 export const InlineEditContext = createContext<Partial<InlineEditContextType>>(
   {},
@@ -87,7 +85,7 @@ export const InlineEditContextProvider = (
 
   useOnKeyDown(['Enter'], () => onExitHandler());
   useOnKeyDown(['Escape'], () => onExitHandler());
-  useOnClickOutside(inputRef?.current, () => onExitHandler());
+  useOnClickOutside(inputRef, () => onExitHandler());
 
   return (
     <InlineEditContext

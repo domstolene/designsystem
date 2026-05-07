@@ -139,7 +139,7 @@ export const SearchAutocompleteWrapper = (
   const inputRef = useRef<HTMLInputElement>(null);
   const suggestionsRef = useRef<HTMLDivElement>(null);
 
-  useOnClickOutside([inputRef.current, suggestionsRef.current], () => {
+  useOnClickOutside([inputRef, suggestionsRef], () => {
     closeSuggestions();
   });
 

@@ -1,0 +1,61 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import {
+  Source,
+  ComponentLinkRow,
+} from '@norges-domstoler/storybook-components';
+
+import * as NewsPopoverStories from './NewsPopover.stories';
+import meta from './NewsPopover.stories';
+
+<Meta of={meta} />
+
+# NewsPopover
+
+<ComponentLinkRow
+  docsHref="64e0e5-newspopover"
+  figmaHref="node-id=25821-17256"
+  githubHref={{ folder: 'components', comp: 'NewsPopover' }}
+  storybookHref={{ folder: 'components', comp: 'newspopover' }}
+/>
+
+<Canvas of={NewsPopoverStories.Preview} />
+<Controls of={NewsPopoverStories.Preview} />
+
+## Oppførsel
+
+### Utløsning
+
+Konsumenten er selv ansvarlig for å implementere trigger og tilhørende logikk for å vise komponenten.
+
+### Lukking
+
+Komponenten lukkes ved Esc-tastetrykk, klikk på lukkeknapp og klikk utenfor.
+Konsumenten kan velge selv om komponenten skal lukkes ved klikk utenfor.
+
+### Fokus
+
+Tastaturfokus er fanget inni komponenten via `focusTrap()` så lenge den er åpen.
+
+## Retningslinjer
+
+### Størrelser og antall
+
+Komponenten har fast bredde og høyde (unntatt det minste brekkpunktet). Det er dermed begrenset hvor mye plass innhold kan ta.
+
+Begrensninger for tekst basert på `public` tema:
+
+- **Header**: max ca 31 tegn, eller 1 linje
+- **Overskrift for en nyhet**: max ca 31 tegn, eller 1 linje
+- **Avsnitt**: ca max 135 tegn, eller 3 linjer
+
+Tegn har ulik bredde og kan det hende det er plass til flere. Test i applikasjonen din.
+
+Andre begrensninger:
+
+- **Antall nyheter**: 1-9 sider
+- **Bilde**: fast høyde på 113px og maksimal bredde på 380px
+
+### Plassering
+
+Konsumenten er selv ansvarlig for den visuelle plasseringen av komponenten.
+I HTML-strukturen bør komponenten plasseres mot slutten av dokumentet, eller i nærheten av elementet som nyheten den representerer er knyttet til.

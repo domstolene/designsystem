@@ -100,7 +100,7 @@ export const DrawerGroup = ({
         drawerId: uniqueDrawerId,
         isOpen,
         onClose: handleClose,
-        triggerEl: triggerRef.current,
+        triggerRef,
       }}
     >
       {Children}

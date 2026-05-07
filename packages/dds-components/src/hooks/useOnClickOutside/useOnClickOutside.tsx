@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { type RefObject, useEffect } from 'react';
 
 /**
  * Kjører logikk når brukeren klikker utenfor espesifisert(e) element(er).
@@ -19,17 +19,20 @@ import { useEffect } from 'react';
 
 export function useOnClickOutside(
   element:
-    | HTMLElement
-    | null
-    | undefined
-    | Array<HTMLElement | null | undefined>,
+    | RefObject<HTMLElement | null>
+    | Array<RefObject<HTMLElement | null> | undefined>
+    | undefined,
   handler: (event: MouseEvent | TouchEvent) => void,
 ): void {
   useEffect(() => {
     const listener = (event: MouseEvent | TouchEvent) => {
-      const elements = Array.isArray(element)
+      const elements: Array<HTMLElement> = Array.isArray(element)
         ? element
-        : [element].filter(Boolean);
+            .map(ref => ref?.current)
+            .filter((el): el is HTMLElement => Boolean(el))
+        : element?.current
+          ? [element.current]
+          : [];
 
       const hasClickedInside = elements.some(el =>
         el?.contains(event.target as HTMLElement),

@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { act } from 'react';
 import { describe, expect, it, vi } from 'vitest';
@@ -32,106 +32,141 @@ describe('<Search>', () => {
       `${id}-tip`,
     );
   });
-  it('renders combobox when using autocomplete version', () => {
-    render(
-      <Search.AutocompleteWrapper data={{ array: [] }}>
-        <Search />
-      </Search.AutocompleteWrapper>,
-    );
-    expect(screen.getByRole('combobox')).toBeInTheDocument();
-  });
-
-  it('renders search suggestions wrapper', () => {
-    render(
-      <Search.AutocompleteWrapper data={{ array: [] }}>
-        <Search />
-      </Search.AutocompleteWrapper>,
-    );
-    expect(screen.getByLabelText('Søkeforslag')).toBeInTheDocument();
-  });
-
-  it('renders specified search suggestion', async () => {
-    const text = 'text';
-    render(
-      <Search.AutocompleteWrapper data={{ array: [text] }}>
-        <Search />
-      </Search.AutocompleteWrapper>,
-    );
-
-    const input = screen.getByRole('combobox');
-    await userEvent.type(input, `${text}`);
-    const option = screen.getByRole('option');
-    expect(option).toBeInTheDocument();
-    expect(screen.getByText(text)).toBeInTheDocument();
-  });
-
-  it('does not render search suggestion when query is too short', async () => {
-    const text = 'text';
-    const queryLength = 3;
-    render(
-      <Search.AutocompleteWrapper data={{ array: [text] }}>
-        <Search />
-      </Search.AutocompleteWrapper>,
-    );
-
-    const input = screen.getByRole('combobox');
-    await userEvent.type(input, `${text.slice(queryLength - 2)}`);
-    const option = screen.queryByRole('option');
-    expect(option).not.toBeInTheDocument();
-  });
-
-  it('has aria-expanded=true when suggestions list present and false when not', async () => {
-    const text = 'text';
-    render(
-      <Search.AutocompleteWrapper data={{ array: [text] }}>
-        <Search />
-      </Search.AutocompleteWrapper>,
-    );
-
-    const input = screen.getByRole('combobox');
-    expect(input).toHaveAttribute('aria-expanded', 'false');
-    await userEvent.type(input, `${text}`);
-    expect(input).toHaveAttribute('aria-expanded', 'true');
-  });
-
-  it('menuitem gets focus when using arrows to navigate', async () => {
-    const text = 'text';
-    render(
-      <Search.AutocompleteWrapper data={{ array: [text] }}>
-        <Search />
-      </Search.AutocompleteWrapper>,
-    );
-
-    const input = screen.getByRole('combobox');
-    await userEvent.type(input, `${text}`);
-    const menuitem = screen.getByRole('button', { name: `${text} søk` });
-    expect(menuitem).not.toHaveFocus();
-
-    await act(async () => {
-      await userEvent.keyboard('{ArrowDown}');
+  describe('with suggestions', () => {
+    it('renders combobox', () => {
+      render(
+        <Search.AutocompleteWrapper data={{ array: [] }}>
+          <Search />
+        </Search.AutocompleteWrapper>,
+      );
+      expect(screen.getByRole('combobox')).toBeInTheDocument();
     });
 
-    expect(menuitem).toHaveFocus();
-  });
+    it('renders search suggestions wrapper', () => {
+      render(
+        <Search.AutocompleteWrapper data={{ array: [] }}>
+          <Search />
+        </Search.AutocompleteWrapper>,
+      );
+      expect(screen.getByLabelText('Søkeforslag')).toBeInTheDocument();
+    });
 
-  it('calls suggestion click event', async () => {
-    const event = vi.fn();
-    const text = 'text';
-    render(
-      <Search.AutocompleteWrapper
-        data={{ array: [text] }}
-        onSuggestionSelection={event}
-      >
-        <Search />
-      </Search.AutocompleteWrapper>,
-    );
+    it('renders specified search suggestion', async () => {
+      const text = 'text';
+      render(
+        <Search.AutocompleteWrapper data={{ array: [text] }}>
+          <Search />
+        </Search.AutocompleteWrapper>,
+      );
 
-    const input = screen.getByRole('combobox');
-    await userEvent.type(input, `${text}`);
-    const button = screen.getByText(text);
+      const input = screen.getByRole('combobox');
+      await userEvent.type(input, `${text}`);
+      const option = screen.getByRole('option');
+      expect(option).toBeInTheDocument();
+      expect(screen.getByText(text)).toBeInTheDocument();
+    });
 
-    await userEvent.click(button);
+    it('does not render search suggestion when query is too short', async () => {
+      const text = 'text';
+      const queryLength = 3;
+      render(
+        <Search.AutocompleteWrapper data={{ array: [text] }}>
+          <Search />
+        </Search.AutocompleteWrapper>,
+      );
 
-    expect(event).toHaveBeenCalled();
+      const input = screen.getByRole('combobox');
+      await userEvent.type(input, `${text.slice(queryLength - 2)}`);
+      const option = screen.queryByRole('option');
+      expect(option).not.toBeInTheDocument();
+    });
+
+    it('has aria-expanded=true when suggestions list present and false when not', async () => {
+      const text = 'text';
+      render(
+        <Search.AutocompleteWrapper data={{ array: [text] }}>
+          <Search />
+        </Search.AutocompleteWrapper>,
+      );
+
+      const input = screen.getByRole('combobox');
+      expect(input).toHaveAttribute('aria-expanded', 'false');
+      await userEvent.type(input, `${text}`);
+      expect(input).toHaveAttribute('aria-expanded', 'true');
+    });
+
+    it('menuitem gets focus when using arrows to navigate', async () => {
+      const text = 'text';
+      render(
+        <Search.AutocompleteWrapper data={{ array: [text] }}>
+          <Search />
+        </Search.AutocompleteWrapper>,
+      );
+
+      const input = screen.getByRole('combobox');
+      await userEvent.type(input, `${text}`);
+      const menuitem = screen.getByRole('button', { name: `${text} søk` });
+      expect(menuitem).not.toHaveFocus();
+
+      await act(async () => {
+        await userEvent.keyboard('{ArrowDown}');
+      });
+
+      expect(menuitem).toHaveFocus();
+    });
+
+    it('calls suggestion click event', async () => {
+      const event = vi.fn();
+      const text = 'text';
+      render(
+        <Search.AutocompleteWrapper
+          data={{ array: [text] }}
+          onSuggestionSelection={event}
+        >
+          <Search />
+        </Search.AutocompleteWrapper>,
+      );
+
+      const input = screen.getByRole('combobox');
+      await userEvent.type(input, `${text}`);
+      const button = screen.getByText(text);
+
+      await userEvent.click(button);
+
+      expect(event).toHaveBeenCalled();
+    });
+
+    it('hides dropdown on click outside', async () => {
+      const user = userEvent.setup();
+      const text = 'text';
+      render(
+        <>
+          <div data-testid="outside">Outside</div>
+          <Search.AutocompleteWrapper data={{ array: [text] }}>
+            <Search />
+          </Search.AutocompleteWrapper>
+          ,
+        </>,
+      );
+
+      const input = screen.getByRole('combobox');
+      await userEvent.type(input, `${text}`);
+
+      const suggestions = screen.getByLabelText('Søkeforslag');
+
+      expect(suggestions.closest('div')).toHaveAttribute(
+        'aria-hidden',
+        'false',
+      );
+
+      await user.click(screen.getByTestId('outside'));
+
+      await waitFor(() => {
+        expect(suggestions.closest('div')).toHaveAttribute(
+          'aria-hidden',
+          'true',
+        );
+      });
+    });
   });
 });

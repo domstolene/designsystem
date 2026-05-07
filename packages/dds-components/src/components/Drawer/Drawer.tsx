@@ -1,6 +1,7 @@
 import {
   type MouseEvent,
   type ReactNode,
+  type RefObject,
   useContext,
   useEffect,
   useRef,
@@ -93,7 +94,7 @@ export const Drawer = ({
 
   const portalTarget = parentElement ?? themeContext?.el;
 
-  const { isOpen = false, onClose, drawerId, triggerEl } = useDrawerContext();
+  const { isOpen = false, onClose, drawerId, triggerRef } = useDrawerContext();
 
   const hasHeader = !!header;
   const headerId = hasHeader ? `${drawerId}-header` : undefined;
@@ -113,8 +114,8 @@ export const Drawer = ({
     }
   }, [isOpen]);
 
-  const elements: Array<HTMLElement | null> = [drawerRef.current];
-  if (triggerEl) elements.push(triggerEl);
+  const elements: Array<RefObject<HTMLElement | null>> = [drawerRef];
+  if (triggerRef) elements.push(triggerRef);
 
   useOnClickOutside(elements, () => {
     if (isOpen && !withBackdrop) {

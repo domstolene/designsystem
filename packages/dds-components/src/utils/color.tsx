@@ -118,7 +118,24 @@ const TEXT_COLORS = [
   'icon-medium',
 ] as const;
 
+const ICON_COLORS = [
+  ...TEXT_COLORS,
+  'brand-primary-default',
+  'brand-primary-strong',
+  'brand-primary-medium',
+  'brand-primary-subtle',
+  'brand-secondary-default',
+  'brand-secondary-strong',
+  'brand-secondary-medium',
+  'brand-secondary-subtle',
+  'brand-tertiary-default',
+  'brand-tertiary-strong',
+  'brand-tertiary-medium',
+  'brand-tertiary-subtle',
+] as const;
+
 type DDSTextColor = (typeof TEXT_COLORS)[number];
+type DDSIconColor = (typeof ICON_COLORS)[number];
 
 const TEXT_COLOR_VALUES: Record<DDSTextColor, string> = TEXT_COLORS.reduce(
   (acc, key) => {
@@ -128,7 +145,16 @@ const TEXT_COLOR_VALUES: Record<DDSTextColor, string> = TEXT_COLORS.reduce(
   {} as Record<DDSTextColor, string>,
 );
 
+const ICON_COLOR_VALUES: Record<DDSIconColor, string> = ICON_COLORS.reduce(
+  (acc, key) => {
+    acc[key] = `var(--dds-color-${key})`;
+    return acc;
+  },
+  {} as Record<DDSIconColor, string>,
+);
+
 export type TextColor = DDSTextColor | Property.Color;
+export type IconColor = DDSIconColor | Property.Color;
 
 export const isTextColor = (value: unknown): value is DDSTextColor => {
   return (
@@ -138,5 +164,16 @@ export const isTextColor = (value: unknown): value is DDSTextColor => {
 
 export const getTextColor = (color: TextColor): string => {
   if (isTextColor(color)) return TEXT_COLOR_VALUES[color];
+  return color;
+};
+
+export const isIconColor = (value: unknown): value is DDSIconColor => {
+  return (
+    typeof value === 'string' && ICON_COLORS.includes(value as DDSIconColor)
+  );
+};
+
+export const getIconColor = (color: IconColor): string => {
+  if (isIconColor(color)) return ICON_COLOR_VALUES[color];
   return color;
 };

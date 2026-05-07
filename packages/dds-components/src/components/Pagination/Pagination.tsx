@@ -4,6 +4,7 @@ import styles from './Pagination.module.css';
 import { PaginationGenerator } from './paginationGenerator';
 import { useControllableState } from '../../hooks/useControllableState';
 import { createTexts, useTranslation } from '../../i18n';
+import { commonTexts } from '../../i18n/commonTexts';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
 import { Button } from '../Button';
@@ -66,7 +67,7 @@ export type PaginationProps = BaseComponentProps<
      * Brukes til å hente valgt alternativ og evt. kjøre ekstra logikk.
      */
     onSelectOptionChange?: (option: PaginationOption | null) => void;
-    /**Brekkpunkt for mobilvisning; den viser færre sideknapper og stacker delkomponentene. */
+    /**Brekkpunkt for små skjermer; den viser færre sideknapper og stacker delkomponentene. */
     smallScreenBreakpoint?: Breakpoint;
   },
   Omit<HTMLAttributes<HTMLElement>, 'onChange'>
@@ -155,7 +156,9 @@ export const Pagination = ({
                     onPageChange(event, item);
                   }}
                   aria-label={
-                    isActive ? t(texts.currentPage(item)) : t(texts.page(item))
+                    isActive
+                      ? t(commonTexts.currentPage(item))
+                      : t(commonTexts.page(item))
                   }
                 >
                   {item}
@@ -179,7 +182,7 @@ export const Pagination = ({
       onClick={event => {
         onPageChange(event, activePage - 1);
       }}
-      aria-label={t(texts.previousPage)}
+      aria-label={t(commonTexts.previousPage)}
     />
   );
 
@@ -191,7 +194,7 @@ export const Pagination = ({
       onClick={event => {
         onPageChange(event, activePage + 1);
       }}
-      aria-label={t(texts.nextPage)}
+      aria-label={t(commonTexts.nextPage)}
     />
   );
 
@@ -382,20 +385,6 @@ const texts = createTexts({
     en: 'Items per page',
     se: 'Elementat juohki siidui',
   },
-  nextPage: {
-    nb: 'Neste side',
-    no: 'Neste side',
-    nn: 'Neste side',
-    en: 'Next page',
-    se: 'Boahte siidu',
-  },
-  previousPage: {
-    nb: 'Forrige side',
-    no: 'Forrige side',
-    nn: 'Førre side',
-    en: 'Previous page',
-    se: 'Ovddit siidu',
-  },
   firstPage: {
     nb: 'Første side',
     no: 'Første side',
@@ -410,20 +399,6 @@ const texts = createTexts({
     en: 'Last page',
     se: 'Maŋimuš siidu',
   },
-  currentPage: page => ({
-    nb: `Nåværende side (${page})`,
-    no: `Nåværende side (${page})`,
-    nn: `Noverande side (${page})`,
-    en: `Current page (${page})`,
-    se: `Dála siidu (${page})`,
-  }),
-  page: page => ({
-    nb: `Side ${page}`,
-    no: `Side ${page}`,
-    nn: `Side ${page}`,
-    en: `Page ${page}`,
-    se: `Siidu ${page}`,
-  }),
   showsAmountOfTotalItems: (first, last, total) => ({
     nb: `Viser ${first}-${last} av ${total}`,
     no: `Viser ${first}-${last} av ${total}`,

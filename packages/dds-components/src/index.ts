@@ -40,6 +40,7 @@ export * from './components/InternalHeader';
 export * from './components/List';
 export * from './components/LocalMessage';
 export * from './components/Modal';
+export * from './components/NewsPopover';
 export * from './components/OverflowMenu';
 export * from './components/Pagination';
 export * from './components/PhoneInput';

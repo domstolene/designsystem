@@ -30,7 +30,7 @@ function MyComponent() {
 
 const [isOpen, setOpen] = useState(true);
 const ref = useRef<HTMLElement>(null);
-useOnClickOutside(ref.current, () => setOpen(false));
+useOnClickOutside(ref, () => setOpen(false));
 
 return isOpen ? <div ref={ref}>innhold</div> : null
 };`} />

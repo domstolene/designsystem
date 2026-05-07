@@ -4,6 +4,7 @@ import {
   type HTMLAttributes,
   Children as ReactChildren,
   type ReactNode,
+  type RefObject,
   type SetStateAction,
   cloneElement,
   isValidElement,
@@ -90,8 +91,8 @@ export const PopoverGroup = ({
     }
   });
 
-  const elements: Array<HTMLElement | null> = [popoverRef.current!];
-  if (buttonRef.current) elements.push(buttonRef.current);
+  const elements: Array<RefObject<HTMLElement | null>> = [popoverRef];
+  if (buttonRef) elements.push(buttonRef);
 
   useOnClickOutside(elements, () => {
     if (open) handleClose();

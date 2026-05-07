@@ -82,6 +82,22 @@ describe('<InlineEdit>', () => {
       expect(input).toHaveValue(newValue);
     });
 
+    it('saves input and loses focus on click outside', async () => {
+      const user = userEvent.setup();
+      render(
+        <>
+          <div data-testid="outside">Outside</div>
+          <TestComponentInput value={initialValue} />
+        </>,
+      );
+      const input = screen.getByRole('textbox');
+      await userEvent.type(input, `{backspace}${newValue}`);
+      await user.click(screen.getByTestId('outside'));
+
+      expect(input).not.toHaveFocus();
+      expect(input).toHaveValue(newValue);
+    });
+
     it('resets to last-saved value if input is empty', async () => {
       render(<TestComponentInput value={initialValue} />);
       const input = screen.getByRole('textbox');
@@ -182,6 +198,22 @@ describe('<InlineEdit>', () => {
       expect(input).toHaveValue(newValue);
     });
 
+    it('saves input and loses focus on click outside', async () => {
+      const user = userEvent.setup();
+      render(
+        <>
+          <div data-testid="outside">Outside</div>
+          <TestComponentTextArea value={initialValue} />
+        </>,
+      );
+      const input = screen.getByRole('textbox');
+      await userEvent.type(input, `{backspace}${newValue}`);
+      await user.click(screen.getByTestId('outside'));
+
+      expect(input).not.toHaveFocus();
+      expect(input).toHaveValue(newValue);
+    });
+
     it('resets to last-saved value if input is empty', async () => {
       render(<TestComponentTextArea value={initialValue} />);
       const input = screen.getByRole('textbox');
@@ -264,7 +296,7 @@ describe('<InlineEdit>', () => {
       );
     });
 
-    it('saves input and lose focus on Enter', async () => {
+    it('saves input and loses focus on Enter', async () => {
       render(<TestComponentSelect value={initialValue} />);
       const input = screen.getByRole('combobox');
       await userEvent.selectOptions(input, newValue);
@@ -274,11 +306,37 @@ describe('<InlineEdit>', () => {
       expect(input).toHaveValue(newValue);
     });
 
-    it('saves input and lose focus on Escape', async () => {
+    it('saves input and loses focus on Escape', async () => {
       render(<TestComponentSelect value={initialValue} />);
       const input = screen.getByRole('combobox');
       await userEvent.selectOptions(input, newValue);
       await userEvent.keyboard('{Escape}');
+
+      expect(input).not.toHaveFocus();
+      expect(input).toHaveValue(newValue);
+    });
+
+    it('saves input and loses focus on Escape', async () => {
+      render(<TestComponentSelect value={initialValue} />);
+      const input = screen.getByRole('combobox');
+      await userEvent.selectOptions(input, newValue);
+      await userEvent.keyboard('{Escape}');
+
+      expect(input).not.toHaveFocus();
+      expect(input).toHaveValue(newValue);
+    });
+
+    it('saves input and loses focus on click outside', async () => {
+      const user = userEvent.setup();
+      render(
+        <>
+          <div data-testid="outside">Outside</div>
+          <TestComponentSelect value={initialValue} />
+        </>,
+      );
+      const input = screen.getByRole('combobox');
+      await userEvent.selectOptions(input, newValue);
+      await user.click(screen.getByTestId('outside'));
 
       expect(input).not.toHaveFocus();
       expect(input).toHaveValue(newValue);

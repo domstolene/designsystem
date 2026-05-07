@@ -130,7 +130,7 @@ export const CalendarPopoverContent = ({
   const isMounted = isOpen && hasTransitionedIn;
   const combinedRef = useCombinedRef(refs.setFloating, ref);
 
-  useOnClickOutside([ref.current, modalRef.current], onClose);
+  useOnClickOutside([ref, modalRef], onClose);
 
   useEffect(() => {
     refs.setReference(anchorRef?.current ?? null);

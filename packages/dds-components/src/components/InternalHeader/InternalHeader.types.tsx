@@ -37,7 +37,7 @@ export type InternalHeaderProps = BaseComponentProps<
     applicationDesc?: string;
     /**URL til hovedsiden. */
     applicationHref?: string;
-    /**Spesifiserer ved hvilket brekkpunkt og nedover versjonen for små skjermer skal vises; den justerer på spacing og legger navigasjonen i kontekstmenyen. */
+    /**Brekkpunkt for små skjermer; den justerer på spacing og legger navigasjonen i kontekstmenyen. */
     smallScreenBreakpoint?: Breakpoint;
     /**Info om brukeren. Dukker opp som punkt på toppen av kontekstmenyen med tekst oppgitt i name. Blir en lenke hvis href er oppgitt. */
     user?: InternaHeaderUserProps;

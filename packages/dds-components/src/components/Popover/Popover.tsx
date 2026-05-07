@@ -174,7 +174,7 @@ export const Popover = ({
   }, [placement, offset]);
 
   // hooks when without context
-  useOnClickOutside([popoverRef.current, anchorEl], () => {
+  useOnClickOutside([popoverRef, anchorRef], () => {
     if (isOpen && !hasContext) onClose?.();
   });
 
