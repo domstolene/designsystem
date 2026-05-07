@@ -32,6 +32,7 @@ export interface FileUploaderState {
   files: Array<FileUploaderFile>;
   isFocused: boolean;
   isFileDialogActive: boolean;
+  dragCounter: number;
   isDragActive: boolean;
   rootErrors: Array<string>;
 }
@@ -48,13 +49,21 @@ export const fileUploaderReducer: Reducer<
     case 'dragEnter':
       return {
         ...state,
+        dragCounter: state.dragCounter + 1,
         isDragActive: true,
       };
-    case 'dragLeave':
-      return { ...state, isDragActive: false };
+    case 'dragLeave': {
+      const newCounter = Math.max(0, state.dragCounter - 1);
+      return {
+        ...state,
+        dragCounter: newCounter,
+        isDragActive: newCounter > 0,
+      };
+    }
     case 'onSetFiles':
       return {
         ...state,
+        dragCounter: 0,
         isDragActive: false,
         files: action.payload,
       };

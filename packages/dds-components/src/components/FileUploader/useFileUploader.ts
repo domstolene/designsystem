@@ -105,6 +105,7 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
     isFocused: false,
     isFileDialogActive: false,
     isDragActive: false,
+    dragCounter: 0,
     rootErrors: calcRootErrors(
       t(texts.invalidFileAmount),
       initialFileUploaderFiles,
@@ -160,19 +161,13 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
   const onRootBlur = useCallback(() => dispatch({ type: 'blur' }), [dispatch]);
 
   const onRootDragEnter = useCallback(
-    async (evt: React.DragEvent<TRootElement>) => {
+    (evt: React.DragEvent<TRootElement>) => {
       preventDefaults(evt);
-
       if (isEventWithFiles(evt)) {
-        const files = await getFilesFromEvent(evt);
-        const fileCount = files.length;
-
-        if (fileCount === 0) return;
-
         dispatch({ type: 'dragEnter' });
       }
     },
-    [dispatch, accept, maxFiles],
+    [dispatch],
   );
 
   const onRootDragOver = useCallback((evt: React.DragEvent<TRootElement>) => {
@@ -189,9 +184,6 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
   const onRootDragLeave = useCallback(
     (evt: React.DragEvent<TRootElement>) => {
       preventDefaults(evt);
-
-      if (evt.currentTarget.contains(evt.relatedTarget as HTMLElement)) return;
-
       dispatch({ type: 'dragLeave' });
     },
     [dispatch],
