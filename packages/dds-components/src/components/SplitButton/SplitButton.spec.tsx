@@ -1,6 +1,8 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
+
+import { portalRender } from '../../test.utils';
 
 import {
   SplitButton,
@@ -20,12 +22,16 @@ const item: SplitButtonSecondaryActionsProps = [
 
 describe('<SplitButton>', () => {
   it('renders two buttons', () => {
-    render(<SplitButton primaryAction={primary} secondaryActions={item} />);
+    portalRender(
+      <SplitButton primaryAction={primary} secondaryActions={item} />,
+    );
     const buttons = screen.getAllByRole('button');
     expect(buttons).toHaveLength(2);
   });
   it('shows OverflowMenu on menu button click', async () => {
-    render(<SplitButton primaryAction={primary} secondaryActions={item} />);
+    portalRender(
+      <SplitButton primaryAction={primary} secondaryActions={item} />,
+    );
     const menu = screen.queryByRole('menu');
     expect(menu).not.toBeInTheDocument();
     const menuButton = screen.getByLabelText('Flere handlinger');
@@ -38,7 +44,7 @@ describe('<SplitButton>', () => {
 
   it('calls onclick event from primary action button', async () => {
     const event = vi.fn();
-    render(
+    portalRender(
       <SplitButton
         primaryAction={{ children: primaryText, onClick: event }}
         secondaryActions={item}
@@ -53,7 +59,7 @@ describe('<SplitButton>', () => {
 
   it('calls onclick event from context menu', async () => {
     const event = vi.fn();
-    render(
+    portalRender(
       <SplitButton
         primaryAction={primary}
         secondaryActions={[{ children: itemText, onClick: event }]}
@@ -67,7 +73,9 @@ describe('<SplitButton>', () => {
   });
 
   it('hides menu after Esc keydown', async () => {
-    render(<SplitButton secondaryActions={item} primaryAction={primary} />);
+    portalRender(
+      <SplitButton secondaryActions={item} primaryAction={primary} />,
+    );
     const menuButton = screen.getByLabelText('Flere handlinger');
     fireEvent.click(menuButton!);
     const menuOpened = screen.getByRole('menu');

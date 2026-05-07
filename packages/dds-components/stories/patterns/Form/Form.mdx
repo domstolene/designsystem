@@ -3,6 +3,7 @@ import {
   ComponentLinkRow,
   Source,
 } from '@norges-domstoler/storybook-components';
+import LinkTo from '@storybook/addon-links/react';
 import {
   Tabs,
   Tab,
@@ -14,12 +15,16 @@ import * as FormStories from './Form.stories';
 
 <Meta of={FormStories} />
 
-# Form
+# Skjema
 
 <ComponentLinkRow
   docsHref="0426e5-skjema"
   storybookHref={{ folder: 'patterns', comp: 'form--form' }}
 />
+
+## Bruksområde
+
+Skjema. Brukes i kombinasjon med <LinkTo title='Patterns/Check Answers' story='docs'>Sjekk svar-mønsteret</LinkTo> og Skjemavalidering-mønsteret (under arbeid).
 
 ## Hvordan implementere?
 
@@ -38,9 +43,38 @@ Skjema-mønsteret bruker gjerne en del komponenter, layout primitives og props f
 
 ### Styling
 
-- **Spacing**: komponenter som `<FieldsetGroup>` har innbakt spacing som følger retningslinjer. Typografikomponenter bør brukes med `withMargins` prop. Sett i tillegg egen spacing for generiske containere; bruk gjerne [layout primitives](#layout-primitives).
+- **Spacing**: komponenter som `<FieldsetGroup>` har innbakt spacing som følger retningslinjer. Typografikomponenter bør brukes med `withMargins` og `withMarginsOverInput` prop. Sett i tillegg egen spacing for generiske containere; bruk gjerne [layout primitives](#layout-primitives).
 - **Tekstfarge**: det meste av tekst skal ha standardisert farge, men ikke alt. Info om markering av påkrevde felt og påkrevd-markør skal bruke fargene `dds-color-text-subtle` og `dds-color-text-requiredfield`; disse kan settes med `color` prop i typografikomponeter.
 - **Størrelse på `<Legend>`**: hvis du bruker flere overskrifter på skjemasiden kan det hende du trenger å tilpasse størrelsen på din `<Legend>`. Bruk `typographyType` prop ved behov.
+
+## Validering
+
+### HTML5 default
+
+Slå av default validering i nettleseren med `noValidate` attributt på `<form>`:
+
+```jsx
+<form noValidate> /* skjema... */ </form>
+```
+
+Grunnene til anbefalingen er:
+
+- Uforutsigbar oppførsel i kombinasjon med feilmeldinger fra Elsa; meldingene dekker hverandre, har ulik trigger for å dukke opp.
+- Inkompatibel med WCAG-krav. Innebygde valideringen har vage, statiske feilmeldinger og blir ofte ikke lest av skjermlesere.
+- Det visuelle inntrykket kan ikke endres, og vil ikke stemme overens med Elsa.
+
+Hva dette innebærer:
+
+- Nettleserens native validerings-popup vises ikke ved submit.
+- Submit blir ikke blokkert av required, type, pattern osv.
+- Applikasjonen har full kontroll over validering - når det skjer, feilmeldinger, fokusflyt og annonsering til skjermleser.
+
+### Når og hvordan validere?
+
+- **Generelt**: ved blur/change for hvert inputelement, bruk `errorMessage` prop for feilmeldingen. Når brukeren går inn og ut av inputfelt teller det som et forsøk på å fylle ut input.
+- **Uten steg**: se Skjemavalidering-mønsteret (under arbeid); valider ved submit og bruk ErrorSummary til å vise valideringsfeil, samt bruk `errorMessage` prop på alle felt med feil.
+- **Flere steg**: se <LinkTo title='Patterns/Check Answers' story='docs'>Sjekk svar-mønsteret</LinkTo>.
+- **Ett felt**: valider ved submit, hvis feltet har feil vis det med `errorMessage` prop og flytt fokus til feltet.
 
 ## Maler
 

@@ -15,7 +15,7 @@ import {
 import { useAccordion } from '../helpers/AccordionBase';
 import { AnimatedChevronUpDownIcon } from '../Icon/icons/animated';
 import { InlineButton } from '../InlineButton';
-import { Link, Paragraph, Typography } from '../Typography';
+import { Link, Paragraph } from '../Typography';
 
 import { Accordion, AccordionBody, AccordionHeader } from '.';
 
@@ -27,6 +27,8 @@ const meta = preview.meta({
   },
   decorators: [ddsProviderDecorator],
 });
+
+export default meta;
 
 export const Preview = meta.story({
   render: (args): JSX.Element => (
@@ -42,50 +44,37 @@ export const Group = meta.story({
     <>
       <div>
         <Accordion {...args}>
-          <AccordionHeader>Dekning av reiseutgifter</AccordionHeader>
+          <AccordionHeader>Administrator</AccordionHeader>
           <AccordionBody>
-            I sivile saker avtales dekning av utgifter med den part som innkalte
-            deg. I straffesaker har du krav på reise- og kostgodtgjørelse (
-            <Link href="#">
-              særavtale om dekning av utgifter til reise og kost
+            Den som leder rettsmøtet, kalles en administrator. Både i
+            jordskifterettene, tingrettene og lagmannsrettene er det en av
+            dommerne fra domstolen. En meddommer er aldri administrator. Det er
+            også administrator som skriver utkast til dom eller kjennelse i
+            saken.
+          </AccordionBody>
+        </Accordion>
+
+        <Accordion {...args}>
+          <AccordionHeader>Advokat</AccordionHeader>
+          <AccordionBody>
+            En advokat er en person med juridisk embetseksamen (cand.jur. eller
+            master i rettsvitenskap) og spesiell tillatelse (advokatbevilling)
+            til å utføre juridiske tjenester overfor en klient. Dette skjer
+            vanligvis i form av rådgivning og å representere klienten overfor
+            domstoler, andre offentlige myndigheter eller andre private parter.
+          </AccordionBody>
+        </Accordion>
+
+        <Accordion {...args}>
+          <AccordionHeader>Advokaturen</AccordionHeader>
+          <AccordionBody>
+            Prøve som må bestås før en advokat har rett til å føre saker for
+            Høyesterett. Prøven består av å føre to saker for Høyesterett.
+            Dommerne i saken avgjør om advokaten består.{' '}
+            <Link href="http://lovdata.no/all/hl-19150813-005.html#221">
+              Les om Advokaturen på Lovdata
             </Link>
-            ). Reisen skal foretas på raskeste og rimeligste måte for staten.
-            Offentlig transport må benyttes der det er tilgjengelig.
-            Godtgjørelse for bruk av egen bil godtas bare i den utstrekning det
-            er rimeligst for det offentlige, med mindre særlige grunner tilsier
-            at du må bruke bil.Reiseutgiftene må dokumenteres med kvitteringer,
-            unntatt for rimeligste offentlig transport, for eksempel buss, tog
-            og så videre. For reiser over 15 km og som varer utover 6 timer,
-            dekkes utgifter til måltider etter satsene i særavtalen om dekning
-            av utgifter til reise og kost. Dersom enkeltmåltider er dekket av
-            andre enn deg selv, må du registrere måltidsfradrag.
-          </AccordionBody>
-        </Accordion>
-
-        <Accordion {...args}>
-          <AccordionHeader>Ansvar for behandlingen</AccordionHeader>
-          <AccordionBody>
-            DA er behandlingsansvarlig for opplysningene som registreres i
-            Aktørportalen og avdelingsdirektør for IT-avdelingen har det daglige
-            ansvaret for Aktørportalen. Selskapet Bekk utvikler Aktørportalen
-            for oss. <Link href="#">Lenke</Link>
-          </AccordionBody>
-        </Accordion>
-
-        <Accordion {...args}>
-          <AccordionHeader>Bli vitnestøtte?</AccordionHeader>
-          <AccordionBody>
-            <Typography typographyType="headingMedium" withMargins>
-              Opplæringsfilm
-            </Typography>
-            <Typography withMargins>
-              Film «Vitnestøtte» viser fire problemstillinger for hvordan man
-              møter vitner med ulike behov. Den viser både gode og mindre gode
-              løsninger, vitnestøtter kan diskutere.
-            </Typography>
-            <Typography>
-              Filmen viser altså ikke «beste praksis», men er en opplæringsfilm.
-            </Typography>
+            .
           </AccordionBody>
         </Accordion>
 

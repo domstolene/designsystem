@@ -29,6 +29,8 @@ const meta = preview.meta({
   args: { onChange: fn(), onBlur: fn() },
 });
 
+export default meta;
+
 export const Preview = meta.story({
   args: { label: 'Label' },
 });

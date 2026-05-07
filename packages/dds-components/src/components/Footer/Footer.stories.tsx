@@ -21,6 +21,8 @@ const meta = preview.meta({
   component: Footer,
 });
 
+export default meta;
+
 const socials = (
   <FooterSocialsGroup>
     <FooterListHeader>Følg oss</FooterListHeader>

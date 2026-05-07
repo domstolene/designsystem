@@ -11,7 +11,7 @@ import {
 } from 'react';
 
 import styles from './AccordionBase.module.css';
-import { useControllableState, useIsMounted } from '../../../hooks';
+import { useControllableState } from '../../../hooks';
 import { type Nullable } from '../../../types';
 import { cn, useElementHeight } from '../../../utils';
 
@@ -174,7 +174,6 @@ export const useAccordion = ({
 
   const [animate, setAnimate] = useState(false);
 
-  const isMounted = useIsMounted();
   const height = useElementHeight(bodyContentRef.current);
 
   const [initialExpandedHeight, setIntialExpandedHeight] =
@@ -188,10 +187,12 @@ export const useAccordion = ({
   }, []);
 
   useEffect(() => {
-    if (isMounted()) {
+    const raf = requestAnimationFrame(() => {
       setAnimate(true);
-    }
-  }, [isMounted]);
+    });
+
+    return () => cancelAnimationFrame(raf);
+  }, []);
 
   const headerProps: UseAccordionHeaderProps = {
     id: `${accordionId}-header`,

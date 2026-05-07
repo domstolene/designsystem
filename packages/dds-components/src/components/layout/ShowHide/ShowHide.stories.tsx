@@ -19,6 +19,8 @@ const meta = preview.meta({
   decorators: [Story => windowWidthDecorator(<Story />)],
 });
 
+export default meta;
+
 export const Preview = meta.story({
   render: args => (
     <Grid gridTemplateColumns="150px 150px" gap="x1">

@@ -313,6 +313,10 @@
   padding-top: var(--dds-spacing-padding-top-heading);
 }
 
+:where(.heading--margins-over-input) {
+  margin-bottom: var(--dds-spacing-x1-5);
+}
+
 :where(.label-medium) {
   margin: 0;
   font: var(--dds-font-label-medium);
@@ -327,6 +331,10 @@
 
 :where(.legend) {
   padding-inline: 0;
+}
+
+:where(.legend--margins-over-input) {
+  margin-bottom: var(--dds-spacing-x1-5);
 }
 
 :where(.caption) {

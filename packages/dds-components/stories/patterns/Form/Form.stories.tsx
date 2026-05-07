@@ -1,6 +1,6 @@
 import preview from '#.storybook/preview';
-import { type FormEvent, Fragment, useState } from 'react';
-
+import { Fragment, type SubmitEvent, useState } from 'react';
+        
 import {
   ArrowLeftIcon,
   BackLink,
@@ -73,9 +73,9 @@ export const Form = meta.story(() => {
             </Typography>
             .
           </Paragraph>
-          <VStack as="form" gap="x1">
+          <VStack as="form" gap="x1" noValidate>
             <Fieldset>
-              <Legend withMargins>Overskrift for gruppe</Legend>
+              <Legend withMarginsOverInput>Overskrift for gruppe</Legend>
               <FieldsetGroup>
                 <TextInput label="Ledetekst" width={{ xs: '100%' }} />
                 <NativeSelect label="Ledetekst" width={{ xs: '100%' }}>
@@ -87,7 +87,7 @@ export const Form = meta.story(() => {
               </FieldsetGroup>
             </Fieldset>
             <Fieldset>
-              <Legend withMargins>Overskrift for gruppe</Legend>
+              <Legend withMarginsOverInput>Overskrift for gruppe</Legend>
               <FieldsetGroup>
                 <TextInput label="Ledetekst" width={{ xs: '100%' }} />
                 <NativeSelect label="Ledetekst" width={{ xs: '100%' }}>
@@ -99,7 +99,7 @@ export const Form = meta.story(() => {
               </FieldsetGroup>
             </Fieldset>
             <Fieldset>
-              <Legend withMargins>Adresse</Legend>
+              <Legend withMarginsOverInput>Adresse</Legend>
               <FieldsetGroup>
                 <TextInput label="Adresse" width={{ xs: '100%' }} />
                 <Box
@@ -124,7 +124,6 @@ export const Form = meta.story(() => {
                 </Box>
               </FieldsetGroup>
             </Fieldset>
-
             <HStack gap="x1.5" paddingBlock="x1.5">
               <Button>Send inn</Button>
             </HStack>
@@ -143,7 +142,7 @@ export const FormWithSteps = meta.story(() => {
 
   const steps = ['Skjemasteg 1 ', 'Skjemasteg 2'];
 
-  const completeStep = (step: number, e: FormEvent<HTMLFormElement>) => {
+  const completeStep = (step: number, e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     setCompletedSteps(s => new Set([...s, activeStep]));
     setActiveStep(step + 1);
@@ -172,7 +171,22 @@ export const FormWithSteps = meta.story(() => {
         }}
       >
         <Fieldset>
-          <Legend withMargins typographyType="headingMedium">
+          <Legend withMarginsOverInput typographyType="headingMedium">
+            Overskrift for gruppe
+          </Legend>
+
+          <FieldsetGroup>
+            <TextInput label="Ledetekst" width={{ xs: '100%' }} />
+            <NativeSelect label="Ledetekst" width={{ xs: '100%' }}>
+              <option></option>
+              <option>Valg 1</option>
+              <option>Valg 2</option>
+              <option>Valg 3</option>
+            </NativeSelect>
+          </FieldsetGroup>
+        </Fieldset>
+        <Fieldset>
+          <Legend withMarginsOverInput typographyType="headingMedium">
             Overskrift for gruppe
           </Legend>
           <FieldsetGroup>
@@ -186,21 +200,7 @@ export const FormWithSteps = meta.story(() => {
           </FieldsetGroup>
         </Fieldset>
         <Fieldset>
-          <Legend withMargins typographyType="headingMedium">
-            Overskrift for gruppe
-          </Legend>
-          <FieldsetGroup>
-            <TextInput label="Ledetekst" width={{ xs: '100%' }} />
-            <NativeSelect label="Ledetekst" width={{ xs: '100%' }}>
-              <option></option>
-              <option>Valg 1</option>
-              <option>Valg 2</option>
-              <option>Valg 3</option>
-            </NativeSelect>
-          </FieldsetGroup>
-        </Fieldset>
-        <Fieldset>
-          <Legend withMargins typographyType="headingMedium">
+          <Legend withMarginsOverInput typographyType="headingMedium">
             Adresse
           </Legend>
           <FieldsetGroup>
@@ -244,7 +244,7 @@ export const FormWithSteps = meta.story(() => {
         }}
       >
         <Fieldset>
-          <Legend withMargins typographyType="headingMedium">
+          <Legend withMarginsOverInput typographyType="headingMedium">
             Overskrift for gruppe
           </Legend>
           <FieldsetGroup>
@@ -258,7 +258,7 @@ export const FormWithSteps = meta.story(() => {
           </FieldsetGroup>
         </Fieldset>
         <Fieldset>
-          <Legend withMargins typographyType="headingMedium">
+          <Legend withMarginsOverInput typographyType="headingMedium">
             Overskrift for gruppe
           </Legend>
           <FieldsetGroup>
@@ -317,8 +317,17 @@ export const FormWithSteps = meta.story(() => {
             </Typography>
             .
           </Paragraph>
-          <VStack gap="x1">
-            <ShowHide showBelow="sm">
+          <VStack
+            gap="x1"
+            marginBlock={{
+              xs: '0 x1',
+              sm: '0 x1',
+              md: activeStep > 0 ? '0 x1' : '0',
+              lg: activeStep > 0 ? '0 x1' : '0',
+              xl: activeStep > 0 ? '0 x1' : '0',
+            }}
+          >
+            <Box showBelow="sm">
               <DrawerGroup
                 isOpen={progressTrackerDrawerOpen}
                 setIsOpen={setProgressTrackerDrawerOpen}
@@ -340,7 +349,7 @@ export const FormWithSteps = meta.story(() => {
                   </ProgressTracker>
                 </Drawer>
               </DrawerGroup>
-            </ShowHide>
+            </Box>
             {activeStep > 0 && (
               <Button
                 purpose="secondary"
@@ -384,7 +393,7 @@ export const FormWithStepsCustomGrid = meta.story(() => {
 
   const steps = ['Skjemasteg 1 ', 'Skjemasteg 2'];
 
-  const completeStep = (step: number, e: FormEvent<HTMLFormElement>) => {
+  const completeStep = (step: number, e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     setCompletedSteps(s => new Set([...s, activeStep]));
     setActiveStep(step + 1);
@@ -407,10 +416,11 @@ export const FormWithStepsCustomGrid = meta.story(() => {
         onSubmit={e => {
           completeStep(0, e);
         }}
+        noValidate
       >
         <VStack gap="x1">
           <Fieldset>
-            <Legend withMargins typographyType="headingMedium">
+            <Legend withMarginsOverInput typographyType="headingMedium">
               Overskrift for gruppe
             </Legend>
             <FieldsetGroup>
@@ -424,7 +434,7 @@ export const FormWithStepsCustomGrid = meta.story(() => {
             </FieldsetGroup>
           </Fieldset>
           <Fieldset>
-            <Legend withMargins typographyType="headingMedium">
+            <Legend withMarginsOverInput typographyType="headingMedium">
               Overskrift for gruppe
             </Legend>
             <FieldsetGroup>
@@ -438,7 +448,7 @@ export const FormWithStepsCustomGrid = meta.story(() => {
             </FieldsetGroup>
           </Fieldset>
           <Fieldset>
-            <Legend withMargins typographyType="headingMedium">
+            <Legend withMarginsOverInput typographyType="headingMedium">
               Adresse
             </Legend>
             <FieldsetGroup>
@@ -477,9 +487,10 @@ export const FormWithStepsCustomGrid = meta.story(() => {
         onSubmit={e => {
           completeStep(1, e);
         }}
+        noValidate
       >
         <Fieldset>
-          <Legend withMargins typographyType="headingMedium">
+          <Legend withMarginsOverInput typographyType="headingMedium">
             Overskrift for gruppe
           </Legend>
           <FieldsetGroup>
@@ -493,7 +504,7 @@ export const FormWithStepsCustomGrid = meta.story(() => {
           </FieldsetGroup>
         </Fieldset>
         <Fieldset>
-          <Legend withMargins typographyType="headingMedium">
+          <Legend withMarginsOverInput typographyType="headingMedium">
             Overskrift for gruppe
           </Legend>
           <FieldsetGroup>
@@ -539,7 +550,16 @@ export const FormWithStepsCustomGrid = meta.story(() => {
               </Typography>
               .
             </Paragraph>
-            <VStack gap="x1">
+            <VStack
+              gap="x1"
+              marginBlock={{
+                xs: '0 x1',
+                sm: '0 x1',
+                md: activeStep > 0 ? '0 x1' : '0',
+                lg: activeStep > 0 ? '0 x1' : '0',
+                xl: activeStep > 0 ? '0 x1' : '0',
+              }}
+            >
               <ShowHide showBelow="sm">
                 <DrawerGroup
                   isOpen={progressTrackerDrawerOpen}
@@ -633,9 +653,9 @@ export const ExitForm = meta.story(() => {
                 </Typography>
                 .
               </Paragraph>
-              <VStack as="form" gap="x1">
+              <VStack as="form" gap="x1" noValidate>
                 <Fieldset>
-                  <Legend withMargins>Overskrift for gruppe</Legend>
+                  <Legend withMarginsOverInput>Overskrift for gruppe</Legend>
                   <FieldsetGroup>
                     <TextInput label="Ledetekst" width={{ xs: '100%' }} />
                     <NativeSelect label="Ledetekst" width={{ xs: '100%' }}>

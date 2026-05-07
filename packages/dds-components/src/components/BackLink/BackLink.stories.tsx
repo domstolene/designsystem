@@ -22,6 +22,8 @@ const meta = preview.meta({
   decorators: [ddsProviderDecorator],
 });
 
+export default meta;
+
 export const Preview = meta.story({
   args: { label: 'Forrige nivå', href: '#' },
 });

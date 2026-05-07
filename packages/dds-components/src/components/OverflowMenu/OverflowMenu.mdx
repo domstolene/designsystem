@@ -20,10 +20,11 @@ import {
   ComponentLinkRow,
 } from '@norges-domstoler/storybook-components';
 import * as OverflowMenuStories from './OverflowMenu.stories';
+import meta from './OverflowMenu.stories';
 import { Tabs, Tab, TabList, TabPanels, TabPanel } from '../Tabs';
 import { Divider } from '../Divider';
 
-<Meta of={OverflowMenuStories} />
+<Meta of={meta} />
 
 # OverflowMenu
 
@@ -166,6 +167,14 @@ const onOpen = () => {
   </OverflowMenu>
 </OverflowMenuGroup>
 `} />
+
+### Portal og clipping
+
+`<OverflowMenu>` bruker portal som default for å unngå clipping fra parent med begrenset høyde/bredde eller `overflow: hidden`. Hvis du trenger at menyen skal rendres inline i samme container kan du bruke `portal={false}`.
+
+<Canvas>
+  <Story of={OverflowMenuStories.PortalClippingComparison} />
+</Canvas>
 
 ### Kontrollert
 

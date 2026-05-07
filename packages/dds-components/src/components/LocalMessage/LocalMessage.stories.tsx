@@ -26,6 +26,8 @@ const meta = preview.meta({
   decorators: [ddsProviderDecorator],
 });
 
+export default meta;
+
 export const Preview = meta.story({
   args: {
     children: 'Dette er en lokal melding',

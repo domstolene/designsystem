@@ -1,5 +1,38 @@
 # @norges-domstoler/dds-components
 
+## 22.10.0
+
+(2026-05-06)
+
+### Minor Changes
+
+- dc00f73: Legger til `portal` og `parentElement` props/funksjonalitet i `OverflowMenu.tsx` for å unngå klipping. `portal` gjør at menyen rendres i body, og `parentElement` gjør at menyen rendres i det elementet som er satt som parentElement. Default verdi for `portal=true`, og default verdi for `parentElement=themeProviderRef`. Hvis `portal=true`, vil `parentElement` bli ignorert. Hvis `portal=false`, vil `parentElement` bli brukt hvis det er satt, ellers vil menyen rendres i det elementet som `OverflowMenu.tsx` er plassert i.
+
+## 22.9.0
+
+(2026-05-05)
+
+### Minor Changes
+
+- 0875bb6: Ny prop i `<Heading>` og `<Legend>`: `withMarginsOverInput`. Setter standard spacing for komponenten når den brukes over et inputelement.
+
+## 22.8.2
+
+(2026-04-28)
+
+### Patch Changes
+
+- 8472c6d: Props menuPlacement kan nå brukes av Select. Hvis ingen props sendes med, er menuPlacement = "auto".
+
+## 22.8.1
+
+(2026-04-23)
+
+### Patch Changes
+
+- 7db532c: Bytter font til IBM Plex Sans Var, variabel variant av fonten vår. Den gjør at rendering på Windows blir mer lesbar og lik MacOS. Vi beholder referansen "IBM Plex Sans", og endringen forplanter seg sømløst.
+- f21f4c4: Ikke animer Accordion, CardExpandable ved første innlast (render) når initielt expanded er satt til true
+
 ## 22.8.0
 
 ### Minor Changes
