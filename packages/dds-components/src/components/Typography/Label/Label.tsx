@@ -8,7 +8,7 @@ import {
 import { RequiredMarker, cn } from '../../../utils';
 import { Icon } from '../../Icon';
 import { LockFilledIcon } from '../../Icon/icons';
-import { type BaseTypographyProps, Typography } from '../Typography';
+import { type CommonInlineTypographyProps, Typography } from '../Typography';
 
 type PickedHTMLAttributes = Pick<
   LabelHTMLAttributes<HTMLLabelElement>,
@@ -26,11 +26,7 @@ export interface BaseLabelProps {
 
 export type LabelProps = BaseComponentPropsWithChildren<
   HTMLLabelElement,
-  BaseLabelProps & BaseTypographyProps & PickedHTMLAttributes,
-  Omit<
-    LabelHTMLAttributes<HTMLLabelElement>,
-    keyof PickedHTMLAttributes | 'color'
-  >
+  BaseLabelProps & CommonInlineTypographyProps & PickedHTMLAttributes
 >;
 
 export const Label = ({

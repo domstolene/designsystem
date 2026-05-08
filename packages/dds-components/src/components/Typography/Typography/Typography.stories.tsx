@@ -2,7 +2,7 @@ import preview from '#.storybook/preview';
 
 import { Typography } from '..';
 import { categoryHtml } from '../../../storybook';
-import { storyTypographyHtmlAttrs } from '../storyUtils';
+import { blockTgCommonArgTypes } from '../storyUtils';
 
 const meta = preview.meta({
   title: 'dds-components/Components/Typography/Typography',
@@ -13,7 +13,7 @@ const meta = preview.meta({
     href: { control: 'text', table: categoryHtml },
     target: { control: false, table: categoryHtml },
     as: { control: 'text' },
-    ...storyTypographyHtmlAttrs,
+    ...blockTgCommonArgTypes,
   },
 });
 

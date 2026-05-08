@@ -10,7 +10,7 @@ import { focusable } from '../../helpers/styling/focus.module.css';
 import { Icon } from '../../Icon';
 import { OpenExternalIcon } from '../../Icon/icons';
 import {
-  type BaseTypographyProps,
+  type CommonInlineTypographyProps,
   type TypographyBodyType,
   getColorCn,
   getTypographyCn,
@@ -34,7 +34,7 @@ export type LinkProps<T extends ElementType = 'a'> =
       typographyType?: TypographyBodyType;
       /**Tvinger komponenten til å behandle `as` som en anchor tag wrapper og forwarde anchor-spesifikke props (target, rel). Bruk når custom `as` komponent wrapper en `<a>` tag. */
       isAnchor?: boolean;
-    } & BaseTypographyProps &
+    } & CommonInlineTypographyProps &
       PickedHTMLAttributes
   >;
 

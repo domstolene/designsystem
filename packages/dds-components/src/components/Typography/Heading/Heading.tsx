@@ -1,4 +1,4 @@
-import { type ElementType, type HTMLAttributes } from 'react';
+import { type ElementType } from 'react';
 
 import {
   type BaseComponentPropsWithChildren,
@@ -6,7 +6,7 @@ import {
 } from '../../../types';
 import { cn, optAttr } from '../../../utils';
 import {
-  type BaseTypographyProps,
+  type CommonBlockTypographyProps,
   Typography,
   type TypographyHeadingType,
 } from '../Typography';
@@ -44,8 +44,7 @@ export type HeadingProps = BaseComponentPropsWithChildren<
     typographyType?: TypographyHeadingType;
     /**Setter standard spacing for `<Heading>` som er over et inputelement. */
     withMarginsOverInput?: boolean;
-  } & BaseTypographyProps,
-  Omit<HTMLAttributes<HTMLHeadingElement>, 'color'>
+  } & CommonBlockTypographyProps
 >;
 
 export const Heading = ({

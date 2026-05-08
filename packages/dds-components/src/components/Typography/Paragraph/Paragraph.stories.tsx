@@ -2,7 +2,7 @@ import preview from '#.storybook/preview';
 
 import { ddsProviderDecorator } from '../../../storybook';
 import { StoryVStack } from '../../layout/Stack/utils';
-import { storyTypographyHtmlAttrs } from '../storyUtils';
+import { blockTgCommonArgTypes } from '../storyUtils';
 import { Typography } from '../Typography';
 
 import { Paragraph } from '.';
@@ -11,7 +11,7 @@ const meta = preview.meta({
   title: 'dds-components/Components/Typography/Paragraph',
   component: Paragraph,
   argTypes: {
-    ...storyTypographyHtmlAttrs,
+    ...blockTgCommonArgTypes,
   },
   decorators: [ddsProviderDecorator],
 });
