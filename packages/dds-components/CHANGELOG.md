@@ -1,5 +1,17 @@
 # @norges-domstoler/dds-components
 
+## 22.11.0
+
+### Minor Changes
+
+- 8551057: Støtte for utvalgte responsive props i alle typografikomponenter:
+  - `textAlign`, `wordBreak`, `display`, `margin`, `marginBlock`, `maxWidth`, `width`, `minWidth` i `<Heading>`, `<Legend>`, `<Caption>`, `<Paragraph>` og `<Typography>`.
+  - `textAlign`, `wordBreak`, `display`, `marginBlock` i `<Link>` og `<Label>`.
+
+### Patch Changes
+
+- 159f0cf: Hover-animasjonen i `<FileUploader/>` (border-color og background-color endringer) vises nå konsistent i både Safari og Chrome når brukeren drar filer over drop-området.
+
 ## 22.10.0
 
 (2026-05-06)
