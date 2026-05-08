@@ -169,12 +169,18 @@ I innstillinger:
 
 ## Komponentutvikling
 
-Hver komponent skal ligge i egen mappe, der navnet er <KomponentNavn>. Mappen skal inneholde:
+Hvis du utvikler ny komponent kan du generere en komponentmal med alle nødvendige filer og exports ved å kjøre:
+
+```shell
+pnpm generate:component-template
+```
+
+Ellers har vi en del konvensjoner. Hver komponent ligger i egen mappe, der navnet er `KomponentNavn`. Mappen skal inneholde:
 
 - **Komponentfil:** `<KomponentNavn>.tsx`
-- **Css-fil:** - styling vha CSS modules: `<komponentNavn>.module.css`
+- **Css-fil:** - styling vha CSS modules: `<KomponentNavn>.module.css`
 - **Testfil:** - tester: `<KomponentNavn>.spec.tsx`
-- **Stories-fi -l:** - stories: `<KomponentNavn>.stories.tsx`
+- **Stories-fil:** - stories: `<KomponentNavn>.stories.tsx`
 - **Docs-fil:** - teknisk dokumentasjon: `<KomponentNavn>.mdx`
 - **Index-fil:** `index.ts` for eksportering
 - **_(Ved behov) Types-fil:_** - hvis komponenten har mange types eller flere delkomponenter deler types, kan det være relevant å flytte det ut til egen fil: `<KomponentNavn>.types.tsx`
@@ -280,8 +286,9 @@ import { commonArgTypes } from '../../storybook';
 const meta = preview.meta({
   title: 'dds-components/Button',
   component: Button,
-  // kontrollere  for demo hvis default ikke passer
+  // kontrollere  for demo
   argTypes: {
+    // hvis komponenten støtter `children` i `string` legg til control for det
     children: { control: 'text' },
     // ved bruk av BaseComponentProps formater felles props likt
     ...commonArgTypes,
@@ -390,10 +397,10 @@ Eksportering av komponenten:
 ```JSX
 
 // src/components/Button/index.ts
-export * from './RadioButton';
+export {RadioButton, type RadioButtonProps} from './RadioButton';
 
 // global
-// ../../../index.ts
+// ../src/index.ts
 export * from './components/Button';
 ```
 
