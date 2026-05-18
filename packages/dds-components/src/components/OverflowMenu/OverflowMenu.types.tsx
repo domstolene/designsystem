@@ -39,6 +39,17 @@ export type OverflowMenuProps = Omit<
        * @default 2
        */
       offset?: number;
+      /**Angir rotnode hvor menyen skal rendres hvis portal=false.
+       * Hvis parentElement ikke er satt vil menyen rendres i det elementet som OverflowMenu er plassert i.
+       * Hvis portal er true, vil parentElement bli ignorert.
+       * @default themeProviderRef
+       */
+      parentElement?: HTMLElement;
+      /**Angir om menyen skal rendres i en portal eller ikke.
+       * Hvis portal er false, vil parentElement bli brukt hvis det er satt.
+       * @default true
+       */
+      portal?: boolean;
     }
   >,
   'id'

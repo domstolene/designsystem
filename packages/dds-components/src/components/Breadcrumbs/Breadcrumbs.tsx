@@ -108,7 +108,7 @@ export const Breadcrumbs = ({
                   : t(texts.showHidden)
               }
             />
-            <OverflowMenu>
+            <OverflowMenu portal={false}>
               <OverflowMenuList>{bChildrenTruncated}</OverflowMenuList>
             </OverflowMenu>
           </OverflowMenuGroup>

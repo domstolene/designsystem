@@ -289,11 +289,15 @@ export const CheckAnswers = () => {
             color="text-subtle"
             withMargins
           >
-            Obligatoriske felter er merket med{' '}
-            <Typography as="span" color="text-requiredfield">
-              *
-            </Typography>
-            .
+            {activeStep !== steps.length - 1 && (
+              <>
+                Obligatoriske felter er merket med{' '}
+                <Typography as="span" color="text-requiredfield">
+                  *
+                </Typography>
+                .
+              </>
+            )}
           </Paragraph>
           <VStack
             gap="x1"

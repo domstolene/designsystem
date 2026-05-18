@@ -1,11 +1,9 @@
-import { type HTMLAttributes } from 'react';
-
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
 import {
-  type BaseTypographyProps,
+  type CommonBlockTypographyProps,
   Typography,
   type TypographyBodyType,
   type TypographyLeadType,
@@ -18,8 +16,7 @@ export type ParagraphProps = BaseComponentPropsWithChildren<
      * @default 'BodyLongMedium'
      */
     typographyType?: TypographyBodyType | TypographyLeadType;
-  } & BaseTypographyProps,
-  Omit<HTMLAttributes<HTMLParagraphElement>, 'color'>
+  } & CommonBlockTypographyProps
 >;
 
 export const Paragraph = ({

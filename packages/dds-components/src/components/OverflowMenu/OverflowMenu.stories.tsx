@@ -13,10 +13,10 @@ import {
   PersonIcon,
   TrashIcon,
 } from '../Icon/icons';
-import { VStack } from '../layout';
+import { HStack, VStack } from '../layout';
 import { Table } from '../Table';
 import { Paragraph } from '../Typography';
-import { OverflowMenuToggle } from './components/OverflowMenuToggle';
+import { OverflowMenuToggle } from './components';
 
 import {
   OverflowMenu,
@@ -279,6 +279,63 @@ export const WithinTable = meta.story({
             </Table.Row>
           </Table.Body>
         </Table>
+      </VStack>
+    );
+  },
+});
+
+export const PortalClippingComparison = meta.story({
+  parameters: {
+    docs: { story: { height: '540px' } },
+    chromatic: { disableSnapshot: true },
+  },
+  render: args => {
+    const clippingBoxStyle = {
+      border: '1px solid var(--dds-color-border-subtle)',
+      borderRadius: 'var(--dds-border-radius-surface)',
+      width: '220px',
+      height: '120px',
+      overflow: 'hidden' as const,
+      padding: 'var(--dds-spacing-x0-5)',
+      position: 'relative' as const,
+    };
+
+    const menuContent = (
+      <OverflowMenuList>
+        <OverflowMenuLink icon={EditIcon}>Rediger</OverflowMenuLink>
+        <OverflowMenuButton icon={TrashIcon} purpose="danger">
+          Slett
+        </OverflowMenuButton>
+      </OverflowMenuList>
+    );
+
+    return (
+      <VStack>
+        <HStack gap="x2" alignItems="start">
+          <VStack gap="x0-5">
+            <Paragraph typographyType="bodyShortMedium">
+              Portal (default)
+            </Paragraph>
+            <div style={clippingBoxStyle}>
+              <OverflowMenuGroup isInitiallyOpen>
+                <Button icon={MoreVerticalIcon} aria-label="Åpne meny" />
+                <OverflowMenu {...args}>{menuContent}</OverflowMenu>
+              </OverflowMenuGroup>
+            </div>
+          </VStack>
+
+          <VStack gap="x0-5">
+            <Paragraph typographyType="bodyShortMedium">Portal av</Paragraph>
+            <div style={clippingBoxStyle}>
+              <OverflowMenuGroup isInitiallyOpen>
+                <Button icon={MoreVerticalIcon} aria-label="Åpne meny" />
+                <OverflowMenu {...args} portal={false}>
+                  {menuContent}
+                </OverflowMenu>
+              </OverflowMenuGroup>
+            </div>
+          </VStack>
+        </HStack>
       </VStack>
     );
   },

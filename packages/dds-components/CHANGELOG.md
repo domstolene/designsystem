@@ -1,5 +1,25 @@
 # @norges-domstoler/dds-components
 
+## 22.11.0
+
+### Minor Changes
+
+- 8551057: Støtte for utvalgte responsive props i alle typografikomponenter:
+  - `textAlign`, `wordBreak`, `display`, `margin`, `marginBlock`, `maxWidth`, `width`, `minWidth` i `<Heading>`, `<Legend>`, `<Caption>`, `<Paragraph>` og `<Typography>`.
+  - `textAlign`, `wordBreak`, `display`, `marginBlock` i `<Link>` og `<Label>`.
+
+### Patch Changes
+
+- 159f0cf: Hover-animasjonen i `<FileUploader/>` (border-color og background-color endringer) vises nå konsistent i både Safari og Chrome når brukeren drar filer over drop-området.
+
+## 22.10.0
+
+(2026-05-06)
+
+### Minor Changes
+
+- dc00f73: Legger til `portal` og `parentElement` props/funksjonalitet i `OverflowMenu.tsx` for å unngå klipping. `portal` gjør at menyen rendres i body, og `parentElement` gjør at menyen rendres i det elementet som er satt som parentElement. Default verdi for `portal=true`, og default verdi for `parentElement=themeProviderRef`. Hvis `portal=true`, vil `parentElement` bli ignorert. Hvis `portal=false`, vil `parentElement` bli brukt hvis det er satt, ellers vil menyen rendres i det elementet som `OverflowMenu.tsx` er plassert i.
+
 ## 22.9.0
 
 (2026-05-05)
