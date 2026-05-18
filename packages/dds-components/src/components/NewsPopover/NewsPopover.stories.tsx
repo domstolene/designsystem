@@ -15,6 +15,11 @@ const meta = preview.meta({
   component: NewsPopover,
   argTypes: {
     ...commonArgTypes,
+    setIsOpen: { control: false },
+    setActiveSlide: { control: false },
+  },
+  args: {
+    closeOnClickOutside: false,
   },
 });
 
@@ -102,7 +107,6 @@ export const ControllableSlideChange = meta.story({
           {...args}
           activeSlide={activeSlide}
           setActiveSlide={setActiveSlide}
-          closeOnClickOutside={false}
         />
       </StoryVStack>
     );
@@ -136,12 +140,7 @@ export const ControllableClosing = meta.story({
         <Button onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? 'Lukk' : 'Åpne'} popover
         </Button>
-        <NewsPopover
-          {...args}
-          isOpen={isOpen}
-          setIsOpen={setIsOpen}
-          closeOnClickOutside={false}
-        />
+        <NewsPopover {...args} isOpen={isOpen} setIsOpen={setIsOpen} />
       </StoryVStack>
     );
   },
