@@ -110,7 +110,7 @@ describe('<OverflowMenu>', () => {
     const elQuery = screen.queryByRole('menu');
     expect(elQuery).not.toBeInTheDocument();
   });
- 
+
   it('hides on click outside', async () => {
     const user = userEvent.setup();
     portalRender(
@@ -135,7 +135,7 @@ describe('<OverflowMenu>', () => {
       expect(screen.queryByRole('menu')).not.toBeInTheDocument();
     });
   });
-   
+
   it('renders menu in portal by default', async () => {
     const { container } = portalRender(
       <div data-testid="host">
