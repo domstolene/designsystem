@@ -7,11 +7,23 @@ import {
   customSCSSFormat,
 } from './formats.js';
 import { filterOutBase } from './utils.js';
+import { transformTypes, transforms } from 'style-dictionary/enums';
+import { ddsTypographyCssShorthand } from './transforms.js';
 
 console.log('Tokens build started...');
 console.log('\n==============================================');
 
 register(StyleDictionary);
+
+StyleDictionary.registerTransform({
+  name: 'dds/typography/css/shorthand',
+  type: transformTypes.value,
+  filter: function (token) {
+    return token.type === 'typography';
+  },
+  transitive: true,
+  transform: token => ddsTypographyCssShorthand(token),
+});
 
 StyleDictionary.registerFormat({
   name: 'custom/css/variables',
@@ -84,7 +96,7 @@ function getStyleDictionaryConfig(theme) {
       css: {
         buildPath: `${destPathBase}/css/`,
         transformGroup: 'tokens-studio',
-        transforms: ['name/kebab'],
+        transforms: [transforms.nameKebab, 'dds/typography/css/shorthand'],
         files: [
           {
             destination: `ddsTokens-${theme.name}.css`,
@@ -96,6 +108,7 @@ function getStyleDictionaryConfig(theme) {
       js: {
         buildPath: `${destPathBase}/js/${theme.name}/`,
         transformGroup: 'tokens-studio',
+        transforms: ['dds/typography/css/shorthand'],
         files: [
           {
             destination: 'ddsTokens.ts',
