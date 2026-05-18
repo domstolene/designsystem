@@ -162,7 +162,7 @@ export const NewsPopover = ({
       </Paper>
       <VStack gap="x0.75" alignItems="center" margin="x0.75 x0.75 x1 x0.75">
         <Heading level={3}>{el.heading}</Heading>
-        <Paragraph>{el.text}</Paragraph>
+        <Paragraph textAlign="center">{el.text}</Paragraph>
       </VStack>
     </>
   );
