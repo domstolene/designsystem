@@ -12,6 +12,8 @@ import { Paragraph } from '../Paragraph';
 import { inlineTgCommonArgTypes } from '../storyUtils';
 
 import { Link } from '.';
+import { Icon } from '../../Icon';
+import { TipIcon } from '../../Icon/icons';
 
 const meta = preview.meta({
   title: 'dds-components/Components/Typography/Link',
@@ -39,17 +41,29 @@ export const Variants = meta.story({
   args: showcaseProps,
   render: args => (
     <StoryVStack>
-      <Link {...args} external>
-        External
-      </Link>
       <Link {...args} withVisited>
         Med visited styling
       </Link>
       <Link {...args} color="text-medium">
         Custom farge
       </Link>
+      <Link {...args} withIconStyling>
+        Med ikon-styling
+        <Icon icon={TipIcon} iconSize="inherit" />
+      </Link>
     </StoryVStack>
   ),
+});
+
+export const NewTab = meta.story({
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+  args: {
+    ...showcaseProps,
+    children: 'Norges domstoler (åpnes i ny fane)',
+    target: '_blank',
+  },
 });
 
 export const As = meta.story({

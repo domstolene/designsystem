@@ -14,12 +14,12 @@ describe('<Link>', () => {
     render(<Link href="/" />);
     expect(screen.getByRole('link')).toBeInTheDocument();
   });
-  it('should open on new page', () => {
-    render(<Link href="/" external />);
+  it('should have target attr', () => {
+    render(<Link href="/" target="_blank" />);
     expect(screen.getByRole('link')).toHaveAttribute('target', '_blank');
   });
   it('has noopener noreferrer', () => {
-    render(<Link href="/" external />);
+    render(<Link href="/" />);
     expect(screen.getByRole('link')).toHaveAttribute(
       'rel',
       'noopener noreferrer',
