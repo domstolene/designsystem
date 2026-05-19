@@ -103,7 +103,7 @@ export type PhoneInputProps = {
   /** `name` attributt; setter `${name}-country-code` som `name` for landskode og `${name}-phone-number` for telefonnummer. */
   name?: string;
   /**
-   * Spesifiserer ved hvilket brekkpunkt og nedover versjonen for små skjermer skal vises; den stacker subkomponentene vertikalt.
+   * Brekkpunkt for små skjermer; den stacker subkomponentene vertikalt.
    */
   smallScreenBreakpoint?: Breakpoint;
   /**

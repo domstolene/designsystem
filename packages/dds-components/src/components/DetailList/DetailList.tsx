@@ -32,7 +32,7 @@ export type DetailListProps = BaseComponentPropsWithChildren<
      * @default true
      */
     striped?: boolean;
-    /**Brekkpunkt og nedover versjonen for små skjermer skal vises; den gjør om rader til kolonner. */
+    /**Brekkpunkt for små skjermer; den gjør om rader til kolonner. */
     smallScreenBreakpoint?: Breakpoint;
   }
 >;

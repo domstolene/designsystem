@@ -1,4 +1,4 @@
-import { cn, getTextColor } from '../../../utils';
+import { cn, getIconColor } from '../../../utils';
 import styles from '../Icon.module.css';
 import { type SvgProps } from './types';
 
@@ -20,7 +20,7 @@ export function SvgWrapper({
   return (
     <svg
       {...props}
-      fill={getTextColor(fill)}
+      fill={getIconColor(fill)}
       xmlns="http://www.w3.org/2000/svg"
       viewBox={`0 0 ${size} ${size}`}
       className={cn(className, styles.svg)}

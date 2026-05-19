@@ -148,4 +148,26 @@ describe('<Popover>', () => {
 
     expect(triggerButton).toHaveFocus();
   });
+
+  it('hides on click outside', async () => {
+    const user = userEvent.setup();
+    render(
+      <>
+        <div data-testid="outside">Outside</div>
+        <PopoverGroup isInitiallyOpen>
+          <Button />
+          <Popover />
+        </PopoverGroup>
+        ,
+      </>,
+    );
+
+    expect(screen.queryByRole('dialog')).toBeInTheDocument();
+
+    await user.click(screen.getByTestId('outside'));
+
+    await waitFor(() => {
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    });
+  });
 });

@@ -1,0 +1,11 @@
+.close-button {
+  position: absolute;
+  top: var(--dds-spacing-x0-25);
+  right: var(--dds-spacing-x0-25);
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

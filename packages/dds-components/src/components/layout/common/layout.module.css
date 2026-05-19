@@ -152,6 +152,11 @@
   justify-items: var(--dds-r-j-i, initial);
 }
 
+.dds-pl-i {
+  --dds-r-pl-i: var(--dds-r-xs-pl-i);
+  justify-items: var(--dds-r-pl-i, initial);
+}
+
 .dds-j-c {
   --dds-r-j-c: var(--dds-r-xs-j-c);
   justify-content: var(--dds-r-j-c, initial);
@@ -263,6 +268,9 @@
   .dds-j-i {
     --dds-r-j-i: var(--dds-r-xs-j-i);
   }
+  .dds-pl-i {
+    --dds-r-pl-i: var(--dds-r-xs-pl-i);
+  }
   .dds-j-c {
     --dds-r-j-c: var(--dds-r-xs-j-c);
   }
@@ -367,6 +375,9 @@
   }
   .dds-j-i {
     --dds-r-j-i: var(--dds-r-sm-j-i);
+  }
+  .dds-pl-i {
+    --dds-r-pl-i: var(--dds-r-sm-pl-i);
   }
   .dds-j-c {
     --dds-r-j-c: var(--dds-r-sm-j-c);
@@ -473,6 +484,9 @@
   .dds-j-i {
     --dds-r-j-i: var(--dds-r-md-j-i);
   }
+  .dds-pl-i {
+    --dds-r-pl-i: var(--dds-r-md-pl-i);
+  }
   .dds-j-c {
     --dds-r-j-c: var(--dds-r-md-j-c);
   }
@@ -578,6 +592,9 @@
   .dds-j-i {
     --dds-r-j-i: var(--dds-r-lg-j-i);
   }
+  .dds-pl-i {
+    --dds-r-pl-i: var(--dds-r-lg-pl-i);
+  }
   .dds-j-c {
     --dds-r-j-c: var(--dds-r-lg-j-c);
   }
@@ -682,6 +699,9 @@
   }
   .dds-j-i {
     --dds-r-j-i: var(--dds-r-xl-j-i);
+  }
+  .dds-pl-i {
+    --dds-r-pl-i: var(--dds-r-xl-pl-i);
   }
   .dds-j-c {
     --dds-r-j-c: var(--dds-r-xl-j-c);

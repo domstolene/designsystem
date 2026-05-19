@@ -111,6 +111,31 @@ describe('<OverflowMenu>', () => {
     expect(elQuery).not.toBeInTheDocument();
   });
 
+  it('hides on click outside', async () => {
+    const user = userEvent.setup();
+    portalRender(
+      <>
+        <div data-testid="outside">Outside</div>
+        <OverflowMenuGroup isInitiallyOpen>
+          <Button />
+          <OverflowMenu>
+            <OverflowMenuList>
+              <OverflowMenuButton />
+            </OverflowMenuList>
+          </OverflowMenu>
+        </OverflowMenuGroup>
+      </>,
+    );
+
+    expect(screen.queryByRole('menu')).toBeInTheDocument();
+
+    await user.click(screen.getByTestId('outside'));
+
+    await waitFor(() => {
+      expect(screen.queryByRole('menu')).not.toBeInTheDocument();
+    });
+  });
+
   it('renders menu in portal by default', async () => {
     const { container } = portalRender(
       <div data-testid="host">

@@ -97,6 +97,7 @@ export const responsivePropsArgTypes: ResponsiveArgTypes<ResponsiveProps> = {
   alignItems: CSSArgType,
   justifyContent: CSSArgType,
   justifyItems: CSSArgType,
+  placeItems: CSSArgType,
   gap: CSSArgType,
   rowGap: CSSArgType,
   columnGap: CSSArgType,

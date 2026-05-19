@@ -89,6 +89,8 @@ export interface PrimitiveLayoutProps {
   alignItems?: ResponsiveProp<Property.AlignItems>;
   /** CSS `justify-items`. Støtter verdi per brekkpunkt eller samme for alle skjermstørrelser. */
   justifyItems?: ResponsiveProp<Property.JustifyItems>;
+  /** CSS `place-items`. Støtter verdi per brekkpunkt eller samme for alle skjermstørrelser. */
+  placeItems?: ResponsiveProp<Property.PlaceItems>;
   /** CSS `align-content`. Støtter verdi per brekkpunkt eller samme for alle skjermstørrelser. */
   alignContent?: ResponsiveProp<Property.AlignContent>;
   /** CSS `justify-content`. Støtter verdi per brekkpunkt eller samme for alle skjermstørrelser. */

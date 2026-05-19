@@ -84,7 +84,7 @@ export const OverflowMenuGroup = ({
     toggle();
   };
 
-  useOnClickOutside([menuRef.current, buttonRef.current], () => {
+  useOnClickOutside([menuRef, buttonRef], () => {
     handleClose();
   });
 

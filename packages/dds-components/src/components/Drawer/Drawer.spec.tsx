@@ -62,6 +62,26 @@ describe('<Drawer>', () => {
       expect(elQuery).not.toBeInTheDocument();
     });
   });
+  it('hides on click outside', async () => {
+    const user = userEvent.setup();
+    portalRender(
+      <>
+        <div data-testid="outside">Outside</div>
+        <DrawerGroup isInitiallyOpen>
+          <Button>{buttonLabel}</Button>
+          <Drawer>{content}</Drawer>
+        </DrawerGroup>
+      </>,
+    );
+
+    expect(screen.queryByRole('dialog')).toBeInTheDocument();
+
+    await user.click(screen.getByTestId('outside'));
+
+    await waitFor(() => {
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    });
+  });
   it('hides after close button click', async () => {
     portalRender(<TestComponent />);
     const button = screen.getByText(buttonLabel);

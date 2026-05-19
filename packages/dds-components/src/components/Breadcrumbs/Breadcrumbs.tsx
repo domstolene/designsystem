@@ -23,7 +23,7 @@ export type BreadcrumbsProps = BaseComponentProps<
   HTMLElement,
   {
     /**
-     * Spesifiserer ved hvilket brekkpunkt og nedover versjonen for små skjermer skal vises.
+     * Brekkpunkt for små skjermer.
      * Trunkerer barn unntatt første og siste; trunkerte barn er tilgjengelige ved å trykke på trunkeringsknappen.
      */
     smallScreenBreakpoint?: Breakpoint;

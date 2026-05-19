@@ -10,7 +10,7 @@ import {
   createSizes,
   getBaseHTMLProps,
 } from '../../types';
-import { type TextColor } from '../../utils';
+import { type IconColor } from '../../utils';
 
 export const getSize = (iconSize: IconSize): string => {
   switch (iconSize) {
@@ -50,7 +50,7 @@ export type IconProps<I extends SvgIcon = SvgIcon> = BaseComponentProps<
     /**Fargen på ikonet.
      * @default "currentcolor"
      */
-    color?: TextColor;
+    color?: IconColor;
     /**
      * Ikon-state hvis ikonet kan animeres; types basert på ikon valgt i `icon` prop. Statiske ikoner støtter ikke propen.
      */

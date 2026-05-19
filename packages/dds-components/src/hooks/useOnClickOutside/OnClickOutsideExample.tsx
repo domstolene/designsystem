@@ -14,7 +14,7 @@ export interface UseOnClickOutsideProps {
 export const OnClickOutsideExample = (props: UseOnClickOutsideProps) => {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
-  useOnClickOutside(ref.current, () => setCount(count + 1));
+  useOnClickOutside(ref, () => setCount(count + 1));
 
   return (
     <div>
@@ -24,9 +24,7 @@ export const OnClickOutsideExample = (props: UseOnClickOutsideProps) => {
         <code>useOnClickOutside(element, handler);</code>
       </p>
       <p>
-        <code>
-          useOnClickOutside([ref.current], () =&gt; setCount(count + 1));
-        </code>
+        <code>useOnClickOutside(ref, () =&gt; setCount(count + 1));</code>
       </p>
       <Paper padding="x1" border="border-default" margin="x1" ref={ref}>
         Innhold

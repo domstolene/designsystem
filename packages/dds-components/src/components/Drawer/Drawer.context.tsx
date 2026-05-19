@@ -1,8 +1,8 @@
-import { createContext, useContext } from 'react';
+import { type RefObject, createContext, useContext } from 'react';
 
 interface DrawerContextType {
   drawerId: string;
-  triggerEl: HTMLElement | null;
+  triggerRef: RefObject<HTMLElement | null>;
   onClose: () => void;
   isOpen: boolean;
 }

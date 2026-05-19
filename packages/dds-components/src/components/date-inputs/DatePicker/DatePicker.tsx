@@ -41,7 +41,7 @@ export interface DatePickerProps
    */
   showWeekNumbers?: boolean;
   /**
-   * Brekkpunkt for å vise versjon for liten skjerm.
+   * Brekkpunkt for små skjermer; viser kalender i modal.
    */
   smallScreenBreakpoint?: Breakpoint;
   /**
