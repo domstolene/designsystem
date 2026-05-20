@@ -384,7 +384,7 @@ export const Example = meta.story({
               <Icon icon={JordskifterettIcon} iconSize={iconSize} />
             </Table.Cell>
             <Table.Cell>
-              <Link external href="/">
+              <Link href="/">
                 Krav om sak fra Marie Luneby, Knut-Håkon Dagsvik, Sonja Luneby
                 og Petter Olaf Jensen.pdf
               </Link>
@@ -403,9 +403,7 @@ export const Example = meta.story({
             <Table.Cell>1-2</Table.Cell>
             <Table.Cell></Table.Cell>
             <Table.Cell>
-              <Link external href="/">
-                Merknader fra Knut-Håkon Dagsvik.pdf
-              </Link>
+              <Link href="/">Merknader fra Knut-Håkon Dagsvik.pdf</Link>
             </Table.Cell>
             <Table.Cell>Akershus og Oslo jordskifterett</Table.Cell>
             <Table.Cell> Maake Karl</Table.Cell>
