@@ -16,7 +16,7 @@
     "storybook": "storybook dev -p 6006",
     "generate:tokens": "pnpm --filter @norges-domstoler/dds-design-tokens run generate:tokens",
     "build:storybook": "pnpm build && storybook build",
-    "serve:storybook": "pnpx serve storybook-static",
+    "serve:storybook": "pnpm dlx serve storybook-static",
     "changeset": "changeset",
     "prerelease": "pnpm build",
     "release": "changeset publish",
@@ -68,23 +68,11 @@
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.59.2"
   },
-  "pnpm": {
-    "overrides": {
-      "react": "19.2.5",
-      "react-dom": "19.2.5",
-      "glob@>=10.2.0 <10.5.0": ">=10.5.0",
-      "flatted@<=3.4.1": ">=3.4.2",
-      "picomatch@<2.3.2": ">=2.3.2",
-      "picomatch@>=4.0.0 <4.0.4": ">=4.0.4",
-      "yaml@>=1.0.0 <1.10.3": ">=1.10.3",
-      "yaml@>=2.0.0 <2.8.3": ">=2.8.3"
-    }
-  },
   "volta": {
     "node": "24.1.0",
-    "pnpm": "10.33.0"
+    "pnpm": "11.1.3"
   },
-  "packageManager": "pnpm@10.33.0",
+  "packageManager": "pnpm@11.1.3",
   "peerDependencies": {
     "webpack": "^5.94.0"
   },
