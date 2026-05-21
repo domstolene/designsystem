@@ -21,8 +21,6 @@ import {
 import { cn } from '../../../utils';
 import { getTextColor, isTextColor } from '../../../utils/color';
 import { focusable } from '../../helpers/styling/focus.module.css';
-import { Icon } from '../../Icon';
-import { OpenExternalIcon } from '../../Icon/icons';
 import { Box } from '../../layout';
 import typographyStyles from '../typographyStyles.module.css';
 
@@ -31,9 +29,6 @@ type AnchorTypographyProps = BaseComponentPropsWithChildren<
   {
     /**nativ `href`-prop ved `typographyType='a'`.  */
     href?: string | undefined;
-
-    /** Spesifiserer om lenka er ekstern ved `typographyType='a'` eller `as='a'`.*/
-    externalLink?: boolean;
 
     /**nativ `target`-prop ved `typographyType='a'`.  */
     target?: string;
@@ -93,13 +88,8 @@ export const Typography = (props: TypographyProps) => {
   const typographyCn = getTypographyCn(typographyType);
 
   let relProp;
-  let targetProp;
-  let externalLinkProp;
   if (isAnchorProps(props)) {
-    const { externalLink, target } = props;
     relProp = as === 'a' ? 'noopener noreferer' : undefined;
-    targetProp = as !== 'a' ? undefined : externalLink ? '_blank' : target;
-    externalLinkProp = as === 'a' && externalLink ? externalLink : undefined;
   }
 
   return (
@@ -110,7 +100,6 @@ export const Typography = (props: TypographyProps) => {
           className,
           getColorCn(color),
           styles.container,
-          externalLinkProp && typographyStyles['a--external'],
           typographyStyles[typographyCn],
           withMargins && typographyStyles[`${typographyCn}--margins`],
           isLegend(as) && typographyStyles.legend,
@@ -132,10 +121,8 @@ export const Typography = (props: TypographyProps) => {
       )}
       as={as}
       rel={relProp}
-      target={targetProp}
     >
       {children}
-      {externalLinkProp && <Icon icon={OpenExternalIcon} iconSize="inherit" />}
     </Box>
   );
 };

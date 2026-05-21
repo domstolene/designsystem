@@ -71,5 +71,12 @@ import { Link } from '@norges-domstoler/dds-components';
 
 ## Retningslinjer
 
-- En lenke må ha `href` prop for assisterende teknologi skal tolke elementet riktig.
-- Komponenten brukes kun til sematiske lenker, likke knapper el.l.. som ser ut som lenke.
+### Ny fane
+
+Lenker skal typisk ikke åpnes i ny fane. Unntak inkluderer forstyrring av flertrinns arbeidsflyt og lenker utenfor sikret område. I slike tilfeller brukes standard `target="_blank"` og tekstlig indikator:
+
+<Canvas of={LinkStories.NewTab} />
+
+### Ting kodes som det ser ut som
+
+En lenke må ha `href` prop for assisterende teknologi skal tolke elementet riktig. Komponenten brukes kun til sematiske lenker, ikke knapper el.l.. som ser ut som lenke. Lenke-komponenter fra rutingrammeverk er innafor.

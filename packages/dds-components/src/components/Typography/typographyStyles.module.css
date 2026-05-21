@@ -86,8 +86,7 @@
   margin-bottom: var(--dds-font-body-long-medium-paragraph-spacing);
 }
 
-:where(.a--external) > .svg,
-.a__icon {
+:where(.a--with-icon) > svg {
   display: inline;
   margin: 0.1em 0.1em -0.1em;
   transform: translateY(0.05em);
