@@ -1,5 +1,53 @@
 # @norges-domstoler/dds-components
 
+## 23.0.0
+
+### Major Changes
+
+- e4d22d6: Fjerner støtte for `external` prop i `<Link>` og `externalLink` i `<Typography>`. Vi følger retningslinjene til uutilsynet om at lenker til eksterne sider ikke åpnes i ny fane. Dersom det er nødvendig at innholdet skal åpnes i ny fane, anbefales det at brukeren blir forhåndsvarslet direkte i lenketeksten. Se mer i [Lenker | uutilsynet](https://www.uutilsynet.no/veiledning/lenker/214) og [Elsas retningslinjer](https://design.domstol.no/987b33f71/p/411e45-link/t/43f76b).
+- 1049172: Hook `useOnClickOutside` er endret til å ta imot React refs (`type RefObject`) i stedet for direkte DOM-elementer (`type HTMLElement`). Detaljer i [migreringsguiden v22 til v23](https://design.domstol.no/987b33f71/p/08e259-v-22-til-v23).
+
+  Bruk før:
+
+  ```tsx
+  useOnClickOutside(ref.current, handler);
+  // med array
+  useOnClickOutside([ref.current, ref2.current], handler);
+  ```
+
+  Bruk nå:
+
+  ```tsx
+  useOnClickOutside(ref, handler);
+  // med array
+  useOnClickOutside([ref, ref2], handler);
+  ```
+
+### Minor Changes
+
+- e4d22d6: Støtte for `withIconStyling` prop i `<Link>`. Setter styling for inline svg som er barn i `<Link>`. Brukes i kombinasjon med `<Icon>`-komponent.
+- 1049172: Ny komponent: `<NewsPopover>`. Brukes til å vise nyheter i brukergrensesnittet og onboarding for nye brukere.
+- 1049172: Ny responsive prop i `<Box>`, `<HStack>`, `<VStack>` og `<Grid>`: `placeItems`. Tilsvarer CSS `place-items`.
+- 1049172: Utvider `color` prop i `<Icon>` til å støtte semantiske fargetokens for branding. Den nye typen er:
+
+  ```ts
+  type IconColor =
+    // ...samme farger som i TextColor...
+    // Nye:
+    | 'brand-primary-default'
+    | 'brand-primary-strong'
+    | 'brand-primary-medium'
+    | 'brand-primary-subtle'
+    | 'brand-secondary-default'
+    | 'brand-secondary-strong'
+    | 'brand-secondary-medium'
+    | 'brand-secondary-subtle'
+    | 'brand-tertiary-default'
+    | 'brand-tertiary-strong'
+    | 'brand-tertiary-medium'
+    | 'brand-tertiary-subtle';
+  ```
+
 ## 22.11.0
 
 ### Minor Changes
