@@ -100,7 +100,7 @@ export function DateInput({
             inputStyles['input--stateful'],
             inputStyles['input--hover'],
             hasErrorMessage && inputStyles['input--stateful-danger'],
-            clearable && inputStyles[`input-with-el-right--${componentSize}`],
+            clearable && inputStyles[`input-with-btn-right--${componentSize}`],
             styles['date-segment-container'],
             inputStyles[`input-with-icon--${componentSize}`],
             isOpen && focusStyles.focused,

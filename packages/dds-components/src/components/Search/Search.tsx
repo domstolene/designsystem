@@ -21,7 +21,6 @@ import { Button } from '../Button';
 import { ClearButton } from '../helpers/ClearButton';
 import { Input, type InputProps } from '../helpers/Input';
 import inputStyles from '../helpers/Input/Input.module.css';
-import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Icon } from '../Icon';
 import { SearchIcon } from '../Icon/icons';
 import { renderInputMessage } from '../InputMessage';
@@ -140,7 +139,7 @@ export const Search = ({
           styles.input,
           inputStyles[`input--${componentSize}`],
           showIcon && inputStyles[`input-with-icon--${componentSize}`],
-          inputStyles[`input-with-el-right--${componentSize}`],
+          inputStyles[`input-with-btn-right--${componentSize}`],
         )}
       />
       {hasSuggestions && (
@@ -160,13 +159,9 @@ export const Search = ({
       )}
       {hasValue && (
         <ClearButton
-          size="component"
+          size={componentSize}
           aria-label={t(texts.clearSearch)}
           onClick={clearInput}
-          className={cn(
-            inputStyles[`input-group__absolute-el-right--${componentSize}`],
-            utilStyles['center-absolute-y'],
-          )}
         />
       )}
     </HStack>

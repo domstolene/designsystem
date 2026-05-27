@@ -1,3 +1,4 @@
+export * from './Bleed';
 export * from './Box';
 export * from './Contrast';
 export * from './Grid';

@@ -1,5 +1,6 @@
 import styles from './InlineEdit.module.css';
 import { createTexts, useTranslation } from '../../i18n';
+import inputStyles from '../helpers/Input/Input.module.css';
 import focusStyles, { focusable } from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import typographyStyles from '../Typography/typographyStyles.module.css';
@@ -36,8 +37,9 @@ export const inlineEditCns = (
   showEditingIcon?: boolean,
 ) => [
   styles['inline-input'],
+  inputStyles['input--xsmall'],
   hasErrorState && styles['inline-input--danger'],
-  showEditingIcon && styles['inline-input--with-icon'],
+  showEditingIcon && inputStyles['input-with-icon--small'],
 ];
 
 export const inlineInputCns = (
@@ -65,7 +67,8 @@ export const inlineSelectCns = (
 ) => [
   ...inlineEditCns(hasErrorState, showEditingIcon),
   typographyStyles['body-short-medium'],
-  styles['inline-select'],
-  hasValue && styles['inline-select--with-clear-button'],
   focusStyles['focusable-focus'],
+  inputStyles['input-with-el-right--small'],
+  hasValue && inputStyles['input-with-icon-and-button-right--small'],
+  styles['inline-select'],
 ];

@@ -113,3 +113,9 @@ export type ResponsiveStackProps = Omit<
   ResponsiveProps,
   'display' | 'flexDirection'
 >;
+export type ResponsiveBleedProps = PrimitiveLayoutProps & {
+  /**Setter negativ CSS `margin-inline`, overskriver prop `marginInline`. Støtter standardverdier og dds spacing tokens skala, per brekkpunkt eller samme for alle skjermstørrelser.*/
+  bleedMarginInline?: ResponsiveProp<Property.MarginInline | SpacingScale>;
+  /**Setter negativ CSS `margin-block`, overskriver prop `marginBlock`. Støtter standardverdier og dds spacing tokens skala, per brekkpunkt eller samme for alle skjermstørrelser.*/
+  bleedMarginBlock?: ResponsiveProp<Property.MarginBlock | SpacingScale>;
+};

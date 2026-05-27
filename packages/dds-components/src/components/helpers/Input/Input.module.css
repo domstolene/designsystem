@@ -8,10 +8,19 @@
   --dds-input-absolute-el-left-small: var(--dds-spacing-x0-5);
   --dds-input-absolute-el-left-medium: var(--dds-spacing-x0-75);
   --dds-input-absolute-el-left-large: var(--dds-spacing-x0-75);
+  --dds-input-btn-right: var(--dds-spacing-x0-25);
+  --dds-input-btn-right-padding-xsmall: var(--dds-spacing-x0-125);
+  --dds-input-btn-right-padding-small: var(--dds-spacing-x0-25);
+  --dds-input-btn-right-padding-medium: var(--dds-spacing-x0-5);
+  --dds-input-btn-right-padding-large: var(--dds-spacing-x0-75);
   --dds-input-absolute-el-right-xsmall: var(--dds-spacing-x0-25);
   --dds-input-absolute-el-right-small: var(--dds-spacing-x0-5);
   --dds-input-absolute-el-right-medium: var(--dds-spacing-x0-75);
   --dds-input-absolute-el-right-large: var(--dds-spacing-x0-75);
+
+  & > svg {
+    pointer-events: none;
+  }
 }
 
 :where(.input) {
@@ -113,76 +122,160 @@
   padding: var(--dds-spacing-x0-25);
 }
 
-.input-with-icon--large {
+:where(.input-with-icon--large) {
   padding-left: calc(
     var(--dds-input-absolute-el-left-large) + var(--dds-size-icon-component) +
       var(--dds-spacing-lg-icon-text-gap)
   );
 }
 
-.input-with-icon--medium {
+:where(.input-with-icon--medium) {
   padding-left: calc(
     var(--dds-input-absolute-el-left-medium) + var(--dds-size-icon-component) +
       var(--dds-spacing-md-icon-text-gap)
   );
 }
 
-.input-with-icon--small {
+:where(.input-with-icon--small) {
   padding-left: calc(
     var(--dds-input-absolute-el-left-small) + var(--dds-size-icon-component) +
       var(--dds-spacing-sm-icon-text-gap)
   );
 }
 
-.input-with-icon--xsmall {
+:where(.input-with-icon--xsmall) {
   padding-left: calc(
     var(--dds-input-absolute-el-left-xsmall) + var(--dds-size-icon-component) +
       var(--dds-spacing-xs-icon-text-gap)
   );
 }
 
-.input-with-el-right--large {
+:where(.input-with-el-right--large) {
   padding-inline-end: calc(
-    var(--dds-input-absolute-el-right-large) + var(--dds-size-icon-component) +
-      var(--dds-spacing-lg-icon-text-gap)
+    var(--dds-input-absolute-el-right-large) + var(--dds-size-icon-component)
   );
 }
 
-.input-with-el-right--medium {
+:where(.input-with-el-right--medium) {
   padding-inline-end: calc(
-    var(--dds-input-absolute-el-right-medium) + var(--dds-size-icon-component) +
-      var(--dds-spacing-md-icon-text-gap)
+    var(--dds-input-absolute-el-right-medium) + var(--dds-size-icon-component)
   );
 }
 
-.input-with-el-right--small {
+:where(.input-with-el-right--small) {
   padding-inline-end: calc(
-    var(--dds-input-absolute-el-right-small) + var(--dds-size-icon-component) +
-      var(--dds-spacing-sm-icon-text-gap)
+    var(--dds-input-absolute-el-right-small) + var(--dds-size-icon-component)
   );
 }
 
-.input-with-el-right--xsmall {
+:where(.input-with-el-right--xsmall) {
   padding-inline-end: calc(
-    var(--dds-input-absolute-el-right-xsmall) + var(--dds-size-icon-component) +
-      var(--dds-spacing-xs-icon-text-gap)
+    var(--dds-input-absolute-el-right-xsmall) + var(--dds-size-icon-component)
   );
 }
 
-.input-group__absolute-el-right--large {
+:where(.input-with-btn-right--large) {
+  padding-inline-end: calc(
+    var(--dds-input-btn-right) + var(--dds-size-icon-component) + 2 *
+      var(--dds-input-btn-right-padding-large)
+  );
+}
+
+:where(.input-with-btn-right--medium) {
+  padding-inline-end: calc(
+    var(--dds-input-btn-right) + var(--dds-size-icon-component) + 2 *
+      var(--dds-input-btn-right-padding-medium)
+  );
+}
+
+:where(.input-with-btn-right--small) {
+  padding-inline-end: calc(
+    var(--dds-input-btn-right) + var(--dds-size-icon-component) + 2 *
+      var(--dds-input-btn-right-padding-small)
+  );
+}
+
+:where(.input-with-btn-right--xsmall) {
+  padding-inline-end: calc(
+    var(--dds-input-btn-right) + var(--dds-size-icon-component) + 2 *
+      var(--dds-input-btn-right-padding-xsmall)
+  );
+}
+
+:where(.input-with-icon-and-button-right--large) {
+  padding-inline-end: calc(
+    var(--dds-input-absolute-el-right-large) + 2 *
+      var(--dds-size-icon-component) + 2 *
+      var(--dds-input-btn-right-padding-large)
+  );
+}
+
+:where(.input-with-icon-and-button-right--medium) {
+  padding-inline-end: calc(
+    var(--dds-input-absolute-el-right-medium) + 2 *
+      var(--dds-size-icon-component) + 2 *
+      var(--dds-input-btn-right-padding-medium)
+  );
+}
+
+:where(.input-with-icon-and-button-right--small) {
+  padding-inline-end: calc(
+    var(--dds-input-absolute-el-right-small) + 2 *
+      var(--dds-size-icon-component) + 2 *
+      var(--dds-input-btn-right-padding-small)
+  );
+}
+
+:where(.input-with-icon-and-button-right--xsmall) {
+  padding-inline-end: calc(
+    var(--dds-input-absolute-el-right-xsmall) + 2 *
+      var(--dds-size-icon-component) + 2 *
+      var(--dds-input-btn-right-padding-xsmall)
+  );
+}
+
+:where(.input-group__absolute-el-right--large) {
   right: var(--dds-input-absolute-el-left-large);
 }
 
-.input-group__absolute-el-right--medium {
+:where(.input-group__absolute-el-right--medium) {
   right: var(--dds-input-absolute-el-left-medium);
 }
 
-.input-group__absolute-el-right--small {
+:where(.input-group__absolute-el-right--small) {
   right: var(--dds-input-absolute-el-left-small);
 }
 
-.input-group__absolute-el-right--xsmall {
+:where(.input-group__absolute-el-right--xsmall) {
   right: var(--dds-input-absolute-el-left-xsmall);
+}
+
+:where(.input-group__btn-right) {
+  right: var(--dds-input-btn-right);
+}
+
+:where(.input-group__btn-right-with-right-icon--xsmall) {
+  right: calc(
+    var(--dds-input-absolute-el-right-xsmall) + var(--dds-size-icon-component)
+  );
+}
+
+:where(.input-group__btn-right-with-right-icon--small) {
+  right: calc(
+    var(--dds-input-absolute-el-right-small) + var(--dds-size-icon-component)
+  );
+}
+
+:where(.input-group__btn-right-with-right-icon--medium) {
+  right: calc(
+    var(--dds-input-absolute-el-right-medium) + var(--dds-size-icon-component)
+  );
+}
+
+:where(.input-group__btn-right-with-right-icon--large) {
+  right: calc(
+    var(--dds-input-absolute-el-right-large) + var(--dds-size-icon-component)
+  );
 }
 
 :where(.input--with-affix) {

@@ -49,61 +49,10 @@
   }
 }
 
-.select--xsmall {
-  padding-right: calc(
-    var(--dds-spacing-x0-25) + var(--dds-size-icon-component)
-  );
-}
-
-.select--small {
-  padding-right: calc(var(--dds-spacing-x0-5) + var(--dds-size-icon-component));
-}
-
-.select--medium {
-  padding-right: calc(
-    var(--dds-spacing-x0-75) + var(--dds-size-icon-component)
-  );
-}
-
 .select--multiple {
   padding-right: 0;
 
   &.select--readonly option {
     background-color: var(--dds-color-surface-field-disabled);
   }
-}
-
-.select--with-clear-button-medium {
-  padding-right: calc(
-    var(--dds-spacing-x0-75) + 2 * var(--dds-size-icon-component)
-  );
-}
-
-.select--with-clear-button-small {
-  padding-right: calc(
-    var(--dds-spacing-x0-5) + 2 * var(--dds-size-icon-component)
-  );
-}
-
-.select--with-clear-button-xsmall {
-  padding-right: calc(
-    var(--dds-spacing-x0-25) + 2 * var(--dds-size-icon-component)
-  );
-}
-
-.icon {
-  align-self: center;
-  pointer-events: none;
-}
-
-.clear-button--xsmall {
-  right: calc(var(--dds-spacing-x0-25) + var(--dds-size-icon-component));
-}
-
-.clear-button--small {
-  right: calc(var(--dds-spacing-x0-5) + var(--dds-size-icon-component));
-}
-
-.clear-button--medium {
-  right: calc(var(--dds-spacing-x0-75) + var(--dds-size-icon-component));
 }
