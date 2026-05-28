@@ -1,6 +1,7 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { describe, expect, it, vi } from 'vitest';
+import { useRef, useState } from 'react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { Button } from '../Button';
 
@@ -169,5 +170,86 @@ describe('<Popover>', () => {
     await waitFor(() => {
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
     });
+  });
+
+  describe('scrolling behavior on focus', () => {
+    // The popover used to get focus before it was positioned.
+    // When used with `portal` and `returnFocusOnBlur`, the browser scrolled to where the portal was placed in the DOM (top of page).
+    // It should wait for the popover to be positioned before focusing.
+
+    const offset = 100;
+    const expectedPosition = `${offset}px`;
+
+    const spyOnPopoverPositionWhenFocusIsCalled = (): Array<string> => {
+      const positions: Array<string> = [];
+      vi.spyOn(HTMLElement.prototype, 'focus').mockImplementation(function (
+        this: HTMLElement,
+      ) {
+        if (this.getAttribute('role') === 'dialog') {
+          positions.push(this.style.top);
+        }
+      });
+      return positions;
+    };
+
+    const WithPopoverGroup = () => (
+      <PopoverGroup>
+        <button type="button">{buttonLabel}</button>
+        <Popover portal returnFocusOnBlur offset={offset}>
+          {content}
+        </Popover>
+      </PopoverGroup>
+    );
+
+    const WithoutPopoverGroup = () => {
+      const anchorRef = useRef<HTMLButtonElement>(null);
+      const [isOpen, setIsOpen] = useState(false);
+      return (
+        <>
+          <button type="button" ref={anchorRef} onClick={() => setIsOpen(true)}>
+            {buttonLabel}
+          </button>
+          <Popover
+            anchorRef={anchorRef}
+            isOpen={isOpen}
+            onClose={() => setIsOpen(false)}
+            portal
+            returnFocusOnBlur
+            withCloseButton={false}
+            offset={offset}
+          >
+            {content}
+          </Popover>
+        </>
+      );
+    };
+
+    afterEach(() => {
+      vi.restoreAllMocks();
+    });
+
+    it.each([
+      ['with PopoverGroup', WithPopoverGroup],
+      ['without PopoverGroup', WithoutPopoverGroup],
+    ])(
+      '%s: popover is positioned before focus is called',
+      async (_name, TestComponent) => {
+        const user = userEvent.setup();
+        const popoverPositions = spyOnPopoverPositionWhenFocusIsCalled();
+
+        render(<TestComponent />);
+
+        await user.click(screen.getByText(buttonLabel));
+
+        await waitFor(() => {
+          expect(popoverPositions.length).toBeGreaterThan(0);
+        });
+
+        for (const actualPosition of popoverPositions) {
+          // Test should fail if `isPositioned` is removed from the `useReturnFocusOnBlur` condition inside `<Popover>`.
+          expect(actualPosition).toBe(expectedPosition);
+        }
+      },
+    );
   });
 });

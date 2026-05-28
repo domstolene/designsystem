@@ -55,6 +55,7 @@ export interface FloatingStyles {
 
 interface UseFloatPosition {
   refs: UseFloatingReturn['refs'];
+  isPositioned: boolean;
   styles: {
     floating: FloatingStyles;
     arrow:
@@ -142,6 +143,7 @@ export const useFloatPosition = (
     middlewareData,
     placement: actualPlacement,
     refs,
+    isPositioned,
   } = useFloating({
     placement,
     middleware,
@@ -151,6 +153,7 @@ export const useFloatPosition = (
 
   return {
     refs,
+    isPositioned,
     styles: {
       floating: {
         position: strategy,
