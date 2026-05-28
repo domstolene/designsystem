@@ -1,17 +1,16 @@
 .container {
   border-radius: inherit;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: box-shadow var(--dds-motion-micro-state);
+  }
+  &:has(.header-button:hover) {
+    box-shadow: 0 0 0 2px var(--dds-color-border-action-hover);
+  }
 }
 
 .header-button {
-  @media (prefers-reduced-motion: no-preference) {
-    transition:
-      box-shadow var(--dds-motion-micro-state),
-      var(--dds-focus-transition);
-  }
-
-  &:hover {
-    box-shadow: 0 0 0 2px var(--dds-color-border-action-hover);
-  }
+  transition: var(--dds-focus-transition);
 }
 
 .header-container {

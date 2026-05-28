@@ -5,26 +5,48 @@ import {
   customCSSFormat,
   customJSFormat,
   customSCSSFormat,
-  filterOutBase,
-} from './utils.js';
+} from './hooks/formats.js';
+import {
+  logVerbosityLevels,
+  transformTypes,
+  transforms,
+} from 'style-dictionary/enums';
+import { ddsFunctionTgCssShorthand } from './hooks/transforms.js';
+import {
+  filterOutBaseFilter,
+  functionTgShorthandFilter,
+} from './hooks/filters.js';
 
 console.log('Tokens build started...');
 console.log('\n==============================================');
 
 register(StyleDictionary);
 
+StyleDictionary.registerFilter({
+  name: 'base-out-filter',
+  filter: filterOutBaseFilter,
+});
+
+StyleDictionary.registerTransform({
+  name: 'dds/typography/css/shorthand',
+  type: transformTypes.value,
+  filter: functionTgShorthandFilter,
+  transitive: true,
+  transform: ddsFunctionTgCssShorthand,
+});
+
 StyleDictionary.registerFormat({
-  name: 'custom/css/variables',
+  name: 'dds/css/variables',
   format: customCSSFormat,
 });
 
 StyleDictionary.registerFormat({
-  name: 'custom/javascript/es6',
+  name: 'dds/javascript/es6',
   format: customJSFormat,
 });
 
 StyleDictionary.registerFormat({
-  name: 'custom/scss/variables',
+  name: 'dds/scss/variables',
   format: customSCSSFormat,
 });
 
@@ -84,23 +106,24 @@ function getStyleDictionaryConfig(theme) {
       css: {
         buildPath: `${destPathBase}/css/`,
         transformGroup: 'tokens-studio',
-        transforms: ['name/kebab'],
+        transforms: [transforms.nameKebab, 'dds/typography/css/shorthand'],
         files: [
           {
             destination: `ddsTokens-${theme.name}.css`,
-            format: 'custom/css/variables',
-            filter: token => filterOutBase(token),
+            format: 'dds/css/variables',
+            filter: 'base-out-filter',
           },
         ],
       },
       js: {
         buildPath: `${destPathBase}/js/${theme.name}/`,
         transformGroup: 'tokens-studio',
+        transforms: ['dds/typography/css/shorthand'],
         files: [
           {
             destination: 'ddsTokens.ts',
-            format: 'custom/javascript/es6',
-            filter: token => filterOutBase(token),
+            format: 'dds/javascript/es6',
+            filter: 'base-out-filter',
           },
         ],
       },
@@ -112,8 +135,8 @@ function getStyleDictionaryConfig(theme) {
         files: [
           {
             destination: `_ddsTokens.scss`,
-            format: 'custom/scss/variables',
-            filter: token => filterOutBase(token),
+            format: 'dds/scss/variables',
+            filter: 'base-out-filter',
           },
         ],
       },
@@ -127,7 +150,7 @@ themes.forEach(theme => {
     console.log(`\nProcessing: [${theme.name}] [${platform}]`);
 
     const sd = new StyleDictionary(getStyleDictionaryConfig(theme), {
-      verbosity: 'verbose',
+      verbosity: logVerbosityLevels.verbose,
     });
 
     sd.buildPlatform(platform);

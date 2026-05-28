@@ -154,12 +154,7 @@ export const RealWorld = meta.story({
                   )}
                 </Table.Cell>
                 <Table.Cell>
-                  <Link
-                    href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                    external
-                  >
-                    {document.name}
-                  </Link>
+                  <Link href="domstol.no">{document.name}</Link>
                 </Table.Cell>
                 <Table.Cell>{document.from}</Table.Cell>
                 <Table.Cell>{document.to}</Table.Cell>

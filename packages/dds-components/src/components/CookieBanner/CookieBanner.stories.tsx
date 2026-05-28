@@ -160,6 +160,7 @@ export const PlacementWithCheckboxes = meta.story({
     docs: {
       story: {
         inline: false,
+        height: '600px',
       },
     },
     chromatic: { disableSnapshot: true },
