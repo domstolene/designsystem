@@ -1,26 +1,10 @@
 import { fileHeader } from 'style-dictionary/utils';
-
-export const lastChars = (token, length) => {
-  if (token.value !== undefined) return token.value.toString().slice(-length);
-};
-
-export const hasRem = token => {
-  return lastChars(token, 3) === 'rem';
-};
-
-export const hasPxOrEm = token => {
-  return lastChars(token, 2) === 'px' || lastChars(token, 2) === 'em';
-};
-
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-/**
- * Filterer ut base tokens som er referansen til de semantiske
- */
-export const filterOutBase = token =>
-  !token.attributes.category.includes('base');
+import {
+  hasPxOrEm,
+  hasRem,
+  numberTokenOutput,
+  trimClassName,
+} from './utils.js';
 
 /**
  * Custom format for JS
@@ -30,18 +14,13 @@ export const filterOutBase = token =>
  * Slike tokens kan brukes f.eks. til offset i floating-ui.
  */
 
-export const numberTokenOutput = (token, unitLength) =>
-  `export const ${token.name} = "${token.value}";\nexport const ${token.name}Number${capitalizeFirstLetter(lastChars(token, unitLength))} = ${token.value.slice(0, -unitLength)};`;
-
 export const customJSFormat = async ({ dictionary, file }) => {
   const header = await fileHeader({ file, commentStyle: 'short' });
   return (
     header +
     dictionary.allTokens
       .map(token => {
-        let output = `export const ${token.name} = ${JSON.stringify(
-          token.value,
-        )};`;
+        let output = `export const ${token.name} = ${JSON.stringify(token.value)};`;
         if (!token.name.includes('LetterSpacing')) {
           if (hasRem(token)) {
             output = numberTokenOutput(token, 3);
@@ -68,8 +47,6 @@ export const customJSFormat = async ({ dictionary, file }) => {
  * For å oppnå dette må tokens-filene returnere en klasse med passende navn,
  * og ikke :root.
  */
-
-const trimClassName = name => name.replace('Tokens', '').replace('.css', '');
 
 export const customCSSFormat = async ({ dictionary, file }) => {
   const header = await fileHeader({ file, commentStyle: 'long' });

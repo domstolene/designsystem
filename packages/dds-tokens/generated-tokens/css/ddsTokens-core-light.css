@@ -24,7 +24,7 @@
   --dds-font-lineheight-x3: 1.2;
   --dds-font-lineheight-x2: 1.3; /* Brukes i komponenter og overskrifter */
   --dds-font-letter-spacing-tight: -0.01em; /* Brukes på str ×2.5 og større */
-  --dds-font-letter-spacing-normal: 0em; /* Brukes på str ×1 og opp til og med ×2 */
+  --dds-font-letter-spacing-normal: 0; /* Brukes på str ×1 og opp til og med ×2 */
   --dds-font-letter-spacing-loose: 0.01em; /* Brukes på størrelser under ×1 */
   --dds-font-paragraph-spacing-small: 1em; /* Brukes på str ×1_25 og mindre  */
   --dds-font-paragraph-spacing-medium: 0.66em; /* Brukes på str x1.5, ×2 og ×3  */
@@ -35,7 +35,7 @@
   --dds-font-style-normal: none;
   --dds-font-style-italic: italic;
   --dds-spacing-padding-top-heading: 0.7em; /* Ekstra spacing over dds-header. 70% av størrelsen på headeren */
-  --dds-spacing-x0: 0rem;
+  --dds-spacing-x0: 0;
   --dds-spacing-x0-125: 0.125rem;
   --dds-spacing-x0-25: 0.25rem;
   --dds-spacing-x0-5: 0.5rem;
@@ -330,35 +330,35 @@
   --dds-font-body-short-large: 400 1.125rem/1.3 'IBM Plex Sans', Arial, sans-serif; /* Used for large button and large search */
   --dds-font-heading-xxlarge-letter-spacing: -0.01em;
   --dds-font-heading-xxlarge-paragraph-spacing: 0.4em;
-  --dds-font-heading-xlarge-letter-spacing: 0em;
+  --dds-font-heading-xlarge-letter-spacing: 0;
   --dds-font-heading-xlarge-paragraph-spacing: 0.4em;
-  --dds-font-heading-large-letter-spacing: 0em;
+  --dds-font-heading-large-letter-spacing: 0;
   --dds-font-heading-large-paragraph-spacing: 0.4em;
-  --dds-font-heading-medium-letter-spacing: 0em;
+  --dds-font-heading-medium-letter-spacing: 0;
   --dds-font-heading-medium-paragraph-spacing: 0.4em;
-  --dds-font-heading-small-letter-spacing: 0em;
+  --dds-font-heading-small-letter-spacing: 0;
   --dds-font-heading-small-paragraph-spacing: 0.4em;
   --dds-font-heading-xsmall-letter-spacing: 0.01em;
   --dds-font-heading-xsmall-paragraph-spacing: 0.4em;
   --dds-font-heading-xxsmall-letter-spacing: 0.01em;
   --dds-font-heading-xxsmall-paragraph-spacing: 0.4em;
-  --dds-font-body-long-large-letter-spacing: 0em;
+  --dds-font-body-long-large-letter-spacing: 0;
   --dds-font-body-long-large-paragraph-spacing: 1em;
-  --dds-font-body-long-medium-letter-spacing: 0em;
+  --dds-font-body-long-medium-letter-spacing: 0;
   --dds-font-body-long-medium-paragraph-spacing: 1em;
   --dds-font-body-long-small-letter-spacing: 0.01em;
   --dds-font-body-long-small-paragraph-spacing: 1em;
   --dds-font-body-long-xsmall-letter-spacing: 0.01em;
   --dds-font-body-long-xsmall-paragraph-spacing: 1em;
-  --dds-font-lead-medium-letter-spacing: 0em;
+  --dds-font-lead-medium-letter-spacing: 0;
   --dds-font-lead-medium-paragraph-spacing: 1em;
-  --dds-font-code-medium-letter-spacing: 0em;
+  --dds-font-code-medium-letter-spacing: 0;
   --dds-font-code-medium-paragraph-spacing: 1em;
   --dds-font-label-medium-letter-spacing: 0.01em;
   --dds-font-label-medium-paragraph-spacing: 1em;
-  --dds-font-body-short-large-letter-spacing: 0em;
+  --dds-font-body-short-large-letter-spacing: 0;
   --dds-font-body-short-large-paragraph-spacing: 1em;
-  --dds-font-body-short-medium-letter-spacing: 0em;
+  --dds-font-body-short-medium-letter-spacing: 0;
   --dds-font-body-short-medium-paragraph-spacing: 1em;
   --dds-font-body-short-small-letter-spacing: 0.01em;
   --dds-font-body-short-small-paragraph-spacing: 1em;
