@@ -7,7 +7,7 @@ runs:
     - name: Install dependencies
       uses: pnpm/action-setup@v6
       with:
-        version: 10
+        version: 11
 
     - name: Setup Node.js
       uses: actions/setup-node@v6
