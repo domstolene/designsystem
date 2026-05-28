@@ -1,8 +1,6 @@
 packages:
   - 'packages/*'
 
-minimumReleaseAge: 0
-
 strictPeerDependencies: false
 autoInstallPeers: true
 enablePrePostScripts: true
