@@ -165,8 +165,6 @@ export const getCustomStyles = <TOption>(
     }),
     ...typography.multiValueLabel[size],
     color: 'var(--dds-color-text-default)',
-    paddingBlock: 'var(--dds-spacing-x0-25)',
-    marginBlock: 'calc(-1 * var(--dds-spacing-x0-25))',
   }),
   multiValueLabel: (provided, state) => ({
     overflow: 'hidden',
