@@ -7,7 +7,7 @@ import {
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import inputStyles from '../helpers/Input/Input.module.css';
-import { Icon, type SvgIcon } from '../Icon';
+import { Icon } from '../Icon';
 import { ChevronDownIcon, EditIcon } from '../Icon/icons';
 import { renderInputMessage } from '../InputMessage';
 import { Box } from '../layout';
@@ -86,20 +86,6 @@ export function InlineField<T extends EditElementTag>(
 
   const cnArgs = [hasErrorState, !isEditing && !hideIcon];
   const iconSize = 'component';
-  function makeIcon(icon: SvgIcon, className: string) {
-    return (
-      <Icon
-        iconSize={iconSize}
-        icon={icon}
-        className={cn(
-          className,
-          elementType === 'textarea'
-            ? styles['edit-icon-textarea']
-            : utilStyles['center-absolute-y'],
-        )}
-      />
-    );
-  }
 
   const renderElement = () => {
     switch (elementType) {

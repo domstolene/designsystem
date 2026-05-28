@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { Bleed } from '.';
 import { Button } from '../../Button';
+
+import { Bleed } from '.';
 
 describe('<Bleed>', () => {
   it('renders content', () => {

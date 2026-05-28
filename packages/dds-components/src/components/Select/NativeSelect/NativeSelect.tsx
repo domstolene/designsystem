@@ -116,7 +116,6 @@ export const NativeSelect = ({
     onChange?.(clearChangeEvent);
   };
 
-  const iconSize = componentSize === 'medium' ? 'medium' : 'small';
   const showClearButton = clearable && hasValue && !readOnly && !rest.disabled;
   const hasIcon = !!icon;
 
