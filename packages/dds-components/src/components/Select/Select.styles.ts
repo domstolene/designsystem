@@ -270,7 +270,6 @@ export const getCustomStyles = <TOption>(
           color: 'var(--dds-color-icon-default)',
           borderRadius: 'var(--dds-border-radius-button)',
           marginBlock: `calc(-1 * ${clearButtonSpacing[size]})`,
-          marginInlineStart: `calc(-1 * ${clearButtonSpacing[size]})`,
           padding: clearButtonSpacing[size],
 
           '@media (prefers-reduced-motion: no-preference)': {
