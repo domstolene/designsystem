@@ -7,8 +7,6 @@ import {
 } from '../../../types';
 import { cn, getTextColor, isTextColor } from '../../../utils';
 import { focusable } from '../../helpers/styling/focus.module.css';
-import { Icon } from '../../Icon';
-import { OpenExternalIcon } from '../../Icon/icons';
 import {
   type CommonInlineTypographyProps,
   type TypographyBodyType,
@@ -26,14 +24,19 @@ export type LinkProps<T extends ElementType = 'a'> =
   PolymorphicBaseComponentProps<
     T,
     {
-      /**Spesifiserer om lenken fører til et eksternt nettsted eller åpnes i nytt vindu. Påvirker styling og setter `target` prop. */
-      external?: boolean;
       /**Om lenken kan få `:visited`-styling. */
       withVisited?: boolean;
       /**Spesifiserer typografistil basert på utvalget for brødtekst. Arver hvis ikke oppgitt. */
       typographyType?: TypographyBodyType;
-      /**Tvinger komponenten til å behandle `as` som en anchor tag wrapper og forwarde anchor-spesifikke props (target, rel). Bruk når custom `as` komponent wrapper en `<a>` tag. */
+      /**
+       * Tvinger komponenten til å behandle `as` som en anchor tag wrapper og forwarde anchor-spesifikke props (target, rel).
+       * Bruk når custom `as` komponent wrapper en `<a>` tag.
+       * */
       isAnchor?: boolean;
+      /**Om styling for inline ikon skal gjelde.
+       * Ikon kan legges inn som barn ved siden av teksten med `<Icon>`-komponent.
+       * */
+      withIconStyling?: boolean;
     } & CommonInlineTypographyProps &
       PickedHTMLAttributes
   >;
@@ -46,12 +49,11 @@ export const Link = <T extends ElementType = 'a'>({
   typographyType,
   withMargins,
   withVisited,
-  external,
-  target,
   style,
   color,
   as: propAs,
   isAnchor: propIsAnchor,
+  withIconStyling,
   ...rest
 }: LinkProps<T>) => {
   const as = propAs ? propAs : 'a';
@@ -60,7 +62,6 @@ export const Link = <T extends ElementType = 'a'>({
   const aProps = isAnchor
     ? {
         rel: 'noopener noreferrer',
-        target: external ? '_blank' : target,
       }
     : {};
 
@@ -72,7 +73,7 @@ export const Link = <T extends ElementType = 'a'>({
         cn(
           className,
           tgStyles.a,
-          external && tgStyles['a--external'],
+          withIconStyling && tgStyles['a--with-icon'],
           withVisited && tgStyles['a--visited'],
           typographyType && tgStyles[getTypographyCn(typographyType)],
           typographyType &&
@@ -91,13 +92,6 @@ export const Link = <T extends ElementType = 'a'>({
       {...aProps}
     >
       {children}
-      {external && (
-        <Icon
-          iconSize="inherit"
-          icon={OpenExternalIcon}
-          className={tgStyles.svg}
-        />
-      )}
     </ElementAs>
   );
 };
