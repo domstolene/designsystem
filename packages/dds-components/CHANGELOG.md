@@ -1,5 +1,12 @@
 # @norges-domstoler/dds-components
 
+## 23.0.1
+
+### Patch Changes
+
+- 3a5c7ae: Box shadow i `<CardExpandable>/>` vises rundt hele containeren når button hovres (både lukket og åpen state)
+- 163dea8: Fikser feil der <Popover> med portal og returnFocusOnBlur scrollet til toppen av siden.
+
 ## 23.0.0
 
 (2026-05-21)
