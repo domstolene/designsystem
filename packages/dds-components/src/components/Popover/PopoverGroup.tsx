@@ -56,7 +56,11 @@ export const PopoverGroup = ({
   const generatedId = useId();
   const uniquePopoverId = popoverId ?? `${generatedId}-popover`;
   const [floatOptions, setFloatOptions] = useState<UseFloatPositionOptions>();
-  const { refs, styles: positionStyles } = useFloatPosition(null, floatOptions);
+  const {
+    refs,
+    styles: positionStyles,
+    isPositioned,
+  } = useFloatPosition(null, floatOptions);
 
   const handleClose = () => {
     setOpen(false);
@@ -121,6 +125,7 @@ export const PopoverGroup = ({
     <PopoverContext
       value={{
         floatStyling: positionStyles.floating,
+        isPositioned,
         setFloatOptions,
         floatingRef: combinedPopoverRef,
         popoverId: uniquePopoverId,

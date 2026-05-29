@@ -9,6 +9,7 @@ import { type FloatingStyles, type UseFloatPositionOptions } from '../../hooks';
 
 interface PopoverContextType {
   floatStyling: FloatingStyles;
+  isPositioned: boolean;
   setFloatOptions: Dispatch<
     SetStateAction<UseFloatPositionOptions | undefined>
   >;

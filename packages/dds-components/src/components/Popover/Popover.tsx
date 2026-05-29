@@ -101,7 +101,11 @@ export const Popover = ({
   ref,
   ...rest
 }: PopoverProps) => {
-  const { refs, styles: positionStyles } = useFloatPosition(null, {
+  const {
+    refs,
+    styles: positionStyles,
+    isPositioned: localIsPositioned,
+  } = useFloatPosition(null, {
     offset,
     placement,
   });
@@ -113,6 +117,7 @@ export const Popover = ({
 
   const {
     floatStyling: contextFloatStyling,
+    isPositioned: contextIsPositioned,
     setFloatOptions,
     floatingRef: contextFloatingRef,
     popoverId: contextPopoverId,
@@ -134,6 +139,7 @@ export const Popover = ({
     floatingRef,
     floatStyling,
     onClose,
+    isPositioned = false,
   ] = hasContext
     ? [
         contextPopoverId,
@@ -142,6 +148,7 @@ export const Popover = ({
         contextFloatingRef,
         contextFloatStyling,
         contextOnClose,
+        contextIsPositioned,
       ]
     : [
         uniquePopoverId,
@@ -150,6 +157,7 @@ export const Popover = ({
         refs.setFloating,
         positionStyles.floating,
         propOnClose,
+        localIsPositioned,
       ];
 
   if (!hasContext) {
@@ -159,7 +167,7 @@ export const Popover = ({
   const hasTransitionedIn = useMountTransition(isOpen, 400);
 
   const popoverRef = useReturnFocusOnBlur(
-    isOpen && hasTransitionedIn && returnFocusOnBlur,
+    isOpen && hasTransitionedIn && isPositioned && returnFocusOnBlur,
     () => {
       onClose?.();
       onBlur?.();
