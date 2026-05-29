@@ -2,6 +2,8 @@
 
 ## 23.0.1
 
+(2026-05-29)
+
 ### Patch Changes
 
 - 3a5c7ae: Box shadow i `<CardExpandable>/>` vises rundt hele containeren når button hovres (både lukket og åpen state)
