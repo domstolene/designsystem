@@ -158,13 +158,15 @@ export const getCustomStyles = <TOption>(
     }),
     ...typography.multiValueLabel[size],
     color: 'var(--dds-color-text-default)',
+    paddingInlineEnd: 'var(--dds-spacing-x0-125)',
   }),
   multiValueLabel: (provided, state) => ({
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
     boxSizing: 'border-box',
-    paddingInline: 'var(--dds-spacing-x0-25)',
+    paddingInlineStart: 'var(--dds-spacing-x0-5)',
+    paddingBlock: 'var(--dds-spacing-x0-125)',
     ...(state.selectProps.isDisabled && {
       color: 'var(--dds-color-text-subtle)',
     }),
