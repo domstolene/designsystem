@@ -1,7 +1,9 @@
 import preview from '#.storybook/preview';
+import {} from '#packages/dds-components/dist/index.mjs';
 
 import { type InputSize } from '../../../packages/dds-components/src/components/helpers/Input';
 import {
+  Button,
   DatePicker,
   HStack,
   LocalMessage,
@@ -38,6 +40,9 @@ const phoneValue = { countryCode: 'NO', phoneNumber: '12345678' };
 function renderInputs(size: InputSize) {
   return (
     <>
+      <Button size={size} icon={icon}>
+        Test
+      </Button>
       <TextInput componentSize={size} icon={icon} defaultValue={value} />
       <DatePicker componentSize={size} defaultValue={dValue} />
       <TimePicker componentSize={size} defaultValue={tValue} />
