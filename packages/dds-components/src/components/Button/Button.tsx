@@ -17,7 +17,7 @@ export const Button = <I extends SvgIcon, T extends ElementType = 'button'>({
   as: propAs,
   children,
   purpose = 'primary',
-  size = 'medium',
+  size: propSize = 'medium',
   iconPosition = 'left',
   loading,
   loadingTooltip,
@@ -44,12 +44,13 @@ export const Button = <I extends SvgIcon, T extends ElementType = 'button'>({
   const isIconButton = !hasLabel && hasIcon;
   const isTextButton = hasLabel && !hasIcon;
   const noContent = !hasLabel && !hasIcon;
+  const size = groupSize ?? propSize;
 
   const buttonCn = cn(
     className,
     styles.button,
     styles[`button--${groupPurpose ? groupPurpose : purpose}`],
-    styles[`button--${groupSize ? groupSize : size}`],
+    styles[`button--${size}`],
     isTextButton && styles['just-text'],
     ...(hasLabelAndIcon
       ? [styles['with-text-and-icon'], styles[`with-icon-${iconPosition}`]]
