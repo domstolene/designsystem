@@ -60,6 +60,10 @@
   &.button--is-loading.no-content {
     padding: var(--dds-spacing-x0-25);
   }
+
+  &.clear {
+    padding: var(--dds-spacing-x0-125);
+  }
 }
 
 .button--small {
@@ -83,6 +87,10 @@
   &.just-icon,
   &.button--is-loading.no-content {
     padding: var(--dds-spacing-x0-5);
+  }
+
+  &.clear {
+    padding: var(--dds-spacing-x0-25);
   }
 }
 
@@ -108,6 +116,10 @@
   &.button--is-loading.no-content {
     padding: var(--dds-spacing-x0-75);
   }
+
+  &.clear {
+    padding: var(--dds-spacing-x0-5);
+  }
 }
 
 .button--large {
@@ -131,6 +143,10 @@
   &.just-icon,
   &.button--is-loading.no-content {
     padding: var(--dds-spacing-x1);
+  }
+
+  &.clear {
+    padding: var(--dds-spacing-x0-75);
   }
 }
 

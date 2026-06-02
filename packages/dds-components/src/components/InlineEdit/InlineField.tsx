@@ -7,7 +7,7 @@ import {
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import inputStyles from '../helpers/Input/Input.module.css';
-import { Icon, type SvgIcon } from '../Icon';
+import { Icon } from '../Icon';
 import { ChevronDownIcon, EditIcon } from '../Icon/icons';
 import { renderInputMessage } from '../InputMessage';
 import { Box } from '../layout';
@@ -86,20 +86,6 @@ export function InlineField<T extends EditElementTag>(
 
   const cnArgs = [hasErrorState, !isEditing && !hideIcon];
   const iconSize = 'component';
-  function makeIcon(icon: SvgIcon, className: string) {
-    return (
-      <Icon
-        iconSize={iconSize}
-        icon={icon}
-        className={cn(
-          className,
-          elementType === 'textarea'
-            ? styles['edit-icon-textarea']
-            : utilStyles['center-absolute-y'],
-        )}
-      />
-    );
-  }
 
   const renderElement = () => {
     switch (elementType) {
@@ -134,11 +120,19 @@ export function InlineField<T extends EditElementTag>(
               <ClearButton
                 aria-label={t(commonTexts.clearSelect)}
                 onClick={clearInput}
-                size={iconSize}
+                size="small"
                 className={styles['clear-button']}
               />
             )}
-            {makeIcon(ChevronDownIcon, styles.chevron)}
+            <Icon
+              iconSize={iconSize}
+              icon={ChevronDownIcon}
+              className={cn(
+                className,
+                inputStyles['input-group__absolute-el-right--xsmall'],
+                utilStyles['center-absolute-y'],
+              )}
+            />
           </>
         );
       default:
@@ -148,7 +142,19 @@ export function InlineField<T extends EditElementTag>(
   return (
     <Box position="relative" width={width}>
       <div className={inputStyles['input-group']}>
-        {!isEditing && !hideIcon && makeIcon(EditIcon, styles['edit-icon'])}
+        {!isEditing && !hideIcon && (
+          <Icon
+            iconSize={iconSize}
+            icon={EditIcon}
+            className={cn(
+              className,
+              inputStyles['input-group__absolute-el--small'],
+              elementType === 'textarea'
+                ? styles['edit-icon-textarea']
+                : utilStyles['center-absolute-y'],
+            )}
+          />
+        )}
         {renderElement()}
       </div>
       {inlineEditVisuallyHidden(descId, emptiable)}

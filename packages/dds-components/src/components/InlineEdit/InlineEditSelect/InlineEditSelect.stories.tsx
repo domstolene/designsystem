@@ -93,6 +93,7 @@ export const Overview = meta.story({
         />
         <InlineEditSelect
           {...args}
+          width="10rem"
           children={[
             <option></option>,
             <option>Tømbar</option>,

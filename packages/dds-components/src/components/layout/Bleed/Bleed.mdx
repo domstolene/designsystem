@@ -1,0 +1,42 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import {
+  Source,
+  ComponentLinkRow,
+} from '@norges-domstoler/storybook-components';
+
+import * as BleedStories from './Bleed.stories';
+import meta from './Bleed.stories';
+import { Tabs, Tab, TabList, TabPanel, TabPanels } from '../../Tabs';
+
+<Meta of={meta} />
+
+# Bleed
+
+<ComponentLinkRow
+  docsHref="514eeb-bleed"
+  githubHref={{ folder: 'components/layout', comp: 'Bleed' }}
+  storybookHref={{ folder: 'layout-primitives', comp: 'bleed' }}
+/>
+
+`<Bleed>` legger til negativ margin via props `marginBlock` og `marginInline`.
+
+<Tabs>
+  <TabList>
+    <Tab>Preview</Tab>
+    <Tab>Reflektert padding</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <Canvas of={BleedStories.Preview} />
+      <Controls of={BleedStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      <p>
+        Elementet kan også få padding tilsvarende den negative marginen via
+        `reflektivePadding` prop. På denne måten vil innholdet beholde sin
+        initielle plassering.
+      </p>
+      <Canvas of={BleedStories.ReflectivePadding} />
+    </TabPanel>
+  </TabPanels>
+</Tabs>

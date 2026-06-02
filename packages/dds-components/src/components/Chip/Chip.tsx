@@ -1,12 +1,11 @@
 import { useState } from 'react';
 
-import styles from './Chip.module.css';
 import { createTexts, useTranslation } from '../../i18n';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils/dom';
-import { InlineIconButton } from '../helpers/InlineIconButton';
-import { CloseSmallIcon } from '../Icon/icons';
-import { Box } from '../layout';
+import { Button } from '../Button';
+import { CloseIcon } from '../Icon/icons';
+import { Bleed, Paper } from '../layout';
 import { TextOverflowEllipsisInner } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
@@ -40,30 +39,38 @@ export const Chip = ({
   };
 
   return isOpen ? (
-    <Box
+    <Paper
       display="inline-flex"
       alignItems="center"
       maxWidth="100%"
       gap="x0.125"
-      padding="x0.25 x0.125 x0.25 x0.5"
+      padding="x0.25 0 x0.25 x0.5"
+      borderRadius="chip"
+      border="border-subtle"
+      background="surface-subtle"
       {...getBaseHTMLProps(
         id,
-        cn(className, typographyStyles['body-short-medium'], styles.container),
+        cn(className, typographyStyles['body-short-medium']),
         style,
         restHTMLprops,
         rest,
       )}
     >
       <TextOverflowEllipsisInner>{children}</TextOverflowEllipsisInner>
-      <InlineIconButton
-        size="component"
-        icon={CloseSmallIcon}
+      <Bleed
+        as={Button}
+        purpose="tertiary"
+        size="xsmall"
+        icon={CloseIcon}
         onClick={onClick}
         aria-label={
           ariaLabel ?? t(texts.removeChip) + (children ? ` ${children}` : '')
         }
+        bleedMarginBlock="x0.25"
+        reflectivePadding
+        absolute={false}
       />
-    </Box>
+    </Paper>
   ) : null;
 };
 

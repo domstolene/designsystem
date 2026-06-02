@@ -1,6 +1,5 @@
 .inline-input {
   width: 100%;
-  padding: var(--dds-spacing-x0-25);
   border-width: 1px;
   border-color: transparent;
   background-color: transparent;
@@ -21,13 +20,7 @@
 .inline-select {
   appearance: none;
   text-overflow: ellipsis;
-  width: 100%;
-  padding-right: var(--dds-spacing-x1-5);
   cursor: pointer;
-}
-
-.inline-select--with-clear-button {
-  padding-right: var(--dds-spacing-x3);
 }
 
 .inline-input:hover:enabled:read-write:not(:focus),
@@ -42,29 +35,14 @@
   box-shadow: 0 0 0 1px var(--dds-color-border-danger);
 }
 
-.inline-input--with-icon {
-  padding-left: var(--dds-spacing-x2);
-}
-
 .inline-textarea {
   resize: vertical;
-}
-
-.edit-icon {
-  left: var(--dds-spacing-x0-5);
-  pointer-events: none;
-  z-index: var(--dds-zindex-absolute-element);
 }
 
 /* Sentrerer ikonet i forhold til første linjen med tekst */
 .edit-icon-textarea {
   position: absolute;
   top: var(--dds-spacing-x0-25);
-}
-
-.chevron {
-  right: var(--dds-spacing-x0-25);
-  pointer-events: none;
 }
 
 .clear-button {

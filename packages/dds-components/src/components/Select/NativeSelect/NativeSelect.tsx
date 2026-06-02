@@ -116,7 +116,6 @@ export const NativeSelect = ({
     onChange?.(clearChangeEvent);
   };
 
-  const iconSize = componentSize === 'medium' ? 'medium' : 'small';
   const showClearButton = clearable && hasValue && !readOnly && !rest.disabled;
   const hasIcon = !!icon;
 
@@ -155,16 +154,16 @@ export const NativeSelect = ({
             styles.select,
             readOnly && styles['select--readonly'],
             inputStyles.input,
+            inputStyles[`input-with-el-right--${componentSize}`],
             inputStyles[`input--${componentSize}`],
             hasIcon && inputStyles[`input-with-icon--${componentSize}`],
-            styles[`select--${componentSize}`],
             scrollbar,
             focusable,
             hasErrorMessage && inputStyles['input--stateful-danger'],
             multiple && styles['select--multiple'],
             hasValue &&
               clearable &&
-              styles[`select--with-clear-button-${iconSize}`],
+              inputStyles[`input-with-icon-and-button-right--${componentSize}`],
           )}
           onChange={handleChange}
           aria-readonly={readOnly}
@@ -185,8 +184,8 @@ export const NativeSelect = ({
           <ClearButton
             aria-label={t(commonTexts.clearSelect)}
             onClick={clearInput}
-            size="component"
-            className={styles[`clear-button--${componentSize}`]}
+            size={componentSize}
+            hasIconToRight
           />
         )}
         {!multiple && (
@@ -195,7 +194,6 @@ export const NativeSelect = ({
             iconSize="component"
             className={cn(
               utilStyles['center-absolute-y'],
-              styles.icon,
               inputStyles[`input-group__absolute-el-right--${componentSize}`],
             )}
           />

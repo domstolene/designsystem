@@ -15,6 +15,8 @@ import {
   isPaperBackground,
 } from '../../../types';
 
+const TOKEN_PREFIX = 'dds';
+
 export function isBreakpointObject<T>(
   value: ResponsiveProp<T>,
 ): value is Partial<Record<Breakpoint, T>> {
@@ -41,15 +43,22 @@ export const isRelativeGridColumn = (
   return type === 'all' || type === 'firstHalf' || type === 'secondHalf';
 };
 
+const isColor = (value: unknown): value is PaperBackground | BorderColor => {
+  return (
+    typeof value === 'string' &&
+    (isBorderColor(value) || isPaperBackground(value))
+  );
+};
+
 export function spacingPropToToken(value: string): string {
   return value.replace(/\./g, '-');
 }
 
 const getSpacingToken = (v: SpacingScale): string =>
-  `var(--dds-spacing-${spacingPropToToken(v)})`;
+  `var(--${TOKEN_PREFIX}-spacing-${spacingPropToToken(v)})`;
 
 const getColorToken = (v: PaperBackground | BorderColor): string =>
-  `var(--dds-color-${v})`;
+  `var(--${TOKEN_PREFIX}-color-${v})`;
 
 const relativeGridColumnToken = (
   v: RelativeColumnsOccupied,
@@ -58,46 +67,53 @@ const relativeGridColumnToken = (
   if (v === 'all') return '1 / -1';
   if (!bp) return '';
   return v === 'firstHalf'
-    ? `1 / calc(var(--dds-grid-${bp}-count) / 2 + 1)`
-    : `calc(var(--dds-grid-${bp}-count) / 2 + 1) / -1`;
+    ? `1 / calc(var(--${TOKEN_PREFIX}-grid-${bp}-count) / 2 + 1)`
+    : `calc(var(--${TOKEN_PREFIX}-grid-${bp}-count) / 2 + 1) / -1`;
 };
 
-const getValue = (v: string, bp?: Breakpoint): string => {
-  if (isPaperBackground(v) || isBorderColor(v)) return getColorToken(v);
-  if (isSpacingScale(v)) return getSpacingToken(v);
-  if (isRelativeGridColumn(v)) return relativeGridColumnToken(v, bp);
-  return v;
+const getValue = (v: string, bp?: Breakpoint, invert?: boolean): string => {
+  let output: string;
+
+  if (isColor(v)) output = getColorToken(v);
+  else if (isSpacingScale(v)) output = getSpacingToken(v);
+  else if (isRelativeGridColumn(v)) output = relativeGridColumnToken(v, bp);
+  else output = v;
+
+  return invert ? invertValue(output) : output;
 };
 
-const convertMultiValue = (value: string, bp?: Breakpoint) =>
+const convertMultiValue = (value: string, bp?: Breakpoint, invert?: boolean) =>
   value
     .split(' ')
-    .map(v => getValue(v, bp))
+    .map(v => getValue(v, bp, invert))
     .join(' ');
+
+const invertValue = (v: string): string =>
+  v === '0' ? '0' : `calc(-1 * ${v})`;
 
 export function getResponsiveCSSProperties<T>(
   property?: ResponsiveProp<T>,
   prefix?: string,
   suffix?: string,
+  invert?: boolean,
 ): Properties | undefined {
   if (!property) return;
 
   const properties: Properties = {};
-  const pPrefix = `--dds-${prefix}`;
+  const pPrefix = `--${TOKEN_PREFIX}-${prefix}`;
   const pSuffix = suffix ? `-${suffix}` : '';
 
   if (isBreakpointObject(property)) {
     BREAKPOINTS.forEach(bp => {
       if (property[bp]) {
         (properties as Record<string, string>)[`${pPrefix}-${bp}${pSuffix}`] =
-          convertMultiValue(property[bp].toString(), bp);
+          convertMultiValue(property[bp].toString(), bp, invert);
       }
     });
   } else {
     (properties as Record<string, string>)[`${pPrefix}${pSuffix}`] =
-      convertMultiValue(property.toString());
+      convertMultiValue(property.toString(), undefined, invert);
   }
-
   return properties;
 }
 

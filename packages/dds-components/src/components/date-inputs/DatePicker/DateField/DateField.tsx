@@ -19,7 +19,6 @@ import { createTexts, useTranslation } from '../../../../i18n';
 import { cn } from '../../../../utils';
 import { ClearButton } from '../../../helpers/ClearButton';
 import { type InputProps } from '../../../helpers/Input';
-import inputStyles from '../../../helpers/Input/Input.module.css';
 import { DateInput } from '../../common/DateInput';
 import styles from '../../common/DateInput.module.css';
 
@@ -106,11 +105,8 @@ export function DateField({
             absolute
             aria-label={t(texts.clearDate)}
             aria-hidden={!hasValue}
-            className={cn(
-              inputStyles[`input-group__absolute-el-right--${componentSize}`],
-              !hasValue && styles['clear-button--inactive'],
-            )}
-            size="component"
+            className={cn(!hasValue && styles['clear-button--inactive'])}
+            size={componentSize}
             onClick={clearDate}
           />
         )

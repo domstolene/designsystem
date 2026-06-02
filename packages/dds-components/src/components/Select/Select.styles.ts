@@ -59,6 +59,12 @@ const typography = {
   groupHeading: groupHeadingTypography,
 };
 
+const clearButtonSpacing: Record<InputSize, string> = {
+  xsmall: 'var(--dds-spacing-x0-125)',
+  small: 'var(--dds-spacing-x0-25)',
+  medium: 'var(--dds-spacing-x0-5)',
+};
+
 export const prefix = 'dds-select';
 
 export const getCustomStyles = <TOption>(
@@ -140,6 +146,7 @@ export const getCustomStyles = <TOption>(
       gap: 'var(--dds-spacing-x0-25)',
     }),
     padding: 0,
+    overflowY: 'visible',
   }),
 
   singleValue: () => ({
@@ -262,6 +269,8 @@ export const getCustomStyles = <TOption>(
           display: 'inline-flex',
           color: 'var(--dds-color-icon-default)',
           borderRadius: 'var(--dds-border-radius-button)',
+          marginBlock: `calc(-1 * ${clearButtonSpacing[size]})`,
+          padding: clearButtonSpacing[size],
 
           '@media (prefers-reduced-motion: no-preference)': {
             transition: 'background-color var(--dds-motion-micro-state)',
