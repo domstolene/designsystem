@@ -1,5 +1,17 @@
 # @norges-domstoler/dds-components
 
+## 23.1.0
+
+### Minor Changes
+
+- 3a49cc6: Ny layout primitive: `<Bleed>`. Brukes når elementet skal "blø" utover sin forelder.
+
+### Patch Changes
+
+- 3a49cc6: Fikser bug der museklikk på ikon i `<TextInput>` og `<NativeSelect>` ikke ga komponenten fokus.
+- 3a49cc6: Justerer på størrelse og visuelt inntrykk av tømmeknappen i `<DatePicker>`, `<Select>`, `<NativeSelect>`. `<Search>`, `<InlineEdit>` og `<Chip>`.
+- 3a49cc6: Justerer på ikonet `CloseSmallIcon`.
+
 ## 23.0.1
 
 (2026-05-29)
