@@ -68,8 +68,8 @@ importers:
         specifier: ^8.59.4
         version: 8.59.4(eslint@10.4.1)(typescript@5.9.3)
       chromatic:
-        specifier: ^16.7.0
-        version: 16.7.0
+        specifier: ^17.2.0
+        version: 17.2.0
       eslint:
         specifier: ^10.4.1
         version: 10.4.1
@@ -2808,8 +2808,9 @@ packages:
       '@chromatic-com/vitest':
         optional: true
 
-  chromatic@16.7.0:
-    resolution: {integrity: sha512-t6d3zFajnRYqK+pJg4v2qezDJ5EJxAsPypuV88xJ+u0z6Bec7MCV9j+nMKZXTua8e0wBt6FsjJ9Yqx+fyUngSA==}
+  chromatic@17.2.0:
+    resolution: {integrity: sha512-jxuFtNNMuxbVcM2oAAPsa1fDuygt5e1SVJpvTmvSPkVXFQGylFvApsbhDP9a94qI8QMJeUMmts4bXMqrBotWjg==}
+    engines: {node: '>=22.0.0'}
     hasBin: true
     peerDependencies:
       '@chromatic-com/cypress': ^0.*.* || ^1.0.0
@@ -4557,6 +4558,11 @@ packages:
 
   semver@7.8.0:
     resolution: {integrity: sha512-AcM7dV/5ul4EekoQ29Agm5vri8JNqRyj39o0qpX6vDF2GZrtutZl5RwgD1XnZjiTAfncsJhMI48QQH3sN87YNA==}
+    engines: {node: '>=10'}
+    hasBin: true
+
+  semver@7.8.1:
+    resolution: {integrity: sha512-rkVq3IXh+4FDGch+KwzX3aV9W3kO54GyEgpvBzSyctDA6Xtd7RJQV1xmXbeQp5v7+VzLOfVqiutSE6GICgPFvg==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -7079,7 +7085,7 @@ snapshots:
       '@typescript-eslint/visitor-keys': 8.57.1
       debug: 4.4.3
       minimatch: 10.2.5
-      semver: 7.8.0
+      semver: 7.8.1
       tinyglobby: 0.2.16
       ts-api-utils: 2.5.0(typescript@5.9.3)
       typescript: 5.9.3
@@ -7094,7 +7100,7 @@ snapshots:
       '@typescript-eslint/visitor-keys': 8.59.4
       debug: 4.4.3
       minimatch: 10.2.5
-      semver: 7.8.0
+      semver: 7.8.1
       tinyglobby: 0.2.16
       ts-api-utils: 2.5.0(typescript@5.9.3)
       typescript: 5.9.3
@@ -7650,11 +7656,11 @@ snapshots:
 
   chromatic@16.10.0:
     dependencies:
-      semver: 7.8.0
+      semver: 7.8.1
 
-  chromatic@16.7.0:
+  chromatic@17.2.0:
     dependencies:
-      semver: 7.7.4
+      semver: 7.8.1
 
   chrome-trace-event@1.0.4: {}
 
@@ -8585,7 +8591,7 @@ snapshots:
 
   is-bun-module@2.0.0:
     dependencies:
-      semver: 7.8.0
+      semver: 7.8.1
 
   is-callable@1.2.7: {}
 
@@ -9633,6 +9639,8 @@ snapshots:
   semver@7.7.4: {}
 
   semver@7.8.0: {}
+
+  semver@7.8.1: {}
 
   set-function-length@1.2.2:
     dependencies:
