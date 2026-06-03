@@ -2,6 +2,8 @@
 
 ## 23.1.0
 
+(2026-06-03)
+
 ### Minor Changes
 
 - 3a49cc6: Ny layout primitive: `<Bleed>`. Brukes når elementet skal "blø" utover sin forelder.
