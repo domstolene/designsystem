@@ -92,3 +92,7 @@
 .calling-code {
   left: var(--dds-spacing-x0-5);
 }
+
+.calling-code--disabled {
+  color: var(--dds-color-text-subtle);
+}
