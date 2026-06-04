@@ -125,7 +125,8 @@
   }
 }
 
-.calendar__cell-button--unavailable {
+.calendar__cell-button--unavailable,
+.calendar__cell-button--unavailable:hover {
   background-color: var(--dds-color-surface-field-disabled);
   border-color: var(--dds-color-surface-field-disabled);
   color: var(--dds-color-text-subtle);
@@ -133,7 +134,8 @@
   text-decoration: line-through;
 }
 
-.calendar__cell-button--selected {
+.calendar__cell-button--selected,
+.calendar__cell-button--selected:hover {
   background-color: var(--dds-color-surface-action-selected);
   border-color: var(--dds-color-surface-action-selected);
   color: var(--dds-color-text-on-action);
