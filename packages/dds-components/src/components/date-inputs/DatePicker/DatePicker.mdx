@@ -53,7 +53,7 @@ function calendarDateToNativeDate(date: CalendarDate, time?: Time): Date;
 `}
 />
 
-#### Eksempel på bruk av native JS Date
+Eksempel på bruk av native JS Date:
 
 <Source code={`
 import { useState } from 'react';
@@ -68,7 +68,19 @@ const [value, setValue] = useState<Date>(new Date());
 />
 `}/>
 
-## Liten skjerm
+### `maxValue`/`minValue` vs `isDateUnavailable`
+
+Bruk disse props som følger:
+
+- `maxValue`/`minValue` når det er logisk at datoer ikke er tilgjengelig, slik at brukeren ikke kan bla i de i kalenderen. Eksempler: registrere dødsdato kan ikke gjøres frem i tid, timebestilling skal ikke gjøres tilbake i tid.
+- `isDateUnavailable`når begrensningen er vilkårlig. Brukeren skal kunne bla i datoene selv om de er utilgjengelige. Eksempler: ikke helg, ikke dato før vilkårlig tidspunkt.
+
+### `maxValue`/`minValue` validering
+
+Brukeren kan ikke velge datoer utenfor rekkevidde i kalenderen, men de kan fortsatt skrive inn ugyldig dato.
+Dato utenfor rekkevidde må dermed valideres av konsumenten.
+
+### Liten skjerm
 
 Du kan sette brekkpunkt for når versjonen for mindre skjermer skal vises.
 

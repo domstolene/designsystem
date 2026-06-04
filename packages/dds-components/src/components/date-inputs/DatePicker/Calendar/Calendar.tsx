@@ -20,6 +20,8 @@ import { HStack, VStack } from '../../../layout';
 import { Heading } from '../../../Typography';
 import styles from '../../common/DateInput.module.css';
 import { CalendarPopoverContext } from '../CalendarPopover';
+import { cn, optAttr } from '../../../../utils';
+import utilStyles from '../../../helpers/styling/utilStyles.module.css';
 
 function createCalendar(identifier: string) {
   switch (identifier) {
@@ -47,6 +49,11 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
     title,
   } = useCalendar(props, state);
 
+  const isPrevDisabled =
+    !!props.minValue && state.visibleRange.start.compare(props.minValue) <= 0;
+
+  const isNextDisabled =
+    !!props.maxValue && state.visibleRange.end.compare(props.maxValue) >= 0;
   const { onClose, closeButtonRef } = useContext(CalendarPopoverContext);
 
   const closeOnKeyboardBlurBack: KeyboardEventHandler<HTMLButtonElement> = (
@@ -63,6 +70,7 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
     <VStack {...calendarProps} gap="x0.25" height="337px">
       <HStack justifyContent="space-between" alignItems="center">
         <Button
+          aria-hidden={optAttr(isPrevDisabled)}
           type="button"
           aria-label={t(texts.previousMonth)}
           onClick={e => onPrev?.(e as never)}
@@ -70,7 +78,10 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
           purpose="tertiary"
           icon={ArrowLeftIcon}
           htmlProps={{ onKeyDown: closeOnKeyboardBlurBack }}
-          className={styles['calendar__month-button']}
+          className={cn(
+            styles['calendar__month-button'],
+            isPrevDisabled && utilStyles.invisible,
+          )}
         />
         <Heading
           level={2}
@@ -81,12 +92,16 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
         </Heading>
         <Button
           type="button"
+          aria-hidden={optAttr(isNextDisabled)}
           aria-label={t(texts.nextMonth)}
           onClick={e => onNext?.(e as never)}
           size="small"
           purpose="tertiary"
           icon={ArrowRightIcon}
-          className={styles['calendar__month-button']}
+          className={cn(
+            styles['calendar__month-button'],
+            isNextDisabled && utilStyles.invisible,
+          )}
         />
       </HStack>
       <CalendarGrid state={state} />

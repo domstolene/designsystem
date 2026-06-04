@@ -20,6 +20,7 @@ import { Box, type Breakpoint, ShowHide } from '../layout';
 import { styleUpToBreakpoint } from '../layout/common/utils';
 import { Select } from '../Select';
 import { Paragraph } from '../Typography';
+import utilStyles from '../helpers/styling/utilStyles.module.css';
 
 export interface PaginationOption {
   label: string;
@@ -222,7 +223,7 @@ export const Pagination = ({
         <li
           className={cn(
             styles.list__item,
-            isOnFirstPage && styles['list__item--hidden'],
+            isOnFirstPage && utilStyles.invisible,
           )}
           aria-hidden={isOnFirstPage}
         >
@@ -232,7 +233,7 @@ export const Pagination = ({
         <li
           className={cn(
             styles.list__item,
-            isOnLastPage && styles['list__item--hidden'],
+            isOnLastPage && utilStyles.invisible,
           )}
           aria-hidden={isOnLastPage}
         >
@@ -248,7 +249,7 @@ export const Pagination = ({
           <li
             className={cn(
               styles.list__item,
-              isOnFirstPage && styles['list__item--hidden'],
+              isOnFirstPage && utilStyles.invisible,
             )}
             aria-hidden={isOnFirstPage}
           >
@@ -265,7 +266,7 @@ export const Pagination = ({
           <li
             className={cn(
               styles.list__item,
-              isOnFirstPage && styles['list__item--hidden'],
+              isOnFirstPage && utilStyles.invisible,
             )}
             aria-hidden={isOnFirstPage}
           >
@@ -284,7 +285,7 @@ export const Pagination = ({
           <li
             className={cn(
               styles.list__item,
-              isOnLastPage && styles['list__item--hidden'],
+              isOnLastPage && utilStyles.invisible,
             )}
             aria-hidden={isOnLastPage}
           >
@@ -293,7 +294,7 @@ export const Pagination = ({
           <li
             className={cn(
               styles.list__item,
-              isOnLastPage && styles['list__item--hidden'],
+              isOnLastPage && utilStyles.invisible,
             )}
             aria-hidden={isOnLastPage}
           >

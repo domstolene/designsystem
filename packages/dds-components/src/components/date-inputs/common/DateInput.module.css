@@ -35,10 +35,6 @@
   width: 0;
 }
 
-.clear-button--inactive {
-  visibility: hidden;
-}
-
 /**------------------------------------------------------------------------
 * Ikon ved siden av input
 * Gjelder både dato og tid
@@ -129,12 +125,6 @@
   }
 }
 
-.calendar__cell-button--selected {
-  background-color: var(--dds-color-surface-action-selected);
-  border-color: var(--dds-color-surface-action-selected);
-  color: var(--dds-color-text-on-action);
-}
-
 .calendar__cell-button--unavailable {
   background-color: var(--dds-color-surface-field-disabled);
   border-color: var(--dds-color-surface-field-disabled);
@@ -143,7 +133,14 @@
   text-decoration: line-through;
 }
 
+.calendar__cell-button--selected {
+  background-color: var(--dds-color-surface-action-selected);
+  border-color: var(--dds-color-surface-action-selected);
+  color: var(--dds-color-text-on-action);
+  font-weight: var(--dds-font-weight-bold);
+}
+
 .calendar__cell-button--unavailable--today {
-  border-color: var(--dds-color-surface-field-disabled);
+  border-color: var(--dds-color-border-default);
   text-decoration: underline line-through;
 }

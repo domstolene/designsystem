@@ -20,7 +20,7 @@ import { cn } from '../../../../utils';
 import { ClearButton } from '../../../helpers/ClearButton';
 import { type InputProps } from '../../../helpers/Input';
 import { DateInput } from '../../common/DateInput';
-import styles from '../../common/DateInput.module.css';
+import utilStyles from '../../../helpers/styling/utilStyles.module.css';
 
 export type DateFieldProps<T extends DateValue = CalendarDate> =
   AriaDateFieldOptions<T> & {
@@ -105,7 +105,7 @@ export function DateField({
             absolute
             aria-label={t(texts.clearDate)}
             aria-hidden={!hasValue}
-            className={cn(!hasValue && styles['clear-button--inactive'])}
+            className={cn(!hasValue && utilStyles.invisible)}
             size={componentSize}
             onClick={clearDate}
           />
