@@ -1,0 +1,52 @@
+{
+  "dds-size": {
+    "height": {
+      "input": {
+        "large": {
+          "value": "3.625rem",
+          "type": "dimension",
+          "$extensions": {
+            "com.figma.scopes": [
+              "WIDTH_HEIGHT"
+            ],
+            "com.figma.hiddenFromPublishing": false
+          },
+          "description": "Brukes i input og buttons"
+        },
+        "medium": {
+          "value": "3rem",
+          "type": "dimension",
+          "$extensions": {
+            "com.figma.scopes": [
+              "WIDTH_HEIGHT"
+            ],
+            "com.figma.hiddenFromPublishing": false
+          },
+          "description": "Brukes i input og buttons"
+        },
+        "small": {
+          "value": "2.187rem",
+          "type": "dimension",
+          "$extensions": {
+            "com.figma.scopes": [
+              "WIDTH_HEIGHT"
+            ],
+            "com.figma.hiddenFromPublishing": false
+          },
+          "description": "Brukes i input og buttons"
+        },
+        "xsmall": {
+          "value": "1.5625rem",
+          "type": "dimension",
+          "$extensions": {
+            "com.figma.scopes": [
+              "WIDTH_HEIGHT"
+            ],
+            "com.figma.hiddenFromPublishing": false
+          },
+          "description": "Brukes i input og buttons"
+        }
+      }
+    }
+  }
+}

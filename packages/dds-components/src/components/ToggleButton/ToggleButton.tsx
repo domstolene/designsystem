@@ -4,10 +4,11 @@ import styles from './ToggleButton.module.css';
 import { type ToggleButtonProps } from './ToggleButton.types';
 import { getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
+import buttonStyles from '../Button/Button.module.css';
 import { HiddenInput } from '../helpers';
 import focusStyles from '../helpers/styling/focus.module.css';
 import { Icon } from '../Icon';
-import { Box } from '../layout';
+import { Box, Paper } from '../layout';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export const ToggleButton = ({
@@ -36,17 +37,31 @@ export const ToggleButton = ({
         )}
         type="checkbox"
       />
-      <span
+      <Paper
+        as="span"
+        border="border-default"
+        background="surface-default"
+        borderRadius="rounded"
+        width="fit-content"
+        display="inline-flex"
+        alignItems="center"
         className={cn(
           styles.content,
-          styles[size],
-          hasIcon && styles['content--with-icon'],
           typographyStyles[`body-short-${size}`],
           focusStyles['focus-styled-sibling'],
+          buttonStyles[`button--${size}`],
+          buttonStyles['just-text'],
+          ...(hasIcon
+            ? [
+                buttonStyles['with-text-and-icon'],
+                buttonStyles['with-icon-left'],
+              ]
+            : []),
         )}
       >
-        {hasIcon && <Icon icon={icon} iconSize="component" />} {label}
-      </span>
+        {hasIcon && <Icon icon={icon} iconSize="component" />}
+        <span>{label}</span>
+      </Paper>
     </Box>
   );
 };

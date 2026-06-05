@@ -39,26 +39,26 @@
 }
 
 .button--xsmall {
+  height: var(--dds-size-height-input-xsmall);
+  padding-block: var(--dds-spacing-x0-125);
   &.just-text {
-    padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-5);
+    padding-inline: var(--dds-spacing-x0-5);
   }
 
   &.with-text-and-icon {
     gap: var(--dds-spacing-xs-icon-text-gap);
 
     &.with-icon-left {
-      padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-5)
-        var(--dds-spacing-x0-25) var(--dds-spacing-x0-25);
+      padding-inline: var(--dds-spacing-x0-25) var(--dds-spacing-x0-5);
     }
     &.with-icon-right {
-      padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-25)
-        var(--dds-spacing-x0-25) var(--dds-spacing-x0-5);
+      padding-inline: var(--dds-spacing-x0-5) var(--dds-spacing-x0-25);
     }
   }
 
   &.just-icon,
   &.button--is-loading.no-content {
-    padding: var(--dds-spacing-x0-25);
+    padding-inline: var(--dds-spacing-x0-25);
   }
 
   &.clear {
@@ -67,26 +67,26 @@
 }
 
 .button--small {
+  height: var(--dds-size-height-input-small);
+  padding-block: var(--dds-spacing-x0-25);
   &.just-text {
-    padding: var(--dds-spacing-x0-5) var(--dds-spacing-x0-75);
+    padding-inline: var(--dds-spacing-x0-75);
   }
 
   &.with-text-and-icon {
     gap: var(--dds-spacing-sm-icon-text-gap);
 
     &.with-icon-left {
-      padding: var(--dds-spacing-x0-5) var(--dds-spacing-x0-75)
-        var(--dds-spacing-x0-5) var(--dds-spacing-x0-5);
+      padding-inline: var(--dds-spacing-x0-5) var(--dds-spacing-x0-75);
     }
     &.with-icon-right {
-      padding: var(--dds-spacing-x0-5) var(--dds-spacing-x0-5)
-        var(--dds-spacing-x0-5) var(--dds-spacing-x0-75);
+      padding-inline: var(--dds-spacing-x0-75) var(--dds-spacing-x0-5);
     }
   }
 
   &.just-icon,
   &.button--is-loading.no-content {
-    padding: var(--dds-spacing-x0-5);
+    padding-inline: var(--dds-spacing-x0-5);
   }
 
   &.clear {
@@ -95,26 +95,26 @@
 }
 
 .button--medium {
+  height: var(--dds-size-height-input-medium);
+  padding-block: var(--dds-spacing-x0-5);
   &.just-text {
-    padding: var(--dds-spacing-x0-75) var(--dds-spacing-x1);
+    padding-inline: var(--dds-spacing-x1);
   }
 
   &.with-text-and-icon {
     gap: var(--dds-spacing-md-icon-text-gap);
 
     &.with-icon-left {
-      padding: var(--dds-spacing-x0-75) var(--dds-spacing-x1)
-        var(--dds-spacing-x0-75) var(--dds-spacing-x0-75);
+      padding-inline: var(--dds-spacing-x0-75) var(--dds-spacing-x1);
     }
     &.with-icon-right {
-      padding: var(--dds-spacing-x0-75) var(--dds-spacing-x0-75)
-        var(--dds-spacing-x0-75) var(--dds-spacing-x1);
+      padding-inline: var(--dds-spacing-x1) var(--dds-spacing-x0-75);
     }
   }
 
   &.just-icon,
   &.button--is-loading.no-content {
-    padding: var(--dds-spacing-x0-75);
+    padding-inline: var(--dds-spacing-x0-75);
   }
 
   &.clear {
@@ -123,26 +123,26 @@
 }
 
 .button--large {
+  height: var(--dds-size-height-input-large);
+  padding-block: var(--dds-spacing-x0-75);
   &.just-text {
-    padding: var(--dds-spacing-x1) var(--dds-spacing-x1-5);
+    padding-inline: var(--dds-spacing-x1-5);
   }
 
   &.with-text-and-icon {
     gap: var(--dds-spacing-lg-icon-text-gap);
 
     &.with-icon-left {
-      padding: var(--dds-spacing-x1) var(--dds-spacing-x1-5)
-        var(--dds-spacing-x1) var(--dds-spacing-x1);
+      padding-inline: var(--dds-spacing-x1) var(--dds-spacing-x1-5);
     }
     &.with-icon-right {
-      padding: var(--dds-spacing-x1) var(--dds-spacing-x1) var(--dds-spacing-x1)
-        var(--dds-spacing-x1-5);
+      padding-inline: var(--dds-spacing-x1-5) var(--dds-spacing-x1);
     }
   }
 
   &.just-icon,
   &.button--is-loading.no-content {
-    padding: var(--dds-spacing-x1);
+    padding-inline: var(--dds-spacing-x1);
   }
 
   &.clear {
