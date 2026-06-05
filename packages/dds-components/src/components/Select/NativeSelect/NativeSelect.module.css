@@ -13,6 +13,7 @@
     }
   }
   &:disabled {
+    opacity: 1;
     cursor: not-allowed;
     color: var(--dds-color-text-subtle);
     background-color: var(--dds-color-surface-field-disabled);
