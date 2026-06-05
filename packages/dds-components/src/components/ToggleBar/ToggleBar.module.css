@@ -5,11 +5,7 @@
 }
 
 .content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   word-break: break-word;
-  height: 100%;
   box-sizing: border-box;
   cursor: pointer;
   background-color: var(--dds-color-surface-default);

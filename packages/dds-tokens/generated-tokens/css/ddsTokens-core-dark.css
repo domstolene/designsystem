@@ -364,4 +364,8 @@
   --dds-font-body-short-small-paragraph-spacing: 1em;
   --dds-font-body-short-xsmall-letter-spacing: 0.01em;
   --dds-font-body-short-xsmall-paragraph-spacing: 1em;
+  --dds-size-height-input-large: 3.625rem; /* Brukes i input og buttons */
+  --dds-size-height-input-medium: 3rem; /* Brukes i input og buttons */
+  --dds-size-height-input-small: 2.187rem; /* Brukes i input og buttons */
+  --dds-size-height-input-xsmall: 1.5625rem; /* Brukes i input og buttons */
 }
