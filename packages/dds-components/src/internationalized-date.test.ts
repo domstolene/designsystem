@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import semver from 'semver';
 
+import semver from 'semver';
 import { describe, expect, it } from 'vitest';
 
 import packageJson from '../package.json';
