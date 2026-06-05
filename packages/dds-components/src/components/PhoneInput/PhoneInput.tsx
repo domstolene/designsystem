@@ -319,6 +319,8 @@ export const PhoneInput = ({
               typographyStyles[`body-short-${componentSize}`],
               inputStyles['input-group__absolute-el'],
               styles['calling-code'],
+              (commonProps.disabled || commonProps.readOnly) &&
+                styles['calling-code--disabled'],
             )}
             ref={callingCodeRef}
           >
