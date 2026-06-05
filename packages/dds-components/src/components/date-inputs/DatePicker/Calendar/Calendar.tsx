@@ -14,14 +14,14 @@ import {
 
 import { CalendarGrid } from './CalendarGrid';
 import { createTexts, useTranslation } from '../../../../i18n';
+import { cn, optAttr } from '../../../../utils';
 import { Button } from '../../../Button';
+import utilStyles from '../../../helpers/styling/utilStyles.module.css';
 import { ArrowLeftIcon, ArrowRightIcon } from '../../../Icon/icons';
 import { HStack, VStack } from '../../../layout';
 import { Heading } from '../../../Typography';
 import styles from '../../common/DateInput.module.css';
 import { CalendarPopoverContext } from '../CalendarPopover';
-import { cn, optAttr } from '../../../../utils';
-import utilStyles from '../../../helpers/styling/utilStyles.module.css';
 
 function createCalendar(identifier: string) {
   switch (identifier) {

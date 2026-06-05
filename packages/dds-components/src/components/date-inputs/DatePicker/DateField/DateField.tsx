@@ -19,8 +19,8 @@ import { createTexts, useTranslation } from '../../../../i18n';
 import { cn } from '../../../../utils';
 import { ClearButton } from '../../../helpers/ClearButton';
 import { type InputProps } from '../../../helpers/Input';
-import { DateInput } from '../../common/DateInput';
 import utilStyles from '../../../helpers/styling/utilStyles.module.css';
+import { DateInput } from '../../common/DateInput';
 
 export type DateFieldProps<T extends DateValue = CalendarDate> =
   AriaDateFieldOptions<T> & {

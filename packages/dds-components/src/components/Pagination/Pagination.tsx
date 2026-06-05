@@ -8,6 +8,7 @@ import { commonTexts } from '../../i18n/commonTexts';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
 import { Button } from '../Button';
+import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Icon } from '../Icon';
 import {
   ChevronFirstIcon,
@@ -20,7 +21,6 @@ import { Box, type Breakpoint, ShowHide } from '../layout';
 import { styleUpToBreakpoint } from '../layout/common/utils';
 import { Select } from '../Select';
 import { Paragraph } from '../Typography';
-import utilStyles from '../helpers/styling/utilStyles.module.css';
 
 export interface PaginationOption {
   label: string;
