@@ -2,6 +2,8 @@
 
 ## 9.3.0
 
+(2026-06-08)
+
 ### Minor Changes
 
 - 0f7c365: Nye design tokens: `--dds-size-height-input-large`, `--dds-size-height-input-medium`, `--dds-size-height-input-small`, `--dds-size-height-input-xsmall`. Brukes til å standardisere høyde på tvers av inputelementer og knapper.
