@@ -37,6 +37,7 @@
 
 .inline-textarea {
   resize: vertical;
+  height: initial;
 }
 
 /* Sentrerer ikonet i forhold til første linjen med tekst */
