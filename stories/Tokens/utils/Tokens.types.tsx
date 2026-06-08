@@ -60,6 +60,10 @@ export type TokenShadowJsonObject = Record<
 
 export type TokenShadowSemanticJsonObject = TokenGroup;
 
+export type TokenBaseSizeJsonObject = TokenGroup;
+
+export type TokenSemanticHeightJsonObject = Record<string, TokenGroup>;
+
 export function isTokenNode(entry: TokenNode | TokenGroup): entry is TokenNode {
   return typeof entry === 'object' && typeof entry.value === 'string';
 }
