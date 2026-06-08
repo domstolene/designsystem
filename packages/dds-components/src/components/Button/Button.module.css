@@ -39,7 +39,7 @@
 }
 
 .button--xsmall {
-  height: var(--dds-size-height-input-xsmall);
+  min-height: var(--dds-size-height-input-xsmall);
   padding-block: var(--dds-spacing-x0-125);
   &.just-text {
     padding-inline: var(--dds-spacing-x0-5);
@@ -67,7 +67,7 @@
 }
 
 .button--small {
-  height: var(--dds-size-height-input-small);
+  min-height: var(--dds-size-height-input-small);
   padding-block: var(--dds-spacing-x0-25);
   &.just-text {
     padding-inline: var(--dds-spacing-x0-75);
@@ -95,7 +95,7 @@
 }
 
 .button--medium {
-  height: var(--dds-size-height-input-medium);
+  min-height: var(--dds-size-height-input-medium);
   padding-block: var(--dds-spacing-x0-5);
   &.just-text {
     padding-inline: var(--dds-spacing-x1);
@@ -123,7 +123,7 @@
 }
 
 .button--large {
-  height: var(--dds-size-height-input-large);
+  min-height: var(--dds-size-height-input-large);
   padding-block: var(--dds-spacing-x0-75);
   &.just-text {
     padding-inline: var(--dds-spacing-x1-5);
