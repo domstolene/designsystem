@@ -15,8 +15,6 @@ import typographyStyles from '../../../Typography/typographyStyles.module.css';
 import styles from '../../common/DateInput.module.css';
 import { timezone } from '../constants';
 
-export type CellVariant = 'default' | 'selected' | 'unavailable';
-
 interface CalendarCellProps extends AriaCalendarCellProps {
   state: CalendarState | RangeCalendarState;
   onClose: () => void;
@@ -33,15 +31,9 @@ export function CalendarCell({ date, state, onClose }: CalendarCellProps) {
     isDisabled,
     isUnavailable,
   } = useCalendarCell({ date }, state, ref);
-  if (isDisabled) {
+  if (isOutsideVisibleRange) {
     return <td {...cellProps} />;
   }
-
-  const variant: CellVariant = isSelected
-    ? 'selected'
-    : isUnavailable || isDisabled
-      ? 'unavailable'
-      : 'default';
 
   const closeOnKeyboardBlurForward = (event: KeyboardEvent) => {
     if (event.key === 'Tab' && event.shiftKey === false) {
@@ -49,19 +41,27 @@ export function CalendarCell({ date, state, onClose }: CalendarCellProps) {
     }
   };
 
+  const isEffectivelyUnavailable = isUnavailable || isDisabled;
+  const isUnavailableToday =
+    isEffectivelyUnavailable && isToday(date, timezone);
+
   return (
     <td {...cellProps}>
       <button
         {...buttonProps}
         type="button"
         ref={ref}
-        hidden={isOutsideVisibleRange}
         onKeyDown={closeOnKeyboardBlurForward}
         className={cn(
           styles['calendar__grid-element'],
           styles['calendar__cell-button'],
           isToday(date, timezone) && styles['calendar__cell-button--today'],
-          styles[`calendar__cell-button--${variant}`],
+          styles[`calendar__cell-button--default`],
+          isSelected && styles[`calendar__cell-button--selected`],
+          isEffectivelyUnavailable &&
+            styles[`calendar__cell-button--unavailable`],
+          isUnavailableToday &&
+            styles['calendar__cell-button--unavailable--today'],
           typographyStyles['body-short-small'],
           focusable,
         )}
