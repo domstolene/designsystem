@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 23.1.2
+
+### Patch Changes
+
+- 7d37d0d: Fikser bug der `<Select isMulti>` ikke fikk plass til verdi-chips over flere linjer.
+
 ## 23.1.1
 
 (2026-06-08)
