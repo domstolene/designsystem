@@ -108,22 +108,22 @@
 
 :where(.input--large) {
   padding: var(--dds-spacing-x0-75);
-  height: var(--dds-size-height-input-large);
+  min-height: var(--dds-size-height-input-large);
 }
 
 :where(.input--medium) {
   padding: var(--dds-spacing-x0-5) var(--dds-spacing-x0-75);
-  height: var(--dds-size-height-input-medium);
+  min-height: var(--dds-size-height-input-medium);
 }
 
 :where(.input--small) {
   padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-5);
-  height: var(--dds-size-height-input-small);
+  min-height: var(--dds-size-height-input-small);
 }
 
 :where(.input--xsmall) {
   padding: var(--dds-spacing-x0-125) var(--dds-spacing-x0-25);
-  height: var(--dds-size-height-input-xsmall);
+  min-height: var(--dds-size-height-input-xsmall);
 }
 
 :where(.input-with-icon--large) {
