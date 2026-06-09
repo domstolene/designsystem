@@ -33,6 +33,8 @@ const meta = preview.meta({
   decorators: [ddsProviderDecorator],
 });
 
+export default meta;
+
 const options = [
   { value: 'Alternativ 1', label: 'Alternativ 1' },
   { value: 'Alternativ 2', label: 'Alternativ 2' },
