@@ -77,9 +77,7 @@ export function Icon<I extends SvgIcon = SvgIcon>(props: IconProps<I>) {
 
   return (
     <C
-      {...getBaseHTMLProps(id, className, style, htmlProps, {
-        ...rest,
-      })}
+      {...getBaseHTMLProps(id, className, style, htmlProps, rest)}
       height={size}
       width={size}
       fill={color}

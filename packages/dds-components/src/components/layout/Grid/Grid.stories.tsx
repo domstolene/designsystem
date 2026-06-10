@@ -1,7 +1,7 @@
 import preview from '#.storybook/preview';
 
 import {
-  categoryCss,
+  CSSArgType,
   ddsProviderDecorator,
   responsivePropsArgTypes,
   windowWidthDecorator,
@@ -24,7 +24,14 @@ const meta = preview.meta({
   component: Grid,
   argTypes: {
     ...responsivePropsArgTypes,
-    gridTemplateColumns: { control: 'text', table: categoryCss },
+    gridTemplateColumns: CSSArgType,
+    grid: CSSArgType,
+    gridAutoColumns: CSSArgType,
+    gridAutoFlow: CSSArgType,
+    gridAutoRows: CSSArgType,
+    gridTemplate: CSSArgType,
+    gridTemplateAreas: CSSArgType,
+    gridTemplateRows: CSSArgType,
   },
   decorators: [ddsProviderDecorator],
 });

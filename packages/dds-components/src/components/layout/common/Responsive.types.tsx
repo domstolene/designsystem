@@ -1,5 +1,7 @@
 import { type Property } from 'csstype';
 
+import { type ExtractStrict } from '../../..';
+
 export const BREAKPOINTS = ['xs', 'sm', 'md', 'lg', 'xl'] as const;
 export type Breakpoint = (typeof BREAKPOINTS)[number];
 
@@ -113,6 +115,25 @@ export type ResponsiveStackProps = Omit<
   ResponsiveProps,
   'display' | 'flexDirection'
 >;
+
+export type ResponsiveGridProps = Omit<PrimitiveLayoutProps, 'display'> & {
+  display?: ExtractStrict<Property.Display, 'grid' | 'inline-grid'>;
+  /** CSS `grid`. Støtter standardverdier per brekkpunkt eller samme for alle skjermstørrelser. */
+  grid?: ResponsiveProp<Property.Grid>;
+  /** CSS `grid-auto-columns`. Støtter standardverdier per brekkpunkt eller samme for alle skjermstørrelser. */
+  gridAutoColumns?: ResponsiveProp<Property.GridAutoColumns>;
+  /** CSS `grid-auto-rows`. Støtter standardverdier per brekkpunkt eller samme for alle skjermstørrelser. */
+  gridAutoRows?: ResponsiveProp<Property.GridAutoRows>;
+  /** CSS `grid-auto-flow`. Støtter standardverdier per brekkpunkt eller samme for alle skjermstørrelser. */
+  gridAutoFlow?: ResponsiveProp<Property.GridAutoFlow>;
+  /** CSS `grid-template-rows`. Støtter standardverdier per brekkpunkt eller samme for alle skjermstørrelser. */
+  gridTemplateRows?: ResponsiveProp<Property.GridTemplateRows>;
+  /** CSS `grid-template`. Støtter standardverdier per brekkpunkt eller samme for alle skjermstørrelser. */
+  gridTemplate?: ResponsiveProp<Property.GridTemplate>;
+  /** CSS `grid-template-areas`. Støtter standardverdier per brekkpunkt eller samme for alle skjermstørrelser. */
+  gridTemplateAreas?: ResponsiveProp<Property.GridTemplateAreas>;
+};
+
 export type ResponsiveBleedProps = PrimitiveLayoutProps & {
   /**Setter negativ CSS `margin-inline`, overskriver prop `marginInline`. Støtter standardverdier og dds spacing tokens skala, per brekkpunkt eller samme for alle skjermstørrelser.*/
   bleedMarginInline?: ResponsiveProp<Property.MarginInline | SpacingScale>;
