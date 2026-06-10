@@ -157,7 +157,6 @@ export const Pagination = ({
   const listProps: Partial<GridProps<'ol'>> = {
     as: 'ol',
     defaultPageLayout: false,
-    hideBelow: smallScreenBreakpoint,
     gridAutoFlow: 'column',
     margin: 'x0',
     padding: 'x0',
