@@ -159,8 +159,8 @@ export const Pagination = ({
     defaultPageLayout: false,
     hideBelow: smallScreenBreakpoint,
     gridAutoFlow: 'column',
-    margin: 0,
-    padding: 0,
+    margin: 'x0',
+    padding: 'x0',
     gap: 'x0.75',
   };
 
