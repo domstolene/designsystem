@@ -17,6 +17,7 @@ import { useCombinedRef, useRoveFocus } from '../../hooks';
 import { cn, combineHandlers } from '../../utils';
 import { focusable } from '../helpers/styling/focus.module.css';
 import { scrollbar } from '../helpers/styling/utilStyles.module.css';
+import { Grid } from '../layout';
 
 export type TabListProps = ComponentPropsWithRef<'div'>;
 
@@ -91,9 +92,19 @@ export const TabList = ({
     ['--dds-tab-widths' as any]: widths.join(' '),
   };
 
+  const gridLayout = widths
+    ? {
+        gridTemplateColumns: 'var(--dds-tab-widths)',
+      }
+    : {
+        gridAutoColumns: '1fr',
+        gridAutoFlow: 'column',
+      };
+
   return (
     <TabWidthContextProvider onChangeWidths={setWidths}>
-      <div
+      <Grid
+        defaultPageLayout={false}
         {...rest}
         ref={combinedRef}
         role="tablist"
@@ -101,13 +112,9 @@ export const TabList = ({
         tabIndex={0}
         onFocus={handleOnFocus}
         onBlur={handleOnBlur}
-        className={cn(
-          styles['tab-row'],
-          !widths && styles['tab-row--standard-widths'],
-          styles['tab-row--custom-widths'],
-          focusable,
-          scrollbar,
-        )}
+        overflowX="auto"
+        {...gridLayout}
+        className={cn(styles['tab-row'], focusable, scrollbar)}
         style={{ ...style, ...customWidths }}
       >
         {tabListChildren}
@@ -117,7 +124,7 @@ export const TabList = ({
             {...addTabButtonProps}
           />
         )}
-      </div>
+      </Grid>
     </TabWidthContextProvider>
   );
 };

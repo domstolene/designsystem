@@ -6,7 +6,6 @@ import { useControllableState } from '../../hooks/useControllableState';
 import { createTexts, useTranslation } from '../../i18n';
 import { commonTexts } from '../../i18n/commonTexts';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
-import { cn } from '../../utils';
 import { Button } from '../Button';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Icon } from '../Icon';
@@ -17,7 +16,13 @@ import {
   ChevronRightIcon,
   MoreHorizontalIcon,
 } from '../Icon/icons';
-import { Box, type Breakpoint, ShowHide } from '../layout';
+import {
+  Box,
+  type BoxProps,
+  type Breakpoint,
+  Grid,
+  type GridProps,
+} from '../layout';
 import { styleUpToBreakpoint } from '../layout/common/utils';
 import { Select } from '../Select';
 import { Paragraph } from '../Typography';
@@ -143,12 +148,28 @@ export const Pagination = ({
     }
   };
 
+  const listItemProps: Partial<BoxProps<'li'>> = {
+    as: 'li',
+    display: 'inline-grid',
+    alignContent: 'center',
+  };
+
+  const listProps: Partial<GridProps<'ol'>> = {
+    as: 'ol',
+    defaultPageLayout: false,
+    hideBelow: smallScreenBreakpoint,
+    gridAutoFlow: 'column',
+    margin: 0,
+    padding: 0,
+    gap: 'x0.75',
+  };
+
   const listItems =
     items.length > 0
       ? items.map((item, i) => {
           const isActive = item === activePage;
           return (
-            <li key={`pagination-item-${i}`} className={styles.list__item}>
+            <Box {...listItemProps} key={`pagination-item-${i}`}>
               {item !== 'truncator' && typeof item === 'number' ? (
                 <Button
                   purpose={isActive ? 'primary' : 'secondary'}
@@ -170,7 +191,7 @@ export const Pagination = ({
                   className={styles['truncation-icon']}
                 />
               )}
-            </li>
+            </Box>
           );
         })
       : undefined;
@@ -215,42 +236,28 @@ export const Pagination = ({
           ...baseHTMLProps,
         })}
     >
-      <ShowHide
-        as="ol"
-        hideBelow={smallScreenBreakpoint}
-        className={styles.list}
-      >
-        <li
-          className={cn(
-            styles.list__item,
-            isOnFirstPage && utilStyles.invisible,
-          )}
+      <Grid {...listProps} hideBelow={smallScreenBreakpoint}>
+        <Box
+          {...listItemProps}
+          className={isOnFirstPage ? utilStyles.invisible : undefined}
           aria-hidden={isOnFirstPage}
         >
           {previousPageButton}
-        </li>
+        </Box>
         {listItems}
-        <li
-          className={cn(
-            styles.list__item,
-            isOnLastPage && utilStyles.invisible,
-          )}
+        <Box
+          {...listItemProps}
+          className={isOnLastPage ? utilStyles.invisible : undefined}
           aria-hidden={isOnLastPage}
         >
           {nextPageButton}
-        </li>
-      </ShowHide>
+        </Box>
+      </Grid>
       {!!smallScreenBreakpoint && (
-        <ShowHide
-          as="ol"
-          showBelow={smallScreenBreakpoint}
-          className={styles.list}
-        >
-          <li
-            className={cn(
-              styles.list__item,
-              isOnFirstPage && utilStyles.invisible,
-            )}
+        <Grid {...listProps} showBelow={smallScreenBreakpoint}>
+          <Box
+            {...listItemProps}
+            className={isOnFirstPage ? utilStyles.invisible : undefined}
             aria-hidden={isOnFirstPage}
           >
             <Button
@@ -262,17 +269,15 @@ export const Pagination = ({
               }}
               aria-label={t(texts.firstPage)}
             />
-          </li>
-          <li
-            className={cn(
-              styles.list__item,
-              isOnFirstPage && utilStyles.invisible,
-            )}
+          </Box>
+          <Box
+            {...listItemProps}
+            className={isOnFirstPage ? utilStyles.invisible : undefined}
             aria-hidden={isOnFirstPage}
           >
             {previousPageButton}
-          </li>
-          <li className={styles.list__item}>
+          </Box>
+          <Box {...listItemProps}>
             <Button
               size="small"
               onClick={event => {
@@ -281,21 +286,17 @@ export const Pagination = ({
             >
               {activePage}
             </Button>
-          </li>
-          <li
-            className={cn(
-              styles.list__item,
-              isOnLastPage && utilStyles.invisible,
-            )}
+          </Box>
+          <Box
+            {...listItemProps}
+            className={isOnLastPage ? utilStyles.invisible : undefined}
             aria-hidden={isOnLastPage}
           >
             {nextPageButton}
-          </li>
-          <li
-            className={cn(
-              styles.list__item,
-              isOnLastPage && utilStyles.invisible,
-            )}
+          </Box>
+          <Box
+            {...listItemProps}
+            className={isOnLastPage ? utilStyles.invisible : undefined}
             aria-hidden={isOnLastPage}
           >
             <Button
@@ -307,8 +308,8 @@ export const Pagination = ({
               }}
               aria-label={t(texts.lastPage)}
             />
-          </li>
-        </ShowHide>
+          </Box>
+        </Grid>
       )}
     </Box>
   ) : null;
@@ -331,11 +332,11 @@ export const Pagination = ({
       alignItems={styleUpToBreakpoint('center', smallScreenBreakpoint)}
       {...baseHTMLProps}
     >
-      <Box
-        display="grid"
+      <Grid
+        defaultPageLayout={false}
         gap="x0.5"
         alignItems="center"
-        className={styles.indicators}
+        gridAutoFlow="column"
       >
         {withSelect && (
           <Select
@@ -363,7 +364,7 @@ export const Pagination = ({
             )}
           </Paragraph>
         )}
-      </Box>
+      </Grid>
       {navigation}
     </Box>
   );

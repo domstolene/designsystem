@@ -1,11 +1,10 @@
 import { type ChangeEvent, useId, useState } from 'react';
 
 import { ToggleBarContext } from './ToggleBar.context';
-import styles from './ToggleBar.module.css';
 import { type ToggleBarProps, type ToggleBarValue } from './ToggleBar.types';
 import { getBaseHTMLProps } from '../../types';
 import { combineHandlers } from '../../utils';
-import { VStack } from '../layout';
+import { Grid, VStack } from '../layout';
 import { Typography } from '../Typography';
 
 export const ToggleBar = <T extends string | number = string>(
@@ -61,7 +60,13 @@ export const ToggleBar = <T extends string | number = string>(
             {label}
           </Typography>
         )}
-        <div className={styles.bar}>{children}</div>
+        <Grid
+          defaultPageLayout={false}
+          gridAutoFlow="column"
+          gridAutoColumns="1fr"
+        >
+          {children}
+        </Grid>
       </VStack>
     </ToggleBarContext>
   );

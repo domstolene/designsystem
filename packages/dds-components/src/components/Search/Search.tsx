@@ -172,11 +172,10 @@ export const Search = ({
       <div>
         {showSearchButton ? (
           <Grid
+            defaultPageLayout={false}
             className={className}
             width={width}
             columnGap="x0.5"
-            rowGap="0"
-            marginInline="0"
             gridTemplateColumns="1fr auto"
             style={style}
           >

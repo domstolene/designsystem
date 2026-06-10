@@ -116,8 +116,11 @@ export type ResponsiveStackProps = Omit<
   'display' | 'flexDirection'
 >;
 
-export type ResponsiveGridProps = Omit<PrimitiveLayoutProps, 'display'> & {
+export type ResponsiveGridProps = Omit<ResponsiveProps, 'display'> & {
+  /** CSS `display`.  Støtter verdi per brekkpunkt eller samme for alle skjermstørrelser. */
   display?: ExtractStrict<Property.Display, 'grid' | 'inline-grid'>;
+  /** CSS `grid-template-columns`. Støtter standardverdier per brekkpunkt eller samme for alle skjermstørrelser. */
+  gridTemplateColumns?: ResponsiveProp<Property.GridTemplateColumns>;
   /** CSS `grid`. Støtter standardverdier per brekkpunkt eller samme for alle skjermstørrelser. */
   grid?: ResponsiveProp<Property.Grid>;
   /** CSS `grid-auto-columns`. Støtter standardverdier per brekkpunkt eller samme for alle skjermstørrelser. */
