@@ -31,12 +31,12 @@
 }
 
 .dds-bleed-m-i {
-  --dds-r-bleed-m-i: var(--dds-r-bleed-xs-m-i);
+  --dds-r-bleed-m-i: var(--dds-r-xs-bleed-m-i);
   margin-inline: var(--dds-r-bleed-m-i, initial);
 }
 
 .dds-bleed-m-b {
-  --dds-r-bleed-m-b: var(--dds-r-bleed-xs-m-b);
+  --dds-r-bleed-m-b: var(--dds-r-xs-bleed-m-b);
   margin-block: var(--dds-r-bleed-m-b, initial);
 }
 
@@ -207,10 +207,10 @@
     --dds-r-m-b: var(--dds-r-xs-m-b);
   }
   .dds-bleed-m-i {
-    --dds-r-bleed-m-i: var(--dds-r-bleed-xs-m-i);
+    --dds-r-bleed-m-i: var(--dds-r-xs-bleed-m-i);
   }
   .dds-bleed-m-b {
-    --dds-r-bleed-m-b: var(--dds-r-bleed-xs-m-b);
+    --dds-r-bleed-m-b: var(--dds-r-xs-bleed-m-b);
   }
   .dds-h {
     --dds-r-h: var(--dds-r-xs-h);
@@ -219,7 +219,7 @@
     --dds-r-max-h: var(--dds-r-xs-max-h);
   }
   .dds-min-h {
-    --dds-r-max-h: var(--dds-r-xs-max-h);
+    --dds-r-min-h: var(--dds-r-xs-min-h);
   }
   .dds-w {
     --dds-r-w: var(--dds-r-xs-w);
@@ -321,10 +321,10 @@
     --dds-r-m-b: var(--dds-r-sm-m-b);
   }
   .dds-bleed-m-i {
-    --dds-r-bleed-m-i: var(--dds-r-bleed-sm-m-i);
+    --dds-r-bleed-m-i: var(--dds-r-sm-bleed-m-i);
   }
   .dds-bleed-m-b {
-    --dds-r-bleed-m-b: var(--dds-r-bleed-sm-m-b);
+    --dds-r-bleed-m-b: var(--dds-r-sm-bleed-m-b);
   }
   .dds-h {
     --dds-r-h: var(--dds-r-sm-h);
@@ -333,7 +333,7 @@
     --dds-r-max-h: var(--dds-r-sm-max-h);
   }
   .dds-min-h {
-    --dds-r-max-h: var(--dds-r-sm-max-h);
+    --dds-r-min-h: var(--dds-r-sm-min-h);
   }
   .dds-w {
     --dds-r-w: var(--dds-r-sm-w);
@@ -435,10 +435,10 @@
     --dds-r-m-b: var(--dds-r-md-m-b);
   }
   .dds-bleed-m-i {
-    --dds-r-bleed-m-i: var(--dds-r-bleed-md-m-i);
+    --dds-r-bleed-m-i: var(--dds-r-md-bleed-m-i);
   }
   .dds-bleed-m-b {
-    --dds-r-bleed-m-b: var(--dds-r-bleed-md-m-b);
+    --dds-r-bleed-m-b: var(--dds-r-md-bleed-m-b);
   }
   .dds-h {
     --dds-r-h: var(--dds-r-md-h);
@@ -447,7 +447,7 @@
     --dds-r-max-h: var(--dds-r-md-max-h);
   }
   .dds-min-h {
-    --dds-r-max-h: var(--dds-r-md-max-h);
+    --dds-r-min-h: var(--dds-r-md-min-h);
   }
   .dds-w {
     --dds-r-w: var(--dds-r-md-w);
@@ -549,10 +549,10 @@
     --dds-r-m-b: var(--dds-r-lg-m-b);
   }
   .dds-bleed-m-i {
-    --dds-r-bleed-m-i: var(--dds-r-bleed-lg-m-i);
+    --dds-r-bleed-m-i: var(--dds-r-lg-bleed-m-i);
   }
   .dds-bleed-m-b {
-    --dds-r-bleed-m-b: var(--dds-r-bleed-lg-m-b);
+    --dds-r-bleed-m-b: var(--dds-r-lg-bleed-m-b);
   }
   .dds-h {
     --dds-r-h: var(--dds-r-lg-h);
@@ -561,7 +561,7 @@
     --dds-r-max-h: var(--dds-r-lg-max-h);
   }
   .dds-min-h {
-    --dds-r-max-h: var(--dds-r-lg-max-h);
+    --dds-r-min-h: var(--dds-r-lg-min-h);
   }
   .dds-w {
     --dds-r-w: var(--dds-r-lg-w);
@@ -663,10 +663,10 @@
     --dds-r-m-b: var(--dds-r-xl-m-b);
   }
   .dds-bleed-m-i {
-    --dds-r-bleed-m-i: var(--dds-r-bleed-xl-m-i);
+    --dds-r-bleed-m-i: var(--dds-r-xl-bleed-m-i);
   }
   .dds-bleed-m-b {
-    --dds-r-bleed-m-b: var(--dds-r-bleed-xl-m-b);
+    --dds-r-bleed-m-b: var(--dds-r-xl-bleed-m-b);
   }
   .dds-h {
     --dds-r-h: var(--dds-r-xl-h);
