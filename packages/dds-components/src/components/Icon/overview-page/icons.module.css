@@ -58,5 +58,5 @@ pre.icon-code {
   text-transform: uppercase;
   scale: 90%;
   background-color: var(--dds-color-surface-highlighted-default);
-  border-radius: var(--dds-border-radius-);
+  border-radius: var(--dds-border-radius-surface);
 }

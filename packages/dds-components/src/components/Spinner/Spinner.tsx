@@ -1,5 +1,5 @@
-import { type Properties, type Property } from 'csstype';
-import { type HTMLAttributes, useId, useRef } from 'react';
+import { type Property } from 'csstype';
+import { type HTMLAttributes, useId } from 'react';
 
 import styles from './Spinner.module.css';
 import { useTranslation } from '../../i18n';
@@ -40,14 +40,6 @@ export function Spinner(props: SpinnerProps) {
 
   const { t } = useTranslation();
 
-  const mountTime = useRef(Date.now());
-  const animationDelay = -(mountTime.current % 1500);
-
-  const styleVariables: Properties = {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-spinner-animation-delay' as any]: animationDelay,
-  };
-
   const generatedId = useId();
   const uniqueId = `${generatedId}-spinnerTitle`;
 
@@ -75,7 +67,6 @@ export function Spinner(props: SpinnerProps) {
         r="6"
         fill={getTextColor(color)}
         className={styles.jordskifterett}
-        style={styleVariables}
       />
       <rect
         x="4"
@@ -84,13 +75,11 @@ export function Spinner(props: SpinnerProps) {
         height="4"
         fill={getTextColor(color)}
         className={styles.lagmannsrett}
-        style={styleVariables}
       />
       <path
         d="M12 16.6154C16.4183 16.6154 20 12.7581 20 8H4C4 12.7581 7.58172 16.6154 12 16.6154Z"
         fill={getTextColor(color)}
         className={styles.tingrett}
-        style={styleVariables}
       />
     </svg>
   );
