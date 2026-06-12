@@ -1,8 +1,3 @@
-.with-button-container {
-  display: grid;
-  grid-template-columns: 1fr auto;
-}
-
 .input {
   &[type='search']::-webkit-search-decoration,
   &[type='search']::-webkit-search-cancel-button,

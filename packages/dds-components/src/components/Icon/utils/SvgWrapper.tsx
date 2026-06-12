@@ -15,6 +15,7 @@ export function SvgWrapper({
   // destructure for å unngå at `iconState` blir sendt videre til svg-elementet som ugyldig custom attribute.
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   iconState: _iconState,
+  style,
   ...props
 }: SvgProps & { iconState?: string }) {
   return (
@@ -25,6 +26,7 @@ export function SvgWrapper({
       viewBox={`0 0 ${size} ${size}`}
       className={cn(className, styles.svg)}
       style={{
+        ...style,
         height: height ? height : sizeCSS,
         width: width ? width : sizeCSS,
       }}

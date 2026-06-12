@@ -1,7 +1,43 @@
 /*Grid*/
+
+.dds-grid {
+  --dds-r-grid: var(--dds-r-xs-grid);
+  grid: var(--dds-r-grid);
+}
+
 .dds-grid-template-columns {
   --dds-r-grid-template-columns: var(--dds-r-xs-grid-template-columns);
   grid-template-columns: var(--dds-r-grid-template-columns);
+}
+
+.dds-grid-auto-flow {
+  --dds-r-grid-auto-flow: var(--dds-r-xs-grid-auto-flow);
+  grid-auto-flow: var(--dds-r-grid-auto-flow);
+}
+
+.dds-grid-auto-columns {
+  --dds-r-grid-auto-columns: var(--dds-r-xs-grid-auto-columns);
+  grid-auto-columns: var(--dds-r-grid-auto-columns);
+}
+
+.dds-grid-auto-rows {
+  --dds-r-grid-auto-rows: var(--dds-r-xs-grid-auto-rows);
+  grid-auto-rows: var(--dds-r-grid-auto-rows);
+}
+
+.dds-grid-template {
+  --dds-r-grid-template: var(--dds-r-xs-grid-template);
+  grid-template: var(--dds-r-grid-template);
+}
+
+.dds-grid-template-rows {
+  --dds-r-grid-template-rows: var(--dds-r-xs-grid-template-rows);
+  grid-template-rows: var(--dds-r-grid-template-rows);
+}
+
+.dds-grid-template-areas {
+  --dds-r-grid-template-areas: var(--dds-r-xs-grid-template-areas);
+  grid-template-areas: var(--dds-r-grid-template-areas);
 }
 
 /*GridChild*/
@@ -16,9 +52,14 @@
   grid-row: var(--dds-r-grid-row);
 }
 
+.dds-grid-area {
+  --dds-r-grid-area: var(--dds-r-xs-grid-area);
+  grid-area: var(--dds-r-grid-area);
+}
+
 .dds-j-self {
   --dds-r-j-self: var(--dds-r-xs-j-self);
-  grid-row: var(--dds-r-j-self);
+  justify-self: var(--dds-r-j-self);
 }
 
 .child--first-half {
@@ -33,6 +74,27 @@
   .dds-grid-template-columns {
     --dds-r-grid-template-columns: var(--dds-r-xs-grid-template-columns);
   }
+  .dds-grid {
+    --dds-r-grid: var(--dds-r-xs-grid);
+  }
+  .dds-grid-auto-columns {
+    --dds-r-grid-auto-columns: var(--dds-r-xs-grid-auto-columns);
+  }
+  .dds-grid-auto-rows {
+    --dds-r-grid-auto-rows: var(--dds-r-xs-grid-auto-rows);
+  }
+  .dds-grid-auto-flow {
+    --dds-r-grid-auto-flow: var(--dds-r-xs-grid-auto-flow);
+  }
+  .dds-grid-template {
+    --dds-r-grid-template: var(--dds-r-xs-grid-template);
+  }
+  .dds-grid-template-rows {
+    --dds-r-grid-template-rows: var(--dds-r-xs-grid-template-rows);
+  }
+  .dds-grid-template-areas {
+    --dds-r-grid-template-areas: var(--dds-r-xs-grid-template-areas);
+  }
   .dds-grid-column {
     --dds-r-grid-column: var(--dds-r-xs-grid-column);
   }
@@ -41,6 +103,9 @@
   }
   .dds-grid-row {
     --dds-r-grid-row: var(--dds-r-xs-grid-row);
+  }
+  .dds-grid-area {
+    --dds-r-grid-area: var(--dds-r-xs-grid-area);
   }
   .dds-j-self {
     --dds-r-j-self: var(--dds-r-xs-j-self);
@@ -51,6 +116,27 @@
   .dds-grid-template-columns {
     --dds-r-grid-template-columns: var(--dds-r-sm-grid-template-columns);
   }
+  .dds-grid {
+    --dds-r-grid: var(--dds-r-sm-grid);
+  }
+  .dds-grid-auto-columns {
+    --dds-r-grid-auto-columns: var(--dds-r-sm-grid-auto-columns);
+  }
+  .dds-grid-auto-rows {
+    --dds-r-grid-auto-rows: var(--dds-r-sm-grid-auto-rows);
+  }
+  .dds-grid-auto-flow {
+    --dds-r-grid-auto-flow: var(--dds-r-sm-grid-auto-flow);
+  }
+  .dds-grid-template {
+    --dds-r-grid-template: var(--dds-r-sm-grid-template);
+  }
+  .dds-grid-template-rows {
+    --dds-r-grid-template-rows: var(--dds-r-sm-grid-template-rows);
+  }
+  .dds-grid-template-areas {
+    --dds-r-grid-template-areas: var(--dds-r-sm-grid-template-areas);
+  }
   .dds-grid-column {
     --dds-r-grid-column: var(--dds-r-sm-grid-column);
   }
@@ -59,6 +145,9 @@
   }
   .dds-grid-row {
     --dds-r-grid-row: var(--dds-r-sm-grid-row);
+  }
+  .dds-grid-area {
+    --dds-r-grid-area: var(--dds-r-sm-grid-area);
   }
   .dds-j-self {
     --dds-r-j-self: var(--dds-r-sm-j-self);
@@ -69,6 +158,27 @@
   .dds-grid-template-columns {
     --dds-r-grid-template-columns: var(--dds-r-md-grid-template-columns);
   }
+  .dds-grid {
+    --dds-r-grid: var(--dds-r-md-grid);
+  }
+  .dds-grid-auto-columns {
+    --dds-r-grid-auto-columns: var(--dds-r-md-grid-auto-columns);
+  }
+  .dds-grid-auto-rows {
+    --dds-r-grid-auto-rows: var(--dds-r-md-grid-auto-rows);
+  }
+  .dds-grid-auto-flow {
+    --dds-r-grid-auto-flow: var(--dds-r-md-grid-auto-flow);
+  }
+  .dds-grid-template {
+    --dds-r-grid-template: var(--dds-r-md-grid-template);
+  }
+  .dds-grid-template-rows {
+    --dds-r-grid-template-rows: var(--dds-r-md-grid-template-rows);
+  }
+  .dds-grid-template-areas {
+    --dds-r-grid-template-areas: var(--dds-r-md-grid-template-areas);
+  }
   .dds-grid-column {
     --dds-r-grid-column: var(--dds-r-md-grid-column);
   }
@@ -77,6 +187,9 @@
   }
   .dds-grid-row {
     --dds-r-grid-row: var(--dds-r-md-grid-row);
+  }
+  .dds-grid-area {
+    --dds-r-grid-area: var(--dds-r-md-grid-area);
   }
   .dds-j-self {
     --dds-r-j-self: var(--dds-r-md-j-self);
@@ -87,6 +200,27 @@
   .dds-grid-template-columns {
     --dds-r-grid-template-columns: var(--dds-r-lg-grid-template-columns);
   }
+  .dds-grid {
+    --dds-r-grid: var(--dds-r-lg-grid);
+  }
+  .dds-grid-auto-columns {
+    --dds-r-grid-auto-columns: var(--dds-r-lg-grid-auto-columns);
+  }
+  .dds-grid-auto-rows {
+    --dds-r-grid-auto-rows: var(--dds-r-lg-grid-auto-rows);
+  }
+  .dds-grid-auto-flow {
+    --dds-r-grid-auto-flow: var(--dds-r-lg-grid-auto-flow);
+  }
+  .dds-grid-template {
+    --dds-r-grid-template: var(--dds-r-lg-grid-template);
+  }
+  .dds-grid-template-rows {
+    --dds-r-grid-template-rows: var(--dds-r-lg-grid-template-rows);
+  }
+  .dds-grid-template-areas {
+    --dds-r-grid-template-areas: var(--dds-r-lg-grid-template-areas);
+  }
   .dds-grid-column {
     --dds-r-grid-column: var(--dds-r-lg-grid-column);
   }
@@ -95,6 +229,9 @@
   }
   .dds-grid-row {
     --dds-r-grid-row: var(--dds-r-lg-grid-row);
+  }
+  .dds-grid-area {
+    --dds-r-grid-area: var(--dds-r-lg-grid-area);
   }
   .dds-j-self {
     --dds-r-j-self: var(--dds-r-lg-j-self);
@@ -105,6 +242,27 @@
   .dds-grid-template-columns {
     --dds-r-grid-template-columns: var(--dds-r-xl-grid-template-columns);
   }
+  .dds-grid {
+    --dds-r-grid: var(--dds-r-xl-grid);
+  }
+  .dds-grid-auto-columns {
+    --dds-r-grid-auto-columns: var(--dds-r-xl-grid-auto-columns);
+  }
+  .dds-grid-auto-rows {
+    --dds-r-grid-auto-rows: var(--dds-r-xl-grid-auto-rows);
+  }
+  .dds-grid-auto-flow {
+    --dds-r-grid-auto-flow: var(--dds-r-xl-grid-auto-flow);
+  }
+  .dds-grid-template {
+    --dds-r-grid-template: var(--dds-r-xl-grid-template);
+  }
+  .dds-grid-template-rows {
+    --dds-r-grid-template-rows: var(--dds-r-xl-grid-template-rows);
+  }
+  .dds-grid-template-areas {
+    --dds-r-grid-template-areas: var(--dds-r-xl-grid-template-areas);
+  }
   .dds-grid-column {
     --dds-r-grid-column: var(--dds-r-xl-grid-column);
   }
@@ -113,6 +271,9 @@
   }
   .dds-grid-row {
     --dds-r-grid-row: var(--dds-r-xl-grid-row);
+  }
+  .dds-grid-area {
+    --dds-r-grid-area: var(--dds-r-xl-grid-area);
   }
   .dds-j-self {
     --dds-r-j-self: var(--dds-r-xl-j-self);
