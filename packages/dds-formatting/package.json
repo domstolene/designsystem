@@ -21,6 +21,8 @@
     "dev": "pnpm build:fast -- --watch",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "test:ui": "vitest --ui --coverage",
+    "coverage": "vitest run --coverage",
     "test:watch": "vitest watch"
   },
   "keywords": [
