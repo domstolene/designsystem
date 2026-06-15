@@ -43,7 +43,31 @@ describe('<FileUploader>', () => {
     const fileInput = screen.getByTestId('file-uploader-input');
     await userEvent.upload(fileInput, file);
     await waitFor(() => {
-      expect(screen.getByRole('link')).toBeInTheDocument();
+      expect(screen.getByRole('link', { name: fileName })).toBeInTheDocument();
+    });
+  });
+
+  it('renders list with uploaded files', async () => {
+    render(<FileUploaderTest />);
+    const fileInput = screen.getByTestId('file-uploader-input');
+    await userEvent.upload(fileInput, file);
+    await userEvent.upload(fileInput, file2);
+
+    await waitFor(() => {
+      expect(
+        screen.getByRole('list', { name: /Opplastede filer/i }),
+      ).toBeInTheDocument();
+      expect(screen.getAllByRole('listitem')).toHaveLength(2);
+    });
+  });
+
+  it('does not render list if only one file is uploaded', async () => {
+    render(<FileUploaderTest />);
+    const fileInput = screen.getByTestId('file-uploader-input');
+    await userEvent.upload(fileInput, file);
+
+    await waitFor(() => {
+      expect(screen.queryByRole('list')).not.toBeInTheDocument();
     });
   });
 
