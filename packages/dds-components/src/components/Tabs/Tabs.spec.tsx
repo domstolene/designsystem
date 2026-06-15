@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { describe, expect, it, vi } from 'vitest';
 
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '.';
@@ -240,5 +240,67 @@ describe('<Tabs>', () => {
     expect(tab2).toHaveAttribute('aria-selected', 'true');
     expect(tabPanel1).not.toBeVisible();
     expect(tabPanel2).toBeVisible();
+  });
+  describe('AddTabButton', () => {
+    it('renders AddTabButton when addTabButtonProps prop is provided', () => {
+      const onAddTab = vi.fn();
+      const label = 'Add Tab';
+      render(
+        <Tabs addTabButtonProps={{ onClick: onAddTab, children: label }}>
+          <TabList>
+            <Tab />
+          </TabList>
+        </Tabs>,
+      );
+      const addButton = screen.getByRole('button', { name: label });
+      expect(addButton).toBeInTheDocument();
+      userEvent.click(addButton);
+    });
+
+    it('calls onClick event', async () => {
+      const user = userEvent.setup();
+      const onAddTab = vi.fn();
+      const label = 'Add Tab';
+      render(
+        <Tabs addTabButtonProps={{ onClick: onAddTab, children: label }}>
+          <TabList>
+            <Tab />
+          </TabList>
+        </Tabs>,
+      );
+      const addButton = screen.getByRole('button', { name: label });
+      await user.click(addButton);
+      expect(onAddTab).toHaveBeenCalledTimes(1);
+    });
+
+    it('adds a tab', async () => {
+      const user = userEvent.setup();
+      const label = 'Add Tab';
+
+      const AddableTabs = () => {
+        const [tabCount, setTabCount] = useState(1);
+
+        return (
+          <Tabs
+            addTabButtonProps={{
+              children: label,
+              onClick: () => setTabCount(prev => prev + 1),
+            }}
+          >
+            <TabList>
+              {Array.from({ length: tabCount }, (_, index) => (
+                <Tab key={index} />
+              ))}
+            </TabList>
+          </Tabs>
+        );
+      };
+
+      render(<AddableTabs />);
+      const addButton = screen.getByRole('button', { name: label });
+      expect(screen.queryAllByRole('tab')).toHaveLength(1);
+      await user.click(addButton);
+      expect(screen.queryAllByRole('tab')).toHaveLength(2);
+    });
   });
 });
