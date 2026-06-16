@@ -2,7 +2,7 @@ import preview from '#.storybook/preview';
 
 import { ddsProviderDecorator } from '../../../storybook';
 import { Table } from '../../Table';
-import { blockTgCommonArgTypes } from '../storyUtils';
+import { blockTgCommonArgTypes } from '../storybook-utils/storyUtils';
 
 import { Caption } from '.';
 

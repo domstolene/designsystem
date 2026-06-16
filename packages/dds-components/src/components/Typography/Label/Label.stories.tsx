@@ -5,7 +5,7 @@ import { HelpIcon } from '../../Icon/icons';
 import { InlineButton } from '../../InlineButton';
 import { Popover, PopoverGroup } from '../../Popover';
 import { Paragraph } from '../Paragraph';
-import { inlineTgCommonArgTypes } from '../storyUtils';
+import { inlineTgCommonArgTypes } from '../storybook-utils/storyUtils';
 
 import { Label } from '.';
 
