@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { Table } from '.';
+import { Table, TableWrapper } from '.';
 
 describe('<Table>', () => {
   it('renders a table', () => {
@@ -94,5 +94,56 @@ describe('<Table>', () => {
     const bodyTextNode = screen.getByText(bodyText);
     expect(headerTextNode).toBeInTheDocument();
     expect(bodyTextNode).toBeInTheDocument();
+  });
+
+  describe('<TableWrapper>', () => {
+    it('renders a div', () => {
+      render(<TableWrapper data-testid="wrapper" />);
+      const wrapper = screen.getByTestId('wrapper');
+      expect(wrapper.nodeName).toEqual('DIV');
+    });
+
+    it('passes className to the div', () => {
+      render(<TableWrapper data-testid="wrapper" className="custom-class" />);
+      const wrapper = screen.getByTestId('wrapper');
+      expect(wrapper).toHaveClass('custom-class');
+    });
+
+    it('renders children', () => {
+      const content = 'content';
+      render(<TableWrapper>{content}</TableWrapper>);
+      expect(screen.getByText('content')).toBeInTheDocument();
+    });
+
+    it('does not apply scrollable class when not overflowing', () => {
+      render(<TableWrapper data-testid="wrapper" />);
+      const wrapper = screen.getByTestId('wrapper');
+      expect(wrapper.className).not.toMatch(/scrollable/);
+    });
+
+    it('applies scrollable class when content overflows', () => {
+      Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
+        configurable: true,
+        get: () => 100,
+      });
+      Object.defineProperty(HTMLElement.prototype, 'scrollWidth', {
+        configurable: true,
+        get: () => 200,
+      });
+
+      render(<TableWrapper data-testid="wrapper" />);
+      const wrapper = screen.getByTestId('wrapper');
+
+      expect(wrapper.className).toMatch(/scrollable/);
+
+      Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
+        configurable: true,
+        get: () => 0,
+      });
+      Object.defineProperty(HTMLElement.prototype, 'scrollWidth', {
+        configurable: true,
+        get: () => 0,
+      });
+    });
   });
 });
