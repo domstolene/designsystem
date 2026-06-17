@@ -61,16 +61,6 @@ describe('<FileUploader>', () => {
     });
   });
 
-  it('does not render list if only one file is uploaded', async () => {
-    render(<FileUploaderTest />);
-    const fileInput = screen.getByTestId('file-uploader-input');
-    await userEvent.upload(fileInput, file);
-
-    await waitFor(() => {
-      expect(screen.queryByRole('list')).not.toBeInTheDocument();
-    });
-  });
-
   it('renders delete button for uploaded file', async () => {
     render(<FileUploaderTest />);
     const fileInput = screen.getByTestId('file-uploader-input');

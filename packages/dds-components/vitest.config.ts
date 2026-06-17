@@ -12,7 +12,15 @@ export default defineConfig({
       reportOnFailure: true,
       reporter: ['text', 'text-summary', 'html'],
       include: ['src/**/*.{ts,tsx}'],
-      exclude: ['src/**/*.d.ts', 'src/**/index.ts', 'src/**/*.stories.tsx'],
+      exclude: [
+        'src/**/*.d.ts',
+        'src/**/index.ts',
+        'src/**/*.stories.tsx',
+        'src/storybook',
+        'src/**/storybook-utils',
+        'src/components/Icon/overview-page',
+        'src/**/*Example.tsx',
+      ],
       thresholds: {
         statements: 90,
         branches: 90,

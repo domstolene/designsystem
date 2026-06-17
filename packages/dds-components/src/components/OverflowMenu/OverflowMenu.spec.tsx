@@ -15,6 +15,8 @@ import {
   OverflowMenuList,
   OverflowMenuSpan,
   type OverflowMenuSpanProps,
+  OverflowMenuToggle,
+  type OverflowMenuToggleProps,
 } from '.';
 
 const text = 'text';
@@ -25,9 +27,10 @@ interface props {
   link?: OverflowMenuLinkProps;
   item?: OverflowMenuButtonProps;
   span?: OverflowMenuSpanProps;
+  toggle?: OverflowMenuToggleProps;
 }
 
-function TestComponent({ link, item, span }: props) {
+function TestComponent({ link, item, span, toggle }: props) {
   return (
     <OverflowMenuGroup>
       <Button />
@@ -36,6 +39,7 @@ function TestComponent({ link, item, span }: props) {
           {link && <OverflowMenuLink {...link} />}
           {item && <OverflowMenuButton {...item} />}
           {span && <OverflowMenuSpan {...span} />}
+          {toggle && <OverflowMenuToggle {...toggle} />}
         </OverflowMenuList>
       </OverflowMenu>
     </OverflowMenuGroup>
@@ -261,6 +265,34 @@ describe('<OverflowMenu>', () => {
       await waitFor(() => {
         resolveFn!();
       });
+    });
+  });
+  describe('<OverflowMenuToggle>', () => {
+    it('renders toggle as menuitem', () => {
+      portalRender(<TestComponent toggle={{ children: text }} />);
+      const toggle = screen.getByRole('menuitem', { name: text, hidden: true });
+      expect(toggle).toBeInTheDocument();
+    });
+    it('changes toggle state on click', async () => {
+      const user = userEvent.setup();
+      portalRender(<TestComponent toggle={{ children: text }} />);
+      const toggle = screen.getByRole('menuitem', { name: text, hidden: true });
+      expect(toggle).not.toBeChecked();
+      await user.click(toggle);
+      expect(toggle).toBeChecked();
+    });
+    it('does not close menu on toggle click', async () => {
+      const user = userEvent.setup();
+      portalRender(<TestComponent toggle={{ children: text }} />);
+      const menuButton = screen.getByRole('button');
+      await user.click(menuButton);
+
+      const menuOpened = screen.getByRole('menu');
+      expect(menuOpened).toHaveAttribute('aria-hidden', 'false');
+
+      const toggle = screen.getByRole('menuitem', { name: text, hidden: true });
+      await user.click(toggle);
+      expect(menuOpened).toHaveAttribute('aria-hidden', 'false');
     });
   });
 });
