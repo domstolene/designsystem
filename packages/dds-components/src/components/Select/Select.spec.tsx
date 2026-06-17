@@ -1,10 +1,17 @@
-import { screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 
 import { Select } from './Select';
 import { portalRender } from '../../test.utils';
 
 describe('<Select>', () => {
+  it('throws when used without ThemeProvider', () => {
+    expect(() => render(<Select options={[]} />)).toThrow(
+      'Select must be used within a ThemeProvider',
+    );
+  });
+
   it('renders combobox', () => {
     portalRender(<Select options={[]} />);
 
@@ -40,5 +47,23 @@ describe('<Select>', () => {
     expect(inputElement).toHaveAttribute('aria-invalid', 'true');
     const errorElement = screen.getByText(error);
     expect(errorElement).toBeInTheDocument();
+  });
+
+  it('renders custom option element when provided', async () => {
+    const option = { label: 'Alternativ', value: 'alt' };
+    portalRender(
+      <Select
+        options={[option]}
+        customOptionElement={({ data }) => (
+          <span>Custom option: {String(data.label)}</span>
+        )}
+      />,
+    );
+
+    await userEvent.click(screen.getByRole('combobox'));
+
+    expect(
+      await screen.findByText(`Custom option: ${option.label}`),
+    ).toBeInTheDocument();
   });
 });

@@ -57,33 +57,39 @@ const prioritizedCountryOptions: Array<PhoneInputCountryOption> =
     };
   });
 
-const sortedCountryOptions: Array<PhoneInputCountryOption> = Object.values(
-  COUNTRIES,
-)
-  .sort((a, b) => {
-    if (a.name < b.name) {
-      return -1;
-    }
-    if (a.name > b.name) {
-      return 1;
-    }
-    return 0;
-  })
-  .map(country => ({
-    countryCode: country.id,
-    label: `${country.name} ${country.dialCode}`,
-  }))
-  .filter(
-    country =>
-      !prioritizedCountryOptions.some(
-        pCountry => pCountry.countryCode === country.countryCode,
-      ),
-  );
+export const compareCountriesByName = (a: Country, b: Country): number => {
+  if (a.name < b.name) {
+    return -1;
+  }
+  if (a.name > b.name) {
+    return 1;
+  }
+  return 0;
+};
 
-export const countryOptions: Array<PhoneInputCountryOption> = [
-  ...prioritizedCountryOptions,
-  ...sortedCountryOptions,
-];
+export const createCountryOptions = (
+  countries: Record<string, Country>,
+): Array<PhoneInputCountryOption> => {
+  const sortedCountryOptions: Array<PhoneInputCountryOption> = Object.values(
+    countries,
+  )
+    .sort(compareCountriesByName)
+    .map(country => ({
+      countryCode: country.id,
+      label: `${country.name} ${country.dialCode}`,
+    }))
+    .filter(
+      country =>
+        !prioritizedCountryOptions.some(
+          pCountry => pCountry.countryCode === country.countryCode,
+        ),
+    );
+
+  return [...prioritizedCountryOptions, ...sortedCountryOptions];
+};
+
+export const countryOptions: Array<PhoneInputCountryOption> =
+  createCountryOptions(COUNTRIES);
 
 export type PhoneInputProps = {
   /**
