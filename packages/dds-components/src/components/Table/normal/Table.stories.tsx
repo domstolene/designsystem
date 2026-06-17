@@ -13,7 +13,7 @@ import {
   data,
   headerCells,
   mapCellContents,
-} from '../story-utils/tableData';
+} from '../storybook-utils/tableData';
 
 import { Table } from '.';
 

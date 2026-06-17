@@ -15,7 +15,11 @@ import {
 import { Link } from '../../Typography';
 import { VisuallyHidden } from '../../VisuallyHidden';
 import { Table } from '../normal';
-import { data, headerCells, mapCellContents } from '../story-utils/tableData';
+import {
+  data,
+  headerCells,
+  mapCellContents,
+} from '../storybook-utils/tableData';
 
 import { CollapsibleTable } from '.';
 

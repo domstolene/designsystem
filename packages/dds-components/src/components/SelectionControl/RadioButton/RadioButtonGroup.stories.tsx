@@ -2,7 +2,7 @@ import preview from '#.storybook/preview';
 import { useState } from 'react';
 
 import { commonArgTypes, ddsProviderDecorator } from '../../../storybook';
-import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
+import { StoryHStack, StoryVStack } from '../../layout/Stack/storybook-utils';
 
 import { RadioButton, RadioButtonGroup } from '.';
 

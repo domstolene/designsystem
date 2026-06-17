@@ -3,7 +3,7 @@ import preview from '#.storybook/preview';
 import { ddsProviderDecorator, labelText } from '../../storybook';
 import { BUTTON_SIZES } from '../Button/Button.types';
 import { PlusCircledIcon } from '../Icon/icons';
-import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
 
 import { SplitButton } from '.';
 

@@ -10,7 +10,7 @@ import {
   windowWidthDecorator,
 } from '../../storybook';
 import { INPUT_SIZES } from '../helpers/Input';
-import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
 
 import { PhoneInput } from '.';
 

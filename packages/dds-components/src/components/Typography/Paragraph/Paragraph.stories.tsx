@@ -1,7 +1,7 @@
 import preview from '#.storybook/preview';
 
 import { ddsProviderDecorator } from '../../../storybook';
-import { StoryVStack } from '../../layout/Stack/utils';
+import { StoryVStack } from '../../layout/Stack/storybook-utils';
 import { blockTgCommonArgTypes } from '../storybook-utils/storyUtils';
 import { Typography } from '../Typography';
 

@@ -9,7 +9,7 @@ import {
   responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../../storybook';
-import { StoryVStack } from '../../layout/Stack/utils';
+import { StoryVStack } from '../../layout/Stack/storybook-utils';
 import { Table } from '../../Table/normal';
 
 const meta = preview.meta({

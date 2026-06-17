@@ -8,7 +8,7 @@ import {
   windowWidthDecorator,
 } from '../../storybook';
 import { VStack } from '../layout';
-import { StoryVStack } from '../layout/Stack/utils';
+import { StoryVStack } from '../layout/Stack/storybook-utils';
 
 import { Pagination } from '.';
 

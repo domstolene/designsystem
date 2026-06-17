@@ -11,7 +11,7 @@ import {
   responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../storybook';
-import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
 
 const meta = preview.meta({
   title: 'dds-components/Components/InputStepper',

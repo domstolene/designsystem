@@ -14,7 +14,7 @@ import {
 import { focusable } from '../helpers/styling/focus.module.css';
 import { Icon } from '../Icon';
 import { AttachmentIcon } from '../Icon/icons';
-import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
 import { Table } from '../Table';
 import { Tooltip } from '../Tooltip';
 import { Caption, Link } from '../Typography';

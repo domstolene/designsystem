@@ -9,7 +9,7 @@ import {
 } from '../../storybook';
 import { EditIcon } from '../Icon/icons';
 import { VStack } from '../layout';
-import { StoryVStack } from '../layout/Stack/utils';
+import { StoryVStack } from '../layout/Stack/storybook-utils';
 
 import { InternalHeader } from '.';
 
