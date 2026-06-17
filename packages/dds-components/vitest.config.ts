@@ -20,6 +20,7 @@ export default defineConfig({
         'src/**/storybook-utils',
         'src/components/Icon/overview-page',
         'src/**/*Example.tsx',
+        'src/**/*.styles.ts*',
       ],
       thresholds: {
         statements: 90,
