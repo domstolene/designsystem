@@ -88,7 +88,7 @@ export const Drawer = ({
   const themeContext = useContext(ThemeContext);
 
   if (!themeContext) {
-    throw new Error('Drawer must be used within a ThemeProvider');
+    throw new Error('Drawer must be used within a DdsProvider');
   }
   const { t } = useTranslation();
 
