@@ -9,7 +9,7 @@ import {
 } from '../../../storybook';
 import { Icon } from '../../Icon';
 import { TipIcon } from '../../Icon/icons';
-import { StoryVStack } from '../../layout/Stack/utils';
+import { StoryVStack } from '../../layout/Stack/storybook-utils';
 import { Paragraph } from '../Paragraph';
 import { inlineTgCommonArgTypes } from '../storybook-utils/storyUtils';
 

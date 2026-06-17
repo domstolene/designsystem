@@ -10,7 +10,7 @@ import {
   labelText,
 } from '../../storybook';
 import { NotificationsIcon } from '../Icon/icons';
-import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
 
 import { ToggleButton } from '.';
 

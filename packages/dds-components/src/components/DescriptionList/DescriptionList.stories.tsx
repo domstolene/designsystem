@@ -2,7 +2,7 @@ import preview from '#.storybook/preview';
 
 import { commonArgTypesWithNodeChildren } from '../../storybook';
 import { CallIcon } from '../Icon/icons';
-import { StoryVStack } from '../layout/Stack/utils';
+import { StoryVStack } from '../layout/Stack/storybook-utils';
 import { Link } from '../Typography';
 
 import {

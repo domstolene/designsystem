@@ -2,7 +2,7 @@ import preview from '#.storybook/preview';
 
 import { TAG_PURPOSES, icons } from './Tag';
 import { commonArgTypes, labelText } from '../../storybook';
-import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
 
 import { Tag } from '.';
 

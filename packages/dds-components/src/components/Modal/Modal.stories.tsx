@@ -7,7 +7,7 @@ import {
   ddsProviderDecorator,
 } from '../../storybook';
 import { Button } from '../Button';
-import { StoryHStack } from '../layout/Stack/utils';
+import { StoryHStack } from '../layout/Stack/storybook-utils';
 import { Search } from '../Search';
 
 import { Modal, ModalActions, ModalBody } from '.';

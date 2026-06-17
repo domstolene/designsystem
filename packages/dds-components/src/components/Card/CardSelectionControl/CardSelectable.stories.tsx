@@ -10,7 +10,7 @@ import {
   responsivePropsArgTypes,
 } from '../../../storybook';
 import { VStack } from '../../layout';
-import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
+import { StoryHStack, StoryVStack } from '../../layout/Stack/storybook-utils';
 import { Typography } from '../../Typography';
 import {
   type CardAppearance,

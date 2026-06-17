@@ -2,7 +2,7 @@ import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
 import { categoryHtml, htmlEventArgType } from '../../storybook';
-import { StoryVStack } from '../layout/Stack/utils';
+import { StoryVStack } from '../layout/Stack/storybook-utils';
 
 import { Breadcrumb } from '.';
 

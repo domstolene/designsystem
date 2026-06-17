@@ -10,7 +10,7 @@ import {
 } from '../../storybook';
 import { PlusCircledIcon } from '../Icon/icons';
 import { VStack } from '../layout';
-import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
 
 import { ToggleBar, ToggleRadio } from '.';
 

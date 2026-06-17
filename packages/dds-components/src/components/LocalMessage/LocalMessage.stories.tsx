@@ -11,7 +11,7 @@ import {
 } from '../../storybook';
 import { Button } from '../Button';
 import { HStack } from '../layout';
-import { StoryVStack } from '../layout/Stack/utils';
+import { StoryVStack } from '../layout/Stack/storybook-utils';
 import { List, ListItem } from '../List';
 import { Heading, Paragraph } from '../Typography';
 

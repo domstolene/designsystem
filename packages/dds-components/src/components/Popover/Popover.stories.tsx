@@ -11,7 +11,7 @@ import {
 import { Button } from '../Button';
 import { InlineButton } from '../InlineButton';
 import { VStack } from '../layout';
-import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
 import { LocalMessage } from '../LocalMessage';
 import { Paragraph } from '../Typography';
 

@@ -10,7 +10,7 @@ import {
   windowWidthDecorator,
 } from '../../storybook';
 import { NotificationsIcon } from '../Icon/icons';
-import { StoryVStack } from '../layout/Stack/utils';
+import { StoryVStack } from '../layout/Stack/storybook-utils';
 import { Paragraph } from '../Typography';
 
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '.';

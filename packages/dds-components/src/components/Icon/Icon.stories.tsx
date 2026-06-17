@@ -4,7 +4,7 @@ import { ICON_SIZES } from './Icon';
 import { StoryLabel, commonArgTypes, labelText } from '../../storybook';
 import { VStack } from '../layout';
 import { OpenExternalIcon as OpenExternal } from './icons/openExternal';
-import { StoryHStack } from '../layout/Stack/utils';
+import { StoryHStack } from '../layout/Stack/storybook-utils';
 
 import { Icon } from '.';
 
