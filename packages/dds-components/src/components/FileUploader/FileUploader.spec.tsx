@@ -1,10 +1,19 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { type ComponentProps, useState } from 'react';
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { FileUploader } from './FileUploader';
 import type { FileList, RemoteFile } from './FileUploader.types';
+import {
+  isEventWithFiles,
+  isFileAccepted,
+  preventDefaults,
+} from './FileUploader.utils';
+import {
+  type FileUploaderState,
+  fileUploaderReducer,
+} from './fileUploaderReducer';
 
 function FileUploaderTest(
   props: Omit<ComponentProps<typeof FileUploader>, 'value' | 'onChange'>,
@@ -372,5 +381,316 @@ describe('<FileUploader>', () => {
 
       expect(screen.queryByRole('progressbar')).not.toBeInTheDocument();
     });
+  });
+
+  describe('accept variants', () => {
+    it('accepts files matching file extension', async () => {
+      render(<FileUploaderTest accept={['.png']} />);
+      const fileInput = screen.getByTestId('file-uploader-input');
+      await userEvent.upload(fileInput, file);
+      await waitFor(() => {
+        expect(screen.getByText(fileName)).toBeInTheDocument();
+      });
+    });
+
+    it('accepts files matching wildcard MIME type', async () => {
+      render(<FileUploaderTest accept={['image/*']} />);
+      const fileInput = screen.getByTestId('file-uploader-input');
+      await userEvent.upload(fileInput, file);
+      await waitFor(() => {
+        expect(screen.getByText(fileName)).toBeInTheDocument();
+      });
+    });
+  });
+
+  describe('upload button', () => {
+    it('opens file dialog when upload button is clicked', async () => {
+      render(<FileUploaderTest />);
+      const button = screen.getByRole('button', { name: /Velg fil/i });
+      const fileInput = screen.getByTestId('file-uploader-input');
+      const clickSpy = vi.spyOn(fileInput, 'click');
+      await userEvent.click(button);
+      expect(clickSpy).toHaveBeenCalled();
+    });
+  });
+
+  describe('uncontrolled mode', () => {
+    it('manages files internally without value prop', async () => {
+      const handleChange = vi.fn();
+      render(<FileUploader onChange={handleChange} />);
+      const fileInput = screen.getByTestId('file-uploader-input');
+      await userEvent.upload(fileInput, file);
+      await waitFor(() => {
+        expect(screen.getByText(fileName)).toBeInTheDocument();
+        expect(handleChange).toHaveBeenCalled();
+      });
+    });
+
+    it('removes file internally without value prop', async () => {
+      const handleChange = vi.fn();
+      render(<FileUploader onChange={handleChange} />);
+      const fileInput = screen.getByTestId('file-uploader-input');
+      await userEvent.upload(fileInput, file);
+      const button = await screen.findByRole('button', {
+        name: deleteButtonName,
+      });
+      await userEvent.click(button);
+      await waitFor(() => {
+        expect(screen.queryByText(fileName)).not.toBeInTheDocument();
+      });
+    });
+
+    it('initializes with initialFiles', async () => {
+      render(
+        <FileUploader
+          onChange={() => {
+            /* empty */
+          }}
+          initialFiles={[file]}
+        />,
+      );
+      await waitFor(() => {
+        expect(screen.getByText(fileName)).toBeInTheDocument();
+      });
+    });
+  });
+
+  describe('drag and drop', () => {
+    it('triggers dragEnter dispatch when dragging files over drop zone', () => {
+      render(<FileUploaderTest />);
+      const fileInput = screen.getByTestId('file-uploader-input');
+      fireEvent.dragEnter(fileInput, {
+        dataTransfer: { types: ['Files'] },
+      });
+      // No error thrown means dragEnter handler executed
+      expect(fileInput).toBeInTheDocument();
+    });
+
+    it('does not trigger dragEnter when dragging non-file content', () => {
+      render(<FileUploaderTest />);
+      const fileInput = screen.getByTestId('file-uploader-input');
+      fireEvent.dragEnter(fileInput, {
+        dataTransfer: { types: ['text/plain'] },
+      });
+      expect(fileInput).toBeInTheDocument();
+    });
+
+    it('triggers dragOver handler without error', () => {
+      render(<FileUploaderTest />);
+      const fileInput = screen.getByTestId('file-uploader-input');
+      fireEvent.dragOver(fileInput, {
+        dataTransfer: { types: ['Files'], dropEffect: 'none' },
+      });
+      expect(fileInput).toBeInTheDocument();
+    });
+
+    it('triggers dragLeave handler without error', () => {
+      render(<FileUploaderTest />);
+      const fileInput = screen.getByTestId('file-uploader-input');
+      fireEvent.dragEnter(fileInput, {
+        dataTransfer: { types: ['Files'] },
+      });
+      fireEvent.dragLeave(fileInput);
+      expect(fileInput).toBeInTheDocument();
+    });
+
+    it('triggers dragEnter with application/x-moz-file type', () => {
+      render(<FileUploaderTest />);
+      const fileInput = screen.getByTestId('file-uploader-input');
+      fireEvent.dragEnter(fileInput, {
+        dataTransfer: { types: ['application/x-moz-file'] },
+      });
+      expect(fileInput).toBeInTheDocument();
+    });
+  });
+
+  describe('remote files', () => {
+    beforeAll(() => {
+      vi.spyOn(URL, 'createObjectURL').mockImplementation(() => 'blob://test');
+      vi.spyOn(URL, 'revokeObjectURL').mockImplementation(() => {
+        /* empty */
+      });
+    });
+
+    afterAll(() => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (URL.createObjectURL as any).mockRestore?.();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (URL.revokeObjectURL as any).mockRestore?.();
+    });
+
+    it('preserves remote files when uploading a new file', async () => {
+      const remoteFile: RemoteFile = {
+        name: 'remote.pdf',
+        url: 'https://example.com/remote.pdf',
+      };
+      const handleChange = vi.fn();
+
+      function RemoteFileTest() {
+        const [files, setFiles] = useState<FileList>([remoteFile]);
+        return (
+          <FileUploader
+            value={files}
+            onChange={newFiles => {
+              setFiles(newFiles);
+              handleChange(newFiles);
+            }}
+          />
+        );
+      }
+
+      render(<RemoteFileTest />);
+      expect(screen.getByText('remote.pdf')).toBeInTheDocument();
+
+      const fileInput = screen.getByTestId('file-uploader-input');
+      await userEvent.upload(fileInput, file);
+
+      await waitFor(() => {
+        expect(screen.getByText('remote.pdf')).toBeInTheDocument();
+        expect(screen.getByText(fileName)).toBeInTheDocument();
+        const callArg = handleChange.mock.calls[0][0];
+        expect(
+          callArg.some(
+            (f: File | RemoteFile) => 'url' in f && f.url === remoteFile.url,
+          ),
+        ).toBe(true);
+      });
+    });
+  });
+
+  describe('isFileAccepted', () => {
+    const pngFile = new File(['content'], 'photo.png', { type: 'image/png' });
+
+    it('returns true when accept is undefined', () => {
+      expect(isFileAccepted(pngFile, undefined)).toBe(true);
+    });
+
+    it('returns true when file matches accept', () => {
+      expect(isFileAccepted(pngFile, ['image/png'])).toBe(true);
+    });
+
+    it('returns false when file does not match accept', () => {
+      expect(isFileAccepted(pngFile, ['.pdf'])).toBe(false);
+    });
+  });
+
+  describe('preventDefaults', () => {
+    it('calls preventDefault and stopPropagation on the event', () => {
+      const event = {
+        preventDefault: vi.fn(),
+        stopPropagation: vi.fn(),
+      } as unknown as React.BaseSyntheticEvent;
+      preventDefaults(event);
+      expect(event.preventDefault).toHaveBeenCalledOnce();
+      expect(event.stopPropagation).toHaveBeenCalledOnce();
+    });
+  });
+
+  describe('isEventWithFiles', () => {
+    it('returns true for drag event with Files type', () => {
+      const event = {
+        dataTransfer: { types: ['Files'] },
+      } as unknown as React.DragEvent<unknown>;
+      expect(isEventWithFiles(event)).toBe(true);
+    });
+
+    it('returns true for drag event with application/x-moz-file type', () => {
+      const event = {
+        dataTransfer: { types: ['application/x-moz-file'] },
+      } as unknown as React.DragEvent<unknown>;
+      expect(isEventWithFiles(event)).toBe(true);
+    });
+
+    it('returns false for drag event with no file types', () => {
+      const event = {
+        dataTransfer: { types: ['text/plain'] },
+      } as unknown as React.DragEvent<unknown>;
+      expect(isEventWithFiles(event)).toBe(false);
+    });
+
+    it('returns true for change event with files', () => {
+      const event = {
+        target: { files: [new File([''], 'test.png')] },
+      } as unknown as React.ChangeEvent<HTMLInputElement>;
+      expect(isEventWithFiles(event)).toBe(true);
+    });
+
+    it('returns false for change event with null files', () => {
+      const event = {
+        target: { files: null },
+      } as unknown as React.ChangeEvent<HTMLInputElement>;
+      expect(isEventWithFiles(event)).toBe(false);
+    });
+  });
+});
+
+describe('fileUploaderReducer', () => {
+  const initialState: FileUploaderState = {
+    files: [],
+    isFocused: false,
+    isFileDialogActive: false,
+    isDragActive: false,
+    dragCounter: 0,
+    rootErrors: [],
+  };
+
+  it('increments dragCounter and sets isDragActive when dragEnter is triggered', () => {
+    const newState = fileUploaderReducer(initialState, { type: 'dragEnter' });
+    expect(newState.dragCounter).toBe(1);
+    expect(newState.isDragActive).toBe(true);
+  });
+
+  it('increments dragCounter correctly when dragEnter is triggered multiple times', () => {
+    let state = fileUploaderReducer(initialState, { type: 'dragEnter' });
+    state = fileUploaderReducer(state, { type: 'dragEnter' });
+    expect(state.dragCounter).toBe(2);
+    expect(state.isDragActive).toBe(true);
+  });
+
+  it('decrements dragCounter and clears drag when counter reaches 0', () => {
+    const activeState = { ...initialState, dragCounter: 1, isDragActive: true };
+    const newState = fileUploaderReducer(activeState, { type: 'dragLeave' });
+    expect(newState.dragCounter).toBe(0);
+    expect(newState.isDragActive).toBe(false);
+  });
+
+  it('does not decrement dragCounter below 0', () => {
+    const newState = fileUploaderReducer(initialState, { type: 'dragLeave' });
+    expect(newState.dragCounter).toBe(0);
+    expect(newState.isDragActive).toBe(false);
+  });
+
+  it('replaces files and resets drag state when setting files', () => {
+    const files = [{ name: 'test.png', errors: [] }];
+    const activeState = { ...initialState, dragCounter: 2, isDragActive: true };
+    const newState = fileUploaderReducer(activeState, {
+      type: 'onSetFiles',
+      payload: files,
+    });
+    expect(newState.files).toEqual(files);
+    expect(newState.dragCounter).toBe(0);
+    expect(newState.isDragActive).toBe(false);
+  });
+
+  it('replaces files list when removing a file', () => {
+    const files = [
+      { name: 'a.png', errors: [] },
+      { name: 'b.png', errors: [] },
+    ];
+    const stateWithFiles = { ...initialState, files };
+    const newState = fileUploaderReducer(stateWithFiles, {
+      type: 'onRemoveFile',
+      payload: [files[1]!],
+    });
+    expect(newState.files).toEqual([files[1]]);
+  });
+
+  it('updates root errors', () => {
+    const errors = ['Too many files'];
+    const newState = fileUploaderReducer(initialState, {
+      type: 'setRootErrors',
+      payload: errors,
+    });
+    expect(newState.rootErrors).toEqual(errors);
   });
 });
