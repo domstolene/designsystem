@@ -2,6 +2,8 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 
+import { CheckIcon } from '../Icon/icons';
+
 import { TextInput } from '.';
 
 describe('<TextInput>', () => {
@@ -11,9 +13,19 @@ describe('<TextInput>', () => {
     expect(screen.getByRole('textbox')).toBeInTheDocument();
   });
   it('has a label', () => {
-    const label = 'button label';
+    const label = 'label';
     render(<TextInput label={label} />);
     expect(screen.getByText(label)).toBeInTheDocument();
+  });
+  it('has accessible name when label is provided', () => {
+    const label = 'label';
+    render(<TextInput label={label} />);
+    expect(screen.getByRole('textbox')).toHaveAccessibleName(label);
+  });
+  it('has accessible name when aria-label is provided', () => {
+    const label = 'label';
+    render(<TextInput aria-label={label} />);
+    expect(screen.getByRole('textbox')).toHaveAccessibleName(label);
   });
   it('is disabled', () => {
     render(<TextInput disabled />);
@@ -102,5 +114,69 @@ describe('<TextInput>', () => {
 
     const textElement = screen.getByText(`${valueLength}/${maxLength}`);
     expect(textElement).toBeInTheDocument();
+  });
+
+  it('renders with icon prop', () => {
+    const { container } = render(<TextInput icon={CheckIcon} />);
+    expect(container.querySelector('svg')).toBeInTheDocument();
+  });
+
+  it('renders with prefix prop', () => {
+    const prefix = '$';
+    render(<TextInput prefix={prefix} />);
+    expect(screen.getByText(prefix)).toBeInTheDocument();
+  });
+
+  it('renders with suffix prop', () => {
+    const suffix = 'kr';
+    render(<TextInput suffix={suffix} />);
+    expect(screen.getByText(suffix)).toBeInTheDocument();
+  });
+
+  it('renders with both prefix and suffix', () => {
+    const prefix = 'prefix';
+    const suffix = 'suffix';
+    render(<TextInput prefix={prefix} suffix={suffix} />);
+    expect(screen.getByText(prefix)).toBeInTheDocument();
+    expect(screen.getByText(suffix)).toBeInTheDocument();
+  });
+
+  it('renders with componentSize small', () => {
+    render(<TextInput componentSize="small" />);
+    expect(screen.getByRole('textbox')).toBeInTheDocument();
+  });
+
+  it('renders with componentSize xsmall', () => {
+    render(<TextInput componentSize="xsmall" />);
+    expect(screen.getByRole('textbox')).toBeInTheDocument();
+  });
+
+  it('renders with type email', () => {
+    render(<TextInput type="email" />);
+    expect(screen.getByRole('textbox')).toHaveAttribute('type', 'email');
+  });
+
+  it('renders with defaultValue', () => {
+    const defaultValue = 'default text';
+    render(<TextInput defaultValue={defaultValue} />);
+    expect(screen.getByRole('textbox')).toHaveValue(defaultValue);
+  });
+
+  it('renders with aria-required', () => {
+    render(<TextInput aria-required />);
+    expect(screen.getByRole('textbox')).toHaveAttribute(
+      'aria-required',
+      'true',
+    );
+  });
+
+  it('renders required marker if required', () => {
+    render(<TextInput label="Label" required />);
+    expect(screen.getByText('*')).toBeInTheDocument();
+  });
+
+  it('does not render required marker if required but no label is provided', () => {
+    render(<TextInput required />);
+    expect(screen.queryByText('*')).not.toBeInTheDocument();
   });
 });
