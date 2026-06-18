@@ -24,7 +24,8 @@ export default defineConfig({
       ],
       thresholds: {
         statements: 90,
-        branches: 90,
+        // lavere branch coverage; mange av branchene resulterer i varianter i CSS styling. Det er ikke nyttig å teste for spesifikke CSS klasser eller variabler.
+        branches: 85,
         functions: 90,
         lines: 90,
       },
