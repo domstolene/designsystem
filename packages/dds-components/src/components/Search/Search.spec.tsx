@@ -3,6 +3,8 @@ import { userEvent } from '@testing-library/user-event';
 import { act } from 'react';
 import { describe, expect, it, vi } from 'vitest';
 
+import { SEARCH_SIZES } from './Search.utils';
+
 import { Search } from '.';
 
 describe('<Search>', () => {
@@ -31,6 +33,9 @@ describe('<Search>', () => {
       'aria-describedby',
       `${id}-tip`,
     );
+  });
+  it('exports expected search sizes', () => {
+    expect(SEARCH_SIZES).toEqual(['small', 'medium', 'large']);
   });
   describe('with suggestions', () => {
     it('renders combobox', () => {
