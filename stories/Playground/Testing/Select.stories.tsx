@@ -1,7 +1,7 @@
 import preview from '#.storybook/preview';
 
 import { INPUT_SIZES } from '../../../packages/dds-components/src/components/helpers/Input';
-import { StoryHStack } from '../../../packages/dds-components/src/components/layout/Stack/utils';
+import { StoryHStack } from '../../../packages/dds-components/src/components/layout/Stack/storybook-utils';
 import { Select } from '../../../packages/dds-components/src/index';
 import { ddsProviderDecorator } from '../../../packages/dds-components/src/storybook';
 
