@@ -1,7 +1,7 @@
 import { CalendarDate } from '@internationalized/date';
 import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { DatePicker } from './DatePicker';
 import { portalRender } from '../../../test.utils';
@@ -165,7 +165,7 @@ describe('<DatePicker>', () => {
       });
     });
 
-    it('spinbuttons have accesible description if tip present', () => {
+    it('spinbuttons have accessible description if tip present', () => {
       const tip = 'tip';
       portalRender(<DatePicker tip={tip} />);
 
@@ -210,5 +210,87 @@ describe('<DatePicker>', () => {
 
     const clearButton = screen.queryByRole('button', { name: /Tøm dato/i });
     expect(clearButton).not.toBeInTheDocument();
+  });
+
+  describe('keyboard handling for unavailable dates', () => {
+    it('does not call onChange when Enter is pressed on an unavailable focused date', async () => {
+      const user = userEvent.setup();
+      const onChange = vi.fn();
+
+      // Day 15 is both the default value and marked as unavailable
+      portalRender(
+        <DatePicker
+          defaultValue={new CalendarDate(2024, 3, 15)}
+          isDateUnavailable={date => date.day === 15}
+          onChange={onChange}
+        />,
+      );
+
+      await user.click(screen.getByRole('button'));
+
+      const grid = screen.getByRole('grid');
+      fireEvent.keyDown(grid, { key: 'Enter' });
+
+      expect(onChange).not.toHaveBeenCalled();
+    });
+
+    it('does not call onChange when Space is pressed on an unavailable focused date', async () => {
+      const user = userEvent.setup();
+      const onChange = vi.fn();
+
+      portalRender(
+        <DatePicker
+          defaultValue={new CalendarDate(2024, 3, 15)}
+          isDateUnavailable={date => date.day === 15}
+          onChange={onChange}
+        />,
+      );
+
+      await user.click(screen.getByRole('button'));
+
+      const grid = screen.getByRole('grid');
+      fireEvent.keyDown(grid, { key: ' ' });
+
+      expect(onChange).not.toHaveBeenCalled();
+    });
+
+    it('calls onChange when Enter is pressed on an available focused date', async () => {
+      const user = userEvent.setup();
+      const onChange = vi.fn();
+
+      portalRender(
+        <DatePicker
+          defaultValue={new CalendarDate(2024, 3, 15)}
+          onChange={onChange}
+        />,
+      );
+
+      await user.click(screen.getByRole('button'));
+
+      const grid = screen.getByRole('grid');
+      fireEvent.keyDown(grid, { key: 'Enter' });
+
+      expect(onChange).toHaveBeenCalled();
+    });
+
+    it('keeps the calendar open when Enter is pressed on an unavailable focused date', async () => {
+      const user = userEvent.setup();
+
+      portalRender(
+        <DatePicker
+          defaultValue={new CalendarDate(2024, 3, 15)}
+          isDateUnavailable={date => date.day === 15}
+        />,
+      );
+
+      await user.click(screen.getByRole('button'));
+
+      expect(screen.getByRole('heading', { level: 2 })).toBeInTheDocument();
+
+      const grid = screen.getByRole('grid');
+      fireEvent.keyDown(grid, { key: 'Enter' });
+
+      expect(screen.getByRole('heading', { level: 2 })).toBeInTheDocument();
+    });
   });
 });

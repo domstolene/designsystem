@@ -4,6 +4,7 @@ import { act } from 'react';
 import { describe, expect, it, vi } from 'vitest';
 
 import { SEARCH_SIZES } from './Search.utils';
+import type { WeightedSearchData } from './SearchAutocompleteWrapper';
 
 import { Search } from '.';
 
@@ -172,6 +173,69 @@ describe('<Search>', () => {
           'true',
         );
       });
+    });
+
+    it('renders suggestion from WeightedSearchData', async () => {
+      const text = 'text';
+      render(
+        <Search.AutocompleteWrapper data={{ array: [{ text, relevance: 1 }] }}>
+          <Search />
+        </Search.AutocompleteWrapper>,
+      );
+
+      const input = screen.getByRole('combobox');
+      await userEvent.type(input, `${text}`);
+      expect(screen.getByRole('option')).toBeInTheDocument();
+      expect(screen.getByText(text)).toBeInTheDocument();
+    });
+
+    it('filters WeightedSearchData using custom filter', async () => {
+      const match = 'apple';
+      const noMatch = 'banana';
+      render(
+        <Search.AutocompleteWrapper
+          data={{
+            array: [
+              { text: match, relevance: 1 },
+              { text: noMatch, relevance: 1 },
+            ],
+          }}
+          filter={(suggestion, query) => suggestion.startsWith(query)}
+        >
+          <Search />
+        </Search.AutocompleteWrapper>,
+      );
+
+      const input = screen.getByRole('combobox');
+      await userEvent.type(input, 'ap');
+      expect(screen.getByText(match)).toBeInTheDocument();
+      expect(screen.queryByText(noMatch)).not.toBeInTheDocument();
+    });
+
+    it('sorts WeightedSearchData using sortFunction', async () => {
+      const items = [
+        { text: 'text-low', relevance: 1 },
+        { text: 'text-high', relevance: 10 },
+      ];
+      render(
+        <Search.AutocompleteWrapper
+          data={{
+            array: items,
+            sortFunction: (
+              a: WeightedSearchData['array'][number],
+              b: WeightedSearchData['array'][number],
+            ) => b.relevance - a.relevance,
+          }}
+        >
+          <Search />
+        </Search.AutocompleteWrapper>,
+      );
+
+      const input = screen.getByRole('combobox');
+      await userEvent.type(input, 'text');
+      const options = screen.getAllByRole('option');
+      expect(options[0]).toHaveTextContent('text-high');
+      expect(options[1]).toHaveTextContent('text-low');
     });
   });
 });
