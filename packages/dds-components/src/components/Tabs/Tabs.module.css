@@ -45,7 +45,7 @@
       var(--dds-focus-transition);
   }
 
-  &:hover {
+  &:hover&:not(.tab--active) {
     color: var(--dds-color-text-default);
     background-color: var(--dds-color-surface-hover-default);
   }
@@ -82,4 +82,5 @@
   color: var(--dds-color-text-default);
   border-color: var(--dds-color-surface-action-selected);
   box-shadow: inset 0px -2px 0px 0px var(--dds-color-surface-action-selected);
+  cursor: default;
 }
