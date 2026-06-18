@@ -8,6 +8,7 @@
     "build": "turbo run build",
     "typecheck": "turbo run typecheck",
     "test": "turbo run test",
+    "coverage": "turbo run coverage",
     "test:components": "pnpm -F @norges-domstoler/dds-components test",
     "test:components:ui": "pnpm -F @norges-domstoler/dds-components test:ui",
     "coverage:components": "pnpm -F @norges-domstoler/dds-components coverage",

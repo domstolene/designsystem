@@ -41,8 +41,8 @@ jobs:
         with:
           author_name: AgataJedryszek-da
           author_email: agata.jedryszek@domstol.no
-          message: "Genererer stilvariabler i CSS, SCSS og JS basert på endringer i design tokens"
-          add: "packages/dds-tokens/generated-tokens/"
+          message: 'Genererer stilvariabler i CSS, SCSS og JS basert på endringer i design tokens'
+          add: 'packages/dds-tokens/generated-tokens/'
 
   build:
     name: Build
@@ -97,8 +97,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-turbo-
 
-      - name: Run tests
-        run: pnpm test
+      - name: Run tests with coverage
+        run: pnpm coverage
 
   eslint:
     name: ESLint
