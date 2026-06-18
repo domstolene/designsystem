@@ -57,6 +57,7 @@ import expandSvg from '../svg/expand.svg?raw';
 import facebookSvg from '../svg/facebook.svg?raw';
 import familySvg from '../svg/family.svg?raw';
 import feedbackSvg from '../svg/feedback.svg?raw';
+import FileSignedIcon from '../svg/fileSigned.svg?raw';
 import fileSvg from '../svg/file.svg?raw';
 import fileAddSvg from '../svg/fileAdd.svg?raw';
 import fileShieldedSvg from '../svg/fileShielded.svg?raw';
@@ -239,6 +240,7 @@ export const iconSvgs: Record<IconName, string> = {
   FileAddIcon: fileAddSvg,
   FileIcon: fileSvg,
   FileShieldedIcon: fileShieldedSvg,
+  FileSignedIcon: FileSignedIcon,
   FileTextIcon: fileTextSvg,
   FilterIcon: filterSvg,
   FilterListIcon: filterlistSvg,
