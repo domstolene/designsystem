@@ -237,7 +237,9 @@
       "Semantic/Typography/Core": "enabled",
       "Semantic/BorderRadius/Core": "enabled",
       "Semantic/Shadow/Light": "enabled",
-      "Semantic/Motion/Elsa": "enabled"
+      "Semantic/Motion/Elsa": "enabled",
+      "Base/Color/Elsa": "enabled",
+      "Base/Color/Data": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:9567:917",
     "$figmaModeId": "9567:3",
