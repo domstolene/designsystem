@@ -1,7 +1,7 @@
 {
   "dds-font-family": {
     "sans": {
-      "value": "IBM Plex Sans, Arial, sans-serif",
+      "value": "Poppins, Arial, sans-serif",
       "type": "fontFamilies"
     },
     "monospace": {
@@ -66,11 +66,11 @@
       "type": "fontWeights"
     },
     "semi-bold": {
-      "value": "500",
+      "value": "600",
       "type": "fontWeights"
     },
     "bold": {
-      "value": "600",
+      "value": "700",
       "type": "fontWeights"
     }
   },
