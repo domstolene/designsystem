@@ -68,7 +68,6 @@ export const Chip = ({
         }
         bleedMarginBlock="x0.25"
         reflectivePadding
-        absolute={false}
       />
     </Paper>
   ) : null;

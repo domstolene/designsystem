@@ -8,18 +8,18 @@ import { portalRender } from '../../../test.utils';
 
 describe('<DatePicker>', () => {
   it('throws if used outside DdsProvider', () => {
-    expect(() => render(<DatePicker />)).toThrow(
+    expect(() => render(<DatePicker label="Label" />)).toThrow(
       'DatePicker must be used within a DdsProvider',
     );
   });
   it('renders calendar button', () => {
-    portalRender(<DatePicker />);
+    portalRender(<DatePicker label="Label" />);
 
     const button = screen.queryByRole('button');
     expect(button).toBeInTheDocument();
   });
   it('calendar button has aria attributes', () => {
-    portalRender(<DatePicker />);
+    portalRender(<DatePicker label="Label" />);
 
     const button = screen.getByRole('button');
     expect(button).toHaveAttribute('aria-haspopup', 'dialog');
@@ -28,7 +28,9 @@ describe('<DatePicker>', () => {
   it('opens the calendar and renders the month grid', async () => {
     const user = userEvent.setup();
 
-    portalRender(<DatePicker defaultValue={new CalendarDate(2024, 3, 15)} />);
+    portalRender(
+      <DatePicker label="Label" defaultValue={new CalendarDate(2024, 3, 15)} />,
+    );
 
     await user.click(screen.getByRole('button'));
 
@@ -51,7 +53,9 @@ describe('<DatePicker>', () => {
   it('closes the calendar on Shift+Tab from previous month button', async () => {
     const user = userEvent.setup();
 
-    portalRender(<DatePicker defaultValue={new CalendarDate(2024, 3, 15)} />);
+    portalRender(
+      <DatePicker label="Label" defaultValue={new CalendarDate(2024, 3, 15)} />,
+    );
 
     await user.click(screen.getByRole('button'));
 
@@ -68,6 +72,7 @@ describe('<DatePicker>', () => {
 
     portalRender(
       <DatePicker
+        label="Label"
         defaultValue={new CalendarDate(2024, 2, 15)}
         showWeekNumbers={false}
       />,
@@ -83,6 +88,7 @@ describe('<DatePicker>', () => {
 
     portalRender(
       <DatePicker
+        label="Label"
         defaultValue={new CalendarDate(2024, 3, 15)}
         minValue={new CalendarDate(2024, 3, 1)}
         maxValue={new CalendarDate(2024, 3, 31)}
@@ -105,7 +111,7 @@ describe('<DatePicker>', () => {
 
   describe('spinbuttons', () => {
     it('renders date segments in Norwegian format (day, month, year)', () => {
-      portalRender(<DatePicker />);
+      portalRender(<DatePicker label="Label" />);
 
       const segments = screen.getAllByRole('spinbutton');
 
@@ -116,7 +122,7 @@ describe('<DatePicker>', () => {
       expect(segments[2]).toHaveAccessibleName(/år/i);
     });
     it('renders date segments with Norwegian placeholders', () => {
-      portalRender(<DatePicker />);
+      portalRender(<DatePicker label="Label" />);
 
       const segments = screen.getAllByRole('spinbutton');
       expect(segments).toHaveLength(3);
@@ -131,14 +137,14 @@ describe('<DatePicker>', () => {
     });
 
     it('renders three spinbuttons for the date', () => {
-      portalRender(<DatePicker />);
+      portalRender(<DatePicker label="Label" />);
 
       const spinbuttons = screen.getAllByRole('spinbutton');
       expect(spinbuttons).toHaveLength(3);
     });
 
     it('spinbuttons have aria-valuemin', () => {
-      portalRender(<DatePicker />);
+      portalRender(<DatePicker label="Label" />);
 
       const spinbuttons = screen.getAllByRole('spinbutton');
       expect(spinbuttons[0]).toHaveAttribute('aria-valuemin', '1');
@@ -147,7 +153,7 @@ describe('<DatePicker>', () => {
     });
 
     it('spinbuttons have aria-valuemax', () => {
-      portalRender(<DatePicker />);
+      portalRender(<DatePicker label="Label" />);
 
       const spinbuttons = screen.getAllByRole('spinbutton');
       expect(spinbuttons[0]).toHaveAttribute('aria-valuemax');
@@ -156,7 +162,7 @@ describe('<DatePicker>', () => {
 
     it('spinbuttons have accessible description if error message present', () => {
       const errorMessage = 'error';
-      portalRender(<DatePicker errorMessage={errorMessage} />);
+      portalRender(<DatePicker label="Label" errorMessage={errorMessage} />);
 
       const spinbuttons = screen.getAllByRole('spinbutton');
 
@@ -167,7 +173,7 @@ describe('<DatePicker>', () => {
 
     it('spinbuttons have accessible description if tip present', () => {
       const tip = 'tip';
-      portalRender(<DatePicker tip={tip} />);
+      portalRender(<DatePicker label="Label" tip={tip} />);
 
       const spinbuttons = screen.getAllByRole('spinbutton');
 
@@ -179,34 +185,40 @@ describe('<DatePicker>', () => {
 
   it('renders error message', () => {
     const errorMessage = 'error';
-    portalRender(<DatePicker errorMessage={errorMessage} />);
+    portalRender(<DatePicker label="Label" errorMessage={errorMessage} />);
 
     expect(screen.getByText(errorMessage)).toBeInTheDocument();
   });
 
   it('renders tip', () => {
     const tip = 'tip';
-    portalRender(<DatePicker tip={tip} />);
+    portalRender(<DatePicker label="Label" tip={tip} />);
 
     expect(screen.getByText(tip)).toBeInTheDocument();
   });
 
   it('clear button is not rendered if no value', () => {
-    portalRender(<DatePicker clearable />);
+    portalRender(<DatePicker label="Label" clearable />);
 
     const clearButton = screen.queryByRole('button', { name: /Tøm dato/i });
     expect(clearButton).not.toBeInTheDocument();
   });
   it('clear button is rendered if there is value', () => {
     portalRender(
-      <DatePicker clearable value={new CalendarDate(2023, 8, 28)} />,
+      <DatePicker
+        label="Label"
+        clearable
+        value={new CalendarDate(2023, 8, 28)}
+      />,
     );
 
     const clearButton = screen.queryByRole('button', { name: /Tøm dato/i });
     expect(clearButton).toBeInTheDocument();
   });
   it('clear button is not rendered if there is value and not clearable', () => {
-    portalRender(<DatePicker value={new CalendarDate(2023, 8, 28)} />);
+    portalRender(
+      <DatePicker label="Label" value={new CalendarDate(2023, 8, 28)} />,
+    );
 
     const clearButton = screen.queryByRole('button', { name: /Tøm dato/i });
     expect(clearButton).not.toBeInTheDocument();
@@ -220,6 +232,7 @@ describe('<DatePicker>', () => {
       // Day 15 is both the default value and marked as unavailable
       portalRender(
         <DatePicker
+          label="Label"
           defaultValue={new CalendarDate(2024, 3, 15)}
           isDateUnavailable={date => date.day === 15}
           onChange={onChange}
@@ -240,6 +253,7 @@ describe('<DatePicker>', () => {
 
       portalRender(
         <DatePicker
+          label="Label"
           defaultValue={new CalendarDate(2024, 3, 15)}
           isDateUnavailable={date => date.day === 15}
           onChange={onChange}
@@ -260,6 +274,7 @@ describe('<DatePicker>', () => {
 
       portalRender(
         <DatePicker
+          label="Label"
           defaultValue={new CalendarDate(2024, 3, 15)}
           onChange={onChange}
         />,
@@ -278,6 +293,7 @@ describe('<DatePicker>', () => {
 
       portalRender(
         <DatePicker
+          label="Label"
           defaultValue={new CalendarDate(2024, 3, 15)}
           isDateUnavailable={date => date.day === 15}
         />,

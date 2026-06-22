@@ -18,9 +18,9 @@ describe('<Button>', () => {
     expect(button).toBeInTheDocument();
   });
 
-  it('renders a caption element if prop as is provided', () => {
-    render(<Button as="caption" />);
-    const button = screen.getByRole('caption');
+  it('renders an article element if prop as is provided', () => {
+    render(<Button as="article" />);
+    const button = screen.getByRole('article');
 
     expect(button).toBeInTheDocument();
   });

@@ -235,6 +235,7 @@ export const NewsPopover = ({
               const active = activeSlide === i;
               return (
                 <Icon
+                  key={`${slide.heading}-${i}`}
                   iconSize="small"
                   icon={CircleFilledIcon}
                   color={
