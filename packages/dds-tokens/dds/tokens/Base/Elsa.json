@@ -22,114 +22,6 @@
       "description": "Rounded buttons, round shapes etc"
     }
   },
-  "dds-font-family": {
-    "sans": {
-      "value": "IBM Plex Sans, Arial, sans-serif",
-      "type": "fontFamilies"
-    },
-    "monospace": {
-      "value": "IBM Plex Mono, Courier New, monospace",
-      "type": "fontFamilies",
-      "description": "For kode"
-    }
-  },
-  "dds-font-size": {
-    "x5": {
-      "value": "5rem",
-      "type": "fontSizes"
-    },
-    "x4": {
-      "value": "4rem",
-      "type": "fontSizes"
-    },
-    "x3": {
-      "value": "3rem",
-      "type": "fontSizes"
-    },
-    "x2_5": {
-      "value": "2.5rem",
-      "type": "fontSizes"
-    },
-    "x2": {
-      "value": "2rem",
-      "type": "fontSizes"
-    },
-    "x1_5": {
-      "value": "1.5rem",
-      "type": "fontSizes"
-    },
-    "x1_25": {
-      "value": "1.25rem",
-      "type": "fontSizes"
-    },
-    "x1_125": {
-      "value": "1.125rem",
-      "type": "fontSizes"
-    },
-    "x1": {
-      "value": "1rem",
-      "type": "fontSizes"
-    },
-    "x0_875": {
-      "value": "0.875rem",
-      "type": "fontSizes"
-    },
-    "x0_75": {
-      "value": "0.75rem",
-      "type": "fontSizes"
-    }
-  },
-  "dds-font-weight": {
-    "light": {
-      "value": "300",
-      "type": "fontWeights"
-    },
-    "normal": {
-      "value": "400",
-      "type": "fontWeights"
-    },
-    "semi-bold": {
-      "value": "500",
-      "type": "fontWeights"
-    },
-    "bold": {
-      "value": "600",
-      "type": "fontWeights"
-    }
-  },
-  "dds-font-lineheight": {
-    "x1": {
-      "value": "150%",
-      "type": "lineHeights",
-      "description": "Brukes på mengetekst og artikler"
-    },
-    "x3": {
-      "value": "120%",
-      "type": "lineHeights"
-    },
-    "x2": {
-      "value": "130%",
-      "type": "lineHeights",
-      "description": "Brukes i komponenter og overskrifter"
-    }
-  },
-  "dds-font-letter-spacing": {
-    "tight": {
-      "value": "-0.01em",
-      "type": "letterSpacing",
-      "description": "Brukes på str ×2.5 og større"
-    },
-    "normal": {
-      "value": "0em",
-      "type": "letterSpacing",
-      "description": "Brukes på str ×1 og opp til og med ×2"
-    },
-    "loose": {
-      "value": "0.01em",
-      "type": "letterSpacing",
-      "description": "Brukes på størrelser under ×1"
-    }
-  },
   "dds-font-paragraph-spacing": {
     "small": {
       "value": "1em",
@@ -155,20 +47,6 @@
       "value": "0.4em",
       "type": "paragraphSpacing",
       "description": "Brukes på på alle headere (bottom)"
-    }
-  },
-  "dds-font-style": {
-    "underline": {
-      "value": "underline",
-      "type": "textDecoration"
-    },
-    "normal": {
-      "value": "none",
-      "type": "textDecoration"
-    },
-    "italic": {
-      "value": "italic",
-      "type": "textDecoration"
     }
   },
   "dds-spacing": {

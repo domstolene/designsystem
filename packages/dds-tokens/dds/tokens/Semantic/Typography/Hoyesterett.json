@@ -4,7 +4,7 @@
       "medium": {
         "value": {
           "fontFamily": "{dds-font-family.sans}",
-          "fontWeight": "{dds-font-weight.bold}",
+          "fontWeight": "{dds-font-weight.normal}",
           "fontSize": "{dds-font-size.x1}",
           "lineHeight": "{dds-font-lineheight.x2}",
           "letterSpacing": "{dds-font-letter-spacing.loose}",

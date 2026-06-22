@@ -3,7 +3,10 @@
     "id": "156a716921b10e24a326ddfaecd5cd7d56bd7600",
     "name": "Elsa",
     "selectedTokenSets": {
-      "Base/Elsa": "enabled"
+      "Base/Elsa": "enabled",
+      "Base/Typography/Elsa": "enabled",
+      "Base/Color/Data": "enabled",
+      "Base/Color/Elsa": "enabled"
     },
     "$figmaStyleReferences": {
       "dds-shadow-base.1-light": "S:ba186c5a2001dfa8783f73aa441297307fb71006,",
@@ -238,8 +241,10 @@
       "Semantic/BorderRadius/Core": "enabled",
       "Semantic/Shadow/Light": "enabled",
       "Semantic/Motion/Elsa": "enabled",
-      "Base/Color/Elsa": "enabled",
-      "Base/Color/Data": "enabled"
+      "Base/Color/Elsa": "source",
+      "Base/Color/Data": "source",
+      "Base/Typography/Elsa": "source",
+      "Semantic/Size/Height/Core": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:9567:917",
     "$figmaModeId": "9567:3",
@@ -403,7 +408,11 @@
       "Semantic/Typography/Core": "enabled",
       "Semantic/BorderRadius/Core": "enabled",
       "Semantic/Shadow/Dark": "enabled",
-      "Semantic/Motion/Elsa": "enabled"
+      "Semantic/Motion/Elsa": "enabled",
+      "Base/Typography/Elsa": "source",
+      "Base/Color/Data": "source",
+      "Base/Color/Elsa": "source",
+      "Semantic/Size/Height/Core": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:9567:917",
     "$figmaModeId": "12927:0",
@@ -552,7 +561,11 @@
       "Semantic/Typography/Public": "enabled",
       "Semantic/BorderRadius/Public": "enabled",
       "Semantic/Shadow/Light": "enabled",
-      "Semantic/Motion/Elsa": "enabled"
+      "Semantic/Motion/Elsa": "enabled",
+      "Base/Typography/Elsa": "source",
+      "Base/Color/Data": "source",
+      "Base/Color/Elsa": "source",
+      "Semantic/Size/Height/Public": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:9567:917",
     "$figmaModeId": "12927:1",
@@ -716,7 +729,11 @@
       "Semantic/Typography/Public": "enabled",
       "Semantic/BorderRadius/Public": "enabled",
       "Semantic/Shadow/Dark": "enabled",
-      "Semantic/Motion/Elsa": "enabled"
+      "Semantic/Motion/Elsa": "enabled",
+      "Base/Typography/Elsa": "source",
+      "Base/Color/Data": "source",
+      "Base/Color/Elsa": "source",
+      "Semantic/Size/Height/Public": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:9567:917",
     "$figmaModeId": "12927:2",
@@ -852,6 +869,56 @@
       "dds-color-data.09.default": "8e906474817d7bf52354d5b3985b4323a5d1e67f",
       "dds-color-data.09.subtle": "7e52b99a06db540bff7aaaca63a84bf46447344c",
       "dds-color-data.09.border": "6708126d5d40021a97a7536f637ef90d89019458"
+    },
+    "group": "Theme"
+  },
+  {
+    "id": "a6cd75473d078c993eed2100cb81ea4637db4ea1",
+    "name": "Hoyesterett",
+    "$figmaStyleReferences": {},
+    "$figmaVariableReferences": {},
+    "selectedTokenSets": {
+      "Base/Elsa": "enabled",
+      "Base/Typography/Hoyesterett": "enabled",
+      "Base/Color/Hoyesterett": "enabled"
+    },
+    "group": "Base"
+  },
+  {
+    "id": "af28722a67d599a36c4bda60a219b54c3fca3620",
+    "name": "Hoyesterett-light",
+    "$figmaStyleReferences": {},
+    "$figmaVariableReferences": {},
+    "selectedTokenSets": {
+      "Base/Elsa": "source",
+      "Base/Typography/Hoyesterett": "source",
+      "Base/Color/Hoyesterett": "source",
+      "Semantic/Color/Light": "enabled",
+      "Semantic/Typography/Hoyesterett": "enabled",
+      "Semantic/BorderRadius/Public": "enabled",
+      "Semantic/Shadow/Light": "enabled",
+      "Semantic/Size/Height/Public": "enabled",
+      "Semantic/Motion/Elsa": "enabled",
+      "Base/Color/Data": "source"
+    },
+    "group": "Theme"
+  },
+  {
+    "id": "2a44a43013d7b0632008f400c8a9333b26d9a94c",
+    "name": "Hoyesterett-dark",
+    "$figmaStyleReferences": {},
+    "$figmaVariableReferences": {},
+    "selectedTokenSets": {
+      "Base/Elsa": "source",
+      "Base/Typography/Hoyesterett": "source",
+      "Base/Color/Data": "source",
+      "Base/Color/Hoyesterett": "source",
+      "Semantic/Color/Dark": "enabled",
+      "Semantic/Typography/Hoyesterett": "enabled",
+      "Semantic/BorderRadius/Public": "enabled",
+      "Semantic/Shadow/Dark": "enabled",
+      "Semantic/Size/Height/Public": "enabled",
+      "Semantic/Motion/Elsa": "enabled"
     },
     "group": "Theme"
   }
