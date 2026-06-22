@@ -2,6 +2,8 @@
 
 ## 23.1.3
 
+(2026-06-22)
+
 ### Patch Changes
 
 - edde0c1: Vis hoverable bakgrunnsfarge for rader i Table med size Small
