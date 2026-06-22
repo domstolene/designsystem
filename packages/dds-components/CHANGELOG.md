@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-components
 
+## 23.1.3
+
+### Patch Changes
+
+- edde0c1: Vis hoverable bakgrunnsfarge for rader i Table med size Small
+- bae7c69: Legger til det nye ikonet `FileSigned` i ikonbiblioteket.
+- b96924a: Fjern hover styling for aktiv fane i Tabs
+
 ## 23.1.2
 
 (2026-06-09)
