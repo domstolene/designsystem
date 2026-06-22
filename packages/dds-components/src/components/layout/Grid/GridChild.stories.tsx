@@ -1,7 +1,7 @@
 import preview from '#.storybook/preview';
 
 import { Paper } from '..';
-import { categoryCss, responsivePropsArgTypes } from '../../../storybook';
+import { CSSArgType, responsivePropsArgTypes } from '../../../storybook';
 
 import { Grid, GridChild } from '.';
 
@@ -9,10 +9,11 @@ const meta = preview.meta({
   title: 'dds-components/Layout Primitives/Grid/GridChild',
   component: GridChild,
   argTypes: {
-    gridRow: { control: 'text' },
-    justifySelf: { control: 'text', table: categoryCss },
     columnsOccupied: { control: 'text' },
     ...responsivePropsArgTypes,
+    gridRow: CSSArgType,
+    justifySelf: CSSArgType,
+    gridArea: CSSArgType,
   },
 });
 

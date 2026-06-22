@@ -1,6 +1,4 @@
 .tab-row {
-  display: grid;
-  overflow-x: auto;
   scroll-snap-type: x mandatory;
   border-bottom: 1px solid var(--dds-color-border-subtle);
 
@@ -12,15 +10,6 @@
   &:focus-visible button {
     outline: none;
   }
-}
-
-.tab-row--standard-widths {
-  grid-auto-flow: column;
-  grid-auto-columns: 1fr;
-}
-
-.tab-row--custom-widths {
-  grid-template-columns: var(--dds-tab-widths);
 }
 
 .tab {

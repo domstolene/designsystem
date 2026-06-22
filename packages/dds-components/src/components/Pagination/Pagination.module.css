@@ -1,20 +1,3 @@
-.list {
-  display: grid;
-  grid-auto-flow: column;
-  margin: 0;
-  padding: 0;
-  gap: var(--dds-spacing-x0-75);
-}
-
-.list__item {
-  display: inline-grid;
-  align-content: center;
-}
-
-.indicators {
-  grid-auto-flow: column;
-}
-
 .truncation-icon {
   color: var(--dds-color-icon-medium);
   min-width: calc(1ch + (2 * var(--dds-spacing-x0-75)));

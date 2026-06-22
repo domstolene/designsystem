@@ -7,73 +7,21 @@
 .container--info {
   border-color: var(--dds-color-border-info);
   background-color: var(--dds-color-surface-info-default);
-
-  .icon {
-    color: var(--dds-color-icon-on-info-default);
-  }
 }
 .container--warning {
   border-color: var(--dds-color-border-warning);
   background-color: var(--dds-color-surface-warning-default);
-
-  .icon {
-    color: var(--dds-color-icon-on-warning-default);
-  }
 }
 .container--danger {
   border-color: var(--dds-color-border-danger);
   background-color: var(--dds-color-surface-danger-default);
-
-  .icon {
-    color: var(--dds-color-icon-on-danger-default);
-  }
 }
 .container--success {
   border-color: var(--dds-color-border-success);
   background-color: var(--dds-color-surface-success-default);
-
-  .icon {
-    color: var(--dds-color-icon-on-success-default);
-  }
 }
 
 .container--tips {
   border-color: var(--dds-color-border-info);
   background-color: var(--dds-color-surface-info-default);
-
-  .icon {
-    color: var(--dds-color-icon-on-info-default);
-  }
-}
-
-.container--horisontal {
-  grid-template-areas: 'icon text';
-  grid-template-columns: min-content 1fr;
-}
-
-.container--horisontal--closable {
-  grid-template-areas: 'icon text closeButton';
-  grid-template-columns: min-content 1fr min-content;
-}
-
-.container--vertical {
-  grid-template-areas: 'icon icon' 'text text';
-  grid-template-columns: 1fr min-content;
-}
-
-.container--vertical--closable {
-  grid-template-areas: 'icon closeButton' 'text text';
-  grid-template-columns: 1fr;
-}
-
-.container__text {
-  grid-area: text;
-}
-
-.container__icon {
-  grid-area: icon;
-}
-
-.container__button {
-  grid-area: closeButton;
 }
