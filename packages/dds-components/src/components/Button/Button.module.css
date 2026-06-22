@@ -62,6 +62,7 @@
   }
 
   &.clear {
+    min-height: fit-content;
     padding: var(--dds-spacing-x0-125);
   }
 }
@@ -90,6 +91,7 @@
   }
 
   &.clear {
+    min-height: var(--dds-size-height-input-xsmall);
     padding: var(--dds-spacing-x0-25);
   }
 }
@@ -118,6 +120,7 @@
   }
 
   &.clear {
+    min-height: var(--dds-size-height-input-small);
     padding: var(--dds-spacing-x0-5);
   }
 }
@@ -146,6 +149,7 @@
   }
 
   &.clear {
+    min-height: var(--dds-size-height-input-medium);
     padding: var(--dds-spacing-x0-75);
   }
 }
