@@ -57,6 +57,7 @@ export const inlineTextareaCns = (
 ) => [
   ...inlineInputCns(hasErrorState, showEditingIcon),
   typographyStyles['body-long-medium'],
+  styles['inline-textarea'],
   utilStyles.scrollbar,
 ];
 

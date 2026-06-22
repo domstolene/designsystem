@@ -171,12 +171,16 @@ export const getCustomStyles = <TOption>(
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
     boxSizing: 'border-box',
-    paddingInline: 'var(--dds-spacing-x0-25)',
+    paddingInlineStart: 'var(--dds-spacing-x0-25)',
+    paddingBlock: 'var(--dds-spacing-x0-125)',
     ...(state.selectProps.isDisabled && {
       color: 'var(--dds-color-text-subtle)',
     }),
     ...(isReadOnly && {
       color: 'var(--dds-color-text-medium)',
+    }),
+    ...((state.selectProps.isDisabled || isReadOnly) && {
+      paddingInlineEnd: 'var(--dds-spacing-x0-25)',
     }),
   }),
   multiValueRemove: (provided, state) =>

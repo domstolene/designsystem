@@ -41,12 +41,12 @@
 }
 
 .visibility-transition {
-  --dds-visiblity-transition: visibility 0.4s;
+  --dds-visibility-transition: visibility 0.4s;
   --dds-opacity-transition: opacity var(--dds-motion-surface);
 
   opacity: 0;
   @media (prefers-reduced-motion: no-preference) {
-    transition: var(--dds-visiblity-transition), var(--dds-opacity-transition);
+    transition: var(--dds-visibility-transition), var(--dds-opacity-transition);
   }
 }
 .visibility-transition--open {

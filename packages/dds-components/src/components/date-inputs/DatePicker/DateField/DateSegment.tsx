@@ -6,7 +6,7 @@ import type {
 import { useRef } from 'react';
 
 import { cn, spaceSeparatedIdListGenerator } from '../../../../utils';
-import inputStyles from '../../../helpers/Input/Input.module.css';
+import { Box } from '../../../layout';
 import typographyStyles from '../../../Typography/typographyStyles.module.css';
 import styles from '../../common/DateInput.module.css';
 import { type DatePickerProps } from '../DatePicker';
@@ -31,8 +31,12 @@ export function DateSegment({
   const ref = useRef<HTMLDivElement>(null);
   const { segmentProps } = useDateSegment(segment, state, ref);
   return (
-    <div
+    <Box
       {...segmentProps}
+      padding="0 0.05rem"
+      width="max-content"
+      height="max-content"
+      marginBlock="auto"
       aria-describedby={spaceSeparatedIdListGenerator([
         errorMessageId ? errorMessageId : undefined,
         tipId ? tipId : undefined,
@@ -42,7 +46,6 @@ export function DateSegment({
         segmentProps.className,
         styles.segment,
         typographyStyles[`body-short-${componentSize}`],
-        inputStyles[`input--${componentSize}`],
       )}
       style={{
         ...segmentProps.style,
@@ -62,7 +65,7 @@ export function DateSegment({
         {segment.placeholder}
       </span>
       {segment.isPlaceholder ? '' : segment.text}
-    </div>
+    </Box>
   );
 }
 

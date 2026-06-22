@@ -6,15 +6,18 @@ import {
   ColorsGenerator,
   DataColorsGenerator,
   GridGenerator,
-  IconSizesGenerator,
+  MotionGenerator,
   ShadowsGenerator,
+  SizeHeightGenerator,
+  SizeIconGenerator,
   SpacingGenerator,
   TypographyGenerator,
   Wrapper,
+  ZIndexGenerator,
 } from './utils';
-import { MotionGenerator } from './utils/MotionGenerator';
-import { ZIndexGenerator } from './utils/ZIndexGenerator';
 import {
+  Divider,
+  Heading,
   Tab,
   TabList,
   TabPanel,
@@ -91,8 +94,29 @@ export const Grid = meta.story(() => {
   return <Wrapper> {GridGenerator()}</Wrapper>;
 });
 
-export const IconSizes = meta.story(() => {
-  return <Wrapper> {IconSizesGenerator()}</Wrapper>;
+export const Size = meta.story(() => {
+  return (
+    <Wrapper>
+      <Heading level={2} withMargins>
+        Icon
+      </Heading>
+      {SizeIconGenerator()}
+      <Divider />
+      <Heading level={2} withMargins>
+        Height
+      </Heading>
+      <Tabs>
+        <TabList>
+          <Tab>Core</Tab>
+          <Tab>Public</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>{SizeHeightGenerator('core')}</TabPanel>
+          <TabPanel>{SizeHeightGenerator('public')}</TabPanel>
+        </TabPanels>
+      </Tabs>
+    </Wrapper>
+  );
 });
 
 export const Shadows = meta.story(() => {

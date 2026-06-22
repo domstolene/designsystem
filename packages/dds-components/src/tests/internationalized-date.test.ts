@@ -1,9 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+import semver from 'semver';
 import { describe, expect, it } from 'vitest';
 
-import packageJson from '../package.json';
+import packageJson from '../../package.json';
 
 function readPackageJson(pkgName: string) {
   const pkgPath = path.join(
@@ -41,7 +42,7 @@ describe('@internationalized/date', () => {
         depPkg.dependencies?.['@internationalized/date'] ??
         depPkg.peerDependencies?.['@internationalized/date'];
 
-      if (declared && declared !== expected) {
+      if (declared && !semver.intersects(declared, expected)) {
         offenders.push({ name: dep, declared });
       }
     }

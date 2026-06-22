@@ -95,25 +95,27 @@
   }
 }
 
-.row--body {
-  background-color: var(--dds-color-surface-default);
+.table {
+  .row--body {
+    background-color: var(--dds-color-surface-default);
 
-  &.row--sum,
-  &.row--sum:nth-of-type(even),
-  &.row--sum:nth-of-type(odd) {
-    border-bottom: 1px solid var(--dds-color-border-default);
-    border-top: 1px solid var(--dds-color-border-default);
-    background: var(--dds-color-surface-default);
-  }
+    &.row--sum,
+    &.row--sum:nth-of-type(even),
+    &.row--sum:nth-of-type(odd) {
+      border-bottom: 1px solid var(--dds-color-border-default);
+      border-top: 1px solid var(--dds-color-border-default);
+      background: var(--dds-color-surface-default);
+    }
 
-  &.row--selected,
-  &.row--selected:nth-of-type(even),
-  &.row--selected:nth-of-type(odd) {
-    background-color: var(--dds-color-surface-selected-default);
-  }
+    &.row--selected,
+    &.row--selected:nth-of-type(even),
+    &.row--selected:nth-of-type(odd) {
+      background-color: var(--dds-color-surface-selected-default);
+    }
 
-  &.row--hoverable:hover {
-    background-color: var(--dds-color-surface-hover-default);
+    &.row--hoverable:hover {
+      background-color: var(--dds-color-surface-hover-default);
+    }
   }
 }
 

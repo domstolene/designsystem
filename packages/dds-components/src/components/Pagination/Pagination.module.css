@@ -11,10 +11,6 @@
   align-content: center;
 }
 
-.list__item--hidden {
-  visibility: hidden;
-}
-
 .indicators {
   grid-auto-flow: column;
 }

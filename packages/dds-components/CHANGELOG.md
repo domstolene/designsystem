@@ -1,5 +1,31 @@
 # @norges-domstoler/dds-components
 
+## 23.1.2
+
+(2026-06-09)
+
+### Patch Changes
+
+- 7d37d0d: Fikser bug der `<Select isMulti>` ikke fikk plass til verdi-chips over flere linjer.
+
+## 23.1.1
+
+(2026-06-08)
+
+### Patch Changes
+
+- a6d888c: Oppdaterer tekst farge for landskode når `<PhoneInput/>` settes til disabled og/eller read only. Setter også opacity i `<NativeSelect/>` til 1.0 for å overskrive Chromiums default opacity chromium som er satt til 0.7.
+- b512c42: Utbedrer spacing i verdi-chip i `<Select isMulti>`.
+- 925da2a: Fikser bug der `<InlineEditTextArea>` ikke fikk multiline styling.
+- b512c42: Standardiserer høyde på tvers av inputkomponenter og knapper ved å ta i bruk nye design tokens på formen `dds-size-height-<størrelse>`. Dette resulterer i minimale endringer i høyde og interne størrelser, men kan i verste fall knekke layout. Følgende komponenter er påvirket: `<TextInput>`, `<DatePicker>`, `<TimePicker>`, `<Select>`, `<NativeSelect>`, `<Search>`, `<Button>`, `<SplitButton>`, `<ToggleButton>`, `<ToggleBar>`.
+- 02ff2cc: Endringer i styling av kalender i `<DatePicker>` ved props `minValue` og `maxValue`:
+  - Cellene med datoer utenfor rekkevidde er krysset ut og deaktivert.
+  - Knapper for å bla i måneder forsvinner hvis neste/forrige måned er utenfor rekkevidde.
+  - Oppdaterer docs: `minValue` og `maxValue` brukes ved logiske begrensninger, som timebestilling tilbake i tid og dødsdato fram i tid; ved vilkårlige begrensninger brukes `isDateUnavailable` istedet, slik at brukeren kan fortsatt bla i utilgjengelige datoer. Detaljer i [tekniske docs](https://design.domstol.no/987b33f71/p/73c4d3-datepicker/b/58909e).
+
+- 7b54284: Fikser bug der fontstørrelsen ikke fulgte komponentstørrelsen i `<ButtonGroup>`.
+- 02ff2cc: Fikser styling på tvers av tilstander i datocelle i `<DatePicker>`.
+
 ## 23.1.0
 
 (2026-06-03)

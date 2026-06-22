@@ -48,6 +48,9 @@ const meta: Meta<typeof DatePicker> = {
     onFocus: htmlEventArgType,
     onOpenChange: { control: false },
     onFocusChange: { control: false },
+    isDateUnavailable: { control: false },
+    minValue: { control: false },
+    maxValue: { control: false },
     id: htmlArgType,
   },
   args: {
@@ -70,7 +73,7 @@ export const Preview: Story = {
 
 export const States: Story = {
   args: {
-    value: new CalendarDate(2023, 12, 24),
+    defaultValue: new CalendarDate(2023, 12, 25),
   },
   render: args => (
     <StoryHStack>
@@ -92,6 +95,12 @@ export const States: Story = {
           errorMessage="Dette er en feilmelding ved valideringsfeil"
         />
         <DatePicker {...args} label="Tip" tip="Dette er en hjelpetekst" />
+        <DatePicker
+          {...args}
+          label="Min/max value"
+          minValue={new CalendarDate(2023, 11, 22)}
+          maxValue={new CalendarDate(2023, 12, 29)}
+        />
       </StoryVStack>
     </StoryHStack>
   ),

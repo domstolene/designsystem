@@ -1,6 +1,6 @@
 import preview from '#.storybook/preview';
 import { Fragment, type SubmitEvent, useState } from 'react';
-        
+
 import {
   ArrowLeftIcon,
   BackLink,
@@ -35,7 +35,12 @@ const meta = preview.meta({
   title: 'Patterns/Form',
   parameters: {
     layout: 'fullscreen',
-    docs: { story: { inline: false } },
+    docs: {
+      story: {
+        height: '1200px',
+        inline: false,
+      },
+    },
   },
   decorators: [ddsProviderDecorator],
 });
@@ -609,91 +614,105 @@ export const FormWithStepsCustomGrid = meta.story(() => {
   );
 });
 
-export const ExitForm = meta.story(() => {
-  const [isFormPage, setIsFormPage] = useState(true);
-  const [showModal, setShowModal] = useState(false);
+export const ExitForm = meta.story({
+  parameters: {
+    docs: {
+      story: {
+        height: '700px',
+      },
+    },
+  },
+  render: () => {
+    const [isFormPage, setIsFormPage] = useState(true);
+    const [showModal, setShowModal] = useState(false);
 
-  function closeModal() {
-    setShowModal(false);
-  }
+    function closeModal() {
+      setShowModal(false);
+    }
 
-  function exitForm() {
-    closeModal();
-    setIsFormPage(false);
-  }
+    function exitForm() {
+      closeModal();
+      setIsFormPage(false);
+    }
 
-  return (
-    <>
-      <InternalHeader
-        applicationName="Applikasjon"
-        applicationDesc="Beskrivelse"
-      />
-      <Grid maxWidth="60ch" marginBlock="0 x1">
-        <GridChild columnsOccupied="all">
-          {isFormPage ? (
-            <>
-              <Box marginBlock="x1">
-                <BackLink label="Tilbake" onClick={() => setShowModal(true)} />
-              </Box>
-              <Heading level={1} withMargins>
-                Navn på skjema
-              </Heading>
-              <Paragraph withMargins typographyType="leadMedium">
-                Dette er et eksempel på en ingress. Den består ofte av et par
-                setninger. En setning til.
-              </Paragraph>
-              <Paragraph
-                withMargins
-                typographyType="bodyLongSmall"
-                color="text-subtle"
-              >
-                Obligatoriske felter er merket med{' '}
-                <Typography as="span" color="text-requiredfield">
-                  *
-                </Typography>
-                .
-              </Paragraph>
-              <VStack as="form" gap="x1" noValidate>
-                <Fieldset>
-                  <Legend withMarginsOverInput>Overskrift for gruppe</Legend>
-                  <FieldsetGroup>
-                    <TextInput label="Ledetekst" width={{ xs: '100%' }} />
-                    <NativeSelect label="Ledetekst" width={{ xs: '100%' }}>
-                      <option></option>
-                      <option>Valg 1</option>
-                      <option>Valg 2</option>
-                      <option>Valg 3</option>
-                    </NativeSelect>
-                  </FieldsetGroup>
-                </Fieldset>
-                <HStack gap="x1.5" paddingBlock="x1.5">
-                  <Button>Send inn</Button>
-                </HStack>
-              </VStack>
-            </>
-          ) : (
-            <>
-              <Heading level={1} withMargins>
-                Ute av skjema
-              </Heading>
-              <Button onClick={() => setIsFormPage(true)}>Gå til skjema</Button>
-            </>
-          )}
-        </GridChild>
-        <Modal
-          isOpen={showModal}
-          onClose={closeModal}
-          header="Du er i ferd med å forlate skjema"
-        >
-          <ModalBody>Alle endringer vil bli tapt.</ModalBody>
-          <ModalActions>
-            <Button onClick={exitForm}>Forlat</Button>
-            <Button purpose="secondary" onClick={closeModal}>
-              Bli på siden
-            </Button>
-          </ModalActions>
-        </Modal>
-      </Grid>
-    </>
-  );
+    return (
+      <>
+        <InternalHeader
+          applicationName="Applikasjon"
+          applicationDesc="Beskrivelse"
+        />
+        <Grid maxWidth="60ch" marginBlock="0 x1">
+          <GridChild columnsOccupied="all">
+            {isFormPage ? (
+              <>
+                <Box marginBlock="x1">
+                  <BackLink
+                    label="Tilbake"
+                    onClick={() => setShowModal(true)}
+                  />
+                </Box>
+                <Heading level={1} withMargins>
+                  Navn på skjema
+                </Heading>
+                <Paragraph withMargins typographyType="leadMedium">
+                  Dette er et eksempel på en ingress. Den består ofte av et par
+                  setninger. En setning til.
+                </Paragraph>
+                <Paragraph
+                  withMargins
+                  typographyType="bodyLongSmall"
+                  color="text-subtle"
+                >
+                  Obligatoriske felter er merket med{' '}
+                  <Typography as="span" color="text-requiredfield">
+                    *
+                  </Typography>
+                  .
+                </Paragraph>
+                <VStack as="form" gap="x1" noValidate>
+                  <Fieldset>
+                    <Legend withMarginsOverInput>Overskrift for gruppe</Legend>
+                    <FieldsetGroup>
+                      <TextInput label="Ledetekst" width={{ xs: '100%' }} />
+                      <NativeSelect label="Ledetekst" width={{ xs: '100%' }}>
+                        <option></option>
+                        <option>Valg 1</option>
+                        <option>Valg 2</option>
+                        <option>Valg 3</option>
+                      </NativeSelect>
+                    </FieldsetGroup>
+                  </Fieldset>
+                  <HStack gap="x1.5" paddingBlock="x1.5">
+                    <Button>Send inn</Button>
+                  </HStack>
+                </VStack>
+              </>
+            ) : (
+              <>
+                <Heading level={1} withMargins>
+                  Ute av skjema
+                </Heading>
+                <Button onClick={() => setIsFormPage(true)}>
+                  Gå til skjema
+                </Button>
+              </>
+            )}
+          </GridChild>
+          <Modal
+            isOpen={showModal}
+            onClose={closeModal}
+            header="Du er i ferd med å forlate skjema"
+          >
+            <ModalBody>Alle endringer vil bli tapt.</ModalBody>
+            <ModalActions>
+              <Button onClick={exitForm}>Forlat</Button>
+              <Button purpose="secondary" onClick={closeModal}>
+                Bli på siden
+              </Button>
+            </ModalActions>
+          </Modal>
+        </Grid>
+      </>
+    );
+  },
 });

@@ -64,6 +64,7 @@ const themes = [
       'Semantic/Shadow/Light.json',
       'Semantic/BorderRadius/Core.json',
       'Semantic/Typography/Core.json',
+      'Semantic/Size/Height/Core.json',
     ],
   },
   {
@@ -74,6 +75,7 @@ const themes = [
       'Semantic/Shadow/Dark.json',
       'Semantic/BorderRadius/Core.json',
       'Semantic/Typography/Core.json',
+      'Semantic/Size/Height/Core.json',
     ],
   },
   {
@@ -84,6 +86,7 @@ const themes = [
       'Semantic/Shadow/Light.json',
       'Semantic/BorderRadius/Public.json',
       'Semantic/Typography/Public.json',
+      'Semantic/Size/Height/Public.json',
     ],
   },
   {
@@ -94,6 +97,7 @@ const themes = [
       'Semantic/Shadow/Dark.json',
       'Semantic/BorderRadius/Public.json',
       'Semantic/Typography/Public.json',
+      'Semantic/Size/Height/Public.json',
     ],
   },
 ];

@@ -5,7 +5,6 @@ import {
   useToggleBarContext,
 } from './ToggleBar.context';
 import styles from './ToggleBar.module.css';
-import { type ToggleBarSize } from './ToggleBar.types';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
 import buttonStyles from '../Button/Button.module.css';
@@ -13,14 +12,8 @@ import { HiddenInput } from '../helpers';
 import focusStyles from '../helpers/styling/focus.module.css';
 import { Icon } from '../Icon';
 import { type SvgIcon } from '../Icon/utils';
-import { type StaticTypographyType, Typography } from '../Typography';
-
-export const typographyTypes: Record<ToggleBarSize, StaticTypographyType> = {
-  large: 'bodyShortLarge',
-  medium: 'bodyShortMedium',
-  small: 'bodyShortSmall',
-  xsmall: 'bodyShortXsmall',
-};
+import { HStack } from '../layout';
+import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export type ToggleRadioProps = BaseComponentProps<
   HTMLInputElement,
@@ -114,10 +107,12 @@ export const ToggleRadio = ({
         aria-label={ariaLabel}
         aria-labelledby={ariaLabelledBy}
       />
-      <Typography
+      <HStack
         as="span"
-        typographyType={typographyTypes[group.size]}
+        justifyContent="center"
+        alignItems="center"
         className={cn(
+          typographyStyles[`body-short-${group.size}`],
           styles.content,
           buttonStyles[contentTypeCn],
           hasLabel && hasIcon && buttonStyles['with-icon-left'],
@@ -127,7 +122,7 @@ export const ToggleRadio = ({
       >
         {icon && <Icon icon={icon} iconSize="component" />}
         {label && <span>{label}</span>}
-      </Typography>
+      </HStack>
     </label>
   );
 };
