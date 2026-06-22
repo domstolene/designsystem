@@ -9,7 +9,7 @@ import {
   responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../storybook';
-import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
 
 import { Search } from '.';
 

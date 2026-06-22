@@ -8,7 +8,7 @@ import {
 } from '../../storybook';
 import { Button } from '../Button';
 import { HelpIcon } from '../Icon/icons';
-import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
 
 import { Tooltip } from '.';
 

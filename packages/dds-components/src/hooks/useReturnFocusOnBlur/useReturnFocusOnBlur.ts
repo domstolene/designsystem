@@ -59,7 +59,7 @@ export function useReturnFocusOnBlur<T extends HTMLElement>(
       if (
         (!e.shiftKey && document.activeElement === lastElement) ||
         (e.shiftKey && document.activeElement === firstElement) ||
-        (e.shiftKey && document.activeElement === element)
+        (e.shiftKey && document.activeElement === elementRef.current)
       ) {
         triggerElement.focus();
         e.preventDefault();
@@ -76,7 +76,7 @@ export function useReturnFocusOnBlur<T extends HTMLElement>(
     return () => {
       element?.removeEventListener('keydown', handleFocus);
     };
-  }, [active]);
+  }, [active, triggerElement, onBlur]);
 
   return elementRef;
 }

@@ -8,7 +8,7 @@ import {
 } from '../../storybook';
 import { Button } from '../Button';
 import { DRAWER_SIZES } from './Drawer';
-import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
 import { Heading, Paragraph } from '../Typography';
 
 import { Drawer, DrawerGroup } from '.';

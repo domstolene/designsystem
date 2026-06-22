@@ -1,19 +1,19 @@
 import preview from '#.storybook/preview';
 import { type ChangeEvent, useEffect, useState } from 'react';
 
-import {
-  type CellDataToSort,
-  type HeaderCellToSort,
-  data,
-  headerCells,
-  mapCellContents,
-} from './tableData';
 import { ddsProviderDecorator } from '../../../storybook';
 import { Button } from '../../Button';
 import { Icon } from '../../Icon';
 import { PersonIcon, TrashIcon } from '../../Icon/icons';
 import { Checkbox } from '../../SelectionControl/Checkbox';
 import { Link, Paragraph } from '../../Typography';
+import {
+  type CellDataToSort,
+  type HeaderCellToSort,
+  data,
+  headerCells,
+  mapCellContents,
+} from '../storybook-utils/tableData';
 
 import { Table } from '.';
 

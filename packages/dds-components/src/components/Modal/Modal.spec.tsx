@@ -1,6 +1,7 @@
-import { screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { type ReactNode, useEffect, useState } from 'react';
+import { waitFor } from 'storybook/test';
 import { describe, expect, it, vi } from 'vitest';
 
 import { portalRender } from '../../test.utils';
@@ -31,6 +32,11 @@ const TestComponent = ({
 };
 
 describe('<Modal>', () => {
+  it('throws if used outside DdsProvider', () => {
+    expect(() => render(<Modal />)).toThrow(
+      'Modal must be used within a DdsProvider',
+    );
+  });
   it('has header', () => {
     const header = 'title';
     portalRender(<Modal isOpen={true} header={header} />);
@@ -154,8 +160,24 @@ describe('<Modal>', () => {
         </ModalBody>
       </TestComponent>,
     );
-    expect(mount).toBeCalledTimes(1);
+    expect(mount).toHaveBeenCalledTimes(1);
     await userEvent.keyboard('[Escape]');
-    expect(mount).toBeCalledTimes(1);
+    expect(mount).toHaveBeenCalledTimes(1);
+  });
+
+  it('closes when clicking the backdrop', async () => {
+    const user = userEvent.setup();
+    portalRender(<TestComponent defaultOpen />);
+
+    const dialog = screen.getByRole('dialog');
+    const backdrop = dialog.parentElement;
+
+    expect(backdrop).toBeInTheDocument();
+
+    await user.click(backdrop!);
+
+    await waitFor(() => {
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    });
   });
 });

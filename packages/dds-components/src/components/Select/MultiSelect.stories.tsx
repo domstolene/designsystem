@@ -9,7 +9,7 @@ import {
 } from '../../storybook';
 import { INPUT_SIZES } from '../helpers/Input';
 import { CourtIcon } from '../Icon/icons';
-import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
 
 const meta: Meta<typeof Select<Option, true>> = {
   title: 'dds-components/Components/Select/MultiSelect',

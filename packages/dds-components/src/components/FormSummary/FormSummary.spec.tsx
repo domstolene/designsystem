@@ -6,6 +6,9 @@ import {
   FormSummaryEditButton,
   FormSummaryEmptyValue,
   FormSummaryError,
+  FormSummaryField,
+  FormSummaryFields,
+  FormSummaryHeader,
   FormSummaryHeading,
   FormSummaryLabel,
   FormSummaryValue,
@@ -30,6 +33,24 @@ describe('<FormSummary>', () => {
     const label = 'Label';
     render(<FormSummaryLabel>{label}</FormSummaryLabel>);
     expect(screen.getByText(label)).toBeInTheDocument();
+  });
+
+  it('renders form summary header as div', () => {
+    const container = render(<FormSummaryHeader />);
+    const div = container.container.querySelector('div');
+    expect(div).toBeInTheDocument();
+  });
+
+  it('renders form summary field as div', () => {
+    const container = render(<FormSummaryField />);
+    const div = container.container.querySelector('div');
+    expect(div).toBeInTheDocument();
+  });
+
+  it('renders form summary fields as description list', () => {
+    const container = render(<FormSummaryFields />);
+    const dl = container.container.querySelector('dl');
+    expect(dl).toBeInTheDocument();
   });
 
   it('renders value', () => {

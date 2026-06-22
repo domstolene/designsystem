@@ -118,7 +118,7 @@ export const CalendarPopoverContent = ({
   const themeContext = useContext(ThemeContext);
 
   if (!themeContext) {
-    throw new Error('DatePicker must be used within a ThemeProvider');
+    throw new Error('DatePicker must be used within a DdsProvider');
   }
 
   const portalTarget = themeContext.el;

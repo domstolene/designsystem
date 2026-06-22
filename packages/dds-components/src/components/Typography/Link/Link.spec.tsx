@@ -44,4 +44,9 @@ describe('<Link>', () => {
     render(<Link href="/" as={Checkbox} htmlProps={{ tabIndex: 0 }} />);
     expect(screen.getByRole('checkbox')).toHaveAttribute('tabIndex', '0');
   });
+
+  it('renders without propAs defaults to anchor', () => {
+    const { container } = render(<Link href="/">Default Link</Link>);
+    expect(container.querySelector('a')).toBeInTheDocument();
+  });
 });

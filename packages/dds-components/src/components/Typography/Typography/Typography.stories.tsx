@@ -2,7 +2,7 @@ import preview from '#.storybook/preview';
 
 import { Typography } from '..';
 import { categoryHtml } from '../../../storybook';
-import { blockTgCommonArgTypes } from '../storyUtils';
+import { blockTgCommonArgTypes } from '../storybook-utils/storyUtils';
 
 const meta = preview.meta({
   title: 'dds-components/Components/Typography/Typography',

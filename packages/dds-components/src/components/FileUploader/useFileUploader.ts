@@ -14,11 +14,15 @@ import { useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
 
 import { type FileList, type FileUploaderAccept } from './FileUploader.types';
 import {
+  isEventWithFiles,
+  isFileAccepted,
+  preventDefaults,
+} from './FileUploader.utils';
+import {
   type FileUploaderFile,
   type RootErrorList,
   fileUploaderReducer,
 } from './fileUploaderReducer';
-import { isEventWithFiles, isFileAccepted, preventDefaults } from './utils';
 import { createTexts, useTranslation } from '../../i18n';
 import { readOnlyChangeHandler, readOnlyKeyDownHandler } from '../../utils';
 import { type InputProps } from '../helpers/Input';

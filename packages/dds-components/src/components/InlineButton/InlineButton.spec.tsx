@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 
 import { InlineButton } from './InlineButton';
+import { CheckIcon } from '../Icon/icons';
 
 describe('<InlineButton>', () => {
   it('renders button', () => {
@@ -21,5 +22,18 @@ describe('<InlineButton>', () => {
     await userEvent.click(button);
 
     expect(onClick).toHaveBeenCalledTimes(1);
+  });
+
+  it('renders icon when icon prop is provided', () => {
+    const { container } = render(<InlineButton icon={CheckIcon} />);
+    expect(container.querySelector('svg')).toBeInTheDocument();
+  });
+
+  it('does not render text when icon prop is provided', () => {
+    const { container } = render(
+      <InlineButton icon={CheckIcon}>Text</InlineButton>,
+    );
+    expect(screen.queryByText('Text')).not.toBeInTheDocument();
+    expect(container.querySelector('svg')).toBeInTheDocument();
   });
 });

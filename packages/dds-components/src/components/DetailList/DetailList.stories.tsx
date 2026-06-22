@@ -8,7 +8,7 @@ import {
 } from '../../storybook';
 import { InlineButton } from '../InlineButton';
 import { VStack } from '../layout';
-import { StoryVStack } from '../layout/Stack/utils';
+import { StoryVStack } from '../layout/Stack/storybook-utils';
 
 import {
   DETAIL_LIST_SIZES,

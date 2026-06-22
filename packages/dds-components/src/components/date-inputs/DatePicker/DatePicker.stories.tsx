@@ -19,7 +19,7 @@ import {
 } from '../../../storybook';
 import { Button } from '../../Button';
 import { INPUT_SIZES } from '../../helpers/Input';
-import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
+import { StoryHStack, StoryVStack } from '../../layout/Stack/storybook-utils';
 import { Modal } from '../../Modal';
 import { Paragraph } from '../../Typography';
 import { TimePicker } from '../TimePicker';

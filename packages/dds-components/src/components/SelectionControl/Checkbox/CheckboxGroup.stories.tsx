@@ -2,7 +2,7 @@ import preview from '#.storybook/preview';
 
 import { commonArgTypesWithNodeChildren } from '../../../storybook';
 import { Fieldset } from '../../Fieldset';
-import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
+import { StoryHStack, StoryVStack } from '../../layout/Stack/storybook-utils';
 import { Legend } from '../../Typography';
 
 import { Checkbox, CheckboxGroup } from '.';
