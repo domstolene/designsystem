@@ -12,7 +12,7 @@ import {
 import { cn } from '../../../utils';
 import { Box } from '../../layout/Box/Box';
 import { type ResponsiveProps } from '../common';
-import { getResponsiveCSSProperties } from '../common/utils';
+import { getCSSProperties } from '../common/utils';
 
 export type PaperElevation = Elevation;
 export type PaperBorder = BorderColor;
@@ -51,8 +51,8 @@ export const Paper = <T extends ElementType = 'div'>({
   ...rest
 }: PaperProps<T>) => {
   const styleVariables = {
-    ...getResponsiveCSSProperties(background, 'paper-background'),
-    ...getResponsiveCSSProperties(border, 'paper-border'),
+    ...getCSSProperties(background, 'paper', 'background'),
+    ...getCSSProperties(border, 'paper', 'border'),
   };
 
   return (
