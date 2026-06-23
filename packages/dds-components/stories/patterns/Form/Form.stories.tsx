@@ -11,6 +11,7 @@ import {
   DrawerGroup,
   Fieldset,
   FieldsetGroup,
+  FloppyDiskIcon,
   Grid,
   GridChild,
   HStack,
@@ -21,10 +22,12 @@ import {
   ModalActions,
   ModalBody,
   NativeSelect,
+  PaperPlaneIcon,
   Paragraph,
   ProgressTracker,
   ShowHide,
   TextInput,
+  TrashIcon,
   Typography,
   VStack,
   VisuallyHidden,
@@ -611,6 +614,73 @@ export const FormWithStepsCustomGrid = meta.story(() => {
         </GridChild>
       </Grid>
     </>
+  );
+});
+
+export const TwoButtons = meta.story(() => {
+  return (
+    <Grid maxWidth="60ch" marginBlock="0 x1">
+      <GridChild columnsOccupied="all">
+        <VStack as="form" gap="x1" noValidate>
+          <Fieldset>
+            <Legend withMarginsOverInput>Overskrift for gruppe</Legend>
+            <FieldsetGroup>
+              <TextInput label="Ledetekst" width={{ xs: '100%' }} />
+              <NativeSelect label="Ledetekst" width={{ xs: '100%' }}>
+                <option></option>
+                <option>Valg 1</option>
+                <option>Valg 2</option>
+                <option>Valg 3</option>
+              </NativeSelect>
+            </FieldsetGroup>
+          </Fieldset>
+          <HStack gap="x1.5" paddingBlock="x1.5" flexWrap="wrap">
+            <Button icon={PaperPlaneIcon} iconPosition="right">
+              Send inn
+            </Button>
+            <Button purpose="secondary" icon={FloppyDiskIcon}>
+              Fortsett senere
+            </Button>
+          </HStack>
+        </VStack>
+      </GridChild>
+    </Grid>
+  );
+});
+
+export const MultipleButtons = meta.story(() => {
+  return (
+    <Grid maxWidth="60ch" marginBlock="0 x1">
+      <GridChild columnsOccupied="all">
+        <VStack as="form" gap="x1" noValidate>
+          <Fieldset>
+            <Legend withMarginsOverInput>Overskrift for gruppe</Legend>
+            <FieldsetGroup>
+              <TextInput label="Ledetekst" width={{ xs: '100%' }} />
+              <NativeSelect label="Ledetekst" width={{ xs: '100%' }}>
+                <option></option>
+                <option>Valg 1</option>
+                <option>Valg 2</option>
+                <option>Valg 3</option>
+              </NativeSelect>
+            </FieldsetGroup>
+          </Fieldset>
+          <HStack gap="x1.5" paddingBlock="x1.5 0">
+            <Button icon={PaperPlaneIcon} iconPosition="right">
+              Send inn
+            </Button>
+          </HStack>
+          <HStack gap="x1.5" paddingBlock="x1" flexWrap="wrap">
+            <Button purpose="tertiary" icon={FloppyDiskIcon}>
+              Fortsett senere
+            </Button>
+            <Button purpose="tertiary" icon={TrashIcon}>
+              Slett begjæringen
+            </Button>
+          </HStack>
+        </VStack>
+      </GridChild>
+    </Grid>
   );
 });
 
