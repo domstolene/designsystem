@@ -1,5 +1,33 @@
 # @norges-domstoler/dds-components
 
+## 23.2.0
+
+(2026-06-23)
+
+### Minor Changes
+
+- b190f11: Ny prop `defaultPageLayout` i `<Grid>`. Tillater å slå av default styling som implementerer standard sideoppsett slik det er i Figma.
+- 36cfdb0: Støtte for nye CSS props i layout primitives:
+
+  - `<Grid>`:
+    - `display` med verdiene `'grid'` (default) og `'inline-grid'`
+    - `grid`
+    - `gridAutoColumns`
+    - `gridAutoFlow`
+    - `gridAutoRows`
+    - `gridTemplate`
+    - `gridTemplateAreas`
+    - `gridTemplateRows`
+  - `<GridChild>`: `gridArea`
+
+### Patch Changes
+
+- 80939aa: Fikser stale referanser og closures i `useReturnFocusOnBlur` hook.
+- f6095bc: Fikser høyde i tømmeknapper i `<Search>`, `<NativeSelect>` og `<DatePicker>`.
+- 36cfdb0: Fikser bug der `justifySelf` prop i `<GridChild>` satt CSS `grid-row` istedenfor `justify-self`.
+- b190f11: Tar i bruk `<Grid>` under panseret der relevant på tvers a komponenter.
+- 36cfdb0: Fikser bug der `<Icon>` ikke registrerte styling fra `style` prop.
+
 ## 23.1.3
 
 (2026-06-22)
