@@ -85,6 +85,8 @@ Hva dette innebærer:
     <Tab>Vanlig</Tab>
     <Tab>Med steg</Tab>
     <Tab>Med steg custom grid</Tab>
+    <Tab>To knapper</Tab>
+    <Tab>Flere knapper</Tab>
     <Tab>Forlate skjema</Tab>
   </TabList>
   <TabPanels paddingBlock='var(--dds-spacing-x1-5) 0'>
@@ -105,6 +107,12 @@ Hva dette innebærer:
       Default CSS for `margin-inline` fra `<Grid>` er riktig her, men pass på spacing mellom kolonnene.
 
       <Canvas of={FormStories.FormWithStepsCustomGrid} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={FormStories.TwoButtons} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={FormStories.MultipleButtons} />
     </TabPanel>
     <TabPanel>
       Implementer advarsel for når brukeren prøver å forlate påbegynt skjema, slik at de kan ombestemme seg og bli på siden. `<Modal>` kan være en slik advarsel.
