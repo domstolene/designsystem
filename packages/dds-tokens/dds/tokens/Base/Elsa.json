@@ -115,7 +115,7 @@
         "y": "2px",
         "blur": "4px",
         "spread": "0px",
-        "color": "rgba( {dds-color-base.cool-gray.black}, 10%)",
+        "color": "rgba( {dds-color.cool-gray.black}, 10%)",
         "type": "dropShadow"
       },
       "type": "boxShadow",
@@ -127,7 +127,7 @@
         "y": "2px",
         "blur": "4px",
         "spread": "0px",
-        "color": "rgba( {dds-color-base.cool-gray.black}, 80%)",
+        "color": "rgba( {dds-color.cool-gray.black}, 80%)",
         "type": "dropShadow"
       },
       "type": "boxShadow",
@@ -139,7 +139,7 @@
         "y": "4px",
         "blur": "8px",
         "spread": "0px",
-        "color": "rgba( {dds-color-base.cool-gray.black}, 10%)",
+        "color": "rgba( {dds-color.cool-gray.black}, 10%)",
         "type": "dropShadow"
       },
       "type": "boxShadow",
@@ -151,7 +151,7 @@
         "y": "4px",
         "blur": "8px",
         "spread": "0px",
-        "color": "rgba( {dds-color-base.cool-gray.black}, 80%)",
+        "color": "rgba( {dds-color.cool-gray.black}, 80%)",
         "type": "dropShadow"
       },
       "type": "boxShadow",
@@ -163,7 +163,7 @@
         "y": "8px",
         "blur": "16px",
         "spread": "0px",
-        "color": "rgba( {dds-color-base.cool-gray.black}, 10%)",
+        "color": "rgba( {dds-color.cool-gray.black}, 10%)",
         "type": "dropShadow"
       },
       "type": "boxShadow",
@@ -175,7 +175,7 @@
         "y": "8px",
         "blur": "16px",
         "spread": "0px",
-        "color": "rgba( {dds-color-base.cool-gray.black}, 80%)",
+        "color": "rgba( {dds-color.cool-gray.black}, 80%)",
         "type": "dropShadow"
       },
       "type": "boxShadow",
@@ -187,7 +187,7 @@
         "y": "16px",
         "blur": "32px",
         "spread": "0px",
-        "color": "rgba( {dds-color-base.cool-gray.black}, 10%)",
+        "color": "rgba( {dds-color.cool-gray.black}, 10%)",
         "type": "dropShadow"
       },
       "type": "boxShadow",
@@ -199,7 +199,7 @@
         "y": "16px",
         "blur": "32px",
         "spread": "0px",
-        "color": "rgba( {dds-color-base.cool-gray.black}, 80%)",
+        "color": "rgba( {dds-color.cool-gray.black}, 80%)",
         "type": "dropShadow"
       },
       "type": "boxShadow",
