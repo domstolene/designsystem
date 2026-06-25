@@ -33,7 +33,7 @@ export const Table = ({
         withStripes && styles['table--with-stripes'],
         stickyHeader && styles['table--sticky-header'],
         scrollbar,
-        tgStyles[`body-short-${tgSize()}`],
+        tgStyles[`body-long-${tgSize()}`],
       )}
     >
       {children}
