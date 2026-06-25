@@ -3,8 +3,8 @@ name: Release
 on:
   push:
     paths:
-      - "packages/**"
-      - ".changeset/**"
+      - 'packages/**'
+      - '.changeset/**'
     branches:
       - main
 
@@ -20,7 +20,7 @@ jobs:
       pull-requests: write
       id-token: write
     steps:
-      - name: Checkout Repo
+      - name: Checkout 🛎️
         uses: actions/checkout@v7
         with:
           persist-credentials: false
@@ -35,7 +35,7 @@ jobs:
       - name: Install
         uses: ./.github/composite-actions/install
 
-      - name: Build
+      - name: Build 🔧
         run: pnpm build
 
       - name: Create Release Pull Request or Publish to npm
@@ -50,10 +50,10 @@ jobs:
         if: steps.changesets.outputs.published == 'true'
         uses: zeroheight/action-design-system-adoption@v2
         with:
-          command: "track-package"
+          command: 'track-package'
         env:
-          ZEROHEIGHT_CLIENT_ID: "${{ secrets.ZEROHEIGHT_CLIENT_ID }}"
-          ZEROHEIGHT_ACCESS_TOKEN: "${{ secrets.ZEROHEIGHT_ACCESS_TOKEN }}"
+          ZEROHEIGHT_CLIENT_ID: '${{ secrets.ZEROHEIGHT_CLIENT_ID }}'
+          ZEROHEIGHT_ACCESS_TOKEN: '${{ secrets.ZEROHEIGHT_ACCESS_TOKEN }}'
 
       - name: Create @dev release
         if: steps.changesets.outputs.published != 'true'
