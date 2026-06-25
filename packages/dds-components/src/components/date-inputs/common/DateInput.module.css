@@ -1,7 +1,15 @@
+.date-group {
+  pointer-events: none;
+  label,
+  .input-group {
+    pointer-events: auto;
+  }
+}
 .date-segment-container {
   display: flex;
   flex-direction: row;
   font-family: var(--dds-font-family-monospace);
+  user-select: none;
 }
 
 .segment {
