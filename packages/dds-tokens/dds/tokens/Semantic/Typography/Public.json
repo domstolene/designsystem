@@ -3,7 +3,7 @@
     "label": {
       "medium": {
         "value": {
-          "fontFamily": "{dds-font-family.sans}",
+          "fontFamily": "{dds-font-family.sans-domstol}",
           "fontWeight": "{dds-font-weight.bold}",
           "fontSize": "{dds-font-size.x1}",
           "lineHeight": "{dds-font-lineheight.x2}",
@@ -18,8 +18,8 @@
     "body-long": {
       "xsmall": {
         "value": {
-          "fontFamily": "{dds-font-family.sans}",
-          "fontWeight": "{dds-font-weight.normal}",
+          "fontFamily": "{dds-font-family.sans-domstol}",
+          "fontWeight": "{dds-font-weight.regular}",
           "fontSize": "{dds-font-size.x0_875}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.loose}",
@@ -31,8 +31,8 @@
       },
       "small": {
         "value": {
-          "fontFamily": "{dds-font-family.sans}",
-          "fontWeight": "{dds-font-weight.normal}",
+          "fontFamily": "{dds-font-family.sans-domstol}",
+          "fontWeight": "{dds-font-weight.regular}",
           "fontSize": "{dds-font-size.x1}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.loose}",
@@ -44,8 +44,8 @@
       },
       "medium": {
         "value": {
-          "fontFamily": "{dds-font-family.sans}",
-          "fontWeight": "{dds-font-weight.normal}",
+          "fontFamily": "{dds-font-family.sans-domstol}",
+          "fontWeight": "{dds-font-weight.regular}",
           "fontSize": "{dds-font-size.x1_125}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
@@ -57,8 +57,8 @@
       },
       "large": {
         "value": {
-          "fontFamily": "{dds-font-family.sans}",
-          "fontWeight": "{dds-font-weight.normal}",
+          "fontFamily": "{dds-font-family.sans-domstol}",
+          "fontWeight": "{dds-font-weight.regular}",
           "fontSize": "{dds-font-size.x1_25}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
@@ -72,7 +72,7 @@
     "heading": {
       "xxsmall": {
         "value": {
-          "fontFamily": "{dds-font-family.sans}",
+          "fontFamily": "{dds-font-family.sans-domstol}",
           "fontWeight": "{dds-font-weight.bold}",
           "fontSize": "{dds-font-size.x1}",
           "lineHeight": "{dds-font-lineheight.x2}",
@@ -85,7 +85,7 @@
       },
       "xsmall": {
         "value": {
-          "fontFamily": "{dds-font-family.sans}",
+          "fontFamily": "{dds-font-family.sans-domstol}",
           "fontWeight": "{dds-font-weight.bold}",
           "fontSize": "{dds-font-size.x1_125}",
           "lineHeight": "{dds-font-lineheight.x2}",
@@ -98,7 +98,7 @@
       },
       "small": {
         "value": {
-          "fontFamily": "{dds-font-family.sans}",
+          "fontFamily": "{dds-font-family.sans-domstol}",
           "fontWeight": "{dds-font-weight.bold}",
           "fontSize": "{dds-font-size.x1_25}",
           "lineHeight": "{dds-font-lineheight.x2}",
@@ -111,7 +111,7 @@
       },
       "medium": {
         "value": {
-          "fontFamily": "{dds-font-family.sans}",
+          "fontFamily": "{dds-font-family.sans-domstol}",
           "fontWeight": "{dds-font-weight.semi-bold}",
           "fontSize": "{dds-font-size.x1_5}",
           "lineHeight": "{dds-font-lineheight.x2}",
@@ -124,8 +124,8 @@
       },
       "large": {
         "value": {
-          "fontFamily": "{dds-font-family.sans}",
-          "fontWeight": "{dds-font-weight.normal}",
+          "fontFamily": "{dds-font-family.sans-domstol}",
+          "fontWeight": "{dds-font-weight.regular}",
           "fontSize": "{dds-font-size.x2}",
           "lineHeight": "{dds-font-lineheight.x2}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
@@ -137,7 +137,7 @@
       },
       "xlarge": {
         "value": {
-          "fontFamily": "{dds-font-family.sans}",
+          "fontFamily": "{dds-font-family.sans-domstol}",
           "fontWeight": "{dds-font-weight.light}",
           "lineHeight": "{dds-font-lineheight.x2}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
@@ -150,7 +150,7 @@
       },
       "xxlarge": {
         "value": {
-          "fontFamily": "{dds-font-family.sans}",
+          "fontFamily": "{dds-font-family.sans-domstol}",
           "fontWeight": "{dds-font-weight.light}",
           "fontSize": "clamp(3rem, 1.333rem + 4.444vw, 4rem)",
           "lineHeight": "{dds-font-lineheight.x2}",
@@ -165,7 +165,7 @@
     "lead": {
       "medium": {
         "value": {
-          "fontFamily": "{dds-font-family.sans}",
+          "fontFamily": "{dds-font-family.sans-domstol}",
           "fontWeight": "{dds-font-weight.light}",
           "fontSize": "{dds-font-size.x1_5}",
           "lineHeight": "{dds-font-lineheight.x1}",
@@ -181,7 +181,7 @@
       "medium": {
         "value": {
           "fontFamily": "{dds-font-family.monospace}",
-          "fontWeight": "{dds-font-weight.normal}",
+          "fontWeight": "{dds-font-weight.regular}",
           "fontSize": "{dds-font-size.x1_125}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
@@ -195,8 +195,8 @@
     "body-short": {
       "xsmall": {
         "value": {
-          "fontFamily": "{dds-font-family.sans}",
-          "fontWeight": "{dds-font-weight.normal}",
+          "fontFamily": "{dds-font-family.sans-domstol}",
+          "fontWeight": "{dds-font-weight.regular}",
           "fontSize": "{dds-font-size.x0_875}",
           "lineHeight": "{dds-font-lineheight.x2}",
           "letterSpacing": "{dds-font-letter-spacing.loose}",
@@ -208,8 +208,8 @@
       },
       "small": {
         "value": {
-          "fontFamily": "{dds-font-family.sans}",
-          "fontWeight": "{dds-font-weight.normal}",
+          "fontFamily": "{dds-font-family.sans-domstol}",
+          "fontWeight": "{dds-font-weight.regular}",
           "fontSize": "{dds-font-size.x1}",
           "lineHeight": "{dds-font-lineheight.x2}",
           "letterSpacing": "{dds-font-letter-spacing.loose}",
@@ -221,8 +221,8 @@
       },
       "medium": {
         "value": {
-          "fontFamily": "{dds-font-family.sans}",
-          "fontWeight": "{dds-font-weight.normal}",
+          "fontFamily": "{dds-font-family.sans-domstol}",
+          "fontWeight": "{dds-font-weight.regular}",
           "fontSize": "{dds-font-size.x1_125}",
           "lineHeight": "{dds-font-lineheight.x2}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
@@ -234,8 +234,8 @@
       },
       "large": {
         "value": {
-          "fontFamily": "{dds-font-family.sans}",
-          "fontWeight": "{dds-font-weight.normal}",
+          "fontFamily": "{dds-font-family.sans-domstol}",
+          "fontWeight": "{dds-font-weight.regular}",
           "fontSize": "{dds-font-size.x1_25}",
           "lineHeight": "{dds-font-lineheight.x2}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
@@ -437,6 +437,24 @@
         "value": "{dds-font-paragraph-spacing.small}",
         "type": "paragraphSpacing"
       }
+    }
+  },
+  "dds-font-weight": {
+    "light": {
+      "value": "{dds-font-weight.300}",
+      "type": "fontWeights"
+    },
+    "regular": {
+      "value": "{dds-font-weight.400}",
+      "type": "fontWeights"
+    },
+    "semi-bold": {
+      "value": "{dds-font-weight.500}",
+      "type": "fontWeights"
+    },
+    "bold": {
+      "value": "{dds-font-weight.600}",
+      "type": "fontWeights"
     }
   }
 }

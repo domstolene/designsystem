@@ -1,6 +1,10 @@
 {
   "dds-font-family": {
-    "sans": {
+    "sans-domstol": {
+      "value": "IBM Plex Sans, Arial, sans-serif",
+      "type": "fontFamilies"
+    },
+    "sans-hoyesterett": {
       "value": "Poppins, Arial, sans-serif",
       "type": "fontFamilies"
     },
@@ -57,19 +61,23 @@
     }
   },
   "dds-font-weight": {
-    "light": {
+    "300": {
       "value": "300",
       "type": "fontWeights"
     },
-    "normal": {
+    "400": {
       "value": "400",
       "type": "fontWeights"
     },
-    "semi-bold": {
+    "500": {
+      "value": "500",
+      "type": "fontWeights"
+    },
+    "600": {
       "value": "600",
       "type": "fontWeights"
     },
-    "bold": {
+    "700": {
       "value": "700",
       "type": "fontWeights"
     }
@@ -107,6 +115,20 @@
       "description": "Brukes på størrelser under ×1"
     }
   },
+  "dds-font-style": {
+    "underline": {
+      "value": "underline",
+      "type": "textDecoration"
+    },
+    "normal": {
+      "value": "none",
+      "type": "textDecoration"
+    },
+    "italic": {
+      "value": "italic",
+      "type": "textDecoration"
+    }
+  },
   "dds-font-paragraph-spacing": {
     "small": {
       "value": "1em",
@@ -132,20 +154,6 @@
       "value": "0.4em",
       "type": "paragraphSpacing",
       "description": "Brukes på på alle headere (bottom)"
-    }
-  },
-  "dds-font-style": {
-    "underline": {
-      "value": "underline",
-      "type": "textDecoration"
-    },
-    "normal": {
-      "value": "none",
-      "type": "textDecoration"
-    },
-    "italic": {
-      "value": "italic",
-      "type": "textDecoration"
     }
   }
 }

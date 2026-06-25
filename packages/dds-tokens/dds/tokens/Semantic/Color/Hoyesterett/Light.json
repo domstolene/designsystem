@@ -323,7 +323,7 @@
         "description": "Used on brand.secondary-subtle"
       },
       "on-secondary-medium": {
-        "value": "{dds-color.cool-gray.black}",
+        "value": "{dds-color-base.cool-gray.white}",
         "type": "color",
         "description": "Used on brand.secondary-medium"
       },
@@ -348,7 +348,7 @@
         "description": "Used on brand.tertiary-medium"
       },
       "on-tertiary-strong": {
-        "value": "{dds-color.cool-gray.black}",
+        "value": "{dds-color-base.cool-gray.white}",
         "type": "color",
         "description": "Used on brand.tertiary-strong"
       },
@@ -457,7 +457,7 @@
         "description": "Primary brand color"
       },
       "primary-medium": {
-        "value": "{dds-color.hoyesterett-teal.200}",
+        "value": "{dds-color-base.hoyesterett-teal.300}",
         "type": "color",
         "description": "Primary brand color"
       },
@@ -502,7 +502,7 @@
         "description": "Tertiary brand color"
       },
       "tertiary-strong": {
-        "value": "{dds-color.hoyesterett-gold.600}",
+        "value": "{dds-color-base.hoyesterett-gold.700}",
         "type": "color",
         "description": "Tertiary brand color"
       }
