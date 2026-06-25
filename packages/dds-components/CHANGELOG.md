@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-components
 
+## 23.2.1
+
+### Patch Changes
+
+- 9a8dba6: Fikser kontrollert og ukontrollert tilstand som oppstod samtidig i `<CardSelectable>`.
+- d404aba: Fikser bug der datosegmentene fikk fokus selv ved klikk utenfor i `<DatePicker>`.
+- 2854a66: Endrer standard typografistil i `<Table>` fra `dds-body-short-<størrelse>` til `dds-body-long-<størrelse>` for bedre spacing.
+
 ## 23.2.0
 
 (2026-06-23)
