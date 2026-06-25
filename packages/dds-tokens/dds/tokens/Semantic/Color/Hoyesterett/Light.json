@@ -44,17 +44,17 @@
         "description": "Selected state for surface (default, subtle, medium)"
       },
       "inverse-default": {
-        "value": "{dds-color.hoyesterett-teal.600}",
+        "value": "{dds-color-base.hoyesterett-teal.700}",
         "type": "color",
         "description": "Can be used as a surface for menu, navigation, footer etc"
       },
       "inverse-hover": {
-        "value": "{dds-color.hoyesterett-teal.700}",
+        "value": "{dds-color-base.hoyesterett-teal.750}",
         "type": "color",
         "description": "Hover on surface.inverse"
       },
       "inverse-selected": {
-        "value": "{dds-color.hoyesterett-teal.750}",
+        "value": "{dds-color-base.hoyesterett-teal.800}",
         "type": "color",
         "description": "selected on surface.inverse"
       },
@@ -462,7 +462,7 @@
         "description": "Primary brand color"
       },
       "primary-strong": {
-        "value": "{dds-color.hoyesterett-teal.600}",
+        "value": "{dds-color-base.hoyesterett-teal.700}",
         "type": "color",
         "description": "Primary brand color"
       },
