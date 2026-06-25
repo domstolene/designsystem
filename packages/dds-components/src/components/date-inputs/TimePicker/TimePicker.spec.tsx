@@ -5,14 +5,14 @@ import { TimePicker } from './TimePicker';
 
 describe('<TimePicker>', () => {
   it('renders 2 spinbuttons for the time', () => {
-    render(<TimePicker />);
+    render(<TimePicker label="Label" />);
 
     const spinbuttons = screen.getAllByRole('spinbutton');
     expect(spinbuttons).toHaveLength(2);
   });
   it('has accessible description if tip present', () => {
     const tip = 'tip';
-    render(<TimePicker tip={tip} />);
+    render(<TimePicker label="Label" tip={tip} />);
 
     const spinbuttons = screen.getAllByRole('spinbutton');
 
@@ -22,7 +22,7 @@ describe('<TimePicker>', () => {
   });
   it('has accessible description if errorMessage present', () => {
     const errorMessage = 'errorMessage';
-    render(<TimePicker errorMessage={errorMessage} />);
+    render(<TimePicker label="Label" errorMessage={errorMessage} />);
 
     const spinbuttons = screen.getAllByRole('spinbutton');
 
@@ -31,14 +31,14 @@ describe('<TimePicker>', () => {
     });
   });
   it('spinbuttons have aria-valuemin', () => {
-    render(<TimePicker />);
+    render(<TimePicker label="Label" />);
 
     const spinbuttons = screen.getAllByRole('spinbutton');
     expect(spinbuttons[0]).toHaveAttribute('aria-valuemin', '0');
     expect(spinbuttons[1]).toHaveAttribute('aria-valuemin', '0');
   });
   it('spinbuttons have aria-valuemax', () => {
-    render(<TimePicker />);
+    render(<TimePicker label="Label" />);
 
     const spinbuttons = screen.getAllByRole('spinbutton');
     expect(spinbuttons[0]).toHaveAttribute('aria-valuemax', '23');

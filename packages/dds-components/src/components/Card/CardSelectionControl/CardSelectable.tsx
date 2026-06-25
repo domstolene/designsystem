@@ -45,7 +45,6 @@ Provide \`cardType\` either via a parent <CardSelectableGroup> or directly on th
     error = group?.error,
     name = radioGroup?.name,
     value = radioGroup?.value,
-    defaultValue = radioGroup?.defaultValue,
     required = radioGroup?.required,
   } = { ...group, ...rest };
 
@@ -61,7 +60,6 @@ Provide \`cardType\` either via a parent <CardSelectableGroup> or directly on th
     name,
     required,
     value,
-    defaultValue,
   };
 
   const customStyles: Properties = {
