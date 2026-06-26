@@ -35,7 +35,7 @@ import {
 import { ddsProviderDecorator } from '../../../src/storybook';
 
 const meta = preview.meta({
-  title: 'Patterns/Form',
+  title: 'Mønstre/Skjema',
   parameters: {
     layout: 'fullscreen',
     docs: {
@@ -46,6 +46,8 @@ const meta = preview.meta({
   },
   decorators: [ddsProviderDecorator],
 });
+
+export default meta;
 
 export const Form = meta.story({
   parameters: {

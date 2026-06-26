@@ -42,7 +42,7 @@ import {
 import { ddsProviderDecorator } from '../../../src/storybook';
 
 const meta: Meta = {
-  title: 'Patterns/Check Answers',
+  title: 'Mønstre/Sjekk svar',
   parameters: {
     layout: 'fullscreen',
     docs: { canvas: { inline: false } },
