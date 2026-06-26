@@ -2,6 +2,8 @@
 
 ## 23.2.1
 
+(2026-06-26)
+
 ### Patch Changes
 
 - 9a8dba6: Fikser kontrollert og ukontrollert tilstand som oppstod samtidig i `<CardSelectable>`.
