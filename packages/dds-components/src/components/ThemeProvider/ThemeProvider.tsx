@@ -14,6 +14,13 @@ import { cn } from '../../utils';
 export type DdsTheme = keyof typeof ddsTokens;
 const defaultTheme: DdsTheme = 'core-light';
 
+type SplitTheme<T extends string> = T extends `${infer Main}-${infer Mode}`
+  ? { main: Main; mode: Mode }
+  : never;
+
+export type DdsThemeMain = SplitTheme<DdsTheme>['main'];
+export type DdsThemeMode = SplitTheme<DdsTheme>['mode'];
+
 interface ThemeContextProps {
   theme: DdsTheme;
   el: HTMLDivElement | null;

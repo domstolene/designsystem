@@ -1,6 +1,3 @@
-export type ThemeMain = 'core' | 'public';
-export type ThemeMode = 'light' | 'dark';
-
 interface Token<T = string> {
   value: T;
   type: string;
