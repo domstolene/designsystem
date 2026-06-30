@@ -44,42 +44,42 @@
         "description": "Selected state for surface (default, subtle, medium)"
       },
       "inverse-default": {
-        "value": "{dds-color-base.hoyesterett-teal.700}",
+        "value": "{dds-color.hoyesterett-teal.700}",
         "type": "color",
         "description": "Can be used as a surface for menu, navigation, footer etc"
       },
       "inverse-hover": {
-        "value": "{dds-color-base.hoyesterett-teal.750}",
+        "value": "{dds-color.hoyesterett-teal.750}",
         "type": "color",
         "description": "Hover on surface.inverse"
       },
       "inverse-selected": {
-        "value": "{dds-color-base.hoyesterett-teal.800}",
+        "value": "{dds-color.hoyesterett-teal.800}",
         "type": "color",
         "description": "selected on surface.inverse"
       },
       "action-resting": {
-        "value": "{dds-color.hoyesterett-teal.500}",
+        "value": "{dds-color.hoyesterett-teal.300}",
         "type": "color",
         "description": "Primary button bg"
       },
       "action-hover": {
-        "value": "{dds-color.hoyesterett-teal.600}",
+        "value": "{dds-color.hoyesterett-teal.200}",
         "type": "color",
         "description": "Hover on surface.action/selected"
       },
       "action-selected": {
-        "value": "{dds-color.hoyesterett-teal.500}",
+        "value": "{dds-color.hoyesterett-teal.300}",
         "type": "color",
         "description": "Selected state for components such as togglebutton, togglebar, progress tracker, checkbox etc"
       },
       "action-danger-resting": {
-        "value": "{dds-color.danger.500}",
+        "value": "{dds-color.danger.350}",
         "type": "color",
         "description": "Danger button"
       },
       "action-danger-hover": {
-        "value": "{dds-color.danger.600}",
+        "value": "{dds-color.danger.200}",
         "type": "color",
         "description": "Hover on surface.action-danger"
       },
@@ -186,12 +186,12 @@
         "description": "Border or divider on surface.inverse"
       },
       "action-default": {
-        "value": "{dds-color.hoyesterett-teal.500}",
+        "value": "{dds-color.hoyesterett-teal.300}",
         "type": "color",
         "description": "Used in progress tracker"
       },
       "action-hover": {
-        "value": "{dds-color.hoyesterett-teal.600}",
+        "value": "{dds-color.hoyesterett-teal.200}",
         "type": "color",
         "description": "Hover on secondary button etc"
       },
@@ -248,7 +248,7 @@
         "description": "Error text on paper, or default or subtle surafce/bg"
       },
       "on-action": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.cool-gray.black}",
         "type": "color",
         "description": "On surface.action (primary and danger button)"
       },
@@ -323,7 +323,7 @@
         "description": "Used on brand.secondary-subtle"
       },
       "on-secondary-medium": {
-        "value": "{dds-color-base.cool-gray.white}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "Used on brand.secondary-medium"
       },
@@ -348,7 +348,7 @@
         "description": "Used on brand.tertiary-medium"
       },
       "on-tertiary-strong": {
-        "value": "{dds-color-base.cool-gray.white}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "Used on brand.tertiary-strong"
       },
@@ -385,7 +385,7 @@
         "description": "On surface.inverse"
       },
       "on-action": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.cool-gray.black}",
         "type": "color",
         "description": "On surface.action (primary and danger button)"
       },
@@ -457,12 +457,12 @@
         "description": "Primary brand color"
       },
       "primary-medium": {
-        "value": "{dds-color-base.hoyesterett-teal.300}",
+        "value": "{dds-color.hoyesterett-teal.300}",
         "type": "color",
         "description": "Primary brand color"
       },
       "primary-strong": {
-        "value": "{dds-color-base.hoyesterett-teal.700}",
+        "value": "{dds-color.hoyesterett-teal.700}",
         "type": "color",
         "description": "Primary brand color"
       },
@@ -502,7 +502,7 @@
         "description": "Tertiary brand color"
       },
       "tertiary-strong": {
-        "value": "{dds-color-base.hoyesterett-gold.700}",
+        "value": "{dds-color.hoyesterett-gold.700}",
         "type": "color",
         "description": "Tertiary brand color"
       }

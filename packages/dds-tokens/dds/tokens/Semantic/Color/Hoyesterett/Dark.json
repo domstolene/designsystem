@@ -39,22 +39,22 @@
         "description": "Subtle hover on surface (default, medium)"
       },
       "selected-default": {
-        "value": "{dds-color.interactive.800}",
+        "value": "{dds-color.hoyesterett-teal.800}",
         "type": "color",
         "description": "Selected state for surface (default, subtle, medium)"
       },
       "inverse-default": {
-        "value": "{dds-color.hoyesterett-teal.600}",
+        "value": "{dds-color.hoyesterett-teal.700}",
         "type": "color",
         "description": "Can be used as a surface for menu, navigation, footer etc"
       },
       "inverse-hover": {
-        "value": "{dds-color.hoyesterett-teal.700}",
+        "value": "{dds-color.hoyesterett-teal.750}",
         "type": "color",
         "description": "Hover on surface.inverse"
       },
       "inverse-selected": {
-        "value": "{dds-color.hoyesterett-teal.750}",
+        "value": "{dds-color.hoyesterett-teal.800}",
         "type": "color",
         "description": "selected on surface.inverse"
       },
@@ -308,12 +308,12 @@
         "description": "Used on brand.primary-medium"
       },
       "on-primary-strong": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.cool-gray.black}",
         "type": "color",
         "description": "Used on brand.primary-strong"
       },
       "on-secondary-default": {
-        "value": "{dds-color.cool-gray.black}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "Used on brand.secondary-default"
       },

@@ -1,6 +1,5 @@
 {
   "tokenSetOrder": [
-    "Base/Elsa",
     "Base/BorderRadius",
     "Base/Color",
     "Base/ColorData",
@@ -8,6 +7,7 @@
     "Base/Shadow",
     "Base/Spacing",
     "Base/Typography",
+    "Base/Zindex",
     "Semantic/Color/Elsa/Light",
     "Semantic/Color/Elsa/Dark",
     "Semantic/Color/Hoyesterett/Light",

@@ -61,24 +61,20 @@
     }
   },
   "dds-font-weight": {
-    "300": {
+    "light": {
       "value": "300",
       "type": "fontWeights"
     },
-    "400": {
+    "regular": {
       "value": "400",
       "type": "fontWeights"
     },
-    "500": {
+    "semi-bold": {
       "value": "500",
       "type": "fontWeights"
     },
-    "600": {
+    "bold": {
       "value": "600",
-      "type": "fontWeights"
-    },
-    "700": {
-      "value": "700",
       "type": "fontWeights"
     }
   },

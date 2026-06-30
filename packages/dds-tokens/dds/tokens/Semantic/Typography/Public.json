@@ -438,23 +438,5 @@
         "type": "paragraphSpacing"
       }
     }
-  },
-  "dds-font-weight": {
-    "light": {
-      "value": "{dds-font-weight.300}",
-      "type": "fontWeights"
-    },
-    "regular": {
-      "value": "{dds-font-weight.400}",
-      "type": "fontWeights"
-    },
-    "semi-bold": {
-      "value": "{dds-font-weight.500}",
-      "type": "fontWeights"
-    },
-    "bold": {
-      "value": "{dds-font-weight.600}",
-      "type": "fontWeights"
-    }
   }
 }

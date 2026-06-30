@@ -150,32 +150,5 @@
       "value": "1920px",
       "type": "dimension"
     }
-  },
-  "dds-font-paragraph-spacing": {
-    "small": {
-      "value": "1em",
-      "type": "paragraphSpacing",
-      "description": "Brukes på str ×1_25 og mindre "
-    },
-    "medium": {
-      "value": "0.66em",
-      "type": "paragraphSpacing",
-      "description": "Brukes på str x1.5, ×2 og ×3 "
-    },
-    "large": {
-      "value": "0.5em",
-      "type": "paragraphSpacing",
-      "description": "Brukes på str ×3 og større"
-    },
-    "list": {
-      "value": "0.5em",
-      "type": "paragraphSpacing",
-      "description": "Brukes mellom kulepunkter i lister"
-    },
-    "heading": {
-      "value": "0.4em",
-      "type": "paragraphSpacing",
-      "description": "Brukes på på alle headere (bottom)"
-    }
   }
 }
