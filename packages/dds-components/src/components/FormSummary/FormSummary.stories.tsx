@@ -288,6 +288,7 @@ const renderFields = (n: number) => {
 };
 
 export const WithGrid = meta.story({
+  name: 'Grid',
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -367,6 +368,7 @@ export const WithGrid = meta.story({
 });
 
 export const WithFlex = meta.story({
+  name: 'Flex',
   parameters: {
     chromatic: { disableSnapshot: true },
   },
