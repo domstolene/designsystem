@@ -7,4 +7,10 @@ export default defineConfig({
   banner: {
     js: '"use client";',
   },
+  copy: [
+    {
+      from: 'src/styles/assets',
+      to: 'dist',
+    },
+  ],
 });

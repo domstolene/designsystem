@@ -3,8 +3,11 @@ import { defineConfig } from 'tsdown';
 export default defineConfig({
   entry: 'src/index.ts',
   format: ['cjs', 'esm'],
-  target: 'es2019',
+  target: 'es2022',
   sourcemap: true,
+  css: {
+    transformer: 'postcss',
+  },
   loader: {
     '.svg': 'dataurl',
     '.css': 'css',
