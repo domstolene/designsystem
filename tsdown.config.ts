@@ -1,12 +1,14 @@
-import { defineConfig } from 'tsup';
+import { defineConfig } from 'tsdown';
 
 export default defineConfig({
-  entry: ['src/index.ts'],
+  entry: 'src/index.ts',
   format: ['cjs', 'esm'],
   target: 'es2019',
   sourcemap: true,
   loader: {
     '.svg': 'dataurl',
-    '.css': 'local-css',
+    '.css': 'css',
   },
+  clean: false,
+  dts: false,
 });

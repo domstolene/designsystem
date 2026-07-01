@@ -5,7 +5,7 @@
     "stories/patterns",
     ".eslintrc.cjs",
     "vitest.config.ts",
-    "tsup.config.ts",
+    "tsdown.config.ts",
     "../../global.d.ts"
   ]
 }

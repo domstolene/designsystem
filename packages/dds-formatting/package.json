@@ -16,8 +16,8 @@
   "types": "dist/index.d.ts",
   "homepage": "https://design.domstol.no",
   "scripts": {
-    "build": "tsup --dts",
-    "build:fast": "tsup",
+    "build": "tsdown  --config-loader unrun --dts",
+    "build:fast": "tsdown  --config-loader unrun",
     "dev": "pnpm build:fast -- --watch",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
@@ -35,7 +35,7 @@
     "elsa"
   ],
   "devDependencies": {
-    "tsup": "^8.5.1",
+    "tsdown": "^0.22.3",
     "typescript": "^5.9.3",
     "vite": "^8.0.16",
     "vitest": "^4.1.9"

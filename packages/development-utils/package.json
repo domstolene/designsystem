@@ -26,7 +26,7 @@
   "homepage": "https://design.domstol.no",
   "scripts": {
     "generate-css-types": "tcm src",
-    "build": "pnpm run generate-css-types && tsup --dts",
+    "build": "pnpm run generate-css-types && tsdown --config-loader unrun --dts",
     "dev": "pnpm run generate-css-types --watch",
     "typecheck": "tsc --noEmit"
   },
@@ -48,7 +48,7 @@
     "autoprefixer": "^10.5.0",
     "csstype": "3.2.3",
     "postcss": "^8.5.15",
-    "tsup": "^8.5.1",
+    "tsdown": "^0.22.3",
     "typescript": "^5.9.3",
     "vite": "^8.0.16",
     "vitest": "^4.1.9"
