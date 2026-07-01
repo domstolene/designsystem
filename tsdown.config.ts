@@ -6,6 +6,7 @@ export default defineConfig({
   target: 'es2022',
   sourcemap: true,
   css: {
+    fileName: 'index.css',
     transformer: 'postcss',
   },
   loader: {
