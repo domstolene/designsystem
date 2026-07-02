@@ -1,10 +1,10 @@
+import { type DdsThemeMain } from '#packages/dds-components/src/components/ThemeProvider/ThemeProvider';
 import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Elsa.json';
 import jsonHeightC from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Size/Height/Core.json';
 import jsonHeightP from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Size/Height/Public.json';
 
 import { copyButton } from './CopyButton';
 import {
-  type ThemeMain,
   type TokenBaseSizeJsonObject,
   type TokenSemanticHeightJsonObject,
 } from './Tokens.types';
@@ -60,7 +60,7 @@ export const SizeIconGenerator = () => {
   );
 };
 
-export const SizeHeightGenerator = (theme: ThemeMain) => {
+export const SizeHeightGenerator = (theme: DdsThemeMain) => {
   const tokenSet = theme === 'core' ? jsonHeightC : jsonHeightP;
   const tokens: TokenSemanticHeightJsonObject = tokenSet['dds-size']['height'];
   const cssStyle = ` .dds-size-height-preview {
