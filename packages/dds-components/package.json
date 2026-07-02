@@ -35,6 +35,7 @@
     "test:watch": "vitest watch",
     "coverage": "vitest run --coverage",
     "generate-css-types": "tcm src",
+    "prebuild": "node scripts/generate-dds-tokens-css.mjs",
     "build": "pnpm generate-css-types && tsdown --config-loader unrun --dts",
     "dev": "pnpm generate-css-types && tsdown  --config-loader unrun --dts && pnpm generate-css-types --watch",
     "typecheck": "tsc --noEmit",
