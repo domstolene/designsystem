@@ -8,7 +8,7 @@ export {
 } from '../../../src/components/FormSummary/FormSummary.stories';
 
 const meta: Meta = {
-  title: 'Patterns/Check Answers',
+  title: 'Mønstre/Sjekk svar',
   parameters: {
     chromatic: { disableSnapshot: true },
   },

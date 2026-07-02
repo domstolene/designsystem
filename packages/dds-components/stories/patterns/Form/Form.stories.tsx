@@ -35,7 +35,7 @@ import {
 import { ddsProviderDecorator } from '../../../src/storybook';
 
 const meta = preview.meta({
-  title: 'Patterns/Form',
+  title: 'Mønstre/Skjema',
   parameters: {
     layout: 'fullscreen',
     docs: {
@@ -47,7 +47,10 @@ const meta = preview.meta({
   decorators: [ddsProviderDecorator],
 });
 
+export default meta;
+
 export const Form = meta.story({
+  name: 'Skjema',
   parameters: {
     docs: {
       story: {
@@ -151,6 +154,7 @@ export const Form = meta.story({
 });
 
 export const FormWithSteps = meta.story({
+  name: 'Skjema med steg',
   parameters: {
     docs: {
       story: {
@@ -411,6 +415,7 @@ export const FormWithSteps = meta.story({
 });
 
 export const FormWithStepsCustomGrid = meta.story({
+  name: 'Skjema med steg og tilpasset grid',
   parameters: {
     docs: {
       story: {
@@ -644,6 +649,7 @@ export const FormWithStepsCustomGrid = meta.story({
 });
 
 export const TwoButtons = meta.story({
+  name: 'To knapper',
   parameters: {
     docs: {
       story: {
@@ -684,6 +690,7 @@ export const TwoButtons = meta.story({
 });
 
 export const MultipleButtons = meta.story({
+  name: 'Flere knapper',
   parameters: {
     docs: {
       story: {
@@ -729,6 +736,7 @@ export const MultipleButtons = meta.story({
 });
 
 export const ExitForm = meta.story({
+  name: 'Forlate skjema',
   parameters: {
     docs: {
       story: {
