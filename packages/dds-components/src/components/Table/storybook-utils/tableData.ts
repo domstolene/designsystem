@@ -9,58 +9,58 @@ export interface HeaderCellToSort {
 
 export const headerCells: Array<HeaderCellToSort> = [
   {
-    name: 'Arbeidstaker',
-    dataName: 'name',
+    name: 'Dommer',
+    dataName: 'dommer',
     sortOrder: 'none',
   },
   {
-    name: 'Fødselsnummer',
-    dataName: 'fnumber',
+    name: 'Domstol',
+    dataName: 'domstol',
     sortOrder: 'none',
   },
   {
-    name: 'Arbeidsgiver',
-    dataName: 'employer',
+    name: 'Favoritt rett',
+    dataName: 'favorittRett',
     sortOrder: 'none',
   },
   {
-    name: 'Org.nr',
-    dataName: 'orgnumber',
+    name: 'Favoritt dyr',
+    dataName: 'favorittDyr',
     sortOrder: 'none',
   },
 ];
 
 export interface CellDataToSort {
-  name: string;
-  fnumber: string;
-  employer: string;
-  orgnumber: string;
+  dommer: string;
+  domstol: string;
+  favorittRett: string;
+  favorittDyr: string;
 }
 
 export const data: Array<CellDataToSort> = [
   {
-    name: 'Sandra Lovsetter',
-    fnumber: '01048000138',
-    employer: 'Domstolsadministrasjonen',
-    orgnumber: '974713659',
+    dommer: 'Sandra Lovsetter',
+    domstol: 'Salten og Lofoten tingrett',
+    favorittRett: 'Pizza',
+    favorittDyr: 'Hund',
   },
   {
-    name: 'Marie Bjerke',
-    fnumber: '12046782540',
-    employer: 'Bouvet ASA',
-    orgnumber: '482905761',
+    dommer: 'Marie Bjerke',
+    domstol: 'Midtre Hålogaland tingrett',
+    favorittRett: 'Burger',
+    favorittDyr: 'Katt',
   },
   {
-    name: 'Andreas Olsen',
-    fnumber: '23117723456',
-    employer: 'Direktoratet for mineralforvaltning',
-    orgnumber: '123456789',
+    dommer: 'Andreas Olsen',
+    domstol: 'Nord-Troms og Senja tingrett',
+    favorittRett: 'Pasta',
+    favorittDyr: 'Fisk',
   },
   {
-    name: 'Liv Jensen',
-    fnumber: '07127523456',
-    employer: 'Bekk Consulting AS',
-    orgnumber: '987654321',
+    dommer: 'Liv Orten',
+    domstol: 'Øst-Finnmark tingrett',
+    favorittRett: 'Sushi',
+    favorittDyr: 'Hest',
   },
 ];
 
