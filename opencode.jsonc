@@ -2,7 +2,8 @@
   "$schema": "https://opencode.ai/config.json",
   "lsp": true,
   "share": "disabled",
-  "enabled_providers": ["github-copilot"],
+  "enabled_providers": ["github-copilot", "lmstudio"],
+  "small_model": "github-copilot/claude-haiku-4.5",
   "permission": {
     "bash": {
       "git commit": "ask",
@@ -20,6 +21,26 @@
     "chrome-devtools": {
       "type": "local",
       "command": ["npx", "chrome-devtools-mcp@latest"],
-    }
-  }
+    },
+  },
+  "provider": {
+    "lmstudio": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "LM Studio",
+      "options": {
+        "baseURL": "http://localhost:1234/v1",
+        "apiKey": "",
+      },
+      "models": {
+        "qwen3": {
+          "name": "Qwen3",
+          // Denne skal fungere med alle typer qwen3-modeller, f.eks. qwen3.6-35b-a3b
+          "limit": {
+            "context": 262144,
+            "output": 65568,
+          },
+        },
+      },
+    },
+  },
 }
