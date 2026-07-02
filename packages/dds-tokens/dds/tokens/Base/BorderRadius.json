@@ -1,0 +1,25 @@
+{
+  "dds-border-radius": {
+    "0": {
+      "value": "0px",
+      "type": "borderRadius"
+    },
+    "1": {
+      "value": "2px",
+      "type": "borderRadius"
+    },
+    "2": {
+      "value": "4px",
+      "type": "borderRadius"
+    },
+    "3": {
+      "value": "8px",
+      "type": "borderRadius"
+    },
+    "100": {
+      "value": "9999px",
+      "type": "borderRadius",
+      "description": "Rounded buttons, round shapes etc"
+    }
+  }
+}
