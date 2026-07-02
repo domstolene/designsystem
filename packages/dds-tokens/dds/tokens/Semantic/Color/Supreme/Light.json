@@ -29,7 +29,7 @@
         "description": "Medium surface color"
       },
       "hover-default": {
-        "value": "{dds-color.hoyesterett-teal.50}",
+        "value": "{dds-color.supreme-teal.50}",
         "type": "color",
         "description": "Hover on surface (default, subtle, medium)"
       },
@@ -39,37 +39,37 @@
         "description": "Subtle hover on surface (default, medium)"
       },
       "selected-default": {
-        "value": "{dds-color.hoyesterett-teal.50}",
+        "value": "{dds-color.supreme-teal.50}",
         "type": "color",
         "description": "Selected state for surface (default, subtle, medium)"
       },
       "inverse-default": {
-        "value": "{dds-color.hoyesterett-teal.700}",
+        "value": "{dds-color.supreme-teal.700}",
         "type": "color",
         "description": "Can be used as a surface for menu, navigation, footer etc"
       },
       "inverse-hover": {
-        "value": "{dds-color.hoyesterett-teal.750}",
+        "value": "{dds-color.supreme-teal.750}",
         "type": "color",
         "description": "Hover on surface.inverse"
       },
       "inverse-selected": {
-        "value": "{dds-color.hoyesterett-teal.800}",
+        "value": "{dds-color.supreme-teal.800}",
         "type": "color",
         "description": "selected on surface.inverse"
       },
       "action-resting": {
-        "value": "{dds-color.hoyesterett-teal.300}",
+        "value": "{dds-color.supreme-teal.300}",
         "type": "color",
         "description": "Primary button bg"
       },
       "action-hover": {
-        "value": "{dds-color.hoyesterett-teal.200}",
+        "value": "{dds-color.supreme-teal.200}",
         "type": "color",
         "description": "Hover on surface.action/selected"
       },
       "action-selected": {
-        "value": "{dds-color.hoyesterett-teal.300}",
+        "value": "{dds-color.supreme-teal.300}",
         "type": "color",
         "description": "Selected state for components such as togglebutton, togglebar, progress tracker, checkbox etc"
       },
@@ -149,7 +149,7 @@
         "description": "disabled state on surface.field"
       },
       "highlighted-default": {
-        "value": "{dds-color.hoyesterett-gold.200}",
+        "value": "{dds-color.supreme-gold.200}",
         "type": "color",
         "description": "bg for highlighted text on text.default. Use with $Text"
       },
@@ -181,17 +181,17 @@
         "description": "Dropdown, tooltip, overflow etc"
       },
       "inverse": {
-        "value": "{dds-color.hoyesterett-teal.200}",
+        "value": "{dds-color.supreme-teal.200}",
         "type": "color",
         "description": "Border or divider on surface.inverse"
       },
       "action-default": {
-        "value": "{dds-color.hoyesterett-teal.300}",
+        "value": "{dds-color.supreme-teal.300}",
         "type": "color",
         "description": "Used in progress tracker"
       },
       "action-hover": {
-        "value": "{dds-color.hoyesterett-teal.200}",
+        "value": "{dds-color.supreme-teal.200}",
         "type": "color",
         "description": "Hover on secondary button etc"
       },
@@ -263,12 +263,12 @@
         "description": "On status surfaces with strong prop"
       },
       "action-resting": {
-        "value": "{dds-color.hoyesterett-teal.500}",
+        "value": "{dds-color.supreme-teal.500}",
         "type": "color",
         "description": "Link, number in progress tracker"
       },
       "action-hover": {
-        "value": "{dds-color.hoyesterett-teal.600}",
+        "value": "{dds-color.supreme-teal.600}",
         "type": "color",
         "description": "Hover on text.action"
       },
@@ -390,12 +390,12 @@
         "description": "On surface.action (primary and danger button)"
       },
       "action-resting": {
-        "value": "{dds-color.hoyesterett-teal.500}",
+        "value": "{dds-color.supreme-teal.500}",
         "type": "color",
         "description": "Often used with Text.action"
       },
       "action-hover": {
-        "value": "{dds-color.hoyesterett-teal.600}",
+        "value": "{dds-color.supreme-teal.600}",
         "type": "color",
         "description": "hover on icon-action"
       },
@@ -447,74 +447,74 @@
     },
     "brand": {
       "primary-default": {
-        "value": "{dds-color.hoyesterett-teal.400}",
+        "value": "{dds-color.supreme-teal.400}",
         "type": "color",
         "description": "Primary brand color"
       },
       "primary-subtle": {
-        "value": "{dds-color.hoyesterett-teal.50}",
+        "value": "{dds-color.supreme-teal.50}",
         "type": "color",
         "description": "Primary brand color"
       },
       "primary-medium": {
-        "value": "{dds-color.hoyesterett-teal.300}",
+        "value": "{dds-color.supreme-teal.300}",
         "type": "color",
         "description": "Primary brand color"
       },
       "primary-strong": {
-        "value": "{dds-color.hoyesterett-teal.700}",
+        "value": "{dds-color.supreme-teal.700}",
         "type": "color",
         "description": "Primary brand color"
       },
       "secondary-default": {
-        "value": "{dds-color.hoyesterett-red.500}",
+        "value": "{dds-color.supreme-red.500}",
         "type": "color",
         "description": "Secondary brand color"
       },
       "secondary-subtle": {
-        "value": "{dds-color.hoyesterett-red.50}",
+        "value": "{dds-color.supreme-red.50}",
         "type": "color",
         "description": "Secondary brand color"
       },
       "secondary-medium": {
-        "value": "{dds-color.hoyesterett-red.400}",
+        "value": "{dds-color.supreme-red.400}",
         "type": "color",
         "description": "Secondary brand color"
       },
       "secondary-strong": {
-        "value": "{dds-color.hoyesterett-red.700}",
+        "value": "{dds-color.supreme-red.700}",
         "type": "color",
         "description": "Secondary brand color"
       },
       "tertiary-default": {
-        "value": "{dds-color.hoyesterett-gold.500}",
+        "value": "{dds-color.supreme-gold.500}",
         "type": "color",
         "description": "Tertiary brand color"
       },
       "tertiary-subtle": {
-        "value": "{dds-color.hoyesterett-gold.100}",
+        "value": "{dds-color.supreme-gold.100}",
         "type": "color",
         "description": "Tertiary brand color"
       },
       "tertiary-medium": {
-        "value": "{dds-color.hoyesterett-gold.300}",
+        "value": "{dds-color.supreme-gold.300}",
         "type": "color",
         "description": "Tertiary brand color"
       },
       "tertiary-strong": {
-        "value": "{dds-color.hoyesterett-gold.700}",
+        "value": "{dds-color.supreme-gold.700}",
         "type": "color",
         "description": "Tertiary brand color"
       }
     },
     "focus": {
       "outside": {
-        "value": "{dds-color.hoyesterett-teal.850}",
+        "value": "{dds-color.supreme-teal.850}",
         "type": "color",
         "description": "Contrast to .inside"
       },
       "inside": {
-        "value": "{dds-color.hoyesterett-teal.50}",
+        "value": "{dds-color.supreme-teal.50}",
         "type": "color",
         "description": "Contrast to .outside"
       }

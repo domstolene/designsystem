@@ -428,7 +428,7 @@
         "type": "color"
       }
     },
-    "hoyesterett-teal": {
+    "supreme-teal": {
       "50": {
         "value": "#e9f1f2",
         "type": "color"
@@ -470,7 +470,7 @@
         "type": "color"
       }
     },
-    "hoyesterett-red": {
+    "supreme-red": {
       "50": {
         "value": "#f3e8e9",
         "type": "color"
@@ -512,7 +512,7 @@
         "type": "color"
       }
     },
-    "hoyesterett-gold": {
+    "supreme-gold": {
       "100": {
         "value": "#efebdf",
         "type": "color"
