@@ -44,6 +44,7 @@ interface CalendarPopoverContextValue {
   isOpen: boolean;
   onClose: () => void;
   showWeekNumbers: boolean;
+  closeOtherCalendars: () => void;
 }
 
 export const CalendarPopoverContext =
@@ -53,13 +54,14 @@ export const CalendarPopoverContext =
     isOpen: false,
     onClose: () => null,
     showWeekNumbers: true,
+    closeOtherCalendars: () => null,
   });
 
-interface CalendarPopoverProps {
+interface CalendarPopoverProps extends Omit<
+  CalendarPopoverContextValue,
+  'anchorRef' | 'closeButtonRef'
+> {
   children: ReactNode;
-  isOpen: boolean;
-  onClose: () => void;
-  showWeekNumbers: boolean;
 }
 
 export const CalendarPopover = ({
@@ -72,7 +74,12 @@ export const CalendarPopover = ({
   useOnKeyDown('Escape', onClose);
   return (
     <CalendarPopoverContext
-      value={{ anchorRef, closeButtonRef, onClose, ...props }}
+      value={{
+        anchorRef,
+        closeButtonRef,
+        onClose,
+        ...props,
+      }}
     >
       {children}
     </CalendarPopoverContext>
@@ -90,8 +97,17 @@ interface CalendarPopoverAnchorProps {
 export const CalendarPopoverAnchor = ({
   children,
 }: CalendarPopoverAnchorProps) => {
-  const { anchorRef } = useContext(CalendarPopoverContext);
-  return <div ref={anchorRef ?? undefined}>{children}</div>;
+  const { anchorRef, closeOtherCalendars } = useContext(CalendarPopoverContext);
+  return (
+    <div
+      ref={anchorRef ?? undefined}
+      onFocusCapture={closeOtherCalendars}
+      onMouseDown={closeOtherCalendars}
+      onPointerDown={closeOtherCalendars}
+    >
+      {children}
+    </div>
+  );
 };
 
 /**------------------------------------------------------------------------
