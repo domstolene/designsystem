@@ -1,5 +1,14 @@
 # @norges-domstoler/dds-components
 
+## 23.2.2
+
+(2026-07-03)
+
+### Patch Changes
+
+- 474fa9b: Oppdaterer eksempeldata brukt i komponenten `<Table/>` sine stories.
+- 4705d21: Oppdaterer border, padding, og hover-farge på listelementer i 'Select'-komponenten
+
 ## 23.2.1
 
 (2026-06-26)
