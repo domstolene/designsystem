@@ -14,10 +14,6 @@ const content = files
 
 await writeFile(
   'src/styles/dds-tokens.css',
-  '/**\n * Do not edit directly, this file was auto-generated.\n */\n\n',
-);
-await writeFile(
-  'src/styles/dds-tokens.css',
   '/**\n * Do not edit directly, this file was auto-generated.\n */\n\n' +
     content +
     '\n',

@@ -16,6 +16,6 @@ export default defineConfig({
     '.svg': 'dataurl',
     '.css': 'css',
   },
-  clean: false,
+  clean: true,
   dts: false,
 });
