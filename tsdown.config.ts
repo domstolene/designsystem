@@ -8,6 +8,9 @@ export default defineConfig({
   css: {
     fileName: 'index.css',
     transformer: 'postcss',
+    modules: {
+      generateScopedName: 'dds-[name]__[local]',
+    },
   },
   loader: {
     '.svg': 'dataurl',
