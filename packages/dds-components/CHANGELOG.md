@@ -2,6 +2,8 @@
 
 ## 23.2.2
 
+(2026-07-03)
+
 ### Patch Changes
 
 - 474fa9b: Oppdaterer eksempeldata brukt i komponenten `<Table/>` sine stories.
