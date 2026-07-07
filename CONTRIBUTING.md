@@ -5,6 +5,8 @@ Vi setter pris på at du vil gjøre Elsa bedre! Vi bruker Slack kanalen [#team-e
 ## Innhold
 
 - [Kom i gang](#kom-i-gang)
+- [Testing i en lokal applikasjon](#testing-i-en-lokal-applikasjon)
+- [Testing](#testing)
 - [Konvensjoner](#konvensjoner)
 - [Komponentutvikling](#komponentutvikling)
 - [Ikoner](#ikoner)
@@ -52,24 +54,45 @@ Storybook kjører på port `6006`.
 pnpm build
 ```
 
+## Testing i en lokal applikasjon
+
+Når man utvikler Elsa lokalt, spesielt som bidragsyter, vil man gjerne teste i en lokal applikasjon om endringene har forventet resultat. Det kan gjøres på flere måter.
+
+### Generere en tarball
+
+Tarball gir en installasjon som ligner mest mulig på hvordan pakken faktisk vil bli konsumert etter publisering.
+
+Fra rotmappa i Elsa:
+
+```Shell
+pnpm build
+pnpm -F @norges-domstoler/<pakkenavn> pack
+```
+
+Dette genererer en `.tgz`-fil:
+
+```
+norges-domstoler-<pakkenavn>-<versjon>.tgz
+```
+
+Naviger til din lokale applikasjon og installer:
+
+```Shell
+npm install norges-domstoler-<pakkenavn>-<versjon>.tgz
+```
+
 ### Linking
 
 Hvis du vil teste endringer i Elsa live i applikasjonen din kan du bruke `npm link`.
 
 ```Shell
-cd ~/designsystem/packages/pakke # velg pakke
+cd ~/designsystem/packages/<pakkenavn> # velg pakke
 npm link
 cd ~/din-app
-npm link pakke
+npm link @norges-domstoler/<pakkenavn>
 ```
 
-`pakke` må tilsvare `name` som er satt i `pakke/package.json`, for eksempel `@norges-domstoler/dds-components`.
-
-### Branch preview
-
-Vi bruker Cloudflare Pages til å deploye til Storybook ved ny PR. Preview er nyttig ved code review.
-
-### Testing
+## Testing
 
 Du kan teste hele applikasjonen:
 
@@ -77,7 +100,7 @@ Du kan teste hele applikasjonen:
 pnpm test
 ```
 
-#### Komponenttesting
+### Komponenttesting
 
 Test kun dds-components:
 
@@ -91,7 +114,7 @@ Kjør spesifikk testfil:
 pnpm test:components <KomponentNavn>.spec.tsx
 ```
 
-#### Visuell testing
+### Visuell testing
 
 Vi kjører visuell testing med Chromatic i Storybook on push. Hvis din commit resulterer i visuelle endringer i Storybook vil de dukke opp i [nyeste Chromatic build](https://www.chromatic.com/builds?appId=685279c6f45f55e818f8f255). Disse skal godkjennes/avslåes, enten av deg eller reviewer (spørs på kontekst). Avslåtte endringer må fikses, så kjøres tester på nytt.
 
@@ -110,6 +133,10 @@ pnpm chromatic
 ```
 
 Les mer i Storybook docs: [kjør visuelle tester](https://storybook.js.org/docs/writing-tests/visual-testing#run-visual-tests) og [se over endringer](https://storybook.js.org/docs/writing-tests/visual-testing#review-changes).
+
+### Branch preview
+
+Vi bruker Cloudflare Pages til å deploye til Storybook ved ny PR. Preview er nyttig ved code review.
 
 ## Konvensjoner
 
