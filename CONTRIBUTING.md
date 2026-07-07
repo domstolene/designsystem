@@ -56,7 +56,7 @@ pnpm build
 
 ## Testing i en lokal applikasjon
 
-Nå man utvikler Elsa lokalt, spesielt som bidrasyter, vil man gjerne teste i en lokal applikasjon om endringene har forventet resultat. Det kan gjøres på flere måter.
+Når man utvikler Elsa lokalt, spesielt som bidragsyter, vil man gjerne teste i en lokal applikasjon om endringene har forventet resultat. Det kan gjøres på flere måter.
 
 ### Generere en tarball
 
@@ -69,16 +69,16 @@ pnpm build
 pnpm -F @norges-domstoler/<pakkenavn> pack
 ```
 
-Dette genererer en `.tgz` fil:
+Dette genererer en `.tgz`-fil:
 
 ```
-norges-domstoler-<pakkenavn><versjon>.tgz
+norges-domstoler-<pakkenavn>-<versjon>.tgz
 ```
 
-Naviger til din lokal applikasjon og installer:
+Naviger til din lokale applikasjon og installer:
 
 ```Shell
-npm install norges-domstoler-<pakkenavn><versjon>.tgz
+npm install norges-domstoler-<pakkenavn>-<versjon>.tgz
 ```
 
 ### Linking
