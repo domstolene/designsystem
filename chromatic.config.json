@@ -7,6 +7,7 @@
   "untraced": [
     "package.json",
     ".prettierrc",
+    ".*ignore",
     "eslint.config.mjs",
     "turbo.json",
     "opencode.jsonc",
