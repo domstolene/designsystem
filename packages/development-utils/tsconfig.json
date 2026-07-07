@@ -4,7 +4,7 @@
     "src",
     "vitest.config.ts",
     ".eslintrc.cjs",
-    "tsup.config.ts",
+    "tsdown.config.ts",
     "../../global.d.ts"
   ],
   "exclude": ["**/*.stories.tsx"]

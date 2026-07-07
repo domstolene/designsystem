@@ -16,6 +16,7 @@
     "**/*.md",
     "**/*.mdx",
     "**/vitest.config.ts",
+    "**/tsdown.config.ts",
     "**/*.spec.tsx",
     ".github/**",
     ".changeset/**",
