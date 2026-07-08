@@ -79,7 +79,7 @@
   },
   "peerDependencies": {
     "@internationalized/date": "^3.12.2",
-    "@norges-domstoler/dds-design-tokens": ">=5.0.0",
+    "@norges-domstoler/dds-design-tokens": "^9",
     "react": "^19",
     "react-dom": "^19"
   },
