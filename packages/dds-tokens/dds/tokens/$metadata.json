@@ -1,10 +1,10 @@
 {
   "tokenSetOrder": [
-    "Base/BorderRadius",
-    "Base/Color",
+    "Base/Exclude/BorderRadius",
+    "Base/Exclude/Color",
+    "Base/Exclude/Motion",
+    "Base/Exclude/Shadow",
     "Base/ColorData",
-    "Base/Motion",
-    "Base/Shadow",
     "Base/Spacing",
     "Base/Typography",
     "Base/Zindex",
