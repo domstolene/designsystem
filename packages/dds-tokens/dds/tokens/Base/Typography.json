@@ -113,6 +113,10 @@
       "value": "0.01em",
       "type": "letterSpacing",
       "description": "Brukes på størrelser under ×1"
+    },
+    "xloose": {
+      "value": "0.09em",
+      "type": "letterSpacing"
     }
   },
   "dds-font-style": {

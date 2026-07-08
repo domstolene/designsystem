@@ -1,23 +1,23 @@
 {
   "dds-motion": {
     "micro-state": {
-      "value": "{dds-motion-base.duration.medium} {dds-motion-base.easing.linear}",
+      "value": "{dds-motion.duration.medium} {dds-motion.easing.linear}",
       "type": "other",
       "description": "Animasjon for hover og andre states. feks. selected, pressed"
     },
     "surface": {
-      "value": "{dds-motion-base.duration.medium} {dds-motion-base.easing.in-out}",
+      "value": "{dds-motion.duration.medium} {dds-motion.easing.in-out}",
       "type": "other",
       "description": "Default animasjon for fokusmarkering, åpne/lukke funksjonalitet. feks, modal, accordion etc"
     },
     "chevron": {
-      "value": "{dds-motion-base.duration.medium} {dds-motion-base.easing.linear}",
+      "value": "{dds-motion.duration.medium} {dds-motion.easing.linear}",
       "type": "other",
       "description": "Animert chevron"
     },
     "animation": {
       "skeleton": {
-        "value": "{dds-motion-base.duration.xxslow} {dds-motion-base.easing.in-out} infinite alternate",
+        "value": "{dds-motion.duration.xxslow} {dds-motion.easing.in-out} infinite alternate",
         "type": "other",
         "description": "Skeleton animasjon"
       }
