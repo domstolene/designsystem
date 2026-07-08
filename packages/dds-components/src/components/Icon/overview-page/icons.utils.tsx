@@ -60,6 +60,7 @@ import feedbackSvg from '../svg/feedback.svg?raw';
 import fileSvg from '../svg/file.svg?raw';
 import fileAddSvg from '../svg/fileAdd.svg?raw';
 import fileShieldedSvg from '../svg/fileShielded.svg?raw';
+import FileSignedIcon from '../svg/fileSigned.svg?raw';
 import fileTextSvg from '../svg/fileText.svg?raw';
 import filterSvg from '../svg/filter.svg?raw';
 import filterlistSvg from '../svg/filterlist.svg?raw';
@@ -239,6 +240,7 @@ export const iconSvgs: Record<IconName, string> = {
   FileAddIcon: fileAddSvg,
   FileIcon: fileSvg,
   FileShieldedIcon: fileShieldedSvg,
+  FileSignedIcon: FileSignedIcon,
   FileTextIcon: fileTextSvg,
   FilterIcon: filterSvg,
   FilterListIcon: filterlistSvg,

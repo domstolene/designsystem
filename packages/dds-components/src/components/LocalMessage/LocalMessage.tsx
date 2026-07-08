@@ -19,7 +19,8 @@ import {
   TipIcon,
   WarningIcon,
 } from '../Icon/icons';
-import { Box, type ResponsiveProps } from '../layout';
+import { Grid, GridChild, type ResponsiveProps } from '../layout';
+import { type ResponsiveGridProps } from '../layout/common/Responsive.types';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export const L_MESSAGE_PURPOSES = createPurposes(
@@ -77,22 +78,45 @@ export const LocalMessage = ({
 }: LocalMessageProps) => {
   const { t } = useTranslation();
 
-  const [isClosed, setClosed] = useState(false);
+  const [isOpen, setOpen] = useState(true);
 
-  if (isClosed) {
-    return <></>;
-  }
+  type GridLayout =
+    | LocalMessageLayout
+    | 'horisontal-closable'
+    | 'vertical-closable';
 
-  return (
-    <Box
+  const gridLayout: GridLayout = closable ? `${layout}-closable` : layout;
+
+  const containerGridTemplateStyles: Record<
+    GridLayout,
+    Partial<ResponsiveGridProps>
+  > = {
+    horisontal: {
+      gridTemplateAreas: `"icon text"`,
+      gridTemplateColumns: 'min-content 1fr',
+    },
+    'horisontal-closable': {
+      gridTemplateAreas: `"icon text close-btn"`,
+      gridTemplateColumns: 'min-content 1fr min-content',
+    },
+    vertical: {
+      gridTemplateAreas: `"icon" "text"`,
+      gridTemplateColumns: '1fr',
+    },
+    'vertical-closable': {
+      gridTemplateAreas: `"icon close-btn" "text text"`,
+      gridTemplateColumns: '1fr min-content',
+    },
+  };
+
+  return isOpen ? (
+    <Grid
       {...getBaseHTMLProps(
         id,
         cn(
           className,
           typographyStyles['body-short-medium'],
           styles.container,
-          styles[`container--${layout}`],
-          closable && styles[`container--${layout}--closable`],
           styles[`container--${purpose}`],
         ),
         style,
@@ -100,31 +124,36 @@ export const LocalMessage = ({
         rest,
       )}
       width={width}
-      display="grid"
       padding="x0.75 x0.75 x0.75 x0.5"
-      gap="x0.5"
+      rowGap="x0.5"
+      columnGap="x0.5"
+      marginInline="x0"
+      {...containerGridTemplateStyles[gridLayout]}
     >
-      <Icon
+      <GridChild
+        as={Icon}
+        gridArea="icon"
         iconSize="component"
         icon={icons[purpose]}
-        className={cn(styles.icon, styles.container__icon)}
+        color={`var(--dds-color-icon-on-${purpose === 'tips' ? 'info' : purpose}-default)`}
       />
-      <div className={styles.container__text}>{children}</div>
+      <GridChild gridArea="text">{children}</GridChild>
       {closable && (
-        <Button
+        <GridChild
+          as={Button}
+          gridArea="close-btn"
           icon={CloseIcon}
           purpose="tertiary"
           onClick={() => {
-            setClosed(true);
+            setOpen(false);
             onClose?.();
           }}
           size="xsmall"
           aria-label={t(commonTexts.closeMessage)}
-          className={styles.container__button}
         />
       )}
-    </Box>
-  );
+    </Grid>
+  ) : null;
 };
 
 LocalMessage.displayName = 'LocalMessage';

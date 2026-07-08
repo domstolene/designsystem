@@ -1,4 +1,8 @@
-@import '@norges-domstoler/dds-design-tokens/dist/css/ddsTokens-core-light.css';
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
 @import '@norges-domstoler/dds-design-tokens/dist/css/ddsTokens-core-dark.css';
-@import '@norges-domstoler/dds-design-tokens/dist/css/ddsTokens-public-light.css';
+@import '@norges-domstoler/dds-design-tokens/dist/css/ddsTokens-core-light.css';
 @import '@norges-domstoler/dds-design-tokens/dist/css/ddsTokens-public-dark.css';
+@import '@norges-domstoler/dds-design-tokens/dist/css/ddsTokens-public-light.css';

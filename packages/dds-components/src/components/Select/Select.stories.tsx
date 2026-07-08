@@ -13,7 +13,7 @@ import {
 import { Button } from '../Button';
 import { INPUT_SIZES } from '../helpers/Input';
 import { CourtIcon } from '../Icon/icons';
-import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
 import { Modal, ModalBody } from '../Modal';
 
 import { Select, type SelectProps, createSelectOptions } from '.';

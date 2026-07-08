@@ -1,19 +1,19 @@
 import preview from '#.storybook/preview';
 import { type ChangeEvent, useEffect, useState } from 'react';
 
-import {
-  type CellDataToSort,
-  type HeaderCellToSort,
-  data,
-  headerCells,
-  mapCellContents,
-} from './tableData';
 import { ddsProviderDecorator } from '../../../storybook';
 import { Button } from '../../Button';
 import { Icon } from '../../Icon';
 import { PersonIcon, TrashIcon } from '../../Icon/icons';
 import { Checkbox } from '../../SelectionControl/Checkbox';
 import { Link, Paragraph } from '../../Typography';
+import {
+  type CellDataToSort,
+  type HeaderCellToSort,
+  data,
+  headerCells,
+  mapCellContents,
+} from '../storybook-utils/tableData';
 
 import { Table } from '.';
 
@@ -257,12 +257,12 @@ export const WithButtonAndIcons = meta.story({
         </Table.Head>
         <Table.Body>
           {data.map(item => (
-            <Table.Row key={item.name}>
+            <Table.Row key={item.dommer}>
               <Table.Cell layout="text and icon">
-                {adminIcon} {item.name}
+                {adminIcon} {item.dommer}
               </Table.Cell>
               <Table.Cell layout="text and icon">
-                {item.name} {adminIcon}
+                {item.dommer} {adminIcon}
               </Table.Cell>
               <Table.Cell>Admin</Table.Cell>
               <Table.Cell layout="center">{deleteButton}</Table.Cell>
@@ -408,16 +408,16 @@ export const WithCheckbox = meta.story({
                   <Table.Cell>
                     <Checkbox
                       id={row.id}
-                      name={row.name}
+                      name={row.dommer}
                       checked={isSelected}
                       onChange={e => handleChange(e, row)}
                       // onClick={(e) => handleCheckboxClick(e)}
                     />
                   </Table.Cell>
-                  <Table.Cell>{row.name}</Table.Cell>
-                  <Table.Cell>{row.fnumber}</Table.Cell>
-                  <Table.Cell>{row.employer}</Table.Cell>
-                  <Table.Cell>{row.orgnumber}</Table.Cell>
+                  <Table.Cell>{row.dommer}</Table.Cell>
+                  <Table.Cell>{row.domstol}</Table.Cell>
+                  <Table.Cell>{row.favorittRett}</Table.Cell>
+                  <Table.Cell>{row.favorittDyr}</Table.Cell>
                 </Table.Row>
               );
             })}
@@ -619,14 +619,14 @@ export const ColumnAndRowHeaders = meta.story({
             ))}
           </Table.Row>
           {data.map(item => (
-            <Table.Row key={item.name}>
+            <Table.Row key={item.dommer}>
               <Table.Cell type="head" scope="row">
                 Header
               </Table.Cell>
-              <Table.Cell> {item.name} </Table.Cell>
-              <Table.Cell> {item.fnumber} </Table.Cell>
-              <Table.Cell> {item.employer} </Table.Cell>
-              <Table.Cell> {item.orgnumber} </Table.Cell>
+              <Table.Cell> {item.dommer} </Table.Cell>
+              <Table.Cell> {item.domstol} </Table.Cell>
+              <Table.Cell> {item.favorittRett} </Table.Cell>
+              <Table.Cell> {item.favorittDyr} </Table.Cell>
             </Table.Row>
           ))}
         </Table.Body>
@@ -659,14 +659,14 @@ export const WithScroll = meta.story({
               ))}
             </Table.Row>
             {data.map(item => (
-              <Table.Row key={item.name}>
+              <Table.Row key={item.dommer}>
                 <Table.Cell type="head" scope="row">
                   Header
                 </Table.Cell>
-                <Table.Cell> {item.name} </Table.Cell>
-                <Table.Cell> {item.fnumber} </Table.Cell>
-                <Table.Cell> {item.employer} </Table.Cell>
-                <Table.Cell> {item.orgnumber} </Table.Cell>
+                <Table.Cell> {item.dommer} </Table.Cell>
+                <Table.Cell> {item.domstol} </Table.Cell>
+                <Table.Cell> {item.favorittRett} </Table.Cell>
+                <Table.Cell> {item.favorittDyr} </Table.Cell>
               </Table.Row>
             ))}
           </Table.Body>
@@ -689,7 +689,7 @@ export const InteractiveContent = meta.story({
         </Table.Head>
         <Table.Body>
           {data.map(item => (
-            <Table.Row key={item.name} hoverable>
+            <Table.Row key={item.dommer} hoverable>
               <Table.Cell>
                 <Link href="#">
                   {' '}
@@ -697,7 +697,7 @@ export const InteractiveContent = meta.story({
                   og Petter Olaf Jensen.pdf
                 </Link>
               </Table.Cell>
-              <Table.Cell>{item.name}</Table.Cell>
+              <Table.Cell>{item.dommer}</Table.Cell>
               <Table.Cell>Ulest</Table.Cell>
             </Table.Row>
           ))}

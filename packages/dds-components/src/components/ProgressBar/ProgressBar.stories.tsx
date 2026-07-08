@@ -7,7 +7,7 @@ import {
   responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../storybook';
-import { StoryVStack } from '../layout/Stack/utils';
+import { StoryVStack } from '../layout/Stack/storybook-utils';
 
 import { ProgressBar } from '.';
 

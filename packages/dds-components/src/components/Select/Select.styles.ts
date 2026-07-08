@@ -232,6 +232,7 @@ export const getCustomStyles = <TOption>(
     overflowY: 'auto',
     position: 'relative',
     boxSizing: 'border-box',
+    padding: 'var(--dds-spacing-x0-125)',
     ...scrollbarStyling,
   }),
   option: (provided, state) => ({
@@ -241,16 +242,13 @@ export const getCustomStyles = <TOption>(
     alignItems: 'center',
     gap: 'var(--dds-spacing-x0-25)',
     padding: 'var(--dds-spacing-x0-75)',
+    borderRadius: 'var(--dds-border-radius-surface)',
     backgroundColor: 'var(--dds-color-surface-default)',
     ...typography.option[size],
     color: 'var(--dds-color-text-default)',
     '@media (prefers-reduced-motion: no-preference)': {
       transition:
         'color var(--dds-motion-micro-state), background-color var(--dds-motion-micro-state)',
-    },
-    '&:hover': {
-      color: 'var(--dds-color-text-default)',
-      backgroundColor: 'var(--dds-color-surface-hover-subtle)',
     },
     ...(state.isSelected && {
       backgroundColor: 'var(--dds-color-surface-selected-default)',

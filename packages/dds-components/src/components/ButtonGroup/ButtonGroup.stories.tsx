@@ -8,7 +8,7 @@ import {
 } from '../../storybook';
 import { Button } from '../Button/Button';
 import { BUTTON_SIZES } from '../Button/Button.types';
-import { StoryVStack } from '../layout/Stack/utils';
+import { StoryVStack } from '../layout/Stack/storybook-utils';
 
 import { ButtonGroup } from '.';
 

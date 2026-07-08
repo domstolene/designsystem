@@ -34,6 +34,8 @@ export type GridChildProps<T extends ElementType = 'div'> =
       justifySelf?: ResponsiveProp<Property.JustifySelf>;
       /**CSS `grid-row`. Støtter verdi per brekkpunkt eller samme for alle skjermstørrelser. */
       gridRow?: ResponsiveProp<Property.GridRow>;
+      /**CSS `grid-area`. Støtter verdi per brekkpunkt eller samme for alle skjermstørrelser. */
+      gridArea?: ResponsiveProp<Property.GridArea>;
     } & Omit<ResponsiveProps, 'display'>
   >;
 
@@ -43,12 +45,14 @@ export const GridChild = <T extends ElementType = 'div'>({
   htmlProps,
   style,
   gridRow,
+  gridArea,
   justifySelf,
   columnsOccupied,
   ...rest
 }: GridChildProps<T>) => {
   const styleVariables: Properties = {
     ...getResponsiveCSSProperties(gridRow, 'r', 'grid-row'),
+    ...getResponsiveCSSProperties(gridArea, 'r', 'grid-area'),
     ...getResponsiveCSSProperties(justifySelf, 'r', 'j-self'),
     ...getResponsiveCSSProperties(columnsOccupied, 'r', 'grid-column'),
   };
@@ -61,6 +65,7 @@ export const GridChild = <T extends ElementType = 'div'>({
           className,
           styles['child-col-count'],
           gridRow && styles['dds-grid-row'],
+          gridArea && styles['dds-grid-area'],
           justifySelf && styles['dds-j-self'],
           columnsOccupied && styles['dds-grid-column'],
           columnsOccupied === 'firstHalf' && styles['child--first-half'],

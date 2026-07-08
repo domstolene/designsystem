@@ -1,0 +1,94 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
+import LinkTo from '@storybook/addon-links/react';
+import {
+  Tabs,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+} from '../../../src/components/Tabs';
+import * as ValidationStories from './Validation.stories';
+
+<Meta of={ValidationStories} />
+
+# Skjema
+
+<ComponentLinkRow
+  docsHref="0426e5-skjema"
+  storybookHref={{ folder: 'patterns', comp: 'validation--form' }}
+/>
+
+## Bruksområde
+
+Skjemavalidering. Brukes i kombinasjon med <LinkTo title='Patterns/Check Answers' story='docs'>Sjekk svar-mønsteret</LinkTo> og <LinkTo title='Patterns/Form' story='docs'>Skjema-mønsteret</LinkTo>.
+
+## Hvordan implementere?
+
+Skjema-mønsteret bruker gjerne en del komponenter, layout primitives og props for å implementere typisk layout. Du trenger i utganspunktet ingen egen CSS styling.
+
+### Komponenter
+
+- **Skjemakomponenter, typografi og layout primitives**: se <LinkTo title='Patterns/Form' story='docs'>Skjema-mønsteret</LinkTo>.
+- **`<ErrorSummary>`**.
+
+## Validering
+
+### HTML5 default
+
+Slå av default validering i nettleseren med `noValidate` attributt på `<form>`:
+
+```jsx
+<form noValidate> /* skjema... */ </form>
+```
+
+Grunnene til anbefalingen er:
+
+- Uforutsigbar oppførsel i kombinasjon med feilmeldinger fra Elsa; meldingene dekker hverandre og har ulik trigger for å dukke opp.
+- Inkompatibel med WCAG-krav. Innebygde valideringen har vage, statiske feilmeldinger og blir ofte ikke lest av skjermlesere.
+- Det visuelle inntrykket kan ikke endres, og vil ikke stemme overens med Elsa.
+
+Hva dette innebærer:
+
+- Nettleserens native validerings-popup vises ikke ved submit.
+- Submit blir ikke blokkert av required, type, pattern osv.
+- Applikasjonen har full kontroll over validering - når det skjer, feilmeldinger, fokusflyt og annonsering til skjermleser.
+
+### Interaksjon med inputfelt
+
+Validering skal skje ved HTML nativ `change`-event - når brukeren endrer verdien i inputfeltet og så forlater det. Dette er for å unngå at brukeren blir møtt med feilmeldinger mens de fortsatt fyller ut feltet eller navigerer mellom feltene.
+
+**OBS!** React sin `change`-event fungerer mer som nativ HTML `input`-event: den trigges mens brukeren skriver i feltet, ikke når feltet mister fokus. Det er dermed nødvendig å kombinere React handlers `onChange` med `onBlur` for å få ønsket valideringsflyt.
+
+Hvis validering feiler, vis beskrivende feilmelding med `errorMessage` prop.
+
+### Uten steg
+
+Validering skal også skje ved innsending.
+
+- **Ett felt**: hvis validering feiler vis beskrivende feilmelding med `errorMessage` prop og flytt fokus til feltet.
+- **Uten steg**: ha med en [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Guides/Live_regions), f.eks. `<div>` med `aria-live="polite"`. Den må alltid være i DOM. Ved valideringsfeil oppdater din live region til å vise de aktuelle feilene i `<ErrorSummary>`, samt bruk `errorMessage` prop på alle felt med tilsvarende feil.
+
+### Flere steg
+
+- **Stegene er ikke avhengige av hverandre**: la brukeren gå fritt mellom stegene. Valider når brukeren går til oppsummeringssiden med FormSummary (se <LinkTo title="Mønstre/Sjekk svar">Sjekk svar-mønsteret</LinkTo> ). Valider i tillegg ved innsending og når brukeren går tilbake til steg de har vært innom.
+- **Wizard-flyt**: når stegene er avhengige av hverandre skal det valideres på slutten av hvert steg. Ha med en [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Guides/Live_regions), f.eks. `<div>` med `aria-live="polite"`, på slutten av hvert steg. Den må alltid være i DOM. Ved valideringsfeil oppdater din live region til å vise de aktuelle feilene i `<ErrorSummary>`, samt bruk `errorMessage` prop på alle felt med tilsvarende feil.
+
+## Maler
+
+**OBS!** For layout for større brekkpunkter se demoer/stories utenfor Docs. For at lenker til inputfelt skal fungere må du åpne story i ny fane.
+
+### Visning av feilmeldinger
+
+Dette eksempelet er statisk og viser hvordan feilmeldinger bør vises etter validering som feilet.
+
+<Canvas of={ValidationStories.SimpleWithErrors} />
+
+### Wizard-flyt
+
+Ved Wizard-flyt der stegene er avhengige av hverandre skal det valideres på slutten av hvert steg. Brukeren kan ikke hoppe til neste steg før alle feltene i det nåværende steget er fylt ut korrekt. Validering skjer også ved innsending.
+
+<Canvas of={ValidationStories.Wizard} />

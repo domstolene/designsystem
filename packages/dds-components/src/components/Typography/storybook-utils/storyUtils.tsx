@@ -1,15 +1,15 @@
 import { type ArgTypes } from '@storybook/react-vite';
 
 import {
-  type BlockTypographyResponsiveProps,
-  type InlineTypographyResponsiveProps,
-} from './Typography';
-import {
   type ResponsiveArgTypes,
   commonArgTypes,
   htmlArgType,
   responsivePropsArgTypes,
-} from '../../storybook';
+} from '../../../storybook';
+import {
+  type BlockTypographyResponsiveProps,
+  type InlineTypographyResponsiveProps,
+} from '../Typography';
 
 const {
   wordBreak,

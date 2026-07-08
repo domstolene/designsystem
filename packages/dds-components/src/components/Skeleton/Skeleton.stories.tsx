@@ -7,7 +7,7 @@ import {
   windowWidthDecorator,
 } from '../../storybook';
 import { Box, VStack } from '../layout';
-import { StoryVStack } from '../layout/Stack/utils';
+import { StoryVStack } from '../layout/Stack/storybook-utils';
 
 const meta = preview.meta({
   title: 'dds-components/Components/Skeleton',

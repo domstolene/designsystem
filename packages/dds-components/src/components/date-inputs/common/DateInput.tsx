@@ -72,7 +72,7 @@ export function DateInput({
   return (
     <div
       {...groupProps}
-      className={cn(className, inputStyles.container)}
+      className={cn(className, inputStyles.container, styles['date-group'])}
       ref={ref}
     >
       {renderLabel({
@@ -88,6 +88,7 @@ export function DateInput({
         className={cn(
           inputStyles['input-group'],
           tgStyles[`body-short-${componentSize}`],
+          styles['input-group'],
         )}
       >
         {button}

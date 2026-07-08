@@ -1,6 +1,6 @@
-import { screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { portalRender } from '../../test.utils';
 import { Button } from '../Button';
@@ -20,6 +20,10 @@ const TestComponent = (props: Omit<DrawerGroupProps, 'children'>) => {
 };
 
 describe('<Drawer>', () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
   it('is hidden by default', () => {
     portalRender(<TestComponent />);
     const element = screen.queryByText(content);
@@ -135,5 +139,81 @@ describe('<Drawer>', () => {
     await userEvent.click(button);
 
     expect(event).toHaveBeenCalled();
+  });
+
+  it('throws if used outside DdsProvider', () => {
+    expect(() => render(<Drawer>{content}</Drawer>)).toThrow(
+      'Drawer must be used within a DdsProvider',
+    );
+  });
+
+  it('closes when clicking the backdrop', async () => {
+    const user = userEvent.setup();
+    portalRender(
+      <DrawerGroup isInitiallyOpen>
+        <Button>{buttonLabel}</Button>
+        <Drawer withBackdrop>{content}</Drawer>
+      </DrawerGroup>,
+    );
+
+    const dialog = screen.getByRole('dialog');
+    const backdrop = dialog.parentElement;
+
+    expect(backdrop).toBeInTheDocument();
+
+    await user.click(backdrop!);
+
+    await waitFor(() => {
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    });
+  });
+
+  it('does not close when clicking inside the drawer with backdrop', async () => {
+    const user = userEvent.setup();
+    portalRender(
+      <DrawerGroup isInitiallyOpen>
+        <Button>{buttonLabel}</Button>
+        <Drawer withBackdrop>{content}</Drawer>
+      </DrawerGroup>,
+    );
+
+    const dialog = screen.getByRole('dialog');
+
+    await user.click(dialog);
+
+    expect(screen.queryByRole('dialog')).toBeInTheDocument();
+  });
+
+  it('locks and unlocks body when backdrop is enabled', async () => {
+    const user = userEvent.setup();
+    vi.spyOn(window, 'scrollY', 'get').mockReturnValue(150);
+    vi.spyOn(window, 'innerHeight', 'get').mockReturnValue(100);
+    const scrollToSpy = vi
+      .spyOn(window, 'scrollTo')
+      .mockImplementation(() => undefined);
+
+    Object.defineProperty(document.body, 'clientHeight', {
+      configurable: true,
+      value: 200,
+    });
+
+    portalRender(
+      <DrawerGroup isInitiallyOpen>
+        <Button>{buttonLabel}</Button>
+        <Drawer withBackdrop>{content}</Drawer>
+      </DrawerGroup>,
+    );
+
+    expect(document.body.style.position).toBe('fixed');
+    expect(document.body.style.top).toBe('-150px');
+
+    await user.click(screen.getByLabelText('Lukk'));
+
+    await waitFor(() => {
+      expect(document.body.style.position).toBe('');
+      expect(document.body.style.top).toBe('');
+    });
+
+    expect(scrollToSpy).toHaveBeenCalledWith(0, 150);
   });
 });

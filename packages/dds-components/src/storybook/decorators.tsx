@@ -63,9 +63,9 @@ export const windowWidthDecorator = (Story: ReactNode, intro?: string) => {
         >
           <path
             fill="currentColor"
-            fill-rule="evenodd"
+            fillRule="evenodd"
             d={getIcon()}
-            clip-rule="evenodd"
+            clipRule="evenodd"
           ></path>
         </svg>
         {bp}{' '}

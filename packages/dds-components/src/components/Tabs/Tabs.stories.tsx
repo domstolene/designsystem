@@ -10,7 +10,7 @@ import {
   windowWidthDecorator,
 } from '../../storybook';
 import { NotificationsIcon } from '../Icon/icons';
-import { StoryVStack } from '../layout/Stack/utils';
+import { StoryVStack } from '../layout/Stack/storybook-utils';
 import { Paragraph } from '../Typography';
 
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '.';
@@ -195,7 +195,7 @@ export const DifferentWidths = meta.story({
     <>
       <Paragraph withMargins>
         Dette er et eksempel på hvordan du kan sette egne bredder på hver tab
-        med <code>width</code>-attributtet. Det støttes de samme enhetene som i
+        med <code>width</code>-attributtet. Det støttes de samme enhetene som i{' '}
         <code>grid-template-columns</code> i CSS.
       </Paragraph>
       <Tabs {...args}>

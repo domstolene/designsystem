@@ -91,6 +91,34 @@ const convertMultiValue = (value: string, bp?: Breakpoint, invert?: boolean) =>
 const invertValue = (v: string): string =>
   v === '0' ? '0' : `calc(-1 * ${v})`;
 
+const buildCSSKey = (
+  prefix?: string,
+  suffix?: string,
+  bp?: Breakpoint,
+): string => {
+  let key = `--${TOKEN_PREFIX}`;
+  if (prefix) key += `-${prefix}`;
+  if (bp) key += `-${bp}`;
+  if (suffix) key += `-${suffix}`;
+  return key;
+};
+
+export function getCSSProperties<T>(
+  property?: T,
+  prefix?: string,
+  suffix?: string,
+  invert?: boolean,
+): Properties | undefined {
+  if (property === undefined || property === null) return;
+
+  const properties: Properties = {};
+
+  (properties as Record<string, string>)[buildCSSKey(prefix, suffix)] =
+    convertMultiValue(property.toString(), undefined, invert);
+
+  return properties;
+}
+
 export function getResponsiveCSSProperties<T>(
   property?: ResponsiveProp<T>,
   prefix?: string,
@@ -100,18 +128,17 @@ export function getResponsiveCSSProperties<T>(
   if (!property) return;
 
   const properties: Properties = {};
-  const pPrefix = `--${TOKEN_PREFIX}-${prefix}`;
-  const pSuffix = suffix ? `-${suffix}` : '';
 
   if (isBreakpointObject(property)) {
     BREAKPOINTS.forEach(bp => {
       if (property[bp]) {
-        (properties as Record<string, string>)[`${pPrefix}-${bp}${pSuffix}`] =
-          convertMultiValue(property[bp].toString(), bp, invert);
+        (properties as Record<string, string>)[
+          buildCSSKey(prefix, suffix, bp)
+        ] = convertMultiValue(property[bp].toString(), bp, invert);
       }
     });
   } else {
-    (properties as Record<string, string>)[`${pPrefix}${pSuffix}`] =
+    (properties as Record<string, string>)[buildCSSKey(prefix, suffix)] =
       convertMultiValue(property.toString(), undefined, invert);
   }
   return properties;

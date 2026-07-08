@@ -1,5 +1,62 @@
 # @norges-domstoler/dds-components
 
+## 23.2.2
+
+(2026-07-03)
+
+### Patch Changes
+
+- 474fa9b: Oppdaterer eksempeldata brukt i komponenten `<Table/>` sine stories.
+- 4705d21: Oppdaterer border, padding, og hover-farge på listelementer i 'Select'-komponenten
+
+## 23.2.1
+
+(2026-06-26)
+
+### Patch Changes
+
+- 9a8dba6: Fikser kontrollert og ukontrollert tilstand som oppstod samtidig i `<CardSelectable>`.
+- d404aba: Fikser bug der datosegmentene fikk fokus selv ved klikk utenfor i `<DatePicker>`.
+- 2854a66: Endrer standard typografistil i `<Table>` fra `dds-body-short-<størrelse>` til `dds-body-long-<størrelse>` for bedre spacing.
+
+## 23.2.0
+
+(2026-06-23)
+
+### Minor Changes
+
+- b190f11: Ny prop `defaultPageLayout` i `<Grid>`. Tillater å slå av default styling som implementerer standard sideoppsett slik det er i Figma.
+- 36cfdb0: Støtte for nye CSS props i layout primitives:
+
+  - `<Grid>`:
+    - `display` med verdiene `'grid'` (default) og `'inline-grid'`
+    - `grid`
+    - `gridAutoColumns`
+    - `gridAutoFlow`
+    - `gridAutoRows`
+    - `gridTemplate`
+    - `gridTemplateAreas`
+    - `gridTemplateRows`
+  - `<GridChild>`: `gridArea`
+
+### Patch Changes
+
+- 80939aa: Fikser stale referanser og closures i `useReturnFocusOnBlur` hook.
+- f6095bc: Fikser høyde i tømmeknapper i `<Search>`, `<NativeSelect>` og `<DatePicker>`.
+- 36cfdb0: Fikser bug der `justifySelf` prop i `<GridChild>` satt CSS `grid-row` istedenfor `justify-self`.
+- b190f11: Tar i bruk `<Grid>` under panseret der relevant på tvers a komponenter.
+- 36cfdb0: Fikser bug der `<Icon>` ikke registrerte styling fra `style` prop.
+
+## 23.1.3
+
+(2026-06-22)
+
+### Patch Changes
+
+- edde0c1: Vis hoverable bakgrunnsfarge for rader i Table med size Small
+- bae7c69: Legger til det nye ikonet `FileSigned` i ikonbiblioteket.
+- b96924a: Fjern hover styling for aktiv fane i Tabs
+
 ## 23.1.2
 
 (2026-06-09)

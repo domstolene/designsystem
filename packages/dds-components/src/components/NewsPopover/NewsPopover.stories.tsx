@@ -8,7 +8,7 @@ import img3 from './test-img3.png';
 import img4 from './test-img4.png';
 import { commonArgTypes } from '../../storybook';
 import { Button } from '../Button';
-import { StoryVStack } from '../layout/Stack/utils';
+import { StoryVStack } from '../layout/Stack/storybook-utils';
 
 const meta = preview.meta({
   title: 'dds-components/Components/NewsPopover',

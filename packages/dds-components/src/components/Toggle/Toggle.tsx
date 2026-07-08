@@ -113,7 +113,7 @@ export const Toggle = ({
   ) : (
     <Icon className={styles.checkmark} icon={CheckIcon} iconSize={iconSize} />
   );
-  console.log('disabled', disabled);
+
   return (
     <label
       htmlFor={uniqueId}

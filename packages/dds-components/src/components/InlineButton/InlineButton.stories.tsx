@@ -6,7 +6,7 @@ import { InlineButton } from './InlineButton';
 import { ddsProviderDecorator, htmlEventArgType } from '../../storybook';
 import { Icon } from '../Icon';
 import { HelpIcon } from '../Icon/icons';
-import { StoryVStack } from '../layout/Stack/utils';
+import { StoryVStack } from '../layout/Stack/storybook-utils';
 import { Popover, PopoverGroup } from '../Popover';
 import { TextInput } from '../TextInput';
 import { Tooltip } from '../Tooltip';

@@ -11,16 +11,27 @@
   "files": [
     "dist"
   ],
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
   "homepage": "https://design.domstol.no",
   "scripts": {
-    "build": "tsup --dts",
-    "build:fast": "tsup",
+    "build": "tsdown  --config-loader unrun --dts",
+    "build:fast": "tsdown  --config-loader unrun",
     "dev": "pnpm build:fast -- --watch",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "test:ui": "vitest --ui --coverage",
+    "coverage": "vitest run --coverage",
     "test:watch": "vitest watch"
   },
   "keywords": [
@@ -33,7 +44,6 @@
     "elsa"
   ],
   "devDependencies": {
-    "tsup": "^8.5.1",
     "typescript": "^5.9.3",
     "vite": "^8.0.16",
     "vitest": "^4.1.9"

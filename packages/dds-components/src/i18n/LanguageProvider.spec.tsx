@@ -21,6 +21,11 @@ function TranslationComponent() {
 }
 
 describe('LanguageProvider', () => {
+  it('throws error when used outside of LanguageProvider', () => {
+    expect(() => render(<TestComponent />)).toThrow(
+      'useLangage must be used within DdsProvider.',
+    );
+  });
   it('provides the correct language to children', () => {
     const l = 'en';
     render(

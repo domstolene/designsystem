@@ -1,3 +1,4 @@
+import { type DdsThemeMain } from '#packages/dds-components/src/components/ThemeProvider/ThemeProvider';
 import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Typography.json';
 import jsonC from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Typography/Core.json';
 import jsonP from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Typography/Public.json';
@@ -10,7 +11,6 @@ import {
   tableStyle,
 } from './functions';
 import {
-  type ThemeMain,
   type TokenTypographyBaseJsonObject,
   type TokenTypographySemanticCssFont,
   type TokenTypographySemanticJsonObject,
@@ -27,7 +27,7 @@ baseTokens['dds-font-paragraph-spacing'] =
 baseTokens['dds-font-letter-spacing'] = jsonBase['dds-font-letter-spacing'];
 baseTokens['dds-font-style'] = jsonBase['dds-font-style'];
 
-export const TypographyGenerator = (theme: ThemeMain) => {
+export const TypographyGenerator = (theme: DdsThemeMain) => {
   const tokenSet = theme === 'core' ? jsonC : jsonP;
   const tokens: TokenTypographySemanticJsonObject = tokenSet['dds-font'];
 

@@ -15,7 +15,11 @@ import {
 import { Link } from '../../Typography';
 import { VisuallyHidden } from '../../VisuallyHidden';
 import { Table } from '../normal';
-import { data, headerCells, mapCellContents } from '../normal/tableData';
+import {
+  data,
+  headerCells,
+  mapCellContents,
+} from '../storybook-utils/tableData';
 
 import { CollapsibleTable } from '.';
 
@@ -242,12 +246,12 @@ export const WithButtonAndIcons = meta.story({
         </Table.Head>
         <Table.Body>
           {data.map(item => (
-            <CollapsibleTable.Row key={item.name}>
+            <CollapsibleTable.Row key={item.dommer}>
               <Table.Cell layout="text and icon">
-                {adminIcon} {item.name}
+                {adminIcon} {item.dommer}
               </Table.Cell>
               <Table.Cell layout="text and icon">
-                {item.name} {adminIcon}
+                {item.dommer} {adminIcon}
               </Table.Cell>
               <Table.Cell>Admin</Table.Cell>
               <Table.Cell layout="center">{deleteButton}</Table.Cell>

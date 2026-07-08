@@ -1,7 +1,7 @@
 import preview from '#.storybook/preview';
 
 import { commonArgTypesWithNodeChildren } from '../../storybook';
-import { StoryHStack } from '../layout/Stack/utils';
+import { StoryHStack } from '../layout/Stack/storybook-utils';
 import { Typography } from '../Typography';
 
 import { List, ListItem, type ListProps } from '.';

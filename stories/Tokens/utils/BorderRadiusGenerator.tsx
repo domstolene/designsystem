@@ -1,19 +1,18 @@
+
 import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Exclude/BorderRadius.json';
+import { type DdsThemeMain } from '#packages/dds-components/src/components/ThemeProvider/ThemeProvider';
 import jsonC from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/BorderRadius/Core.json';
 import jsonP from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/BorderRadius/Public.json';
 
 import { copyButton } from './CopyButton';
 import { splitReferenceKeys, tableStyle } from './functions';
-import {
-  type ThemeMain,
-  type TokenBorderRadiusJsonObject,
-} from './Tokens.types';
+import { type TokenBorderRadiusJsonObject } from './Tokens.types';
 import { Paper, Table } from '../../../packages/dds-components/src/index';
 
 const tokenPrefix = 'dds-border-radius';
 const baseTokens: TokenBorderRadiusJsonObject = jsonBase[tokenPrefix];
 
-export const BorderRadiusGenerator = (theme: ThemeMain) => {
+export const BorderRadiusGenerator = (theme: DdsThemeMain) => {
   const tokenSet = theme === 'core' ? jsonC : jsonP;
   const tokens: TokenBorderRadiusJsonObject = tokenSet[tokenPrefix];
 

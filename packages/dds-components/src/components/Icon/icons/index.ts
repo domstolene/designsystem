@@ -57,6 +57,7 @@ export * from './feedback';
 export * from './file';
 export * from './fileAdd';
 export * from './fileShielded';
+export * from './fileSigned';
 export * from './fileText';
 export * from './filter';
 export * from './filterList';

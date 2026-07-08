@@ -12,10 +12,14 @@ import { type PropsWithChildren, useEffect, useState } from 'react';
 
 import {
   DdsProvider,
-  type DdsTheme,
+  Toggle,
   ToggleBar,
   ToggleRadio,
 } from '../packages/dds-components/src';
+import {
+  type DdsThemeMain,
+  type DdsThemeMode,
+} from '../packages/dds-components/src/components/ThemeProvider/ThemeProvider';
 
 // Setter bakgrunn i Canvas basert på verdien til --dds-color-bg-default i ThemeProvider
 const setCanvasBackgroundFromTheme = (counter: number) => {
@@ -81,32 +85,45 @@ export default definePreview({
         );
       }
 
-      const [theme, setTheme] = useState<DdsTheme>('core-light');
+      const [mainTheme, setMainTheme] = useState<DdsThemeMain>('core');
+      const [mode, setMode] = useState<boolean>(false);
       nameCounter++;
+      const checkedToMode: (checked: boolean) => DdsThemeMode = (
+        checked: boolean,
+      ) => (checked ? 'dark' : 'light');
 
       useEffect(() => {
         setCanvasBackgroundFromTheme(nameCounter);
-      }, [theme]);
+      }, [mainTheme, mode]);
 
       return (
-        <DdsProvider theme={theme} language="nb">
+        <DdsProvider
+          theme={`${mainTheme}-${checkedToMode(mode)}`}
+          language="nb"
+        >
           <div
             className="theme-toggle-bar-wrapper"
             id={`theme-toggle-bar-wrapper-${nameCounter}`}
           >
+            <Toggle
+              name={`mode-toggle-${nameCounter}`}
+              htmlProps={{ 'aria-label': 'Modus' }}
+              checked={mode}
+              onChange={setMode}
+              variant="colorScheme"
+            />
             <ToggleBar
               size="xsmall"
               name={`theme-${nameCounter}`}
-              value={theme}
+              value={mainTheme}
               htmlProps={{ 'aria-label': 'Tema' }}
               onChange={(_event, theme) => {
-                if (theme) setTheme(theme);
+                if (theme) setMainTheme(theme);
               }}
+              purpose="secondary"
             >
-              <ToggleRadio value="core-light" label="core-light" />
-              <ToggleRadio value="core-dark" label="core-dark" />
-              <ToggleRadio value="public-light" label="public-light" />
-              <ToggleRadio value="public-dark" label="public-dark" />
+              <ToggleRadio value="core" label="core" />
+              <ToggleRadio value="public" label="public" />
             </ToggleBar>
           </div>
           <Story />

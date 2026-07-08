@@ -6,6 +6,8 @@ node_modules
 
 # testing
 /coverage
+**/coverage
+norges-domstoler-*.tgz
 
 # misc
 .DS_Store
