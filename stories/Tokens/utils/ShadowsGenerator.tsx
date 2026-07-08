@@ -1,4 +1,5 @@
-import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Elsa.json';
+import jsonColorBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Exclude/Color.json';
+import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Exclude/Shadow.json';
 import jsonD from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Shadow/Dark.json';
 import jsonL from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Shadow/Light.json';
 
@@ -25,11 +26,13 @@ const getShadowValue = (
   color: string,
 ) => `${x} ${y} ${blur} ${spread} ${color}`;
 
+const tokenPrefix = 'dds-shadow';
+
 export const ShadowsGenerator = (theme: ThemeMode) => {
   const tokenSet = theme === 'light' ? jsonL : jsonD;
-  const tokens: TokenShadowSemanticJsonObject = tokenSet['dds-shadow'];
-  const baseTokens: TokenShadowJsonObject = jsonBase['dds-shadow-base'];
-  const baseColorTokens: TokenColorJsonObject = jsonBase['dds-color-base'];
+  const tokens: TokenShadowSemanticJsonObject = tokenSet[tokenPrefix];
+  const baseTokens: TokenShadowJsonObject = jsonBase[tokenPrefix];
+  const baseColorTokens: TokenColorJsonObject = jsonColorBase['dds-color'];
 
   function generateBodyRows() {
     const rows: Array<React.JSX.Element> = [];
@@ -95,8 +98,8 @@ export const ShadowsGenerator = (theme: ThemeMode) => {
 };
 
 export const ShadowsBaseGenerator = () => {
-  const tokens: TokenShadowJsonObject = jsonBase['dds-shadow-base'];
-  const baseColorTokens: TokenColorJsonObject = jsonBase['dds-color-base'];
+  const tokens: TokenShadowJsonObject = jsonBase[tokenPrefix];
+  const baseColorTokens: TokenColorJsonObject = jsonColorBase['dds-color'];
   const cssStyle = `.dds-shadow-preview {
                   height: 2rem;
                   width: 2rem;

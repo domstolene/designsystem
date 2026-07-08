@@ -1,18 +1,19 @@
-import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Elsa.json';
+import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Zindex.json';
 
 import { copyButton } from './CopyButton';
 import { type TokenBreakpointJsonObject } from './Tokens.types';
 import { Table } from '../../../packages/dds-components/src/index';
 
 export const ZIndexGenerator = () => {
-  const tokens: TokenBreakpointJsonObject = jsonBase['dds-zindex'];
+  const tokenPrefix = 'dds-zindex';
+  const tokens: TokenBreakpointJsonObject = jsonBase[tokenPrefix];
 
   function generateBodyRows() {
     const rows: Array<React.JSX.Element> = [];
 
     for (const key in tokens) {
       const token = tokens[key];
-      const tokenName = `--dds-zindex-${key}`;
+      const tokenName = `--${tokenPrefix}-${key}`;
       rows.push(
         <Table.Row key={tokenName}>
           <Table.Cell>{tokenName}</Table.Cell>

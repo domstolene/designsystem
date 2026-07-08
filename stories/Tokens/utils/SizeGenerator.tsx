@@ -1,4 +1,4 @@
-import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Elsa.json';
+import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Spacing.json';
 import jsonHeightC from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Size/Height/Core.json';
 import jsonHeightP from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Size/Height/Public.json';
 
@@ -11,7 +11,8 @@ import {
 import { Table } from '../../../packages/dds-components/src/index';
 
 export const SizeIconGenerator = () => {
-  const tokens: TokenBaseSizeJsonObject = jsonBase['dds-size-icon'];
+  const tokenPrefix = 'dds-size-icon';
+  const tokens: TokenBaseSizeJsonObject = jsonBase[tokenPrefix];
   const cssStyle = ` .dds-size-icon-preview {
                 border: 1px solid var(--dds-color-border-default);
             }
@@ -22,7 +23,7 @@ export const SizeIconGenerator = () => {
 
     for (const key in tokens) {
       const token = tokens[key];
-      const tokenName = `--dds-size-icon-${key}`;
+      const tokenName = `--${tokenPrefix}-${key}`;
       rows.push(
         <Table.Row key={tokenName}>
           <Table.Cell>{tokenName}</Table.Cell>
@@ -61,8 +62,9 @@ export const SizeIconGenerator = () => {
 };
 
 export const SizeHeightGenerator = (theme: ThemeMain) => {
+  const tokenPrefix = 'dds-size';
   const tokenSet = theme === 'core' ? jsonHeightC : jsonHeightP;
-  const tokens: TokenSemanticHeightJsonObject = tokenSet['dds-size']['height'];
+  const tokens: TokenSemanticHeightJsonObject = tokenSet[tokenPrefix]['height'];
   const cssStyle = ` .dds-size-height-preview {
                 border: 1px solid var(--dds-color-border-default);
                 max-width: 10rem;
@@ -75,7 +77,7 @@ export const SizeHeightGenerator = (theme: ThemeMain) => {
     for (const key1 in tokens) {
       for (const key2 in tokens[key1]) {
         const token = tokens[key1][key2];
-        const tokenName = `--dds-size-height-${key1}-${key2}`;
+        const tokenName = `--${tokenPrefix}-height-${key1}-${key2}`;
         rows.push(
           <Table.Row key={tokenName}>
             <Table.Cell>{tokenName}</Table.Cell>

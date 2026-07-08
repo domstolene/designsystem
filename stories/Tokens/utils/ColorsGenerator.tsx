@@ -1,6 +1,11 @@
-import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Elsa.json';
-import jsonD from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Color/Dark.json';
-import jsonL from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Color/Light.json';
+import jsonDataBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/ColorData.json';
+import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Exclude/Color.json';
+import jsonDataDark from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Color/Data/Dark.json';
+import jsonDataLight from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Color/Data/Light.json';
+import jsonDomstolDark from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Color/Elsa/Dark.json';
+import jsonDomstolLight from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Color/Elsa/Light.json';
+import jsonSupremeDark from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Color/Supreme/Dark.json';
+import jsonSupremeLight from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Color/Supreme/Light.json';
 
 import { copyButton } from './CopyButton';
 import { type ThemeMode, type TokenColorJsonObject } from './Tokens.types';
@@ -16,10 +21,13 @@ import {
   VisuallyHidden,
 } from '../../../packages/dds-components/src/index';
 
+const tokenPrefix = 'dds-color';
+const tokenDataPrefix = 'dds-color-data';
+
 export const ColorsGenerator = (mode: ThemeMode) => {
-  const tokenSet = mode === 'light' ? jsonL : jsonD;
-  const tokens: TokenColorJsonObject = tokenSet['dds-color'];
-  const baseTokens: TokenColorJsonObject = jsonBase['dds-color-base'];
+  const tokenSet = mode === 'light' ? jsonDomstolLight : jsonDomstolDark;
+  const tokens: TokenColorJsonObject = tokenSet[tokenPrefix];
+  const baseTokens: TokenColorJsonObject = jsonBase[tokenPrefix];
 
   function generateBodyRows() {
     const rows: Array<React.JSX.Element> = [];
@@ -34,7 +42,7 @@ export const ColorsGenerator = (mode: ThemeMode) => {
         }
         const referenceKeys = splittedValue[0].split('.');
         const value = baseTokens[referenceKeys[1]][referenceKeys[2]].value;
-        const tokenName = `--dds-color-${key1}-${key2}`;
+        const tokenName = `--${tokenPrefix}-${key1}-${key2}`;
         rows.push(
           <Table.Row key={tokenName}>
             <Table.Cell>{tokenName}</Table.Cell>
@@ -44,8 +52,8 @@ export const ColorsGenerator = (mode: ThemeMode) => {
             </Table.Cell>
             <Table.Cell>
               <Paper
-                height="var(--dds-spacing-x2"
-                width="var(--dds-spacing-x2"
+                height="var(--dds-spacing-x2)"
+                width="var(--dds-spacing-x2)"
                 border="border-default"
                 style={{
                   background: value,
@@ -83,9 +91,9 @@ export const ColorsGenerator = (mode: ThemeMode) => {
 };
 
 export const DataColorsGenerator = (mode: ThemeMode) => {
-  const tokenSet = mode === 'light' ? jsonL : jsonD;
-  const tokens: TokenColorJsonObject = tokenSet['dds-color-data'];
-  const baseTokens: TokenColorJsonObject = jsonBase['dds-color-data'];
+  const tokenSet = mode === 'light' ? jsonDataLight : jsonDataDark;
+  const tokens: TokenColorJsonObject = tokenSet[tokenDataPrefix];
+  const baseTokens: TokenColorJsonObject = jsonDataBase[tokenDataPrefix];
 
   function generateBodyRows() {
     const rows: Array<React.JSX.Element> = [];
@@ -104,7 +112,7 @@ export const DataColorsGenerator = (mode: ThemeMode) => {
         }
         const referenceKeys = splittedValue[0].split('.');
         const value = baseTokens[referenceKeys[1]][referenceKeys[2]].value;
-        const tokenName = `--dds-color-data-${key1}-${key2}`;
+        const tokenName = `--${tokenDataPrefix}-${key1}-${key2}`;
         rows.push(
           <Table.Row key={tokenName}>
             <Table.Cell>{tokenName}</Table.Cell>
@@ -153,7 +161,7 @@ export const DataColorsGenerator = (mode: ThemeMode) => {
 };
 
 export const DataColorsBaseGenerator = () => {
-  const baseTokens: TokenColorJsonObject = jsonBase['dds-color-data'];
+  const baseTokens: TokenColorJsonObject = jsonDataBase[tokenDataPrefix];
   const cssStyle = `
                 .dds-main-container {
                 text-transform: capitalize;
@@ -215,7 +223,7 @@ export const DataColorsBaseGenerator = () => {
 };
 
 export const ColorsBaseGenerator = () => {
-  const baseTokens: TokenColorJsonObject = jsonBase['dds-color-base'];
+  const baseTokens: TokenColorJsonObject = jsonBase[tokenPrefix];
   const cssStyle = `
                 .category-heading {
                   text-transform: capitalize;

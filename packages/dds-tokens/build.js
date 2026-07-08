@@ -17,9 +17,6 @@ import {
   functionTgShorthandFilter,
 } from './hooks/filters.js';
 
-console.log('Tokens build started...');
-console.log('\n==============================================');
-
 register(StyleDictionary);
 
 StyleDictionary.registerFilter({
@@ -53,54 +50,99 @@ StyleDictionary.registerFormat({
 const srcPathBase = 'dds/tokens';
 const destPathBase = 'generated-tokens';
 
-const commonSources = ['Base/Elsa.json', 'Semantic/Motion/Elsa.json'];
+const commonSources = [
+  'Base/Exclude/BorderRadius.json',
+  'Base/Exclude/Color.json',
+  'Base/Exclude/Motion.json',
+  'Base/Exclude/Shadow.json',
+  'Base/ColorData.json',
+  'Base/Typography.json',
+  'Base/Spacing.json',
+  'Base/Zindex.json',
+];
 
 const themes = [
   {
     name: 'core-light',
     sources: [
       ...commonSources,
-      'Semantic/Color/Light.json',
-      'Semantic/Shadow/Light.json',
       'Semantic/BorderRadius/Core.json',
-      'Semantic/Typography/Core.json',
+      'Semantic/Color/Data/Light.json',
+      'Semantic/Color/Elsa/Light.json',
+      'Semantic/Motion/Elsa.json',
+      'Semantic/Shadow/Light.json',
       'Semantic/Size/Height/Core.json',
+      'Semantic/Typography/Core.json',
     ],
   },
   {
     name: 'core-dark',
     sources: [
       ...commonSources,
-      'Semantic/Color/Dark.json',
-      'Semantic/Shadow/Dark.json',
       'Semantic/BorderRadius/Core.json',
-      'Semantic/Typography/Core.json',
+      'Semantic/Color/Data/Dark.json',
+      'Semantic/Color/Elsa/Dark.json',
+      'Semantic/Motion/Elsa.json',
+      'Semantic/Shadow/Dark.json',
       'Semantic/Size/Height/Core.json',
+      'Semantic/Typography/Core.json',
     ],
   },
   {
     name: 'public-light',
     sources: [
       ...commonSources,
-      'Semantic/Color/Light.json',
-      'Semantic/Shadow/Light.json',
       'Semantic/BorderRadius/Public.json',
-      'Semantic/Typography/Public.json',
+      'Semantic/Color/Data/Light.json',
+      'Semantic/Color/Elsa/Light.json',
+      'Semantic/Motion/Elsa.json',
+      'Semantic/Shadow/Light.json',
       'Semantic/Size/Height/Public.json',
+      'Semantic/Typography/Public.json',
     ],
   },
   {
     name: 'public-dark',
     sources: [
       ...commonSources,
-      'Semantic/Color/Dark.json',
-      'Semantic/Shadow/Dark.json',
       'Semantic/BorderRadius/Public.json',
-      'Semantic/Typography/Public.json',
+      'Semantic/Color/Data/Dark.json',
+      'Semantic/Color/Elsa/Dark.json',
+      'Semantic/Motion/Elsa.json',
+      'Semantic/Shadow/Dark.json',
       'Semantic/Size/Height/Public.json',
+      'Semantic/Typography/Public.json',
+    ],
+  },
+  {
+    name: 'supreme-light',
+    sources: [
+      ...commonSources,
+      'Semantic/BorderRadius/Public.json',
+      'Semantic/Color/Data/Light.json',
+      'Semantic/Color/Supreme/Light.json',
+      'Semantic/Motion/Elsa.json',
+      'Semantic/Shadow/Light.json',
+      'Semantic/Size/Height/Public.json',
+      'Semantic/Typography/Supreme.json',
+    ],
+  },
+  {
+    name: 'supreme-dark',
+    sources: [
+      ...commonSources,
+      'Semantic/BorderRadius/Public.json',
+      'Semantic/Color/Data/Dark.json',
+      'Semantic/Color/Supreme/Dark.json',
+      'Semantic/Motion/Elsa.json',
+      'Semantic/Shadow/Dark.json',
+      'Semantic/Size/Height/Public.json',
+      'Semantic/Typography/Supreme.json',
     ],
   },
 ];
+
+const platforms = ['css', 'js', 'scss'];
 
 function getStyleDictionaryConfig(theme) {
   return {
@@ -148,18 +190,25 @@ function getStyleDictionaryConfig(theme) {
   };
 }
 
-themes.forEach(theme => {
-  ['css', 'js', 'scss'].forEach(platform => {
-    console.log('\n==============================================');
-    console.log(`\nProcessing: [${theme.name}] [${platform}]`);
+async function build() {
+  console.log('Tokens build started...');
+  console.log('\n==============================================');
 
-    const sd = new StyleDictionary(getStyleDictionaryConfig(theme), {
-      verbosity: logVerbosityLevels.verbose,
-    });
+  for (const theme of themes) {
+    for (const platform of platforms) {
+      console.log(`\nProcessing: [${theme.name}] [${platform}]`);
+      console.log('\n==============================================');
 
-    sd.buildPlatform(platform);
-  });
+      const sd = new StyleDictionary(getStyleDictionaryConfig(theme), {
+        verbosity: logVerbosityLevels.verbose,
+      });
+      await sd.buildPlatform(platform);
+    }
+  }
+  console.log('\nTokens build completed!');
+}
+
+build().catch(err => {
+  console.error('Tokens build failed.', err);
+  process.exit(1);
 });
-
-console.log('\n==============================================');
-console.log('\nTokens build completed!');

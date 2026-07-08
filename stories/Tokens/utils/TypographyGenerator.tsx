@@ -1,4 +1,4 @@
-import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Elsa.json';
+import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Typography.json';
 import jsonC from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Typography/Core.json';
 import jsonP from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Typography/Public.json';
 

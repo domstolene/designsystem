@@ -1,4 +1,4 @@
-import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Elsa.json';
+import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Spacing.json';
 
 import { copyButton } from './CopyButton';
 import { underscoreToDash } from './functions';
@@ -6,7 +6,8 @@ import { type TokenBreakpointJsonObject } from './Tokens.types';
 import { Table } from '../../../packages/dds-components/src/index';
 
 export const SpacingGenerator = () => {
-  const tokens: TokenBreakpointJsonObject = jsonBase['dds-spacing'];
+  const tokenPrefix = 'dds-spacing';
+  const tokens: TokenBreakpointJsonObject = jsonBase[tokenPrefix];
   const cssStyle = `.dds-spacing-preview {
                   background: var(--dds-color-surface-default);
                 border: 1px solid var(--dds-color-border-default);
@@ -17,7 +18,7 @@ export const SpacingGenerator = () => {
 
     for (const key in tokens) {
       const token = tokens[key];
-      const tokenName = `--dds-spacing-${key}`;
+      const tokenName = `--${tokenPrefix}-${key}`;
       const cssVariable = `var(${underscoreToDash(tokenName)})`;
       rows.push(
         <Table.Row key={tokenName}>

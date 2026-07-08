@@ -1,18 +1,19 @@
-import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Elsa.json';
+import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Spacing.json';
 
 import { copyButton } from './CopyButton';
 import { type TokenBreakpointJsonObject } from './Tokens.types';
 import { Table } from '../../../packages/dds-components/src/index';
 
 export const BreakpointsGenerator = () => {
-  const tokens: TokenBreakpointJsonObject = jsonBase['dds-breakpoint'];
+  const tokenPrefix = 'dds-breakpoint';
+  const tokens: TokenBreakpointJsonObject = jsonBase[tokenPrefix];
 
   function generateBodyRows() {
     const rows: Array<React.JSX.Element> = [];
 
     for (const key in tokens) {
       const token = tokens[key];
-      const tokenName = `--dds-breakpoint-${key}`;
+      const tokenName = `--${tokenPrefix}-${key}`;
       rows.push(
         <Table.Row key={tokenName}>
           <Table.Cell>{tokenName}</Table.Cell>
