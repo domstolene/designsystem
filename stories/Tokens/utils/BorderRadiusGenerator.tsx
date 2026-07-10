@@ -1,6 +1,5 @@
-
-import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Exclude/BorderRadius.json';
 import { type DdsThemeMain } from '#packages/dds-components/src/components/ThemeProvider/ThemeProvider';
+import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Exclude/BorderRadius.json';
 import jsonC from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/BorderRadius/Core.json';
 import jsonP from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/BorderRadius/Public.json';
 

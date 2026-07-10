@@ -2,6 +2,7 @@ import { type DdsThemeMain } from '#packages/dds-components/src/components/Theme
 import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Typography.json';
 import jsonC from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Typography/Core.json';
 import jsonP from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Typography/Public.json';
+import jsonS from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Typography/Supreme.json';
 
 import { copyButton } from './CopyButton';
 import {
@@ -28,7 +29,12 @@ baseTokens['dds-font-letter-spacing'] = jsonBase['dds-font-letter-spacing'];
 baseTokens['dds-font-style'] = jsonBase['dds-font-style'];
 
 export const TypographyGenerator = (theme: DdsThemeMain) => {
-  const tokenSet = theme === 'core' ? jsonC : jsonP;
+  const tokenSets = {
+    core: jsonC,
+    public: jsonP,
+    supreme: jsonS,
+  } as const;
+  const tokenSet = tokenSets[theme];
   const tokens: TokenTypographySemanticJsonObject = tokenSet['dds-font'];
 
   function generateBodyRows() {

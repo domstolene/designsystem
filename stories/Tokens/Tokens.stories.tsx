@@ -42,9 +42,11 @@ export const BorderRadius = meta.story(() => {
         <TabList>
           <Tab>Core</Tab>
           <Tab>Public</Tab>
+          <Tab>Supreme</Tab>
         </TabList>
         <TabPanels>
           <TabPanel>{BorderRadiusGenerator('core')}</TabPanel>
+          <TabPanel>{BorderRadiusGenerator('public')}</TabPanel>
           <TabPanel>{BorderRadiusGenerator('public')}</TabPanel>
         </TabPanels>
       </Tabs>
@@ -61,12 +63,16 @@ export const Colors = meta.story(() => {
     <Wrapper>
       <Tabs>
         <TabList>
-          <Tab>Light</Tab>
-          <Tab>Dark</Tab>
+          <Tab>Core/Public Light</Tab>
+          <Tab>Core/Public Dark</Tab>
+          <Tab>Supreme Light</Tab>
+          <Tab>Supreme Dark</Tab>
         </TabList>
         <TabPanels>
-          <TabPanel>{ColorsGenerator('light')}</TabPanel>
-          <TabPanel>{ColorsGenerator('dark')}</TabPanel>
+          <TabPanel>{ColorsGenerator('core-light')}</TabPanel>
+          <TabPanel>{ColorsGenerator('core-dark')}</TabPanel>
+          <TabPanel>{ColorsGenerator('supreme-light')}</TabPanel>
+          <TabPanel>{ColorsGenerator('supreme-dark')}</TabPanel>
         </TabPanels>
       </Tabs>
     </Wrapper>
@@ -109,9 +115,11 @@ export const Size = meta.story(() => {
         <TabList>
           <Tab>Core</Tab>
           <Tab>Public</Tab>
+          <Tab>Supreme</Tab>
         </TabList>
         <TabPanels>
           <TabPanel>{SizeHeightGenerator('core')}</TabPanel>
+          <TabPanel>{SizeHeightGenerator('public')}</TabPanel>
           <TabPanel>{SizeHeightGenerator('public')}</TabPanel>
         </TabPanels>
       </Tabs>
@@ -151,10 +159,12 @@ export const Typography = meta.story(() => {
         <TabList>
           <Tab>Core</Tab>
           <Tab>Public</Tab>
+          <Tab>Supreme</Tab>
         </TabList>
         <TabPanels>
           <TabPanel>{TypographyGenerator('core')}</TabPanel>
           <TabPanel>{TypographyGenerator('public')}</TabPanel>
+          <TabPanel>{TypographyGenerator('supreme')}</TabPanel>
         </TabPanels>
       </Tabs>
     </Wrapper>

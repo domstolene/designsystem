@@ -1,3 +1,7 @@
+import {
+  type DdsTheme,
+  type DdsThemeMode,
+} from '#packages/dds-components/src/components/ThemeProvider/index.js';
 import jsonDataBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/ColorData.json';
 import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Exclude/Color.json';
 import jsonDataDark from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Color/Data/Dark.json';
@@ -8,7 +12,7 @@ import jsonSupremeDark from '@norges-domstoler/dds-design-tokens/dds/tokens/Sema
 import jsonSupremeLight from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Color/Supreme/Light.json';
 
 import { copyButton } from './CopyButton';
-import { type ThemeMode, type TokenColorJsonObject } from './Tokens.types';
+import { type TokenColorJsonObject } from './Tokens.types';
 import {
   Box,
   HStack,
@@ -24,8 +28,17 @@ import {
 const tokenPrefix = 'dds-color';
 const tokenDataPrefix = 'dds-color-data';
 
-export const ColorsGenerator = (mode: ThemeMode) => {
-  const tokenSet = mode === 'light' ? jsonDomstolLight : jsonDomstolDark;
+export const ColorsGenerator = (theme: DdsTheme) => {
+  const tokenSets = {
+    'core-light': jsonDomstolLight,
+    'public-light': jsonDomstolLight,
+    'core-dark': jsonDomstolDark,
+    'public-dark': jsonDomstolDark,
+    'supreme-light': jsonSupremeLight,
+    'supreme-dark': jsonSupremeDark,
+  } as const;
+
+  const tokenSet = tokenSets[theme];
   const tokens: TokenColorJsonObject = tokenSet[tokenPrefix];
   const baseTokens: TokenColorJsonObject = jsonBase[tokenPrefix];
 
@@ -90,7 +103,7 @@ export const ColorsGenerator = (mode: ThemeMode) => {
   );
 };
 
-export const DataColorsGenerator = (mode: ThemeMode) => {
+export const DataColorsGenerator = (mode: DdsThemeMode) => {
   const tokenSet = mode === 'light' ? jsonDataLight : jsonDataDark;
   const tokens: TokenColorJsonObject = tokenSet[tokenDataPrefix];
   const baseTokens: TokenColorJsonObject = jsonDataBase[tokenDataPrefix];

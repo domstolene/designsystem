@@ -1,5 +1,9 @@
+import fs from 'fs';
+import path from 'path';
+
 import { register } from '@tokens-studio/sd-transforms';
 import StyleDictionary from 'style-dictionary';
+import { toCamelCase } from './build.utils.js';
 
 import {
   customCSSFormat,
@@ -208,7 +212,50 @@ async function build() {
   console.log('\nTokens build completed!');
 }
 
-build().catch(err => {
-  console.error('Tokens build failed.', err);
-  process.exit(1);
-});
+function generateIndexTs() {
+  const jsDir = path.join(destPathBase, 'js');
+  const themes = fs
+    .readdirSync(jsDir, { withFileTypes: true })
+    .filter(entry => entry.isDirectory())
+    .map(entry => entry.name)
+    .sort();
+
+  if (themes.length === 0) {
+    console.error(`No themes found in ${jsDir}. Skipping index.ts generation.`);
+    return;
+  }
+
+  const imports = themes
+    .map(
+      theme =>
+        `import * as ${toCamelCase(theme)} from '../${destPathBase}/js/${theme}/ddsTokens';`,
+    )
+    .join('\n');
+
+  const entries = themes
+    .map(theme => `  '${theme}': { ...${toCamelCase(theme)} },`)
+    .join('\n');
+
+  const content = [
+    '// Do not edit directly, this file was auto-generated.',
+    '',
+    imports,
+    '',
+    'export const ddsTokens = {',
+    entries,
+    '};',
+    '',
+  ].join('\n');
+
+  const outPath = path.join('src', 'index.ts');
+  console.log(`\nGenerating ${outPath} with theme exports in ts...`);
+  fs.writeFileSync(outPath, content, 'utf-8');
+  console.log(`\nGenerated ${outPath}`);
+}
+
+build()
+  .then(() => generateIndexTs())
+  .catch(err => {
+    console.error('Tokens build failed.', err);
+    process.exit(1);
+  });
