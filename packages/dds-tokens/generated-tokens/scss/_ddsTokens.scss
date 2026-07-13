@@ -311,6 +311,10 @@
   $dds-zindex-dropdown: var(--dds-zindex-dropdown); /* Dropdown brukes for bl.a søkeforslag, dropdown i select */
   $dds-zindex-sticky: var(--dds-zindex-sticky); /* Sticky header skal dekke til flat innhold i gruppen (tabell o.l.). Den skal legge seg under elementer som stiller med egne flater */
   $dds-zindex-absolute-element: var(--dds-zindex-absolute-element); /* Dekorative elementer med absolutt posisjon, som ellers hadde blitt skjult bak forelder */
+  $dds-size-height-input-large: var(--dds-size-height-input-large); /* Brukes i input og buttons */
+  $dds-size-height-input-medium: var(--dds-size-height-input-medium); /* Brukes i input og buttons */
+  $dds-size-height-input-small: var(--dds-size-height-input-small); /* Brukes i input og buttons */
+  $dds-size-height-input-xsmall: var(--dds-size-height-input-xsmall); /* Brukes i input og buttons */
   $dds-font-label-medium: var(--dds-font-label-medium); /* Label for form components */
   $dds-font-body-long-xsmall: var(--dds-font-body-long-xsmall); /* Xsmall body text for editorial content */
   $dds-font-body-long-small: var(--dds-font-body-long-small); /* Small body text for editorial content */
@@ -365,7 +369,3 @@
   $dds-font-body-short-small-paragraph-spacing: var(--dds-font-body-short-small-paragraph-spacing);
   $dds-font-body-short-xsmall-letter-spacing: var(--dds-font-body-short-xsmall-letter-spacing);
   $dds-font-body-short-xsmall-paragraph-spacing: var(--dds-font-body-short-xsmall-paragraph-spacing);
-  $dds-size-height-input-large: var(--dds-size-height-input-large); /* Brukes i input og buttons */
-  $dds-size-height-input-medium: var(--dds-size-height-input-medium); /* Brukes i input og buttons */
-  $dds-size-height-input-small: var(--dds-size-height-input-small); /* Brukes i input og buttons */
-  $dds-size-height-input-xsmall: var(--dds-size-height-input-xsmall); /* Brukes i input og buttons */
