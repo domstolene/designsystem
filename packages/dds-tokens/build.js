@@ -54,94 +54,48 @@ StyleDictionary.registerFormat({
 const srcPathBase = 'dds/tokens';
 const destPathBase = 'generated-tokens';
 
-const commonSources = [
-  'Base/Exclude/BorderRadius.json',
-  'Base/Exclude/Color.json',
-  'Base/Exclude/Motion.json',
-  'Base/Exclude/Shadow.json',
-  'Base/ColorData.json',
-  'Base/Typography.json',
-  'Base/Spacing.json',
-  'Base/Zindex.json',
+const commonSources = [];
+const themedSources = (main, mode, common) => [
+  ...commonSources,
+  'Base/**/*.json',
+  'Semantic/**/Elsa.json',
+  `Semantic/**/**/${main}.json`,
+  `Semantic/Color/Data/${mode}.json`,
+  `Semantic/Color/${common}/${mode}.json`,
+  `Semantic/Shadow/${mode}.json`,
 ];
 
 const themes = [
   {
     name: 'core-light',
-    sources: [
-      ...commonSources,
-      'Semantic/BorderRadius/Core.json',
-      'Semantic/Color/Data/Light.json',
-      'Semantic/Color/Elsa/Light.json',
-      'Semantic/Motion/Elsa.json',
-      'Semantic/Shadow/Light.json',
-      'Semantic/Size/Height/Core.json',
-      'Semantic/Typography/Core.json',
-    ],
+    sources: [...themedSources('Core', 'Light', 'Elsa')],
   },
   {
     name: 'core-dark',
-    sources: [
-      ...commonSources,
-      'Semantic/BorderRadius/Core.json',
-      'Semantic/Color/Data/Dark.json',
-      'Semantic/Color/Elsa/Dark.json',
-      'Semantic/Motion/Elsa.json',
-      'Semantic/Shadow/Dark.json',
-      'Semantic/Size/Height/Core.json',
-      'Semantic/Typography/Core.json',
-    ],
+    sources: [...themedSources('Core', 'Dark', 'Elsa')],
   },
   {
     name: 'public-light',
-    sources: [
-      ...commonSources,
-      'Semantic/BorderRadius/Public.json',
-      'Semantic/Color/Data/Light.json',
-      'Semantic/Color/Elsa/Light.json',
-      'Semantic/Motion/Elsa.json',
-      'Semantic/Shadow/Light.json',
-      'Semantic/Size/Height/Public.json',
-      'Semantic/Typography/Public.json',
-    ],
+    sources: [...themedSources('Public', 'Light', 'Elsa')],
   },
   {
     name: 'public-dark',
-    sources: [
-      ...commonSources,
-      'Semantic/BorderRadius/Public.json',
-      'Semantic/Color/Data/Dark.json',
-      'Semantic/Color/Elsa/Dark.json',
-      'Semantic/Motion/Elsa.json',
-      'Semantic/Shadow/Dark.json',
-      'Semantic/Size/Height/Public.json',
-      'Semantic/Typography/Public.json',
-    ],
+    sources: [...themedSources('Public', 'Dark', 'Elsa')],
   },
   {
     name: 'supreme-light',
     sources: [
-      ...commonSources,
+      ...themedSources('Supreme', 'Light', 'Supreme'),
       'Semantic/BorderRadius/Public.json',
-      'Semantic/Color/Data/Light.json',
-      'Semantic/Color/Supreme/Light.json',
-      'Semantic/Motion/Elsa.json',
-      'Semantic/Shadow/Light.json',
       'Semantic/Size/Height/Public.json',
-      'Semantic/Typography/Supreme.json',
     ],
   },
   {
     name: 'supreme-dark',
     sources: [
-      ...commonSources,
+      ...themedSources('Supreme', 'Dark', 'Supreme'),
       'Semantic/BorderRadius/Public.json',
-      'Semantic/Color/Data/Dark.json',
-      'Semantic/Color/Supreme/Dark.json',
-      'Semantic/Motion/Elsa.json',
-      'Semantic/Shadow/Dark.json',
       'Semantic/Size/Height/Public.json',
-      'Semantic/Typography/Supreme.json',
     ],
   },
 ];

@@ -3,119 +3,6 @@
  */
 
 .dds-supreme-dark {
-  --dds-border-radius-button: 2px; /* For use in button component and togglebutton */
-  --dds-border-radius-surface: 2px; /* Most surfaces, for example cards, papers, messages, backgrounds in GUI */
-  --dds-border-radius-input: 2px; /* All input fields, and check boxes */
-  --dds-border-radius-chip: 2px; /* Chips and tags */
-  --dds-border-radius-rounded: 9999px; /* Rounded and circular components such as radiobutton, toggle, togglebutton and progress tracker */
-  --dds-color-bg-default: #1b1a18; /* UI shell base color */
-  --dds-color-bg-subtle: #292824; /* Alternative UI shell base color */
-  --dds-color-surface-default: #1b1a18; /* Default bg */
-  --dds-color-surface-subtle: #292824; /* Subtle surface color */
-  --dds-color-surface-medium: #363530; /* Medium surface color */
-  --dds-color-surface-hover-default: #0b2d34; /* Hover on surface (default, subtle, medium) */
-  --dds-color-surface-hover-subtle: #292824; /* Subtle hover on surface (default, medium) */
-  --dds-color-surface-selected-default: #0b2d34; /* Selected state for surface (default, subtle, medium) */
-  --dds-color-surface-inverse-default: #11454e; /* Can be used as a surface for menu, navigation, footer etc */
-  --dds-color-surface-inverse-hover: #0e3a41; /* Hover on surface.inverse */
-  --dds-color-surface-inverse-selected: #0b2d34; /* selected on surface.inverse */
-  --dds-color-surface-action-resting: #79a9b2; /* Primary button bg */
-  --dds-color-surface-action-hover: #a8c3c9; /* Hover on surface.action/selected */
-  --dds-color-surface-action-selected: #79a9b2; /* Selected state for components such as togglebutton, togglebar, progress tracker, checkbox etc */
-  --dds-color-surface-action-danger-resting: #e47373; /* Danger button */
-  --dds-color-surface-action-danger-hover: #efafaf; /* Hover on surface.action-danger */
-  --dds-color-surface-action-selected-disabled: #77838c; /* bg on a selected disabled checkbox, radio etc */
-  --dds-color-surface-danger-default: #561616; /* tag, message, errormessage */
-  --dds-color-surface-danger-strong: #dc4b4b; /* tag strong value */
-  --dds-color-surface-success-default: #284c29; /* tag, message */
-  --dds-color-surface-success-strong: #65be66; /* tag with strong value */
-  --dds-color-surface-warning-default: #494317; /* tag, message */
-  --dds-color-surface-warning-strong: #f4e04d; /* tag strong value */
-  --dds-color-surface-info-default: #2a4b61; /* tag, message */
-  --dds-color-surface-info-strong: #75b9e6; /* tag strong value */
-  --dds-color-surface-paper-default: #363530; /* modal, drawer, popover etc */
-  --dds-color-surface-backdrop-default: #0b0d0e80; /* background overlay for modals (50%) */
-  --dds-color-surface-field-default: #0b0d0e; /* Form elements (textinput, datepicker etc) */
-  --dds-color-surface-field-disabled: #303438; /* disabled state on surface.field */
-  --dds-color-surface-highlighted-default: #594d2f; /* bg for highlighted text on text.default. Use with $Text */
-  --dds-color-surface-scrollbar: #615f56; /* Used for scrollbar */
-  --dds-color-surface-notification: #d83737; /* bg on a notification */
-  --dds-color-surface-skeleton: #615f56; /* Used for skeleton */
-  --dds-color-border-default: #878478; /* Form components, togglebutton, secondary button, checkbox etc */
-  --dds-color-border-subtle: #615f56; /* Dropdown, tooltip, overflow etc */
-  --dds-color-border-inverse: #a8c3c9; /* Border or divider on surface.inverse */
-  --dds-color-border-action-default: #79a9b2; /* Used in progress tracker */
-  --dds-color-border-action-hover: #a8c3c9; /* Hover on secondary button etc */
-  --dds-color-border-success: #519852; /* Used with tag-default */
-  --dds-color-border-warning: #ccba35; /* Tag.default */
-  --dds-color-border-danger: #ad2c2c; /* Tag.default, error message field */
-  --dds-color-border-info: #5197c5; /* Tag.default */
-  --dds-color-border-on-action: #1b1a18; /* Used on primary split button */
-  --dds-color-text-default: #ffffff; /* default text, heading, body. on surface.hover */
-  --dds-color-text-medium: #e7e6e4; /* Label, etc */
-  --dds-color-text-subtle: #cfcec9; /* Disabled or less important text */
-  --dds-color-text-on-inverse: #ffffff; /* On surface.inverse */
-  --dds-color-text-danger: #efafaf; /* Error text on paper, or default or subtle surafce/bg */
-  --dds-color-text-on-action: #0b0d0e; /* On surface.action (primary and danger button) */
-  --dds-color-text-on-status-default: #ffffff; /* On default status surfaces */
-  --dds-color-text-on-status-strong: #0b0d0e; /* On status surfaces with strong prop */
-  --dds-color-text-action-resting: #a8c3c9; /* Link, number in progress tracker */
-  --dds-color-text-action-hover: #e9f1f2; /* Hover on text.action */
-  --dds-color-text-requiredfield: #efafaf; /* Asterix to indicate required field */
-  --dds-color-text-action-visited: #cca9e1; /* Used for visited links */
-  --dds-color-text-action-visited-on-inverse: #f2eaf8; /* Used for visited links on inverse surfaces */
-  --dds-color-text-on-notification: #ffffff; /* Used on surface.notification */
-  --dds-color-text-on-primary-default: #ffffff; /* Used on brand.primary-default */
-  --dds-color-text-on-primary-subtle: #ffffff; /* Used on brand.primary-subtle */
-  --dds-color-text-on-primary-medium: #ffffff; /* Used on brand.primary-medium */
-  --dds-color-text-on-primary-strong: #0b0d0e; /* Used on brand.primary-strong */
-  --dds-color-text-on-secondary-default: #ffffff; /* Used on brand.secondary-default */
-  --dds-color-text-on-secondary-subtle: #ffffff; /* Used on brand.secondary-subtle */
-  --dds-color-text-on-secondary-medium: #ffffff; /* Used on brand.secondary-medium */
-  --dds-color-text-on-secondary-strong: #0b0d0e; /* Used on brand.secondary-strong */
-  --dds-color-text-on-tertiary-default: #0b0d0e; /* Used on brand.tertiary-default */
-  --dds-color-text-on-tertiary-subtle: #ffffff; /* Used on brand.tertiary-subtle */
-  --dds-color-text-on-tertiary-medium: #0b0d0e; /* Used on brand.tertiary-medium */
-  --dds-color-text-on-tertiary-strong: #0b0d0e; /* Used on brand.tertiary-strong */
-  --dds-color-text-on-data-default: #0b0d0e; /* Used on data. with default value */
-  --dds-color-text-on-data-subtle: #ffffff; /* Used on data. with subtle value */
-  --dds-color-icon-default: #ffffff; /* Often used with text.default */
-  --dds-color-icon-medium: #e7e6e4; /* Often used with text.medium */
-  --dds-color-icon-subtle: #cfcec9; /* Often used with text.subtle */
-  --dds-color-icon-on-inverse: #ffffff; /* On surface.inverse */
-  --dds-color-icon-on-action: #0b0d0e; /* On surface.action (primary and danger button) */
-  --dds-color-icon-action-resting: #a8c3c9; /* Often used with Text.action */
-  --dds-color-icon-action-hover: #e9f1f2; /* hover on icon-action */
-  --dds-color-icon-on-success-default: #c1e5c2; /* On surface.success-default */
-  --dds-color-icon-on-success-strong: #0b0d0e; /* On surface-success-strong */
-  --dds-color-icon-on-warning-default: #fbf3b8; /* On surface.warning-default */
-  --dds-color-icon-on-warning-strong: #0b0d0e; /* On surface.warning-strong */
-  --dds-color-icon-on-danger-default: #efafaf; /* On surface.danger-default */
-  --dds-color-icon-on-danger-strong: #0b0d0e; /* On surface.danger-strong */
-  --dds-color-icon-on-info-default: #c8e3f5; /* On surface.info-default */
-  --dds-color-icon-on-info-strong: #0b0d0e; /* On surface.info-strong */
-  --dds-color-icon-danger: #efafaf; /* Error icon on paper, or default or subtle surafce/bg */
-  --dds-color-brand-primary-default: #206f7e; /* Primary brand color */
-  --dds-color-brand-primary-subtle: #0b2d34; /* Primary brand color */
-  --dds-color-brand-primary-medium: #165c69; /* Primary brand color */
-  --dds-color-brand-primary-strong: #79a9b2; /* Primary brand color */
-  --dds-color-brand-secondary-default: #891d22; /* Secondary brand color */
-  --dds-color-brand-secondary-subtle: #370c0e; /* Secondary brand color */
-  --dds-color-brand-secondary-medium: #521114; /* Secondary brand color */
-  --dds-color-brand-secondary-strong: #b8777a; /* Secondary brand color */
-  --dds-color-brand-tertiary-default: #b1995d; /* Tertiary brand color */
-  --dds-color-brand-tertiary-subtle: #594d2f; /* Tertiary brand color */
-  --dds-color-brand-tertiary-medium: #8e7a4a; /* Tertiary brand color */
-  --dds-color-brand-tertiary-strong: #d0c29e; /* Tertiary brand color */
-  --dds-color-focus-outside: #e9f1f2; /* Contrast to .inside */
-  --dds-color-focus-inside: #082228; /* Contrast to .outside */
-  --dds-motion-micro-state: 200ms linear; /* Animasjon for hover og andre states. feks. selected, pressed */
-  --dds-motion-surface: 200ms cubic-bezier(0.4, 0, 0.2, 1); /* Default animasjon for fokusmarkering, åpne/lukke funksjonalitet. feks, modal, accordion etc */
-  --dds-motion-chevron: 200ms linear; /* Animert chevron */
-  --dds-motion-animation-skeleton: 800ms cubic-bezier(0.4, 0, 0.2, 1) infinite alternate; /* Skeleton animasjon */
-  --dds-shadow-large: 8px 16px 32px 0px rgba(11, 13, 14, 80%); /* Dialoger. Eksempel: modal, drawer, popover */
-  --dds-shadow-medium: 2px 4px 8px 0px rgba(11, 13, 14, 80%); /* Dropdowns. Eksempel: overflowmenu, dropdown */
-  --dds-shadow-small: 1px 2px 4px 0px rgba(11, 13, 14, 80%); /* Eksempel: tooltip */
   --dds-color-data-10-default: #62abcb;
   --dds-color-data-10-subtle: #135774;
   --dds-color-data-10-border: #62abcb;
@@ -236,6 +123,152 @@
   --dds-color-data-09-default: #5dafad;
   --dds-color-data-09-subtle: #006461;
   --dds-color-data-09-border: #5dafad;
+  --dds-border-radius-button: 2px; /* For use in button component and togglebutton */
+  --dds-border-radius-surface: 2px; /* Most surfaces, for example cards, papers, messages, backgrounds in GUI */
+  --dds-border-radius-input: 2px; /* All input fields, and check boxes */
+  --dds-border-radius-chip: 2px; /* Chips and tags */
+  --dds-border-radius-rounded: 9999px; /* Rounded and circular components such as radiobutton, toggle, togglebutton and progress tracker */
+  --dds-color-bg-default: #1b1a18; /* UI shell base color */
+  --dds-color-bg-subtle: #292824; /* Alternative UI shell base color */
+  --dds-color-surface-default: #1b1a18; /* Default bg */
+  --dds-color-surface-subtle: #292824; /* Subtle surface color */
+  --dds-color-surface-medium: #363530; /* Medium surface color */
+  --dds-color-surface-hover-default: #0b2d34; /* Hover on surface (default, subtle, medium) */
+  --dds-color-surface-hover-subtle: #292824; /* Subtle hover on surface (default, medium) */
+  --dds-color-surface-selected-default: #0b2d34; /* Selected state for surface (default, subtle, medium) */
+  --dds-color-surface-inverse-default: #11454e; /* Can be used as a surface for menu, navigation, footer etc */
+  --dds-color-surface-inverse-hover: #0e3a41; /* Hover on surface.inverse */
+  --dds-color-surface-inverse-selected: #0b2d34; /* selected on surface.inverse */
+  --dds-color-surface-action-resting: #79a9b2; /* Primary button bg */
+  --dds-color-surface-action-hover: #a8c3c9; /* Hover on surface.action/selected */
+  --dds-color-surface-action-selected: #79a9b2; /* Selected state for components such as togglebutton, togglebar, progress tracker, checkbox etc */
+  --dds-color-surface-action-danger-resting: #e47373; /* Danger button */
+  --dds-color-surface-action-danger-hover: #efafaf; /* Hover on surface.action-danger */
+  --dds-color-surface-action-selected-disabled: #77838c; /* bg on a selected disabled checkbox, radio etc */
+  --dds-color-surface-danger-default: #561616; /* tag, message, errormessage */
+  --dds-color-surface-danger-strong: #dc4b4b; /* tag strong value */
+  --dds-color-surface-success-default: #284c29; /* tag, message */
+  --dds-color-surface-success-strong: #65be66; /* tag with strong value */
+  --dds-color-surface-warning-default: #494317; /* tag, message */
+  --dds-color-surface-warning-strong: #f4e04d; /* tag strong value */
+  --dds-color-surface-info-default: #2a4b61; /* tag, message */
+  --dds-color-surface-info-strong: #75b9e6; /* tag strong value */
+  --dds-color-surface-paper-default: #363530; /* modal, drawer, popover etc */
+  --dds-color-surface-backdrop-default: #0b0d0e80; /* background overlay for modals (50%) */
+  --dds-color-surface-field-default: #0b0d0e; /* Form elements (textinput, datepicker etc) */
+  --dds-color-surface-field-disabled: #303438; /* disabled state on surface.field */
+  --dds-color-surface-highlighted-default: #594d2f; /* bg for highlighted text on text.default. Use with $Text */
+  --dds-color-surface-scrollbar: #615f56; /* Used for scrollbar */
+  --dds-color-surface-notification: #d83737; /* bg on a notification */
+  --dds-color-surface-skeleton: #615f56; /* Used for skeleton */
+  --dds-color-border-default: #878478; /* Form components, togglebutton, secondary button, checkbox etc */
+  --dds-color-border-subtle: #615f56; /* Dropdown, tooltip, overflow etc */
+  --dds-color-border-inverse: #a8c3c9; /* Border or divider on surface.inverse */
+  --dds-color-border-action-default: #79a9b2; /* Used in progress tracker */
+  --dds-color-border-action-hover: #a8c3c9; /* Hover on secondary button etc */
+  --dds-color-border-success: #519852; /* Used with tag-default */
+  --dds-color-border-warning: #ccba35; /* Tag.default */
+  --dds-color-border-danger: #ad2c2c; /* Tag.default, error message field */
+  --dds-color-border-info: #5197c5; /* Tag.default */
+  --dds-color-border-on-action: #1b1a18; /* Used on primary split button */
+  --dds-color-text-default: #ffffff; /* default text, heading, body. on surface.hover */
+  --dds-color-text-medium: #e7e6e4; /* Label, etc */
+  --dds-color-text-subtle: #cfcec9; /* Disabled or less important text */
+  --dds-color-text-on-inverse: #ffffff; /* On surface.inverse */
+  --dds-color-text-danger: #efafaf; /* Error text on paper, or default or subtle surafce/bg */
+  --dds-color-text-on-action: #0b0d0e; /* On surface.action (primary and danger button) */
+  --dds-color-text-on-status-default: #ffffff; /* On default status surfaces */
+  --dds-color-text-on-status-strong: #0b0d0e; /* On status surfaces with strong prop */
+  --dds-color-text-action-resting: #a8c3c9; /* Link, number in progress tracker */
+  --dds-color-text-action-hover: #e9f1f2; /* Hover on text.action */
+  --dds-color-text-requiredfield: #efafaf; /* Asterix to indicate required field */
+  --dds-color-text-action-visited: #cca9e1; /* Used for visited links */
+  --dds-color-text-action-visited-on-inverse: #f2eaf8; /* Used for visited links on inverse surfaces */
+  --dds-color-text-on-notification: #ffffff; /* Used on surface.notification */
+  --dds-color-text-on-primary-default: #ffffff; /* Used on brand.primary-default */
+  --dds-color-text-on-primary-subtle: #ffffff; /* Used on brand.primary-subtle */
+  --dds-color-text-on-primary-medium: #ffffff; /* Used on brand.primary-medium */
+  --dds-color-text-on-primary-strong: #0b0d0e; /* Used on brand.primary-strong */
+  --dds-color-text-on-secondary-default: #ffffff; /* Used on brand.secondary-default */
+  --dds-color-text-on-secondary-subtle: #ffffff; /* Used on brand.secondary-subtle */
+  --dds-color-text-on-secondary-medium: #ffffff; /* Used on brand.secondary-medium */
+  --dds-color-text-on-secondary-strong: #0b0d0e; /* Used on brand.secondary-strong */
+  --dds-color-text-on-tertiary-default: #0b0d0e; /* Used on brand.tertiary-default */
+  --dds-color-text-on-tertiary-subtle: #ffffff; /* Used on brand.tertiary-subtle */
+  --dds-color-text-on-tertiary-medium: #0b0d0e; /* Used on brand.tertiary-medium */
+  --dds-color-text-on-tertiary-strong: #0b0d0e; /* Used on brand.tertiary-strong */
+  --dds-color-text-on-data-default: #0b0d0e; /* Used on data. with default value */
+  --dds-color-text-on-data-subtle: #ffffff; /* Used on data. with subtle value */
+  --dds-color-icon-default: #ffffff; /* Often used with text.default */
+  --dds-color-icon-medium: #e7e6e4; /* Often used with text.medium */
+  --dds-color-icon-subtle: #cfcec9; /* Often used with text.subtle */
+  --dds-color-icon-on-inverse: #ffffff; /* On surface.inverse */
+  --dds-color-icon-on-action: #0b0d0e; /* On surface.action (primary and danger button) */
+  --dds-color-icon-action-resting: #a8c3c9; /* Often used with Text.action */
+  --dds-color-icon-action-hover: #e9f1f2; /* hover on icon-action */
+  --dds-color-icon-on-success-default: #c1e5c2; /* On surface.success-default */
+  --dds-color-icon-on-success-strong: #0b0d0e; /* On surface-success-strong */
+  --dds-color-icon-on-warning-default: #fbf3b8; /* On surface.warning-default */
+  --dds-color-icon-on-warning-strong: #0b0d0e; /* On surface.warning-strong */
+  --dds-color-icon-on-danger-default: #efafaf; /* On surface.danger-default */
+  --dds-color-icon-on-danger-strong: #0b0d0e; /* On surface.danger-strong */
+  --dds-color-icon-on-info-default: #c8e3f5; /* On surface.info-default */
+  --dds-color-icon-on-info-strong: #0b0d0e; /* On surface.info-strong */
+  --dds-color-icon-danger: #efafaf; /* Error icon on paper, or default or subtle surafce/bg */
+  --dds-color-brand-primary-default: #206f7e; /* Primary brand color */
+  --dds-color-brand-primary-subtle: #0b2d34; /* Primary brand color */
+  --dds-color-brand-primary-medium: #165c69; /* Primary brand color */
+  --dds-color-brand-primary-strong: #79a9b2; /* Primary brand color */
+  --dds-color-brand-secondary-default: #891d22; /* Secondary brand color */
+  --dds-color-brand-secondary-subtle: #370c0e; /* Secondary brand color */
+  --dds-color-brand-secondary-medium: #521114; /* Secondary brand color */
+  --dds-color-brand-secondary-strong: #b8777a; /* Secondary brand color */
+  --dds-color-brand-tertiary-default: #b1995d; /* Tertiary brand color */
+  --dds-color-brand-tertiary-subtle: #594d2f; /* Tertiary brand color */
+  --dds-color-brand-tertiary-medium: #8e7a4a; /* Tertiary brand color */
+  --dds-color-brand-tertiary-strong: #d0c29e; /* Tertiary brand color */
+  --dds-color-focus-outside: #e9f1f2; /* Contrast to .inside */
+  --dds-color-focus-inside: #082228; /* Contrast to .outside */
+  --dds-motion-micro-state: 200ms linear; /* Animasjon for hover og andre states. feks. selected, pressed */
+  --dds-motion-surface: 200ms cubic-bezier(0.4, 0, 0.2, 1); /* Default animasjon for fokusmarkering, åpne/lukke funksjonalitet. feks, modal, accordion etc */
+  --dds-motion-chevron: 200ms linear; /* Animert chevron */
+  --dds-motion-animation-skeleton: 800ms cubic-bezier(0.4, 0, 0.2, 1) infinite alternate; /* Skeleton animasjon */
+  --dds-shadow-large: 8px 16px 32px 0px rgba(11, 13, 14, 80%); /* Dialoger. Eksempel: modal, drawer, popover */
+  --dds-shadow-medium: 2px 4px 8px 0px rgba(11, 13, 14, 80%); /* Dropdowns. Eksempel: overflowmenu, dropdown */
+  --dds-shadow-small: 1px 2px 4px 0px rgba(11, 13, 14, 80%); /* Eksempel: tooltip */
+  --dds-spacing-padding-top-heading: 0.7em; /* Ekstra spacing over dds-header. 70% av størrelsen på headeren */
+  --dds-spacing-x0: 0rem;
+  --dds-spacing-x0-125: 0.125rem;
+  --dds-spacing-x0-25: 0.25rem;
+  --dds-spacing-x0-5: 0.5rem;
+  --dds-spacing-x0-75: 0.75rem;
+  --dds-spacing-x1: 1rem;
+  --dds-spacing-x1-5: 1.5rem;
+  --dds-spacing-x2: 2rem;
+  --dds-spacing-x2-5: 2.5rem;
+  --dds-spacing-x3: 3rem;
+  --dds-spacing-x4: 4rem;
+  --dds-spacing-x6: 6rem;
+  --dds-spacing-x10: 10rem;
+  --dds-grid-xs-gutter-size: 16px;
+  --dds-grid-xs-count: 4;
+  --dds-grid-sm-gutter-size: 16px;
+  --dds-grid-sm-count: 8;
+  --dds-grid-lg-gutter-size: 24px;
+  --dds-grid-lg-count: 12;
+  --dds-grid-md-gutter-size: 24px;
+  --dds-grid-md-count: 12;
+  --dds-grid-xl-gutter-size: 24px;
+  --dds-grid-xl-count: 12;
+  --dds-size-icon-large: 40px;
+  --dds-size-icon-medium: 24px;
+  --dds-size-icon-small: 16px;
+  --dds-size-icon-component: 1.3em; /* Brukes i komponenter. Relativ til tekststørrelsen */
+  --dds-breakpoint-xs: 1px;
+  --dds-breakpoint-sm: 600px;
+  --dds-breakpoint-md: 960px;
+  --dds-breakpoint-lg: 1280px;
+  --dds-breakpoint-xl: 1920px;
   --dds-font-family-sans-domstol: 'IBM Plex Sans', Arial, sans-serif;
   --dds-font-family-sans-supreme: Poppins, Arial, sans-serif;
   --dds-font-family-serif-supreme: 'EB Garamond', Garamond, Serif;
@@ -270,39 +303,6 @@
   --dds-font-paragraph-spacing-large: 0.5em; /* Brukes på str ×3 og større */
   --dds-font-paragraph-spacing-list: 0.5em; /* Brukes mellom kulepunkter i lister */
   --dds-font-paragraph-spacing-heading: 0.4em; /* Brukes på på alle headere (bottom) */
-  --dds-spacing-padding-top-heading: 0.7em; /* Ekstra spacing over dds-header. 70% av størrelsen på headeren */
-  --dds-spacing-x0: 0rem;
-  --dds-spacing-x0-125: 0.125rem;
-  --dds-spacing-x0-25: 0.25rem;
-  --dds-spacing-x0-5: 0.5rem;
-  --dds-spacing-x0-75: 0.75rem;
-  --dds-spacing-x1: 1rem;
-  --dds-spacing-x1-5: 1.5rem;
-  --dds-spacing-x2: 2rem;
-  --dds-spacing-x2-5: 2.5rem;
-  --dds-spacing-x3: 3rem;
-  --dds-spacing-x4: 4rem;
-  --dds-spacing-x6: 6rem;
-  --dds-spacing-x10: 10rem;
-  --dds-grid-xs-gutter-size: 16px;
-  --dds-grid-xs-count: 4;
-  --dds-grid-sm-gutter-size: 16px;
-  --dds-grid-sm-count: 8;
-  --dds-grid-lg-gutter-size: 24px;
-  --dds-grid-lg-count: 12;
-  --dds-grid-md-gutter-size: 24px;
-  --dds-grid-md-count: 12;
-  --dds-grid-xl-gutter-size: 24px;
-  --dds-grid-xl-count: 12;
-  --dds-size-icon-large: 40px;
-  --dds-size-icon-medium: 24px;
-  --dds-size-icon-small: 16px;
-  --dds-size-icon-component: 1.3em; /* Brukes i komponenter. Relativ til tekststørrelsen */
-  --dds-breakpoint-xs: 1px;
-  --dds-breakpoint-sm: 600px;
-  --dds-breakpoint-md: 960px;
-  --dds-breakpoint-lg: 1280px;
-  --dds-breakpoint-xl: 1920px;
   --dds-zindex-skiptocontent: 250; /* Brukes for dds-skiptocontent */
   --dds-zindex-modal-backdrop: 200; /* Brukes for dds-modal */
   --dds-zindex-drawer: 180; /* Brukes for dds-drawer */
@@ -313,10 +313,6 @@
   --dds-zindex-dropdown: 100; /* Dropdown brukes for bl.a søkeforslag, dropdown i select */
   --dds-zindex-sticky: 50; /* Sticky header skal dekke til flat innhold i gruppen (tabell o.l.). Den skal legge seg under elementer som stiller med egne flater */
   --dds-zindex-absolute-element: 1; /* Dekorative elementer med absolutt posisjon, som ellers hadde blitt skjult bak forelder */
-  --dds-size-height-input-large: 3.8125rem; /* Brukes i input og buttons */
-  --dds-size-height-input-medium: 3.125rem; /* Brukes i input og buttons */
-  --dds-size-height-input-small: 2.5rem; /* Brukes i input og buttons */
-  --dds-size-height-input-xsmall: 1.8125rem; /* Brukes i input og buttons */
   --dds-font-label-medium: 400 1rem/1.3 Poppins, Arial, sans-serif; /* Label for form components */
   --dds-font-body-long-xsmall: 400 0.875rem/1.5 Poppins, Arial, sans-serif; /* Xsmall body text for editorial content */
   --dds-font-body-long-small: 400 1rem/1.5 Poppins, Arial, sans-serif; /* Small body text for editorial content */
@@ -371,4 +367,8 @@
   --dds-font-body-short-small-paragraph-spacing: 1em;
   --dds-font-body-short-xsmall-letter-spacing: 0.01em;
   --dds-font-body-short-xsmall-paragraph-spacing: 1em;
+  --dds-size-height-input-large: 3.8125rem; /* Brukes i input og buttons */
+  --dds-size-height-input-medium: 3.125rem; /* Brukes i input og buttons */
+  --dds-size-height-input-small: 2.5rem; /* Brukes i input og buttons */
+  --dds-size-height-input-xsmall: 1.8125rem; /* Brukes i input og buttons */
 }
