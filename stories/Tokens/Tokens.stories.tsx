@@ -1,4 +1,7 @@
+import { useState } from 'react';
+
 import preview from '#.storybook/preview';
+import { type DdsThemeMode } from '#packages/dds-components/src/components/ThemeProvider/index.js';
 
 import {
   BorderRadiusGenerator,
@@ -23,6 +26,7 @@ import {
   TabPanel,
   TabPanels,
   Tabs,
+  Toggle,
 } from '../../packages/dds-components/src';
 import { ddsProviderDecorator } from '../../packages/dds-components/src/storybook';
 
@@ -59,20 +63,33 @@ export const Breakpoints = meta.story(() => {
 });
 
 export const Colors = meta.story(() => {
+  const [mode, setMode] = useState<DdsThemeMode>('light');
+  const modeToChecked = (mode: DdsThemeMode) => {
+    if (mode === 'light') {
+      return false;
+    }
+    return true;
+  };
+
   return (
     <Wrapper>
+      <Toggle
+        aria-label="Mørk modus"
+        style={{ marginLeft: 'auto' }}
+        variant="colorScheme"
+        checked={modeToChecked(mode)}
+        onChange={() => setMode(mode === 'light' ? 'dark' : 'light')}
+      />
       <Tabs>
         <TabList>
-          <Tab>Core/Public Light</Tab>
-          <Tab>Core/Public Dark</Tab>
-          <Tab>Supreme Light</Tab>
-          <Tab>Supreme Dark</Tab>
+          <Tab>Core</Tab>
+          <Tab>Public</Tab>
+          <Tab>Supreme</Tab>
         </TabList>
         <TabPanels>
-          <TabPanel>{ColorsGenerator('core-light')}</TabPanel>
-          <TabPanel>{ColorsGenerator('core-dark')}</TabPanel>
-          <TabPanel>{ColorsGenerator('supreme-light')}</TabPanel>
-          <TabPanel>{ColorsGenerator('supreme-dark')}</TabPanel>
+          <TabPanel>{ColorsGenerator(`core-${mode}`)}</TabPanel>
+          <TabPanel>{ColorsGenerator(`public-${mode}`)}</TabPanel>
+          <TabPanel>{ColorsGenerator(`supreme-${mode}`)}</TabPanel>
         </TabPanels>
       </Tabs>
     </Wrapper>
