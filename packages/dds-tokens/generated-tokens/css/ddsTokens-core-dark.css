@@ -271,7 +271,7 @@
   --dds-breakpoint-xl: 1920px;
   --dds-font-family-sans-domstol: 'IBM Plex Sans', Arial, sans-serif;
   --dds-font-family-sans-supreme: Poppins, Arial, sans-serif;
-  --dds-font-family-serif-supreme: 'EB Garamond', Garamond, Serif;
+  --dds-font-family-serif-supreme: 'EB Garamond', serif;
   --dds-font-family-monospace: 'IBM Plex Mono', 'Courier New', monospace; /* For kode */
   --dds-font-size-x5: 5rem;
   --dds-font-size-x4: 4rem;
