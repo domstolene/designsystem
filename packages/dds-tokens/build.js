@@ -20,6 +20,7 @@ import {
   filterOutBaseFilter,
   functionTgShorthandFilter,
 } from './hooks/filters.js';
+import themesMeta from './dds/tokens/$themes.json' with { type: 'json' };
 
 register(StyleDictionary);
 
@@ -51,60 +52,21 @@ StyleDictionary.registerFormat({
   format: customSCSSFormat,
 });
 
-const srcPathBase = 'dds/tokens';
 const destPathBase = 'generated-tokens';
-
-const commonSources = [];
-const themedSources = (main, mode, common) => [
-  ...commonSources,
-  'Base/**/*.json',
-  'Semantic/**/Elsa.json',
-  `Semantic/**/**/${main}.json`,
-  `Semantic/Color/Data/${mode}.json`,
-  `Semantic/Color/${common}/${mode}.json`,
-  `Semantic/Shadow/${mode}.json`,
-];
-
-const themes = [
-  {
-    name: 'core-light',
-    sources: [...themedSources('Core', 'Light', 'Elsa')],
-  },
-  {
-    name: 'core-dark',
-    sources: [...themedSources('Core', 'Dark', 'Elsa')],
-  },
-  {
-    name: 'public-light',
-    sources: [...themedSources('Public', 'Light', 'Elsa')],
-  },
-  {
-    name: 'public-dark',
-    sources: [...themedSources('Public', 'Dark', 'Elsa')],
-  },
-  {
-    name: 'supreme-light',
-    sources: [
-      ...themedSources('Supreme', 'Light', 'Supreme'),
-      'Semantic/BorderRadius/Public.json',
-      'Semantic/Size/Height/Public.json',
-    ],
-  },
-  {
-    name: 'supreme-dark',
-    sources: [
-      ...themedSources('Supreme', 'Dark', 'Supreme'),
-      'Semantic/BorderRadius/Public.json',
-      'Semantic/Size/Height/Public.json',
-    ],
-  },
-];
-
 const platforms = ['css', 'js', 'scss'];
 
 function getStyleDictionaryConfig(theme) {
+  const srcPathBase = 'dds/tokens';
+  const themeName = theme.toLowerCase();
   return {
-    source: theme.sources.map(src => `${srcPathBase}/${src}`),
+    source: [
+      `${srcPathBase}/Base/**/*.json`,
+      ...Object.entries(
+        themesMeta.find(t => t.name === theme)?.selectedTokenSets || {},
+      )
+        .filter(([, value]) => value === 'enabled')
+        .map(([key]) => `${srcPathBase}/${key}.json`),
+    ],
     preprocessors: ['tokens-studio'],
     platforms: {
       css: {
@@ -113,19 +75,19 @@ function getStyleDictionaryConfig(theme) {
         transforms: [transforms.nameKebab, 'dds/typography/css/shorthand'],
         files: [
           {
-            destination: `ddsTokens-${theme.name}.css`,
+            destination: `ddsTokens-${themeName}.css`,
             format: 'dds/css/variables',
             filter: 'base-out-filter',
           },
         ],
       },
       js: {
-        buildPath: `${destPathBase}/js/${theme.name}/`,
+        buildPath: `${destPathBase}/js/${themeName}/`,
         transformGroup: 'tokens-studio',
         transforms: ['dds/typography/css/shorthand'],
         files: [
           {
-            destination: 'ddsTokens.ts',
+            destination: `ddsTokens.ts`,
             format: 'dds/javascript/es6',
             filter: 'base-out-filter',
           },
@@ -149,12 +111,19 @@ function getStyleDictionaryConfig(theme) {
 }
 
 async function build() {
+  const themes = themesMeta.filter(t => t.group === 'Theme').map(t => t.name);
+  if (themes.length === 0) {
+    console.error(
+      'No themes found in dds/tokens/$themes.json. Skipping build.',
+    );
+    return;
+  }
   console.log('Tokens build started...');
   console.log('\n==============================================');
 
   for (const theme of themes) {
     for (const platform of platforms) {
-      console.log(`\nProcessing: [${theme.name}] [${platform}]`);
+      console.log(`\nProcessing: [${theme}] [${platform}]`);
       console.log('\n==============================================');
 
       const sd = new StyleDictionary(getStyleDictionaryConfig(theme), {
