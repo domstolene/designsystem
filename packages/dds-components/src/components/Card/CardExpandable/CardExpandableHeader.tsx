@@ -79,7 +79,7 @@ export const CardExpandableHeader = ({
           bold && typographyStyles.bold,
         )}
       >
-        <div className={(baseStyles.header__content, styles.header__content)}>
+        <div className={cn(baseStyles.header__content, styles.header__content)}>
           {children}
           <Icon
             icon={AnimatedChevronUpDownIcon}
