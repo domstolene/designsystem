@@ -3,23 +3,10 @@ type FileExtensionAccept = `.${string}`;
 type AnyMimeType = '*';
 
 type ImageMimeType =
-  | 'png'
-  | 'jpeg'
-  | 'bmp'
-  | 'gif'
-  | 'svg+xml'
-  | 'tiff'
-  | 'webp';
+  'png' | 'jpeg' | 'bmp' | 'gif' | 'svg+xml' | 'tiff' | 'webp';
 
 type VideoMimeType =
-  | 'x-msvideo'
-  | 'mp4'
-  | 'mpeg'
-  | 'ogg'
-  | 'mp2t'
-  | 'webm'
-  | '3gpp'
-  | '3gpp2';
+  'x-msvideo' | 'mp4' | 'mpeg' | 'ogg' | 'mp2t' | 'webm' | '3gpp' | '3gpp2';
 type AudioMimeType =
   | 'aac'
   | 'midi'
