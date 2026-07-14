@@ -148,6 +148,7 @@
   display: flex;
   align-items: center;
   color: inherit;
+  text-align: inherit;
 
   @media (prefers-reduced-motion: no-preference) {
     transition: var(--dds-focus-transition);
