@@ -14,9 +14,9 @@ addons.setConfig({
       'development-utils',
       'dds-design-tokens',
       'dds-formatting',
-      'icons',
-      'patterns',
-      'playground',
+      'Ikoner',
+      'Mønstre',
+      'Playground',
     ],
   },
 });

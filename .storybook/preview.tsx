@@ -51,7 +51,7 @@ export default definePreview({
     options: {
       storySort: {
         method: 'alphabetical',
-        order: ['Introduction', '*', ['Introduction', 'Changelog']],
+        order: ['Introduksjon', '*', ['Introduksjon', 'Changelog']],
       },
     },
     docs: {
