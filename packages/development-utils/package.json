@@ -52,10 +52,10 @@
     "typed-css-modules": "^0.9.1",
     "autoprefixer": "^10.5.0",
     "csstype": "3.2.3",
-    "postcss": "^8.5.15",
+    "postcss": "^8.5.16",
     "typescript": "^5.9.3",
-    "vite": "^8.0.16",
-    "vitest": "^4.1.9"
+    "vite": "^8.1.4",
+    "vitest": "^4.1.10"
   },
   "peerDependencies": {
     "react": "^16 || ^17 || ^18 || ^19"
