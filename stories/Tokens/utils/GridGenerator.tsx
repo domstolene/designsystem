@@ -1,11 +1,12 @@
-import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Elsa.json';
+import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Spacing.json';
 
 import { copyButton } from './CopyButton';
 import { type TokenGridJsonObject } from './Tokens.types';
 import { Table } from '../../../packages/dds-components/src/index';
 
 export const GridGenerator = () => {
-  const tokens: TokenGridJsonObject = jsonBase['dds-grid'];
+  const tokenPrefix = 'dds-grid';
+  const tokens: TokenGridJsonObject = jsonBase[tokenPrefix];
   const cssStyle = ` .dds-grid-preview {
                 border: 1px solid var(--dds-color-border-default);
             }
@@ -32,7 +33,7 @@ export const GridGenerator = () => {
     for (const key1 in tokens) {
       for (const key2 in tokens[key1]) {
         const token = tokens[key1][key2];
-        const tokenName = `--dds-grid-${key1}-${key2}`;
+        const tokenName = `--${tokenPrefix}-${key1}-${key2}`;
         rows.push(
           <Table.Row key={tokenName}>
             <Table.Cell>{tokenName}</Table.Cell>

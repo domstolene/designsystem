@@ -1,8 +1,9 @@
 /**
  * Filtrerer ut base tokens som er referansen til de semantiske
+ * Beholder basetokens som brukes direkte, som spacing, z-index osv
  */
 export function filterOutBaseFilter(token) {
-  return !token.attributes.category.includes('base');
+  return !token.filePath.includes('Base/Exclude');
 }
 
 /**

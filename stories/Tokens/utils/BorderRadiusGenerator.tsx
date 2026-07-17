@@ -1,19 +1,19 @@
 import { type DdsThemeMain } from '#packages/dds-components/src/components/ThemeProvider/ThemeProvider';
-import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Elsa.json';
+import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Exclude/BorderRadius.json';
 import jsonC from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/BorderRadius/Core.json';
 import jsonP from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/BorderRadius/Public.json';
 
 import { copyButton } from './CopyButton';
 import { splitReferenceKeys, tableStyle } from './functions';
 import { type TokenBorderRadiusJsonObject } from './Tokens.types';
-import { Paper } from '../../../packages/dds-components/dist';
-import { Table } from '../../../packages/dds-components/src/index';
+import { Paper, Table } from '../../../packages/dds-components/src/index';
+
+const tokenPrefix = 'dds-border-radius';
+const baseTokens: TokenBorderRadiusJsonObject = jsonBase[tokenPrefix];
 
 export const BorderRadiusGenerator = (theme: DdsThemeMain) => {
   const tokenSet = theme === 'core' ? jsonC : jsonP;
-  const tokens: TokenBorderRadiusJsonObject = tokenSet['dds-border-radius'];
-  const baseTokens: TokenBorderRadiusJsonObject =
-    jsonBase['dds-border-radius-base'];
+  const tokens: TokenBorderRadiusJsonObject = tokenSet[tokenPrefix];
 
   function generateBodyRows() {
     const rows: Array<React.JSX.Element> = [];
@@ -22,7 +22,7 @@ export const BorderRadiusGenerator = (theme: DdsThemeMain) => {
       const token = tokens[key];
       const referenceKeys = splitReferenceKeys(token.value);
       const value = baseTokens[referenceKeys[1]].value;
-      const tokenName = `--dds-border-radius-${key}`;
+      const tokenName = `--${tokenPrefix}-${key}`;
       rows.push(
         <Table.Row key={tokenName}>
           <Table.Cell>{tokenName}</Table.Cell>
@@ -67,15 +67,12 @@ export const BorderRadiusGenerator = (theme: DdsThemeMain) => {
 };
 
 export const BorderRadiusBaseGenerator = () => {
-  const tokens: TokenBorderRadiusJsonObject =
-    jsonBase['dds-border-radius-base'];
-
   function generateBodyRows() {
     const rows: Array<React.JSX.Element> = [];
 
-    for (const key in tokens) {
-      const token = tokens[key];
-      const tokenName = `--dds-border-radius-${key}`;
+    for (const key in baseTokens) {
+      const token = baseTokens[key];
+      const tokenName = `--${tokenPrefix}-${key}`;
       rows.push(
         <Table.Row key={tokenName}>
           <Table.Cell>{tokenName}</Table.Cell>

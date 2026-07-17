@@ -21,6 +21,14 @@ type SplitTheme<T extends string> = T extends `${infer Main}-${infer Mode}`
 export type DdsThemeMain = SplitTheme<DdsTheme>['main'];
 export type DdsThemeMode = SplitTheme<DdsTheme>['mode'];
 
+export const ddsThemes = Object.keys(ddsTokens) as Array<DdsTheme>;
+export const ddsThemeMains = new Set(
+  ddsThemes.map(theme => theme.split('-')[0]),
+) as Set<DdsThemeMain>;
+export const ddsThemeModes = new Set(
+  ddsThemes.map(theme => theme.split('-')[1]),
+) as Set<DdsThemeMode>;
+
 interface ThemeContextProps {
   theme: DdsTheme;
   el: HTMLDivElement | null;

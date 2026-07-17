@@ -19,6 +19,7 @@ import {
 import {
   type DdsThemeMain,
   type DdsThemeMode,
+  ddsThemeMains,
 } from '../packages/dds-components/src/components/ThemeProvider/ThemeProvider';
 
 // Setter bakgrunn i Canvas basert på verdien til --dds-color-bg-default i ThemeProvider
@@ -107,7 +108,7 @@ export default definePreview({
           >
             <Toggle
               name={`mode-toggle-${nameCounter}`}
-              htmlProps={{ 'aria-label': 'Modus' }}
+              htmlProps={{ 'aria-label': 'Mørk modus' }}
               checked={mode}
               onChange={setMode}
               variant="colorScheme"
@@ -116,14 +117,15 @@ export default definePreview({
               size="xsmall"
               name={`theme-${nameCounter}`}
               value={mainTheme}
-              htmlProps={{ 'aria-label': 'Tema' }}
+              htmlProps={{ 'aria-label': 'Hovedtema' }}
               onChange={(_event, theme) => {
                 if (theme) setMainTheme(theme);
               }}
               purpose="secondary"
             >
-              <ToggleRadio value="core" label="core" />
-              <ToggleRadio value="public" label="public" />
+              {[...ddsThemeMains].map(theme => (
+                <ToggleRadio key={theme} value={theme} label={theme} />
+              ))}
             </ToggleBar>
           </div>
           <Story />

@@ -1,6 +1,6 @@
 import { useState } from 'storybook/internal/preview-api';
 
-import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Elsa.json';
+import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Exclude/Motion.json';
 import jsonSemantic from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/Motion/Elsa.json';
 
 import { copyButton } from './CopyButton';
@@ -30,9 +30,11 @@ function expandValue(raw: string, base: TokenMotionJsonObject): string {
   });
 }
 
+const tokenPrefix = 'dds-motion';
+
 export const MotionGenerator = () => {
-  const tokens: TokenMotionSemanticJsonObject = jsonSemantic['dds-motion'];
-  const baseTokens: TokenMotionJsonObject = jsonBase['dds-motion-base'];
+  const tokens: TokenMotionSemanticJsonObject = jsonSemantic[tokenPrefix];
+  const baseTokens: TokenMotionJsonObject = jsonBase[tokenPrefix];
 
   const rows: Array<React.JSX.Element> = [];
 
@@ -95,12 +97,12 @@ export const MotionGenerator = () => {
   for (const [key, entry] of Object.entries(tokens)) {
     if (isTokenNode(entry)) {
       const resolved = expandValue(entry.value, baseTokens);
-      const tokenName = `--dds-motion-${key}`;
+      const tokenName = `--${tokenPrefix}-${key}`;
       pushRow(tokenName, entry, resolved, key);
     } else {
       for (const [subKey, node] of Object.entries(entry)) {
         const resolved = expandValue(node.value, baseTokens);
-        const tokenName = `--dds-motion-${key}-${subKey}`;
+        const tokenName = `--${tokenPrefix}-${key}-${subKey}`;
         pushRow(tokenName, node, resolved, key);
       }
     }
@@ -136,7 +138,7 @@ export const MotionGenerator = () => {
 };
 
 export const MotionBaseGenerator = () => {
-  const tokens: TokenMotionJsonObject = jsonBase['dds-motion-base'];
+  const tokens: TokenMotionJsonObject = jsonBase[tokenPrefix];
 
   function generateBodyRows() {
     const rows: Array<React.JSX.Element> = [];
@@ -145,7 +147,7 @@ export const MotionBaseGenerator = () => {
       for (const key2 in tokens[key]) {
         const [leftValue, setLeftValue] = useState<boolean>(false);
         const token = tokens[key][key2];
-        const tokenName = `--dds-motion-base-${key}-${key2}`;
+        const tokenName = `--${tokenPrefix}-${key}-${key2}`;
         const style = {
           cursor: 'pointer',
           transitionProperty: 'left',

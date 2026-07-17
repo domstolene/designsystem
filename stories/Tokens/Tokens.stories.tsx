@@ -1,4 +1,7 @@
+import { useState } from 'react';
+
 import preview from '#.storybook/preview';
+import { type DdsThemeMode } from '#packages/dds-components/src/components/ThemeProvider/index.js';
 
 import {
   BorderRadiusGenerator,
@@ -23,6 +26,7 @@ import {
   TabPanel,
   TabPanels,
   Tabs,
+  Toggle,
 } from '../../packages/dds-components/src';
 import { ddsProviderDecorator } from '../../packages/dds-components/src/storybook';
 
@@ -42,9 +46,11 @@ export const BorderRadius = meta.story(() => {
         <TabList>
           <Tab>Core</Tab>
           <Tab>Public</Tab>
+          <Tab>Supreme</Tab>
         </TabList>
         <TabPanels>
           <TabPanel>{BorderRadiusGenerator('core')}</TabPanel>
+          <TabPanel>{BorderRadiusGenerator('public')}</TabPanel>
           <TabPanel>{BorderRadiusGenerator('public')}</TabPanel>
         </TabPanels>
       </Tabs>
@@ -57,16 +63,33 @@ export const Breakpoints = meta.story(() => {
 });
 
 export const Colors = meta.story(() => {
+  const [mode, setMode] = useState<DdsThemeMode>('light');
+  const modeToChecked = (mode: DdsThemeMode) => {
+    if (mode === 'light') {
+      return false;
+    }
+    return true;
+  };
+
   return (
     <Wrapper>
+      <Toggle
+        aria-label="Mørk modus"
+        style={{ marginLeft: 'auto' }}
+        variant="colorScheme"
+        checked={modeToChecked(mode)}
+        onChange={() => setMode(mode === 'light' ? 'dark' : 'light')}
+      />
       <Tabs>
         <TabList>
-          <Tab>Light</Tab>
-          <Tab>Dark</Tab>
+          <Tab>Core</Tab>
+          <Tab>Public</Tab>
+          <Tab>Supreme</Tab>
         </TabList>
         <TabPanels>
-          <TabPanel>{ColorsGenerator('light')}</TabPanel>
-          <TabPanel>{ColorsGenerator('dark')}</TabPanel>
+          <TabPanel>{ColorsGenerator(`core-${mode}`)}</TabPanel>
+          <TabPanel>{ColorsGenerator(`public-${mode}`)}</TabPanel>
+          <TabPanel>{ColorsGenerator(`supreme-${mode}`)}</TabPanel>
         </TabPanels>
       </Tabs>
     </Wrapper>
@@ -109,9 +132,11 @@ export const Size = meta.story(() => {
         <TabList>
           <Tab>Core</Tab>
           <Tab>Public</Tab>
+          <Tab>Supreme</Tab>
         </TabList>
         <TabPanels>
           <TabPanel>{SizeHeightGenerator('core')}</TabPanel>
+          <TabPanel>{SizeHeightGenerator('public')}</TabPanel>
           <TabPanel>{SizeHeightGenerator('public')}</TabPanel>
         </TabPanels>
       </Tabs>
@@ -151,10 +176,12 @@ export const Typography = meta.story(() => {
         <TabList>
           <Tab>Core</Tab>
           <Tab>Public</Tab>
+          <Tab>Supreme</Tab>
         </TabList>
         <TabPanels>
           <TabPanel>{TypographyGenerator('core')}</TabPanel>
           <TabPanel>{TypographyGenerator('public')}</TabPanel>
+          <TabPanel>{TypographyGenerator('supreme')}</TabPanel>
         </TabPanels>
       </Tabs>
     </Wrapper>

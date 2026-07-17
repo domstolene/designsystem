@@ -16,7 +16,7 @@ export default create({
   colorSecondary: theme.ddsColorSurfaceActionSelected,
 
   // Typography
-  fontBase: theme.ddsFontFamilySans,
+  fontBase: theme.ddsFontFamilySansDomstol,
   fontCode: theme.ddsFontFamilyMonospace,
   textMutedColor: theme.ddsColorTextMedium,
   textColor: theme.ddsColorTextDefault,

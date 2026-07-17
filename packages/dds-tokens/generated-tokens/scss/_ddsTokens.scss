@@ -1,80 +1,6 @@
 
 // Do not edit directly, this file was auto-generated.
 
-  $dds-font-family-sans: var(--dds-font-family-sans);
-  $dds-font-family-monospace: var(--dds-font-family-monospace); /* For kode */
-  $dds-font-size-x5: var(--dds-font-size-x5);
-  $dds-font-size-x4: var(--dds-font-size-x4);
-  $dds-font-size-x3: var(--dds-font-size-x3);
-  $dds-font-size-x2-5: var(--dds-font-size-x2-5);
-  $dds-font-size-x2: var(--dds-font-size-x2);
-  $dds-font-size-x1-5: var(--dds-font-size-x1-5);
-  $dds-font-size-x1-25: var(--dds-font-size-x1-25);
-  $dds-font-size-x1-125: var(--dds-font-size-x1-125);
-  $dds-font-size-x1: var(--dds-font-size-x1);
-  $dds-font-size-x0-875: var(--dds-font-size-x0-875);
-  $dds-font-size-x0-75: var(--dds-font-size-x0-75);
-  $dds-font-weight-light: var(--dds-font-weight-light);
-  $dds-font-weight-normal: var(--dds-font-weight-normal);
-  $dds-font-weight-semi-bold: var(--dds-font-weight-semi-bold);
-  $dds-font-weight-bold: var(--dds-font-weight-bold);
-  $dds-font-lineheight-x1: var(--dds-font-lineheight-x1); /* Brukes på mengetekst og artikler */
-  $dds-font-lineheight-x3: var(--dds-font-lineheight-x3);
-  $dds-font-lineheight-x2: var(--dds-font-lineheight-x2); /* Brukes i komponenter og overskrifter */
-  $dds-font-letter-spacing-tight: var(--dds-font-letter-spacing-tight); /* Brukes på str ×2.5 og større */
-  $dds-font-letter-spacing-normal: var(--dds-font-letter-spacing-normal); /* Brukes på str ×1 og opp til og med ×2 */
-  $dds-font-letter-spacing-loose: var(--dds-font-letter-spacing-loose); /* Brukes på størrelser under ×1 */
-  $dds-font-paragraph-spacing-small: var(--dds-font-paragraph-spacing-small); /* Brukes på str ×1_25 og mindre  */
-  $dds-font-paragraph-spacing-medium: var(--dds-font-paragraph-spacing-medium); /* Brukes på str x1.5, ×2 og ×3  */
-  $dds-font-paragraph-spacing-large: var(--dds-font-paragraph-spacing-large); /* Brukes på str ×3 og større */
-  $dds-font-paragraph-spacing-list: var(--dds-font-paragraph-spacing-list); /* Brukes mellom kulepunkter i lister */
-  $dds-font-paragraph-spacing-heading: var(--dds-font-paragraph-spacing-heading); /* Brukes på på alle headere (bottom) */
-  $dds-font-style-underline: var(--dds-font-style-underline);
-  $dds-font-style-normal: var(--dds-font-style-normal);
-  $dds-font-style-italic: var(--dds-font-style-italic);
-  $dds-spacing-padding-top-heading: var(--dds-spacing-padding-top-heading); /* Ekstra spacing over dds-header. 70% av størrelsen på headeren */
-  $dds-spacing-x0: var(--dds-spacing-x0);
-  $dds-spacing-x0-125: var(--dds-spacing-x0-125);
-  $dds-spacing-x0-25: var(--dds-spacing-x0-25);
-  $dds-spacing-x0-5: var(--dds-spacing-x0-5);
-  $dds-spacing-x0-75: var(--dds-spacing-x0-75);
-  $dds-spacing-x1: var(--dds-spacing-x1);
-  $dds-spacing-x1-5: var(--dds-spacing-x1-5);
-  $dds-spacing-x2: var(--dds-spacing-x2);
-  $dds-spacing-x2-5: var(--dds-spacing-x2-5);
-  $dds-spacing-x3: var(--dds-spacing-x3);
-  $dds-spacing-x4: var(--dds-spacing-x4);
-  $dds-spacing-x6: var(--dds-spacing-x6);
-  $dds-spacing-x10: var(--dds-spacing-x10);
-  $dds-grid-xs-gutter-size: var(--dds-grid-xs-gutter-size);
-  $dds-grid-xs-count: var(--dds-grid-xs-count);
-  $dds-grid-sm-gutter-size: var(--dds-grid-sm-gutter-size);
-  $dds-grid-sm-count: var(--dds-grid-sm-count);
-  $dds-grid-lg-gutter-size: var(--dds-grid-lg-gutter-size);
-  $dds-grid-lg-count: var(--dds-grid-lg-count);
-  $dds-grid-md-gutter-size: var(--dds-grid-md-gutter-size);
-  $dds-grid-md-count: var(--dds-grid-md-count);
-  $dds-grid-xl-gutter-size: var(--dds-grid-xl-gutter-size);
-  $dds-grid-xl-count: var(--dds-grid-xl-count);
-  $dds-size-icon-large: var(--dds-size-icon-large);
-  $dds-size-icon-medium: var(--dds-size-icon-medium);
-  $dds-size-icon-small: var(--dds-size-icon-small);
-  $dds-size-icon-component: var(--dds-size-icon-component); /* Brukes i komponenter. Relativ til tekststørrelsen */
-  $dds-breakpoint-xs: var(--dds-breakpoint-xs);
-  $dds-breakpoint-sm: var(--dds-breakpoint-sm);
-  $dds-breakpoint-md: var(--dds-breakpoint-md);
-  $dds-breakpoint-lg: var(--dds-breakpoint-lg);
-  $dds-breakpoint-xl: var(--dds-breakpoint-xl);
-  $dds-zindex-skiptocontent: var(--dds-zindex-skiptocontent); /* Brukes for dds-skiptocontent */
-  $dds-zindex-modal-backdrop: var(--dds-zindex-modal-backdrop); /* Brukes for dds-modal */
-  $dds-zindex-drawer: var(--dds-zindex-drawer); /* Brukes for dds-drawer */
-  $dds-zindex-drawer-backdrop: var(--dds-zindex-drawer-backdrop); /* Brukes for dds-drawer */
-  $dds-zindex-overflowmenu: var(--dds-zindex-overflowmenu); /* Brukes for dds-overflowmenu */
-  $dds-zindex-popover: var(--dds-zindex-popover); /* Brukes for dds-popover og kalender i datepicker */
-  $dds-zindex-tooltip: var(--dds-zindex-tooltip); /* Brukes for dds-tooltip */
-  $dds-zindex-dropdown: var(--dds-zindex-dropdown); /* Dropdown brukes for bl.a søkeforslag, dropdown i select */
-  $dds-zindex-sticky: var(--dds-zindex-sticky); /* Sticky header skal dekke til flat innhold i gruppen (tabell o.l.). Den skal legge seg under elementer som stiller med egne flater */
-  $dds-zindex-absolute-element: var(--dds-zindex-absolute-element); /* Dekorative elementer med absolutt posisjon, som ellers hadde blitt skjult bak forelder */
   $dds-color-data-10-default: var(--dds-color-data-10-default);
   $dds-color-data-10-subtle: var(--dds-color-data-10-subtle);
   $dds-color-data-10-border: var(--dds-color-data-10-border);
@@ -195,10 +121,11 @@
   $dds-color-data-09-default: var(--dds-color-data-09-default);
   $dds-color-data-09-subtle: var(--dds-color-data-09-subtle);
   $dds-color-data-09-border: var(--dds-color-data-09-border);
-  $dds-motion-micro-state: var(--dds-motion-micro-state); /* Animasjon for hover og andre states. feks. selected, pressed */
-  $dds-motion-surface: var(--dds-motion-surface); /* Default animasjon for fokusmarkering, åpne/lukke funksjonalitet. feks, modal, accordion etc */
-  $dds-motion-chevron: var(--dds-motion-chevron); /* Animert chevron */
-  $dds-motion-animation-skeleton: var(--dds-motion-animation-skeleton); /* Skeleton animasjon */
+  $dds-border-radius-button: var(--dds-border-radius-button); /* For use in button component and togglebutton */
+  $dds-border-radius-surface: var(--dds-border-radius-surface); /* Most surfaces, for example cards, papers, messages, backgrounds in GUI */
+  $dds-border-radius-input: var(--dds-border-radius-input); /* All input fields, and check boxes */
+  $dds-border-radius-chip: var(--dds-border-radius-chip); /* Chips and tags */
+  $dds-border-radius-rounded: var(--dds-border-radius-rounded); /* Rounded and circular components such as radiobutton, toggle, togglebutton and progress tracker */
   $dds-color-bg-default: var(--dds-color-bg-default); /* UI shell base color */
   $dds-color-bg-subtle: var(--dds-color-bg-subtle); /* Alternative UI shell base color */
   $dds-color-surface-default: var(--dds-color-surface-default); /* Default bg */
@@ -300,14 +227,94 @@
   $dds-color-brand-tertiary-strong: var(--dds-color-brand-tertiary-strong); /* Tertiary brand color */
   $dds-color-focus-outside: var(--dds-color-focus-outside); /* Contrast to .inside */
   $dds-color-focus-inside: var(--dds-color-focus-inside); /* Contrast to .outside */
+  $dds-motion-micro-state: var(--dds-motion-micro-state); /* Animasjon for hover og andre states. feks. selected, pressed */
+  $dds-motion-surface: var(--dds-motion-surface); /* Default animasjon for fokusmarkering, åpne/lukke funksjonalitet. feks, modal, accordion etc */
+  $dds-motion-chevron: var(--dds-motion-chevron); /* Animert chevron */
+  $dds-motion-animation-skeleton: var(--dds-motion-animation-skeleton); /* Skeleton animasjon */
   $dds-shadow-large: var(--dds-shadow-large); /* Dialoger. Eksempel: modal, drawer, popover */
   $dds-shadow-medium: var(--dds-shadow-medium); /* Dropdowns. Eksempel: overflowmenu, dropdown */
   $dds-shadow-small: var(--dds-shadow-small); /* Eksempel: tooltip */
-  $dds-border-radius-button: var(--dds-border-radius-button); /* For use in button component and togglebutton */
-  $dds-border-radius-surface: var(--dds-border-radius-surface); /* Most surfaces, for example cards, papers, messages, backgrounds in GUI */
-  $dds-border-radius-input: var(--dds-border-radius-input); /* All input fields, and check boxes */
-  $dds-border-radius-chip: var(--dds-border-radius-chip); /* Chips and tags */
-  $dds-border-radius-rounded: var(--dds-border-radius-rounded); /* Rounded and circular components such as radiobutton, toggle, togglebutton and progress tracker */
+  $dds-spacing-padding-top-heading: var(--dds-spacing-padding-top-heading); /* Ekstra spacing over dds-header. 70% av størrelsen på headeren */
+  $dds-spacing-x0: var(--dds-spacing-x0);
+  $dds-spacing-x0-125: var(--dds-spacing-x0-125);
+  $dds-spacing-x0-25: var(--dds-spacing-x0-25);
+  $dds-spacing-x0-5: var(--dds-spacing-x0-5);
+  $dds-spacing-x0-75: var(--dds-spacing-x0-75);
+  $dds-spacing-x1: var(--dds-spacing-x1);
+  $dds-spacing-x1-5: var(--dds-spacing-x1-5);
+  $dds-spacing-x2: var(--dds-spacing-x2);
+  $dds-spacing-x2-5: var(--dds-spacing-x2-5);
+  $dds-spacing-x3: var(--dds-spacing-x3);
+  $dds-spacing-x4: var(--dds-spacing-x4);
+  $dds-spacing-x6: var(--dds-spacing-x6);
+  $dds-spacing-x10: var(--dds-spacing-x10);
+  $dds-grid-xs-gutter-size: var(--dds-grid-xs-gutter-size);
+  $dds-grid-xs-count: var(--dds-grid-xs-count);
+  $dds-grid-sm-gutter-size: var(--dds-grid-sm-gutter-size);
+  $dds-grid-sm-count: var(--dds-grid-sm-count);
+  $dds-grid-lg-gutter-size: var(--dds-grid-lg-gutter-size);
+  $dds-grid-lg-count: var(--dds-grid-lg-count);
+  $dds-grid-md-gutter-size: var(--dds-grid-md-gutter-size);
+  $dds-grid-md-count: var(--dds-grid-md-count);
+  $dds-grid-xl-gutter-size: var(--dds-grid-xl-gutter-size);
+  $dds-grid-xl-count: var(--dds-grid-xl-count);
+  $dds-size-icon-large: var(--dds-size-icon-large);
+  $dds-size-icon-medium: var(--dds-size-icon-medium);
+  $dds-size-icon-small: var(--dds-size-icon-small);
+  $dds-size-icon-component: var(--dds-size-icon-component); /* Brukes i komponenter. Relativ til tekststørrelsen */
+  $dds-breakpoint-xs: var(--dds-breakpoint-xs);
+  $dds-breakpoint-sm: var(--dds-breakpoint-sm);
+  $dds-breakpoint-md: var(--dds-breakpoint-md);
+  $dds-breakpoint-lg: var(--dds-breakpoint-lg);
+  $dds-breakpoint-xl: var(--dds-breakpoint-xl);
+  $dds-font-family-sans-domstol: var(--dds-font-family-sans-domstol);
+  $dds-font-family-sans-supreme: var(--dds-font-family-sans-supreme);
+  $dds-font-family-serif-supreme: var(--dds-font-family-serif-supreme);
+  $dds-font-family-monospace: var(--dds-font-family-monospace); /* For kode */
+  $dds-font-size-x5: var(--dds-font-size-x5);
+  $dds-font-size-x4: var(--dds-font-size-x4);
+  $dds-font-size-x3: var(--dds-font-size-x3);
+  $dds-font-size-x2-5: var(--dds-font-size-x2-5);
+  $dds-font-size-x2: var(--dds-font-size-x2);
+  $dds-font-size-x1-5: var(--dds-font-size-x1-5);
+  $dds-font-size-x1-25: var(--dds-font-size-x1-25);
+  $dds-font-size-x1-125: var(--dds-font-size-x1-125);
+  $dds-font-size-x1: var(--dds-font-size-x1);
+  $dds-font-size-x0-875: var(--dds-font-size-x0-875);
+  $dds-font-size-x0-75: var(--dds-font-size-x0-75);
+  $dds-font-weight-light: var(--dds-font-weight-light);
+  $dds-font-weight-regular: var(--dds-font-weight-regular);
+  $dds-font-weight-semi-bold: var(--dds-font-weight-semi-bold);
+  $dds-font-weight-bold: var(--dds-font-weight-bold);
+  $dds-font-lineheight-x1: var(--dds-font-lineheight-x1); /* Brukes på mengetekst og artikler */
+  $dds-font-lineheight-x3: var(--dds-font-lineheight-x3);
+  $dds-font-lineheight-x2: var(--dds-font-lineheight-x2); /* Brukes i komponenter og overskrifter */
+  $dds-font-letter-spacing-tight: var(--dds-font-letter-spacing-tight); /* Brukes på str ×2.5 og større */
+  $dds-font-letter-spacing-normal: var(--dds-font-letter-spacing-normal); /* Brukes på str ×1 og opp til og med ×2 */
+  $dds-font-letter-spacing-loose: var(--dds-font-letter-spacing-loose); /* Brukes på størrelser under ×1 */
+  $dds-font-letter-spacing-xloose: var(--dds-font-letter-spacing-xloose);
+  $dds-font-style-underline: var(--dds-font-style-underline);
+  $dds-font-style-normal: var(--dds-font-style-normal);
+  $dds-font-style-italic: var(--dds-font-style-italic);
+  $dds-font-paragraph-spacing-small: var(--dds-font-paragraph-spacing-small); /* Brukes på str ×1_25 og mindre  */
+  $dds-font-paragraph-spacing-medium: var(--dds-font-paragraph-spacing-medium); /* Brukes på str x1.5, ×2 og ×3  */
+  $dds-font-paragraph-spacing-large: var(--dds-font-paragraph-spacing-large); /* Brukes på str ×3 og større */
+  $dds-font-paragraph-spacing-list: var(--dds-font-paragraph-spacing-list); /* Brukes mellom kulepunkter i lister */
+  $dds-font-paragraph-spacing-heading: var(--dds-font-paragraph-spacing-heading); /* Brukes på på alle headere (bottom) */
+  $dds-zindex-skiptocontent: var(--dds-zindex-skiptocontent); /* Brukes for dds-skiptocontent */
+  $dds-zindex-modal-backdrop: var(--dds-zindex-modal-backdrop); /* Brukes for dds-modal */
+  $dds-zindex-drawer: var(--dds-zindex-drawer); /* Brukes for dds-drawer */
+  $dds-zindex-drawer-backdrop: var(--dds-zindex-drawer-backdrop); /* Brukes for dds-drawer */
+  $dds-zindex-overflowmenu: var(--dds-zindex-overflowmenu); /* Brukes for dds-overflowmenu */
+  $dds-zindex-popover: var(--dds-zindex-popover); /* Brukes for dds-popover og kalender i datepicker */
+  $dds-zindex-tooltip: var(--dds-zindex-tooltip); /* Brukes for dds-tooltip */
+  $dds-zindex-dropdown: var(--dds-zindex-dropdown); /* Dropdown brukes for bl.a søkeforslag, dropdown i select */
+  $dds-zindex-sticky: var(--dds-zindex-sticky); /* Sticky header skal dekke til flat innhold i gruppen (tabell o.l.). Den skal legge seg under elementer som stiller med egne flater */
+  $dds-zindex-absolute-element: var(--dds-zindex-absolute-element); /* Dekorative elementer med absolutt posisjon, som ellers hadde blitt skjult bak forelder */
+  $dds-size-height-input-large: var(--dds-size-height-input-large); /* Brukes i input og buttons */
+  $dds-size-height-input-medium: var(--dds-size-height-input-medium); /* Brukes i input og buttons */
+  $dds-size-height-input-small: var(--dds-size-height-input-small); /* Brukes i input og buttons */
+  $dds-size-height-input-xsmall: var(--dds-size-height-input-xsmall); /* Brukes i input og buttons */
   $dds-font-label-medium: var(--dds-font-label-medium); /* Label for form components */
   $dds-font-body-long-xsmall: var(--dds-font-body-long-xsmall); /* Xsmall body text for editorial content */
   $dds-font-body-long-small: var(--dds-font-body-long-small); /* Small body text for editorial content */
@@ -362,7 +369,3 @@
   $dds-font-body-short-small-paragraph-spacing: var(--dds-font-body-short-small-paragraph-spacing);
   $dds-font-body-short-xsmall-letter-spacing: var(--dds-font-body-short-xsmall-letter-spacing);
   $dds-font-body-short-xsmall-paragraph-spacing: var(--dds-font-body-short-xsmall-paragraph-spacing);
-  $dds-size-height-input-large: var(--dds-size-height-input-large); /* Brukes i input og buttons */
-  $dds-size-height-input-medium: var(--dds-size-height-input-medium); /* Brukes i input og buttons */
-  $dds-size-height-input-small: var(--dds-size-height-input-small); /* Brukes i input og buttons */
-  $dds-size-height-input-xsmall: var(--dds-size-height-input-xsmall); /* Brukes i input og buttons */
