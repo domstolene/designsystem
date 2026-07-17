@@ -128,7 +128,7 @@ export const Oversikt = meta.story({
           >
             <Icon iconSize="large" icon={icon} color="icon-default" />
             <Typography
-              typographyType="bodyShortXsmall"
+              typographyType="body-short-xsmall"
               className={styles.card__name}
             >
               {trimmedName}
@@ -142,7 +142,7 @@ export const Oversikt = meta.story({
                 width="max-content"
                 padding="x0.125"
               >
-                <Typography typographyType="bodyShortXsmall">
+                <Typography typographyType="body-short-xsmall">
                   ✨ animert
                 </Typography>
               </Box>
@@ -168,7 +168,7 @@ export const Oversikt = meta.story({
           xl: '1350px',
         }}
       >
-        <Typography typographyType="bodyShortSmall">
+        <Typography typographyType="body-short-small">
           Antall ikoner: {Object.keys(icons).length}
         </Typography>
         <LocalMessage>
@@ -214,7 +214,7 @@ export const Oversikt = meta.story({
                 <HStack
                   as={Heading}
                   level={3}
-                  typographyType="headingSmall"
+                  typographyType="heading-small"
                   justifyContent="space-between"
                   paddingInline=" x0.5"
                   alignItems="center"
@@ -250,7 +250,7 @@ export const Oversikt = meta.story({
                 <HStack
                   as={Heading}
                   level={3}
-                  typographyType="headingSmall"
+                  typographyType="heading-small"
                   justifyContent="space-between"
                   paddingInline=" x0.5 0"
                   alignItems="center"

@@ -4,18 +4,21 @@ import {
 } from '../../../types';
 import {
   type CommonBlockTypographyProps,
+  TG_BODY_TYPES,
+  TG_LEAD_TYPES,
   Typography,
-  type TypographyBodyType,
-  type TypographyLeadType,
 } from '../Typography';
+
+export const TG_PARAGRAPH_TYPES = [...TG_BODY_TYPES, ...TG_LEAD_TYPES] as const;
+type TypographyParagraphType = (typeof TG_PARAGRAPH_TYPES)[number];
 
 export type ParagraphProps = BaseComponentPropsWithChildren<
   HTMLParagraphElement,
   {
     /** Spesifiserer typografistil basert på utvalget for brødtekst og ingress.
-     * @default 'BodyLongMedium'
+     * @default 'body-long-medium'
      */
-    typographyType?: TypographyBodyType | TypographyLeadType;
+    typographyType?: TypographyParagraphType;
   } & CommonBlockTypographyProps
 >;
 
@@ -25,7 +28,7 @@ export const Paragraph = ({
   style,
   htmlProps,
   children,
-  typographyType = 'bodyLongMedium',
+  typographyType = 'body-long-medium',
   ...rest
 }: ParagraphProps) => {
   return (

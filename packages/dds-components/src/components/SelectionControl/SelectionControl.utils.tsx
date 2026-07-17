@@ -2,6 +2,6 @@ import { type TypographyProps } from '../Typography';
 
 export const selectionControlTypographyProps: TypographyProps = {
   color: 'inherit',
-  typographyType: 'bodyShortMedium',
+  typographyType: 'body-short-medium',
   as: 'span',
 };

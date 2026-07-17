@@ -227,7 +227,7 @@ export const Popover = ({
       {header && (
         <div className={styles.header}>
           {typeof header === 'string' ? (
-            <Heading level={2} typographyType="headingMedium">
+            <Heading level={2} typographyType="heading-medium">
               {header}
             </Heading>
           ) : (

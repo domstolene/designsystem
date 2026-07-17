@@ -42,7 +42,7 @@ export function EmptyContent({
         className={typographyStyles['text-color--medium']}
       >
         {headerText && (
-          <Heading level={headerHeadingLevel} typographyType="headingMedium">
+          <Heading level={headerHeadingLevel} typographyType="heading-medium">
             {headerText}
           </Heading>
         )}

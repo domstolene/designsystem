@@ -13,7 +13,7 @@ import baseStyles from '../../helpers/AccordionBase/AccordionBase.module.css';
 import { focusable } from '../../helpers/styling/focus.module.css';
 import { Icon } from '../../Icon';
 import { AnimatedChevronUpDownIcon } from '../../Icon/icons/animated';
-import { type StaticTypographyType, getTypographyCn } from '../../Typography';
+import { type StaticTypographyType } from '../../Typography';
 import typographyStyles from '../../Typography/typographyStyles.module.css';
 
 export type CardExpandableHeaderProps = Omit<
@@ -38,7 +38,7 @@ export const CardExpandableHeader = ({
   style,
   htmlProps,
   padding,
-  typographyType = 'headingLarge',
+  typographyType = 'heading-large',
   bold,
   ...rest
 }: CardExpandableHeaderProps) => {
@@ -75,7 +75,7 @@ export const CardExpandableHeader = ({
         style={containerStyleVariables}
         className={cn(
           styles['header-container'],
-          typographyStyles[getTypographyCn(typographyType)],
+          typographyStyles[typographyType],
           bold && typographyStyles.bold,
         )}
       >

@@ -56,7 +56,7 @@ export const ToggleBar = <T extends string | number = string>(
         aria-labelledby={labelId ?? htmlProps?.['aria-labelledby']}
       >
         {label && (
-          <Typography id={labelId} as="span" typographyType="labelMedium">
+          <Typography id={labelId} as="span" typographyType="label-medium">
             {label}
           </Typography>
         )}

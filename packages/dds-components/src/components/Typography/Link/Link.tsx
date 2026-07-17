@@ -11,7 +11,6 @@ import {
   type CommonInlineTypographyProps,
   type TypographyBodyType,
   getColorCn,
-  getTypographyCn,
 } from '../Typography';
 import tgStyles from '../typographyStyles.module.css';
 
@@ -75,10 +74,10 @@ export const Link = <T extends ElementType = 'a'>({
           tgStyles.a,
           withIconStyling && tgStyles['a--with-icon'],
           withVisited && tgStyles['a--visited'],
-          typographyType && tgStyles[getTypographyCn(typographyType)],
+          typographyType && tgStyles[typographyType],
           typographyType &&
             withMargins &&
-            tgStyles[`${getTypographyCn(typographyType)}--margins`],
+            tgStyles[`${typographyType}--margins`],
           focusable,
           getColorCn(color),
         ),

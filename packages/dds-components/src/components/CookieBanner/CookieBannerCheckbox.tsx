@@ -35,10 +35,10 @@ export function CookieBannerCheckbox({
       )}
     >
       <VStack gap="x0.5">
-        <Typography as="span" typographyType="headingSmall">
+        <Typography as="span" typographyType="heading-small">
           {headerText}
         </Typography>
-        <Typography as="span" typographyType="bodyLongSmall">
+        <Typography as="span" typographyType="body-long-small">
           {description}
         </Typography>
       </VStack>

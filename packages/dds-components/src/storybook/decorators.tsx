@@ -79,7 +79,9 @@ export const windowWidthDecorator = (Story: ReactNode, intro?: string) => {
           {width}px
         </span>
       </HStack>
-      {intro && <Paragraph typographyType="bodyShortSmall">{intro}</Paragraph>}
+      {intro && (
+        <Paragraph typographyType="body-short-small">{intro}</Paragraph>
+      )}
       {Story}
     </VStack>
   );

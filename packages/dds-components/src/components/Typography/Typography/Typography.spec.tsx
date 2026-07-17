@@ -10,11 +10,11 @@ describe('<Typography>', () => {
     expect(screen.getByText(text)).toBeInTheDocument();
   });
   it('renders heading', () => {
-    render(<Typography typographyType="headingSmall" />);
+    render(<Typography typographyType="heading-small" />);
     expect(screen.getByRole('heading')).toBeInTheDocument();
   });
   it('renders paragraph', () => {
-    render(<Typography typographyType="bodyLongSmall" />);
+    render(<Typography typographyType="body-long-small" />);
     expect(screen.getByRole('paragraph')).toBeInTheDocument();
   });
   it('renders button', () => {
