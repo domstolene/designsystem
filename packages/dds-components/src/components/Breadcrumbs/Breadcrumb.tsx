@@ -3,8 +3,7 @@ import { type ComponentPropsWithRef, type Ref } from 'react';
 import { Link } from '../Typography';
 
 export type BreadcrumbProps =
-  | ComponentPropsWithRef<'a'>
-  | ComponentPropsWithRef<'span'>;
+  ComponentPropsWithRef<'a'> | ComponentPropsWithRef<'span'>;
 
 export const isAnchorTypographyProps = (
   props: BreadcrumbProps,

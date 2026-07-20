@@ -5,20 +5,13 @@ import { type TextColor } from '../../../utils/color';
 import { type ResponsiveProps } from '../../layout';
 
 export type TypographyBodyShortType =
-  | 'bodyShortXsmall'
-  | 'bodyShortSmall'
-  | 'bodyShortMedium'
-  | 'bodyShortLarge';
+  'bodyShortXsmall' | 'bodyShortSmall' | 'bodyShortMedium' | 'bodyShortLarge';
 
 export type TypographyBodyLongType =
-  | 'bodyLongXsmall'
-  | 'bodyLongSmall'
-  | 'bodyLongMedium'
-  | 'bodyLongLarge';
+  'bodyLongXsmall' | 'bodyLongSmall' | 'bodyLongMedium' | 'bodyLongLarge';
 
 export type TypographyBodyType =
-  | TypographyBodyLongType
-  | TypographyBodyShortType;
+  TypographyBodyLongType | TypographyBodyShortType;
 
 export const TG_HEADING_TYPES = [
   'headingXxsmall',
@@ -39,14 +32,10 @@ export type TypographyAnchorType = 'a';
 export type TypographyLabelType = 'labelMedium';
 
 export type OtherTypographyType =
-  | TypographyHeadingType
-  | TypographyBodyType
-  | TypographyLeadType;
+  TypographyHeadingType | TypographyBodyType | TypographyLeadType;
 
 export type TypographyType =
-  | TypographyAnchorType
-  | TypographyLabelType
-  | OtherTypographyType;
+  TypographyAnchorType | TypographyLabelType | OtherTypographyType;
 
 export type StaticTypographyType = OtherTypographyType | TypographyLabelType;
 
