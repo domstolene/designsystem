@@ -5,6 +5,14 @@
     {
       "matchManagers": ["npm"],
       "enabled": false
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "enabled": false
+    },
+    {
+      "matchManagers": ["volta"],
+      "enabled": true
     }
   ]
 }
