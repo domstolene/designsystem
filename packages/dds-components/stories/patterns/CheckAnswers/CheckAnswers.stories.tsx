@@ -111,7 +111,7 @@ export const CheckAnswers = meta.story({
           }}
         >
           <Fieldset>
-            <Legend withMarginsOverInput typographyType="headingMedium">
+            <Legend withMarginsOverInput typographyType="heading-medium">
               Møte nr 1
             </Legend>
             <FieldsetGroup>
@@ -130,7 +130,7 @@ export const CheckAnswers = meta.story({
             </FieldsetGroup>
           </Fieldset>
           <Fieldset>
-            <Legend withMarginsOverInput typographyType="headingMedium">
+            <Legend withMarginsOverInput typographyType="heading-medium">
               Møte nr 2
             </Legend>
             <FieldsetGroup>
@@ -282,12 +282,12 @@ export const CheckAnswers = meta.story({
             <Heading withMargins level={1}>
               Navn på skjema
             </Heading>
-            <Paragraph typographyType="leadMedium" withMargins>
+            <Paragraph typographyType="lead-medium" withMargins>
               Dette er et eksempel på en ingress. Den består ofte av et par
               setninger. En setning til.
             </Paragraph>
             <Paragraph
-              typographyType="bodyLongSmall"
+              typographyType="body-long-small"
               color="text-subtle"
               withMargins
             >

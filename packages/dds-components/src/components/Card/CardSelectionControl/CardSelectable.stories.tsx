@@ -151,7 +151,7 @@ export const ComplexContent = meta.story({
       <VStack gap="x1">
         <CardSelectable {...args}>
           <VStack gap="x0.5">
-            <Typography as="span" typographyType="headingSmall">
+            <Typography as="span" typographyType="heading-small">
               Overskrift
             </Typography>
             <Typography as="span">

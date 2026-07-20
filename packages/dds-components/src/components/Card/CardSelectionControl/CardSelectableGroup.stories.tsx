@@ -77,7 +77,7 @@ export const WithLabel = meta.story({
   render: args => {
     return (
       <VStack gap="x0.75">
-        <Typography typographyType="headingSmall" as="span" id="label-1">
+        <Typography typographyType="heading-small" as="span" id="label-1">
           Gruppeledetekst
         </Typography>
         <CardSelectableGroup {...args} aria-labelledby="label-1">
@@ -99,7 +99,7 @@ export const WithCustomTip = meta.story({
   render: args => {
     return (
       <VStack gap="x0.75">
-        <Typography typographyType="headingSmall" as="span" id="label-1">
+        <Typography typographyType="heading-small" as="span" id="label-1">
           Gruppeledetekst
         </Typography>
         <Typography id="tip-1">Hjelpetekst</Typography>
@@ -143,7 +143,7 @@ export const WithErrorMessage = meta.story({
     return (
       <>
         <VStack gap="x0.75">
-          <Typography typographyType="headingSmall" as="span" id="label-1">
+          <Typography typographyType="heading-small" as="span" id="label-1">
             Gruppeledetekst
           </Typography>
           <CardSelectableGroup {...args} aria-labelledby="label-1">
@@ -168,7 +168,7 @@ export const ControlledRadio = meta.story({
     return (
       <>
         <VStack gap="x0.75">
-          <Typography typographyType="headingSmall" as="span" id="label-1">
+          <Typography typographyType="heading-small" as="span" id="label-1">
             Gruppeledetekst
           </Typography>
           <CardSelectableGroup

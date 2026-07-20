@@ -13,14 +13,16 @@ import { focusable } from '../helpers/styling/focus.module.css';
 import { Icon } from '../Icon';
 import { AnimatedChevronUpDownIcon } from '../Icon/icons/animated';
 import { Box } from '../layout';
-import { type StaticTypographyType, getTypographyCn } from '../Typography';
+import { type StaticTypographyType } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export type AccordionHeaderProps = Omit<
   BaseComponentPropsWithChildren<
     HTMLButtonElement,
     {
-      /**Overskriver default teksttype. */
+      /**Overskriver default teksttype.
+       * @default 'heading-medium'
+       */
       typographyType?: StaticTypographyType;
       /**Angir om teksten skal være i "bold"-format. */
       bold?: boolean;
@@ -35,7 +37,7 @@ export const AccordionHeader = ({
   className,
   style,
   htmlProps,
-  typographyType = 'headingMedium',
+  typographyType = 'heading-medium',
   bold,
   ...rest
 }: AccordionHeaderProps) => {
@@ -64,7 +66,7 @@ export const AccordionHeader = ({
       <div
         className={cn(
           baseStyles.header__content,
-          typographyStyles[getTypographyCn(typographyType)],
+          typographyStyles[typographyType],
           bold && typographyStyles.bold,
         )}
       >

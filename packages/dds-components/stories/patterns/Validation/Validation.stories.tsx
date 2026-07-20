@@ -67,13 +67,13 @@ export const SimpleWithErrors = meta.story({
             <Heading level={1} withMargins>
               Navn på skjema
             </Heading>
-            <Paragraph withMargins typographyType="leadMedium">
+            <Paragraph withMargins typographyType="lead-medium">
               Dette er et eksempel på en ingress. Den består ofte av et par
               setninger. En setning til.
             </Paragraph>
             <Paragraph
               withMargins
-              typographyType="bodyLongSmall"
+              typographyType="body-long-small"
               color="text-subtle"
             >
               Obligatoriske felter er merket med{' '}
@@ -440,12 +440,12 @@ export const Wizard = meta.story({
             <Heading withMargins level={1}>
               Navn på skjema
             </Heading>
-            <Paragraph typographyType="leadMedium" withMargins>
+            <Paragraph typographyType="lead-medium" withMargins>
               Dette er et eksempel på en ingress. Den består ofte av et par
               setninger. En setning til.
             </Paragraph>
             <Paragraph
-              typographyType="bodyLongSmall"
+              typographyType="body-long-small"
               color="text-subtle"
               withMargins
             >

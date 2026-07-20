@@ -74,7 +74,7 @@ export function CookieBanner({
     headerText && (id ?? `cookie-banner-${generatedId}-heading`);
 
   const heading = headerText ? (
-    <Heading level={2} typographyType="headingMedium" id={headingId}>
+    <Heading level={2} typographyType="heading-medium" id={headingId}>
       {headerText}
     </Heading>
   ) : (

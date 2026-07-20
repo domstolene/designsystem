@@ -81,7 +81,7 @@ export const renderGroupLabel = ({
     return (
       <Typography
         as="span"
-        typographyType="labelMedium"
+        typographyType="label-medium"
         id={id}
         className={readOnly ? labelStyles['read-only'] : undefined}
         withMargins

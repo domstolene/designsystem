@@ -37,7 +37,7 @@ export const Overview = meta.story({
         <div>
           <Typography
             as="div"
-            typographyType="labelMedium"
+            typographyType="label-medium"
             style={{ maxWidth: '100px' }}
           >
             {typographyType} {listType}
@@ -65,10 +65,10 @@ export const Overview = meta.story({
 
     const VariantOverview = (listType: Props['listType']) => (
       <StoryHStack>
-        {ListVariant({ typographyType: 'bodyLongXsmall', listType })}
-        {ListVariant({ typographyType: 'bodyLongSmall', listType })}
-        {ListVariant({ typographyType: 'bodyLongMedium', listType })}
-        {ListVariant({ typographyType: 'bodyLongLarge', listType })}
+        {ListVariant({ typographyType: 'body-long-xsmall', listType })}
+        {ListVariant({ typographyType: 'body-long-small', listType })}
+        {ListVariant({ typographyType: 'body-long-medium', listType })}
+        {ListVariant({ typographyType: 'body-long-large', listType })}
       </StoryHStack>
     );
     return (

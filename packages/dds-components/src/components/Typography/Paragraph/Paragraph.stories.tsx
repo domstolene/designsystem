@@ -1,5 +1,6 @@
 import preview from '#.storybook/preview';
 
+import { TG_PARAGRAPH_TYPES } from './Paragraph';
 import { ddsProviderDecorator } from '../../../storybook';
 import { StoryVStack } from '../../layout/Stack/storybook-utils';
 import { blockTgCommonArgTypes } from '../storybook-utils/storyUtils';
@@ -25,33 +26,11 @@ export const Preview = meta.story({
 export const Overview = meta.story({
   render: args => (
     <StoryVStack>
-      <Paragraph {...args} typographyType="bodyShortXsmall">
-        {args.children || 'bodyShortXsmall'}
-      </Paragraph>
-      <Paragraph {...args} typographyType="bodyShortSmall">
-        {args.children || 'bodyShortSmall'}
-      </Paragraph>
-      <Paragraph {...args} typographyType="bodyShortMedium">
-        {args.children || 'bodyShortMedium'}
-      </Paragraph>
-      <Paragraph {...args} typographyType="bodyShortLarge">
-        {args.children || 'bodyShortLarge'}
-      </Paragraph>
-      <Paragraph {...args} typographyType="bodyLongXsmall">
-        {args.children || 'bodyLongXsmall'}
-      </Paragraph>
-      <Paragraph {...args} typographyType="bodyLongSmall">
-        {args.children || 'bodyLongSmall'}
-      </Paragraph>
-      <Paragraph {...args} typographyType="bodyLongMedium">
-        {args.children || 'bodyLongMedium'}
-      </Paragraph>
-      <Paragraph {...args} typographyType="bodyLongLarge">
-        {args.children || 'bodyLongLarge'}
-      </Paragraph>
-      <Paragraph {...args} typographyType="leadMedium">
-        {args.children || 'leadMedium'}
-      </Paragraph>
+      {TG_PARAGRAPH_TYPES.map(type => (
+        <Paragraph key={type} {...args} typographyType={type}>
+          {args.children || type}
+        </Paragraph>
+      ))}
     </StoryVStack>
   ),
 });

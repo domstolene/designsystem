@@ -99,7 +99,7 @@ export const ComplexContent = meta.story({
   },
   render: args => (
     <LocalMessage {...args} layout="vertical" closable>
-      <Heading level={2} typographyType="headingLarge" withMargins>
+      <Heading level={2} typographyType="heading-large" withMargins>
         Dette er en viktig melding
       </Heading>
       <Paragraph withMargins>Meldingen har en liste i seg:</Paragraph>

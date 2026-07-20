@@ -6,7 +6,7 @@ import {
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
-import { type TypographyBodyLongType, getTypographyCn } from '../Typography';
+import { type TypographyBodyLongType } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export type ListType = 'ordered' | 'unordered';
@@ -46,7 +46,7 @@ export const List = ({
         styles[`list--${listType}`],
         typographyType === 'inherit'
           ? styles['list--inherit']
-          : typographyStyles[getTypographyCn(typographyType)],
+          : typographyStyles[typographyType],
       )}
     >
       {children}

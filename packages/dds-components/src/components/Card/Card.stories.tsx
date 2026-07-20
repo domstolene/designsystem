@@ -73,7 +73,7 @@ export const Overview = meta.story({
       <StoryVStack>
         <Card {...args} cardType="info">
           <div className="story-container-padding">
-            <Heading level={2} typographyType="headingLarge">
+            <Heading level={2} typographyType="heading-large">
               Info
             </Heading>
             {body}
@@ -81,7 +81,7 @@ export const Overview = meta.story({
         </Card>
         <Card {...args} cardType="navigation" href="#">
           <div className="story-container-padding">
-            <Heading level={2} typographyType="headingLarge">
+            <Heading level={2} typographyType="heading-large">
               Navigation
             </Heading>
             {body}
@@ -99,7 +99,7 @@ export const Overview = meta.story({
       <StoryVStack>
         <Card {...args} cardType="info" appearance="border">
           <div className="story-container-padding">
-            <Heading level={2} typographyType="headingLarge">
+            <Heading level={2} typographyType="heading-large">
               Info
             </Heading>
             {body}
@@ -107,7 +107,7 @@ export const Overview = meta.story({
         </Card>
         <Card {...args} appearance="border" cardType="navigation" href="#">
           <div className="story-container-padding">
-            <Heading level={2} typographyType="headingLarge">
+            <Heading level={2} typographyType="heading-large">
               Navigation
             </Heading>
             {body}
@@ -190,7 +190,7 @@ export const ExpandableCustom = meta.story({
     <Card {...args} cardType="expandable" appearance="border">
       <CardExpandable>
         <CardExpandableHeader
-          typographyType="headingXsmall"
+          typographyType="heading-xsmall"
           padding="4px 12px"
           bold
           className="custom-header"
@@ -198,7 +198,7 @@ export const ExpandableCustom = meta.story({
           Dekning av reiseutgifter
         </CardExpandableHeader>
         <CardExpandableBody padding="16px 12px">
-          <Paragraph typographyType="bodyLongSmall">
+          <Paragraph typographyType="body-long-small">
             I sivile saker avtales dekning av utgifter med den part som innkalte
             deg. I straffesaker har du krav på reise- og kostgodtgjørelse (
             <Link href="#">

@@ -153,7 +153,7 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
       </Box>
       <Typography
         as="div"
-        typographyType="bodyShortMedium"
+        typographyType="body-short-medium"
         className={cn(
           styles['item-text'],
           typographyStyles['a--nested__child'],
