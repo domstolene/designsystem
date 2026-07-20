@@ -16,6 +16,10 @@
       "enabled": false
     },
     {
+      "matchDatasources": ["npm"],
+      "minimumReleaseAge": "7 days"
+    },
+    {
       "matchManagers": ["github-actions"],
       "enabled": false
     }
