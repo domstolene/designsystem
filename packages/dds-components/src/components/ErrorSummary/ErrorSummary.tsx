@@ -31,13 +31,13 @@ export const ErrorSummary = ({
   const { t } = useTranslation();
   const heading =
     typeof pHeading === 'string' ? (
-      <Heading level={2} typographyType="headingSmall">
+      <Heading level={2} typographyType="heading-small">
         {pHeading}
       </Heading>
     ) : pHeading ? (
       pHeading
     ) : (
-      <Heading level={2} typographyType="headingSmall">
+      <Heading level={2} typographyType="heading-small">
         {t(texts.toProceedCorrectErrors)}
       </Heading>
     );

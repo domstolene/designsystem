@@ -3,6 +3,7 @@ import preview from '#.storybook/preview';
 import { ddsProviderDecorator } from '../../../storybook';
 import { StoryVStack } from '../../layout/Stack/storybook-utils';
 import { blockTgCommonArgTypes } from '../storybook-utils/storyUtils';
+import { TG_HEADING_TYPES } from '../Typography';
 
 import { Heading } from '.';
 
@@ -51,27 +52,11 @@ export const TypographyStyles = meta.story({
   args: { level: 1 },
   render: args => (
     <StoryVStack>
-      <Heading {...args} level={1} typographyType="headingXxlarge">
-        headingXxlarge
-      </Heading>
-      <Heading {...args} level={1} typographyType="headingXlarge">
-        headingXlarge
-      </Heading>
-      <Heading {...args} level={1} typographyType="headingLarge">
-        headingLarge
-      </Heading>
-      <Heading {...args} level={1} typographyType="headingMedium">
-        headingMedium
-      </Heading>
-      <Heading {...args} level={1} typographyType="headingSmall">
-        headingSmall
-      </Heading>
-      <Heading {...args} level={1} typographyType="headingXsmall">
-        headingXsmall
-      </Heading>
-      <Heading {...args} level={1} typographyType="headingXxsmall">
-        headingXxsmall
-      </Heading>
+      {TG_HEADING_TYPES.map(tg => (
+        <Heading key={tg} {...args} typographyType={tg}>
+          {tg}
+        </Heading>
+      ))}
     </StoryVStack>
   ),
 });

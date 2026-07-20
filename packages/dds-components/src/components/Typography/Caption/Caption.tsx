@@ -20,7 +20,7 @@ export const Caption = ({
   return (
     <Typography
       {...getBaseHTMLProps(id, className, style, htmlProps, rest)}
-      typographyType="headingLarge"
+      typographyType="heading-large"
       as="caption"
     >
       {children}

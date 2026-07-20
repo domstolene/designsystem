@@ -23,6 +23,8 @@ export default create({
 
   //UI
   appBorderRadius: theme.ddsBorderRadiusSurfaceNumberPx,
+  barSelectedColor: theme.ddsColorSurfaceActionSelected,
+  barTextColor: theme.ddsColorTextDefault,
 });
 
 /**------------------------------------------------------------------------

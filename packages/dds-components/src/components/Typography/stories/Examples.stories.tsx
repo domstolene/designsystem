@@ -13,7 +13,7 @@ export const Article = meta.story(() => {
       <Heading level={1} withMargins>
         Vitne
       </Heading>
-      <Paragraph typographyType="leadMedium" withMargins>
+      <Paragraph typographyType="lead-medium" withMargins>
         Et vitne har sett, hørt eller erfart noe av betydning for en rettssak.
         Denne siden er for deg som skal vitne i en straffesak eller en sivil
         sak.

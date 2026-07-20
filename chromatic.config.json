@@ -9,6 +9,7 @@
     ".prettierrc",
     ".*ignore",
     "eslint.config.mjs",
+    "renovate.json",
     "turbo.json",
     "opencode.jsonc",
     "**/*.yaml",
@@ -21,6 +22,7 @@
     ".github/**",
     ".changeset/**",
     "packages/dds-formatting/**",
-    "packages/storybook-components/**"
+    "packages/storybook-components/**",
+    ".storybook/manager*"
   ]
 }

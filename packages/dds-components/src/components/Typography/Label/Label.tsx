@@ -64,13 +64,13 @@ export const Label = ({
   };
   const render = afterLabelContent ? (
     <Typography
-      typographyType="labelMedium"
+      typographyType="label-medium"
       as="div"
       withMargins={rest.withMargins}
     >
       <Typography
         {...labelProps}
-        typographyType="labelMedium"
+        typographyType="label-medium"
         withMargins={false}
       >
         {content}
@@ -78,7 +78,7 @@ export const Label = ({
       {afterLabelContent}
     </Typography>
   ) : (
-    <Typography {...labelProps} typographyType="labelMedium">
+    <Typography {...labelProps} typographyType="label-medium">
       {content}
     </Typography>
   );

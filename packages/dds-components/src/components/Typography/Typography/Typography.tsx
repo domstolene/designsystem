@@ -10,7 +10,6 @@ import {
 import {
   getColorCn,
   getElementType,
-  getTypographyCn,
   isCaption,
   isLegend,
 } from './Typography.utils';
@@ -69,7 +68,7 @@ const isAnchorProps = (
 
 export const Typography = (props: TypographyProps) => {
   const {
-    typographyType = 'bodyLongMedium',
+    typographyType = 'body-long-medium',
     as: propAs,
     children,
     bold,
@@ -85,7 +84,6 @@ export const Typography = (props: TypographyProps) => {
   } = props;
 
   const as = propAs ? propAs : getElementType(typographyType);
-  const typographyCn = getTypographyCn(typographyType);
 
   let relProp;
   if (isAnchorProps(props)) {
@@ -100,8 +98,8 @@ export const Typography = (props: TypographyProps) => {
           className,
           getColorCn(color),
           styles.container,
-          typographyStyles[typographyCn],
-          withMargins && typographyStyles[`${typographyCn}--margins`],
+          typographyStyles[typographyType],
+          withMargins && typographyStyles[`${typographyType}--margins`],
           isLegend(as) && typographyStyles.legend,
           isCaption(as) && typographyStyles.caption,
           isCaption(as) &&

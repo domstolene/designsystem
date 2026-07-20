@@ -17,19 +17,19 @@ const getHeadingElement = (level: HeadingLevel): ElementType => `h${level}`;
 const getDefaultTypographyType = (h: ElementType): TypographyHeadingType => {
   switch (h) {
     case 'h1':
-      return 'headingXlarge';
+      return 'heading-xlarge';
     case 'h2':
-      return 'headingLarge';
+      return 'heading-large';
     case 'h3':
-      return 'headingMedium';
+      return 'heading-medium';
     case 'h4':
-      return 'headingSmall';
+      return 'heading-small';
     case 'h5':
-      return 'headingXsmall';
+      return 'heading-xsmall';
     case 'h6':
-      return 'headingXxsmall';
+      return 'heading-xxsmall';
     default:
-      return 'headingXlarge';
+      return 'heading-xlarge';
   }
 };
 

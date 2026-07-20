@@ -4,32 +4,50 @@ import { type ExtractStrict } from '../../../types';
 import { type TextColor } from '../../../utils/color';
 import { type ResponsiveProps } from '../../layout';
 
-export type TypographyBodyShortType =
-  'bodyShortXsmall' | 'bodyShortSmall' | 'bodyShortMedium' | 'bodyShortLarge';
+export const TG_BODY_SHORT_TYPES = [
+  'body-short-xsmall',
+  'body-short-small',
+  'body-short-medium',
+  'body-short-large',
+] as const;
 
-export type TypographyBodyLongType =
-  'bodyLongXsmall' | 'bodyLongSmall' | 'bodyLongMedium' | 'bodyLongLarge';
+export const TG_BODY_LONG_TYPES = [
+  'body-long-xsmall',
+  'body-long-small',
+  'body-long-medium',
+  'body-long-large',
+] as const;
 
-export type TypographyBodyType =
-  TypographyBodyLongType | TypographyBodyShortType;
+export const TG_BODY_TYPES = [
+  ...TG_BODY_SHORT_TYPES,
+  ...TG_BODY_LONG_TYPES,
+] as const;
+
+export const TG_LEAD_TYPES = ['lead-medium'] as const;
+
+export type TypographyBodyShortType = (typeof TG_BODY_SHORT_TYPES)[number];
+
+export type TypographyBodyLongType = (typeof TG_BODY_LONG_TYPES)[number];
+
+export type TypographyBodyType = (typeof TG_BODY_TYPES)[number];
 
 export const TG_HEADING_TYPES = [
-  'headingXxsmall',
-  'headingXsmall',
-  'headingSmall',
-  'headingMedium',
-  'headingLarge',
-  'headingXlarge',
-  'headingXxlarge',
+  'heading-xxsmall',
+  'heading-xsmall',
+  'heading-small',
+  'heading-medium',
+  'heading-large',
+  'heading-xlarge',
+  'heading-xxlarge',
 ] as const;
 
 export type TypographyHeadingType = (typeof TG_HEADING_TYPES)[number];
 
-export type TypographyLeadType = 'leadMedium';
+export type TypographyLeadType = (typeof TG_LEAD_TYPES)[number];
 
 export type TypographyAnchorType = 'a';
 
-export type TypographyLabelType = 'labelMedium';
+export type TypographyLabelType = 'label-medium';
 
 export type OtherTypographyType =
   TypographyHeadingType | TypographyBodyType | TypographyLeadType;
@@ -38,26 +56,6 @@ export type TypographyType =
   TypographyAnchorType | TypographyLabelType | OtherTypographyType;
 
 export type StaticTypographyType = OtherTypographyType | TypographyLabelType;
-
-export type HyphenTypographyType =
-  | 'body-short-xsmall'
-  | 'body-short-small'
-  | 'body-short-medium'
-  | 'body-short-large'
-  | 'body-long-xsmall'
-  | 'body-long-small'
-  | 'body-long-medium'
-  | 'body-long-large'
-  | 'heading-xxsmall'
-  | 'heading-xsmall'
-  | 'heading-small'
-  | 'heading-medium'
-  | 'heading-large'
-  | 'heading-xlarge'
-  | 'heading-xxlarge'
-  | 'lead-medium'
-  | 'a'
-  | 'label-medium';
 
 export type InlineElement =
   | 'a'

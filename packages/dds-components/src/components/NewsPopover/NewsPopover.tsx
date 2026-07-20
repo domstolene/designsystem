@@ -212,7 +212,7 @@ export const NewsPopover = ({
       width={styleUpToBreakpoint('100%', smallScreenBreakpoint, '405px')}
     >
       <HStack margin="x0.75 x3 x0.75 x0.75">
-        <Heading id={headerId} level={2} typographyType="headingSmall">
+        <Heading id={headerId} level={2} typographyType="heading-small">
           {header}
         </Heading>
       </HStack>

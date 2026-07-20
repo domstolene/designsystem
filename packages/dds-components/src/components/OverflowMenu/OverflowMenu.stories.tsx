@@ -313,7 +313,7 @@ export const PortalClippingComparison = meta.story({
       <VStack>
         <HStack gap="x2" alignItems="start">
           <VStack gap="x0-5">
-            <Paragraph typographyType="bodyShortMedium">
+            <Paragraph typographyType="body-short-medium">
               Portal (default)
             </Paragraph>
             <div style={clippingBoxStyle}>
@@ -325,7 +325,7 @@ export const PortalClippingComparison = meta.story({
           </VStack>
 
           <VStack gap="x0-5">
-            <Paragraph typographyType="bodyShortMedium">Portal av</Paragraph>
+            <Paragraph typographyType="body-short-medium">Portal av</Paragraph>
             <div style={clippingBoxStyle}>
               <OverflowMenuGroup isInitiallyOpen>
                 <Button icon={MoreVerticalIcon} aria-label="Åpne meny" />

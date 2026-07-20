@@ -199,12 +199,12 @@ export const DataColorsBaseGenerator = () => {
                 background: token.value,
               }}
             />
-            <Heading level={2} typographyType="headingXsmall">
+            <Heading level={2} typographyType="heading-xsmall">
               {tokenName}
             </Heading>
             <Typography
               as="span"
-              typographyType="bodyShortSmall"
+              typographyType="body-short-small"
               color="text-medium"
             >
               {token.value}
@@ -214,7 +214,7 @@ export const DataColorsBaseGenerator = () => {
       }
       categoryContainers.push(
         <div key={key1}>
-          <Heading level={2} withMargins typographyType="headingMedium">
+          <Heading level={2} withMargins typographyType="heading-medium">
             {key1}
           </Heading>
           <HStack as={StylelessList} gap="x1" maxWidth="900px" flexWrap="wrap">
@@ -261,12 +261,12 @@ export const ColorsBaseGenerator = () => {
                 background: token.value,
               }}
             />
-            <Heading level={2} typographyType="headingXsmall">
+            <Heading level={2} typographyType="heading-xsmall">
               {tokenName}
             </Heading>
             <Typography
               as="span"
-              typographyType="bodyShortSmall"
+              typographyType="body-short-small"
               color="text-medium"
             >
               {token.value}
@@ -279,7 +279,7 @@ export const ColorsBaseGenerator = () => {
           <Heading
             level={2}
             withMargins
-            typographyType="headingMedium"
+            typographyType="heading-medium"
             className="category-heading"
           >
             {key1}

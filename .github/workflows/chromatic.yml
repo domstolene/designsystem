@@ -4,18 +4,23 @@ on:
   push:
     paths-ignore:
       - '.prettierrc'
+      - '.*ignore'
       - 'eslint.config.mjs'
+      - 'renovate.json'
       - 'turbo.json'
+      - 'opencode.jsonc'
       - '**/*.yaml'
       - '**/*.yml'
       - '**/*.md'
       - '**/*.mdx'
       - '**/vitest.config.ts'
+      - '**/tsdown.config.ts'
       - '**/*.spec.tsx'
       - '.github/**'
       - '.changeset/**'
       - 'packages/dds-formatting/**'
       - 'packages/storybook-components/**'
+      - '.storybook/manager*'
 
 jobs:
   chromatic:

@@ -1,47 +1,42 @@
 import { type ElementType } from 'react';
 
 import {
-  type HyphenTypographyType,
   type InlineElement,
   TG_HEADING_TYPES,
   type TypographyHeadingType,
   type TypographyType,
 } from './Typography.types';
-import {
-  type TextColor,
-  convertCamelToHyphen,
-  isTextColor,
-} from '../../../utils';
+import { type TextColor, isTextColor } from '../../../utils';
 import typographyStyles from '../typographyStyles.module.css';
 
 export const getElementType = (element: TypographyType): ElementType => {
   switch (element) {
     case 'a':
       return 'a';
-    case 'headingXxsmall':
+    case 'heading-xxsmall':
       return 'h6';
-    case 'headingXsmall':
+    case 'heading-xsmall':
       return 'h5';
-    case 'headingSmall':
+    case 'heading-small':
       return 'h4';
-    case 'headingMedium':
+    case 'heading-medium':
       return 'h3';
-    case 'headingLarge':
+    case 'heading-large':
       return 'h2';
-    case 'headingXlarge':
-    case 'headingXxlarge':
+    case 'heading-xlarge':
+    case 'heading-xxlarge':
       return 'h1';
-    case 'labelMedium':
+    case 'label-medium':
       return 'label';
-    case 'bodyShortXsmall':
-    case 'bodyShortSmall':
-    case 'bodyShortMedium':
-    case 'bodyShortLarge':
-    case 'bodyLongXsmall':
-    case 'bodyLongSmall':
-    case 'bodyLongMedium':
-    case 'bodyLongLarge':
-    case 'leadMedium':
+    case 'body-short-xsmall':
+    case 'body-short-small':
+    case 'body-short-medium':
+    case 'body-short-large':
+    case 'body-long-xsmall':
+    case 'body-long-small':
+    case 'body-long-medium':
+    case 'body-long-large':
+    case 'lead-medium':
     default:
       return 'p';
   }
@@ -119,10 +114,6 @@ export const inlineElements: Array<ElementType> = [
 
 export const isInlineElement = (as: ElementType): as is InlineElement =>
   inlineElements.indexOf(as) !== -1;
-
-export function getTypographyCn(value: TypographyType): HyphenTypographyType {
-  return convertCamelToHyphen(value) as HyphenTypographyType;
-}
 
 export const getColorCn = (color?: TextColor) => {
   if (!isTextColor(color)) return null;

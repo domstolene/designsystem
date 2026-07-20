@@ -189,7 +189,7 @@ export const Drawer = ({
         {hasHeader && (
           <div id={headerId}>
             {typeof header === 'string' ? (
-              <Heading level={2} typographyType="headingLarge">
+              <Heading level={2} typographyType="heading-large">
                 {header}
               </Heading>
             ) : (

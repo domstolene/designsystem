@@ -76,13 +76,13 @@ export const Form = meta.story({
             <Heading level={1} withMargins>
               Navn på skjema
             </Heading>
-            <Paragraph withMargins typographyType="leadMedium">
+            <Paragraph withMargins typographyType="lead-medium">
               Dette er et eksempel på en ingress. Den består ofte av et par
               setninger. En setning til.
             </Paragraph>
             <Paragraph
               withMargins
-              typographyType="bodyLongSmall"
+              typographyType="body-long-small"
               color="text-subtle"
             >
               Obligatoriske felter er merket med{' '}
@@ -199,7 +199,7 @@ export const FormWithSteps = meta.story({
           }}
         >
           <Fieldset>
-            <Legend withMarginsOverInput typographyType="headingMedium">
+            <Legend withMarginsOverInput typographyType="heading-medium">
               Overskrift for gruppe
             </Legend>
 
@@ -214,7 +214,7 @@ export const FormWithSteps = meta.story({
             </FieldsetGroup>
           </Fieldset>
           <Fieldset>
-            <Legend withMarginsOverInput typographyType="headingMedium">
+            <Legend withMarginsOverInput typographyType="heading-medium">
               Overskrift for gruppe
             </Legend>
             <FieldsetGroup>
@@ -228,7 +228,7 @@ export const FormWithSteps = meta.story({
             </FieldsetGroup>
           </Fieldset>
           <Fieldset>
-            <Legend withMarginsOverInput typographyType="headingMedium">
+            <Legend withMarginsOverInput typographyType="heading-medium">
               Adresse
             </Legend>
             <FieldsetGroup>
@@ -272,7 +272,7 @@ export const FormWithSteps = meta.story({
           }}
         >
           <Fieldset>
-            <Legend withMarginsOverInput typographyType="headingMedium">
+            <Legend withMarginsOverInput typographyType="heading-medium">
               Overskrift for gruppe
             </Legend>
             <FieldsetGroup>
@@ -286,7 +286,7 @@ export const FormWithSteps = meta.story({
             </FieldsetGroup>
           </Fieldset>
           <Fieldset>
-            <Legend withMarginsOverInput typographyType="headingMedium">
+            <Legend withMarginsOverInput typographyType="heading-medium">
               Overskrift for gruppe
             </Legend>
             <FieldsetGroup>
@@ -330,12 +330,12 @@ export const FormWithSteps = meta.story({
             <Heading withMargins level={1}>
               Navn på skjema
             </Heading>
-            <Paragraph typographyType="leadMedium" withMargins>
+            <Paragraph typographyType="lead-medium" withMargins>
               Dette er et eksempel på en ingress. Den består ofte av et par
               setninger. En setning til.
             </Paragraph>
             <Paragraph
-              typographyType="bodyLongSmall"
+              typographyType="body-long-small"
               color="text-subtle"
               withMargins
             >
@@ -458,7 +458,7 @@ export const FormWithStepsCustomGrid = meta.story({
         >
           <VStack gap="x1">
             <Fieldset>
-              <Legend withMarginsOverInput typographyType="headingMedium">
+              <Legend withMarginsOverInput typographyType="heading-medium">
                 Overskrift for gruppe
               </Legend>
               <FieldsetGroup>
@@ -472,7 +472,7 @@ export const FormWithStepsCustomGrid = meta.story({
               </FieldsetGroup>
             </Fieldset>
             <Fieldset>
-              <Legend withMarginsOverInput typographyType="headingMedium">
+              <Legend withMarginsOverInput typographyType="heading-medium">
                 Overskrift for gruppe
               </Legend>
               <FieldsetGroup>
@@ -486,7 +486,7 @@ export const FormWithStepsCustomGrid = meta.story({
               </FieldsetGroup>
             </Fieldset>
             <Fieldset>
-              <Legend withMarginsOverInput typographyType="headingMedium">
+              <Legend withMarginsOverInput typographyType="heading-medium">
                 Adresse
               </Legend>
               <FieldsetGroup>
@@ -528,7 +528,7 @@ export const FormWithStepsCustomGrid = meta.story({
           noValidate
         >
           <Fieldset>
-            <Legend withMarginsOverInput typographyType="headingMedium">
+            <Legend withMarginsOverInput typographyType="heading-medium">
               Overskrift for gruppe
             </Legend>
             <FieldsetGroup>
@@ -542,7 +542,7 @@ export const FormWithStepsCustomGrid = meta.story({
             </FieldsetGroup>
           </Fieldset>
           <Fieldset>
-            <Legend withMarginsOverInput typographyType="headingMedium">
+            <Legend withMarginsOverInput typographyType="heading-medium">
               Overskrift for gruppe
             </Legend>
             <FieldsetGroup>
@@ -577,11 +577,11 @@ export const FormWithStepsCustomGrid = meta.story({
           <GridChild>
             <VStack gap="x1">
               <Heading level={1}>Navn på skjema</Heading>
-              <Paragraph typographyType="leadMedium">
+              <Paragraph typographyType="lead-medium">
                 Dette er et eksempel på en ingress. Den består ofte av et par
                 setninger. En setning til.
               </Paragraph>
-              <Paragraph typographyType="bodyLongSmall" color="text-subtle">
+              <Paragraph typographyType="body-long-small" color="text-subtle">
                 Obligatoriske felter er merket med{' '}
                 <Typography as="span" color="text-requiredfield">
                   *
@@ -776,13 +776,13 @@ export const ExitForm = meta.story({
                 <Heading level={1} withMargins>
                   Navn på skjema
                 </Heading>
-                <Paragraph withMargins typographyType="leadMedium">
+                <Paragraph withMargins typographyType="lead-medium">
                   Dette er et eksempel på en ingress. Den består ofte av et par
                   setninger. En setning til.
                 </Paragraph>
                 <Paragraph
                   withMargins
-                  typographyType="bodyLongSmall"
+                  typographyType="body-long-small"
                   color="text-subtle"
                 >
                   Obligatoriske felter er merket med{' '}

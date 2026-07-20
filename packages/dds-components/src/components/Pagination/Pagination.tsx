@@ -353,7 +353,7 @@ export const Pagination = ({
           />
         )}
         {withCounter && (
-          <Paragraph typographyType="bodyShortMedium">
+          <Paragraph typographyType="body-short-medium">
             {t(
               texts.showsAmountOfTotalItems(
                 activePageFirstItem,

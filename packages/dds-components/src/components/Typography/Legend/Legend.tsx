@@ -25,7 +25,7 @@ export const Legend = ({
   className,
   style,
   htmlProps,
-  typographyType = 'headingLarge',
+  typographyType = 'heading-large',
   withMarginsOverInput,
   withMargins,
   ...rest
