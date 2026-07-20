@@ -9,6 +9,7 @@
     ".prettierrc",
     ".*ignore",
     "eslint.config.mjs",
+    "renovate.json",
     "turbo.json",
     "opencode.jsonc",
     "**/*.yaml",
