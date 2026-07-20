@@ -4,15 +4,20 @@
   "packageRules": [
     {
       "matchManagers": ["npm"],
+
+      "matchDepTypes": [
+        "dependencies",
+        "devDependencies",
+        "peerDependencies",
+        "optionalDependencies",
+        "engines",
+        "overrides"
+      ],
       "enabled": false
     },
     {
       "matchManagers": ["github-actions"],
       "enabled": false
-    },
-    {
-      "matchManagers": ["volta"],
-      "enabled": true
     }
   ]
 }
