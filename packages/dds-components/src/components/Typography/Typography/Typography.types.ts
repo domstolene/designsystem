@@ -50,14 +50,10 @@ export type TypographyAnchorType = 'a';
 export type TypographyLabelType = 'label-medium';
 
 export type OtherTypographyType =
-  | TypographyHeadingType
-  | TypographyBodyType
-  | TypographyLeadType;
+  TypographyHeadingType | TypographyBodyType | TypographyLeadType;
 
 export type TypographyType =
-  | TypographyAnchorType
-  | TypographyLabelType
-  | OtherTypographyType;
+  TypographyAnchorType | TypographyLabelType | OtherTypographyType;
 
 export type StaticTypographyType = OtherTypographyType | TypographyLabelType;
 

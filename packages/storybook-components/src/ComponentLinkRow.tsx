@@ -9,10 +9,7 @@ const figmaURLBase =
   'https://www.figma.com/design/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?';
 
 type StorybookFolder =
-  | 'components'
-  | 'layout-primitives'
-  | 'hooks'
-  | 'patterns';
+  'components' | 'layout-primitives' | 'hooks' | 'patterns';
 type CodeFolder = 'components' | 'layout-primitives' | 'hooks';
 
 interface props {

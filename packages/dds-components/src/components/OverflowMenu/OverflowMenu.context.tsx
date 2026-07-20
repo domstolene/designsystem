@@ -16,9 +16,7 @@ import {
 } from '../../hooks';
 
 type FocusableElement =
-  | HTMLButtonElement
-  | HTMLAnchorElement
-  | HTMLInputElement;
+  HTMLButtonElement | HTMLAnchorElement | HTMLInputElement;
 
 interface CommonContextProps {
   isOpen: boolean;

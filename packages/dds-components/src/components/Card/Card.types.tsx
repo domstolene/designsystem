@@ -40,9 +40,7 @@ export type ExpandableCardProps = BaseCardProps<HTMLDivElement> & {
 };
 
 export type CardProps =
-  | InfoCardProps
-  | NavigationCardProps
-  | ExpandableCardProps;
+  InfoCardProps | NavigationCardProps | ExpandableCardProps;
 
 export type CardSelectableType = 'radio' | 'checkbox';
 

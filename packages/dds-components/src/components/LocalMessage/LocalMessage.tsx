@@ -81,9 +81,7 @@ export const LocalMessage = ({
   const [isOpen, setOpen] = useState(true);
 
   type GridLayout =
-    | LocalMessageLayout
-    | 'horisontal-closable'
-    | 'vertical-closable';
+    LocalMessageLayout | 'horisontal-closable' | 'vertical-closable';
 
   const gridLayout: GridLayout = closable ? `${layout}-closable` : layout;
 
