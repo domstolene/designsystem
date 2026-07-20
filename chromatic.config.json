@@ -21,6 +21,7 @@
     ".github/**",
     ".changeset/**",
     "packages/dds-formatting/**",
-    "packages/storybook-components/**"
+    "packages/storybook-components/**",
+    ".storybook/manager*"
   ]
 }
