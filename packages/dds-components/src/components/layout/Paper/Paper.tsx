@@ -12,6 +12,7 @@ import {
 import { cn } from '../../../utils';
 import { Box } from '../../layout/Box/Box';
 import { type ResponsiveProps } from '../common';
+import surfaceStyles from '../common/surface.module.css';
 import { getCSSProperties } from '../common/utils';
 
 export type PaperElevation = Elevation;
@@ -63,7 +64,7 @@ export const Paper = <T extends ElementType = 'div'>({
           className,
           styles.container,
           elevation && styles[`shadow--${elevation}`],
-          borderRadius && styles[`border-radius--${borderRadius}`],
+          surfaceStyles[`border-radius--${borderRadius}`],
           styles.background,
           border && styles.border,
         ),

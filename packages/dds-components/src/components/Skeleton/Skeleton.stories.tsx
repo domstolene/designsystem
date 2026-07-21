@@ -35,7 +35,7 @@ export const Overview = meta.story({
   },
   render: args => (
     <StoryVStack>
-      <Skeleton {...args} borderRadius="var(--dds-border-radius-rounded)" />
+      <Skeleton {...args} borderRadius="rounded" />
       <Skeleton {...args} width="320px" />
     </StoryVStack>
   ),
@@ -46,7 +46,7 @@ export const Example = meta.story({
     <StoryVStack>
       <Skeleton
         {...args}
-        borderRadius="var(--dds-border-radius-rounded)"
+        borderRadius="rounded"
         width="var(--dds-spacing-x4)"
         height="var(--dds-spacing-x4)"
       />
@@ -57,7 +57,7 @@ export const Example = meta.story({
         {...args}
         width="60px"
         height="var(--dds-spacing-x2-5)"
-        borderRadius="var(--dds-border-radius-button)"
+        borderRadius="button"
         style={{ marginTop: 'var(--dds-spacing-x1)' }}
       />
     </StoryVStack>
@@ -103,7 +103,7 @@ export const Responsive = meta.story({
         }}
       >
         <Skeleton
-          borderRadius="var(--dds-border-radius-rounded)"
+          borderRadius="rounded"
           width={{
             xs: '80px',
             sm: '75px',
@@ -174,7 +174,7 @@ export const Responsive = meta.story({
             xl: '110px',
           }}
           height="50px"
-          borderRadius="var(--dds-border-radius-button)"
+          borderRadius="button"
         />
       </Box>
     </VStack>
