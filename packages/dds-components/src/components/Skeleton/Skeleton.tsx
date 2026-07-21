@@ -1,24 +1,23 @@
-import { type Property } from 'csstype';
 import { type ComponentPropsWithRef } from 'react';
 
 import styles from './Skeleton.module.css';
 import { cn } from '../../utils';
-import { Box, type ResponsiveProps } from '../layout';
+import { Box, type PaperBorderRadius, type ResponsiveProps } from '../layout';
 
 export type SkeletonAppearance = 'circle' | 'rectangle';
 
 export type SkeletonProps = {
-  /**CSS border radius.
-   * @default "var(--dds-border-radius-surface)"
+  /**Hvor runde hjørner skal være. Støtter dds tokens.
+   * @default "surface"
    */
-  borderRadius?: Property.BorderRadius;
+  borderRadius?: PaperBorderRadius;
 } & Pick<ResponsiveProps, 'width' | 'height'> &
   ComponentPropsWithRef<'div'>;
 
 export const Skeleton = ({
   width,
   height,
-  borderRadius = 'var(--dds-border-radius-surface)',
+  borderRadius = 'surface',
   className,
   style,
   ref,
