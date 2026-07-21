@@ -65,7 +65,7 @@
     "eslint-plugin-storybook": "10.5.0",
     "eslint-plugin-testing-library": "^7.16.2",
     "postcss-import": "^16.1.1",
-    "postcss-modules": "^6.0.1",
+    "postcss-modules": "^9.0.1",
     "postcss-url": "^10.1.4",
     "prettier": "^3.9.5",
     "react": "19.2.7",
