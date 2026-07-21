@@ -26,6 +26,7 @@ const BACKGROUNDS = [
   'surface-default',
   'surface-subtle',
   'surface-medium',
+  'surface-skeleton',
   'surface-inverse-default',
   'surface-danger-default',
   'surface-danger-strong',

@@ -1,37 +1,30 @@
 import { type ComponentPropsWithRef } from 'react';
 
 import styles from './Skeleton.module.css';
+import { type BorderRadius } from '../..';
 import { cn } from '../../utils';
-import { Box, type PaperBorderRadius, type ResponsiveProps } from '../layout';
-
-export type SkeletonAppearance = 'circle' | 'rectangle';
+import { Paper, type ResponsiveProps } from '../layout';
 
 export type SkeletonProps = {
   /**Hvor runde hjørner skal være. Støtter dds tokens.
    * @default "surface"
    */
-  borderRadius?: PaperBorderRadius;
+  borderRadius?: BorderRadius;
 } & Pick<ResponsiveProps, 'width' | 'height'> &
   ComponentPropsWithRef<'div'>;
 
 export const Skeleton = ({
-  width,
-  height,
   borderRadius = 'surface',
   className,
-  style,
-  ref,
   ...rest
 }: SkeletonProps) => {
   return (
-    <Box
-      width={width}
-      height={height}
-      ref={ref}
+    <Paper
       className={cn(className, styles.container)}
-      style={{ ...style, borderRadius }}
+      borderRadius={borderRadius}
+      background="surface-skeleton"
       {...rest}
-    ></Box>
+    />
   );
 };
 
