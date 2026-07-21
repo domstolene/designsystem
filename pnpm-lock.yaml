@@ -52,7 +52,7 @@ importers:
         version: 10.4.1
       '@tsdown/css':
         specifier: ^0.22.7
-        version: 0.22.7(postcss-import@16.1.1(postcss@8.5.19))(postcss-modules@6.0.1(postcss@8.5.19))(postcss@8.5.19)(sass@1.101.0)(tsdown@0.22.7)
+        version: 0.22.7(postcss-import@16.1.1(postcss@8.5.19))(postcss-modules@9.0.1(postcss@8.5.19))(postcss@8.5.19)(sass@1.101.0)(tsdown@0.22.7)
       '@types/react':
         specifier: ^19.2.17
         version: 19.2.17
@@ -96,8 +96,8 @@ importers:
         specifier: ^16.1.1
         version: 16.1.1(postcss@8.5.19)
       postcss-modules:
-        specifier: ^6.0.1
-        version: 6.0.1(postcss@8.5.19)
+        specifier: ^9.0.1
+        version: 9.0.1(postcss@8.5.19)
       postcss-url:
         specifier: ^10.1.4
         version: 10.1.4(postcss@8.5.19)
@@ -3104,8 +3104,8 @@ packages:
     resolution: {integrity: sha512-YGRs8knHhKHVShLkFET/rWAU8kmHbOV5LwN938RHI0pljAJ1Gf6SzXsSmRaEzcXTtOOmVqJ5+WtQPL5uigY50Q==}
     engines: {node: '>=14'}
 
-  enhanced-resolve@5.24.2:
-    resolution: {integrity: sha512-rpsZEGT1jFuve6QlpyRp9ckQ+kN61hvF9BzCPyMdaKTm8UJce96KBn3sorXOFXlzjPrs3Vc4T1NsSroZ3PxlFw==}
+  enhanced-resolve@5.24.3:
+    resolution: {integrity: sha512-PwKooW9JUzh5chmYfHM3IQl5OkK2u2Nm011MgeZrss3JmFraUx/fqrf78kk8GUMYoibx/14MdwTl/1WKkG7TpQ==}
     engines: {node: '>=10.13.0'}
 
   enquirer@2.4.1:
@@ -4450,8 +4450,9 @@ packages:
     peerDependencies:
       postcss: ^8.1.0
 
-  postcss-modules@6.0.1:
-    resolution: {integrity: sha512-zyo2sAkVvuZFFy0gc2+4O+xar5dYlaVy/ebO24KT0ftk/iJevSNyPyQellsBLlnccwh7f6V6Y4GvuKRYToNgpQ==}
+  postcss-modules@9.0.1:
+    resolution: {integrity: sha512-BrSXxWSls23TzqMuplpeMRL5VHnDOLh2H9EiHNTMIdLBFumJcurDIi47TBuvkn9GsoTLAoPjv2wLzAt1wdQ2aQ==}
+    engines: {node: '>=20.6'}
     peerDependencies:
       postcss: ^8.0.0
 
@@ -6980,7 +6981,7 @@ snapshots:
 
   '@tsconfig/node16@1.0.4': {}
 
-  '@tsdown/css@0.22.7(postcss-import@16.1.1(postcss@8.5.19))(postcss-modules@6.0.1(postcss@8.5.19))(postcss@8.5.19)(sass@1.101.0)(tsdown@0.22.7)':
+  '@tsdown/css@0.22.7(postcss-import@16.1.1(postcss@8.5.19))(postcss-modules@9.0.1(postcss@8.5.19))(postcss@8.5.19)(sass@1.101.0)(tsdown@0.22.7)':
     dependencies:
       lightningcss: 1.32.0
       postcss-load-config: 6.0.1(postcss@8.5.19)
@@ -6989,7 +6990,7 @@ snapshots:
     optionalDependencies:
       postcss: 8.5.19
       postcss-import: 16.1.1(postcss@8.5.19)
-      postcss-modules: 6.0.1(postcss@8.5.19)
+      postcss-modules: 9.0.1(postcss@8.5.19)
       sass: 1.101.0
     transitivePeerDependencies:
       - jiti
@@ -8128,7 +8129,7 @@ snapshots:
 
   empathic@2.0.1: {}
 
-  enhanced-resolve@5.24.2:
+  enhanced-resolve@5.24.3:
     dependencies:
       graceful-fs: 4.2.11
       tapable: 2.3.3
@@ -9588,7 +9589,7 @@ snapshots:
       icss-utils: 5.1.0(postcss@8.5.19)
       postcss: 8.5.19
 
-  postcss-modules@6.0.1(postcss@8.5.19):
+  postcss-modules@9.0.1(postcss@8.5.19):
     dependencies:
       generic-names: 4.0.0
       icss-utils: 5.1.0(postcss@8.5.19)
@@ -10335,7 +10336,7 @@ snapshots:
       tree-kill: 1.2.2
       unconfig-core: 7.5.0
     optionalDependencies:
-      '@tsdown/css': 0.22.7(postcss-import@16.1.1(postcss@8.5.19))(postcss-modules@6.0.1(postcss@8.5.19))(postcss@8.5.19)(sass@1.101.0)(tsdown@0.22.7)
+      '@tsdown/css': 0.22.7(postcss-import@16.1.1(postcss@8.5.19))(postcss-modules@9.0.1(postcss@8.5.19))(postcss@8.5.19)(sass@1.101.0)(tsdown@0.22.7)
       typescript: 5.9.3
       unrun: 0.3.1
     transitivePeerDependencies:
@@ -10595,7 +10596,7 @@ snapshots:
       acorn-import-phases: 1.0.4(acorn@8.17.0)
       browserslist: 4.28.6
       chrome-trace-event: 1.0.4
-      enhanced-resolve: 5.24.2
+      enhanced-resolve: 5.24.3
       es-module-lexer: 2.3.1
       eslint-scope: 5.1.1
       events: 3.3.0
