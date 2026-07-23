@@ -1,22 +1,41 @@
-import { type CollapsibleTableProps } from './CollapsibleTable.types';
-import { CollapsibleTableContext } from './Table.context';
+import { useRef } from 'react';
+import { type ReactNode } from 'react';
+
+import { CollapsibleTableContext } from './CollapsibleTable.context';
+import { cn } from '../../..';
+import { type Breakpoint } from '../../layout/common/Responsive.types';
 import { Table } from '../normal';
+import styles from '../normal/Table.module.css';
+import { type TableProps } from '../normal/Table.types';
+
+export type CollapsibleTableProps = {
+  /**Brekkpunkt der tabellen kollapser. Tabellen viser kollapset layout under dette brekkpunktet. */
+  collapseBelow: Breakpoint;
+} & TableProps;
 
 export const CollapsibleTable = ({
-  isCollapsed,
-  headerValues,
-  definingColumnIndex = [0],
+  collapseBelow,
+  className,
+  withStripes = true,
   ...rest
 }: CollapsibleTableProps) => {
+  const labelsStore = useRef<Map<string, ReactNode>>(new Map());
+
   return (
     <CollapsibleTableContext
       value={{
-        isCollapsed,
-        headerValues,
-        definingColumnIndex,
+        collapseBelow,
+        labelsStore: labelsStore.current,
       }}
     >
-      <Table {...rest} />
+      <Table
+        {...rest}
+        withStripes={withStripes}
+        className={cn(
+          className,
+          withStripes && styles['table--collapsible--striped'],
+        )}
+      />
     </CollapsibleTableContext>
   );
 };

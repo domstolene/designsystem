@@ -4,12 +4,14 @@ import { useIsInTableHead } from './Head';
 import styles from './Table.module.css';
 import { cn } from '../../../utils';
 import { DescriptionListDesc } from '../../DescriptionList';
+import displayStyles from '../../layout/common/display.module.css';
+import {
+  useCollapsibleTableContext,
+  useIsCollapsibleChild,
+} from '../collapsible/CollapsibleTable.context';
 
 export type TableCellType = 'data' | 'head';
 export type TableCellLayout = 'left' | 'right' | 'center' | 'text and icon';
-export interface CollapsibleProps {
-  isCollapsibleChild?: boolean;
-}
 
 export type TableCellProps = {
   /**
@@ -17,55 +19,79 @@ export type TableCellProps = {
    * @default "data" hvis den er brukt i `<Table.Body>` eller `<Table.Foot>`, 'head' hvis den er i `<Table.Head>`.
    */
   type?: TableCellType;
-  /**Layout av innholdet i cellen; legger en flex `<div>` i cellen, unntatt 'none' som ikke legger inn noe. 'tekst and icon' legger `gap` mellom barna og andre barnet i cellen.
+  /**
+   * Layout av innholdet i cellen håndtert med `text-align`; 'tekst and icon' legger inn en flex `<div>` i cellen med `gap` mellom barna.
    * @default "left"
    */
   layout?: TableCellLayout;
-  /** Props ved bruk av `<CollapsibleRow>`. **OBS!** settes automatisk av forelder. */
-  collapsibleProps?: CollapsibleProps;
+  /**
+   
+   * Nøkkel som kobler en header-celle med tilhørende body-celler i kollapset visning i `<CollapsibleTable>`.
+   
+   */
+  collapseKey?: string;
 } & (ComponentPropsWithRef<'td'> | ComponentPropsWithRef<'th'>);
 
 export const Cell = ({
   children,
   type: _type,
   layout = 'left',
-  collapsibleProps,
+  collapseKey,
   className,
   ...rest
 }: TableCellProps) => {
   const isInHead = useIsInTableHead();
   const type = _type ?? (isInHead ? 'head' : 'data');
+  const isCollapsibleChild = useIsCollapsibleChild();
+  const { collapseBelow, labelsStore } = useCollapsibleTableContext();
+  if (collapseBelow && collapseKey && type === 'head') {
+    labelsStore.set(collapseKey, children);
+  }
+  console.log(labelsStore);
 
-  const { isCollapsibleChild } = collapsibleProps ?? {};
   const isComplexLayout = layout === 'text and icon';
 
-  return isCollapsibleChild ? (
-    <DescriptionListDesc>{children}</DescriptionListDesc>
-  ) : type === 'head' ? (
-    <th
+  if (isCollapsibleChild) {
+    return <DescriptionListDesc>{children}</DescriptionListDesc>;
+  }
+
+  const hideBelowCn =
+    !!collapseKey && collapseBelow
+      ? displayStyles[`${collapseBelow}-hide-below`]
+      : undefined;
+
+  const inner = isComplexLayout ? (
+    <div className={styles.cell__inner}>{children}</div>
+  ) : (
+    children
+  );
+
+  if (type === 'head') {
+    return (
+      <th
+        {...rest}
+        className={cn(
+          className,
+          !isComplexLayout && styles[`cell--${layout}`],
+          styles['cell--head'],
+          hideBelowCn,
+        )}
+      >
+        {inner}
+      </th>
+    );
+  }
+
+  return (
+    <td
       {...rest}
       className={cn(
         className,
         !isComplexLayout && styles[`cell--${layout}`],
-        styles['cell--head'],
+        hideBelowCn,
       )}
     >
-      {isComplexLayout ? (
-        <div className={styles.cell__inner}>{children}</div>
-      ) : (
-        children
-      )}
-    </th>
-  ) : (
-    <td
-      {...rest}
-      className={cn(className, !isComplexLayout && styles[`cell--${layout}`])}
-    >
-      {isComplexLayout ? (
-        <div className={styles.cell__inner}>{children}</div>
-      ) : (
-        children
-      )}
+      {inner}
     </td>
   );
 };

@@ -1,137 +1,100 @@
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { useState } from 'react';
 import { describe, expect, it } from 'vitest';
 
-import { Button } from '../../Button';
 import { Table } from '../normal';
 
 import { CollapsibleTable } from '.';
 
-const header2Content = 'header2';
+const definingContent = 'header1';
+const collapsingHeaderContent = 'header2';
+const collapsingKey = 'col2';
 
-const headers = [
-  {
-    key: 'header1',
-    content: 'header1',
-  },
-  {
-    key: 'header2',
-    content: <span>{header2Content}</span>,
-  },
-];
-
-const bodyCellContent = ['content 1', 'content 2'];
+const definingCellContent = 'content 1';
+const collapsingCellContent = 'content 2';
 
 const table = (
-  <CollapsibleTable headerValues={headers} isCollapsed>
+  <CollapsibleTable collapseBelow="sm">
     <Table.Head>
-      <CollapsibleTable.Row>
-        <Table.Cell>{headers[0].content}</Table.Cell>
-        <Table.Cell>{headers[1].content}</Table.Cell>
-      </CollapsibleTable.Row>
+      <Table.Row>
+        <Table.Cell>{definingContent}</Table.Cell>
+        <Table.Cell collapseKey={collapsingKey}>
+          <span>{collapsingHeaderContent}</span>
+        </Table.Cell>
+      </Table.Row>
     </Table.Head>
     <Table.Body>
-      <CollapsibleTable.Row>
-        <Table.Cell>{bodyCellContent[0]}</Table.Cell>
-        <Table.Cell>{bodyCellContent[1]}</Table.Cell>
-      </CollapsibleTable.Row>
+      <Table.Row>
+        <Table.Cell>{definingCellContent}</Table.Cell>
+        <Table.Cell collapseKey={collapsingKey}>
+          {collapsingCellContent}
+        </Table.Cell>
+      </Table.Row>
     </Table.Body>
   </CollapsibleTable>
 );
 
-const controlButtonText = 'control';
-
-const ControlledTable = () => {
-  const [collapse, setCollapse] = useState(false);
-  return (
-    <>
-      <Button onClick={() => setCollapse(!collapse)}>
-        {controlButtonText}
-      </Button>
-      <CollapsibleTable headerValues={headers} isCollapsed={collapse}>
-        <Table.Head>
-          <CollapsibleTable.Row>
-            <Table.Cell>{headers[0].content}</Table.Cell>
-            <Table.Cell>{headers[1].content}</Table.Cell>
-          </CollapsibleTable.Row>
-        </Table.Head>
-        <Table.Body>
-          <CollapsibleTable.Row>
-            <Table.Cell>{bodyCellContent[0]}</Table.Cell>
-            <Table.Cell>{bodyCellContent[1]}</Table.Cell>
-          </CollapsibleTable.Row>
-        </Table.Body>
-      </CollapsibleTable>
-    </>
-  );
-};
-
 const collapsingColumnHeaderText = 'Utvid';
 
 describe('<CollapsibleTable>', () => {
-  it('hides second column when collapsed', () => {
+  it('renders both full and collapsed rows in the DOM', () => {
     render(table);
+    expect(screen.getAllByText(definingContent).length).toBe(2);
+    expect(screen.getAllByText(collapsingHeaderContent).length).toBe(1);
+    expect(screen.getAllByText(definingCellContent).length).toBe(2);
+    expect(screen.getAllByText(collapsingCellContent).length).toBe(1);
+    expect(screen.getByText(collapsingColumnHeaderText)).toBeInTheDocument();
+  });
 
-    expect(screen.getByText(headers[0].content.toString())).toBeInTheDocument();
-    expect(screen.queryByText(header2Content)).not.toBeInTheDocument();
-    expect(screen.getByText(bodyCellContent[0])).toBeInTheDocument();
-    expect(screen.queryByText(bodyCellContent[1])).not.toBeInTheDocument();
+  it('collapsed detail row not rendered before chevron is clicked', () => {
+    render(table);
 
     expect(screen.queryByRole('term')).not.toBeInTheDocument();
     expect(screen.queryByRole('definition')).not.toBeInTheDocument();
   });
 
-  it('renders <DescriptionList> with children while row expanded', async () => {
+  it('renders <DescriptionList> with label and content when row is expanded', async () => {
     render(table);
-    const collapseButton = screen.getByRole('button');
 
-    await userEvent.click(collapseButton);
-
-    expect(screen.getByText(header2Content)).toBeInTheDocument();
-    expect(screen.getByText(bodyCellContent[1])).toBeInTheDocument();
+    await userEvent.click(screen.getByRole('button'));
 
     expect(screen.getByRole('term')).toBeInTheDocument();
     expect(screen.getByRole('definition')).toBeInTheDocument();
   });
 
-  it('table should switch between collapsed and not collapsed', async () => {
-    render(<ControlledTable />);
-    const controlButton = screen.getByText(controlButtonText);
+  it('collapseKey label from head cell is used as description list term', async () => {
+    render(table);
 
-    expect(screen.getByText(header2Content)).toBeInTheDocument();
-    expect(screen.getByText(bodyCellContent[1])).toBeInTheDocument();
-    expect(
-      screen.queryByText(collapsingColumnHeaderText),
-    ).not.toBeInTheDocument();
+    await userEvent.click(screen.getByRole('button'));
 
-    await userEvent.click(controlButton);
-    expect(screen.queryByText(header2Content)).not.toBeInTheDocument();
-    expect(screen.queryByText(bodyCellContent[1])).not.toBeInTheDocument();
-    expect(screen.getByText(collapsingColumnHeaderText)).toBeInTheDocument();
+    expect(screen.getByRole('term').textContent).toBe(collapsingHeaderContent);
+    expect(screen.getByRole('definition').textContent?.trim()).toBe(
+      collapsingCellContent,
+    );
   });
 
-  it('renders ordinary table when headerValues is an empty array', () => {
+  it('renders ordinary table rows when no cells have collapse prop', () => {
     render(
-      <CollapsibleTable headerValues={[]} isCollapsed>
+      <CollapsibleTable collapseBelow="sm">
         <Table.Head>
-          <CollapsibleTable.Row>
-            <Table.Cell>{headers[0].content}</Table.Cell>
-            <Table.Cell>{headers[1].content}</Table.Cell>
-          </CollapsibleTable.Row>
+          <Table.Row>
+            <Table.Cell>{definingContent}</Table.Cell>
+            <Table.Cell>{collapsingHeaderContent}</Table.Cell>
+          </Table.Row>
         </Table.Head>
         <Table.Body>
-          <CollapsibleTable.Row>
-            <Table.Cell>{bodyCellContent[0]}</Table.Cell>
-            <Table.Cell>{bodyCellContent[1]}</Table.Cell>
-          </CollapsibleTable.Row>
+          <Table.Row>
+            <Table.Cell>{definingCellContent}</Table.Cell>
+            <Table.Cell>{collapsingCellContent}</Table.Cell>
+          </Table.Row>
         </Table.Body>
       </CollapsibleTable>,
     );
-    expect(screen.getByText(headers[0].content.toString())).toBeInTheDocument();
-    expect(screen.getByText(header2Content)).toBeInTheDocument();
-    expect(screen.getByText(bodyCellContent[1])).toBeInTheDocument();
-    expect(screen.getByText(bodyCellContent[0])).toBeInTheDocument();
+
+    expect(screen.getByText(definingContent)).toBeInTheDocument();
+    expect(screen.getByText(collapsingHeaderContent)).toBeInTheDocument();
+    expect(screen.getByText(definingCellContent)).toBeInTheDocument();
+    expect(screen.getByText(collapsingCellContent)).toBeInTheDocument();
     expect(
       screen.queryByText(collapsingColumnHeaderText),
     ).not.toBeInTheDocument();

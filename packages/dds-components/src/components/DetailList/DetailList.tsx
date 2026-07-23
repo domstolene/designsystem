@@ -59,9 +59,7 @@ export const DetailList = ({
           styles.list,
           styles[`list--${size}`],
           withDividers && tableStyles['table--with-dividers'],
-          striped &&
-            !smallScreenBreakpoint &&
-            tableStyles['table--with-stripes'],
+          striped && !smallScreenBreakpoint && tableStyles['table--striped'],
           striped && smallScreenBreakpoint && styles['list--striped-with-bp'],
         ),
         style,
