@@ -1,5 +1,26 @@
 # @norges-domstoler/dds-components
 
+## 24.0.0
+
+### Major Changes
+
+- 101065f: Migrerer bundler fra `tsup` til `tsdown`. Som konsekvens vil navn på CSS-klassene i `index.css` endre seg. Disse CSS-klassene er interne og bør ikke refereres til direkte; hvis det likevel gjøres i din løsning se [dds-components migreringsguiden v23 til v24](https://design.domstol.no/987b33f71/p/04eb89-v23-til-v24).
+- b4f6755: Oppdaterer peer dependancy `@norges-domstoler/dds-design-tokens` til ^10
+- 5f988b0: Oppdaterer peer dependancy `@norges-domstoler/dds-design-tokens` til `^9`
+- 46a7da3: Revamp av `<CollapsibleTable>`. Se [dds-components migreringsguiden v23 til v24](https://design.domstol.no/987b33f71/p/04eb89-v23-til-v24).
+- ae91302: Støttede verdier for prop `typographyType` migreres fra camelCase til kebab-case. Se [dds-components migreringsguiden v23 til v24](https://design.domstol.no/987b33f71/p/04eb89-v23-til-v24).
+- 1ff87b2: Prop `borderRadius` i `<Skeleton>` støtter kun verdier som tilsvarer design tokens for border radius. Se [dds-components migreringsguiden v23 til v24](https://design.domstol.no/987b33f71/p/04eb89-v23-til-v24).
+
+### Minor Changes
+
+- a72d6df: Utvider `background` prop i `<Paper>` til å støtte verdi `surface-skeleton`.
+- c4e1e9f: Legger til fontene Poppins og EB Garamond brukt i de nye temaene `supreme-light` og `supreme-dark`.
+- c4e1e9f: Utvider `theme` prop i `<DdsProvider>` til å støtte nye temaer fra `dds-design-tokens`: `supreme-light` og `supreme-dark`. Disse brukes av Høyesterett.
+
+### Patch Changes
+
+- 5334b5c: Venstrestiller tekst i headers i tabeller med sortering
+
 ## 23.2.2
 
 (2026-07-03)
@@ -354,16 +375,10 @@
 
   ```ts
   type TypographyShortBodyType =
-    | 'bodyShortXsmall'
-    | 'bodyShortSmall'
-    | 'bodyShortMedium'
-    | 'bodyShortLarge';
+    'bodyShortXsmall' | 'bodyShortSmall' | 'bodyShortMedium' | 'bodyShortLarge';
 
   type TypographyLongBodyType =
-    | 'bodyLongXsmall'
-    | 'bodyLongSmall'
-    | 'bodyLongMedium'
-    | 'bodyLongLarge';
+    'bodyLongXsmall' | 'bodyLongSmall' | 'bodyLongMedium' | 'bodyLongLarge';
 
   type TypographyBodyType = TypographyShortBodyType | TypographyLongBodyType;
   ```
@@ -914,10 +929,7 @@
 
   ```ts
   type TypographyBodyType =
-    | 'bodyXsmall'
-    | 'bodySmall'
-    | 'bodyMedium'
-    | 'bodyLarge';
+    'bodyXsmall' | 'bodySmall' | 'bodyMedium' | 'bodyLarge';
   type TypographyHeadingType =
     | 'headingXxsmall'
     | 'headingXsmall'
