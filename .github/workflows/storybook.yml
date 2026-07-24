@@ -7,6 +7,7 @@ jobs:
     permissions:
       pages: write
       id-token: write
+      actions: write
     environment:
       name: gh-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -30,7 +31,14 @@ jobs:
         uses: actions/upload-pages-artifact@v5
         with:
           # Upload entire repository
-          path: "./storybook-static"
+          path: './storybook-static'
 
       - name: Deploy 🚀
         uses: actions/deploy-pages@v5
+
+      - name: Delete artifact if deployment failed
+        if: ${{ failure() }}
+        uses: geekyeggo/delete-artifact@v5
+        continue-on-error: true
+        with:
+          name: github-pages
