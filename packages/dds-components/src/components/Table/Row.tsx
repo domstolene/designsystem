@@ -1,21 +1,46 @@
-import React, { Children, Fragment, isValidElement, useState } from 'react';
+import React, {
+  Children,
+  type ComponentPropsWithRef,
+  Fragment,
+  isValidElement,
+  useState,
+} from 'react';
 
 import { useIsInTableHead } from './Head';
 import styles from './Table.module.css';
-import { type TableRowProps } from './Table.types';
-import { createTexts, useTranslation } from '../../../i18n';
-import { cn } from '../../../utils';
-import { Button } from '../../Button';
-import { DescriptionList, DescriptionListTerm } from '../../DescriptionList';
-import { focusable } from '../../helpers/styling/focus.module.css';
-import { AnimatedChevronUpDownIcon } from '../../Icon/icons/animated';
-import displayStyles from '../../layout/common/display.module.css';
-import typographyStyles from '../../Typography/typographyStyles.module.css';
-import { VisuallyHidden } from '../../VisuallyHidden';
+import { createTexts, useTranslation } from '../../i18n';
+import { cn } from '../../utils';
+import { Button } from '../Button';
+import { DescriptionList, DescriptionListTerm } from '../DescriptionList';
+import { focusable } from '../helpers/styling/focus.module.css';
+import { AnimatedChevronUpDownIcon } from '../Icon/icons/animated';
+import displayStyles from '../layout/common/display.module.css';
+import typographyStyles from '../Typography/typographyStyles.module.css';
+import { VisuallyHidden } from '../VisuallyHidden';
 import {
   CollapsibleCellContext,
   useCollapsibleTableContext,
-} from '../collapsible/CollapsibleTable.context';
+} from './CollapsibleTable.context';
+
+export type TableRowType = 'body' | 'head';
+export type RowMode = 'normal' | 'sum';
+
+export type TableRowProps = {
+  /**
+   * Spesifiserer om raden skal brukes i `<head>` eller `<body>`-seksjonen.
+   * @default "body" hvis den er brukt i `<Table.Body>` eller `<Table.Foot>`, 'head' hvis den er i `<Table.Head>`.
+   */
+  type?: TableRowType;
+  /**Custom modus for rader som har ytterligere semantisk betydning (f.eks. summeringsrad). Påvirker kun styling.
+   * Ved bruk av tall må `<Cell>` med tall i høyrestilles vha layout prop.
+   * @default "normal"
+   **/
+  mode?: RowMode;
+  /**Spesifiserer om raden har blitt valgt/markert. Påvirker kun styling. */
+  selected?: boolean;
+  /**Spesifiserer om raden skal ha hover styling. Brukes hovedsakelig på rader med klikkbar innhold. */
+  hoverable?: boolean;
+} & ComponentPropsWithRef<'tr'>;
 
 const PlainRow = ({
   type: _type,

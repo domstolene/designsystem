@@ -10,7 +10,7 @@ import {
   windowWidthDecorator,
 } from '../../../storybook';
 import { StoryVStack } from '../../layout/Stack/storybook-utils';
-import { Table } from '../../Table/normal';
+import { Table } from '../../Table';
 
 const meta = preview.meta({
   title: 'dds-components/Components/InlineEdit/InlineEditTextArea',

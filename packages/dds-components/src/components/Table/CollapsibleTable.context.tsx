@@ -1,6 +1,6 @@
 import { type ReactNode, createContext, useContext } from 'react';
 
-import { type Breakpoint } from '../../layout/common/Responsive.types';
+import { type Breakpoint } from '../layout/common/Responsive.types';
 
 interface CollapsibleTableContextProps {
   collapseBelow?: Breakpoint;

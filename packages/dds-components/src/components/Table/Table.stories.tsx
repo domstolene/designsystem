@@ -1,30 +1,27 @@
 import preview from '#.storybook/preview';
 import { type ChangeEvent, useEffect, useState } from 'react';
 
-import { ddsProviderDecorator } from '../../../storybook';
-import { Button } from '../../Button';
-import { Icon } from '../../Icon';
-import { PersonIcon, TrashIcon } from '../../Icon/icons';
-import { Checkbox } from '../../SelectionControl/Checkbox';
-import { Link, Paragraph } from '../../Typography';
+import { ddsProviderDecorator, windowWidthDecorator } from '../../storybook';
+import { Button } from '../Button';
+import { Icon } from '../Icon';
+import { PersonIcon, TrashIcon } from '../Icon/icons';
+import { Checkbox } from '../SelectionControl/Checkbox';
+import { Link, Paragraph } from '../Typography';
 import {
   type CellDataToSort,
   type HeaderCellToSort,
   data,
   headerCells,
   mapCellContents,
-} from '../storybook-utils/tableData';
+} from './storybook-utils/tableData';
 
-import { Table } from '.';
+// Importerer ubrukte delkomponenter for å få deres props i storybook docs
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { Table, TableCell, TableRow, TableSortCell } from '.';
 
 const meta = preview.meta({
   title: 'dds-components/Components/Table',
   component: Table,
-  parameters: {
-    docs: {
-      canvas: { sourceState: 'hidden' },
-    },
-  },
   decorators: [ddsProviderDecorator],
 });
 
@@ -37,6 +34,8 @@ const mappedHeaderCells = headerCells.map(headerCell => {
     </Table.Cell>
   );
 });
+
+const colKeys = headerCells.map(c => c.dataName);
 
 export const Preview = meta.story({
   render: args => (
@@ -154,6 +153,9 @@ export const Large = meta.story({
 });
 
 export const StickyHeader = meta.story({
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: args => (
     <Table.Wrapper>
       <Table {...args} stickyHeader>
@@ -186,6 +188,9 @@ export const StickyHeader = meta.story({
 });
 
 export const Focusable = meta.story({
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: args => (
     <Table.Wrapper>
       <Table {...args}>
@@ -215,6 +220,9 @@ export const Focusable = meta.story({
 });
 
 export const Hoverable = meta.story({
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: args => (
     <Table.Wrapper>
       <Table {...args}>
@@ -428,81 +436,6 @@ export const WithCheckbox = meta.story({
   },
 });
 
-export const Complex = meta.story({
-  render: args => (
-    <Table.Wrapper>
-      <Table {...args} stickyHeader>
-        <colgroup>
-          <col />
-        </colgroup>
-        <colgroup span={2}></colgroup>
-        <colgroup span={2}></colgroup>
-        <Table.Body>
-          <Table.Row>
-            <Table.Cell rowSpan={2}></Table.Cell>
-            <Table.Cell type="head" colSpan={2} scope="colgroup">
-              Mars
-            </Table.Cell>
-            <Table.Cell type="head" colSpan={2} scope="colgroup">
-              Venus
-            </Table.Cell>
-          </Table.Row>
-          <Table.Row type="head">
-            <Table.Cell type="head" scope="col">
-              Produced
-            </Table.Cell>
-            <Table.Cell type="head" scope="col">
-              Sold
-            </Table.Cell>
-            <Table.Cell type="head" scope="col">
-              Produced
-            </Table.Cell>
-            <Table.Cell type="head" scope="col">
-              Sold
-            </Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell type="head" scope="row">
-              Teddy Bears
-            </Table.Cell>
-            <Table.Cell>50,000</Table.Cell>
-            <Table.Cell>30,000</Table.Cell>
-            <Table.Cell>100,000</Table.Cell>
-            <Table.Cell>80,000</Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell type="head" scope="row">
-              Board Games
-            </Table.Cell>
-            <Table.Cell>10,000</Table.Cell>
-            <Table.Cell>5,000</Table.Cell>
-            <Table.Cell>12,000</Table.Cell>
-            <Table.Cell>9,000</Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell type="head" scope="row">
-              Dolls
-            </Table.Cell>
-            <Table.Cell>50,000</Table.Cell>
-            <Table.Cell>30,000</Table.Cell>
-            <Table.Cell>100,000</Table.Cell>
-            <Table.Cell>80,000</Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell type="head" scope="row">
-              Action Figures
-            </Table.Cell>
-            <Table.Cell>10,000</Table.Cell>
-            <Table.Cell>5,000</Table.Cell>
-            <Table.Cell>12,000</Table.Cell>
-            <Table.Cell>9,000</Table.Cell>
-          </Table.Row>
-        </Table.Body>
-      </Table>
-    </Table.Wrapper>
-  ),
-});
-
 export const Sortable = meta.story({
   render: args => {
     const [headerSortCells, setHeaderSortCells] =
@@ -601,38 +534,137 @@ export const Sortable = meta.story({
   },
 });
 
-export const ColumnAndRowHeaders = meta.story({
+export const Collapsible = meta.story({
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+  args: { collapseBelow: 'sm' },
   render: args => (
     <Table.Wrapper>
       <Table {...args}>
-        <Table.Body>
+        <Table.Head>
           <Table.Row>
-            <Table.Cell></Table.Cell>
-            {headerCells.map(headerCell => (
-              <Table.Cell
-                key={`head-${headerCell.dataName}`}
-                type="head"
-                scope="col"
-              >
-                {headerCell.name}
-              </Table.Cell>
-            ))}
+            <Table.Cell>{headerCells[0].name}</Table.Cell>
+            <Table.Cell collapseKey={colKeys[1]}>
+              {headerCells[1].name}
+            </Table.Cell>
+            <Table.Cell collapseKey={colKeys[2]}>
+              {headerCells[2].name}
+            </Table.Cell>
+            <Table.Cell collapseKey={colKeys[3]}>
+              {headerCells[3].name}
+            </Table.Cell>
           </Table.Row>
-          {data.map(item => (
-            <Table.Row key={item.dommer}>
-              <Table.Cell type="head" scope="row">
-                Header
+        </Table.Head>
+        <Table.Body>
+          {data.map(row => (
+            <Table.Row key={row.dommer}>
+              <Table.Cell>{row.dommer}</Table.Cell>
+              <Table.Cell collapseKey={colKeys[1]}>{row.domstol}</Table.Cell>
+              <Table.Cell collapseKey={colKeys[2]}>
+                {row.favorittRett}
               </Table.Cell>
-              <Table.Cell> {item.dommer} </Table.Cell>
-              <Table.Cell> {item.domstol} </Table.Cell>
-              <Table.Cell> {item.favorittRett} </Table.Cell>
-              <Table.Cell> {item.favorittDyr} </Table.Cell>
+              <Table.Cell collapseKey={colKeys[3]}>
+                {row.favorittDyr}
+              </Table.Cell>
             </Table.Row>
           ))}
         </Table.Body>
       </Table>
     </Table.Wrapper>
   ),
+  decorators: [
+    Story =>
+      windowWidthDecorator(
+        <Story />,
+        'Kollapset versjon vises ved sm brekkpunkt.',
+      ),
+  ],
+});
+
+export const Collapsed = meta.story({
+  args: { collapseBelow: 'xl' },
+  render: args => (
+    <Table.Wrapper>
+      <Table {...args}>
+        <Table.Head>
+          <Table.Row>
+            <Table.Cell>{headerCells[0].name}</Table.Cell>
+            <Table.Cell collapseKey={colKeys[1]}>
+              {headerCells[1].name}
+            </Table.Cell>
+            <Table.Cell collapseKey={colKeys[2]}>
+              {headerCells[2].name}
+            </Table.Cell>
+            <Table.Cell collapseKey={colKeys[3]}>
+              {headerCells[3].name}
+            </Table.Cell>
+          </Table.Row>
+        </Table.Head>
+        <Table.Body>
+          {data.map(row => (
+            <Table.Row key={row.dommer}>
+              <Table.Cell>{row.dommer}</Table.Cell>
+              <Table.Cell collapseKey={colKeys[1]}>{row.domstol}</Table.Cell>
+              <Table.Cell collapseKey={colKeys[2]}>
+                {row.favorittRett}
+              </Table.Cell>
+              <Table.Cell collapseKey={colKeys[3]}>
+                {row.favorittDyr}
+              </Table.Cell>
+            </Table.Row>
+          ))}
+        </Table.Body>
+      </Table>
+    </Table.Wrapper>
+  ),
+});
+
+export const CollapsibleWithButtonAndIcons = meta.story({
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+  args: { collapseBelow: 'sm' },
+  render: args => {
+    const deleteButton = (
+      <Button
+        purpose="secondary"
+        icon={TrashIcon}
+        iconPosition="left"
+        size="small"
+      >
+        Fjern tilgang
+      </Button>
+    );
+    return (
+      <Table {...args}>
+        <Table.Head>
+          <Table.Row>
+            <Table.Cell>Navn til venstre</Table.Cell>
+            <Table.Cell collapseKey="navn-hoyre">Navn til høyre</Table.Cell>
+            <Table.Cell collapseKey="rolle">Rolle</Table.Cell>
+            <Table.Cell collapseKey="aksjoner">Aksjoner</Table.Cell>
+          </Table.Row>
+        </Table.Head>
+        <Table.Body>
+          {data.map(item => (
+            <Table.Row key={item.dommer}>
+              <Table.Cell layout="text and icon">
+                {adminIcon} {item.dommer}
+              </Table.Cell>
+              <Table.Cell collapseKey="navn-hoyre" layout="text and icon">
+                {item.dommer} {adminIcon}
+              </Table.Cell>
+              <Table.Cell collapseKey="rolle">Admin</Table.Cell>
+              <Table.Cell collapseKey="aksjoner" layout="center">
+                {deleteButton}
+              </Table.Cell>
+            </Table.Row>
+          ))}
+        </Table.Body>
+      </Table>
+    );
+  },
 });
 
 export const WithScroll = meta.story({
@@ -682,7 +714,7 @@ export const InteractiveContent = meta.story({
       <Table {...args}>
         <Table.Head>
           <Table.Row>
-            <Table.Cell>Dokumentnavn</Table.Cell>
+            <Table.Cell>Dokument</Table.Cell>
             <Table.Cell>Sakbehandler</Table.Cell>
             <Table.Cell>Status</Table.Cell>
           </Table.Row>
@@ -691,16 +723,121 @@ export const InteractiveContent = meta.story({
           {data.map(item => (
             <Table.Row key={item.dommer} hoverable>
               <Table.Cell>
-                <Link href="#">
-                  {' '}
-                  Krav om sak fra Marie Luneby, Knut-Håkon Dagsvik, Sonja Luneby
-                  og Petter Olaf Jensen.pdf
-                </Link>
+                <Link href="#"> Dokument.pdf</Link>
               </Table.Cell>
               <Table.Cell>{item.dommer}</Table.Cell>
               <Table.Cell>Ulest</Table.Cell>
             </Table.Row>
           ))}
+        </Table.Body>
+      </Table>
+    </Table.Wrapper>
+  ),
+});
+
+export const ColumnAndRowHeaders = meta.story({
+  render: args => (
+    <Table.Wrapper>
+      <Table {...args}>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell></Table.Cell>
+            {headerCells.map(headerCell => (
+              <Table.Cell
+                key={`head-${headerCell.dataName}`}
+                type="head"
+                scope="col"
+              >
+                {headerCell.name}
+              </Table.Cell>
+            ))}
+          </Table.Row>
+          {data.map(item => (
+            <Table.Row key={item.dommer}>
+              <Table.Cell type="head" scope="row">
+                Header
+              </Table.Cell>
+              <Table.Cell> {item.dommer} </Table.Cell>
+              <Table.Cell> {item.domstol} </Table.Cell>
+              <Table.Cell> {item.favorittRett} </Table.Cell>
+              <Table.Cell> {item.favorittDyr} </Table.Cell>
+            </Table.Row>
+          ))}
+        </Table.Body>
+      </Table>
+    </Table.Wrapper>
+  ),
+});
+
+export const Complex = meta.story({
+  render: args => (
+    <Table.Wrapper>
+      <Table {...args} stickyHeader>
+        <colgroup>
+          <col />
+        </colgroup>
+        <colgroup span={2}></colgroup>
+        <colgroup span={2}></colgroup>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell rowSpan={2}></Table.Cell>
+            <Table.Cell type="head" colSpan={2} scope="colgroup">
+              Mars
+            </Table.Cell>
+            <Table.Cell type="head" colSpan={2} scope="colgroup">
+              Venus
+            </Table.Cell>
+          </Table.Row>
+          <Table.Row type="head">
+            <Table.Cell type="head" scope="col">
+              Produced
+            </Table.Cell>
+            <Table.Cell type="head" scope="col">
+              Sold
+            </Table.Cell>
+            <Table.Cell type="head" scope="col">
+              Produced
+            </Table.Cell>
+            <Table.Cell type="head" scope="col">
+              Sold
+            </Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell type="head" scope="row">
+              Teddy Bears
+            </Table.Cell>
+            <Table.Cell>50,000</Table.Cell>
+            <Table.Cell>30,000</Table.Cell>
+            <Table.Cell>100,000</Table.Cell>
+            <Table.Cell>80,000</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell type="head" scope="row">
+              Board Games
+            </Table.Cell>
+            <Table.Cell>10,000</Table.Cell>
+            <Table.Cell>5,000</Table.Cell>
+            <Table.Cell>12,000</Table.Cell>
+            <Table.Cell>9,000</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell type="head" scope="row">
+              Dolls
+            </Table.Cell>
+            <Table.Cell>50,000</Table.Cell>
+            <Table.Cell>30,000</Table.Cell>
+            <Table.Cell>100,000</Table.Cell>
+            <Table.Cell>80,000</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell type="head" scope="row">
+              Action Figures
+            </Table.Cell>
+            <Table.Cell>10,000</Table.Cell>
+            <Table.Cell>5,000</Table.Cell>
+            <Table.Cell>12,000</Table.Cell>
+            <Table.Cell>9,000</Table.Cell>
+          </Table.Row>
         </Table.Body>
       </Table>
     </Table.Wrapper>

@@ -4,7 +4,7 @@ import { useDetailListContext } from './DetailList.context';
 import styles from './DetailList.module.css';
 import { cn } from '../../utils';
 import { Box } from '../layout';
-import tableStyles from '../Table/normal/Table.module.css';
+import tableStyles from '../Table/Table.module.css';
 
 export type DetailListRowProps = ComponentPropsWithRef<'div'>;
 

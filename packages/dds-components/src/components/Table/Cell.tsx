@@ -1,14 +1,14 @@
 import { type ComponentPropsWithRef } from 'react';
 
-import { useIsInTableHead } from './Head';
-import styles from './Table.module.css';
-import { cn } from '../../../utils';
-import { DescriptionListDesc } from '../../DescriptionList';
-import displayStyles from '../../layout/common/display.module.css';
 import {
   useCollapsibleTableContext,
   useIsCollapsibleChild,
-} from '../collapsible/CollapsibleTable.context';
+} from './CollapsibleTable.context';
+import { useIsInTableHead } from './Head';
+import styles from './Table.module.css';
+import { cn } from '../../utils';
+import { DescriptionListDesc } from '../DescriptionList';
+import displayStyles from '../layout/common/display.module.css';
 
 export type TableCellType = 'data' | 'head';
 export type TableCellLayout = 'left' | 'right' | 'center' | 'text and icon';
@@ -20,14 +20,13 @@ export type TableCellProps = {
    */
   type?: TableCellType;
   /**
-   * Layout av innholdet i cellen håndtert med `text-align`; 'tekst and icon' legger inn en flex `<div>` i cellen med `gap` mellom barna.
+   * Layout for innholdet i cellen håndtert med `text-align`;
+   * `'text and icon'` legger inn en flex `<div>` i cellen med `gap` mellom barna.
    * @default "left"
    */
   layout?: TableCellLayout;
   /**
-   
-   * Nøkkel som kobler en header-celle med tilhørende body-celler i kollapset visning i `<CollapsibleTable>`.
-   
+   * Nøkkel som kobler en header-celle med tilhørende body-celler i kollapset visning i kollapset `<Table>`.
    */
   collapseKey?: string;
 } & (ComponentPropsWithRef<'td'> | ComponentPropsWithRef<'th'>);
@@ -47,7 +46,6 @@ export const Cell = ({
   if (collapseBelow && collapseKey && type === 'head') {
     labelsStore.set(collapseKey, children);
   }
-  console.log(labelsStore);
 
   const isComplexLayout = layout === 'text and icon';
 

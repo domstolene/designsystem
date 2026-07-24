@@ -2,16 +2,12 @@ import { type MouseEvent } from 'react';
 
 import { Cell, type TableCellProps } from './Cell';
 import styles from './Table.module.css';
-import { createTexts, useTranslation } from '../../../i18n';
-import { cn } from '../../../utils';
-import { StylelessButton } from '../../helpers';
-import { focusable } from '../../helpers/styling/focus.module.css';
-import { Icon } from '../../Icon';
-import {
-  ChevronDownIcon,
-  ChevronUpIcon,
-  UnfoldMoreIcon,
-} from '../../Icon/icons';
+import { createTexts, useTranslation } from '../../i18n';
+import { cn } from '../../utils';
+import { StylelessButton } from '../helpers';
+import { focusable } from '../helpers/styling/focus.module.css';
+import { Icon } from '../Icon';
+import { ChevronDownIcon, ChevronUpIcon, UnfoldMoreIcon } from '../Icon/icons';
 
 export type SortOrder = 'ascending' | 'descending';
 

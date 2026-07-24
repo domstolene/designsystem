@@ -1,7 +1,37 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 
 import { Table, TableWrapper } from '.';
+
+const definingContent = 'header1';
+const collapsingHeaderContent = 'header2';
+const collapsingKey = 'col2';
+
+const definingCellContent = 'content 1';
+const collapsingCellContent = 'content 2';
+const collapsingColumnHeaderText = 'Utvid';
+
+const cTable = (
+  <Table collapseBelow="sm">
+    <Table.Head>
+      <Table.Row>
+        <Table.Cell>{definingContent}</Table.Cell>
+        <Table.Cell collapseKey={collapsingKey}>
+          <span>{collapsingHeaderContent}</span>
+        </Table.Cell>
+      </Table.Row>
+    </Table.Head>
+    <Table.Body>
+      <Table.Row>
+        <Table.Cell>{definingCellContent}</Table.Cell>
+        <Table.Cell collapseKey={collapsingKey}>
+          {collapsingCellContent}
+        </Table.Cell>
+      </Table.Row>
+    </Table.Body>
+  </Table>
+);
 
 describe('<Table>', () => {
   it('renders a table', () => {
@@ -144,6 +174,72 @@ describe('<Table>', () => {
         configurable: true,
         get: () => 0,
       });
+    });
+  });
+  describe('collapsible <Table>', () => {
+    it('renders both full and collapsed rows in the DOM', () => {
+      render(cTable);
+      expect(screen.getAllByText(definingContent).length).toBe(2);
+      expect(screen.getAllByText(collapsingHeaderContent).length).toBe(1);
+      expect(screen.getAllByText(definingCellContent).length).toBe(2);
+      expect(screen.getAllByText(collapsingCellContent).length).toBe(1);
+      expect(screen.getByText(collapsingColumnHeaderText)).toBeInTheDocument();
+    });
+
+    it('collapsed detail row not rendered before chevron is clicked', () => {
+      render(cTable);
+
+      expect(screen.queryByRole('term')).not.toBeInTheDocument();
+      expect(screen.queryByRole('definition')).not.toBeInTheDocument();
+    });
+
+    it('renders <DescriptionList> with label and content when row is expanded', async () => {
+      render(cTable);
+
+      await userEvent.click(screen.getByRole('button'));
+
+      expect(screen.getByRole('term')).toBeInTheDocument();
+      expect(screen.getByRole('definition')).toBeInTheDocument();
+    });
+
+    it('collapseKey label from head cell is used as description list term', async () => {
+      render(cTable);
+
+      await userEvent.click(screen.getByRole('button'));
+
+      expect(screen.getByRole('term').textContent).toBe(
+        collapsingHeaderContent,
+      );
+      expect(screen.getByRole('definition').textContent?.trim()).toBe(
+        collapsingCellContent,
+      );
+    });
+
+    it('renders ordinary table rows when no cells have collapse prop', () => {
+      render(
+        <Table collapseBelow="sm">
+          <Table.Head>
+            <Table.Row>
+              <Table.Cell>{definingContent}</Table.Cell>
+              <Table.Cell>{collapsingHeaderContent}</Table.Cell>
+            </Table.Row>
+          </Table.Head>
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell>{definingCellContent}</Table.Cell>
+              <Table.Cell>{collapsingCellContent}</Table.Cell>
+            </Table.Row>
+          </Table.Body>
+        </Table>,
+      );
+
+      expect(screen.getAllByText(definingContent).length).toBe(1);
+      expect(screen.getAllByText(collapsingHeaderContent).length).toBe(1);
+      expect(screen.getAllByText(definingCellContent).length).toBe(1);
+      expect(screen.getAllByText(collapsingCellContent).length).toBe(1);
+      expect(
+        screen.queryByText(collapsingColumnHeaderText),
+      ).not.toBeInTheDocument();
     });
   });
 });
