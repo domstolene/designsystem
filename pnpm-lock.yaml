@@ -69,8 +69,8 @@ importers:
         specifier: ^8.63.0
         version: 8.63.0(eslint@9.39.4)(typescript@5.9.3)
       chromatic:
-        specifier: ^17.7.1
-        version: 17.7.1
+        specifier: ^18.0.1
+        version: 18.0.1
       eslint:
         specifier: ^9.39.4
         version: 9.39.4
@@ -2860,8 +2860,8 @@ packages:
       '@chromatic-com/vitest':
         optional: true
 
-  chromatic@17.7.1:
-    resolution: {integrity: sha512-iDgauml4FOo6a7Pp8mnzSr0/LyMWB47hlsBR3azCtsTbpKM/tzD4+Z0vGsS2mvi6HI/qcirMDGVZNQoA5SRuUA==}
+  chromatic@18.0.1:
+    resolution: {integrity: sha512-GlTYrZ4ui5ZW8Jzut6SAo5bMH3sIugYZ37Nq2DyVHBfPINeEzGA8eG5xNo4N/I2aRdM9Xnqw0SCls7wgf2llvA==}
     engines: {node: '>=22.0.0'}
     hasBin: true
     peerDependencies:
@@ -7936,7 +7936,7 @@ snapshots:
     dependencies:
       semver: 7.8.5
 
-  chromatic@17.7.1:
+  chromatic@18.0.1:
     dependencies:
       semver: 7.8.5
 
