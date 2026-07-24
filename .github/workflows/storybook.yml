@@ -38,7 +38,7 @@ jobs:
 
       - name: Delete artifact if deployment failed
         if: ${{ failure() }}
-        uses: geekyeggo/delete-artifact@v5
+        uses: geekyeggo/delete-artifact@v6
         continue-on-error: true
         with:
           name: github-pages
