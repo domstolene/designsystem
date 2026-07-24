@@ -17,4 +17,6 @@ overrides:
 
 minimumReleaseAgeExclude:
   - esbuild@0.28.1
-  - js-yaml@4.1.2
+  - js-yaml@3.15.0 || 4.1.2 || 4.3.0
+  - brace-expansion@1.1.16 || 2.1.2
+  - immutable@5.1.8
