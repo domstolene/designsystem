@@ -7,7 +7,7 @@ import {
 } from '../../types';
 import { cn } from '../../utils';
 import { type Breakpoint } from '../layout';
-import tableStyles from '../Table/normal/Table.module.css';
+import tableStyles from '../Table/Table.module.css';
 import tgStyles from '../Typography/typographyStyles.module.css';
 
 export const DETAIL_LIST_SIZES = createSizes('small', 'medium', 'large');
@@ -59,9 +59,7 @@ export const DetailList = ({
           styles.list,
           styles[`list--${size}`],
           withDividers && tableStyles['table--with-dividers'],
-          striped &&
-            !smallScreenBreakpoint &&
-            tableStyles['table--with-stripes'],
+          striped && !smallScreenBreakpoint && tableStyles['table--striped'],
           striped && smallScreenBreakpoint && styles['list--striped-with-bp'],
         ),
         style,

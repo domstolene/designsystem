@@ -12,7 +12,7 @@ import { InternalHeader } from '../../InternalHeader';
 import { LocalMessage } from '../../LocalMessage';
 import { Pagination } from '../../Pagination';
 import { Search } from '../../Search';
-import { Table } from '../../Table/normal';
+import { Table } from '../../Table';
 import { Tag } from '../../Tag';
 import { TextInput } from '../../TextInput';
 import { Heading } from '../../Typography';

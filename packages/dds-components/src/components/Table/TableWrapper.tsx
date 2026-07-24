@@ -7,9 +7,9 @@ import {
 } from 'react';
 
 import styles from './Table.module.css';
-import { cn } from '../../../utils';
-import { scrollbar } from '../../helpers/styling/utilStyles.module.css';
-import { ThemeContext } from '../../ThemeProvider';
+import { cn } from '../../utils';
+import { scrollbar } from '../helpers/styling/utilStyles.module.css';
+import { ThemeContext } from '../ThemeProvider';
 
 export type TableWrapperProps = HTMLAttributes<HTMLDivElement>;
 

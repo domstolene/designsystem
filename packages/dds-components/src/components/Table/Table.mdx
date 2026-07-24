@@ -1,0 +1,166 @@
+import {
+  Canvas,
+  Story,
+  Meta,
+  ArgTypes,
+  Controls,
+} from '@storybook/addon-docs/blocks';
+import { Table, TableRow, TableCell, TableSortCell } from '.';
+import { Tag } from '../Tag';
+import {
+  Source,
+  ComponentLinkRow,
+} from '@norges-domstoler/storybook-components';
+import * as TableStories from './Table.stories';
+import meta from './Table.stories';
+import { Tabs, Tab, TabList, TabPanel, TabPanels } from '../Tabs';
+import { Divider } from '../Divider';
+
+<Meta of={meta} />
+
+# Table
+
+<ComponentLinkRow
+  docsHref="559cc8-table"
+  figmaHref="node-id=1347%3A0"
+  githubHref={{ folder: 'components', comp: 'Table' }}
+  storybookHref={{ folder: 'components', comp: 'table' }}
+/>
+
+Tabeller bygges med styled versjoner av native HTML elementer. Disse komponentene er:
+
+- **`<Table.Wrapper>`** - wrapper for tabell. Håndterer scrolling.
+- **`<Table>`** - selve tabellen.
+- **Delkomponenter:** `<Table.Head>`, `<Table.Body>`, `<Table.Foot>`, `<Table.Row>`, `<Table.Cell>`, `<Table.SortCell>`.
+
+Enkelte delkomponenter har props for å sørge for riktig styling og oppførsel, mens andre har kun native props.
+
+Ikke-compound komponenter er også støttet: `<TableWrapper>`, `<TableHead>`, `<TableBody>`, `<TableFoot>`, `<TableRow>`, `<TableCell>`, `<TableSortCell>`.
+
+<Tabs>
+  <TabList>
+    <Tab>Preview</Tab>
+    <Tab>Collapsible</Tab>
+  </TabList>
+
+  <TabPanels>
+    <TabPanel>
+      <Canvas of={TableStories.Preview} />
+      <Controls of={TableStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      Variant av `<Table>` som kan kollapse deler av hver rad. Settes med `collapseBelow` prop som tar en breakpoint-verdi.
+      Konsumenten må bestemme hvilke kolonner vises til enhver tid som i vanlig tabell, mens reseterende kolonner kan kollapse.
+      Dette settes med `collapseKey` prop på `<Table.Cell>`-elementene som skal kollapse.
+      I kollapset tilstand legges en kolonne til høyre med en knapp som utvider raden.
+      Kollapset innhold vises ved hjelp av `<DescriptionList>` og brukes som mobilversjon.
+      <Canvas of={TableStories.Collapsible} />
+    </TabPanel>
+
+  </TabPanels>
+</Tabs>
+
+## Delkomponenter
+
+<Tabs>
+  <TabList>
+    <Tab>Table.Wrapper</Tab>
+    <Tab>Table.Body</Tab>
+    <Tab>Table.Head</Tab>
+    <Tab>Table.Foot</Tab>
+    <Tab>Table.Row</Tab>
+    <Tab>Table.Cell</Tab>
+    <Tab>Table.SortCell</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      En wrapper som sørger for at tabellen får scrolling når den ikke får plass i bredden.
+
+      Støtter alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
+    </TabPanel>
+    <TabPanel>
+      Tilsvarer `<tbody>`. Støtter native HTML-attributter.
+    </TabPanel>
+    <TabPanel>
+      Tilsvarer `<thead>`. Støtter native HTML-attributter.
+    </TabPanel>
+    <TabPanel>
+      Tilsvarer `<tfoot>`. Støtter native HTML-attributter.
+    </TabPanel>
+    <TabPanel>
+      Tilsvarer `<tr>`. Støtter også native HTML-attributter.
+      <ArgTypes of={TableRow} />
+    </TabPanel>
+    <TabPanel>
+      Tilsvarer `<th>` eller `<td>`. Støtter også native HTML-attributter.
+      <ArgTypes of={TableCell} />
+    </TabPanel>
+    <TabPanel>
+      Et styled `<Cell type='head'>`-element som brukes som `<th>` i sorteringskolonner. **OBS!** komponenten stiller kun med styling og ikoner, sortering implementeres i de respektive løsningene.
+      <ArgTypes of={TableSortCell} />
+    </TabPanel>
+
+  </TabPanels>
+</Tabs>
+
+<Divider />
+
+## Bruk
+
+<Source
+  code={`import { Table } from '@norges-domstoler/dds-components';
+
+<Table.Wrapper>
+  <Table>
+    <Table.Head>
+      <Table.Row>
+        <Table.Cell>Navn</Table.Cell>
+        <Table.Cell>Rolle</Table.Cell>
+      </Table.Row>
+    </Table.Head>
+    <Table.Body>
+      <Table.Row>
+        <Table.Cell>Sandra Lovsetter</Table.Cell>
+        <Table.Cell>Admin</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>Marie Bjerke</Table.Cell>
+        <Table.Cell>Admin</Table.Cell>
+      </Table.Row>
+    </Table.Body>
+  </Table>
+</Table.Wrapper>
+
+// Collapsible
+
+<Table collapseBelow="sm">
+  <Table.Head>
+    <Table.Row>
+      <Table.Cell>Navn</Table.Cell>
+      <Table.Cell collapseKey="rolle">Rolle</Table.Cell>
+    </Table.Row>
+  </Table.Head>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell>Sandra Lovsetter</Table.Cell>
+      <Table.Cell collapseKey="rolle">Admin</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>Marie Bjerke</Table.Cell>
+      <Table.Cell collapseKey="rolle">Admin</Table.Cell>
+    </Table.Row>
+  </Table.Body>
+</Table>
+`} />
+
+## Retningslinjer
+
+### Footer
+
+Bruk `<Table.Foot>` som footer i tabellen ved summering av verdier i en kolonne eller lignende.
+
+### Interaksjon
+
+Hele raden skal ikke være klikkbar. Hvis det trengs en handling på en rad skal det brukes lenker eller knapper i selve raden:
+
+<Canvas of={TableStories.InteractiveContent} />

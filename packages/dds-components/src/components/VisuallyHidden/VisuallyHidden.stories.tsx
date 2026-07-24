@@ -6,7 +6,7 @@ import {
   htmlArgType,
 } from '../../storybook';
 import { Button } from '../Button';
-import { Table } from '../Table/normal';
+import { Table } from '../Table';
 import { Link, Paragraph } from '../Typography';
 
 import { VisuallyHidden } from '.';
