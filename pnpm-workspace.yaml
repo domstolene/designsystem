@@ -11,8 +11,8 @@ allowBuilds:
   unrs-resolver: true
 
 overrides:
-  react: 19.2.7
-  react-dom: 19.2.7
+  react: 19.2.8
+  react-dom: 19.2.8
   esbuild@>=0.27.3 <0.28.1: ^0.28.1
 
 minimumReleaseAgeExclude:
