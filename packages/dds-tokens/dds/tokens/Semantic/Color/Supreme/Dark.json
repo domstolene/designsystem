@@ -129,7 +129,7 @@
         "description": "tag strong value"
       },
       "paper-default": {
-        "value": "{dds-color.warm-gray.800}",
+        "value": "{dds-color.warm-gray.850}",
         "type": "color",
         "description": "modal, drawer, popover etc"
       },
@@ -219,6 +219,11 @@
         "value": "{dds-color.warm-gray.900}",
         "type": "color",
         "description": "Used on primary split button"
+      },
+      "strong": {
+        "value": "{dds-color.cool-gray.white}",
+        "type": "color",
+        "description": "Form components, togglebutton, secondary button, checkbox etc"
       }
     },
     "text": {
@@ -482,7 +487,7 @@
         "description": "Secondary brand color"
       },
       "secondary-strong": {
-        "value": "{dds-color.supreme-red.300}",
+        "value": "{dds-color.supreme-red.200}",
         "type": "color",
         "description": "Secondary brand color"
       },

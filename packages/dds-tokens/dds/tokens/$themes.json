@@ -123,6 +123,7 @@
       "dds-color.surface.notification": "1622ac0204bd423ce30c1aa7ce8acaf975ffd1e7",
       "dds-color.surface.skeleton": "3685d91952f46056c3c2c199ec58b0adba4b0c17",
       "dds-color.border.default": "12ef49cdf66278ac95a3f9ea10e04e0277adae21",
+      "dds-color.border.strong": "d8b7d0473fe1065d9f5f07f3257a5b0a4acf244e",
       "dds-color.border.subtle": "09469d6f06b54a89ccd02f903b5732a5aeb489e7",
       "dds-color.border.inverse": "feaf3a4ca0ee4f068f6c18508fee0546e1eb074f",
       "dds-color.border.action-default": "29345235b287434341255faaf43b5fc2891d9b45",
@@ -335,6 +336,7 @@
       "dds-color.surface.notification": "1622ac0204bd423ce30c1aa7ce8acaf975ffd1e7",
       "dds-color.surface.skeleton": "3685d91952f46056c3c2c199ec58b0adba4b0c17",
       "dds-color.border.default": "12ef49cdf66278ac95a3f9ea10e04e0277adae21",
+      "dds-color.border.strong": "d8b7d0473fe1065d9f5f07f3257a5b0a4acf244e",
       "dds-color.border.subtle": "09469d6f06b54a89ccd02f903b5732a5aeb489e7",
       "dds-color.border.inverse": "feaf3a4ca0ee4f068f6c18508fee0546e1eb074f",
       "dds-color.border.action-default": "29345235b287434341255faaf43b5fc2891d9b45",
@@ -532,6 +534,7 @@
       "dds-color.surface.notification": "1622ac0204bd423ce30c1aa7ce8acaf975ffd1e7",
       "dds-color.surface.skeleton": "3685d91952f46056c3c2c199ec58b0adba4b0c17",
       "dds-color.border.default": "12ef49cdf66278ac95a3f9ea10e04e0277adae21",
+      "dds-color.border.strong": "d8b7d0473fe1065d9f5f07f3257a5b0a4acf244e",
       "dds-color.border.subtle": "09469d6f06b54a89ccd02f903b5732a5aeb489e7",
       "dds-color.border.inverse": "feaf3a4ca0ee4f068f6c18508fee0546e1eb074f",
       "dds-color.border.action-default": "29345235b287434341255faaf43b5fc2891d9b45",
@@ -744,6 +747,7 @@
       "dds-color.surface.notification": "1622ac0204bd423ce30c1aa7ce8acaf975ffd1e7",
       "dds-color.surface.skeleton": "3685d91952f46056c3c2c199ec58b0adba4b0c17",
       "dds-color.border.default": "12ef49cdf66278ac95a3f9ea10e04e0277adae21",
+      "dds-color.border.strong": "d8b7d0473fe1065d9f5f07f3257a5b0a4acf244e",
       "dds-color.border.subtle": "09469d6f06b54a89ccd02f903b5732a5aeb489e7",
       "dds-color.border.inverse": "feaf3a4ca0ee4f068f6c18508fee0546e1eb074f",
       "dds-color.border.action-default": "29345235b287434341255faaf43b5fc2891d9b45",
@@ -928,6 +932,7 @@
       "dds-color.surface.notification": "1622ac0204bd423ce30c1aa7ce8acaf975ffd1e7",
       "dds-color.surface.skeleton": "3685d91952f46056c3c2c199ec58b0adba4b0c17",
       "dds-color.border.default": "12ef49cdf66278ac95a3f9ea10e04e0277adae21",
+      "dds-color.border.strong": "d8b7d0473fe1065d9f5f07f3257a5b0a4acf244e",
       "dds-color.border.subtle": "09469d6f06b54a89ccd02f903b5732a5aeb489e7",
       "dds-color.border.inverse": "feaf3a4ca0ee4f068f6c18508fee0546e1eb074f",
       "dds-color.border.action-default": "29345235b287434341255faaf43b5fc2891d9b45",
@@ -1081,7 +1086,8 @@
       "Semantic/Color/Data/Light": "enabled",
       "Base/Zindex": "source",
       "Semantic/Color/Supreme/Light": "enabled",
-      "Semantic/Typography/Supreme": "enabled"
+      "Semantic/Typography/Supreme": "enabled",
+      "Semantic/BorderRadius/Supreme": "enabled"
     },
     "group": "Theme"
   },
@@ -1124,6 +1130,7 @@
       "dds-color.surface.notification": "1622ac0204bd423ce30c1aa7ce8acaf975ffd1e7",
       "dds-color.surface.skeleton": "3685d91952f46056c3c2c199ec58b0adba4b0c17",
       "dds-color.border.default": "12ef49cdf66278ac95a3f9ea10e04e0277adae21",
+      "dds-color.border.strong": "d8b7d0473fe1065d9f5f07f3257a5b0a4acf244e",
       "dds-color.border.subtle": "09469d6f06b54a89ccd02f903b5732a5aeb489e7",
       "dds-color.border.inverse": "feaf3a4ca0ee4f068f6c18508fee0546e1eb074f",
       "dds-color.border.action-default": "29345235b287434341255faaf43b5fc2891d9b45",
@@ -1277,7 +1284,8 @@
       "Semantic/Color/Data/Dark": "enabled",
       "Base/Zindex": "source",
       "Semantic/Color/Supreme/Dark": "enabled",
-      "Semantic/Typography/Supreme": "enabled"
+      "Semantic/Typography/Supreme": "enabled",
+      "Semantic/BorderRadius/Supreme": "enabled"
     },
     "group": "Theme"
   }

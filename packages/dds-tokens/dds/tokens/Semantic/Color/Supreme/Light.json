@@ -219,6 +219,11 @@
         "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "Used on primary split button"
+      },
+      "strong": {
+        "value": "{dds-color.cool-gray.black}",
+        "type": "color",
+        "description": "Form components, togglebutton, secondary button, checkbox etc"
       }
     },
     "text": {
