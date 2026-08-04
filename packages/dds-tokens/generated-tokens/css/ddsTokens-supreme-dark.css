@@ -124,9 +124,9 @@
   --dds-color-data-09-subtle: #006461;
   --dds-color-data-09-border: #5dafad;
   --dds-border-radius-button: 2px; /* For use in button component and togglebutton */
-  --dds-border-radius-surface: 2px; /* Most surfaces, for example cards, papers, messages, backgrounds in GUI */
+  --dds-border-radius-surface: 0px; /* Most surfaces, for example cards, papers, messages, backgrounds in GUI */
   --dds-border-radius-input: 2px; /* All input fields, and check boxes */
-  --dds-border-radius-chip: 2px; /* Chips and tags */
+  --dds-border-radius-chip: 9999px; /* Chips and tags */
   --dds-border-radius-rounded: 9999px; /* Rounded and circular components such as radiobutton, toggle, togglebutton and progress tracker */
   --dds-color-bg-default: #1b1a18; /* UI shell base color */
   --dds-color-bg-subtle: #292824; /* Alternative UI shell base color */
@@ -153,7 +153,7 @@
   --dds-color-surface-warning-strong: #f4e04d; /* tag strong value */
   --dds-color-surface-info-default: #2a4b61; /* tag, message */
   --dds-color-surface-info-strong: #75b9e6; /* tag strong value */
-  --dds-color-surface-paper-default: #363530; /* modal, drawer, popover etc */
+  --dds-color-surface-paper-default: #292824; /* modal, drawer, popover etc */
   --dds-color-surface-backdrop-default: #0b0d0e80; /* background overlay for modals (50%) */
   --dds-color-surface-field-default: #0b0d0e; /* Form elements (textinput, datepicker etc) */
   --dds-color-surface-field-disabled: #303438; /* disabled state on surface.field */
@@ -171,6 +171,7 @@
   --dds-color-border-danger: #ad2c2c; /* Tag.default, error message field */
   --dds-color-border-info: #5197c5; /* Tag.default */
   --dds-color-border-on-action: #1b1a18; /* Used on primary split button */
+  --dds-color-border-strong: #ffffff; /* Form components, togglebutton, secondary button, checkbox etc */
   --dds-color-text-default: #ffffff; /* default text, heading, body. on surface.hover */
   --dds-color-text-medium: #e7e6e4; /* Label, etc */
   --dds-color-text-subtle: #cfcec9; /* Disabled or less important text */
@@ -222,7 +223,7 @@
   --dds-color-brand-secondary-default: #891d22; /* Secondary brand color */
   --dds-color-brand-secondary-subtle: #370c0e; /* Secondary brand color */
   --dds-color-brand-secondary-medium: #521114; /* Secondary brand color */
-  --dds-color-brand-secondary-strong: #b8777a; /* Secondary brand color */
+  --dds-color-brand-secondary-strong: #d0a5a7; /* Secondary brand color */
   --dds-color-brand-tertiary-default: #b1995d; /* Tertiary brand color */
   --dds-color-brand-tertiary-subtle: #594d2f; /* Tertiary brand color */
   --dds-color-brand-tertiary-medium: #8e7a4a; /* Tertiary brand color */

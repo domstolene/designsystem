@@ -153,7 +153,7 @@
   --dds-color-surface-warning-strong: #f4e04d; /* tag strong value */
   --dds-color-surface-info-default: #2a4b61; /* tag, message */
   --dds-color-surface-info-strong: #75b9e6; /* tag strong value */
-  --dds-color-surface-paper-default: #303438; /* modal, drawer, popover etc */
+  --dds-color-surface-paper-default: #22272a; /* modal, drawer, popover etc */
   --dds-color-surface-backdrop-default: #0b0d0e80; /* background overlay for modals (50%) */
   --dds-color-surface-field-default: #0b0d0e; /* Form elements (textinput, datepicker etc) */
   --dds-color-surface-field-disabled: #303438; /* disabled state on surface.field */
@@ -162,6 +162,7 @@
   --dds-color-surface-notification: #d83737; /* bg on a notification */
   --dds-color-surface-skeleton: #545c62; /* Used for skeleton */
   --dds-color-border-default: #77838c; /* Form components, togglebutton, secondary button, checkbox etc */
+  --dds-color-border-strong: #ffffff; /* Form components, togglebutton, secondary button, checkbox etc */
   --dds-color-border-subtle: #545c62; /* Dropdown, tooltip, overflow etc */
   --dds-color-border-inverse: #acbbc6; /* Border or divider on surface.inverse */
   --dds-color-border-action-default: #589ac6; /* Used in progress tracker */

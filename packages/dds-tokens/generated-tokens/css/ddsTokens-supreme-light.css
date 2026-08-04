@@ -124,9 +124,9 @@
   --dds-color-data-09-subtle: #90ccc9;
   --dds-color-data-09-border: #007d79;
   --dds-border-radius-button: 2px; /* For use in button component and togglebutton */
-  --dds-border-radius-surface: 2px; /* Most surfaces, for example cards, papers, messages, backgrounds in GUI */
+  --dds-border-radius-surface: 0px; /* Most surfaces, for example cards, papers, messages, backgrounds in GUI */
   --dds-border-radius-input: 2px; /* All input fields, and check boxes */
-  --dds-border-radius-chip: 2px; /* Chips and tags */
+  --dds-border-radius-chip: 9999px; /* Chips and tags */
   --dds-border-radius-rounded: 9999px; /* Rounded and circular components such as radiobutton, toggle, togglebutton and progress tracker */
   --dds-color-bg-default: #ffffff; /* UI shell base color */
   --dds-color-bg-subtle: #f3f3f2; /* Alternative UI shell base color */
@@ -171,6 +171,7 @@
   --dds-color-border-danger: #d83737; /* Tag.default, error message field */
   --dds-color-border-info: #75b9e6; /* Tag.default */
   --dds-color-border-on-action: #ffffff; /* Used on primary split button */
+  --dds-color-border-strong: #0b0d0e; /* Form components, togglebutton, secondary button, checkbox etc */
   --dds-color-text-default: #0b0d0e; /* default text, heading, body. on surface.hover */
   --dds-color-text-medium: #514f48; /* Label, etc */
   --dds-color-text-subtle: #615f56; /* Disabled or less important text */
