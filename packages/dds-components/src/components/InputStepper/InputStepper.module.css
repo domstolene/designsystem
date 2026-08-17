@@ -4,6 +4,11 @@
 .textInput:enabled:read-write {
   text-align: center;
   border-radius: 0;
+
+  &:focus-visible,
+  &[aria-invalid='true'] {
+    z-index: var(--dds-zindex-absolute-element);
+  }
 }
 .stepButton {
   &:focus-visible {
