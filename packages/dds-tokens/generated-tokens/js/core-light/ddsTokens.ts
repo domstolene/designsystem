@@ -165,6 +165,7 @@ export const ddsColorSurfaceScrollbar = "#adb5ba"; // Used for scrollbar
 export const ddsColorSurfaceNotification = "#d83737"; // bg on a notification
 export const ddsColorSurfaceSkeleton = "#d6dadd"; // Used for skeleton
 export const ddsColorBorderDefault = "#77838c"; // Form components, togglebutton, secondary button, checkbox etc
+export const ddsColorBorderStrong = "#0b0d0e"; // Form components, togglebutton, secondary button, checkbox etc
 export const ddsColorBorderSubtle = "#d6dadd"; // Dropdown, tooltip, overflow etc
 export const ddsColorBorderInverse = "#acbbc6"; // Border or divider on surface.inverse
 export const ddsColorBorderActionDefault = "#106ead"; // Used in progress tracker

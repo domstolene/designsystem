@@ -175,6 +175,11 @@
         "type": "color",
         "description": "Form components, togglebutton, secondary button, checkbox etc"
       },
+      "strong": {
+        "value": "{dds-color.cool-gray.black}",
+        "type": "color",
+        "description": "Form components, togglebutton, secondary button, checkbox etc"
+      },
       "subtle": {
         "value": "{dds-color.cool-gray.200}",
         "type": "color",

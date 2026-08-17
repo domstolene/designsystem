@@ -129,7 +129,7 @@
         "description": "tag strong value"
       },
       "paper-default": {
-        "value": "{dds-color.cool-gray.800}",
+        "value": "{dds-color.cool-gray.850}",
         "type": "color",
         "description": "modal, drawer, popover etc"
       },
@@ -172,6 +172,11 @@
     "border": {
       "default": {
         "value": "{dds-color.cool-gray.500}",
+        "type": "color",
+        "description": "Form components, togglebutton, secondary button, checkbox etc"
+      },
+      "strong": {
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "Form components, togglebutton, secondary button, checkbox etc"
       },
