@@ -1,6 +1,7 @@
 :where(.button) {
   user-select: text;
   display: inline-flex;
+  position: relative;
   align-items: center;
   justify-content: center;
   width: fit-content;
