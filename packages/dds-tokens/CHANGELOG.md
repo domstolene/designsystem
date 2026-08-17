@@ -1,5 +1,22 @@
 # @norges-domstoler/dds-design-tokens
 
+## 10.0.0
+
+### Major Changes
+
+- c4e1e9f: Nye temaer: `supreme-light` og `supreme-dark`. Se detaljer i [migreringsguiden v9 til v10](https://design.domstol.no/987b33f71/p/06a3ea-v9-til-v10).
+
+### Minor Changes
+
+- f737169: - Ny design token: `dds-color-border-strong`.
+
+### Patch Changes
+
+- 1ffefc9: - Oppdaterer verdi i design token `dds-color-surface-paper` i mørkmodus i alle temaene.
+  - Oppdaterer verdi i design token `dds-color-brand-secondary-strong` i tema `supreme-dark`.
+  - Oppdaterer verdier i design tokens `dds-border-radius-button`, `dds-border-radius-surface`, `dds-border-radius-chip`, `dds-border-radius-input`, og `dds-border-radius-rounded` i temaene `supreme-dark` og `supreme-light`.
+- c4e1e9f: Fjerner `clamp()` fra design tokens `dds-font-heading-large` og `dds-font-heading-large` i `core`-temaene.
+
 ## 9.3.0
 
 (2026-06-08)
