@@ -118,6 +118,7 @@ import notificationsSvg from '../svg/notifications.svg?raw';
 import notificationsOffSvg from '../svg/notificationsOff.svg?raw';
 import onlineMeetingSvg from '../svg/onlineMeeting.svg?raw';
 import openExternalSvg from '../svg/openExternal.svg?raw';
+import paletteSvg from '../svg/palette.svg?raw';
 import panelLeftSvg from '../svg/panelLeft.svg?raw';
 import paperPlaneSvg from '../svg/paperplane.svg?raw';
 import payoutSvg from '../svg/payout.svg?raw';
@@ -308,6 +309,7 @@ export const iconSvgs: Record<IconName, string> = {
   OnlineMeetingIcon: onlineMeetingSvg,
   OpenExternalIcon: openExternalSvg,
 
+  PaletteIcon: paletteSvg,
   PanelLeftIcon: panelLeftSvg,
   PaperPlaneIcon: paperPlaneSvg,
   PayoutIcon: payoutSvg,

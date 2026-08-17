@@ -107,6 +107,7 @@ export * from './notifications';
 export * from './notificationsOff';
 export * from './onlineMeeting';
 export * from './openExternal';
+export * from './palette';
 export * from './panelLeft';
 export * from './paperPlane';
 export * from './payout';
