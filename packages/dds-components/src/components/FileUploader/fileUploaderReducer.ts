@@ -1,8 +1,7 @@
-import { type FileWithPath } from 'file-selector';
 import { type Reducer } from 'react';
 
 export interface FileUploaderFile {
-  file?: FileWithPath;
+  file?: File;
   name: string;
   errors: Array<string>;
   url?: string;
