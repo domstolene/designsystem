@@ -3,7 +3,7 @@ import { useDatePicker } from '@react-aria/datepicker';
 import { I18nProvider } from '@react-aria/i18n';
 import { useDatePickerState } from '@react-stately/datepicker';
 import type { AriaDatePickerProps } from '@react-types/datepicker';
-import { type Ref, useId, useRef } from 'react';
+import { type Ref, useEffect, useId, useRef } from 'react';
 
 import { Calendar } from './Calendar/Calendar';
 import {
@@ -55,6 +55,16 @@ const refIsFocusable = (ref: Ref<unknown>): ref is FocusableRef => {
   return typeof ref === 'object' && ref !== null && 'focus' in ref;
 };
 
+const closeRegistry = new Map<symbol, () => void>();
+
+const closeOtherCalendars = (currentInstanceId: symbol) => {
+  for (const [instanceId, close] of closeRegistry.entries()) {
+    if (instanceId !== currentInstanceId) {
+      close();
+    }
+  }
+};
+
 export function DatePicker({
   errorMessage,
   componentSize,
@@ -67,13 +77,35 @@ export function DatePicker({
   ref,
   ...props
 }: DatePickerProps) {
+  const instanceIdRef = useRef(Symbol('datePickerInstance'));
+  const closeOthers = () => {
+    closeOtherCalendars(instanceIdRef.current);
+  };
   const lang = useLanguage();
 
   if (!lang) {
     throw new Error('DatePicker must be used within a DdsProvider');
   }
 
-  const state = useDatePickerState(props);
+  const state = useDatePickerState({
+    ...props,
+    onOpenChange: isOpen => {
+      if (isOpen) {
+        closeOthers();
+      }
+
+      props.onOpenChange?.(isOpen);
+    },
+  });
+
+  useEffect(() => {
+    closeRegistry.set(instanceIdRef.current, state.close);
+
+    return () => {
+      closeRegistry.delete(instanceIdRef.current);
+    };
+  }, [state.close]);
+
   const domRef = useFocusManagerRef(ref && refIsFocusable(ref) ? ref : null);
   const internalRef = useRef<HTMLElement>(null);
   const combinedRef = useCombinedRef(internalRef, domRef);
@@ -95,6 +127,7 @@ export function DatePicker({
         isOpen={state.isOpen}
         onClose={state.close}
         showWeekNumbers={showWeekNumbers}
+        closeOtherCalendars={closeOthers}
       >
         <CalendarPopoverAnchor>
           <DateField

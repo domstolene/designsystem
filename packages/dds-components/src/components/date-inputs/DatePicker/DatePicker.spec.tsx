@@ -109,6 +109,73 @@ describe('<DatePicker>', () => {
     expect(nextButton).not.toBeInTheDocument();
   });
 
+  it('closes previously opened calendar when another datepicker opens', async () => {
+    const user = userEvent.setup();
+
+    portalRender(
+      <>
+        <DatePicker
+          label="Første dato"
+          defaultValue={new CalendarDate(2024, 3, 15)}
+        />
+        <DatePicker
+          label="Andre dato"
+          defaultValue={new CalendarDate(2024, 4, 15)}
+        />
+      </>,
+    );
+
+    const buttons = screen.getAllByRole('button');
+
+    await user.click(buttons[0]);
+
+    expect(
+      screen.getByRole('grid', { name: /mars 2024/i }),
+    ).toBeInTheDocument();
+
+    await user.click(buttons[1]);
+
+    expect(
+      screen.queryByRole('grid', { name: /mars 2024/i }),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.getByRole('grid', { name: /april 2024/i }),
+    ).toBeInTheDocument();
+  });
+
+  it('closes opened calendar when another datepicker field is clicked', async () => {
+    const user = userEvent.setup();
+
+    portalRender(
+      <>
+        <DatePicker
+          label="Første dato"
+          defaultValue={new CalendarDate(2024, 3, 15)}
+        />
+        <DatePicker
+          label="Andre dato"
+          defaultValue={new CalendarDate(2024, 4, 15)}
+        />
+      </>,
+    );
+
+    expect(screen.queryByRole('grid')).not.toBeInTheDocument();
+
+    const buttons = screen.getAllByRole('button');
+
+    await user.click(buttons[0]);
+
+    expect(
+      screen.getByRole('grid', { name: /mars 2024/i }),
+    ).toBeInTheDocument();
+
+    await user.click(screen.getByText('Andre dato'));
+
+    expect(
+      screen.queryByRole('grid', { name: /mars 2024/i }),
+    ).not.toBeInTheDocument();
+  });
+
   describe('spinbuttons', () => {
     it('renders date segments in Norwegian format (day, month, year)', () => {
       portalRender(<DatePicker label="Label" />);
