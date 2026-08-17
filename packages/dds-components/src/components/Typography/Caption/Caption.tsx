@@ -2,14 +2,24 @@ import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
-import { type CommonBlockTypographyProps, Typography } from '../Typography';
+import {
+  type CommonBlockTypographyProps,
+  Typography,
+  type TypographyHeadingType,
+} from '../Typography';
 
 export type CaptionProps = BaseComponentPropsWithChildren<
   HTMLTableCaptionElement,
-  CommonBlockTypographyProps
+  {
+    /**Typografistil basert på utvalget for HTML heading elementer.
+     * @default 'heading-large'
+     */
+    typographyType?: TypographyHeadingType;
+  } & CommonBlockTypographyProps
 >;
 
 export const Caption = ({
+  typographyType = 'heading-large',
   id,
   className,
   style,
@@ -20,7 +30,7 @@ export const Caption = ({
   return (
     <Typography
       {...getBaseHTMLProps(id, className, style, htmlProps, rest)}
-      typographyType="heading-large"
+      typographyType={typographyType}
       as="caption"
     >
       {children}
