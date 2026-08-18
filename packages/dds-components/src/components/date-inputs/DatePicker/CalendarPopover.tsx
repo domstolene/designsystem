@@ -31,7 +31,7 @@ import { CloseIcon } from '../../Icon/icons';
 import { ThemeContext } from '../../ThemeProvider';
 import styles from '../common/DateInput.module.css';
 import { type DateField } from './DateField/DateField';
-import { type Breakpoint, type PaperProps, ShowHide } from '../../layout';
+import { Box, type Breakpoint, type PaperProps, ShowHide } from '../../layout';
 import { Paper } from '../../layout';
 
 /**------------------------------------------------------------------------
@@ -194,7 +194,7 @@ export const CalendarPopoverContent = ({
                 className={cn(styles.popover, className)}
                 {...paperStyleProps}
               >
-                <div className={styles['modal-close-button-wrapper']}>
+                <Box display="flex" justifyContent="flex-end">
                   <Button
                     ref={closeButtonRef}
                     icon={CloseIcon}
@@ -204,7 +204,7 @@ export const CalendarPopoverContent = ({
                     onClick={onClose}
                     htmlProps={{ onKeyDown: closeOnKeyboardBlurBack }}
                   />
-                </div>
+                </Box>
                 {children}
               </Paper>
             </Backdrop>

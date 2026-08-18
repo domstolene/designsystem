@@ -1,10 +1,9 @@
 import { type ComponentPropsWithRef } from 'react';
 
-import styles from './Footer.module.css';
-import { cn } from '../../utils';
+import { VStack } from '../..';
 
 export type FooterLeftProps = ComponentPropsWithRef<'div'>;
 
-export const FooterLeft = ({ className, ...rest }: FooterLeftProps) => (
-  <div className={cn(className, styles['left'])} {...rest} />
+export const FooterLeft = (props: FooterLeftProps) => (
+  <VStack gap="x4" {...props} />
 );

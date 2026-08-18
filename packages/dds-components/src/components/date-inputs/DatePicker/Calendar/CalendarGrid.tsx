@@ -11,11 +11,10 @@ import {
 import { useContext } from 'react';
 
 import { CalendarCell } from './CalendarCell';
+import { CalendarDate } from './CalendarDate';
 import { createTexts, useTranslation } from '../../../../i18n';
-import { cn } from '../../../../utils';
 import tgStyles from '../../../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../../../VisuallyHidden';
-import styles from '../../common/DateInput.module.css';
 import { getWeekNumber } from '../../utils/getWeekNumber';
 import { CalendarPopoverContext } from '../CalendarPopover';
 
@@ -44,11 +43,6 @@ export function CalendarGrid({ state, ...props }: CalendarGridProps) {
   ];
 
   const { showWeekNumbers, onClose } = useContext(CalendarPopoverContext);
-  const thCn = cn(
-    styles['calendar__grid-element'],
-    tgStyles['text-color--subtle'],
-    styles.calendar__th,
-  );
   return (
     <table
       {...gridProps}
@@ -68,16 +62,16 @@ export function CalendarGrid({ state, ...props }: CalendarGridProps) {
       <thead {...headerProps}>
         <tr>
           {showWeekNumbers && (
-            <th className={cn(thCn)}>
+            <CalendarCell as="th">
               <span aria-hidden>#</span>
               <VisuallyHidden>{t(texts.weekNumber)}</VisuallyHidden>
-            </th>
+            </CalendarCell>
           )}
           {weekDays.map((day, index) => (
-            <th key={index} className={thCn}>
+            <CalendarCell as="th" key={index}>
               <span aria-hidden>{day.short}</span>
               <VisuallyHidden>{day.full}</VisuallyHidden>
-            </th>
+            </CalendarCell>
           ))}
         </tr>
       </thead>
@@ -91,13 +85,11 @@ export function CalendarGrid({ state, ...props }: CalendarGridProps) {
           return (
             <tr key={weekIndex}>
               {showWeekNumbers && (
-                <td className={cn(thCn, styles['calendar__week-number'])}>
-                  {weekNumber}
-                </td>
+                <CalendarCell as="td">{weekNumber}</CalendarCell>
               )}
               {datesInWeek.map((date, i) =>
                 date ? (
-                  <CalendarCell
+                  <CalendarDate
                     key={i}
                     state={state}
                     date={date}
