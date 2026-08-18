@@ -171,7 +171,7 @@
   --dds-color-border-danger: #ad2c2c; /* Tag.default, error message field */
   --dds-color-border-info: #5197c5; /* Tag.default */
   --dds-color-border-on-action: #1b1a18; /* Used on primary split button */
-  --dds-color-border-strong: #ffffff; /* Form components, togglebutton, secondary button, checkbox etc */
+  --dds-color-border-strong: #ffffff;
   --dds-color-text-default: #ffffff; /* default text, heading, body. on surface.hover */
   --dds-color-text-medium: #e7e6e4; /* Label, etc */
   --dds-color-text-subtle: #cfcec9; /* Disabled or less important text */
