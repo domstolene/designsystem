@@ -1,5 +1,33 @@
 # @norges-domstoler/dds-components
 
+## 24.0.0
+
+(2026-08-18)
+
+### Major Changes
+
+- 101065f: Migrerer bundler fra `tsup` til `tsdown`. Som konsekvens vil navn på CSS-klassene i `index.css` endre seg. Disse CSS-klassene er interne og bør ikke refereres til direkte; hvis det likevel gjøres i din løsning se [dds-components migreringsguiden v23 til v24](https://design.domstol.no/987b33f71/p/04eb89-v23-til-v24).
+- b4f6755: Oppdaterer peer dependency `@norges-domstoler/dds-design-tokens` til `^10`
+- 5f988b0: Oppdaterer peer dependency `@norges-domstoler/dds-design-tokens` til `^9`
+- 46a7da3: Revamp av `<CollapsibleTable>`. Se [dds-components migreringsguiden v23 til v24](https://design.domstol.no/987b33f71/p/04eb89-v23-til-v24).
+- ae91302: Støttede verdier for prop `typographyType` migreres fra camelCase til kebab-case. Se [dds-components migreringsguiden v23 til v24](https://design.domstol.no/987b33f71/p/04eb89-v23-til-v24).
+- 1ff87b2: Prop `borderRadius` i `<Skeleton>` støtter kun verdier som tilsvarer design tokens for border radius. Se [dds-components migreringsguiden v23 til v24](https://design.domstol.no/987b33f71/p/04eb89-v23-til-v24).
+
+### Minor Changes
+
+- c37edcd: Nytt ikon: `PaletteIcon`.
+- a72d6df: Utvider `background` prop i `<Paper>` til å støtte verdi `surface-skeleton`.
+- aae52c2: Støtte for `typographyType` prop i `<Caption>`. Den tillater alle typografistiler med `'heading'` prefiks.
+- c4e1e9f: Legger til fontene Poppins og EB Garamond brukt i de nye temaene `supreme-light` og `supreme-dark`.
+- c4e1e9f: Utvider `theme` prop i `<DdsProvider>` til å støtte nye temaer fra `dds-design-tokens`: `supreme-light` og `supreme-dark`. Disse brukes av Høyesterett.
+
+### Patch Changes
+
+- e70119b: - Oppdaterer bakgrunnsfarge i komponentene `<Drawer>`, `<Modal>`, `<Popover>`, `<Tooltip>`, og `<DatePicker>` (kalender) i mørkmodus for bedre synlighet av tilstandsfarger hvis de brukes.
+- 537f019: Fikser bug der flere `<DatePicker>` kalendere kunne være åpnet samtidig, og at klikking på en annen `<DatePicker>` ikke lukket kalender i den første.
+- 5334b5c: Venstrestiller tekst i headers i tabeller med sortering
+- 2a4712c: Fikser feil hvor Button-komponentens loading-spinner forsvinner ut av knappen ved scroll
+
 ## 23.2.2
 
 (2026-07-03)
@@ -354,16 +382,10 @@
 
   ```ts
   type TypographyShortBodyType =
-    | 'bodyShortXsmall'
-    | 'bodyShortSmall'
-    | 'bodyShortMedium'
-    | 'bodyShortLarge';
+    'bodyShortXsmall' | 'bodyShortSmall' | 'bodyShortMedium' | 'bodyShortLarge';
 
   type TypographyLongBodyType =
-    | 'bodyLongXsmall'
-    | 'bodyLongSmall'
-    | 'bodyLongMedium'
-    | 'bodyLongLarge';
+    'bodyLongXsmall' | 'bodyLongSmall' | 'bodyLongMedium' | 'bodyLongLarge';
 
   type TypographyBodyType = TypographyShortBodyType | TypographyLongBodyType;
   ```
@@ -914,10 +936,7 @@
 
   ```ts
   type TypographyBodyType =
-    | 'bodyXsmall'
-    | 'bodySmall'
-    | 'bodyMedium'
-    | 'bodyLarge';
+    'bodyXsmall' | 'bodySmall' | 'bodyMedium' | 'bodyLarge';
   type TypographyHeadingType =
     | 'headingXxsmall'
     | 'headingXsmall'
