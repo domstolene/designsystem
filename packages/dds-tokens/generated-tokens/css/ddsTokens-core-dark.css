@@ -162,7 +162,7 @@
   --dds-color-surface-notification: #d83737; /* bg on a notification */
   --dds-color-surface-skeleton: #545c62; /* Used for skeleton */
   --dds-color-border-default: #77838c; /* Form components, togglebutton, secondary button, checkbox etc */
-  --dds-color-border-strong: #ffffff; /* Form components, togglebutton, secondary button, checkbox etc */
+  --dds-color-border-strong: #ffffff;
   --dds-color-border-subtle: #545c62; /* Dropdown, tooltip, overflow etc */
   --dds-color-border-inverse: #acbbc6; /* Border or divider on surface.inverse */
   --dds-color-border-action-default: #589ac6; /* Used in progress tracker */
