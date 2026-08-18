@@ -2,10 +2,12 @@
 
 ## 24.0.0
 
+(2026-08-18)
+
 ### Major Changes
 
 - 101065f: Migrerer bundler fra `tsup` til `tsdown`. Som konsekvens vil navn på CSS-klassene i `index.css` endre seg. Disse CSS-klassene er interne og bør ikke refereres til direkte; hvis det likevel gjøres i din løsning se [dds-components migreringsguiden v23 til v24](https://design.domstol.no/987b33f71/p/04eb89-v23-til-v24).
-- b4f6755: Oppdaterer peer dependancy `@norges-domstoler/dds-design-tokens` til ^10
+- b4f6755: Oppdaterer peer dependancy `@norges-domstoler/dds-design-tokens` til `^10`
 - 5f988b0: Oppdaterer peer dependancy `@norges-domstoler/dds-design-tokens` til `^9`
 - 46a7da3: Revamp av `<CollapsibleTable>`. Se [dds-components migreringsguiden v23 til v24](https://design.domstol.no/987b33f71/p/04eb89-v23-til-v24).
 - ae91302: Støttede verdier for prop `typographyType` migreres fra camelCase til kebab-case. Se [dds-components migreringsguiden v23 til v24](https://design.domstol.no/987b33f71/p/04eb89-v23-til-v24).
