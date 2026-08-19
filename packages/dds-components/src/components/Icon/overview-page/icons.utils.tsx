@@ -1,4 +1,4 @@
-import { type icons } from '../../..';
+import type { icons } from '../../..';
 import addressShieldedSvg from '../svg/addressShielded.svg?raw';
 import agreementSvg from '../svg/agreement.svg?raw';
 import appsSvg from '../svg/apps.svg?raw';
@@ -172,7 +172,9 @@ import zoominSvg from '../svg/zoomin.svg?raw';
 import zoomoutSvg from '../svg/zoomout.svg?raw';
 import { type SvgIcon } from '../utils';
 
-export type IconName = keyof typeof icons;
+type Icons = typeof icons;
+
+export type IconName = keyof Icons;
 
 export type TrimmedIconName = IconName extends `${infer Trimmed}Icon`
   ? Trimmed
@@ -1814,7 +1816,7 @@ export const iconMeta: Record<TrimmedIconName, IconMeta> = {
 
 export function filterIcons(
   query: string,
-  allIcons: typeof icons,
+  allIcons: Icons,
   activeCategories: Set<IconCategory>,
 ): Array<[IconName, SvgIcon]> {
   const q = query.toLowerCase().trim();
