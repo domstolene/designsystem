@@ -20,6 +20,18 @@ describe('<Footer>', () => {
       screen.getByRole('img', { name: /norges domstoler/i }),
     ).toBeInTheDocument();
   });
+  it('renders custom logo', () => {
+    render(
+      <Footer>
+        <FooterLogo>
+          <div>Custom Logo</div>
+        </FooterLogo>
+      </Footer>,
+    );
+    expect(
+      screen.getByText(/custom logo/i, { selector: 'div' }),
+    ).toBeInTheDocument();
+  });
   it('renders footer list', () => {
     render(
       <Footer>

@@ -5,12 +5,19 @@ import { Box } from '../layout/Box/Box';
 
 type HideBreakpoint = 'xs' | 'sm' | 'md';
 
-export type FooterLogoProps = ComponentPropsWithRef<'img'> & {
+type ImgLogoProps = ComponentPropsWithRef<'img'> & {
+  /**Brekkepunkt når logoen skal skjules på mindre skjerm. */
+  hideBreakpoint?: HideBreakpoint;
+};
+
+interface ChildrenLogoProps {
   /**Brekkepunkt når logoen skal skjules på mindre skjerm. */
   hideBreakpoint?: HideBreakpoint;
   /**Custom logo som ikke er HTML `<img>`. Settes istedenfor `<img>` props. */
-  children?: ComponentPropsWithRef<'div'>['children'];
-};
+  children: ComponentPropsWithRef<'div'>['children'];
+}
+
+export type FooterLogoProps = ImgLogoProps | ChildrenLogoProps;
 
 export const FooterLogo = ({
   children,
