@@ -289,6 +289,27 @@ export const Logo = meta.story({
   ),
 });
 
+export const CustomLogo = meta.story({
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        {exampleStyle}
+      </>
+    ),
+  ],
+  render: args => (
+    <Footer {...args} className="story-padding">
+      <FooterLogo>
+        <img alt="Elsa" src="Elsa-logo-hoy.png" />
+      </FooterLogo>
+    </Footer>
+  ),
+});
+
 export const ListHeader = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },

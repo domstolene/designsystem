@@ -8,21 +8,31 @@ type HideBreakpoint = 'xs' | 'sm' | 'md';
 export type FooterLogoProps = ComponentPropsWithRef<'img'> & {
   /**Brekkepunkt når logoen skal skjules på mindre skjerm. */
   hideBreakpoint?: HideBreakpoint;
+  /**Custom logo som ikke er HTML `<img>`. Settes istedenfor `<img>` props. */
+  children?: ComponentPropsWithRef<'div'>['children'];
 };
 
-export const FooterLogo = ({ hideBreakpoint, ...rest }: FooterLogoProps) => {
+export const FooterLogo = ({
+  children,
+  hideBreakpoint,
+  ...rest
+}: FooterLogoProps) => {
   return (
     <Box
       hideBelow={hideBreakpoint ? hideBreakpoint : undefined}
       width="fit-content"
     >
-      <img
-        height={80}
-        width={151}
-        alt="norges domstoler"
-        src={Logo}
-        {...rest}
-      />
+      {children ? (
+        children
+      ) : (
+        <img
+          height={80}
+          width={151}
+          alt="norges domstoler"
+          src={Logo}
+          {...rest}
+        />
+      )}
     </Box>
   );
 };
