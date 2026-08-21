@@ -6,8 +6,6 @@
   }
 }
 .date-segment-container {
-  display: flex;
-  flex-direction: row;
   font-family: var(--dds-font-family-monospace);
   user-select: none;
 }
@@ -66,18 +64,11 @@
 
 .popover {
   z-index: var(--dds-zindex-popover);
-}
-
-.modal-close-button-wrapper {
-  display: flex;
-  justify-content: right;
-}
-
-.calendar {
-  display: flex;
-  flex-direction: column;
-  gap: var(--dds-spacing-x0-25);
-  height: 337px;
+  th,
+  td {
+    height: 40px;
+    width: 40px;
+  }
 }
 
 .calendar__header__month {
@@ -88,25 +79,11 @@
   user-select: none;
 }
 
-.calendar__grid-element {
-  width: 40px;
-  height: 40px;
-}
-
 .calendar__th {
   font-weight: normal;
 }
 
-.calendar__week-number {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .calendar__cell-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
   border: 1px solid;
   border-color: transparent;
