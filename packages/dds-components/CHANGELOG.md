@@ -2,6 +2,8 @@
 
 ## 24.1.0
 
+(2026-08-21)
+
 ### Minor Changes
 
 - e0135c4: Støtte for custom bildeelement i `<FooterLogo>` via ny prop: `children`.
