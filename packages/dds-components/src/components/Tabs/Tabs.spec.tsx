@@ -171,7 +171,7 @@ describe('<Tabs>', () => {
       </Tabs>,
     );
 
-    const [tab2] = screen.getAllByRole('tab');
+    const tab2 = screen.getAllByRole('tab')[1];
     await userEvent.click(tab2);
     expect(onChange).toHaveBeenCalledTimes(1);
   });

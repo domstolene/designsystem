@@ -44,7 +44,9 @@ type HTMLAttributesFor<T extends Element> = T extends HTMLButtonElement
  *
  * @template TElement Element-type som genereres av komponenten.
  * @template TOtherProps Andre props komponenten skal eksponere til konsumenter.
- * @template THTMLAttributesProps Standard `HTMLAttributes<T>` men kan overstyres for f.eks knapper hvis man trenger en annen basetype for `htmlProps`.
+ * @template THTMLAttributesProps Standard `HTMLAttributes<T>`;
+ * settes til `ButtonHTMLAttributes<T>` hvis TElement er `HTMLButtonElement` og til `AnchorHTMLAttributes<T>` hvis TElement er `HTMLAnchorElement`.
+ * Kan overstyres hvis man trenger en annen basetype for `htmlProps`.
  */
 export type BaseComponentProps<
   TElement extends Element,
