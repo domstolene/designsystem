@@ -29,6 +29,12 @@ type CommonComponentProps<
   ref?: TRef;
 };
 
+type HTMLAttributesFor<T extends Element> = T extends HTMLButtonElement
+  ? React.ButtonHTMLAttributes<T>
+  : T extends HTMLAnchorElement
+    ? React.AnchorHTMLAttributes<T>
+    : React.HTMLAttributes<T>;
+
 /**
  * Basetype for props som eksponeres til konsumenter av designsystemet.
  * - Rot: `id`, `className`, `style`, `TOtherProps`
@@ -43,8 +49,8 @@ type CommonComponentProps<
 export type BaseComponentProps<
   TElement extends Element,
   TOtherProps extends object = object,
-  THTMLAttributesProps extends HTMLAttributes<TElement> =
-    HTMLAttributes<TElement>,
+  THTMLAttributesProps extends HTMLAttributesFor<TElement> =
+    HTMLAttributesFor<TElement>,
 > = TOtherProps &
   CommonComponentProps<
     Omit<THTMLAttributesProps, keyof HTMLRootProps | keyof TOtherProps>,
@@ -84,7 +90,7 @@ export type PolymorphicBaseComponentProps<
 export type BaseComponentPropsWithChildren<
   T extends Element,
   TProps extends object = object,
-  THTMLProps extends HTMLAttributes<T> = HTMLAttributes<T>,
+  THTMLProps extends HTMLAttributesFor<T> = HTMLAttributesFor<T>,
 > = BaseComponentProps<
   T,
   TProps & {

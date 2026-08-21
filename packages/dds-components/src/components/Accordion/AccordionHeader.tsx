@@ -1,5 +1,3 @@
-import { type ButtonHTMLAttributes } from 'react';
-
 import styles from './Accordion.module.css';
 import {
   type BaseComponentPropsWithChildren,
@@ -26,8 +24,7 @@ export type AccordionHeaderProps = Omit<
       typographyType?: StaticTypographyType;
       /**Angir om teksten skal være i "bold"-format. */
       bold?: boolean;
-    },
-    ButtonHTMLAttributes<HTMLButtonElement>
+    }
   >,
   'id'
 >;
