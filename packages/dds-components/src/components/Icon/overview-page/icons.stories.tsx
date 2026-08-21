@@ -3,15 +3,25 @@ import { useEffect, useState } from 'react';
 
 import { ICON_SIZES, Icon } from '../Icon';
 import styles from './icons.module.css';
-import { type IconName, iconSvgs } from './icons.utils';
+import {
+  ICON_CATEGORIES,
+  type IconCategory,
+  type IconName,
+  filterIcons,
+  iconMeta,
+  trimIconName,
+} from './icons.utils';
 import {
   Box,
   CheckIcon,
   DownloadIcon,
   HStack,
   Paper,
+  Search,
   StylelessButton,
   ToggleBar,
+  ToggleButton,
+  ToggleButtonGroup,
   ToggleRadio,
   VStack,
   cn,
@@ -50,6 +60,11 @@ export const Oversikt = meta.story({
     const [closed, setClosed] = useState(true);
     const [copiedUse, setCopiedUse] = useState(false);
     const [copiedImport, setCopiedImport] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [activeCategories, setActiveCategories] = useState<Set<IconCategory>>(
+      new Set(),
+    );
+
     const close = () => setClosed(true);
 
     useEffect(() => {
@@ -79,15 +94,13 @@ export const Oversikt = meta.story({
       navigator.clipboard.writeText(text);
     };
 
-    const trim = (name: string) => name.replace('Icon', '');
-
     const downloadSvg = (name: IconName, svg: string) => {
       const blob = new Blob([svg], { type: 'image/svg+xml' });
       const url = URL.createObjectURL(blob);
 
       const a = document.createElement('a');
       a.href = url;
-      a.download = `${trim(name)}.svg`;
+      a.download = `${trimIconName(name)}.svg`;
       a.click();
 
       URL.revokeObjectURL(url);
@@ -103,50 +116,73 @@ export const Oversikt = meta.story({
       setCopiedImport(true);
     };
 
-    const iconOverview = () => {
-      return Object.entries(icons).map(([name, icon]) => {
-        const trimmedName = trim(name);
-        return (
-          <VStack
-            as={StylelessButton}
-            position="relative"
-            justifyContent="center"
-            alignItems="center"
-            gap="x0.75"
-            height="6rem"
-            width={{
-              xs: '5rem',
-              sm: '5rem',
-              md: '5rem',
-              lg: '5rem',
-              xl: '6rem',
-            }}
-            key={name}
-            onClick={() => onIconClick({ name, icon } as IconState)}
-            title={trimmedName}
-            className={cn(styles.card, focusable)}
+    const renderIconCard = ([name, icon]: [IconName, SvgIcon]) => {
+      const trimmedName = trimIconName(name);
+      return (
+        <VStack
+          as={StylelessButton}
+          position="relative"
+          justifyContent="center"
+          alignItems="center"
+          gap="x0.75"
+          height="6rem"
+          width={{
+            xs: '5rem',
+            sm: '5rem',
+            md: '5rem',
+            lg: '5rem',
+            xl: '6rem',
+          }}
+          key={name}
+          onClick={() => onIconClick({ name, icon } as IconState)}
+          title={trimmedName}
+          className={cn(styles.card, focusable)}
+        >
+          <Icon iconSize="large" icon={icon} color="icon-default" />
+          <Typography
+            typographyType="body-short-xsmall"
+            className={styles.card__name}
           >
-            <Icon iconSize="large" icon={icon} color="icon-default" />
-            <Typography
-              typographyType="body-short-xsmall"
-              className={styles.card__name}
+            {trimmedName}
+          </Typography>
+          {hasStates(icon) && (
+            <Box
+              position="absolute"
+              top="0"
+              right="0"
+              className={styles.card__badge}
+              width="max-content"
+              padding="x0.125"
             >
-              {trimmedName}
-            </Typography>
-            {hasStates(icon) && (
-              <Box
-                position="absolute"
-                top="0"
-                right="0"
-                className={styles.card__badge}
-                width="max-content"
-                padding="x0.125"
-              >
-                <Typography typographyType="body-short-xsmall">
-                  ✨ animert
-                </Typography>
-              </Box>
-            )}
+              <Typography typographyType="body-short-xsmall">
+                ✨ animert
+              </Typography>
+            </Box>
+          )}
+        </VStack>
+      );
+    };
+
+    const iconOverview = () => {
+      const filtered = filterIcons(searchQuery, icons, activeCategories);
+
+      if (filtered.length === 0) {
+        return <p>Ingen ikoner funnet.</p>;
+      }
+
+      return ICON_CATEGORIES.map(category => {
+        const categoryIcons = filtered.filter(
+          ([name]) => iconMeta[trimIconName(name)].category === category,
+        );
+        if (categoryIcons.length === 0) return null;
+        return (
+          <VStack key={category} as="section">
+            <Heading level={3} typographyType="heading-small" withMargins>
+              {category}
+            </Heading>
+            <div className={styles.overview}>
+              {categoryIcons.map(renderIconCard)}
+            </div>
           </VStack>
         );
       });
@@ -161,7 +197,7 @@ export const Oversikt = meta.story({
         margin="auto"
         position="relative"
         maxWidth={{
-          xs: '800px',
+          xs: '100%',
           sm: '800px',
           md: '800px',
           lg: '1100px',
@@ -169,13 +205,36 @@ export const Oversikt = meta.story({
         }}
       >
         <Typography typographyType="body-short-small">
-          Antall ikoner: {Object.keys(icons).length}
+          Alle ikoner: {Object.keys(icons).length}
         </Typography>
+        <Search
+          value={searchQuery}
+          onChange={e => setSearchQuery(e.target.value)}
+        />
+        <ToggleButtonGroup>
+          {ICON_CATEGORIES.map(category => (
+            <ToggleButton
+              key={category}
+              label={category}
+              onChange={() => {
+                setActiveCategories(prev => {
+                  const next = new Set(prev);
+                  if (next.has(category)) {
+                    next.delete(category);
+                  } else {
+                    next.add(category);
+                  }
+                  return next;
+                });
+              }}
+            />
+          ))}
+        </ToggleButtonGroup>
         <LocalMessage>
           Klikk på ikonet for mer info. Animerte ikoner bruker{' '}
           <code>iconState</code> prop for å animere mellom tilstander.
         </LocalMessage>
-        <div className={styles.overview}>{iconOverview()}</div>
+        <VStack gap="x2">{iconOverview()}</VStack>
         <Modal
           isOpen={!closed}
           onClose={close}
@@ -187,18 +246,21 @@ export const Oversikt = meta.story({
                   iconSize="component"
                   className={styles.header__icon}
                 />{' '}
-                {trim(iconState.name)}
+                {trimIconName(iconState.name)}
               </Heading>
             )
           }
         >
           {iconState && (
             <ModalBody>
-              {iconSvgs[iconState.name] && (
+              {iconMeta[trimIconName(iconState.name)].svg && (
                 <Button
                   purpose="secondary"
                   onClick={() =>
-                    downloadSvg(iconState.name, iconSvgs[iconState.name])
+                    downloadSvg(
+                      iconState.name,
+                      iconMeta[trimIconName(iconState.name)].svg,
+                    )
                   }
                   icon={DownloadIcon}
                 >
