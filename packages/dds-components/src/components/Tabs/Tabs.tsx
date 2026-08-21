@@ -1,4 +1,4 @@
-import { type HTMLAttributes, useEffect, useId, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 
 import { type AddTabButtonProps } from './AddTabButton';
 import { TabsContext } from './Tabs.context';
@@ -28,8 +28,7 @@ export type TabsProps = BaseComponentPropsWithChildren<
     tabContentDirection?: Direction;
     /** Props for "Legg til fane"-knapp. Støtter native HTML attributter og `width`. */
     addTabButtonProps?: Omit<AddTabButtonProps, 'index'>;
-  } & Pick<ResponsiveProps, 'width'>,
-  Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>
+  } & Pick<ResponsiveProps, 'width'>
 >;
 
 export const Tabs = ({

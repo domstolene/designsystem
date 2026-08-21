@@ -30,11 +30,6 @@ type AnchorElement = ReactElement<
   }
 >;
 
-type PickedHTMLAttributes = Pick<
-  HTMLAttributes<HTMLDivElement>,
-  'style' | 'onMouseLeave' | 'onMouseOver'
->;
-
 export type TooltipProps = BaseComponentProps<
   HTMLDivElement,
   {
@@ -54,8 +49,7 @@ export type TooltipProps = BaseComponentProps<
     tooltipId?: string;
     /**Om tooltip skal alltid være i DOM, eller bli rendret først når den skal vises. */
     keepMounted?: boolean;
-  } & PickedHTMLAttributes,
-  Omit<HTMLAttributes<HTMLDivElement>, 'children' | keyof PickedHTMLAttributes>
+  } & Pick<HTMLAttributes<HTMLDivElement>, 'onMouseLeave' | 'onMouseOver'>
 >;
 
 export const Tooltip = ({
