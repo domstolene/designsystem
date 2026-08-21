@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 24.1.0
+
+### Minor Changes
+
+- e0135c4: Støtte for custom bildeelement i `<FooterLogo>` via ny prop: `children`.
+
 ## 24.0.0
 
 (2026-08-18)
