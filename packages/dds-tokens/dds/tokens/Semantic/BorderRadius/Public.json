@@ -18,7 +18,7 @@
     "tag": {
       "value": "{dds-border-radius.1}",
       "type": "borderRadius",
-      "description": "Chips and tags"
+      "description": "Tags"
     },
     "rounded": {
       "value": "{dds-border-radius.100}",
