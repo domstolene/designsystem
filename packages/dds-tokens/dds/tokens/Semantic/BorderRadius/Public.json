@@ -15,7 +15,7 @@
       "type": "borderRadius",
       "description": "All input fields, and check boxes"
     },
-    "chip": {
+    "tag": {
       "value": "{dds-border-radius.1}",
       "type": "borderRadius",
       "description": "Chips and tags"
