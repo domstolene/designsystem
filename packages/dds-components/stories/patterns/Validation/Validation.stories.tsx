@@ -130,10 +130,7 @@ export const Wizard = meta.story({
   },
   render: () => {
     type FormDataKeys =
-      | 'step1Field1'
-      | 'step1Field2'
-      | 'step2Field1'
-      | 'step2Field2';
+      'step1Field1' | 'step1Field2' | 'step2Field1' | 'step2Field2';
 
     const [activeStep, setActiveStep] = useState(0);
     const [completedSteps, setCompletedSteps] = useState(new Set<number>());
@@ -344,7 +341,7 @@ export const Wizard = meta.story({
             <option>Valg 2</option>
             <option>Valg 3</option>
           </NativeSelect>
-          <div aria-live="polite">
+          <Box aria-live="polite" display="contents">
             {showErrorSummary && summaryErrors.length > 0 && (
               <ErrorSummary>
                 {summaryErrors.map(({ field, error }) => (
@@ -354,7 +351,7 @@ export const Wizard = meta.story({
                 ))}
               </ErrorSummary>
             )}
-          </div>
+          </Box>
           <HStack
             gap="x1.5"
             paddingBlock={showErrorSummary ? '0 x1.5' : 'x1.5'}
