@@ -56,7 +56,7 @@ jobs:
           ZEROHEIGHT_ACCESS_TOKEN: '${{ secrets.ZEROHEIGHT_ACCESS_TOKEN }}'
 
       - name: Create @dev release
-        if: steps.changesets.outputs.has-changesets == 'true' &&  steps.changesets.outputs.published != 'true'
+        if: steps.changesets.outputs['has-changesets'] == 'true' && steps.changesets.outputs.published != 'true'
         run: |
           git checkout main
           pnpm version:dev
