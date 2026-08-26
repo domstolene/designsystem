@@ -29,15 +29,14 @@ import { renderLabel } from '../Typography/Label/Label.utils';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../VisuallyHidden';
 
-export type SearchProps = Pick<InputProps, 'tip' | 'label'> & {
+export type SearchProps = Pick<InputProps, 'tip' | 'label' | 'width'> & {
   /**Størrelsen på komponenten. */
   componentSize?: SearchSize;
   /**Props for søkeknappen. */
   buttonProps?: SearchButtonProps;
   /**Om søkeikonet skal vises. */
   showIcon?: boolean;
-} & Pick<InputProps, 'width'> &
-  Omit<ComponentPropsWithRef<'input'>, 'width' | 'height'>;
+} & Omit<ComponentPropsWithRef<'input'>, 'width' | 'height'>;
 
 export const Search = ({
   componentSize = 'medium',

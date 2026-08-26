@@ -1,5 +1,4 @@
 import { type Properties, type Property } from 'csstype';
-import { type ButtonHTMLAttributes } from 'react';
 
 import styles from './CardExpandable.module.css';
 import {
@@ -26,8 +25,7 @@ export type CardExpandableHeaderProps = Omit<
       typographyType?: StaticTypographyType;
       /**Angir om teksten skal være i "bold"-format. */
       bold?: boolean;
-    },
-    ButtonHTMLAttributes<HTMLButtonElement>
+    }
   >,
   'id'
 >;

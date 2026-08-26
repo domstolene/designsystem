@@ -160,6 +160,22 @@ describe('<Tabs>', () => {
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
+  it('calls Tabs onChange event', async () => {
+    const onChange = vi.fn();
+    render(
+      <Tabs onChange={onChange}>
+        <TabList>
+          <Tab />
+          <Tab />
+        </TabList>
+      </Tabs>,
+    );
+
+    const tab2 = screen.getAllByRole('tab')[1];
+    await userEvent.click(tab2);
+    expect(onChange).toHaveBeenCalledTimes(1);
+  });
+
   it('tabs are connected to panels via aria-controls accessible name', () => {
     const id = 'id';
     const tab1Text = 'tab1';

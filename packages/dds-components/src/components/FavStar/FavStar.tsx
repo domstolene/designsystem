@@ -1,4 +1,4 @@
-import { type HTMLAttributes, useId } from 'react';
+import { useId } from 'react';
 
 import styles from './FavStar.module.css';
 import { useControllableState } from '../../hooks/useControllableState';
@@ -38,8 +38,7 @@ export type FavStarProps = BaseComponentPropsWithChildren<
      * @default "medium"
      */
     size?: ComponentSize;
-  },
-  Omit<HTMLAttributes<HTMLElement>, 'onChange'>
+  }
 >;
 
 export const FavStar = ({

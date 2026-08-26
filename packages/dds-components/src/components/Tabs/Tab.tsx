@@ -48,8 +48,7 @@ export type TabProps = BaseComponentPropsWithChildren<
      * @default "1fr"
      */
     width?: CSS.Properties['width'];
-  } & PickedAttributes,
-  Omit<ButtonHTMLAttributes<HTMLButtonElement>, keyof PickedAttributes>
+  } & PickedAttributes
 >;
 
 export const Tab = ({
