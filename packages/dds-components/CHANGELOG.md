@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-components
 
+## 24.1.1
+
+(2026-08-26)
+
+### Patch Changes
+
+- 7469b28: Fikser feil bakgrunnsfarge i dropdown og alternativer i `<Select>`.
+
 ## 24.1.0
 
 (2026-08-21)
