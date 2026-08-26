@@ -7,7 +7,6 @@ import {
 } from 'react';
 import { createPortal } from 'react-dom';
 
-import styles from './Popover.module.css';
 import {
   type Placement,
   useCombinedRef,
@@ -28,10 +27,11 @@ import { Button } from '../Button';
 import focusStyles from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { CloseIcon } from '../Icon/icons';
-import { Paper, type ResponsiveProps } from '../layout';
+import { Box, Paper, type ResponsiveProps } from '../layout';
 import { Heading } from '../Typography';
 import { usePopoverContext } from './Popover.context';
 import { ThemeContext } from '../ThemeProvider';
+import styles from './Popover.module.css';
 
 export type PopoverSizeProps = Pick<
   ResponsiveProps,
@@ -109,7 +109,14 @@ export const Popover = ({
     offset,
     placement,
   });
-  const { maxHeight, maxWidth, minHeight, minWidth, height, width } = sizeProps;
+  const {
+    maxHeight,
+    maxWidth,
+    minHeight,
+    minWidth,
+    height,
+    width = 'fit-content',
+  } = sizeProps;
 
   const context = usePopoverContext();
   const themeContext = useContext(ThemeContext);
@@ -220,12 +227,14 @@ export const Popover = ({
       width={width}
       maxWidth={maxWidth}
       minWidth={minWidth}
+      position="absolute"
+      padding="x0.75 x1 x1.5 x1"
       role="dialog"
       elevation="large"
       border="border-subtle"
     >
       {header && (
-        <div className={styles.header}>
+        <Box marginInline="0 x2">
           {typeof header === 'string' ? (
             <Heading level={2} typographyType="heading-medium">
               {header}
@@ -233,25 +242,22 @@ export const Popover = ({
           ) : (
             header
           )}
-        </div>
+        </Box>
       )}
-      <div
-        className={
-          !hasTitle && withCloseButton
-            ? styles['content--closable--no-header']
-            : ''
-        }
-      >
+      <Box marginBlock={!hasTitle && withCloseButton ? 'x2 0' : '0'}>
         {children}
-      </div>
+      </Box>
       {withCloseButton && (
-        <Button
+        <Box
+          as={Button}
           icon={CloseIcon}
           purpose="tertiary"
           size="small"
           onClick={onClose}
           aria-label={t(commonTexts.close)}
-          className={styles['close-button']}
+          position="absolute"
+          top="x0.25"
+          right="x0.25"
         />
       )}
     </Paper>

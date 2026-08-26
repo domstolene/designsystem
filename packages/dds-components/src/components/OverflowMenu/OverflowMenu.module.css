@@ -2,8 +2,3 @@
   box-sizing: border-box;
   z-index: var(--dds-zindex-overflowmenu);
 }
-
-.list {
-  display: flex;
-  flex-direction: column;
-}
