@@ -168,24 +168,24 @@ export const PageExample = meta.story({
               <Table>
                 <Table.Head>
                   <Table.Row type="head">
-                    <Table.Cell type="head">Navn</Table.Cell>
-                    <Table.Cell type="head">Firma</Table.Cell>
-                    <Table.Cell type="head">Status</Table.Cell>
+                    <Table.Cell type="head">Dommer</Table.Cell>
+                    <Table.Cell type="head">Domstol</Table.Cell>
+                    <Table.Cell type="head">Favorittdyr</Table.Cell>
                   </Table.Row>
                 </Table.Head>
                 <Table.Body>
                   <Table.Row type="body">
-                    <Table.Cell> Marie Bjerke </Table.Cell>
-                    <Table.Cell>Advokat Firma </Table.Cell>
+                    <Table.Cell>Navn Navnesen</Table.Cell>
+                    <Table.Cell>Høyesterett</Table.Cell>
                     <Table.Cell>
-                      <Tag purpose="success">Møterett</Tag>
+                      <Tag purpose="success">Hund</Tag>
                     </Table.Cell>
                   </Table.Row>
                   <Table.Row type="body">
-                    <Table.Cell>Sandra-Katrine Ingvaldsen Lovsetter</Table.Cell>
-                    <Table.Cell>Advokatene AS</Table.Cell>
+                    <Table.Cell>Navn Navnesen</Table.Cell>
+                    <Table.Cell>Trondheim tingrett</Table.Cell>
                     <Table.Cell>
-                      <Tag purpose="danger">Ikke møterett</Tag>
+                      <Tag purpose="danger">Katt</Tag>
                     </Table.Cell>
                   </Table.Row>
                 </Table.Body>
