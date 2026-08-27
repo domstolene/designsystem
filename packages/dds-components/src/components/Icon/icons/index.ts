@@ -6,6 +6,7 @@ export * from './arrowDown';
 export * from './arrowLeft';
 export * from './arrowRight';
 export * from './arrowUp';
+export * from './arrowUpRight';
 export * from './attachment';
 export * from './block';
 export * from './book';
