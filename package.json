@@ -79,7 +79,7 @@
     "unrun": "^0.3.1"
   },
   "volta": {
-    "node": "24.19.0",
+    "node": "24.20.0",
     "pnpm": "11.22.0"
   },
   "packageManager": "pnpm@11.22.0",
