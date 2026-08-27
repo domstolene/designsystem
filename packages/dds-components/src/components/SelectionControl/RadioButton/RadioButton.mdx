@@ -6,6 +6,7 @@ import {
 import * as RadioButtonStories from './RadioButton.stories';
 import meta from './RadioButton.stories';
 import * as RadioButtonGroupStories from './RadioButtonGroup.stories';
+import { Tabs, Tab, TabList, TabPanel, TabPanels } from '../../Tabs';
 
 <Meta of={meta} />
 
@@ -18,24 +19,26 @@ import * as RadioButtonGroupStories from './RadioButtonGroup.stories';
   storybookHref={{ folder: 'components', comp: 'radiobutton' }}
 />
 
-Følgende komponenter er tilgjengelige:
+## Delkomponenter
 
-- **`<RadioButton>`** - en radioknapp.
-- **`<RadioButtonGroup>`** - en gruppe-wrapper for flere radioknapper.
-
-## Props
-
-### RadioButton
-
-<Canvas of={RadioButtonStories.Preview} />
-<Controls of={RadioButtonStories.Preview} />
-
-### RadioButtonGroup
-
-Wrapper for en `<RadioButton>` gruppe. Den håndtere universell utforming og oppførsel.
-
-<Canvas of={RadioButtonGroupStories.Preview} />
-<Controls of={RadioButtonGroupStories.Preview} />
+<Tabs>
+  <TabList>
+    <Tab>RadioButton</Tab>
+    <Tab>RadioButtonGroup</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      Tilsvarer `<input type="radio">`. 
+      <Canvas of={RadioButtonStories.Preview} />
+      <Controls of={RadioButtonStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      Wrapper for en `<RadioButton>` gruppe. Den håndtere universell utforming og oppførsel.
+    <Canvas of={RadioButtonGroupStories.Preview} />
+    <Controls of={RadioButtonGroupStories.Preview} />
+    </TabPanel>
+  </TabPanels>
+</Tabs>
 
 ## Kontrollert
 

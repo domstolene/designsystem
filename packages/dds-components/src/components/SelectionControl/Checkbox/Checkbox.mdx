@@ -3,6 +3,7 @@ import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as CheckboxStories from './Checkbox.stories';
 import meta from './Checkbox.stories';
 import * as CheckboxGroupStories from './CheckboxGroup.stories';
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from '../../Tabs';
 
 <Meta of={meta} />
 
@@ -15,26 +16,29 @@ import * as CheckboxGroupStories from './CheckboxGroup.stories';
   storybookHref={{ folder: 'components', comp: 'checkbox' }}
 />
 
-Følgende komponenter er tilgjengelige:
+## Delkomponenter
 
-- **`<Checkbox>`** - en avkrysningsboks.
-- **`<CheckboxGroup>`** - en gruppe-wrapper for flere avkrysningsbokser med felles ledetekst.
+<Tabs>
+  <TabList>
+    <Tab>Checkbox</Tab>
+    <Tab>CheckboxGroup</Tab>
+  </TabList>
 
-## Props
+  <TabPanels>
+    <TabPanel>
+      En avkrysningsboks.
+      <Canvas of={CheckboxStories.Preview} />
+      <Controls of={CheckboxStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      Wrapper for en `<Checkbox>` gruppe. Brukes ved flere barn.
+      <Canvas of={CheckboxGroupStories.Preview} />
+      <Controls of={CheckboxGroupStories.Preview} />
+    </TabPanel>
+  </TabPanels>
+</Tabs>
 
-### Checkbox
-
-<Canvas of={CheckboxStories.Preview} />
-<Controls of={CheckboxStories.Preview} />
-
-### CheckboxGroup
-
-Wrapper for en `<Checkbox>` gruppe. Brukes ved flere barn.
-
-<Canvas of={CheckboxGroupStories.Preview} />
-<Controls of={CheckboxGroupStories.Preview} />
-
-#### Med `<Fieldset>`
+## Med `<Fieldset>`
 
 Komponenten kan også brukes med `<Fieldset>` hvis gruppen er større og det er foretrukket med `<Legend>` sin styling for gruppeledetekst.
 

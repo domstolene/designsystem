@@ -3,6 +3,8 @@ import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as BreadcrumbsStories from './Breadcrumbs.stories';
 import meta from './Breadcrumbs.stories';
 import * as BreadcrumbStories from './Breadcrumb.stories';
+import { Tabs, Tab, TabList, TabPanel, TabPanels } from '../Tabs';
+import { Divider } from '../Divider';
 
 <Meta of={meta} />
 
@@ -15,34 +17,34 @@ import * as BreadcrumbStories from './Breadcrumb.stories';
   storybookHref={{ folder: 'components', comp: 'breadcrumbs' }}
 />
 
-Komponenten består av to subkomponenter:
+## Delkomponenter
 
-- **`<Breadcrumbs>`** som er selve brødsmulestien
-- **`<Breadcrumb>`** som er barna i brødsmulestien
+<Tabs>
+  <TabList>
+    <Tab>Breadcrumbs</Tab>
+    <Tab>Breadcrumb</Tab>
+  </TabList>
 
-Siste `<Breadcrumb>` skal være den siden brukeren er på, uten oppgitt URL.
+  <TabPanels>
+    <TabPanel>
+      Selve brødsmulestien. Skal ha `<Breadcrumb>` som barn. Siste `<Breadcrumb>` skal være den siden brukeren er på, uten oppgitt URL.
 
-Komponenten kan være responsiv hvis et brekkepunkt er spesifisert.
+      <Canvas of={BreadcrumbsStories.Preview} />
 
-## Props
+      <Controls of={BreadcrumbsStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      Brødsmule. Returnerer `<a>` hvis `href`-prop er oppgitt eller `<span>` hvis ikke. Den støtter alle native HTML-attributter for `<a>` og `<span>`.
 
-### Breadcrumbs
+      **OBS!** Alle `<Breadcrumb>`-komponenter bør være lenker bortsett fra den siste som tilsvarer siden brukeren er inne på.
+      <Canvas of={BreadcrumbStories.Preview} />
+      <Controls of={BreadcrumbStories.Preview} />
+    </TabPanel>
 
-Selve brødsmulestien. Skal ha `<Breadcrumb>` som barn.
+  </TabPanels>
+</Tabs>
 
-<Canvas of={BreadcrumbsStories.Preview} />
-<Controls of={BreadcrumbsStories.Preview} />
-
-### Breadcrumb
-
-Brødsmule. Returnerer `<a>` hvis `href`-prop er oppgitt eller `<span>` hvis ikke.
-
-**OBS!** Alle `<Breadcrumb>`-komponenter bør være lenker bortsett fra den siste som tilsvarer siden brukeren er inne på.
-
-<Canvas of={BreadcrumbStories.Preview} />
-<Controls of={BreadcrumbStories.Preview} />
-
-Den støtter alle native HTML-attributter som er en del av `AnchorHTMLAttributes<HTMLAnchorElement>` eller `HTMLAttributes<HTMLSpanElement>` -interface.
+<Divider />
 
 ## Retningslinjer
 

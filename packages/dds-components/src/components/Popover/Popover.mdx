@@ -12,6 +12,8 @@ import {
 import { PopoverGroup } from '.';
 import * as PopoverStories from './Popover.stories';
 import meta from './Popover.stories';
+import { Tabs, Tab, TabList, TabPanel, TabPanels } from '../Tabs';
+import { Divider } from '../Divider';
 
 <Meta of={meta} />
 
@@ -30,62 +32,53 @@ Komponenten består av tre elementer:
 - **Anchor-element**, som er også et trigger-element. Et valgfritt interaktivt element, typisk en knapp, som åpner og lukker popover. Elementet får attributtene `onClick`, `ref`, `aria-haspopup` og `aria-controls` fra `<PopoverGroup>`; hvis disse attributter settes direkte på elementet blir de overskrevet.
 - **`<PopoverGroup>`** - wrapper for to barn: anchor-element `<Popover>`. Den håndterer oppførsel og universell utforming.
 
-## Props
+## Delkomponenter
 
-### Popover
+<Tabs>
+  <TabList>
+    <Tab>Popover</Tab>
+    <Tab>PopoverGroup</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      Selve popover-elementet. Den åpnes når anchor-elementet trykkes. Den kan lukkes på fire måter: ved å trykke på anchor-elementet igjen, Esc-tast, lukkeknapptrykk og via `onBlur`-effekt.
 
-Selve popover-elementet. Den åpnes når anchor-elementet trykkes. Den kan lukkes på fire måter: ved å trykke på anchor-elementet igjen, Esc-tast, lukkeknapptrykk og via `onBlur`-effekt.
+      <Canvas>
+        <Story of={PopoverStories.Preview} />
+      </Canvas>
+      <Controls of={PopoverStories.Preview} />
+      ### Types
 
-<Canvas>
-  <Story of={PopoverStories.Preview} />
-</Canvas>
-<Controls of={PopoverStories.Preview} />
+      <Source
+        code={`
+        export type PopoverSizeProps = {
+          width?: CSS.Property.Width;
+          height?: CSS.Property.Height;
+          minWidth?: CSS.Property.MinWidth;
+          minHeight?: CSS.Property.MinHeight;
+          maxWidth?: CSS.Property.MaxWidth;
+          maxHeight?: CSS.Property.MaxHeight;
+        };
+        `}
+      />
+    </TabPanel>
+    <TabPanel>
+      Wrapper der anchor-elementet skal være første barnet og `<Popover>` skal være andre barnet. `<PopoverGroup>` har to funksjoner:
 
-#### Types
+      - Håndtering av barnas oppførsel: åpning og lukking av popover, eventuelle ekstra callbacks.
+      - Automatisk forplanting av enkelte props hos barna: referanse til anchor-elementet og aria-attributter for universell utofrming.
 
-<Source
-  code={`
-  export type PopoverSizeProps = {
-    width?: CSS.Property.Width;
-    height?: CSS.Property.Height;
-    minWidth?: CSS.Property.MinWidth;
-    minHeight?: CSS.Property.MinHeight;
-    maxWidth?: CSS.Property.MaxWidth;
-    maxHeight?: CSS.Property.MaxHeight;
-  };
-  `}
-/>
+      `<PopoverGroup>` returnerer kun barna uten en HTML-tag rundt dem.
 
-#### Overflow
+      **OBS!** all kontroll av `<Popover>` som onClick events implementeres i `<PopoverGroup>`, ikke direkte i `<Popover>`.
 
-Det kan være relevant å begrense størrelsen på Popover slik at ikke hele teksten vises ved overflow. Da bør den synlige teksten avsluttes med en ellipse:
+      <ArgTypes of={PopoverGroup} />
+    </TabPanel>
 
-<Canvas of={PopoverStories.Overflow} />
+  </TabPanels>
+</Tabs>
 
-For å oppnå det kan du sette sizeProps til ønskede verdier og gi tekstelementet som
-er barnet i `<Popover>` følgende CSS:
-
-<Source
-  language="css"
-  code={`
-  text-overflow: ellipsis;
-overflow: hidden;
-white-space: nowrap;
-  `}
-/>
-
-### PopoverGroup
-
-Wrapper der anchor-elementet skal være første barnet og `<Popover>` skal være andre barnet. `<PopoverGroup>` har to funksjoner:
-
-- Håndtering av barnas oppførsel: åpning og lukking av popover, eventuelle ekstra callbacks.
-- Automatisk forplanting av enkelte props hos barna: referanse til anchor-elementet og aria-attributter for universell utofrming.
-
-`<PopoverGroup>` returnerer kun barna uten en HTML-tag rundt dem.
-
-**OBS!** all kontroll av `<Popover>` som onClick events implementeres i `<PopoverGroup>`, ikke direkte i `<Popover>`.
-
-<ArgTypes of={PopoverGroup} />
+<Divider />
 
 ## Bruk
 
@@ -129,6 +122,12 @@ const [isOpen, setIsOpen] = useState(false);
     </PopoverGroup>
 `}
 />
+
+### Overflow
+
+Det kan være relevant å begrense størrelsen på Popover slik at ikke hele teksten vises ved overflow. Da bør den synlige teksten avsluttes med en ellipse:
+
+<Canvas of={PopoverStories.Overflow} />
 
 ## Retningslinjer
 
