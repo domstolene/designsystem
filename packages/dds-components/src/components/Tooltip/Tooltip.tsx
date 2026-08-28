@@ -11,7 +11,6 @@ import {
   useState,
 } from 'react';
 
-import styles from './Tooltip.module.css';
 import {
   useCombinedRef,
   useFloatPosition,
@@ -179,8 +178,8 @@ export const Tooltip = ({
           style={{ ...positionStyles.floating }}
           elevation="small"
           border="border-subtle"
+          zIndex="tooltip"
           className={cn(
-            styles.paper,
             typographyStyles['body-short-medium'],
             utilStyles['visibility-transition'],
             utilStyles[`visibility-transition--${openCn}`],

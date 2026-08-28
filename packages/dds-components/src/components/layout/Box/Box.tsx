@@ -39,6 +39,7 @@ export const Box = <T extends ElementType = 'div'>({
   overflowY,
   display,
   textAlign,
+  flex,
   flexDirection,
   gap,
   columnGap,
@@ -52,6 +53,7 @@ export const Box = <T extends ElementType = 'div'>({
   flexBasis,
   flexFlow,
   wordBreak,
+  zIndex,
   htmlProps,
   ...rest
 }: BoxProps<T>) => {
@@ -78,6 +80,7 @@ export const Box = <T extends ElementType = 'div'>({
     ...getResponsiveCSSProperties(overflowY, 'r', 'o-y'),
     ...getResponsiveCSSProperties(display, 'r', 'display'),
     ...getResponsiveCSSProperties(textAlign, 'r', 'text-align'),
+    ...getResponsiveCSSProperties(flex, 'r', 'flex'),
     ...getResponsiveCSSProperties(flexDirection, 'r', 'flex-dir'),
     ...getResponsiveCSSProperties(gap, 'r', 'gap'),
     ...getResponsiveCSSProperties(columnGap, 'r', 'c-gap'),
@@ -91,6 +94,7 @@ export const Box = <T extends ElementType = 'div'>({
     ...getResponsiveCSSProperties(flexBasis, 'r', 'basis'),
     ...getResponsiveCSSProperties(flexFlow, 'r', 'flow'),
     ...getResponsiveCSSProperties(wordBreak, 'r', 'word-break'),
+    ...getResponsiveCSSProperties(zIndex, 'r', 'z-index'),
   };
 
   return (
@@ -121,6 +125,7 @@ export const Box = <T extends ElementType = 'div'>({
           overflowY && styles['dds-o-y'],
           display && styles['dds-display'],
           textAlign && styles['dds-text-align'],
+          flex && styles['dds-flex'],
           flexDirection && styles['dds-flex-dir'],
           gap && styles['dds-gap'],
           columnGap && styles['dds-c-gap'],
@@ -134,6 +139,7 @@ export const Box = <T extends ElementType = 'div'>({
           flexBasis && styles['dds-basis'],
           flexFlow && styles['dds-flow'],
           wordBreak && styles['dds-word-break'],
+          zIndex && styles['dds-z-index'],
         ),
         { ...style, ...responsiveStyles },
         htmlProps,

@@ -7,6 +7,8 @@ import {
   type ResponsiveProp,
   SPACING_SCALES,
   type SpacingScale,
+  type ZIndex,
+  Z_INDEXES,
 } from './Responsive.types';
 import {
   type BorderColor,
@@ -37,6 +39,10 @@ export const isSpacingScale = (value: unknown): value is SpacingScale => {
   );
 };
 
+export const isZIndex = (value: unknown): value is ZIndex => {
+  return typeof value === 'string' && Z_INDEXES.includes(value as ZIndex);
+};
+
 export const isRelativeGridColumn = (
   type: unknown,
 ): type is RelativeColumnsOccupied => {
@@ -60,6 +66,9 @@ const getSpacingToken = (v: SpacingScale): string =>
 const getColorToken = (v: PaperBackground | BorderColor): string =>
   `var(--${TOKEN_PREFIX}-color-${v})`;
 
+const getZIndexToken = (v: ZIndex): string =>
+  `var(--${TOKEN_PREFIX}-zindex-${v})`;
+
 const relativeGridColumnToken = (
   v: RelativeColumnsOccupied,
   bp?: Breakpoint,
@@ -76,6 +85,7 @@ const getValue = (v: string, bp?: Breakpoint, invert?: boolean): string => {
 
   if (isColor(v)) output = getColorToken(v);
   else if (isSpacingScale(v)) output = getSpacingToken(v);
+  else if (isZIndex(v)) output = getZIndexToken(v);
   else if (isRelativeGridColumn(v)) output = relativeGridColumnToken(v, bp);
   else output = v;
 

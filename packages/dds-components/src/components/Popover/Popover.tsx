@@ -31,7 +31,6 @@ import { Box, Paper, type ResponsiveProps } from '../layout';
 import { Heading } from '../Typography';
 import { usePopoverContext } from './Popover.context';
 import { ThemeContext } from '../ThemeProvider';
-import styles from './Popover.module.css';
 
 export type PopoverSizeProps = Pick<
   ResponsiveProps,
@@ -207,7 +206,6 @@ export const Popover = ({
         popoverId,
         cn(
           className,
-          styles.container,
           utilStyles['visibility-transition'],
           utilStyles[`visibility-transition--${openCn}`],
           focusStyles.focusable,
@@ -232,6 +230,7 @@ export const Popover = ({
       role="dialog"
       elevation="large"
       border="border-subtle"
+      zIndex="popover"
     >
       {header && (
         <Box marginInline="0 x2">

@@ -125,7 +125,17 @@
   word-break: var(--dds-r-word-break, initial);
 }
 
+.dds-z-index {
+  --dds-r-z-index: var(--dds-r-xs-z-index);
+  z-index: var(--dds-r-z-index, initial);
+}
+
 /* Flex */
+
+.dds-flex {
+  --dds-r-flex: var(--dds-r-xs-flex);
+  flex: var(--dds-r-flex, initial);
+}
 
 .dds-flex-dir {
   --dds-r-flex-dir: var(--dds-r-xs-flex-dir);
@@ -263,6 +273,12 @@
   .dds-word-break {
     --dds-r-word-break: var(--dds-r-xs-word-break);
   }
+  .dds-z-index {
+    --dds-r-z-index: var(--dds-r-xs-z-index);
+  }
+  .dds-flex {
+    --dds-r-flex: var(--dds-r-xs-flex);
+  }
   .dds-flex-dir {
     --dds-r-flex-dir: var(--dds-r-xs-flex-dir);
   }
@@ -376,6 +392,12 @@
   }
   .dds-word-break {
     --dds-r-word-break: var(--dds-r-sm-word-break);
+  }
+  .dds-z-index {
+    --dds-r-z-index: var(--dds-r-sm-z-index);
+  }
+  .dds-flex {
+    --dds-r-flex: var(--dds-r-sm-flex);
   }
   .dds-flex-dir {
     --dds-r-flex-dir: var(--dds-r-sm-flex-dir);
@@ -491,6 +513,12 @@
   .dds-word-break {
     --dds-r-word-break: var(--dds-r-md-word-break);
   }
+  .dds-z-index {
+    --dds-r-z-index: var(--dds-r-md-z-index);
+  }
+  .dds-flex {
+    --dds-r-flex: var(--dds-r-md-flex);
+  }
   .dds-flex-dir {
     --dds-r-flex-dir: var(--dds-r-md-flex-dir);
   }
@@ -605,6 +633,12 @@
   .dds-word-break {
     --dds-r-word-break: var(--dds-r-lg-word-break);
   }
+  .dds-z-index {
+    --dds-r-z-index: var(--dds-r-lg-z-index);
+  }
+  .dds-flex {
+    --dds-r-flex: var(--dds-r-lg-flex);
+  }
   .dds-flex-dir {
     --dds-r-flex-dir: var(--dds-r-lg-flex-dir);
   }
@@ -718,6 +752,12 @@
   }
   .dds-word-break {
     --dds-r-word-break: var(--dds-r-xl-word-break);
+  }
+  .dds-z-index {
+    --dds-r-z-index: var(--dds-r-xl-z-index);
+  }
+  .dds-flex {
+    --dds-r-flex: var(--dds-r-xl-flex);
   }
   .dds-flex-dir {
     --dds-r-flex-dir: var(--dds-r-xl-flex-dir);

@@ -217,6 +217,7 @@ export const CalendarPopoverContent = ({
         className={cn(styles.popover, className)}
         style={floatingStyles.floating}
         {...paperStyleProps}
+        zIndex="popover"
       >
         {children}
       </Paper>
