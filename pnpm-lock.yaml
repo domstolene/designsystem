@@ -53,7 +53,7 @@ importers:
         version: 10.4.1
       '@tsdown/css':
         specifier: ^0.22.14
-        version: 0.22.14(postcss-import@16.2.0(postcss@8.5.26))(postcss-modules@9.0.1(postcss@8.5.26))(postcss@8.5.26)(sass@1.101.0)(tsdown@0.22.14)(yaml@2.9.0)
+        version: 0.22.14(postcss-import@17.0.0(postcss@8.5.26))(postcss-modules@9.0.1(postcss@8.5.26))(postcss@8.5.26)(sass@1.101.0)(tsdown@0.22.14)(yaml@2.9.0)
       '@types/react':
         specifier: ^19.2.18
         version: 19.2.18
@@ -94,8 +94,8 @@ importers:
         specifier: ^7.16.2
         version: 7.16.2(eslint@9.39.4(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3)
       postcss-import:
-        specifier: ^16.2.0
-        version: 16.2.0(postcss@8.5.26)
+        specifier: ^17.0.0
+        version: 17.0.0(postcss@8.5.26)
       postcss-modules:
         specifier: ^9.0.1
         version: 9.0.1(postcss@8.5.26)
@@ -4424,9 +4424,9 @@ packages:
     resolution: {integrity: sha512-CebpbHc96zgFjGgdQ6BqBy6XIUgRx1xXWCAAk6oke02RZ5nxwo9KQejTg8y7uYEeI9kv8jKQPYjoe6REsY23vw==}
     engines: {node: '>=6.5'}
 
-  postcss-import@16.2.0:
-    resolution: {integrity: sha512-0mQUGlSp87Zl70K58RNwQAN1WS9plFE6KWGui9nyK6ninduMyjW/Khaoy/BpBoFTBh7ndAvAKrSKVbwy6vd/BA==}
-    engines: {node: '>=18.0.0'}
+  postcss-import@17.0.0:
+    resolution: {integrity: sha512-qzVMJhcq39KweT7Fp0HcjE5YxL5yI854Q3CtufxDuZKO9HLQUp2rptB9+U0MIj3pT1ZEVXoqnpeC1mSkfYuz4Q==}
+    engines: {node: '>=22.0.0'}
     peerDependencies:
       postcss: ^8.0.0
 
@@ -7043,7 +7043,7 @@ snapshots:
 
   '@tsconfig/node16@1.0.4': {}
 
-  '@tsdown/css@0.22.14(postcss-import@16.2.0(postcss@8.5.26))(postcss-modules@9.0.1(postcss@8.5.26))(postcss@8.5.26)(sass@1.101.0)(tsdown@0.22.14)(yaml@2.9.0)':
+  '@tsdown/css@0.22.14(postcss-import@17.0.0(postcss@8.5.26))(postcss-modules@9.0.1(postcss@8.5.26))(postcss@8.5.26)(sass@1.101.0)(tsdown@0.22.14)(yaml@2.9.0)':
     dependencies:
       lightningcss: 1.33.0
       postcss-load-config: 6.0.1(postcss@8.5.26)(yaml@2.9.0)
@@ -7051,7 +7051,7 @@ snapshots:
       tsdown: 0.22.14(@tsdown/css@0.22.14)(oxc-resolver@11.24.2)(typescript@5.9.3)(unrun@0.3.1)
     optionalDependencies:
       postcss: 8.5.26
-      postcss-import: 16.2.0(postcss@8.5.26)
+      postcss-import: 17.0.0(postcss@8.5.26)
       postcss-modules: 9.0.1(postcss@8.5.26)
       sass: 1.101.0
     transitivePeerDependencies:
@@ -9527,7 +9527,7 @@ snapshots:
     dependencies:
       postcss-value-parser: 3.3.1
 
-  postcss-import@16.2.0(postcss@8.5.26):
+  postcss-import@17.0.0(postcss@8.5.26):
     dependencies:
       postcss: 8.5.26
       postcss-value-parser: 4.2.0
@@ -10286,7 +10286,7 @@ snapshots:
       unconfig-core: 7.5.0
       verkit: 0.3.2
     optionalDependencies:
-      '@tsdown/css': 0.22.14(postcss-import@16.2.0(postcss@8.5.26))(postcss-modules@9.0.1(postcss@8.5.26))(postcss@8.5.26)(sass@1.101.0)(tsdown@0.22.14)(yaml@2.9.0)
+      '@tsdown/css': 0.22.14(postcss-import@17.0.0(postcss@8.5.26))(postcss-modules@9.0.1(postcss@8.5.26))(postcss@8.5.26)(sass@1.101.0)(tsdown@0.22.14)(yaml@2.9.0)
       typescript: 5.9.3
       unrun: 0.3.1
     transitivePeerDependencies:
