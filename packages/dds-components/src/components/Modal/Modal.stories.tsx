@@ -28,7 +28,7 @@ const meta = preview.meta({
   args: { onClose: fn() },
   parameters: {
     docs: {
-      story: { height: '350px' },
+      story: { height: '350px', inline: false },
     },
   },
 });
