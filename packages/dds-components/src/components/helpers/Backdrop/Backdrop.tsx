@@ -44,7 +44,7 @@ export const Backdrop = ({ isMounted, zIndex, ...props }: BackdropProps) => {
       right={0}
       bottom={0}
       overflowY="auto"
-      zIndex={zIndex}
+      zIndex={`${zIndex}-backdrop`}
       {...props}
     />
   );
