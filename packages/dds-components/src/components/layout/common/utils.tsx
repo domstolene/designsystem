@@ -19,6 +19,10 @@ import {
 
 const TOKEN_PREFIX = 'dds';
 
+export const hasValue = (value: unknown): boolean => {
+  return value !== undefined && value !== null;
+};
+
 export function isBreakpointObject<T>(
   value: ResponsiveProp<T>,
 ): value is Partial<Record<Breakpoint, T>> {
@@ -135,13 +139,13 @@ export function getResponsiveCSSProperties<T>(
   suffix?: string,
   invert?: boolean,
 ): Properties | undefined {
-  if (!property) return;
+  if (property === undefined || property === null) return;
 
   const properties: Properties = {};
 
   if (isBreakpointObject(property)) {
     BREAKPOINTS.forEach(bp => {
-      if (property[bp]) {
+      if (property[bp] !== undefined && property[bp] !== null) {
         (properties as Record<string, string>)[
           buildCSSKey(prefix, suffix, bp)
         ] = convertMultiValue(property[bp].toString(), bp, invert);

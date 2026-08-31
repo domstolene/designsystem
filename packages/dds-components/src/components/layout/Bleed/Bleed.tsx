@@ -8,7 +8,7 @@ import { cn } from '../../../utils';
 import { Box } from '../Box';
 import styles from '../common/layout.module.css';
 import { type ResponsiveBleedProps } from '../common/Responsive.types';
-import { getResponsiveCSSProperties } from '../common/utils';
+import { getResponsiveCSSProperties, hasValue } from '../common/utils';
 
 export type BleedProps<T extends ElementType = 'div'> =
   PolymorphicBaseComponentProps<
@@ -49,10 +49,10 @@ export const Bleed = <T extends ElementType = 'div'>({
         id,
         cn(
           className,
-          bleedMarginInline && styles['dds-bleed-m-i'],
-          bleedMarginBlock && styles['dds-bleed-m-b'],
-          bleedMarginInline && reflectivePadding && styles['dds-p-i'],
-          bleedMarginBlock && reflectivePadding && styles['dds-p-b'],
+          hasValue(bleedMarginInline) && styles['dds-bleed-m-i'],
+          hasValue(bleedMarginBlock) && styles['dds-bleed-m-b'],
+          hasValue(bleedMarginInline) && reflectivePadding && styles['dds-p-i'],
+          hasValue(bleedMarginBlock) && reflectivePadding && styles['dds-p-b'],
         ),
         { ...style, ...responsiveStyles },
         htmlProps,
