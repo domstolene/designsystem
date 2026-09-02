@@ -45,6 +45,8 @@ import copySvg from '../svg/copy.svg?raw';
 import courtSvg from '../svg/court.svg?raw';
 import dateRangeSvg from '../svg/dateRange.svg?raw';
 import deathsSvg from '../svg/deaths.svg?raw';
+import desktopSvg from '../svg/desktop.svg?raw';
+import desktopMobileSvg from '../svg/desktopMobile.svg?raw';
 import doubleChevronLeftSvg from '../svg/doubleChevronLeft.svg?raw';
 import doubleChevronRightSvg from '../svg/doubleChevronRight.svg?raw';
 import downloadSvg from '../svg/download.svg?raw';
@@ -148,6 +150,7 @@ import starSvg from '../svg/star.svg?raw';
 import starFilledSvg from '../svg/starFilled.svg?raw';
 import stickynoteSvg from '../svg/stickynote.svg?raw';
 import sunSvg from '../svg/sun.svg?raw';
+import sunHalfFilledSvg from '../svg/sunHalfFilled.svg?raw';
 import supportSvg from '../svg/support.svg?raw';
 import syncSvg from '../svg/sync.svg?raw';
 import thumbdownSvg from '../svg/thumbdown.svg?raw';
@@ -603,6 +606,35 @@ export const iconMeta: Record<TrimmedIconName, IconMeta> = {
       'flower',
     ],
     svg: deathsSvg,
+  },
+  Desktop: {
+    category: 'Settings and tools',
+    tags: [
+      'desktop',
+      'skjerm',
+      'screen',
+      'datamaskin',
+      'computer',
+      'pc',
+      'system',
+    ],
+    svg: desktopSvg,
+  },
+  DesktopMobile: {
+    category: 'Settings and tools',
+    tags: [
+      'desktop',
+      'skjerm',
+      'screen',
+      'datamaskin',
+      'computer',
+      'pc',
+      'system',
+      'mobil',
+      'mobile',
+      'responsive',
+    ],
+    svg: desktopMobileSvg,
   },
   DoubleChevronLeft: {
     category: 'Arrows and chevron',
@@ -1590,6 +1622,28 @@ export const iconMeta: Record<TrimmedIconName, IconMeta> = {
     category: 'UI manipulate',
     tags: ['sol', 'sun', 'lys', 'light', 'modus', 'mode', 'dag', 'day'],
     svg: sunSvg,
+  },
+  SunHalfFilled: {
+    category: 'UI manipulate',
+    tags: [
+      'sol',
+      'sun',
+      'lys',
+      'light',
+      'dark',
+      'mørk',
+      'modus',
+      'mode',
+      'dag',
+      'day',
+      'night',
+      'natt',
+      'halv',
+      'half',
+      'bytte',
+      'switch',
+    ],
+    svg: sunHalfFilledSvg,
   },
   Support: {
     category: 'Services',
