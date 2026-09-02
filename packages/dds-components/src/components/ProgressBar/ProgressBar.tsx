@@ -63,8 +63,9 @@ export const ProgressBar = ({
    * Komponenten er "indeterminate" hvis value ikke er gyldig.
    */
   const hasValidValue =
-    !!value &&
-    value > 0 &&
+    value !== null &&
+    value !== undefined &&
+    value >= 0 &&
     ((max !== undefined && value <= max) || (max === undefined && value <= 1));
 
   const tipId = derivativeIdGenerator(uniqueId, 'tip');
@@ -96,12 +97,20 @@ export const ProgressBar = ({
       >
         <Box
           height="100%"
-          width={isIndeterminate ? '25%' : fillPrecentage ? fillPrecentage : 0}
+          width={
+            hasErrorMessage
+              ? '100%'
+              : isIndeterminate
+                ? '25%'
+                : fillPrecentage
+                  ? fillPrecentage
+                  : 0
+          }
           className={cn(
             styles.fill,
             isIndeterminate && styles['fill--indeterminate'],
             fillPrecentage === '100%' && styles['fill--done'],
-            errorMessage && styles['fill--error'],
+            hasErrorMessage && styles['fill--error'],
           )}
         />
       </Box>

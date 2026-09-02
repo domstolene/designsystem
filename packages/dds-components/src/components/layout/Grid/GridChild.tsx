@@ -16,7 +16,7 @@ import {
   type ResponsiveProp,
   type ResponsiveProps,
 } from '../common/Responsive.types';
-import { getResponsiveCSSProperties } from '../common/utils';
+import { getResponsiveCSSProperties, hasValue } from '../common/utils';
 
 type RelativeColumnsOccupied = 'all' | 'firstHalf' | 'secondHalf';
 
@@ -64,10 +64,10 @@ export const GridChild = <T extends ElementType = 'div'>({
         cn(
           className,
           styles['child-col-count'],
-          gridRow && styles['dds-grid-row'],
-          gridArea && styles['dds-grid-area'],
-          justifySelf && styles['dds-j-self'],
-          columnsOccupied && styles['dds-grid-column'],
+          hasValue(gridRow) && styles['dds-grid-row'],
+          hasValue(gridArea) && styles['dds-grid-area'],
+          hasValue(justifySelf) && styles['dds-j-self'],
+          hasValue(columnsOccupied) && styles['dds-grid-column'],
           columnsOccupied === 'firstHalf' && styles['child--first-half'],
           columnsOccupied === 'secondHalf' && styles['child--second-half'],
         ),

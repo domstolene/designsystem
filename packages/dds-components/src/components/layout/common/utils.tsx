@@ -7,6 +7,8 @@ import {
   type ResponsiveProp,
   SPACING_SCALES,
   type SpacingScale,
+  type ZIndex,
+  Z_INDEXES,
 } from './Responsive.types';
 import {
   type BorderColor,
@@ -16,6 +18,10 @@ import {
 } from '../../../types';
 
 const TOKEN_PREFIX = 'dds';
+
+export const hasValue = (value: unknown): boolean => {
+  return value !== undefined && value !== null;
+};
 
 export function isBreakpointObject<T>(
   value: ResponsiveProp<T>,
@@ -35,6 +41,10 @@ export const isSpacingScale = (value: unknown): value is SpacingScale => {
   return (
     typeof value === 'string' && SPACING_SCALES.includes(value as SpacingScale)
   );
+};
+
+export const isZIndex = (value: unknown): value is ZIndex => {
+  return typeof value === 'string' && Z_INDEXES.includes(value as ZIndex);
 };
 
 export const isRelativeGridColumn = (
@@ -60,6 +70,9 @@ const getSpacingToken = (v: SpacingScale): string =>
 const getColorToken = (v: PaperBackground | BorderColor): string =>
   `var(--${TOKEN_PREFIX}-color-${v})`;
 
+const getZIndexToken = (v: ZIndex): string =>
+  `var(--${TOKEN_PREFIX}-zindex-${v})`;
+
 const relativeGridColumnToken = (
   v: RelativeColumnsOccupied,
   bp?: Breakpoint,
@@ -76,6 +89,7 @@ const getValue = (v: string, bp?: Breakpoint, invert?: boolean): string => {
 
   if (isColor(v)) output = getColorToken(v);
   else if (isSpacingScale(v)) output = getSpacingToken(v);
+  else if (isZIndex(v)) output = getZIndexToken(v);
   else if (isRelativeGridColumn(v)) output = relativeGridColumnToken(v, bp);
   else output = v;
 
@@ -125,13 +139,13 @@ export function getResponsiveCSSProperties<T>(
   suffix?: string,
   invert?: boolean,
 ): Properties | undefined {
-  if (!property) return;
+  if (property === undefined || property === null) return;
 
   const properties: Properties = {};
 
   if (isBreakpointObject(property)) {
     BREAKPOINTS.forEach(bp => {
-      if (property[bp]) {
+      if (property[bp] !== undefined && property[bp] !== null) {
         (properties as Record<string, string>)[
           buildCSSKey(prefix, suffix, bp)
         ] = convertMultiValue(property[bp].toString(), bp, invert);

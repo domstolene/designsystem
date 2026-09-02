@@ -62,13 +62,10 @@
   margin-left: -3px;
 }
 
-.popover {
-  z-index: var(--dds-zindex-popover);
-  th,
-  td {
-    height: 40px;
-    width: 40px;
-  }
+.popover th,
+.popover td {
+  height: 40px;
+  width: 40px;
 }
 
 .calendar__header__month {

@@ -17,6 +17,24 @@ describe('<Box>', () => {
     expect(screen.getByRole('button')).toBeInTheDocument();
   });
 
+  it('applies responsive styling', () => {
+    const container = render(<Box padding="2rem" />);
+    const div = container.container.querySelector('div');
+    expect(div).toHaveStyle({ '--dds-r-p': '2rem' });
+  });
+
+  it('applies responsive styling for breakpoints', () => {
+    const container = render(<Box padding={{ xs: '1rem', sm: '2rem' }} />);
+    const div = container.container.querySelector('div');
+    expect(div).toHaveStyle({ '--dds-r-xs-p': '1rem', '--dds-r-sm-p': '2rem' });
+  });
+
+  it('applies responsive styling with value 0', () => {
+    const container = render(<Box padding="0" />);
+    const div = container.container.querySelector('div');
+    expect(div).toHaveStyle({ '--dds-r-p': '0' });
+  });
+
   it('renders button when React component returning button is passed', () => {
     render(<Box as={Button} />);
     expect(screen.getByRole('button')).toBeInTheDocument();
