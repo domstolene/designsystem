@@ -113,8 +113,6 @@ githubHref={{ folder: 'components', comp: '${name}' }}
 storybookHref={{ folder: 'components', comp: '${name.toLowerCase()}' }}
 />
 
-## Props
-
 <Canvas of={${name}Stories.Preview} sourceState="shown" />
 <Controls of={${name}Stories.Preview} />
 

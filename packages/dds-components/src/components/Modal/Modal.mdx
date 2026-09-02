@@ -6,6 +6,8 @@ import {
 } from '@norges-domstoler/storybook-components';
 import * as ModalStories from './Modal.stories';
 import meta from './Modal.stories';
+import { Tabs, Tab, TabList, TabPanel, TabPanels } from '../Tabs';
+import { Divider } from '../Divider';
 
 <Meta of={meta} />
 
@@ -21,31 +23,40 @@ import meta from './Modal.stories';
 En modal kan ha valgfritt innhold, men for å simplifisere implementasjonen av vanlige mønstre har vi predefinert visuell formatering av typiske elementer i en modal:
 
 - **tittel**, settes via `header`-prop
-- **hovedinnhold**, legges i `<ModalBody>`-subkomponent
-- **handlingselementer** (knapper), legges i `<ModalActions>`-subkomponent
+- **hovedinnhold**, legges i `<ModalBody>`-delkomponent
+- **handlingselementer** (knapper), legges i `<ModalActions>`-delkomponent
 
-Ved bruk av disse elementene vil innholdet i `<Modal>` få spacing utav boksen vha. CSS grid.
+Ved bruk av disse elementene vil innholdet i `<Modal>` få spacing ut av boksen vha. CSS grid.
 
-Siden modal er en komponent som låser sideinnholdet idet den dukker opp er det viktig å sørge for at det er mulig å lukke modalen, enten ved å gjøre den generelt lukkbar (se [Modal Props](#modal)) og/eller ved interaksjon med handlingselementene.
+Siden modal er en komponent som låser sideinnholdet idet den dukker opp er det viktig å sørge for at det er mulig å lukke modalen, enten ved å gjøre den generelt lukkbar via relevante props og/eller ved interaksjon med handlingselementene.
 
-## Props
+## Delkomponenter
 
-### Modal
+<Tabs>
+  <TabList>
+    <Tab>Modal</Tab>
+    <Tab>ModalBody</Tab>
+    <Tab>ModalActions</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      Hovedkomponenten for modal. Kan ha `<ModalBody>`, `<ModalActions>` og ellers fritt valgt innhold som barn. Legger vertikal spacing mellom barn.
 
-Hovedkomponenten for modal. Kan ha `<ModalBody>`, `<ModalActions>` og ellers fritt valgt innhold som barn. Legger vertikal spacing mellom barn.
+      <Canvas of={ModalStories.Preview} />
+      <Controls of={ModalStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      Delkomponent for hovedinnhold i modal (tekstlig informasjon o.l.). Brukes som barn i `<Modal>`.
+      <ArgTypes of={ModalBody} />
+    </TabPanel>
+    <TabPanel>
+      Delkomponent for handlingselementer, typisk knapper. Brukes som barn i `<Modal>`. Legger horisontal spacing mellom barn og legger de over flere rader ved behov.
+    </TabPanel>
 
-<Canvas of={ModalStories.Preview} />
-<Controls of={ModalStories.Preview} />
+  </TabPanels>
+</Tabs>
 
-### ModalBody
-
-Subkomponent for hovedinnhold i modal (tekstlig informasjon o.l.). Brukes som barn i `<Modal>`.
-
-<ArgTypes of={ModalBody} />
-
-### ModalActions
-
-Subkomponent for handlingselementer, typisk knapper. Brukes som barn i `<Modal>`. Legger horisontal spacing mellom barn og legger de over flere rader ved behov.
+<Divider />
 
 ## Bruk
 

@@ -14,6 +14,7 @@ import { Link } from '../../Typography';
 import * as GridStories from './Grid.stories';
 import meta from './Grid.stories';
 import * as GridChildStories from './GridChild.stories';
+import { Tabs, Tab, TabList, TabPanel, TabPanels } from '../../Tabs';
 
 <Meta of={meta} />
 
@@ -25,14 +26,43 @@ import * as GridChildStories from './GridChild.stories';
   storybookHref={{ folder: 'layout-primitives', comp: 'grid' }}
 />
 
-`<Grid>` er en layout primitive: den implementerer grid layout definert i Figma for alle brekkpunkter. Grid i Figma defineres som stiler og er dermed ikke egen komponent.
-
-Grid består av to subkomponenter:
-
-- **`<Grid>`** - en container-komponent for grid children som tar i bruk CSS Grid. Den definerer antall kolonner og gutters (`gap` i CSS) basert på skjermstørrelse. Den støtter også alle standard layout primitive props; se props-tabellen under "CSS properites".
-- **`<GridChild>`** - en wrapper-komponent for innhold, brukes som barn i `<Grid>`. Den spesifiserer hvilke deler av grid innholdet skal ta, både kolonner og rader. Den støtter også alle standard layout primitive props; se props-tabellen under "CSS properites".
+`<Grid>` er en layout primitive: den implementerer grid layout for alle brekkpunkter. Grid i Figma defineres som stiler og er dermed ikke egen komponent.
 
 Les mer om brekkepunkter, grid tokens og hvordan vi bruker det hele i [Grid og layout (design.domstol.no)](https://design.domstol.no/987b33f71/p/442cff-grid-og-layout/b/312b16).
+
+<Tabs>
+  <TabList>
+    <Tab>Grid</Tab>
+    <Tab>GridChild</Tab>
+  </TabList>
+
+  <TabPanels>
+    <TabPanel>
+      En responsiv container-komponent for `<GridChild>` barn. Den håndterer grid layout basert på brekkpunkter. Den støtter også alle standard layout primitive props.
+
+      Komponenten har defaults for enkelte CSS props som implementerer Elsas grid system, men kan overskrives: `gridTemplateColumns`, `columnGap`, `rowGap` (se props-tabell).
+
+      <Canvas of={GridStories.Preview} />
+      <Controls of={GridStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      En responsiv wrapper-komponent som håndterer hvor mange kolonner innhold skal ta. Den støtter også alle standard layout primitive props.
+
+      <Canvas of={GridChildStories.Preview} />
+      <Controls of={GridChildStories.Preview} />
+    </TabPanel>
+
+  </TabPanels>
+</Tabs>
+
+## Types
+
+<Source
+  code={`
+  type RelativeColumnsOccupied = 'all' | 'firstHalf' | 'secondHalf';
+
+type ColumnsOccupied = ResponsiveProp<Property.GridColumn | RelativeColumnsOccupied>;`}
+/>
 
 ## Bruk
 
@@ -66,32 +96,6 @@ Les mer om brekkepunkter, grid tokens og hvordan vi bruker det hele i [Grid og l
   <GridChild columnsOccupied="all">innhold</GridChild>
 </Grid>
 `} />
-
-## Grid
-
-En responsiv container-komponent for `<GridChild>` barn. Den håndterer grid layout basert på brekkpunkter. Den støtter også alle standard layout primitive props.
-
-Komponenten har defaults for enkelte CSS props som implementerer Elsas grid system, men kan overskrives: `gridTemplateColumns`, `columnGap`, `rowGap` (se props-tabell).
-
-<Canvas of={GridStories.Preview} />
-<Controls of={GridStories.Preview} />
-
-## GridChild
-
-En responsiv wrapper-component som håndterer hvor mange kolonner innhold skal ta. Den støtter også alle standard layout primitive props.
-
-<Canvas of={GridChildStories.Preview} />
-<Controls of={GridChildStories.Preview} />
-
-### Typer
-
-<Source
-  code={`
-  type RelativeColumnsOccupied = 'all' | 'firstHalf' | 'secondHalf';
-
-type type ColumnsOccupied =
-ResponsiveProp<Property.GridColumn | RelativeColumnsOccupied>;`}
-/>
 
 ## Eksempler
 
