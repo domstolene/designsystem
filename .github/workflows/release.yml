@@ -40,13 +40,13 @@ jobs:
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
-        uses: changesets/action@v1
+        uses: changesets/action@v2
         with:
-          publish: pnpm release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          publish-script: pnpm release
+          push-with-git-cli: true
 
-      - name: Track package version for adoption
+      - name: Track package version for adoption 🏷️
         if: steps.changesets.outputs.published == 'true'
         uses: zeroheight/action-design-system-adoption@v2
         with:
@@ -56,7 +56,7 @@ jobs:
           ZEROHEIGHT_ACCESS_TOKEN: '${{ secrets.ZEROHEIGHT_ACCESS_TOKEN }}'
 
       - name: Create @dev release
-        if: steps.changesets.outputs.published != 'true'
+        if: steps.changesets.outputs['has-changesets'] == 'true' && steps.changesets.outputs.published != 'true'
         run: |
           git checkout main
           pnpm version:dev
