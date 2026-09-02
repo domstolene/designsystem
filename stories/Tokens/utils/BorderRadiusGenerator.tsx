@@ -2,6 +2,7 @@ import { type DdsThemeMain } from '#packages/dds-components/src/components/Theme
 import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Exclude/BorderRadius.json';
 import jsonC from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/BorderRadius/Core.json';
 import jsonP from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/BorderRadius/Public.json';
+import jsonS from '@norges-domstoler/dds-design-tokens/dds/tokens/Semantic/BorderRadius/Supreme.json';
 
 import { copyButton } from './CopyButton';
 import { splitReferenceKeys, tableStyle } from './functions';
@@ -12,7 +13,13 @@ const tokenPrefix = 'dds-border-radius';
 const baseTokens: TokenBorderRadiusJsonObject = jsonBase[tokenPrefix];
 
 export const BorderRadiusGenerator = (theme: DdsThemeMain) => {
-  const tokenSet = theme === 'core' ? jsonC : jsonP;
+  const tokenSets = {
+    core: jsonC,
+    public: jsonP,
+    supreme: jsonS,
+  } as const;
+
+  const tokenSet = tokenSets[theme];
   const tokens: TokenBorderRadiusJsonObject = tokenSet[tokenPrefix];
 
   function generateBodyRows() {
