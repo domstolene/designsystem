@@ -2,17 +2,19 @@
 
 ## 24.2.0
 
+(2026-09-03)
+
 ### Minor Changes
 
 - 9811f5b: Nye ikoner: `SunHalfFIlledIcon`, `DesktopIcon`, `DesktopMobileIcon`.
 - f73dcf6: Nye responsive props i `<Box>`, `<Bleed>`, `<Contrast>`, `<Grid>`, `<GridChild>`, `<VStack>`, `<HStack>`, og `<Paper>`: `flex` og `zIndex`.
+- 3ba215c: Legger ikonet `ArrowUpRight` til i ikonbiblioteket.
 
 ### Patch Changes
 
 - 6d36650: Fikser bug der `0` ikke var støttet i `value` prop i `<ProgressBar>`.
 - f73dcf6: Fikser bug der responsive props ikke tok inn gyldige falsy verdier, som `0`.
 - f45441b: Justerer bredde på `<NewsPopover>` til 500px. Maks antall nyheter er nå 12.
-- 3ba215c: Legger ikonet `ArrowUpRight` til i ikonbiblioteket.
 
 ## 24.1.1
 
