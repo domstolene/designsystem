@@ -26,7 +26,7 @@ const meta = preview.meta({
 export default meta;
 
 const pText =
-  'Dette er et eksempel på beskrivelse av en nyhet. Tar maksimum tre linjer med tekst.';
+  'Dette er et eksempel på beskrivelse av en nyhet. Beskrivelsen tar maksimum tre linjer med tekst. Tar maksimum tre linjer med tekst.';
 
 export const Preview = meta.story({
   args: {
@@ -46,6 +46,11 @@ export const Preview = meta.story({
         heading: 'Heading 3',
         text: pText,
         image: <img alt="Beskrivelse av img3" src={img3} />,
+      },
+      {
+        heading: 'Heading 4',
+        text: pText,
+        image: <img alt="Beskrivelse av img4" src={img4} />,
       },
       {
         heading: 'Heading 4',
