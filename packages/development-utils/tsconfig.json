@@ -1,11 +1,5 @@
 {
   "extends": "../../tsconfig.json",
-  "include": [
-    "src",
-    "vitest.config.ts",
-    ".eslintrc.cjs",
-    "tsdown.config.ts",
-    "../../global.d.ts"
-  ],
+  "include": ["src", ".eslintrc.cjs", "tsdown.config.ts", "../../global.d.ts"],
   "exclude": ["**/*.stories.tsx"]
 }

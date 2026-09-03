@@ -4,7 +4,7 @@
     "src",
     "stories/patterns",
     ".eslintrc.cjs",
-    "vitest.config.ts",
+    "vitest.config.mts",
     "tsdown.config.ts",
     "../../global.d.ts"
   ]
