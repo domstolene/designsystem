@@ -2,9 +2,11 @@ import styles from './Tag.module.css';
 import {
   type BaseComponentProps,
   createPurposes,
+  createSizes,
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
+import inputStyles from '../helpers/Input/Input.module.css';
 import { Icon, type SvgIcon } from '../Icon';
 import {
   CheckCircledIcon,
@@ -34,8 +36,18 @@ export const TAG_PURPOSES = createPurposes(
   'default',
 );
 
+export const TAG_SIZES = createSizes('small', 'medium');
+
+export const TAG_APPEARANCES = [
+  'outline',
+  'strong',
+  'subtle',
+  'accent-left',
+] as const;
+
 export type TagPurpose = (typeof TAG_PURPOSES)[number];
-export type TagAppearance = 'default' | 'strong';
+export type TagSize = (typeof TAG_SIZES)[number];
+export type TagAppearance = (typeof TAG_APPEARANCES)[number];
 
 export type TagProps = BaseComponentProps<
   HTMLSpanElement,
@@ -51,7 +63,7 @@ export type TagProps = BaseComponentProps<
     purpose?: TagPurpose;
     /**
      * Det visuelle uttrykket til komponenten.
-     * @default "default"
+     * @default "outline"
      */
     appearance?: TagAppearance;
     /**
@@ -59,18 +71,24 @@ export type TagProps = BaseComponentProps<
      * @default false
      */
     withIcon?: boolean;
+    /**
+     * Størrelsen på `<Tag>`.
+     * @default "medium"
+     */
+    size?: TagSize;
   }
 >;
 
 export const Tag = ({
   purpose = 'default',
-  appearance = 'default',
+  appearance = 'outline',
   id,
   className,
   style,
   children,
   htmlProps,
   withIcon,
+  size = 'medium',
   ...rest
 }: TagProps) => {
   const icon = icons[purpose];
@@ -81,9 +99,10 @@ export const Tag = ({
         id,
         cn(
           className,
-          typographyStyles['body-short-medium'],
+          typographyStyles[`body-short-${size}`],
           styles.container,
-          withIcon && icon && styles['container--with-icon'],
+          inputStyles[`compact--${size}`],
+          withIcon && icon && styles[`container--${size}-with-icon`],
           styles[`container--${purpose}--${appearance}`],
         ),
         style,
