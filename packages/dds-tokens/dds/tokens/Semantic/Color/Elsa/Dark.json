@@ -362,7 +362,7 @@
         "description": "Used on data. with default value"
       },
       "on-data-subtle": {
-        "value": "{dds-color.cool-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "Used on data. with subtle value"
       }
