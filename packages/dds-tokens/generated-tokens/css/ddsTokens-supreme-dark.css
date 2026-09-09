@@ -185,7 +185,7 @@
   --dds-color-text-requiredfield: #efafaf; /* Asterix to indicate required field */
   --dds-color-text-action-visited: #cca9e1; /* Used for visited links */
   --dds-color-text-action-visited-on-inverse: #f2eaf8; /* Used for visited links on inverse surfaces */
-  --dds-color-text-on-notification: #f3f3f2; /* Used on surface.notification */
+  --dds-color-text-on-notification: #ffffff; /* Used on surface.notification */
   --dds-color-text-on-primary-default: #f3f3f2; /* Used on brand.primary-default */
   --dds-color-text-on-primary-subtle: #f3f3f2; /* Used on brand.primary-subtle */
   --dds-color-text-on-primary-medium: #f3f3f2; /* Used on brand.primary-medium */
