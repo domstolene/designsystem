@@ -46,7 +46,7 @@
   ],
   "devDependencies": {
     "@norges-domstoler/storybook-components": "workspace:*",
-    "@testing-library/react": "^16.3.2",
+    "@testing-library/react": "^16.3.3",
     "@types/react": "19.2.18",
     "autoprefixer": "^10.5.4",
     "csstype": "3.2.3",
