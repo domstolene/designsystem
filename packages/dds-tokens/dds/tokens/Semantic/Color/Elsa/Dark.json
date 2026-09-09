@@ -292,7 +292,7 @@
         "description": "Used for visited links on inverse surfaces"
       },
       "on-notification": {
-        "value": "{dds-color.cool-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "Used on surface.notification"
       },
