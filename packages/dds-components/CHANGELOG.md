@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 24.2.1
+
+### Patch Changes
+
+- 31715ad: Fikser høyde i `<NewsPopover>`, slik at den fungerer i alle temaer.
+
 ## 24.2.0
 
 (2026-09-03)
