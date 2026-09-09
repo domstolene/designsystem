@@ -172,38 +172,38 @@
   --dds-color-border-info: #5197c5; /* Tag.default */
   --dds-color-border-on-action: #1b1a18; /* Used on primary split button */
   --dds-color-border-strong: #ffffff;
-  --dds-color-text-default: #ffffff; /* default text, heading, body. on surface.hover */
+  --dds-color-text-default: #f3f3f2; /* default text, heading, body. on surface.hover */
   --dds-color-text-medium: #e7e6e4; /* Label, etc */
   --dds-color-text-subtle: #cfcec9; /* Disabled or less important text */
-  --dds-color-text-on-inverse: #ffffff; /* On surface.inverse */
+  --dds-color-text-on-inverse: #f3f3f2; /* On surface.inverse */
   --dds-color-text-danger: #efafaf; /* Error text on paper, or default or subtle surafce/bg */
   --dds-color-text-on-action: #0b0d0e; /* On surface.action (primary and danger button) */
-  --dds-color-text-on-status-default: #ffffff; /* On default status surfaces */
+  --dds-color-text-on-status-default: #f3f3f2; /* On default status surfaces */
   --dds-color-text-on-status-strong: #0b0d0e; /* On status surfaces with strong prop */
   --dds-color-text-action-resting: #a8c3c9; /* Link, number in progress tracker */
   --dds-color-text-action-hover: #e9f1f2; /* Hover on text.action */
   --dds-color-text-requiredfield: #efafaf; /* Asterix to indicate required field */
   --dds-color-text-action-visited: #cca9e1; /* Used for visited links */
   --dds-color-text-action-visited-on-inverse: #f2eaf8; /* Used for visited links on inverse surfaces */
-  --dds-color-text-on-notification: #ffffff; /* Used on surface.notification */
-  --dds-color-text-on-primary-default: #ffffff; /* Used on brand.primary-default */
-  --dds-color-text-on-primary-subtle: #ffffff; /* Used on brand.primary-subtle */
-  --dds-color-text-on-primary-medium: #ffffff; /* Used on brand.primary-medium */
+  --dds-color-text-on-notification: #f3f3f2; /* Used on surface.notification */
+  --dds-color-text-on-primary-default: #f3f3f2; /* Used on brand.primary-default */
+  --dds-color-text-on-primary-subtle: #f3f3f2; /* Used on brand.primary-subtle */
+  --dds-color-text-on-primary-medium: #f3f3f2; /* Used on brand.primary-medium */
   --dds-color-text-on-primary-strong: #0b0d0e; /* Used on brand.primary-strong */
-  --dds-color-text-on-secondary-default: #ffffff; /* Used on brand.secondary-default */
-  --dds-color-text-on-secondary-subtle: #ffffff; /* Used on brand.secondary-subtle */
-  --dds-color-text-on-secondary-medium: #ffffff; /* Used on brand.secondary-medium */
+  --dds-color-text-on-secondary-default: #f3f3f2; /* Used on brand.secondary-default */
+  --dds-color-text-on-secondary-subtle: #f3f3f2; /* Used on brand.secondary-subtle */
+  --dds-color-text-on-secondary-medium: #f3f3f2; /* Used on brand.secondary-medium */
   --dds-color-text-on-secondary-strong: #0b0d0e; /* Used on brand.secondary-strong */
   --dds-color-text-on-tertiary-default: #0b0d0e; /* Used on brand.tertiary-default */
-  --dds-color-text-on-tertiary-subtle: #ffffff; /* Used on brand.tertiary-subtle */
+  --dds-color-text-on-tertiary-subtle: #f3f3f2; /* Used on brand.tertiary-subtle */
   --dds-color-text-on-tertiary-medium: #0b0d0e; /* Used on brand.tertiary-medium */
   --dds-color-text-on-tertiary-strong: #0b0d0e; /* Used on brand.tertiary-strong */
   --dds-color-text-on-data-default: #0b0d0e; /* Used on data. with default value */
-  --dds-color-text-on-data-subtle: #ffffff; /* Used on data. with subtle value */
-  --dds-color-icon-default: #ffffff; /* Often used with text.default */
+  --dds-color-text-on-data-subtle: #f3f3f2; /* Used on data. with subtle value */
+  --dds-color-icon-default: #f3f3f2; /* Often used with text.default */
   --dds-color-icon-medium: #e7e6e4; /* Often used with text.medium */
   --dds-color-icon-subtle: #cfcec9; /* Often used with text.subtle */
-  --dds-color-icon-on-inverse: #ffffff; /* On surface.inverse */
+  --dds-color-icon-on-inverse: #f3f3f2; /* On surface.inverse */
   --dds-color-icon-on-action: #0b0d0e; /* On surface.action (primary and danger button) */
   --dds-color-icon-action-resting: #a8c3c9; /* Often used with Text.action */
   --dds-color-icon-action-hover: #e9f1f2; /* hover on icon-action */
