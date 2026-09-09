@@ -199,7 +199,7 @@
   --dds-color-text-on-tertiary-medium: #0b0d0e; /* Used on brand.tertiary-medium */
   --dds-color-text-on-tertiary-strong: #0b0d0e; /* Used on brand.tertiary-strong */
   --dds-color-text-on-data-default: #0b0d0e; /* Used on data. with default value */
-  --dds-color-text-on-data-subtle: #f1f3f4; /* Used on data. with subtle value */
+  --dds-color-text-on-data-subtle: #ffffff; /* Used on data. with subtle value */
   --dds-color-icon-default: #f1f3f4; /* Often used with text.default */
   --dds-color-icon-medium: #e9ebec; /* Often used with text.medium */
   --dds-color-icon-subtle: #d6dadd; /* Often used with text.subtle */
