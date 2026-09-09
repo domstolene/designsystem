@@ -176,7 +176,7 @@
         "description": "Form components, togglebutton, secondary button, checkbox etc"
       },
       "strong": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.cool-gray.50}",
         "type": "color"
       },
       "subtle": {
@@ -227,7 +227,7 @@
     },
     "text": {
       "default": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.cool-gray.50}",
         "type": "color",
         "description": "default text, heading, body. on surface.hover"
       },
@@ -242,7 +242,7 @@
         "description": "Disabled or less important text"
       },
       "on-inverse": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.cool-gray.50}",
         "type": "color",
         "description": "On surface.inverse"
       },
@@ -257,7 +257,7 @@
         "description": "On surface.action (primary and danger button)"
       },
       "on-status-default": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.cool-gray.50}",
         "type": "color",
         "description": "On default status surfaces"
       },
@@ -292,27 +292,27 @@
         "description": "Used for visited links on inverse surfaces"
       },
       "on-notification": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.cool-gray.50}",
         "type": "color",
         "description": "Used on surface.notification"
       },
       "on-primary-default": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.cool-gray.50}",
         "type": "color",
         "description": "Used on brand.primary-default"
       },
       "on-primary-subtle": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.cool-gray.50}",
         "type": "color",
         "description": "Used on brand.primary-subtle"
       },
       "on-primary-medium": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.cool-gray.50}",
         "type": "color",
         "description": "Used on brand.primary-medium"
       },
       "on-primary-strong": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.cool-gray.50}",
         "type": "color",
         "description": "Used on brand.primary-strong"
       },
@@ -322,12 +322,12 @@
         "description": "Used on brand.secondary-default"
       },
       "on-secondary-subtle": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.cool-gray.50}",
         "type": "color",
         "description": "Used on brand.secondary-subtle"
       },
       "on-secondary-medium": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.cool-gray.50}",
         "type": "color",
         "description": "Used on brand.secondary-medium"
       },
@@ -342,7 +342,7 @@
         "description": "Used on brand.tertiary-default"
       },
       "on-tertiary-subtle": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.cool-gray.50}",
         "type": "color",
         "description": "Used on brand.tertiary-subtle"
       },
@@ -362,14 +362,14 @@
         "description": "Used on data. with default value"
       },
       "on-data-subtle": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.cool-gray.50}",
         "type": "color",
         "description": "Used on data. with subtle value"
       }
     },
     "icon": {
       "default": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.cool-gray.50}",
         "type": "color",
         "description": "Often used with text.default"
       },
@@ -384,7 +384,7 @@
         "description": "Often used with text.subtle"
       },
       "on-inverse": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.cool-gray.50}",
         "type": "color",
         "description": "On surface.inverse"
       },

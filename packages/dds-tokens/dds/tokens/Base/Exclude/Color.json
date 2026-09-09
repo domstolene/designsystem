@@ -43,6 +43,10 @@
       }
     },
     "cool-gray": {
+      "25": {
+        "value": "#f8f9f9",
+        "type": "color"
+      },
       "50": {
         "value": "#F1F3F4",
         "type": "color"

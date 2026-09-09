@@ -242,7 +242,7 @@
         "description": "Disabled or less important text"
       },
       "on-inverse": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.warm-gray.50}",
         "type": "color",
         "description": "On surface.inverse"
       },
@@ -292,7 +292,7 @@
         "description": "Used for visited links on inverse surfaces"
       },
       "on-notification": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.warm-gray.50}",
         "type": "color",
         "description": "Used on surface.notification"
       },
@@ -312,12 +312,12 @@
         "description": "Used on brand.primary-medium"
       },
       "on-primary-strong": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.warm-gray.50}",
         "type": "color",
         "description": "Used on brand.primary-strong"
       },
       "on-secondary-default": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.warm-gray.50}",
         "type": "color",
         "description": "Used on brand.secondary-default"
       },
@@ -327,12 +327,12 @@
         "description": "Used on brand.secondary-subtle"
       },
       "on-secondary-medium": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.warm-gray.50}",
         "type": "color",
         "description": "Used on brand.secondary-medium"
       },
       "on-secondary-strong": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.warm-gray.50}",
         "type": "color",
         "description": "Used on brand.secondary-strong"
       },
@@ -352,12 +352,12 @@
         "description": "Used on brand.tertiary-medium"
       },
       "on-tertiary-strong": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.warm-gray.50}",
         "type": "color",
         "description": "Used on brand.tertiary-strong"
       },
       "on-data-default": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.warm-gray.50}",
         "type": "color",
         "description": "Used on data. with default value"
       },
@@ -384,7 +384,7 @@
         "description": "Often used with text.subtle"
       },
       "on-inverse": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.warm-gray.50}",
         "type": "color",
         "description": "On surface.inverse"
       },
