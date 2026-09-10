@@ -1,16 +1,11 @@
 import styles from './Feedback.module.css';
-import { type Layout, type Rating } from './Feedback.types';
+import { type Rating } from './Feedback.types';
 import { createTexts, useTranslation } from '../../i18n';
 import { Button } from '../Button';
-import { Icon } from '../Icon';
-import { ThumbDownFilledIcon, ThumbUpFilledIcon } from '../Icon/icons';
 import { VStack } from '../layout';
 import { TextArea } from '../TextArea';
 import { Paragraph } from '../Typography';
-import { getIconSize } from './utils';
-
 interface CommentComponentType {
-  layout: Layout;
   rating: Rating | null;
   feedbackText: string | undefined;
   positiveFeedbackLabel: string;
@@ -23,7 +18,6 @@ interface CommentComponentType {
 }
 
 export const CommentComponent = ({
-  layout,
   rating,
   feedbackText,
   positiveFeedbackLabel,
@@ -38,11 +32,6 @@ export const CommentComponent = ({
   return (
     <VStack gap="x1">
       <span className={styles['rating-submitted-title']}>
-        <Icon
-          icon={rating === 'positive' ? ThumbUpFilledIcon : ThumbDownFilledIcon}
-          color="icon-action-resting"
-          iconSize={getIconSize(layout)}
-        />
         <Paragraph>{ratingSubmittedTitle} </Paragraph>
       </span>
       <TextArea
