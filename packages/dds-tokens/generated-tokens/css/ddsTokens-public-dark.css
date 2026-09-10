@@ -133,6 +133,7 @@
   --dds-color-surface-default: #181a1c; /* Default bg */
   --dds-color-surface-subtle: #22272a; /* Subtle surface color */
   --dds-color-surface-medium: #303438; /* Medium surface color */
+  --dds-color-surface-strong: #444444; /* Strong surface color */
   --dds-color-surface-hover-default: #062c45; /* Hover on surface (default, subtle, medium) */
   --dds-color-surface-hover-subtle: #22272a; /* Subtle hover on surface (default, medium) */
   --dds-color-surface-selected-default: #062c45; /* Selected state for surface (default, subtle, medium) */
@@ -175,7 +176,7 @@
   --dds-color-text-default: #f1f3f4; /* default text, heading, body. on surface.hover */
   --dds-color-text-medium: #e9ebec; /* Label, etc */
   --dds-color-text-subtle: #d6dadd; /* Disabled or less important text */
-  --dds-color-text-on-inverse: #f1f3f4; /* On surface.inverse */
+  --dds-color-text-on-inverse: #ffffff; /* On surface.inverse */
   --dds-color-text-danger: #efafaf; /* Error text on paper, or default or subtle surafce/bg */
   --dds-color-text-on-action: #0b0d0e; /* On surface.action (primary and danger button) */
   --dds-color-text-on-status-default: #f1f3f4; /* On default status surfaces */
@@ -186,16 +187,16 @@
   --dds-color-text-action-visited: #cca9e1; /* Used for visited links */
   --dds-color-text-action-visited-on-inverse: #cca9e1; /* Used for visited links on inverse surfaces */
   --dds-color-text-on-notification: #ffffff; /* Used on surface.notification */
-  --dds-color-text-on-primary-default: #f1f3f4; /* Used on brand.primary-default */
-  --dds-color-text-on-primary-subtle: #f1f3f4; /* Used on brand.primary-subtle */
-  --dds-color-text-on-primary-medium: #f1f3f4; /* Used on brand.primary-medium */
-  --dds-color-text-on-primary-strong: #f1f3f4; /* Used on brand.primary-strong */
+  --dds-color-text-on-primary-default: #ffffff; /* Used on brand.primary-default */
+  --dds-color-text-on-primary-subtle: #ffffff; /* Used on brand.primary-subtle */
+  --dds-color-text-on-primary-medium: #ffffff; /* Used on brand.primary-medium */
+  --dds-color-text-on-primary-strong: #ffffff; /* Used on brand.primary-strong */
   --dds-color-text-on-secondary-default: #0b0d0e; /* Used on brand.secondary-default */
-  --dds-color-text-on-secondary-subtle: #f1f3f4; /* Used on brand.secondary-subtle */
-  --dds-color-text-on-secondary-medium: #f1f3f4; /* Used on brand.secondary-medium */
+  --dds-color-text-on-secondary-subtle: #ffffff; /* Used on brand.secondary-subtle */
+  --dds-color-text-on-secondary-medium: #ffffff; /* Used on brand.secondary-medium */
   --dds-color-text-on-secondary-strong: #0b0d0e; /* Used on brand.secondary-strong */
   --dds-color-text-on-tertiary-default: #0b0d0e; /* Used on brand.tertiary-default */
-  --dds-color-text-on-tertiary-subtle: #f1f3f4; /* Used on brand.tertiary-subtle */
+  --dds-color-text-on-tertiary-subtle: #ffffff; /* Used on brand.tertiary-subtle */
   --dds-color-text-on-tertiary-medium: #0b0d0e; /* Used on brand.tertiary-medium */
   --dds-color-text-on-tertiary-strong: #0b0d0e; /* Used on brand.tertiary-strong */
   --dds-color-text-on-data-default: #0b0d0e; /* Used on data. with default value */
@@ -203,7 +204,7 @@
   --dds-color-icon-default: #f1f3f4; /* Often used with text.default */
   --dds-color-icon-medium: #e9ebec; /* Often used with text.medium */
   --dds-color-icon-subtle: #d6dadd; /* Often used with text.subtle */
-  --dds-color-icon-on-inverse: #f1f3f4; /* On surface.inverse */
+  --dds-color-icon-on-inverse: #ffffff; /* On surface.inverse */
   --dds-color-icon-on-action: #0b0d0e; /* On surface.action (primary and danger button) */
   --dds-color-icon-action-resting: #9fc5de; /* Often used with Text.action */
   --dds-color-icon-action-hover: #e7f1f7; /* hover on icon-action */
