@@ -28,6 +28,22 @@
         "type": "color",
         "description": "Medium surface color"
       },
+      "strong": {
+        "value": "{dds-color.warm-gray.700}",
+        "type": "color",
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false,
+          "com.figma.scopes": [
+            "ALL_FILLS",
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "TEXT_FILL",
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ]
+        },
+        "description": "Strong surface color"
+      },
       "hover-default": {
         "value": "{dds-color.supreme-teal.800}",
         "type": "color",
@@ -242,7 +258,7 @@
         "description": "Disabled or less important text"
       },
       "on-inverse": {
-        "value": "{dds-color.warm-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "On surface.inverse"
       },
@@ -257,7 +273,7 @@
         "description": "On surface.action (primary and danger button)"
       },
       "on-status-default": {
-        "value": "{dds-color.warm-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "On default status surfaces"
       },
@@ -297,17 +313,17 @@
         "description": "Used on surface.notification"
       },
       "on-primary-default": {
-        "value": "{dds-color.warm-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "Used on brand.primary-default"
       },
       "on-primary-subtle": {
-        "value": "{dds-color.warm-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "Used on brand.primary-subtle"
       },
       "on-primary-medium": {
-        "value": "{dds-color.warm-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "Used on brand.primary-medium"
       },
@@ -317,17 +333,17 @@
         "description": "Used on brand.primary-strong"
       },
       "on-secondary-default": {
-        "value": "{dds-color.warm-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "Used on brand.secondary-default"
       },
       "on-secondary-subtle": {
-        "value": "{dds-color.warm-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "Used on brand.secondary-subtle"
       },
       "on-secondary-medium": {
-        "value": "{dds-color.warm-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "Used on brand.secondary-medium"
       },
@@ -342,7 +358,7 @@
         "description": "Used on brand.tertiary-default"
       },
       "on-tertiary-subtle": {
-        "value": "{dds-color.warm-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "Used on brand.tertiary-subtle"
       },
@@ -384,7 +400,7 @@
         "description": "Often used with text.subtle"
       },
       "on-inverse": {
-        "value": "{dds-color.warm-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "On surface.inverse"
       },

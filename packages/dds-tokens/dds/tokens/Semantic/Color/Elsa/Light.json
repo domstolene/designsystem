@@ -28,6 +28,22 @@
         "type": "color",
         "description": "Medium surface color"
       },
+      "strong": {
+        "value": "{dds-color.cool-gray.200}",
+        "type": "color",
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false,
+          "com.figma.scopes": [
+            "ALL_FILLS",
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "TEXT_FILL",
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ]
+        },
+        "description": "Strong surface color"
+      },
       "hover-default": {
         "value": "{dds-color.interactive.50}",
         "type": "color",
@@ -242,7 +258,7 @@
         "description": "Disabled or less important text"
       },
       "on-inverse": {
-        "value": "{dds-color.cool-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "On surface.inverse"
       },
@@ -252,7 +268,7 @@
         "description": "Error text on paper, or default or subtle surafce/bg"
       },
       "on-action": {
-        "value": "{dds-color.cool-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "On surface.action (primary and danger button)"
       },
@@ -297,7 +313,7 @@
         "description": "Used on surface.notification"
       },
       "on-primary-default": {
-        "value": "{dds-color.cool-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "Used on brand.primary-default"
       },
@@ -307,12 +323,12 @@
         "description": "Used on brand.primary-subtle"
       },
       "on-primary-medium": {
-        "value": "{dds-color.cool-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "Used on brand.primary-medium"
       },
       "on-primary-strong": {
-        "value": "{dds-color.cool-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "Used on brand.primary-strong"
       },
@@ -332,7 +348,7 @@
         "description": "Used on brand.secondary-medium"
       },
       "on-secondary-strong": {
-        "value": "{dds-color.cool-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "Used on brand.secondary-strong"
       },
@@ -384,12 +400,12 @@
         "description": "Often used with text.subtle"
       },
       "on-inverse": {
-        "value": "{dds-color.cool-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "On surface.inverse"
       },
       "on-action": {
-        "value": "{dds-color.cool-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "On surface.action (primary and danger button)"
       },

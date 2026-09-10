@@ -28,6 +28,22 @@
         "type": "color",
         "description": "Medium surface color"
       },
+      "strong": {
+        "value": "{dds-color.warm-gray.200}",
+        "type": "color",
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false,
+          "com.figma.scopes": [
+            "ALL_FILLS",
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "TEXT_FILL",
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ]
+        },
+        "description": "Strong surface color"
+      },
       "hover-default": {
         "value": "{dds-color.supreme-teal.50}",
         "type": "color",
@@ -242,7 +258,7 @@
         "description": "Disabled or less important text"
       },
       "on-inverse": {
-        "value": "{dds-color.warm-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "On surface.inverse"
       },
@@ -312,12 +328,12 @@
         "description": "Used on brand.primary-medium"
       },
       "on-primary-strong": {
-        "value": "{dds-color.warm-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "Used on brand.primary-strong"
       },
       "on-secondary-default": {
-        "value": "{dds-color.warm-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "Used on brand.secondary-default"
       },
@@ -327,12 +343,12 @@
         "description": "Used on brand.secondary-subtle"
       },
       "on-secondary-medium": {
-        "value": "{dds-color.warm-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "Used on brand.secondary-medium"
       },
       "on-secondary-strong": {
-        "value": "{dds-color.warm-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "Used on brand.secondary-strong"
       },
@@ -352,7 +368,7 @@
         "description": "Used on brand.tertiary-medium"
       },
       "on-tertiary-strong": {
-        "value": "{dds-color.warm-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "Used on brand.tertiary-strong"
       },
@@ -384,7 +400,7 @@
         "description": "Often used with text.subtle"
       },
       "on-inverse": {
-        "value": "{dds-color.warm-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "On surface.inverse"
       },

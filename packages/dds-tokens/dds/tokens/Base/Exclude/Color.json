@@ -45,7 +45,13 @@
     "cool-gray": {
       "25": {
         "value": "#f8f9f9",
-        "type": "color"
+        "type": "color",
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false,
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ]
+        }
       },
       "50": {
         "value": "#F1F3F4",
