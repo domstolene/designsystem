@@ -1,9 +1,9 @@
 import styles from './Feedback.module.css';
 import { type Layout, type Rating } from './Feedback.types';
-import { getIconSize } from './utils';
+import { getButtonSize } from './utils';
 import { createTexts, useTranslation } from '../../i18n';
 import { cn } from '../../utils';
-import { InlineIconButton } from '../helpers/InlineIconButton';
+import { Button } from '../Button';
 import { ThumbDownIcon, ThumbUpIcon } from '../Icon/icons';
 import { HStack } from '../layout';
 import { Spinner } from '../Spinner';
@@ -28,16 +28,7 @@ export const RatingComponent = ({
   handleRatingChange,
 }: RatingComponentType) => {
   const { t } = useTranslation();
-
-  const button = (rating: Rating, layout: Layout, tooltip: string) => (
-    <InlineIconButton
-      aria-label={tooltip}
-      onClick={() => handleRatingChange(rating)}
-      size={getIconSize(layout)}
-      icon={rating === 'positive' ? ThumbUpIcon : ThumbDownIcon}
-      color="icon-medium"
-    ></InlineIconButton>
-  );
+  const buttonSize = getButtonSize(layout);
 
   return (
     <div
@@ -52,10 +43,22 @@ export const RatingComponent = ({
       ) : (
         <HStack gap="x1">
           <Tooltip text={thumbUpTooltip}>
-            {button('positive', layout, thumbUpTooltip)}
+            <Button
+              purpose="secondary"
+              aria-label={thumbUpTooltip}
+              onClick={() => handleRatingChange('positive')}
+              size={buttonSize}
+              icon={ThumbUpIcon}
+            ></Button>
           </Tooltip>
           <Tooltip text={thumbDownTooltip}>
-            {button('negative', layout, thumbDownTooltip)}
+            <Button
+              purpose="secondary"
+              aria-label={thumbDownTooltip}
+              onClick={() => handleRatingChange('negative')}
+              size={buttonSize}
+              icon={ThumbDownIcon}
+            ></Button>
           </Tooltip>
         </HStack>
       )}
