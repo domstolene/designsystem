@@ -12,6 +12,11 @@ dev/
 └── <eget_prosjekt>
 ```
 
+## Mappenavn vs npm-navn
+
+Dette vil i hovedsak gjelde `@norges-domstoler/dds-design-tokens`. NPM-navnet er `dds-design-tokens` mens mappenavnet er `dds-tokens`.
+Vær oppmerksom på når mappenavn skal brukes og når NPM-navn skal brukes.
+
 ## 1. Link designsystem-pakken
 
 Gå til roten i eget prosjekt:
@@ -23,13 +28,13 @@ cd ~/dev/<eget_prosjekt>
 Link den lokale pakken som du ønsker:
 
 ```bash
-pnpm link ../designsystem/packages/<linket_pakke>
+pnpm link ../designsystem/packages/<linket_pakke_mappenavn>
 ```
 
 Verifiser at linken er opprettet:
 
 ```bash
-pnpm list @norges-domstoler/<linket_pakke>
+pnpm list @norges-domstoler/<linket_pakke_npm_navn>
 ```
 
 Forventet output:
@@ -40,7 +45,7 @@ Legend: production dependency, optional only, dev only
 <eget_prosjekt>@<versjon> <sti_til_prosjekt> (PRIVATE)
 
 dependencies:
-└── @norges-domstoler/<linket_pakke>@link:../designsystem/packages/<linket_pakke>
+└── @norges-domstoler/<linket_pakke_npm>@link:../designsystem/packages/<linket_pakke_mappenavn>
 
 1 package
 ```
@@ -48,19 +53,19 @@ dependencies:
 Ved linking kan prosjektets pnpm-workspace.yaml bli oppdatert med en lokal referanse til den linkede pakken:
 
 ```yaml
-'@norges-domstoler/<linket_pakke>': link:../designsystem/packages/<linket_pakke>
+'@norges-domstoler/<linket_pakke_npm_navn>': link:../designsystem/packages/<linket_pakke_mappenavn>
 ```
 
 Kontroller at symlinken peker til riktig katalog:
 
 ```bash
-realpath node_modules/@norges-domstoler/<linket_pakke>
+realpath node_modules/@norges-domstoler/<linket_pakke_npm_navn>
 ```
 
 Forventet output:
 
 ```text
-/<sti_på_lokal_maskin>/designsystem/packages/<linket_pakke>
+/<sti_på_lokal_maskin>/designsystem/packages/<linket_pakke_mappenavn>
 ```
 
 ---
@@ -110,7 +115,7 @@ For å unngå at Vite pre-bundler den linkede pakken:
 
 ```ts
 optimizeDeps: {
-    exclude: ['@norges-domstoler/<linket_pakke>'],
+    exclude: ['@norges-domstoler/<linket_pakke_npm_navn>'],
 },
 ```
 
@@ -142,7 +147,7 @@ Etter endringer i `<linket_pakke>` kan pakken måtte bygges på nytt:
 
 ```bash
 cd ~/dev/designsystem
-pnpm --filter @norges-domstoler/<linket_pakke> build
+pnpm --filter @norges-domstoler/<linket_pakke_npm_navn> build
 ```
 
 Deretter refresh eller restart eget prosjekt ved behov.
@@ -154,7 +159,7 @@ Deretter refresh eller restart eget prosjekt ved behov.
 Når lokal testing er ferdig:
 
 ```bash
-pnpm unlink @norges-domstoler/<linket_pakke>
+pnpm unlink @norges-domstoler/<linket_pakke_npm_navn>
 pnpm install
 ```
 
