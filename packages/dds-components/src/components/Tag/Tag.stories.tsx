@@ -1,6 +1,12 @@
 import preview from '#.storybook/preview';
 
-import { TAG_APPEARANCES, TAG_PURPOSES, TAG_SIZES, icons } from './Tag';
+import {
+  TAG_APPEARANCES,
+  TAG_COLORS,
+  TAG_PURPOSES,
+  TAG_SIZES,
+  icons,
+} from './Tag';
 import { commonArgTypes, labelText } from '../../storybook';
 import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
 
@@ -22,11 +28,12 @@ export const Preview = meta.story({
 });
 
 export const Purposes = meta.story({
-  render: args => (
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: ({ color, purpose, withIcon, ...commonArgs }) => (
     <StoryHStack>
       <StoryVStack>
         {TAG_PURPOSES.map(p => (
-          <Tag {...args} key={`p-${p}`} purpose={p}>
+          <Tag {...commonArgs} key={`p-${p}`} purpose={p}>
             {labelText(p)}
           </Tag>
         ))}
@@ -34,7 +41,7 @@ export const Purposes = meta.story({
       <StoryVStack>
         {TAG_PURPOSES.map(p =>
           icons[p] ? (
-            <Tag {...args} withIcon key={`p-${p}`} purpose={p}>
+            <Tag {...commonArgs} withIcon key={`p-${p}`} purpose={p}>
               {labelText(p)}
             </Tag>
           ) : (
@@ -71,4 +78,15 @@ export const Sizes = meta.story({
   ),
 });
 
-export const CustomColors = meta.story({});
+export const CustomColors = meta.story({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: ({ color, purpose, withIcon, ...commonArgs }) => (
+    <StoryVStack>
+      {TAG_COLORS.map(c => (
+        <Tag {...commonArgs} key={`c-${c}`} color={c}>
+          {labelText(c)}
+        </Tag>
+      ))}
+    </StoryVStack>
+  ),
+});
