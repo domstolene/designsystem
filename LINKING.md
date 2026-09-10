@@ -88,7 +88,7 @@ Dette gjør at Vite kan lese filer fra søskenrepoer under samme parent-katalog 
 
 Ved linking kan både `<eget_prosjekt>` og den linkede pakken laste inn hver sin React-instans. Dette kan føre til feil med hooks og context.
 
-Legg til følgende:
+Legg til følgende (forutsetter at du har importert `path`, f.eks. `import path from 'node:path'`):
 
 ```ts
 resolve: {
