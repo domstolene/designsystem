@@ -41,7 +41,7 @@ export const RatingComponent = ({
       {loading ? (
         <Spinner tooltip={t(texts.uploadingFeedback)} />
       ) : (
-        <HStack gap="x1">
+        <HStack gap="x0.75">
           <Tooltip text={thumbUpTooltip}>
             <Button
               purpose="secondary"

@@ -1,6 +1,6 @@
 .rating-container {
   display: flex;
-  gap: var(--dds-spacing-x1);
+  gap: var(--dds-spacing-x0-5);
 }
 
 .rating-container--horizontal {
