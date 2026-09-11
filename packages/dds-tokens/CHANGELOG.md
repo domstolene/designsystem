@@ -2,6 +2,8 @@
 
 ## 10.1.0
 
+(2026-09-11)
+
 ### Minor Changes
 
 - 8a10298: Legger til ny design token `dds-color-surface-strong`.
