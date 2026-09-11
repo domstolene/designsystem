@@ -1,5 +1,15 @@
 # @norges-domstoler/dds-components
 
+## 24.2.2
+
+### Patch Changes
+
+- c69a1de: Oppdaterer Feedback-komponenten. Følgende endringer er gjort:
+
+  - Fjerner visning av ikoner etter valgt feedback.
+  - Endrer til å bruke secondary button.
+  - Oppdaterer spacing mellom label og knapper.
+
 ## 24.2.1
 
 (2026-09-10)
