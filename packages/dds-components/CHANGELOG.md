@@ -2,6 +2,8 @@
 
 ## 24.2.2
 
+(2026-09-11)
+
 ### Patch Changes
 
 - c69a1de: Oppdaterer Feedback-komponenten. Følgende endringer er gjort:
