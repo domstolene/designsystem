@@ -1,6 +1,12 @@
 import preview from '#.storybook/preview';
 
-import { TAG_PURPOSES, icons } from './Tag';
+import {
+  TAG_APPEARANCES,
+  TAG_COLORS,
+  TAG_PURPOSES,
+  TAG_SIZES,
+  icons,
+} from './Tag';
 import { commonArgTypes, labelText } from '../../storybook';
 import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
 
@@ -21,13 +27,13 @@ export const Preview = meta.story({
   args: { children: 'default' },
 });
 
-export const Variants = meta.story({
-  args: { children: 'default' },
-  render: args => (
+export const Purposes = meta.story({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: ({ color, purpose, withIcon, ...commonArgs }) => (
     <StoryHStack>
       <StoryVStack>
         {TAG_PURPOSES.map(p => (
-          <Tag {...args} key={`p-${p}`} purpose={p}>
+          <Tag {...commonArgs} key={`p-${p}`} purpose={p}>
             {labelText(p)}
           </Tag>
         ))}
@@ -35,31 +41,7 @@ export const Variants = meta.story({
       <StoryVStack>
         {TAG_PURPOSES.map(p =>
           icons[p] ? (
-            <Tag {...args} withIcon key={`p-${p}`} purpose={p}>
-              {labelText(p)}
-            </Tag>
-          ) : (
-            ''
-          ),
-        )}
-      </StoryVStack>
-      <StoryVStack>
-        {TAG_PURPOSES.map(p => (
-          <Tag {...args} key={`p-${p}`} purpose={p} appearance="strong">
-            {labelText(p)}
-          </Tag>
-        ))}
-      </StoryVStack>
-      <StoryVStack>
-        {TAG_PURPOSES.map(p =>
-          icons[p] ? (
-            <Tag
-              {...args}
-              withIcon
-              key={`p-${p}`}
-              purpose={p}
-              appearance="strong"
-            >
+            <Tag {...commonArgs} withIcon key={`p-${p}`} purpose={p}>
               {labelText(p)}
             </Tag>
           ) : (
@@ -68,5 +50,43 @@ export const Variants = meta.story({
         )}
       </StoryVStack>
     </StoryHStack>
+  ),
+});
+
+export const Appearances = meta.story({
+  render: args => (
+    <StoryVStack>
+      {TAG_APPEARANCES.map(a => (
+        <Tag {...args} key={`a-${a}`} appearance={a}>
+          {labelText(a)}
+        </Tag>
+      ))}
+    </StoryVStack>
+  ),
+});
+
+export const Sizes = meta.story({
+  args: { children: 'default' },
+  render: args => (
+    <StoryVStack>
+      {TAG_SIZES.map(s => (
+        <Tag {...args} key={`s-${s}`} size={s}>
+          {labelText(s)}
+        </Tag>
+      ))}
+    </StoryVStack>
+  ),
+});
+
+export const CustomColors = meta.story({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: ({ color, purpose, withIcon, ...commonArgs }) => (
+    <StoryVStack>
+      {TAG_COLORS.map(c => (
+        <Tag {...commonArgs} key={`c-${c}`} color={c}>
+          {labelText(c)}
+        </Tag>
+      ))}
+    </StoryVStack>
   ),
 });

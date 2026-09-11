@@ -126,6 +126,26 @@
   min-height: var(--dds-size-height-input-xsmall);
 }
 
+:where(.compact--medium) {
+  padding: var(--dds-spacing-compact-block-md)
+    var(--dds-spacing-compact-inline-md);
+}
+
+:where(.compact--small) {
+  padding: var(--dds-spacing-compact-block-sm)
+    var(--dds-spacing-compact-inline-sm);
+}
+
+:where(.compact-with-icon--medium) {
+  padding: var(--dds-spacing-compact-block-md)
+    var(--dds-spacing-compact-inline-md);
+}
+
+:where(.compact-with-icon--small) {
+  padding: var(--dds-spacing-compact-block-sm)
+    var(--dds-spacing-compact-inline-sm);
+}
+
 :where(.input-with-icon--large) {
   padding-left: calc(
     var(--dds-input-absolute-el-left-large) + var(--dds-size-icon-component) +
