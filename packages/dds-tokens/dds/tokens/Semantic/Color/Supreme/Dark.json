@@ -28,6 +28,22 @@
         "type": "color",
         "description": "Medium surface color"
       },
+      "strong": {
+        "value": "{dds-color.warm-gray.700}",
+        "type": "color",
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false,
+          "com.figma.scopes": [
+            "ALL_FILLS",
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "TEXT_FILL",
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ]
+        },
+        "description": "Strong surface color"
+      },
       "hover-default": {
         "value": "{dds-color.supreme-teal.800}",
         "type": "color",
@@ -227,7 +243,7 @@
     },
     "text": {
       "default": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.warm-gray.50}",
         "type": "color",
         "description": "default text, heading, body. on surface.hover"
       },
@@ -369,7 +385,7 @@
     },
     "icon": {
       "default": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.warm-gray.50}",
         "type": "color",
         "description": "Often used with text.default"
       },

@@ -136,6 +136,7 @@ export const ddsColorBgSubtle = "#f3f3f2"; // Alternative UI shell base color
 export const ddsColorSurfaceDefault = "#ffffff"; // Default bg
 export const ddsColorSurfaceSubtle = "#f3f3f2"; // Subtle surface color
 export const ddsColorSurfaceMedium = "#e7e6e4"; // Medium surface color
+export const ddsColorSurfaceStrong = "#cfcec9"; // Strong surface color
 export const ddsColorSurfaceHoverDefault = "#e9f1f2"; // Hover on surface (default, subtle, medium)
 export const ddsColorSurfaceHoverSubtle = "#f3f3f2"; // Subtle hover on surface (default, medium)
 export const ddsColorSurfaceSelectedDefault = "#e9f1f2"; // Selected state for surface (default, subtle, medium)

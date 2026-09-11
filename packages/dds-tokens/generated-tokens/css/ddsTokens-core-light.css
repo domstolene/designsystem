@@ -129,12 +129,13 @@
   --dds-border-radius-chip: 4px; /* Chips and tags */
   --dds-border-radius-rounded: 9999px; /* Rounded and circular components such as radiobutton, toggle, togglebutton and progress tracker */
   --dds-color-bg-default: #ffffff; /* UI shell base color */
-  --dds-color-bg-subtle: #f1f3f4; /* Alternative UI shell base color */
+  --dds-color-bg-subtle: #f8f9f9; /* Alternative UI shell base color */
   --dds-color-surface-default: #ffffff; /* Default bg */
-  --dds-color-surface-subtle: #f1f3f4; /* Subtle surface color */
+  --dds-color-surface-subtle: #f8f9f9; /* Subtle surface color */
   --dds-color-surface-medium: #e9ebec; /* Medium surface color */
-  --dds-color-surface-hover-default: #e7f1f7; /* Hover on surface (default, subtle, medium) */
-  --dds-color-surface-hover-subtle: #f1f3f4; /* Subtle hover on surface (default, medium) */
+  --dds-color-surface-strong: #d6dadd; /* Strong surface color */
+  --dds-color-surface-hover-default: #e7f1f7; /* Hover on surface */
+  --dds-color-surface-hover-subtle: #f1f3f4; /* Subtle hover on surface */
   --dds-color-surface-selected-default: #e7f1f7; /* Selected state for surface (default, subtle, medium) */
   --dds-color-surface-inverse-default: #354754; /* Can be used as a surface for menu, navigation, footer etc */
   --dds-color-surface-inverse-hover: #2a3943; /* Hover on surface.inverse */

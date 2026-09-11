@@ -7,7 +7,7 @@
         "description": "UI shell base color"
       },
       "subtle": {
-        "value": "{dds-color.cool-gray.50}",
+        "value": "{dds-color.cool-gray.25}",
         "type": "color",
         "description": "Alternative UI shell base color"
       }
@@ -19,7 +19,7 @@
         "description": "Default bg"
       },
       "subtle": {
-        "value": "{dds-color.cool-gray.50}",
+        "value": "{dds-color.cool-gray.25}",
         "type": "color",
         "description": "Subtle surface color"
       },
@@ -28,15 +28,31 @@
         "type": "color",
         "description": "Medium surface color"
       },
+      "strong": {
+        "value": "{dds-color.cool-gray.200}",
+        "type": "color",
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false,
+          "com.figma.scopes": [
+            "ALL_FILLS",
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "TEXT_FILL",
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ]
+        },
+        "description": "Strong surface color"
+      },
       "hover-default": {
         "value": "{dds-color.interactive.50}",
         "type": "color",
-        "description": "Hover on surface (default, subtle, medium)"
+        "description": "Hover on surface"
       },
       "hover-subtle": {
         "value": "{dds-color.cool-gray.50}",
         "type": "color",
-        "description": "Subtle hover on surface (default, medium)"
+        "description": "Subtle hover on surface"
       },
       "selected-default": {
         "value": "{dds-color.interactive.50}",
