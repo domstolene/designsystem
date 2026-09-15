@@ -33,7 +33,11 @@
     "generate-css-types": "tcm src",
     "build": "pnpm run generate-css-types && tsdown --config-loader unrun --dts",
     "dev": "pnpm run generate-css-types --watch",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:ui": "vitest --ui --coverage",
+    "coverage": "vitest run --coverage",
+    "test:watch": "vitest watch"
   },
   "keywords": [
     "dds",
@@ -48,14 +52,10 @@
     "@norges-domstoler/storybook-components": "workspace:*",
     "@testing-library/react": "^16.3.3",
     "@types/react": "19.2.18",
-    "autoprefixer": "^10.5.4",
     "csstype": "3.2.3",
     "postcss": "^8.5.26",
     "react": "19.2.8",
-    "typed-css-modules": "^0.9.1",
-    "typescript": "^5.9.3",
-    "vite": "^8.2.2",
-    "vitest": "^4.1.11"
+    "typed-css-modules": "^0.9.1"
   },
   "peerDependencies": {
     "react": "^16 || ^17 || ^18 || ^19"

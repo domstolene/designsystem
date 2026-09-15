@@ -43,11 +43,6 @@
     "norges domstoler",
     "elsa"
   ],
-  "devDependencies": {
-    "typescript": "^5.9.3",
-    "vite": "^8.2.2",
-    "vitest": "^4.1.11"
-  },
   "publishConfig": {
     "provenance": true
   }

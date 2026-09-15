@@ -9,7 +9,7 @@ import styles from './EnvironmentBanner.module.css';
 
 export interface EnvironmentBannerProviderProps {
   /**
-   * Miljøet som applikasjonen kjører i.
+   * Miljøet applikasjonen kjører i.
    * Hvis miljøet er PROD, vises ikke banneren.
    */
   environment: Environment;

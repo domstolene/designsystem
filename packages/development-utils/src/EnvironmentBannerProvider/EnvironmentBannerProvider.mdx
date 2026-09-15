@@ -1,9 +1,21 @@
 import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
 import { Preview } from './EnvironmentBannerProvider.stories';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
 
 <Meta title="development-utils/EnvironmentBannerProvider" />
 
 # EnvironmentBannerProvider
+
+<ComponentLinkRow
+  docsHref="259a65-environmentbannerprovider"
+  storybookHref={{
+    folder: 'development-utils',
+    comp: 'environmentbannerprovider',
+  }}
+/>
 
 Denne komponenten kan brukes for å hjelpe utviklere/testere med å se hvilket miljø de jobber i. Den viser en banner (med unik farge per miljø) øverst på siden med miljønavnet.
 I produksjon (ved `environment="PROD"`) eller ved et ukjent miljø er den skjult, så du trenger ikke å håndtere skjuling av banneren.
@@ -15,7 +27,7 @@ I produksjon (ved `environment="PROD"`) eller ved et ukjent miljø er den skjult
 
 Denne komponenten må wrappes rundt hele applikasjonen.
 
-```tsx
+<Source code={`
 // index.tsx - eller tilsvarende rotkomponent i applikasjonen
 import {
   EnvironmentBannerProvider,
@@ -26,12 +38,13 @@ const environment: Environment = 'LOKAL'; // Miljøet applikasjonen kjører i
 
 const root = createRoot(document.getElementById('root') as HTMLElement);
 root.render(
+
   <EnvironmentBannerProvider environment={environment}>
     <App />
   </EnvironmentBannerProvider>,
   document.getElementById('root') as HTMLElement,
 );
-```
+`} />
 
 ### Hvordan finne miljøet applikasjonen kjører i?
 
@@ -42,7 +55,8 @@ Dette er opp til hver enkelt konsument, men her kommer noen tips på hvordan det
 Hvis applikasjonen din har SSR anbefaler vi å bruke miljøvariabler.
 Eksempelet under viser hvordan dette kan gjøres i Remix.
 
-```tsx
+<Source
+  code={`
 export const loader = () => {
   return {
     // Dette må da settes i k8s-applications for applikasjonen
@@ -59,7 +73,8 @@ export default function App() {
     </body>
   );
 }
-```
+`}
+/>
 
 #### CSR
 
@@ -67,7 +82,8 @@ Ved CSR er det ikke mulig å bruke miljøvariabler for å skille mellom miljøet
 Et godt alternativ da er å bruke URL-en til applikasjonen på å skille mellom miljøene.
 Eksempelet under viser hvordan det er gjort for [Saksbehandling Straff](https://github.com/domstolene/saksbehandling-straff/) gjennom `window.location.host`.
 
-```ts
+  <Source
+    code={`
 export const getEnvironment = (): Environment => {
   const hostToEnv: Record<string, Environment> = {
     '0.0.0.0:9000': 'LOKAL',
@@ -76,6 +92,6 @@ export const getEnvironment = (): Environment => {
     'saksbehandling-straff.apps.cp.ads.domstol.no': 'PROD',
   };
 
-  return hostToEnv[window.location.host] || 'PROD';
+return hostToEnv[window.location.host] || 'PROD';
 };
-```
+`} />
