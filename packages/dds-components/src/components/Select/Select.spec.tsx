@@ -66,4 +66,27 @@ describe('<Select>', () => {
       await screen.findByText(`Custom option: ${option.label}`),
     ).toBeInTheDocument();
   });
+
+  it('adds test id to control', () => {
+    portalRender(<Select options={[]} data-testid="dropdown" />);
+
+    expect(screen.getByTestId('dropdown-control')).toBeInTheDocument();
+  });
+
+  it('adds derived test ids to options', async () => {
+    const options = [
+      { label: 'Alternativ 1', value: 'one' },
+      { label: 'Alternativ 2', value: 'two' },
+    ];
+    portalRender(<Select options={options} data-testid="dropdown" />);
+
+    await userEvent.click(screen.getByTestId('dropdown-control'));
+
+    const opt1 = await screen.findByTestId('dropdown-option-one');
+    expect(opt1).toBeInTheDocument();
+    expect(opt1).toHaveRole('option');
+    const opt2 = await screen.findByTestId('dropdown-option-two');
+    expect(opt2).toBeInTheDocument();
+    expect(opt2).toHaveRole('option');
+  });
 });

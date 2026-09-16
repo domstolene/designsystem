@@ -42,9 +42,20 @@ export const getIndicatorIconSize = (componentSize: InputSize): IconSize => {
 };
 
 export const DDSOption = <TValue, IsMulti extends boolean>({
+  testId,
   ...props
-}: OptionProps<TValue, IsMulti>) => (
-  <Option {...props}>
+}: OptionProps<TValue, IsMulti> & { testId?: string }) => (
+  <Option
+    {...props}
+    innerProps={
+      {
+        ...props.innerProps,
+        'data-testid': testId,
+      } as OptionProps<TValue, IsMulti>['innerProps'] & {
+        'data-testid'?: string;
+      }
+    }
+  >
     {props.isSelected && <Icon icon={CheckIcon} iconSize="small" />}
     {props.children}
   </Option>
@@ -55,11 +66,24 @@ type CustomOptionProps<TValue, IsMulti extends boolean> = OptionProps<
   IsMulti
 > & {
   customElement: (props: OptionProps<TValue, IsMulti>) => JSX.Element;
+  testId?: string;
 };
 export const CustomOption = <TValue, IsMulti extends boolean>(
-  props: CustomOptionProps<TValue, IsMulti>,
+  { testId, ...props }: CustomOptionProps<TValue, IsMulti>,
 ): ReactNode => (
-  <Option {...props}>{React.createElement(props.customElement, props)}</Option>
+  <Option
+    {...props}
+    innerProps={
+      {
+        ...props.innerProps,
+        'data-testid': testId,
+      } as OptionProps<TValue, IsMulti>['innerProps'] & {
+        'data-testid'?: string;
+      }
+    }
+  >
+    {React.createElement(props.customElement, props)}
+  </Option>
 );
 
 type CustomSingleValueProps<
