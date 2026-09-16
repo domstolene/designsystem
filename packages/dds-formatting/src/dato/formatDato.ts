@@ -59,7 +59,7 @@ export const formatDateTime = <T extends string | Date | number>(
   if (isValidDate(myDate)) {
     const formattedDate = formatDate(myDate);
     const formattedTime = formatTime(myDate, options);
-    return formattedDate + ' ' + formattedTime;
+    return `${formattedDate} ${formattedTime}`;
   }
   return date;
 };
