@@ -18,6 +18,7 @@ export interface EnvironmentBannerProviderProps {
    */
   children: ReactNode;
   /**
+   * CSS `position`-egenskapen for banneren.
    * @default 'fixed'
    */
   bannerPosition?: BannerPosition;

@@ -3,7 +3,7 @@ import { iconMap } from './utils';
 
 const sbURLBase = 'https://domstolene.github.io/designsystem/?path=/story/';
 const gbURLBase =
-  'https://github.com/domstolene/designsystem/tree/main/packages/dds-components/src/';
+  'https://github.com/domstolene/designsystem/tree/main/packages/';
 const zhURLBase = 'https://design.domstol.no/987b33f71/p/';
 const figmaURLBase =
   'https://www.figma.com/design/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?';
@@ -11,6 +11,7 @@ const figmaURLBase =
 type StorybookFolder =
   'components' | 'layout-primitives' | 'hooks' | 'patterns';
 type CodeFolder = 'components' | 'layout-primitives' | 'hooks';
+type Package = 'dds-components' | 'development-utils';
 
 interface props {
   /**Unik id til relevant side i dokumentasjonen, legges bak base URL. */
@@ -24,6 +25,7 @@ interface props {
   figmaHref?: string;
   /**Overordnet mappe og komponentmappe i Github URL; kombineres med base URL. */
   githubHref?: {
+    package?: Package;
     folder?: CodeFolder;
     comp: string;
   };
@@ -51,10 +53,15 @@ export const ComponentLinkRow = ({
     return `${sbURLBase}${comp}--preview`;
   };
 
-  const githubURL = (gh?: { folder?: CodeFolder; comp: string }): string => {
+  const githubURL = (gh?: {
+    package?: Package;
+    folder?: CodeFolder;
+    comp: string;
+  }): string => {
     if (!gh) return '';
-    const prefix = gh.folder ? `${gh.folder}/` : '';
-    return `${gbURLBase}${prefix}${gh.comp}`;
+    const prefix = `${gh.package ?? 'dds-components'}/src/`;
+    const folder = gh.folder ? `${gh.folder}/` : '';
+    return `${gbURLBase}${prefix}${folder}${gh.comp}`;
   };
 
   return (

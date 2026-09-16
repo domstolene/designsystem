@@ -13,15 +13,6 @@ describe('<EnvironmentBannerProvider>', () => {
     );
     expect(screen.getByText(environment)).toBeInTheDocument();
   });
-  it('does not display provided environment if PROD', () => {
-    const environment = 'PROD';
-    render(
-      <EnvironmentBannerProvider environment={environment}>
-        test
-      </EnvironmentBannerProvider>,
-    );
-    expect(screen.queryByText(environment)).not.toBeInTheDocument();
-  });
   it('displays children', () => {
     const children = 'test';
     render(
@@ -30,5 +21,16 @@ describe('<EnvironmentBannerProvider>', () => {
       </EnvironmentBannerProvider>,
     );
     expect(screen.getByText(children)).toBeInTheDocument();
+  });
+  it('does not display provided environment if PROD', () => {
+    const environment = 'PROD';
+    const children = 'test';
+    render(
+      <EnvironmentBannerProvider environment={environment}>
+        {children}
+      </EnvironmentBannerProvider>,
+    );
+    expect(screen.queryByText(environment)).not.toBeInTheDocument();
+    expect(screen.queryByText(children)).toBeInTheDocument();
   });
 });
