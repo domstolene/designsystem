@@ -68,9 +68,10 @@ type CustomOptionProps<TValue, IsMulti extends boolean> = OptionProps<
   customElement: (props: OptionProps<TValue, IsMulti>) => JSX.Element;
   testId?: string;
 };
-export const CustomOption = <TValue, IsMulti extends boolean>(
-  { testId, ...props }: CustomOptionProps<TValue, IsMulti>,
-): ReactNode => (
+export const CustomOption = <TValue, IsMulti extends boolean>({
+  testId,
+  ...props
+}: CustomOptionProps<TValue, IsMulti>): ReactNode => (
   <Option
     {...props}
     innerProps={
