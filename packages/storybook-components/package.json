@@ -16,13 +16,9 @@
   },
   "devDependencies": {
     "@types/react": "^19.2.18",
-    "react": "19.2.8",
-    "typescript": "^5.9.3"
+    "react": "19.2.8"
   },
   "peerDependencies": {
     "react": "^16 || ^17 || ^18 || ^19"
-  },
-  "dependencies": {
-    "@norges-domstoler/dds-design-tokens": "workspace:*"
   }
 }

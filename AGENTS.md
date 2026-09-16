@@ -13,13 +13,13 @@ pnpm build         # full build all packages (turbo)
 
 ## Package layout
 
-| Package | npm | Build tool | Notes |
-|---|---|---|---|
-| `packages/dds-components` | `@norges-domstoler/dds-components` | tsup | React components. Build runs `tcm src` (CSS type gen) before tsup. |
-| `packages/dds-tokens` | `@norges-domstoler/dds-design-tokens` | rollup | Design tokens. `generate:tokens` runs Style Dictionary. |
-| `packages/dds-formatting` | `@norges-domstoler/dds-formatting` | tsup | Text formatting utils (no React). |
-| `packages/storybook-components` | `@norges-domstoler/storybook-components` | none (src/index.ts) | **Private**. Storybook helper components. No build/test scripts. |
-| `packages/development-utils` | `@norges-domstoler/development-utils` | tsup | Dev utilities (EnvBannerProvider). Also runs `tcm src` before build. |
+| Package                         | npm                                      | Build tool          | Notes                                                                |
+| ------------------------------- | ---------------------------------------- | ------------------- | -------------------------------------------------------------------- |
+| `packages/dds-components`       | `@norges-domstoler/dds-components`       | tsup                | React components. Build runs `tcm src` (CSS type gen) before tsup.   |
+| `packages/dds-tokens`           | `@norges-domstoler/dds-design-tokens`    | rollup              | Design tokens. `generate:tokens` runs Style Dictionary.              |
+| `packages/dds-formatting`       | `@norges-domstoler/dds-formatting`       | tsup                | Text formatting utils (no React).                                    |
+| `packages/storybook-components` | `@norges-domstoler/storybook-components` | none (src/index.ts) | **Private**. Storybook helper components. No build/test scripts.     |
+| `packages/development-utils`    | `@norges-domstoler/development-utils`    | tsup                | Dev utilities (EnvBannerProvider). Also runs `tcm src` before build. |
 
 ## Commands
 
@@ -104,8 +104,8 @@ Props use `BaseComponentProps` / `BaseComponentPropsWithChildren` from `../../ty
 
 ## Environment
 
-- Node 24.1.0, pnpm 11.1.3 (managed via Volta; requires `VOLTA_FEATURE_PNPM=1` env var)
-- `packageManager: "pnpm@11.1.3"` in root package.json
+- Node 24.1.0, pnpm 11.25.0 (managed via Volta; requires `VOLTA_FEATURE_PNPM=1` env var)
+- `packageManager: "pnpm@11.25.0"` in root package.json
 
 ## Misc
 
