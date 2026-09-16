@@ -1,14 +1,14 @@
-/**
- * Formatterer tid og dato i henhold til retningslinjene for tid og dato i Elsa.
- * Funksjonen sjekker om det er en gyldig dato. Hvis det er en gyldig dato, blir datoen formattert etter retningslinjene i Elsa.
- * Hvis datoen er ugyldig vil funksjonen returnere datoen uendret.
- *
- * @param date - datoen som skal formateres. Type kan være string, Date eller number
- */
-
 const isValidDate = (date: Date) => {
   return isNaN(date.valueOf()) === false;
 };
+
+/**
+ * Formatterer tid i henhold til retningslinjene for tid i Elsa.
+ * Funksjonen sjekker om input er en gyldig dato. Hvis den er gyldig, blir tiden formattert etter retningslinjene.
+ * Hvis datoen er ugyldig vil funksjonen returnere input uendret.
+ *
+ * @param date - datoen som skal formateres. Type kan være string, Date eller number
+ */
 
 export const formatTime = <T extends string | Date | number>(
   date: T,
@@ -20,6 +20,14 @@ export const formatTime = <T extends string | Date | number>(
   }
   return date;
 };
+
+/**
+ * Formatterer dato i henhold til retningslinjene for dato i Elsa.
+ * Funksjonen sjekker om input er en gyldig dato. Hvis den er gyldig, blir datoen formattert etter retningslinjene.
+ * Hvis datoen er ugyldig vil funksjonen returnere input uendret.
+ *
+ * @param date - datoen som skal formateres. Type kan være string, Date eller number
+ */
 
 export const formatDate = <T extends string | Date | number>(
   date: T,
@@ -35,6 +43,14 @@ export const formatDate = <T extends string | Date | number>(
   return date;
 };
 
+/**
+ * Formatterer tid og dato i henhold til retningslinjene for tid og dato i Elsa.
+ * Funksjonen sjekker om input er en gyldig dato. Hvis den er gyldig, blir datoen og tiden formattert etter retningslinjene.
+ * Hvis datoen er ugyldig vil funksjonen returnere input uendret.
+ *
+ * @param date - datoen som skal formateres. Type kan være string, Date eller number
+ */
+
 export const formatDateTime = <T extends string | Date | number>(
   date: T,
   options: Intl.DateTimeFormatOptions = { hour: 'numeric', minute: 'numeric' },
@@ -43,15 +59,7 @@ export const formatDateTime = <T extends string | Date | number>(
   if (isValidDate(myDate)) {
     const formattedDate = formatDate(myDate);
     const formattedTime = formatTime(myDate, options);
-
-    if (
-      typeof formattedDate === 'string' &&
-      typeof formattedTime === 'string'
-    ) {
-      return formattedDate + ' ' + formattedTime;
-    }
-
-    return date;
+    return `${formattedDate} ${formattedTime}`;
   }
   return date;
 };
