@@ -89,4 +89,29 @@ describe('<Select>', () => {
     expect(opt2).toBeInTheDocument();
     expect(opt2).toHaveRole('option');
   });
+
+  it('uses getOptionValue for derived test ids with custom options', async () => {
+    const options = [
+      { name: 'Alternativ 1', id: 101 },
+      { name: 'Alternativ 2', id: 202 },
+    ];
+    portalRender(
+      <Select
+        options={options}
+        data-testid="custom-dropdown"
+        getOptionLabel={option => option.name}
+        getOptionValue={option => String(option.id)}
+        customOptionElement={({ data }) => <span>{data.name}</span>}
+      />,
+    );
+
+    await userEvent.click(screen.getByTestId('custom-dropdown-control'));
+
+    expect(
+      await screen.findByTestId('custom-dropdown-option-101'),
+    ).toHaveTextContent('Alternativ 1');
+    expect(
+      await screen.findByTestId('custom-dropdown-option-202'),
+    ).toHaveTextContent('Alternativ 2');
+  });
 });
