@@ -10,12 +10,10 @@
 }
 
 .container--small {
-  --dds-spacing-tag-padding-inline: var(--dds-spacing-compact-inline-sm);
   --dds-spacing-tag-padding-inline-start-accent: var(--dds-spacing-x0-25);
 }
 
 .container--medium {
-  --dds-spacing-tag-padding-inline: var(--dds-spacing-compact-inline-md);
   --dds-spacing-tag-padding-inline-start-accent: var(--dds-spacing-x0-5);
 }
 
