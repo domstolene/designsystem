@@ -7,6 +7,7 @@ export const PURPOSES = [
   'danger',
   'warning',
   'default',
+  'neutral',
   'tips',
 ] as const;
 
