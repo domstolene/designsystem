@@ -3,6 +3,7 @@
   display: inline-flex;
   align-items: center;
   border-radius: var(--dds-border-radius-chip);
+  color: var(--dds-color-text-on-status-default);
 
   svg {
     color: var(--dds-color-tag-icon);
@@ -29,7 +30,7 @@
 
 .container--strong {
   background-color: var(--dds-color-tag-background-strong);
-  border-color: var(--dds-color-tag-background-default);
+  border-color: var(--dds-color-tag-background-strong);
   color: var(--dds-color-tag-text);
 
   svg {
