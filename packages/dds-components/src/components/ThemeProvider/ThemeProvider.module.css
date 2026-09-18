@@ -54,8 +54,10 @@
   --dds-spacing-compact-inline-md: var(--dds-spacing-input-inline-sm);
   --dds-spacing-compact-block-sm: var(--dds-spacing-input-block-xs);
   --dds-spacing-compact-block-md: var(--dds-spacing-input-block-sm);
-  --dds-spacing-compact-icon-left-sm: var(--dds-spacing-x0-5);
-  --dds-spacing-compact-icon-left-md: var(--dds-spacing-x0-25);
+  --dds-spacing-compact-icon-left-sm: var(--dds-spacing-x0-25);
+  --dds-spacing-compact-icon-left-md: var(--dds-spacing-x0-5);
+  --dds-spacing-compact-icon-text-gap-sm: var(--dds-spacing-x0-25);
+  --dds-spacing-compact-icon-text-gap-md: var(--dds-spacing-x0-25);
 }
 
 .global-styles {
