@@ -42,7 +42,7 @@
             "EFFECT_COLOR"
           ]
         },
-        "description": "Strong surface color"
+        "description": "Strong surface color. Brukes ikke med text-action"
       },
       "hover-default": {
         "value": "{dds-color.interactive.800}",
@@ -192,7 +192,7 @@
         "description": "Form components, togglebutton, secondary button, checkbox etc"
       },
       "strong": {
-        "value": "{dds-color.cool-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color"
       },
       "subtle": {
@@ -273,7 +273,7 @@
         "description": "On surface.action (primary and danger button)"
       },
       "on-status-default": {
-        "value": "{dds-color.cool-gray.50}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "On default status surfaces"
       },
@@ -371,16 +371,6 @@
         "value": "{dds-color.cool-gray.black}",
         "type": "color",
         "description": "Used on brand.tertiary-strong"
-      },
-      "on-data-default": {
-        "value": "{dds-color.cool-gray.black}",
-        "type": "color",
-        "description": "Used on data. with default value"
-      },
-      "on-data-subtle": {
-        "value": "{dds-color.cool-gray.white}",
-        "type": "color",
-        "description": "Used on data. with subtle value"
       }
     },
     "icon": {
