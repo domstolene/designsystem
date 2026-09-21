@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 24.3.0
+
+### Minor Changes
+
+- f30cff1: Prop `data-testid` i `<Select>` setter også derivativ test id på alternativene, på formen `<data-testid>-option-<option.value>`.
+
 ## 24.2.2
 
 (2026-09-11)

@@ -1,5 +1,12 @@
 # @norges-domstoler/dds-formatting
 
+## 1.6.1
+
+### Patch Changes
+
+- d645395: Oppdaterer JSDoc for `formatTime()`, `formatDate()`, og `formatDateTime()` for bedre tooltip ved bruk.
+- d645395: Fjerner unreachable conditionals i `formatDateTime()` og `formatInputBeloep()`.
+
 ## 1.6.0
 
 ### Minor Changes
