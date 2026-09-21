@@ -2,6 +2,8 @@
 
 ## 1.6.1
 
+(2026-09-21)
+
 ### Patch Changes
 
 - d645395: Oppdaterer JSDoc for `formatTime()`, `formatDate()`, og `formatDateTime()` for bedre tooltip ved bruk.
@@ -9,17 +11,23 @@
 
 ## 1.6.0
 
+(2025-03-31)
+
 ### Minor Changes
 
 - b44c55c: Nye formateringsfunksjoner for beløp: `formatBeloep()` og `formatInputBeloep()`.
 
 ## 1.5.0
 
+(2024-10-24)
+
 ### Minor Changes
 
 - ffa1795: Legger til funksjon for formattering av bankkontonummer: `formatBankAccountNumber()`.
 
 ## 1.4.2
+
+(2023-11-23)
 
 ### Patch Changes
 
