@@ -2,6 +2,8 @@
 
 ## 24.3.0
 
+(2026-09-21)
+
 ### Minor Changes
 
 - f30cff1: Prop `data-testid` i `<Select>` setter også derivativ test id på alternativene, på formen `<data-testid>-option-<option.value>`.
