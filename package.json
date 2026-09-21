@@ -87,9 +87,9 @@
   },
   "volta": {
     "node": "24.21.0",
-    "pnpm": "11.25.0"
+    "pnpm": "11.27.0"
   },
-  "packageManager": "pnpm@11.25.0",
+  "packageManager": "pnpm@11.27.0",
   "imports": {
     "#*": [
       "./*",
