@@ -3,7 +3,7 @@ import { defineConfig } from 'tsdown';
 export default defineConfig({
   format: ['esm', 'cjs'],
   unbundle: true,
-  dts: true,
+  dts: false,
   sourcemap: true,
   copy: [
     {
