@@ -34,7 +34,6 @@ export function DateSegment({
   return (
     <Box
       {...segmentProps}
-      padding={isSeparator ? undefined : 'x0.125'}
       marginBlock="auto"
       marginInline={isSeparator ? '-0.25ch' : undefined}
       aria-describedby={spaceSeparatedIdListGenerator([
