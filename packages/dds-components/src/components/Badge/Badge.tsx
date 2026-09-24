@@ -15,7 +15,7 @@ export const BADGE_PURPOSES = [
   'subtle',
 ] as const;
 
-export const BADGE_SIZES = createSizes('xsmall', 'small', 'medium');
+export const BADGE_SIZES = createSizes('xsmall', 'small', 'medium', 'large');
 
 export type BadgePurpose = (typeof BADGE_PURPOSES)[number];
 
@@ -65,11 +65,13 @@ export const Badge = ({
       xsmall: '18px',
       small: '21px',
       medium: '24px',
+      large: '27px',
     },
     noChildren: {
-      xsmall: 'x0.25',
-      small: 'x0.5',
-      medium: 'x0.75',
+      xsmall: 'x0.5',
+      small: 'x0.75',
+      medium: 'x1',
+      large: 'x1.5',
     },
   };
 
