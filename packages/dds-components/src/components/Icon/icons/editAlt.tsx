@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Edit. Search terms: rediger, edit, blyant, pencil, endre, change, skrive, write, penn. */
 export function EditAltIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

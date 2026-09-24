@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Document and file. Search terms: fil, bilde, image, foto, photo, media. */
 export function ImageIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Services. Search terms: familie, family, blomst, flower. */
 export function FamilyIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Document and file. Search terms: lenke, link, url, kobling, connection. */
 export function LinkIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

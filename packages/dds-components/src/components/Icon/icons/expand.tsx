@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** UI manipulate. Search terms: utvid, expand, forstørre, enlarge, åpne, open. */
 export function ExpandIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

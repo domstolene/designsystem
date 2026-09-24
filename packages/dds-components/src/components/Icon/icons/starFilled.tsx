@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Settings and tools. Search terms: stjerne, star, fylt, filled, favoritt, favorite, vurdering, rating, markere, bokmerke. */
 export function StarFilledIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

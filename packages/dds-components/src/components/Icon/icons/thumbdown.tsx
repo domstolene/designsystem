@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Settings and tools. Search terms: tommel ned, thumb down, negative, dårlig, bad. */
 export function ThumbDownIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

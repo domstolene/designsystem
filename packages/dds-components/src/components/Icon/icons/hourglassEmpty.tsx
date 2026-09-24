@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Date, time and place. Search terms: timeglass, hourglass, vente, wait, tid, time. */
 export function HourglassEmptyIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

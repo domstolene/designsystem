@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Services. Search terms: koffert, briefcase, sak, case, jobb, work, advokat, lawyer. */
 export function BriefcaseIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

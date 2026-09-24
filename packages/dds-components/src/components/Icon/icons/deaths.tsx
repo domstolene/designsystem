@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Services. Search terms: dødsfall, deaths, skifte, estate, arv, inheritance, rose, blomst, flower. */
 export function DeathsIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

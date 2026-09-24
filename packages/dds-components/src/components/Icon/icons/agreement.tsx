@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Services. Search terms: avtale, agreement, kontrakt, contract, dokument, document. */
 export function AgreementIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

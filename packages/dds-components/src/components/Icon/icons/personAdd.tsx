@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Access and people. Search terms: legg til person, add person, ny bruker, new user, inviter, invite, pluss. */
 export function PersonAddIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Communication. Search terms: kommentar, comment, melding, message, boble, bubble, tekst, text. */
 export function CommentIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

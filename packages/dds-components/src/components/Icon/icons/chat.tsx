@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Communication. Search terms: chat, melding, message, snakke, talk, boble, bubble. */
 export function ChatIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

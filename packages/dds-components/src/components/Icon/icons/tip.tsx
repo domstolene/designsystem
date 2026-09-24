@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Notifications. Search terms: tips, tip, hint, anbefaling, recommendation, lyspære, bulb. */
 export function TipIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

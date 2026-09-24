@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Document and file. Search terms: fjern lenke, unlink, url, link off, kobling, connection. */
 export function LinkOffIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

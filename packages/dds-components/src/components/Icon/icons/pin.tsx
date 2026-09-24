@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Document and file. Search terms: pin, nål, fest, pin, marker. */
 export function PinIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

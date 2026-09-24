@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Services. Search terms: kvittering, receipt, betaling, payment, kostnad, cost, gebyr, fee. */
 export function ReceiptIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Document and file. Search terms: last opp, upload, del, share, fil, file, pil, arrow. */
 export function UploadIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

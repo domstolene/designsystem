@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Services. Search terms: support, hjelp, help, kundeservice, customer service, headset. */
 export function SupportIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

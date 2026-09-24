@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Document and file. Search terms: arkiv, archive, lagre, store, mappe, folder. */
 export function ArchiveIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

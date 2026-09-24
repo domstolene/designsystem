@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Edit. Search terms: skriv ut, print, skriver, printer, dokument, document. */
 export function PrintIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

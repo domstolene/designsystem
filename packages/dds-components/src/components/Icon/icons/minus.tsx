@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Zoom and add. Search terms: minus, fjern, remove, reduser, decrease, strek. */
 export function MinusIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

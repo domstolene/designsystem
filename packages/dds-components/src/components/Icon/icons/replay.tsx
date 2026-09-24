@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Refresh and load. Search terms: spill av igjen, replay, gjenta, repeat, loop, start igjen, pil, arrow. */
 export function ReplayIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

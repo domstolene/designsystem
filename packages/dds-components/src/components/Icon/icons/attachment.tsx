@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Document and file. Search terms: vedlegg, attachment, fil, file, binders, clip. */
 export function AttachmentIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

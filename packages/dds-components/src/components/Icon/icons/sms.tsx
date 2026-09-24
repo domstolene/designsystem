@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Communication. Search terms: sms, tekstmelding, text message, prikker, dots, melding, message. */
 export function SmsIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

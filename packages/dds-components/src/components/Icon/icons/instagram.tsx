@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Social. Search terms: instagram, sosiale medier, social media, bilder, photos. */
 export function InstagramIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

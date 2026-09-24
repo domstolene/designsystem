@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Date, time and place. Search terms: kart, map, lokasjon, location, navigasjon, navigation. */
 export function MapIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

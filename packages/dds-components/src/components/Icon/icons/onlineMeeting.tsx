@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Communication. Search terms: nettmøte, online meeting, video, samtale, call, møte, meeting, camera, kamera. */
 export function OnlineMeetingIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>
