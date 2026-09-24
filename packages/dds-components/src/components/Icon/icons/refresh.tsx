@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Refresh and load. Search terms: oppdater, refresh, last på nytt, reload. */
 export function RefreshIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

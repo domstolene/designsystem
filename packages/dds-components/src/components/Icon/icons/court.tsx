@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Domain. Search terms: domstol, court, rett, rettssal, courtroom. */
 export function CourtIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

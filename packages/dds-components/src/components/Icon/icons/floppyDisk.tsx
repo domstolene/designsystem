@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Settings and tools. Search terms: diskett, floppy disk, lagre, save, diskette. */
 export function FloppyDiskIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

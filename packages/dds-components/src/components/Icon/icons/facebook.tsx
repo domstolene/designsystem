@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Social. Search terms: facebook, sosiale medier, social media, fb. */
 export function FacebookIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

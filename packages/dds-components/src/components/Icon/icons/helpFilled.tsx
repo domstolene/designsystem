@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Notifications. Search terms: hjelp, help, fylt, filled, spørsmål, question, veiledning, guide, circle, sirkel. */
 export function HelpFilledIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Social. Search terms: webex, video, møte, meeting, videomøte. */
 export function WebexIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

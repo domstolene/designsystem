@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Access and people. Search terms: gruppe, group, personer, people, team, mennesker, folk. */
 export function GroupIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Notifications. Search terms: advarsel, warning, obs, alert, forsiktig, caution. */
 export function WarningIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

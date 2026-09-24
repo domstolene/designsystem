@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Communication. Search terms: tilbakemelding, feedback, kommentar, comment, vurdering, review, utropstegn, exclamation, boble, bubble. */
 export function FeedbackIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

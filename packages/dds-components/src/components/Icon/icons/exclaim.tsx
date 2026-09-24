@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Notifications. Search terms: utropstegn, exclamation, advarsel, warning, alert, obs. */
 export function ExclaimIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

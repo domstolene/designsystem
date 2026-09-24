@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Settings and tools. Search terms: desktop, skjerm, screen, datamaskin, computer, pc, system. */
 export function DesktopIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

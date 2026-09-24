@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Navigation and menu. Search terms: mer, more, vertikal, vertical, prikker, dots, meny, menu, settings. */
 export function MoreVerticalIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

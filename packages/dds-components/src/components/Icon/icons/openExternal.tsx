@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Navigation and menu. Search terms: åpne eksternt, open external, lenke, link, arrow, pil. */
 export function OpenExternalIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Services. Search terms: notarial, notarius, notary, stempel, stamp. */
 export function NotarialIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

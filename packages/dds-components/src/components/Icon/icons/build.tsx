@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Settings and tools. Search terms: bygg, build, verktøy, tool, wrench, skiftenøkkel, nøkkel. */
 export function BuildIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

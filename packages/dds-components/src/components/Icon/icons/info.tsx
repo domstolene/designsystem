@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Notifications. Search terms: info, informasjon, information, melding, message. */
 export function InfoIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Search and filter. Search terms: finn i side, find in page, søk, search, dokument, document, side, page. */
 export function FindInPageIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

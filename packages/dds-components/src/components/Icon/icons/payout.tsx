@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Services. Search terms: utbetaling, payout, betaling, payment, penger, money, hånd, hand. */
 export function PayoutIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

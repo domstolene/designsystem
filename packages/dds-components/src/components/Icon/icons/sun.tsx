@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** UI manipulate. Search terms: sol, sun, lys, light, modus, mode, dag, day. */
 export function SunIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

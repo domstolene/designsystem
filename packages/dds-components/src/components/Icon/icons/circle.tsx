@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Notifications. Search terms: sirkel, circle, form, shape. */
 export function CircleIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

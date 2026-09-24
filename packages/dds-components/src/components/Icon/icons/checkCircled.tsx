@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Checks and crosses. Search terms: hake, check, sirkel, circle, godkjent, approved, suksess, success. */
 export function CheckCircledIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Edit. Search terms: kopier, copy, dupliser, duplicate, klon, clone. */
 export function CopyIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

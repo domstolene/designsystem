@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** UI manipulate. Search terms: fullskjerm, forstørre, maximize, skjerm, screen. */
 export function FullscreenIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

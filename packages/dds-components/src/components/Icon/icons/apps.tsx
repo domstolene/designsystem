@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Navigation and menu. Search terms: apps, applikasjoner, grid, rutenett, meny, menu. */
 export function AppsIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

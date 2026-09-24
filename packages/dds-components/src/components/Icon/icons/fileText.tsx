@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Document and file. Search terms: tekstfil, text file, dokument, document, innhold, content. */
 export function FileTextIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

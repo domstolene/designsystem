@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Domain. Search terms: paragraf, section, §, lov, law, regel, rule. */
 export function SectionIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Access and people. Search terms: skjermet person, shielded person, beskyttet, protected, person. */
 export function PersonShieldedIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

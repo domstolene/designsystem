@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Edit. Search terms: gjenta, redo, frem, forward, pil, arrow. */
 export function RedoIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

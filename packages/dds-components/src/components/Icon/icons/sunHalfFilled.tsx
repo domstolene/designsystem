@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** UI manipulate. Search terms: sol, sun, lys, light, dark, mørk, modus, mode, dag, day, night, natt, halv, half, bytte, switch. */
 export function SunHalfFilledIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** UI manipulate. Search terms: rader, rows, liste, list, tabell, table, linjer, lines. */
 export function RowsIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

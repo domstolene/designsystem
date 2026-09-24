@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** UI manipulate. Search terms: dra, drag, håndtak, handle, flytt, move, sortering, sorting. */
 export function DragHandleIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

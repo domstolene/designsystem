@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Brand. Search terms: tingrett, domstol, court, rett. */
 export function TingrettIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

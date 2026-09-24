@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Access and people. Search terms: mappe, skjermet mappe, shielded folder, beskyttet, protected. */
 export function FolderShieldedIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

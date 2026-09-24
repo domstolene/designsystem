@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Settings and tools. Search terms: innstillinger, settings, tannhjul, gear, konfigurere, configure. */
 export function SettingsIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>
