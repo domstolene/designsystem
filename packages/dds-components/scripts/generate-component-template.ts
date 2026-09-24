@@ -55,16 +55,16 @@ function getTemplate(fileName: string, name: string): string {
   if (fileName.endsWith('.spec.tsx')) {
     console.log(`⏳ Generating ${name}.spec.tsx...`);
     return `
-  import { render } from "@testing-library/react";
-  import { describe, it } from 'vitest';
-  
-  import { ${name} } from ".";
-  
-  describe('<${name}>', () => {
-    it("renders without crashing", () => {
-      render(<${name} />);
-    });
+import { render } from '@testing-library/react';
+import { describe, it } from 'vitest';
+
+import { ${name} } from ".";
+
+describe('<${name}>', () => {
+  it('renders without crashing', () => {
+    render(<${name} />);
   });
+});
       `.trim();
   }
 
@@ -93,11 +93,11 @@ export const Preview = meta.story();
   if (fileName.endsWith('.mdx')) {
     console.log(`⏳ Generating ${name}.mdx...`);
     return `
-  import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
 import {
   Source,
   ComponentLinkRow,
-  } from '@norges-domstoler/storybook-components';
+} from '@norges-domstoler/storybook-components';
   
 import * as ${name}Stories from './${name}.stories';
 import meta from './${name}.stories';
@@ -143,8 +143,8 @@ export { ${name}, type ${name}Props } from './${name}';
     return `
 import styles from './${name}.module.css';
 import {
-type BaseComponentPropsWithChildren,
-getBaseHTMLProps,
+  type BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
 
@@ -156,13 +156,19 @@ export const ${name} = ({
   style,
   htmlProps,
   ...rest
-}:${name}Props) => {
+}: ${name}Props) => {
 
 return (
   <div
-      {...getBaseHTMLProps(id, cn(className, styles.container), style, htmlProps, rest)}
+    {...getBaseHTMLProps(
+      id,
+      cn(className, styles.container),
+      style,
+      htmlProps,
+      rest,
+    )}
   >
-      ${name}
+    ${name}
   </div>);
 };
 

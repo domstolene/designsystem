@@ -12,6 +12,7 @@ export * from './polymorphic';
 
 export * from './components/Accordion';
 export * from './components/BackLink';
+export * from './components/Badge';
 export * from './components/Breadcrumbs';
 export * from './components/Button';
 export * from './components/ButtonGroup';
