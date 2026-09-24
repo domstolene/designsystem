@@ -1,5 +1,5 @@
 import preview from '#.storybook/preview';
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 
 import { TABS_SIZES } from './Tabs';
 import {
@@ -233,6 +233,53 @@ export const TabOverflow = meta.story({
           <TabPanel>Innhold 5</TabPanel>
         </TabPanels>
       </Tabs>
+    </>
+  ),
+});
+
+export const WithBadge = meta.story({
+  render: args => (
+    <>
+      {TABS_SIZES.map(size => (
+        <Fragment key={size}>
+          <StoryLabel>{size} row</StoryLabel>
+          <Tabs {...args} size={size}>
+            <TabList>
+              <Tab badgeProps={{}} icon={NotificationsIcon}>
+                Fane 1
+              </Tab>
+
+              <Tab
+                badgeProps={{
+                  children: 5,
+                  purpose: 'action',
+                }}
+                icon={NotificationsIcon}
+              >
+                Fane 2
+              </Tab>
+            </TabList>
+          </Tabs>
+          <StoryLabel>{size} column</StoryLabel>
+          <Tabs {...args} size={size} tabContentDirection="column">
+            <TabList>
+              <Tab badgeProps={{}} icon={NotificationsIcon}>
+                Fane 1
+              </Tab>
+
+              <Tab
+                badgeProps={{
+                  children: 5,
+                  purpose: 'action',
+                }}
+                icon={NotificationsIcon}
+              >
+                Fane 2
+              </Tab>
+            </TabList>
+          </Tabs>
+        </Fragment>
+      ))}
     </>
   ),
 });

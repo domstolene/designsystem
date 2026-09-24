@@ -1,0 +1,20 @@
+.container {
+  border-radius: var(--dds-border-radius-rounded);
+  box-sizing: border-box;
+}
+
+.notification {
+  background-color: var(--dds-color-surface-notification);
+}
+
+.action {
+  background-color: var(--dds-color-surface-action-resting);
+}
+
+.neutral {
+  background-color: var(--dds-color-surface-inverse-default);
+}
+
+.subtle {
+  background-color: var(--dds-color-surface-medium);
+}

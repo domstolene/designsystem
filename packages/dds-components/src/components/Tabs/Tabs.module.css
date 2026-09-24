@@ -13,6 +13,7 @@
 }
 
 .tab {
+  position: relative;
   border: none;
   user-select: text;
   display: flex;
@@ -72,4 +73,9 @@
   border-color: var(--dds-color-surface-action-selected);
   box-shadow: inset 0px -2px 0px 0px var(--dds-color-surface-action-selected);
   cursor: default;
+}
+
+.tab--column__badge {
+  position: absolute;
+  transform: translateX(50%);
 }
