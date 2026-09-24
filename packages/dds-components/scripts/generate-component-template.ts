@@ -135,6 +135,7 @@ Retningslinjer her...
     console.log(`⏳ Generating index.ts...`);
     return `
 export { ${name}, type ${name}Props } from './${name}';
+
 `.trim();
   }
 

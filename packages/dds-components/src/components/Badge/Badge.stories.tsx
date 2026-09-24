@@ -46,7 +46,7 @@ export const Sizes = meta.story({
       </StoryHStack>
       <StoryHStack>
         {BADGE_SIZES.map(size => (
-          <Badge {...args} size={size} key={size} />
+          <Badge {...args} children={undefined} size={size} key={size} />
         ))}
       </StoryHStack>
     </StoryVStack>

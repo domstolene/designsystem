@@ -57,7 +57,7 @@ export const Badge = ({
   max = 99,
   ...rest
 }: BadgeProps) => {
-  const hasChildren = Boolean(children);
+  const hasChildren = children !== undefined && children !== null;
   const heightVariant = hasChildren ? 'withChildren' : 'noChildren';
 
   const height: Record<typeof heightVariant, Record<BadgeSize, string>> = {
@@ -104,7 +104,11 @@ export const Badge = ({
         rest,
       )}
     >
-      <Typography as="span" color={color[purpose]}>
+      <Typography
+        as="span"
+        typographyType={`body-short-${size}`}
+        color={color[purpose]}
+      >
         {displayValue}
       </Typography>
     </Box>
