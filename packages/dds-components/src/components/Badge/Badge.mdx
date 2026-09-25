@@ -1,0 +1,34 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import {
+  Source,
+  ComponentLinkRow,
+} from '@norges-domstoler/storybook-components';
+
+import * as BadgeStories from './Badge.stories';
+import meta from './Badge.stories';
+
+<Meta of={meta} />
+
+# Badge
+
+<ComponentLinkRow
+  docsHref="46af43-badge/b/9400a8"
+  figmaHref="27286-6081"
+  githubHref={{ folder: 'components', comp: 'Badge' }}
+  storybookHref={{ folder: 'components', comp: 'badge' }}
+/>
+
+<Canvas of={BadgeStories.Preview} />
+<Controls of={BadgeStories.Preview} />
+
+## Retningslinjer
+
+### Støtte i andre komponenter
+
+Disse komponentene støtter bruk av badge ut av boksen:
+
+- `<Button>`,
+- `<Tab>`,
+- `<OverflowMenu>`
+
+Du bør bruke dedikerte props i den relevante komponenten som håndterer UU og plassering for deg.

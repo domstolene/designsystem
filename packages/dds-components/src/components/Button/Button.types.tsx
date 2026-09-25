@@ -9,6 +9,7 @@ import {
   createPurposes,
   createSizes,
 } from '../../types';
+import type { BadgeProps } from '../Badge';
 import { type IconStatesOf, type SvgIcon } from '../Icon/utils';
 
 export const BUTTON_SIZES = createSizes('xsmall', 'small', 'medium', 'large');
@@ -61,5 +62,7 @@ export type ButtonProps<
     iconState?: IconStatesOf<I>;
     /**Knapp med full bredde. */
     fullWidth?: boolean;
+    /**Props for `<Badge>` som vises på knappen. */
+    badgeProps?: Omit<BadgeProps, 'size'>;
   } & PickedHTMLAttributes
 >;
