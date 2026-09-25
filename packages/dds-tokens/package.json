@@ -45,12 +45,12 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^29.0.3",
     "@rollup/plugin-node-resolve": "^16.0.3",
-    "@types/node": "^26.4.0",
+    "@types/node": "^26.6.1",
     "@tokens-studio/sd-transforms": "^2.0.3",
     "rollup": "^3.30.0",
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-typescript2": "^0.37.0",
-    "style-dictionary": "^5.5.2"
+    "style-dictionary": "^5.5.4"
   },
   "publishConfig": {
     "provenance": true
