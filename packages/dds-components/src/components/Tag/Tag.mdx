@@ -18,7 +18,10 @@ import { Tabs, Tab, TabList, TabPanels, TabPanel } from '../Tabs';
 <Tabs>
   <TabList>
     <Tab>Preview</Tab>
-    <Tab>Varianter</Tab>
+    <Tab>Formål</Tab>
+    <Tab>Utforming</Tab>
+    <Tab>Størrelser</Tab>
+    <Tab>Custom farger</Tab>
   </TabList>
   <TabPanels>
     <TabPanel>
@@ -26,7 +29,16 @@ import { Tabs, Tab, TabList, TabPanels, TabPanel } from '../Tabs';
       <Controls of={TagStories.Preview} />
     </TabPanel>
     <TabPanel>
-      <Canvas of={TagStories.Variants} />
+      <Canvas of={TagStories.Purposes} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={TagStories.Appearances} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={TagStories.Sizes} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={TagStories.CustomColors} />
     </TabPanel>
   </TabPanels>
 </Tabs>
