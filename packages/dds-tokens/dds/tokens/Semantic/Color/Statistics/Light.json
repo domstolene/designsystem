@@ -1,5 +1,5 @@
 {
-  "dds-color-data": {
+  "dds-color-statistics": {
     "10": {
       "default": {
         "value": "{dds-color-data.deepblue.500}",
@@ -138,6 +138,18 @@
       "border": {
         "value": "{dds-color-data.teal.500}",
         "type": "color"
+      }
+    },
+    "text-on": {
+      "default": {
+        "value": "{dds-color.cool-gray.black}",
+        "type": "color",
+        "description": "Used on statistics. with default value"
+      },
+      "subtle": {
+        "value": "{dds-color.cool-gray.white}",
+        "type": "color",
+        "description": "Used on statistics. with subtle value"
       }
     }
   }

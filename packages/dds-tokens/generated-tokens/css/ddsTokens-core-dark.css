@@ -3,9 +3,6 @@
  */
 
 .dds-core-dark {
-  --dds-color-data-10-default: #62abcb;
-  --dds-color-data-10-subtle: #135774;
-  --dds-color-data-10-border: #62abcb;
   --dds-color-data-red-100: #f8d2d4;
   --dds-color-data-red-200: #f0a5a9;
   --dds-color-data-red-300: #f4858b;
@@ -96,33 +93,6 @@
   --dds-color-data-gray-700: #444444;
   --dds-color-data-gray-800: #2e2e2e;
   --dds-color-data-gray-900: #171717;
-  --dds-color-data-01-default: #6fa1fe;
-  --dds-color-data-01-subtle: #0c4ecb;
-  --dds-color-data-01-border: #6fa1fe;
-  --dds-color-data-02-default: #d19a82;
-  --dds-color-data-02-subtle: #8f4626;
-  --dds-color-data-02-border: #d19a82;
-  --dds-color-data-03-default: #aaaaaa;
-  --dds-color-data-03-subtle: #5b5b5b;
-  --dds-color-data-03-border: #aaaaaa;
-  --dds-color-data-04-default: #95c280;
-  --dds-color-data-04-subtle: #2e6614;
-  --dds-color-data-04-border: #95c280;
-  --dds-color-data-05-default: #b98cfd;
-  --dds-color-data-05-subtle: #6e32ca;
-  --dds-color-data-05-border: #b98cfd;
-  --dds-color-data-06-default: #e079d0;
-  --dds-color-data-06-subtle: #a21a8d;
-  --dds-color-data-06-border: #e079d0;
-  --dds-color-data-07-default: #b3ae71;
-  --dds-color-data-07-subtle: #635e13;
-  --dds-color-data-07-border: #b3ae71;
-  --dds-color-data-08-default: #f4858b;
-  --dds-color-data-08-subtle: #ae1820;
-  --dds-color-data-08-border: #f4858b;
-  --dds-color-data-09-default: #5dafad;
-  --dds-color-data-09-subtle: #006461;
-  --dds-color-data-09-border: #5dafad;
   --dds-border-radius-button: 2px; /* For use in button component and togglebutton */
   --dds-border-radius-surface: 4px; /* Most surfaces, for example cards, papers, messages, backgrounds in GUI */
   --dds-border-radius-input: 2px; /* All input fields, and check boxes */
@@ -133,7 +103,7 @@
   --dds-color-surface-default: #181a1c; /* Default bg */
   --dds-color-surface-subtle: #22272a; /* Subtle surface color */
   --dds-color-surface-medium: #303438; /* Medium surface color */
-  --dds-color-surface-strong: #444444; /* Strong surface color */
+  --dds-color-surface-strong: #444444; /* Strong surface color. Brukes ikke med text-action */
   --dds-color-surface-hover-default: #062c45; /* Hover on surface (default, subtle, medium) */
   --dds-color-surface-hover-subtle: #22272a; /* Subtle hover on surface (default, medium) */
   --dds-color-surface-selected-default: #062c45; /* Selected state for surface (default, subtle, medium) */
@@ -163,7 +133,7 @@
   --dds-color-surface-notification: #d83737; /* bg on a notification */
   --dds-color-surface-skeleton: #545c62; /* Used for skeleton */
   --dds-color-border-default: #77838c; /* Form components, togglebutton, secondary button, checkbox etc */
-  --dds-color-border-strong: #f1f3f4;
+  --dds-color-border-strong: #ffffff;
   --dds-color-border-subtle: #545c62; /* Dropdown, tooltip, overflow etc */
   --dds-color-border-inverse: #acbbc6; /* Border or divider on surface.inverse */
   --dds-color-border-action-default: #589ac6; /* Used in progress tracker */
@@ -179,7 +149,7 @@
   --dds-color-text-on-inverse: #ffffff; /* On surface.inverse */
   --dds-color-text-danger: #efafaf; /* Error text on paper, or default or subtle surafce/bg */
   --dds-color-text-on-action: #0b0d0e; /* On surface.action (primary and danger button) */
-  --dds-color-text-on-status-default: #f1f3f4; /* On default status surfaces */
+  --dds-color-text-on-status-default: #ffffff; /* On default status surfaces */
   --dds-color-text-on-status-strong: #0b0d0e; /* On status surfaces with strong prop */
   --dds-color-text-action-resting: #9fc5de; /* Link, number in progress tracker */
   --dds-color-text-action-hover: #e7f1f7; /* Hover on text.action */
@@ -199,8 +169,6 @@
   --dds-color-text-on-tertiary-subtle: #ffffff; /* Used on brand.tertiary-subtle */
   --dds-color-text-on-tertiary-medium: #0b0d0e; /* Used on brand.tertiary-medium */
   --dds-color-text-on-tertiary-strong: #0b0d0e; /* Used on brand.tertiary-strong */
-  --dds-color-text-on-data-default: #0b0d0e; /* Used on data. with default value */
-  --dds-color-text-on-data-subtle: #ffffff; /* Used on data. with subtle value */
   --dds-color-icon-default: #f1f3f4; /* Often used with text.default */
   --dds-color-icon-medium: #e9ebec; /* Often used with text.medium */
   --dds-color-icon-subtle: #d6dadd; /* Often used with text.subtle */
@@ -373,4 +341,77 @@
   --dds-size-height-input-medium: 3rem; /* Brukes i input og buttons */
   --dds-size-height-input-small: 2.187rem; /* Brukes i input og buttons */
   --dds-size-height-input-xsmall: 1.5625rem; /* Brukes i input og buttons */
+  --dds-color-statistics-10-default: #62abcb;
+  --dds-color-statistics-10-subtle: #135774;
+  --dds-color-statistics-10-border: #62abcb;
+  --dds-color-statistics-01-default: #6fa1fe;
+  --dds-color-statistics-01-subtle: #0c4ecb;
+  --dds-color-statistics-01-border: #6fa1fe;
+  --dds-color-statistics-02-default: #d19a82;
+  --dds-color-statistics-02-subtle: #8f4626;
+  --dds-color-statistics-02-border: #d19a82;
+  --dds-color-statistics-03-default: #aaaaaa;
+  --dds-color-statistics-03-subtle: #5b5b5b;
+  --dds-color-statistics-03-border: #aaaaaa;
+  --dds-color-statistics-04-default: #95c280;
+  --dds-color-statistics-04-subtle: #2e6614;
+  --dds-color-statistics-04-border: #95c280;
+  --dds-color-statistics-05-default: #b98cfd;
+  --dds-color-statistics-05-subtle: #6e32ca;
+  --dds-color-statistics-05-border: #b98cfd;
+  --dds-color-statistics-06-default: #e079d0;
+  --dds-color-statistics-06-subtle: #a21a8d;
+  --dds-color-statistics-06-border: #e079d0;
+  --dds-color-statistics-07-default: #b3ae71;
+  --dds-color-statistics-07-subtle: #635e13;
+  --dds-color-statistics-07-border: #b3ae71;
+  --dds-color-statistics-08-default: #f4858b;
+  --dds-color-statistics-08-subtle: #ae1820;
+  --dds-color-statistics-08-border: #f4858b;
+  --dds-color-statistics-09-default: #5dafad;
+  --dds-color-statistics-09-subtle: #006461;
+  --dds-color-statistics-09-border: #5dafad;
+  --dds-color-statistics-text-on-default: #ffffff; /* Used on statistics. with default value */
+  --dds-color-statistics-text-on-subtle: #0b0d0e; /* Used on statistics. with subtle value */
+  --dds-color-domain-blue-default: #9fc0ff;
+  --dds-color-domain-blue-strong: #6fa1fe;
+  --dds-color-domain-blue-subtle: #cfe0ff;
+  --dds-color-domain-blue-border: #3f81fe;
+  --dds-color-domain-brown-default: #e1bcac;
+  --dds-color-domain-brown-strong: #d19a82;
+  --dds-color-domain-brown-subtle: #f0ddd5;
+  --dds-color-domain-brown-border: #c27959;
+  --dds-color-domain-gray-default: #c7c7c7;
+  --dds-color-domain-gray-strong: #aaaaaa;
+  --dds-color-domain-gray-subtle: #e3e3e3;
+  --dds-color-domain-gray-border: #8e8e8e;
+  --dds-color-domain-green-default: #aed19e;
+  --dds-color-domain-green-strong: #95c280;
+  --dds-color-domain-green-subtle: #d7e8cf;
+  --dds-color-domain-green-border: #619947;
+  --dds-color-domain-purple-default: #d0b2fe;
+  --dds-color-domain-purple-strong: #b98cfd;
+  --dds-color-domain-purple-subtle: #e8d9fe;
+  --dds-color-domain-purple-border: #a165fd;
+  --dds-color-domain-magenta-default: #edb5e4;
+  --dds-color-domain-magenta-strong: #e079d0;
+  --dds-color-domain-magenta-subtle: #f7d9f2;
+  --dds-color-domain-magenta-border: #d54dc0;
+  --dds-color-domain-olive-default: #cdc9a1;
+  --dds-color-domain-olive-strong: #b3ae71;
+  --dds-color-domain-olive-subtle: #e9e7cd;
+  --dds-color-domain-olive-border: #989344;
+  --dds-color-domain-red-default: #f0a5a9;
+  --dds-color-domain-red-strong: #f4858b;
+  --dds-color-domain-red-subtle: #f8d2d4;
+  --dds-color-domain-red-border: #e14b53;
+  --dds-color-domain-teal-default: #90ccc9;
+  --dds-color-domain-teal-strong: #5dafad;
+  --dds-color-domain-teal-subtle: #c2e2e1;
+  --dds-color-domain-teal-border: #2c9390;
+  --dds-color-domain-deepblue-default: #93cee6;
+  --dds-color-domain-deepblue-strong: #62abcb;
+  --dds-color-domain-deepblue-subtle: #c6e3f1;
+  --dds-color-domain-deepblue-border: #358fb5;
+  --dds-color-domain-text-on-domain: #0b0d0e;
 }
