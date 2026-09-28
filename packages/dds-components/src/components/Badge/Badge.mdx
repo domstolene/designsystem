@@ -1,0 +1,56 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import {
+  Source,
+  ComponentLinkRow,
+} from '@norges-domstoler/storybook-components';
+
+import * as BadgeStories from './Badge.stories';
+import meta from './Badge.stories';
+import { Tabs, Tab, TabList, TabPanel, TabPanels } from '../Tabs';
+
+<Meta of={meta} />
+
+# Badge
+
+<ComponentLinkRow
+  docsHref="46af43-badge/b/9400a8"
+  figmaHref="27286-6081"
+  githubHref={{ folder: 'components', comp: 'Badge' }}
+  storybookHref={{ folder: 'components', comp: 'badge' }}
+/>
+
+<Tabs>
+  <TabList>
+    <Tab>Preview</Tab>
+    <Tab>Formål</Tab>
+    <Tab>Størrelser</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <Canvas of={BadgeStories.Preview} />
+      <Controls of={BadgeStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={BadgeStories.Purposes} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={BadgeStories.Sizes} />
+    </TabPanel>
+  </TabPanels>
+</Tabs>
+
+## Vise 0
+
+Komponenten rendrer i utgangspunktet ikke hvis barn er 0. Om det er ønsket å vise komponenten selv når verdien er 0, sett prop `showZero` til `true`.
+
+## Retningslinjer
+
+### Støtte i andre komponenter
+
+Følgende komponenter støtter bruk av badge ut av boksen med prop `badgeProps`:
+
+- `<Button>`,
+- `<Tab>`,
+- `<OverflowMenu>`
+
+Du bør bruke dedikerte props i den relevante komponenten som håndterer UU og plassering for deg.

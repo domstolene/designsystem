@@ -58,4 +58,11 @@ describe('<Button>', () => {
     expect(button).toBeDisabled();
     expect(onClick).not.toHaveBeenCalled();
   });
+  it('renders badge children', () => {
+    const text = 1;
+    render(<Button badgeProps={{ children: text }} />);
+    const badge = screen.getByText(text);
+
+    expect(badge).toBeInTheDocument();
+  });
 });
