@@ -73,6 +73,18 @@ describe('<Tabs>', () => {
     expect(screen.queryAllByRole('tab')).toHaveLength(3);
   });
 
+  it('renders badge children in tab', () => {
+    const text = 1;
+    render(
+      <Tabs>
+        <TabList>
+          <Tab badgeProps={{ children: text }} />
+        </TabList>
+      </Tabs>,
+    );
+    expect(screen.getByText(text)).toBeInTheDocument();
+  });
+
   it('open panel is visible and closed panels invisible onChange', async () => {
     const panelText1 = 'panelText1';
     const panelText2 = 'panelText2';

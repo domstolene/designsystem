@@ -58,7 +58,7 @@ function getTemplate(fileName: string, name: string): string {
 import { render } from '@testing-library/react';
 import { describe, it } from 'vitest';
 
-import { ${name} } from ".";
+import { ${name} } from '.';
 
 describe('<${name}>', () => {
   it('renders without crashing', () => {

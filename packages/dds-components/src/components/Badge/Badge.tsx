@@ -48,6 +48,10 @@ export type BadgeProps = BaseComponentProps<
      * @default false
      */
     showZero?: boolean;
+    /**
+     * HTML `aria-label` attributt.
+     */
+    'aria-label'?: string;
   }
 >;
 
