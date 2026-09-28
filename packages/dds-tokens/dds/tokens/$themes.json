@@ -253,7 +253,7 @@
       "Base/Typography": "source",
       "Base/Zindex": "source",
       "Semantic/Color/Statistics/Dark": "enabled",
-      "Semantic/Color/Domain/Light": "enabled"
+      "Semantic/Color/Domain/Dark": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:9567:917",
     "$figmaModeId": "12927:0",
