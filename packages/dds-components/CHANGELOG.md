@@ -2,6 +2,8 @@
 
 ## 24.4.0
 
+(2026-09-29)
+
 ### Minor Changes
 
 - bd90274: Ny prop `badgeProps` i `<Button>`, `<OverflowMenu>` elementer og `<Tab>`. Den støtter props for `<Badge>` med forhåndsdefinert plassering.
