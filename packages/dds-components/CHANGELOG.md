@@ -1,5 +1,14 @@
 # @norges-domstoler/dds-components
 
+## 24.4.0
+
+(2026-09-29)
+
+### Minor Changes
+
+- bd90274: Ny prop `badgeProps` i `<Button>`, `<OverflowMenu>` elementer og `<Tab>`. Den støtter props for `<Badge>` med forhåndsdefinert plassering.
+- bd90274: Ny komponent: `<Badge>`. Brukes til å vise notifikasjoner, formidle status, og vise antall av filer, dokumenter o.l.
+
 ## 24.3.1
 
 (2026-09-25)
