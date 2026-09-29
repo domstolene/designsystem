@@ -1,5 +1,75 @@
 # @norges-domstoler/dds-components
 
+## 24.4.0
+
+(2026-09-29)
+
+### Minor Changes
+
+- bd90274: Ny prop `badgeProps` i `<Button>`, `<OverflowMenu>` elementer og `<Tab>`. Den støtter props for `<Badge>` med forhåndsdefinert plassering.
+- bd90274: Ny komponent: `<Badge>`. Brukes til å vise notifikasjoner, formidle status, og vise antall av filer, dokumenter o.l.
+
+## 24.3.1
+
+(2026-09-25)
+
+### Patch Changes
+
+- 3bff869: Fikser bredden på inputsegmentene i `<DatePicker>` og `<TimePicker>`, slik at det ikke hopper når brukeren skriver verdien. Reduserer samtidig spacing mellom separator (. eller :) og segment. `<DatePicker>` og `<TimePicker>` har dermed litt mindre bredde i de fleste størrelsene.
+- a711132: Legger til JSDoc på alle ikoner: Dette gjør dokumentasjonen av ikonene tilgjengelig for konsumenter av npm-pakken, og søkbare for AI-agenter. JSDoc-kommentarene matcher det som er definert på design.domstol.no
+
+## 24.3.0
+
+(2026-09-21)
+
+### Minor Changes
+
+- f30cff1: Prop `data-testid` i `<Select>` setter også derivativ test id på alternativene, på formen `<data-testid>-option-<option.value>`.
+
+## 24.2.2
+
+(2026-09-11)
+
+### Patch Changes
+
+- c69a1de: Oppdaterer Feedback-komponenten. Følgende endringer er gjort:
+
+  - Fjerner visning av ikoner etter valgt feedback.
+  - Endrer til å bruke secondary button.
+  - Oppdaterer spacing mellom label og knapper.
+
+## 24.2.1
+
+(2026-09-10)
+
+### Patch Changes
+
+- 31715ad: Fikser høyde i `<NewsPopover>`, slik at den fungerer i alle temaer.
+
+## 24.2.0
+
+(2026-09-03)
+
+### Minor Changes
+
+- 9811f5b: Nye ikoner: `SunHalfFIlledIcon`, `DesktopIcon`, `DesktopMobileIcon`.
+- f73dcf6: Nye responsive props i `<Box>`, `<Bleed>`, `<Contrast>`, `<Grid>`, `<GridChild>`, `<VStack>`, `<HStack>`, og `<Paper>`: `flex` og `zIndex`.
+- 3ba215c: Legger ikonet `ArrowUpRight` til i ikonbiblioteket.
+
+### Patch Changes
+
+- 6d36650: Fikser bug der `0` ikke var støttet i `value` prop i `<ProgressBar>`.
+- f73dcf6: Fikser bug der responsive props ikke tok inn gyldige falsy verdier, som `0`.
+- f45441b: Justerer bredde på `<NewsPopover>` til 500px. Maks antall nyheter er nå 12.
+
+## 24.1.1
+
+(2026-08-26)
+
+### Patch Changes
+
+- 7469b28: Fikser feil bakgrunnsfarge i dropdown og alternativer i `<Select>`.
+
 ## 24.1.0
 
 (2026-08-21)

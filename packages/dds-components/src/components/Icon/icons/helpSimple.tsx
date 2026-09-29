@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Notifications. Search terms: hjelp, help, enkel, simple, spørsmål, question, veiledning, guide. */
 export function HelpSimpleIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

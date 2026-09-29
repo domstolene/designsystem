@@ -29,6 +29,12 @@ type CommonComponentProps<
   ref?: TRef;
 };
 
+type HTMLAttributesFor<T extends Element> = T extends HTMLButtonElement
+  ? React.ButtonHTMLAttributes<T>
+  : T extends HTMLAnchorElement
+    ? React.AnchorHTMLAttributes<T>
+    : React.HTMLAttributes<T>;
+
 /**
  * Basetype for props som eksponeres til konsumenter av designsystemet.
  * - Rot: `id`, `className`, `style`, `TOtherProps`
@@ -38,13 +44,15 @@ type CommonComponentProps<
  *
  * @template TElement Element-type som genereres av komponenten.
  * @template TOtherProps Andre props komponenten skal eksponere til konsumenter.
- * @template THTMLAttributesProps Standard `HTMLAttributes<T>` men kan overstyres for f.eks knapper hvis man trenger en annen basetype for `htmlProps`.
+ * @template THTMLAttributesProps Standard `HTMLAttributes<T>`;
+ * settes til `ButtonHTMLAttributes<T>` hvis TElement er `HTMLButtonElement` og til `AnchorHTMLAttributes<T>` hvis TElement er `HTMLAnchorElement`.
+ * Kan overstyres hvis man trenger en annen basetype for `htmlProps`.
  */
 export type BaseComponentProps<
   TElement extends Element,
   TOtherProps extends object = object,
-  THTMLAttributesProps extends HTMLAttributes<TElement> =
-    HTMLAttributes<TElement>,
+  THTMLAttributesProps extends HTMLAttributesFor<TElement> =
+    HTMLAttributesFor<TElement>,
 > = TOtherProps &
   CommonComponentProps<
     Omit<THTMLAttributesProps, keyof HTMLRootProps | keyof TOtherProps>,
@@ -84,7 +92,7 @@ export type PolymorphicBaseComponentProps<
 export type BaseComponentPropsWithChildren<
   T extends Element,
   TProps extends object = object,
-  THTMLProps extends HTMLAttributes<T> = HTMLAttributes<T>,
+  THTMLProps extends HTMLAttributesFor<T> = HTMLAttributesFor<T>,
 > = BaseComponentProps<
   T,
   TProps & {

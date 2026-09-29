@@ -5,6 +5,7 @@ import meta from './InlineEdit.stories';
 import * as InlineEditInputStories from './InlineEditInput/InlineEditInput.stories';
 import * as InlineEditTextAreaStories from './InlineEditTextArea/InlineEditTextArea.stories';
 import * as InlineEditSelectStories from './InlineEditSelect/InlineEditSelect.stories';
+import { Tabs, Tab, TabList, TabPanel, TabPanels } from '../Tabs';
 
 <Meta of={meta} />
 
@@ -17,31 +18,35 @@ import * as InlineEditSelectStories from './InlineEditSelect/InlineEditSelect.st
   storybookHref={{ folder: 'components', comp: 'inlineedit' }}
 />
 
-`<InlineEdit>`-komponentene håndterer inline redigering, der brukeren kan trykke `Enter` for å lagre verdien i feltet. Brukes f.eks i tabeller. Vi har følgende komponenter:
+`<InlineEdit>`-komponentene håndterer inline redigering, der brukeren kan trykke `Enter` for å lagre verdien i feltet. Brukes f.eks i tabeller.
 
-- `<InlineEditInput>` - returnerer `<input>`.
-- `<InlineEditTextArea>` - returnerer `<textarea>`.
-- `<InlineEditSelect>` - returnerer `<select>`.
+## Semantiske varianter
 
-## Props
+<Tabs>
+  <TabList>
+    <Tab>InlineEditInput</Tab>
+    <Tab>InlineEditTextArea</Tab>
+    <Tab>InlineEditSelect</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      Inputfelt. Returnerer `<input>`.
 
-### InlineEditInput
+      <Canvas of={InlineEditInputStories.Preview} />
+      <Controls of={InlineEditInputStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      Tekstområde. Returnerer `<textarea>`.
 
-Inputfelt. Returnerer `<input>`.
+      <Canvas of={InlineEditTextAreaStories.Preview} />
+      <Controls of={InlineEditTextAreaStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      Nedtrekksliste. Returnerer nativ `<select>`. Bruk `<option>` som barn. **OBS!** husk tom `<option>` for initiell tom verdi og/eller tømbar variant. Komponenten tømmer verdi ved å velge `<option>` uten barn.
 
-<Canvas of={InlineEditInputStories.Preview} />
-<Controls of={InlineEditInputStories.Preview} />
+      <Canvas of={InlineEditSelectStories.Preview} />
+      <Controls of={InlineEditSelectStories.Preview} />
+    </TabPanel>
 
-### InlineEditTextArea
-
-Inputfelt med flere linjer. Returnerer `<textarea>`.
-
-<Canvas of={InlineEditTextAreaStories.Preview} />
-<Controls of={InlineEditTextAreaStories.Preview} />
-
-### InlineEditSelect
-
-Nedtrekksliste. Returnerer nativ `<select>`. Bruk `<option>` som barn. **OBS!** husk tom `<option>` for initiell tom verdi og/eller tømbar variant. Komponenten tømmer verdi ved å velge `<option>` uten barn.
-
-<Canvas of={InlineEditSelectStories.Preview} />
-<Controls of={InlineEditSelectStories.Preview} />
+  </TabPanels>
+</Tabs>

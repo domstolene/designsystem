@@ -3,6 +3,7 @@ import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as ToggleButtonStories from './ToggleButton.stories';
 import meta from './ToggleButton.stories';
 import * as ToggleButtonGroupStories from './ToggleButtonGroup.stories';
+import { Tabs, Tab, TabList, TabPanel, TabPanels } from '../Tabs';
 
 <Meta of={meta} />
 
@@ -15,21 +16,26 @@ import * as ToggleButtonGroupStories from './ToggleButtonGroup.stories';
   storybookHref={{ folder: 'components', comp: 'togglebutton' }}
 />
 
-Følgende subkomponenter er tilgjengelige:
+## Delkomponenter
 
-- **`<ToggleButton>`**: en toggleknapp som er funksjonelt sett `<input type="checkbox">` og brukes dermed som en avkryssingsboks.
-- **`<ToggleButtonGroup>`**: en gruppe med `<ToggleButton>`.
+<Tabs>
+  <TabList>
+    <Tab>ToggleButton</Tab>
+    <Tab>ToggleButtonGroup</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      Toggleknapp som er funksjonelt sett `<input type="checkbox">` og brukes dermed som en avkryssingsboks.
 
-## Props
+      <Canvas of={ToggleButtonStories.Preview} />
+      <Controls of={ToggleButtonStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      Wrapper for `<ToggleButton>` barn.
 
-### ToggleButton
+      <Canvas of={ToggleButtonGroupStories.Preview} />
+      <Controls of={ToggleButtonGroupStories.Preview} />
+    </TabPanel>
 
-<Canvas of={ToggleButtonStories.Preview} />
-<Controls of={ToggleButtonStories.Preview} />
-
-### ToggleButtonGroup
-
-Gruppen for `<ToggleButton>`.
-
-<Canvas of={ToggleButtonGroupStories.Preview} />
-<Controls of={ToggleButtonGroupStories.Preview} />
+  </TabPanels>
+</Tabs>

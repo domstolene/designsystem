@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Communication. Search terms: papirfly, paper plane, melding, message, sende. */
 export function PaperPlaneIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

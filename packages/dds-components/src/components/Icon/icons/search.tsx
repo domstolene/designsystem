@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Search and filter. Search terms: søk, search, finn, find, forstørrelsesglass, magnifying glass. */
 export function SearchIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

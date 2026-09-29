@@ -1,4 +1,4 @@
-import { type HTMLAttributes, useId } from 'react';
+import { useId } from 'react';
 
 import {
   CardSelectableContext,
@@ -50,8 +50,7 @@ export type CardSelectableGroupProps<T extends string | number> =
         value?: T | undefined;
         /**Default verdi - en `<CardSelectable>` med denne verdien blir forhåndsvalgt med uncontrolled state. */
         defaultValue?: T | undefined;
-      },
-    Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>
+      }
   >;
 
 export const CardSelectableGroup = <T extends string | number = string>({

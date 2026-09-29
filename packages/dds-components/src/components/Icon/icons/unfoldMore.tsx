@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Arrows and chevron. Search terms: fold ut, unfold more, utvid, expand, vis mer, show more, chevron. */
 export function UnfoldMoreIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

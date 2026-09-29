@@ -2,6 +2,7 @@ import { type ComponentPropsWithRef } from 'react';
 
 import styles from './Backdrop.module.css';
 import { cn } from '../../../utils';
+import { Box } from '../../layout';
 
 type BackdropProps = {
   isMounted?: boolean;
@@ -32,12 +33,18 @@ type BackdropProps = {
 export const Backdrop = ({ isMounted, zIndex, ...props }: BackdropProps) => {
   const isMountedCn = isMounted ? 'visible' : 'hidden';
   return (
-    <div
-      className={cn(
-        styles.backdrop,
-        styles[zIndex],
-        styles[`backdrop--${isMountedCn}`],
-      )}
+    <Box
+      className={cn(styles.backdrop, styles[`backdrop--${isMountedCn}`])}
+      position="fixed"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      top={0}
+      left={0}
+      right={0}
+      bottom={0}
+      overflowY="auto"
+      zIndex={`${zIndex}-backdrop`}
       {...props}
     />
   );

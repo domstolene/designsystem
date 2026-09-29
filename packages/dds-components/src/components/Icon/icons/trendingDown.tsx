@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Analytics. Search terms: synkende trend, trending down, nedgang, decrease, statistikk, statistics. */
 export function TrendingDownIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

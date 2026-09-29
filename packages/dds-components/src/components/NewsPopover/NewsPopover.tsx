@@ -90,22 +90,24 @@ export const NewsPopover = ({
   if (news.length === 0) {
     throw new Error('NewsPopover must have at least one item in "news" prop');
   }
+  const maxHeaderLength = 45;
+  const maxTextLength = 150;
 
-  if (header.length > 35) {
+  if (header.length > maxHeaderLength) {
     console.warn(
-      '[NewsPopover] header exceeds recommended length (about 35 characters). This may cause wrapping or layout issues depending on theme.',
+      `[NewsPopover] header exceeds recommended length (about ${maxHeaderLength} characters). This may cause wrapping or layout issues depending on theme.`,
     );
   }
 
   news.forEach((n, i) => {
-    if (n.heading.length > 35) {
+    if (n.heading.length > maxHeaderLength) {
       console.warn(
-        `[NewsPopover] news[${i}].heading exceeds recommended length (about 35 characters). This may cause wrapping or layout issues depending on theme.`,
+        `[NewsPopover] news[${i}].heading exceeds recommended length (about ${maxHeaderLength} characters). This may cause wrapping or layout issues depending on theme.`,
       );
     }
-    if (n.text.length > 135) {
+    if (n.text.length > maxTextLength) {
       console.warn(
-        `[NewsPopover] news[${i}].text exceeds recommended length (about 135 characters). This may cause wrapping or layout issues depending on theme.`,
+        `[NewsPopover] news[${i}].text exceeds recommended length (about ${maxTextLength} characters). This may cause wrapping or layout issues depending on theme.`,
       );
     }
   });
@@ -160,7 +162,12 @@ export const NewsPopover = ({
           {el.image}
         </Box>
       </Paper>
-      <VStack gap="x0.75" alignItems="center" margin="x0.75 x0.75 x1 x0.75">
+      <VStack
+        gap="x0.75"
+        alignItems="center"
+        margin="x0.75 x0.75 0 x0.75"
+        height={styleUpToBreakpoint('100%', smallScreenBreakpoint, '130px')}
+      >
         <Heading level={3}>{el.heading}</Heading>
         <Paragraph textAlign="center">{el.text}</Paragraph>
       </VStack>
@@ -208,22 +215,17 @@ export const NewsPopover = ({
       border="border-subtle"
       role="dialog"
       aria-labelledby={headerId}
-      height={isList ? '368px' : '327px'}
-      width={styleUpToBreakpoint('100%', smallScreenBreakpoint, '405px')}
+      width={styleUpToBreakpoint('100%', smallScreenBreakpoint, '500px')}
     >
       <HStack margin="x0.75 x3 x0.75 x0.75">
         <Heading id={headerId} level={2} typographyType="heading-small">
           {header}
         </Heading>
       </HStack>
-      <VStack
-        alignItems="center"
-        height={isList ? '299px' : undefined}
-        aria-live="polite"
-      >
+      <VStack alignItems="center" aria-live="polite" marginBlock="0 x1.5">
         {content}
         {isList && (
-          <HStack alignItems="center" gap="x1" marginBlock="auto 0">
+          <HStack alignItems="center" gap="x1">
             <Button
               aria-label={t(commonTexts.previousPage)}
               size="small"

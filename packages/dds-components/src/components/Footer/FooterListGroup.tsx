@@ -1,13 +1,9 @@
 import { type ComponentPropsWithRef } from 'react';
 
-import styles from './Footer.module.css';
-import { cn } from '../../utils';
+import { VStack } from '../layout';
 
 export type FooterListGroupProps = ComponentPropsWithRef<'div'>;
 
-export const FooterListGroup = ({
-  className,
-  ...rest
-}: FooterListGroupProps) => (
-  <div className={cn(className, styles['list-group'])} {...rest} />
+export const FooterListGroup = (props: FooterListGroupProps) => (
+  <VStack gap="x1.5" {...props} />
 );

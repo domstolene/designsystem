@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Services. Search terms: omsorg, caring, pleie, care, hånd, hand, hjerte, heart. */
 export function CaringIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

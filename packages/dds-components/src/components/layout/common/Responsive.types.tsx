@@ -25,6 +25,21 @@ export type SpacingScale = (typeof SPACING_SCALES)[number];
 
 export type RelativeColumnsOccupied = 'all' | 'firstHalf' | 'secondHalf';
 
+export const Z_INDEXES = [
+  'skiptocontent',
+  'modal-backdrop',
+  'drawer',
+  'drawer-backdrop',
+  'overflowmenu',
+  'popover',
+  'tooltip',
+  'dropdown',
+  'sticky',
+  'absolute-element',
+] as const;
+
+export type ZIndex = (typeof Z_INDEXES)[number];
+
 export interface PrimitiveDisplayProps {
   /** Skjuler komponenten fra og med det angitte brekkpunktet og nedover. */
   hideBelow?: Breakpoint;
@@ -79,6 +94,8 @@ export interface PrimitiveLayoutProps {
   marginBlock?: ResponsiveProp<Property.MarginBlock | SpacingScale>;
   /** CSS `display`.  Støtter verdi per brekkpunkt eller samme for alle skjermstørrelser. */
   display?: ResponsiveProp<Property.Display>;
+  /** CSS `flex`. Støtter verdi per brekkpunkt eller samme for alle skjermstørrelser. */
+  flex?: ResponsiveProp<Property.Flex>;
   /** CSS `flex-direction`. Støtter verdi per brekkpunkt eller samme for alle skjermstørrelser. */
   flexDirection?: ResponsiveProp<Property.FlexDirection>;
   /** CSS `flex-basis`. Støtter verdi per brekkpunkt eller samme for alle skjermstørrelser. */
@@ -107,6 +124,8 @@ export interface PrimitiveLayoutProps {
   columnGap?: ResponsiveProp<Property.ColumnGap | SpacingScale>;
   /** CSS `word-break`. Støtter verdi per brekkpunkt eller samme for alle skjermstørrelser. */
   wordBreak?: ResponsiveProp<Property.WordBreak>;
+  /** CSS `z-index`. Støtter verdi per brekkpunkt eller samme for alle skjermstørrelser. */
+  zIndex?: ResponsiveProp<Property.ZIndex | ZIndex>;
 }
 
 export type ResponsiveProps = PrimitiveDisplayProps & PrimitiveLayoutProps;

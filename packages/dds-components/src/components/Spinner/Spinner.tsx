@@ -1,5 +1,5 @@
 import { type Property } from 'csstype';
-import { type HTMLAttributes, useId } from 'react';
+import { useId } from 'react';
 
 import styles from './Spinner.module.css';
 import { useTranslation } from '../../i18n';
@@ -22,8 +22,7 @@ export type SpinnerProps = BaseComponentProps<
      * @default "Innlasting pågår"
      */
     tooltip?: string;
-  },
-  Omit<HTMLAttributes<SVGSVGElement>, 'color'>
+  }
 >;
 
 export function Spinner(props: SpinnerProps) {

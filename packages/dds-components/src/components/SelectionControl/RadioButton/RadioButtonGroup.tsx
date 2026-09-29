@@ -1,4 +1,4 @@
-import { type ChangeEvent, type HTMLAttributes, useId } from 'react';
+import { type ChangeEvent, useId } from 'react';
 
 import {
   RadioButtonGroupContext,
@@ -33,8 +33,7 @@ export type RadioButtonGroupProps<T extends string | number> =
       value?: T | undefined;
       /**Default verdi - en `<RadioButton>` med denne verdien blir forhåndsvalgt med uncontrolled state. */
       defaultValue?: T | undefined;
-    },
-    Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>
+    }
   >;
 
 export const RadioButtonGroup = <T extends string | number = string>({

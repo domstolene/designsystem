@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Navigation and menu. Search terms: logg ut, logout, sign out, avslutt, exit, pil, arrow. */
 export function LogoutIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

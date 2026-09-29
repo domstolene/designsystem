@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Navigation and menu. Search terms: meny, menu, hamburger, navigasjon, navigation, linjer, lines. */
 export function MenuIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

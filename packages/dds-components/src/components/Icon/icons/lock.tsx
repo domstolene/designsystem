@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Access and people. Search terms: locked, sikker, secure, beskytt, protect, låst. */
 export function LockIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

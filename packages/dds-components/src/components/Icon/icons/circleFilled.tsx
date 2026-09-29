@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Notifications. Search terms: sirkel, circle, fylt, filled, form, shape, punkt, dot. */
 export function CircleFilledIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

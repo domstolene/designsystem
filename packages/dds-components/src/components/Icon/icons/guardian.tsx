@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Access and people. Search terms: verge, guardian, personer, people, beskytter, protector, mennesker, folk. */
 export function GuardianIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

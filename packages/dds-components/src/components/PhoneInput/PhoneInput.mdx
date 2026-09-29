@@ -17,14 +17,12 @@ import meta from './PhoneInput.stories';
   storybookHref={{ folder: 'components', comp: 'phoneinput' }}
 />
 
-`<PhoneInput>` er en komponent bestående av to input-elementer:
+`<PhoneInput>` består av to input-elementer under panseret:
 
 - `<NativeSelect>` for valg av landskode,
 - `<input type="tel">` for telefonnummer.
 
 `value` returnert i `<NativeSelect>` er en [ISO Alfa-2 landskode](https://no.wikipedia.org/wiki/ISO_3166-1).
-
-## Props
 
 <Canvas of={PhoneInputStories.Preview} />
 <Controls of={PhoneInputStories.Preview} />

@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Social. Search terms: linkedin, sosiale medier, social media, jobb, work. */
 export function LinkedInIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

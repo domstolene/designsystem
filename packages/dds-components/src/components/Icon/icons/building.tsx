@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Services. Search terms: bygning, building, kontor, office, institusjon, institution. */
 export function BuildingIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

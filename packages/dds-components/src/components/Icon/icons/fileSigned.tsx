@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Document and file. Search terms: signert fil, signed file, underskrift, signature, dokument, document. */
 export function FileSignedIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

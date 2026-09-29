@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Access and people. Search terms: låst, locked, fylt, filled, sikker, secure, beskytt, protect. */
 export function LockFilledIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

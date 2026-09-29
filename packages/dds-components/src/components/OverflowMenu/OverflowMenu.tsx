@@ -63,6 +63,7 @@ export const OverflowMenu = ({
       aria-hidden={!isOpen}
       elevation="medium"
       border="border-default"
+      zIndex="overflowmenu"
     />
   );
 

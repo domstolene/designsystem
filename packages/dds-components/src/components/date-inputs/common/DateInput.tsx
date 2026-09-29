@@ -7,7 +7,7 @@ import { type InputProps, getInputWidth } from '../../helpers/Input';
 import inputStyles from '../../helpers/Input/Input.module.css';
 import focusStyles from '../../helpers/styling/focus.module.css';
 import { renderInputMessage } from '../../InputMessage';
-import { Box } from '../../layout';
+import { Box, HStack } from '../../layout';
 import { renderLabel } from '../../Typography/Label/Label.utils';
 import tgStyles from '../../Typography/typographyStyles.module.css';
 import { type DatePickerProps } from '../DatePicker';
@@ -92,7 +92,7 @@ export function DateInput({
         )}
       >
         {button}
-        <div
+        <HStack
           {...fieldProps}
           ref={internalRef}
           className={cn(
@@ -114,7 +114,7 @@ export function DateInput({
           )}
         >
           {children}
-        </div>
+        </HStack>
         {suffixEl}
       </Box>
       {renderInputMessage({ tip, errorMessage, tipId, errorMessageId })}

@@ -33,6 +33,13 @@ describe('<Dropdown>', () => {
       render(<DropdownItem as="a" href="#" />);
       expect(screen.getByRole('link')).toBeInTheDocument();
     });
+    it('renders badge children', () => {
+      const text = 1;
+      render(
+        <DropdownItem as={StylelessButton} badgeProps={{ children: text }} />,
+      );
+      expect(screen.getByText(text)).toBeInTheDocument();
+    });
     it('renders icon', () => {
       const { container } = render(<DropdownItem icon={KeyIcon} />);
       expect(container.querySelector('svg')).toBeInTheDocument();

@@ -1,6 +1,7 @@
 import { type ReactNode, useState } from 'react';
 
 import styles from './GlobalMessage.module.css';
+import { HStack } from '../..';
 import { useTranslation } from '../../i18n';
 import { commonTexts } from '../../i18n/commonTexts';
 import {
@@ -55,7 +56,7 @@ export const GlobalMessage = ({
   const [isClosed, setClosed] = useState(false);
 
   return !isClosed ? (
-    <div
+    <HStack
       {...getBaseHTMLProps(
         id,
         cn(
@@ -68,9 +69,15 @@ export const GlobalMessage = ({
         htmlProps,
         rest,
       )}
+      alignItems="center"
+      justifyContent="space-between"
+      width="100%"
+      padding="0 x1"
     >
-      <div
-        className={cn(styles.content, closable && styles['content--closable'])}
+      <HStack
+        alignItems="center"
+        paddingBlock="x0.75"
+        paddingInline={closable ? 'x0 x0.75' : ' x0 x1.5'}
       >
         <Icon
           icon={icons[purpose]}
@@ -78,7 +85,7 @@ export const GlobalMessage = ({
           className={styles.icon}
         />
         {children}
-      </div>
+      </HStack>
 
       {closable && (
         <Button
@@ -92,7 +99,7 @@ export const GlobalMessage = ({
           aria-label={t(commonTexts.closeMessage)}
         />
       )}
-    </div>
+    </HStack>
   ) : null;
 };
 

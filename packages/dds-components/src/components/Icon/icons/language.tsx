@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Settings and tools. Search terms: språk, language, globe, jorden, earth, oversett, translate. */
 export function LanguageIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

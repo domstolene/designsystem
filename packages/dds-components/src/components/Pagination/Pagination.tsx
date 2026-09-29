@@ -1,4 +1,4 @@
-import { type HTMLAttributes, useState } from 'react';
+import { useState } from 'react';
 
 import styles from './Pagination.module.css';
 import { PaginationGenerator } from './paginationGenerator';
@@ -75,8 +75,7 @@ export type PaginationProps = BaseComponentProps<
     onSelectOptionChange?: (option: PaginationOption | null) => void;
     /**Brekkpunkt for små skjermer; den viser færre sideknapper og stacker delkomponentene. */
     smallScreenBreakpoint?: Breakpoint;
-  },
-  Omit<HTMLAttributes<HTMLElement>, 'onChange'>
+  }
 >;
 
 export const Pagination = ({

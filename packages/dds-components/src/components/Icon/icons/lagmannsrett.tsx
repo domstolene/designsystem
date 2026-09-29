@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Brand. Search terms: lagmannsrett, domstol, court, rett, anke, appeal. */
 export function LagmannsrettIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Refresh and load. Search terms: synkroniser, sync, oppdater, update, last inn, load. */
 export function SyncIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

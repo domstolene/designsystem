@@ -6,6 +6,7 @@ import { createTexts, useTranslation } from '../../i18n';
 import { ElementAs } from '../../polymorphic';
 import { getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
+import { Badge } from '../Badge';
 import { useButtonGroupContext } from '../ButtonGroup/ButtonGroup.context';
 import { focusable } from '../helpers/styling/focus.module.css';
 import { invisible } from '../helpers/styling/utilStyles.module.css';
@@ -27,6 +28,7 @@ export const Button = <I extends SvgIcon, T extends ElementType = 'button'>({
   onClick,
   onFocus,
   onBlur,
+  badgeProps,
   id,
   ref,
   className,
@@ -127,6 +129,13 @@ export const Button = <I extends SvgIcon, T extends ElementType = 'button'>({
       {...aProps}
     >
       {content}
+      {badgeProps && (
+        <Badge
+          {...badgeProps}
+          size={size}
+          className={cn(styles.badge, badgeProps.className)}
+        />
+      )}
     </ElementAs>
   );
 };

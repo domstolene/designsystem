@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Document and file. Search terms: legg til fil, add file, ny fil, new file, dokument, document, pluss, side, page. */
 export function FileAddIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

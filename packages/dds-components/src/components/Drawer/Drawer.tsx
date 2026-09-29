@@ -162,6 +162,7 @@ export const Drawer = ({
       justifyContent="flex-start"
       padding="var(--dds-drawer-container-padding)"
       borderRadius="0"
+      zIndex="drawer"
       {...getBaseHTMLProps(
         drawerId,
         cn(

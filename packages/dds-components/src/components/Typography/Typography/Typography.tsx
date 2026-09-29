@@ -1,4 +1,4 @@
-import { type AnchorHTMLAttributes, type HTMLAttributes } from 'react';
+import { type HTMLAttributes } from 'react';
 
 import styles from './Typography.module.css';
 import {
@@ -31,8 +31,7 @@ type AnchorTypographyProps = BaseComponentPropsWithChildren<
 
     /**nativ `target`-prop ved `typographyType='a'`.  */
     target?: string;
-  },
-  AnchorHTMLAttributes<HTMLAnchorElement>
+  }
 >;
 
 type LabelTypographyProps = BaseComponentPropsWithChildren<

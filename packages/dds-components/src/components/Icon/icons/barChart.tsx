@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Analytics. Search terms: søylediagram, bar chart, statistikk, statistics, diagram, chart. */
 export function BarChartIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

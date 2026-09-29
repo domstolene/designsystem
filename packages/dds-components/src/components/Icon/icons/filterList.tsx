@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Search and filter. Search terms: liste, filterliste, filter list, filtrere. */
 export function FilterListIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

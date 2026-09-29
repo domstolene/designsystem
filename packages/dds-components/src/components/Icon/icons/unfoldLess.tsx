@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Arrows and chevron. Search terms: fold inn, unfold less, kollaps, collapse, skjul, hide, kompakt, chevron. */
 export function UnfoldLessIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>
