@@ -51,6 +51,10 @@ vi.stubGlobal('matchMedia', (query: string) => ({
 // Mock scrollTo
 vi.stubGlobal('scrollTo', vi.fn());
 
+// Mock object URLs because jsdom's implementation is incompatible with test Files.
+vi.spyOn(URL, 'createObjectURL').mockReturnValue('blob://test');
+vi.spyOn(URL, 'revokeObjectURL').mockImplementation(() => {});
+
 // Mock i18n
 vi.mock('./i18n', async importOriginal => {
   const actual = await importOriginal<typeof import('./i18n')>();

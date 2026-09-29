@@ -1,7 +1,7 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { type ComponentProps, useState } from 'react';
-import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { FileUploader } from './FileUploader';
 import type { FileList, RemoteFile } from './FileUploader.types';
@@ -261,20 +261,6 @@ describe('<FileUploader>', () => {
     });
   });
   describe('upload status', () => {
-    beforeAll(() => {
-      vi.spyOn(URL, 'createObjectURL').mockImplementation(() => 'blob://test');
-      vi.spyOn(URL, 'revokeObjectURL').mockImplementation(() => {
-        /* empty */
-      });
-    });
-
-    afterAll(() => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (URL.createObjectURL as any).mockRestore?.();
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (URL.revokeObjectURL as any).mockRestore?.();
-    });
-
     it('displays file, spinner and file delete button while uploading', async () => {
       const id = deriveId(file);
       const fileStatusMap = new Map([
@@ -505,20 +491,6 @@ describe('<FileUploader>', () => {
   });
 
   describe('remote files', () => {
-    beforeAll(() => {
-      vi.spyOn(URL, 'createObjectURL').mockImplementation(() => 'blob://test');
-      vi.spyOn(URL, 'revokeObjectURL').mockImplementation(() => {
-        /* empty */
-      });
-    });
-
-    afterAll(() => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (URL.createObjectURL as any).mockRestore?.();
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (URL.revokeObjectURL as any).mockRestore?.();
-    });
-
     it('preserves remote files when uploading a new file', async () => {
       const remoteFile: RemoteFile = {
         name: 'remote.pdf',
