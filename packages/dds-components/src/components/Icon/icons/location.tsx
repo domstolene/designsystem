@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Date, time and place. Search terms: plassering, posisjon, location, kart, map, sted, place, pin, gps. */
 export function LocationIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

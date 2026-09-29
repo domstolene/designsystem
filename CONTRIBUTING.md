@@ -83,14 +83,7 @@ npm install norges-domstoler-<pakkenavn>-<versjon>.tgz
 
 ### Linking
 
-Hvis du vil teste endringer i Elsa live i applikasjonen din kan du bruke `npm link`.
-
-```Shell
-cd ~/designsystem/packages/<pakkenavn> # velg pakke
-npm link
-cd ~/din-app
-npm link @norges-domstoler/<pakkenavn>
-```
+Se [LINKING.md](./LINKING.md).
 
 ## Testing
 

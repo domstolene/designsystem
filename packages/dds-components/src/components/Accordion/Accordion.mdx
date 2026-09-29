@@ -6,6 +6,8 @@ import {
 } from '@norges-domstoler/storybook-components';
 import * as AccordionStories from './Accordion.stories';
 import meta from './Accordion.stories';
+import { Tabs, Tab, TabList, TabPanel, TabPanels } from '../Tabs';
+import { Divider } from '../Divider';
 
 <Meta of={meta} />
 
@@ -20,38 +22,45 @@ import meta from './Accordion.stories';
 
 `<Accordion>` er en komponent som kan utvide og trekke sammen innhold.
 
-Det finnes følgene subkomponenter:
+## Delkomponenter
 
-- **`<Accordion>`** - forelder,
-- **`<AccordionHeader>`** - header som utvider og trekker sammen innhold,
-- **`<AccordionBody>`** - innhold som kan utvides og trekkes sammen.
+<Tabs>
+  <TabList>
+    <Tab>Accordion</Tab>
+    <Tab>AccordionHeader</Tab>
+    <Tab>AccordionBody</Tab>
+  </TabList>
 
-## Props
+  <TabPanels>
+    <TabPanel>
+      En container for delkomponenter som håndterer oppførsel og universell utforming. Den skal ha:
 
-### Accordion
+      - `<AccordionHeader>` som første barn,
+      - `<AccordionBody>` som andre barn.
 
-En container for Accordion-subkomponenter som håndterer oppførsel og universell utforming for subkomponentene. Den skal ha:
+      En gruppe med `<Accordion>` legges i en `<div>` container.
 
-- `<AccordionHeader>` som første barn,
-- `<AccordionBody>` som andre barn.
+      <Canvas of={AccordionStories.Preview} />
 
-En gruppe med `<Accordion>` legges i en `<div>` container.
+      <Controls of={AccordionStories.Preview} />
+    </TabPanel>
+    <TabPanel>
 
-<Canvas of={AccordionStories.Preview} />
+      Header i `<Accordion>` som utvider og trekker sammen innhold. Skal brukes som første barn og den får automatisk riktig id fra `<Accordion>`. Komponenten har default typografi som kan bli overskrevet ved å bruke typografikomponenter som barn.
 
-<Controls of={AccordionStories.Preview} />
+      <ArgTypes of={AccordionHeader} />
 
-### AccordionHeader
+    </TabPanel>
+    <TabPanel>
+      Body i `<Accordion>` som kan utvides og trekkes sammen. Skal brukes som andre barn og den får automatisk riktig `id` fra `<Accordion>`. Komponenten har default typografi som kan bli overskrevet ved å bruke typografikomponenter som barn.
 
-Header i `<Accordion>`. Skal brukes som første barn og den får automatisk riktig id fra `<Accordion>`. Komponenten har default typografi som kan bli overskrevet ved å bruke typografikomponenter som barn.
+      <ArgTypes of={AccordionBody} />
+    </TabPanel>
 
-<ArgTypes of={AccordionHeader} />
+  </TabPanels>
+</Tabs>
 
-### AccordionBody
-
-Body i `<Accordion>`. Skal brukes som andre barn og den får automatisk riktig `id` fra `<Accordion>`. Komponenten har default typografi som kan bli overskrevet ved å bruke typografikomponenter som barn.
-
-<ArgTypes of={AccordionBody} />
+<Divider />
 
 ## Custom
 

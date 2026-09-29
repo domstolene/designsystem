@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Communication. Search terms: åpen e-post, open mail, email, lest, read, brev, letter, melding, message, konvolutt. */
 export function MailOpenIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

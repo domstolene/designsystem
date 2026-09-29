@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Date, time and place. Search terms: tid, time, klokke, clock, timer. */
 export function TimeIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

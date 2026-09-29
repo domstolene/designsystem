@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Notifications. Search terms: slå av varsler, notifications off, bjelle, bell, stille, mute. */
 export function NotificationsOffIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

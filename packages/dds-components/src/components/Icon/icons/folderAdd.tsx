@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Document and file. Search terms: mappe, legg til mappe, add folder, ny mappe, new folder, pluss. */
 export function FolderAddIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

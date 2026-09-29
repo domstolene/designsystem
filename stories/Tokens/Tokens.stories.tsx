@@ -51,7 +51,7 @@ export const BorderRadius = meta.story(() => {
         <TabPanels>
           <TabPanel>{BorderRadiusGenerator('core')}</TabPanel>
           <TabPanel>{BorderRadiusGenerator('public')}</TabPanel>
-          <TabPanel>{BorderRadiusGenerator('public')}</TabPanel>
+          <TabPanel>{BorderRadiusGenerator('supreme')}</TabPanel>
         </TabPanels>
       </Tabs>
     </Wrapper>
@@ -137,7 +137,7 @@ export const Size = meta.story(() => {
         <TabPanels>
           <TabPanel>{SizeHeightGenerator('core')}</TabPanel>
           <TabPanel>{SizeHeightGenerator('public')}</TabPanel>
-          <TabPanel>{SizeHeightGenerator('public')}</TabPanel>
+          <TabPanel>{SizeHeightGenerator('supreme')}</TabPanel>
         </TabPanels>
       </Tabs>
     </Wrapper>

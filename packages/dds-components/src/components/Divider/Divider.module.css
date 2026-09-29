@@ -2,8 +2,7 @@
   border: 0;
   background-color: transparent;
   border-top: 1px solid;
-  margin-top: var(--dds-spacing-x1);
-  margin-bottom: var(--dds-spacing-x1);
+  margin-block: var(--dds-spacing-x1);
 }
 
 .divider--default {

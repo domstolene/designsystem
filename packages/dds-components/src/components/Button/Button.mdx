@@ -5,6 +5,8 @@ import {
 } from '@norges-domstoler/storybook-components';
 import * as ButtonStories from './Button.stories';
 import meta from './Button.stories';
+import { Tabs, Tab, TabList, TabPanel, TabPanels } from '../Tabs';
+import { Divider } from '../Divider';
 
 <Meta of={meta} />
 
@@ -17,10 +19,32 @@ import meta from './Button.stories';
   storybookHref={{ folder: 'components', comp: 'button' }}
 />
 
-## Props
+<Tabs>
+  <TabList>
+    <Tab>Preview</Tab>
+    <Tab>Formål</Tab>
+    <Tab>Størrelser</Tab>
+    <Tab>Full bredde</Tab>
+  </TabList>
 
-<Canvas of={ButtonStories.Preview} />
-<Controls of={ButtonStories.Preview} />
+  <TabPanels>
+    <TabPanel>
+      <Canvas of={ButtonStories.Preview} />
+      <Controls of={ButtonStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+    <Canvas of={ButtonStories.Purposes} />
+    </TabPanel>
+    <TabPanel>
+    <Canvas of={ButtonStories.Sizes} />
+    </TabPanel>
+    <TabPanel>
+    <Canvas of={ButtonStories.OverviewFullWidth} />
+    </TabPanel>
+  </TabPanels>
+</Tabs>
+
+<Divider />
 
 ## Bruk som lenke
 
@@ -61,4 +85,20 @@ import NextLink from 'next/link';
 
 ## Retningslinjer
 
-- Unngå å bruke `disabled`-attributtet da det fører til [dårlig brukeropplevelse](https://axesslab.com/disabled-buttons-suck/). Knappen skal være interaktiv, og dersom knappehandlingen ikke kan fullføres, bør det vises en tydelig feilmelding eller en annen relevant tilbakemelding.
+### Deaktiverte knapper
+
+Unngå å bruke `disabled`-attributtet da det fører til [dårlig brukeropplevelse](https://axesslab.com/disabled-buttons-suck/).
+Brukeren får ofte ikke tilstrekkelig informasjon om hvorfor handlingen ikke er tilgjengelig, og det kan føre til frustrasjon.
+Deaktiverte knapper er typisk "grået ut" med lav kontrast, noe som gjør de vanskelig å lese.
+Samtidig vil høy kontrast indikere at knappen er aktiv, og dermed føre til mer forvirring.
+
+#### Alternative løsninger
+
+Avhengig av kontekst anbefaler vi ulike alternative løsninger:
+
+- **Skjema:** Dersom brukeren ikke kan gå videre eller sende inn skjema, vis en tydelig feilmelding som forklarer hvorfor.
+- **Irrelevant handling:** Dersom handlingen ikke er relevant i den aktuelle konteksten, vurder å skjule knappen helt. Informer brukeren om hvorfor handlingen ikke er tilgjengelig.
+
+#### Unntak
+
+Unntaket er når knappen laster; `disabled`-attributtet er nødvendig for å unngå dobbel handling. Dette er innebygd når du bruker `loading`-prop.

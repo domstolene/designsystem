@@ -11,7 +11,6 @@ import {
   useState,
 } from 'react';
 
-import styles from './Tooltip.module.css';
 import {
   useCombinedRef,
   useFloatPosition,
@@ -28,11 +27,6 @@ type AnchorElement = ReactElement<
   HTMLAttributes<HTMLElement> & {
     ref: Ref<HTMLElement>;
   }
->;
-
-type PickedHTMLAttributes = Pick<
-  HTMLAttributes<HTMLDivElement>,
-  'style' | 'onMouseLeave' | 'onMouseOver'
 >;
 
 export type TooltipProps = BaseComponentProps<
@@ -54,8 +48,7 @@ export type TooltipProps = BaseComponentProps<
     tooltipId?: string;
     /**Om tooltip skal alltid være i DOM, eller bli rendret først når den skal vises. */
     keepMounted?: boolean;
-  } & PickedHTMLAttributes,
-  Omit<HTMLAttributes<HTMLDivElement>, 'children' | keyof PickedHTMLAttributes>
+  } & Pick<HTMLAttributes<HTMLDivElement>, 'onMouseLeave' | 'onMouseOver'>
 >;
 
 export const Tooltip = ({
@@ -185,8 +178,8 @@ export const Tooltip = ({
           style={{ ...positionStyles.floating }}
           elevation="small"
           border="border-subtle"
+          zIndex="tooltip"
           className={cn(
-            styles.paper,
             typographyStyles['body-short-medium'],
             utilStyles['visibility-transition'],
             utilStyles[`visibility-transition--${openCn}`],

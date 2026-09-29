@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Document and file. Search terms: publiser, publish, del, share, pil, arrow. */
 export function PublishIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

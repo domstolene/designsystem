@@ -1,4 +1,5 @@
 import styles from './DescriptionList.module.css';
+import { Box } from '../..';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -24,7 +25,7 @@ export const DescriptionListDesc = ({
   htmlProps,
   ...rest
 }: DescriptionListDescProps) => (
-  <dd
+  <Box
     {...getBaseHTMLProps(
       id,
       cn(className, styles.desc),
@@ -32,9 +33,14 @@ export const DescriptionListDesc = ({
       htmlProps,
       rest,
     )}
+    as="dd"
+    display="flex"
+    alignItems="center"
+    gap="x0.25"
+    marginInline="x0"
   >
     {icon && <Icon icon={icon} />} {children}
-  </dd>
+  </Box>
 );
 
 DescriptionListDesc.displayName = 'DescriptionListDesc';

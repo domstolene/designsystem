@@ -36,10 +36,6 @@
 }
 
 .desc {
-  margin-inline-start: 0;
-  align-items: center;
-  display: flex;
-  gap: var(--dds-spacing-x0-25);
   color: var(--dds-color-text-body);
 }
 

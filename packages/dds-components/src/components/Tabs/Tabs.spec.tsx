@@ -73,6 +73,18 @@ describe('<Tabs>', () => {
     expect(screen.queryAllByRole('tab')).toHaveLength(3);
   });
 
+  it('renders badge children in tab', () => {
+    const text = 1;
+    render(
+      <Tabs>
+        <TabList>
+          <Tab badgeProps={{ children: text }} />
+        </TabList>
+      </Tabs>,
+    );
+    expect(screen.getByText(text)).toBeInTheDocument();
+  });
+
   it('open panel is visible and closed panels invisible onChange', async () => {
     const panelText1 = 'panelText1';
     const panelText2 = 'panelText2';
@@ -158,6 +170,22 @@ describe('<Tabs>', () => {
     const tab = screen.getByRole('tab');
     await userEvent.click(tab);
     expect(onClick).toHaveBeenCalledTimes(1);
+  });
+
+  it('calls Tabs onChange event', async () => {
+    const onChange = vi.fn();
+    render(
+      <Tabs onChange={onChange}>
+        <TabList>
+          <Tab />
+          <Tab />
+        </TabList>
+      </Tabs>,
+    );
+
+    const tab2 = screen.getAllByRole('tab')[1];
+    await userEvent.click(tab2);
+    expect(onChange).toHaveBeenCalledTimes(1);
   });
 
   it('tabs are connected to panels via aria-controls accessible name', () => {

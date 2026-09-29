@@ -2,6 +2,7 @@ import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as ListStories from './List.stories';
 import meta from './List.stories';
+import { Tabs, Tab, TabList, TabPanel, TabPanels } from '../Tabs';
 
 <Meta of={meta} />
 
@@ -14,20 +15,21 @@ import meta from './List.stories';
   storybookHref={{ folder: 'components', comp: 'list' }}
 />
 
-Lister bygges med to subkomponenter som tilsvarer native HTML-elementer:
+## Delkomponenter
 
-- `<List>`
-- `<ListItem>`
-
-## Props
-
-### List
-
-Tilsvarer `<ul>` eller `<ol>`.
-
-<Canvas of={ListStories.Preview} />
-<Controls of={ListStories.Preview} />
-
-### ListItem
-
-Tilsvarer `<li>`. Støtter native HTML-attributter.
+<Tabs>
+  <TabList>
+    <Tab>List</Tab>
+    <Tab>ListItem</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      Tilsvarer `<ul>` eller `<ol>`.
+      <Canvas of={ListStories.Preview} />
+      <Controls of={ListStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      Tilsvarer `<li>`. Støtter native HTML-attributter.
+    </TabPanel>
+  </TabPanels>
+</Tabs>

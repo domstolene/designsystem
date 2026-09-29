@@ -2,6 +2,8 @@ import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as FieldsetStories from './Fieldset.stories';
 import meta from './Fieldset.stories';
+import { Tabs, Tab, TabList, TabPanel, TabPanels } from '../Tabs';
+import { Divider } from '../Divider';
 
 <Meta of={meta} />
 
@@ -15,16 +17,30 @@ import meta from './Fieldset.stories';
 
 `<Fieldset>` er en code-only komponent som tilsvarer nativ HTML-tag `<fieldset>`; den grupperer skjemafelt som hører sammen. Den skal ha `<Legend>` som første barn og `<FieldsetGroup>` som andre.
 
-## Props
+<Tabs>
+  <TabList>
+    <Tab>Fieldset</Tab>
+    <Tab>FieldsetGroup</Tab>
+  </TabList>
 
-### Fieldset
+  <TabPanels>
+    <TabPanel>
+      En container.
 
-<Canvas of={FieldsetStories.Preview} />
-<Controls of={FieldsetStories.Preview} />
+      - `<Legend>` som første barn,
+      - `<FieldsetGroup>` som andre barn.
 
-### FieldsetGroup
+      <Canvas of={FieldsetStories.Preview} />
+      <Controls of={FieldsetStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      Responsiv delkomponent; støtter samme props som [VStack](https://domstolene.github.io/designsystem/?path=/docs/dds-components-stack--docs).
+    </TabPanel>
 
-Responsiv delkomponent; støtter samme props som [VStack](https://domstolene.github.io/designsystem/?path=/docs/dds-components-stack--docs).
+  </TabPanels>
+</Tabs>
+
+<Divider />
 
 ## Retningslinjer
 

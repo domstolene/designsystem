@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Analytics. Search terms: linjediagram, line chart, statistikk, statistics, diagram, chart, trend. */
 export function LineChartIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

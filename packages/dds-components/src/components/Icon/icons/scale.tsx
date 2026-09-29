@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Domain. Search terms: vekt, scale, justice, balanse, balance, lov, law, likhet, equality, rettferdighet, fairness. */
 export function ScaleIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

@@ -87,7 +87,7 @@ export type SelectProps<Option = unknown, IsMulti extends boolean = false> = {
   customSingleValueElement?: (
     props: SingleValueProps<Option, IsMulti, GroupBase<Option>>,
   ) => JSX.Element;
-  /** Testid. Legges på control-div med suffiks "control". */
+  /** Testid. Legges på control-div med suffiks "control", samt alternativene på formen `"<data-testid>-option-<option.value>"`. */
   'data-testid'?: string;
   /**Ref til komponenten. */
   ref?: SelectForwardRefType<Option, IsMulti>;
@@ -224,13 +224,26 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
 
   const customOptionComponent = useCallback(
     (props: OptionProps<Option, IsMulti, GroupBase<Option>>): ReactNode => {
+      const optionTestId = dataTestId
+        ? `${dataTestId}-option-${String(
+            rest.getOptionValue?.(props.data) ??
+              (props.data as SelectOption).value,
+          )}`
+        : undefined;
+
       if (customOptionElement) {
-        return <CustomOption {...props} customElement={customOptionElement} />;
+        return (
+          <CustomOption
+            {...props}
+            customElement={customOptionElement}
+            testId={optionTestId}
+          />
+        );
       } else {
-        return <DDSOption {...props} />;
+        return <DDSOption {...props} testId={optionTestId} />;
       }
     },
-    [customOptionElement, componentSize],
+    [customOptionElement, dataTestId, rest.getOptionValue],
   );
 
   const reactSelectProps: ReactSelectProps<

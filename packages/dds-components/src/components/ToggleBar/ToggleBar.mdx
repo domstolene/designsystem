@@ -6,6 +6,7 @@ import {
 } from '@norges-domstoler/storybook-components';
 import * as ToggleBarStories from './ToggleBar.stories';
 import meta from './ToggleBar.stories';
+import { Tabs, Tab, TabList, TabPanel, TabPanels } from '../Tabs';
 
 <Meta of={meta} />
 
@@ -23,28 +24,29 @@ ToggleBar er en rad med semantiske radioknapper. Den består av følgende subkom
 - **`<ToggleBar>`** - wrapper for barna.
 - **`<ToggleRadio>`** - elementer å velge mellom.
 
-## Props
+## Delkomponenter
 
-### ToggleBar
+<Tabs>
+  <TabList>
+    <Tab>ToggleBar</Tab>
+    <Tab>ToggleRadio</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      Wrapper for `<ToggleRadio>` barna.
 
-En rad med `<ToggleRadio>`.
+      <Canvas of={ToggleBarStories.Preview} />
+      <Controls of={ToggleBarStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      Radioknapp.
 
-<Canvas of={ToggleBarStories.Preview} />
-<Controls of={ToggleBarStories.Preview} />
+      <ArgTypes of={ToggleRadio} />
+      Native HTML-attributter `'name'`, `'checked'`, `'value'`, `'onChange'`, `'aria-labelledby'`, `'aria-label'` støttes på toppnivå.
+      </TabPanel>
 
-#### Bredde
-
-Bredden på alle `<ToggleRadio>` i en `<ToggleBar>` skal være den samme. `<ToggleBar>` tar i utganspunktet hele tigjengelige bredden og fordeler den likt mellom barna. Spesifikk bredde kan settes enten i `<ToggleBar>` eller i selvutviklede wrapperen til `<ToggleBar>`.
-
-<Canvas of={ToggleBarStories.WithWidth} />
-
-### ToggleRadio
-
-Radioknapp.
-
-<ArgTypes of={ToggleRadio} />
-
-Native HTML-attributter `'name'`, `'checked'`, `'value'`, `'onChange'`, `'aria-labelledby'`, `'aria-label'` støttes på toppnivå.
+  </TabPanels>
+</Tabs>
 
 ## Kontrollert
 
@@ -64,3 +66,9 @@ const [checked, setValue] = useState('Alt1');
     <ToggleRadio label="Alt2" value="Alt2" />
 </ToggleBar>
 `} />
+
+## Bredde
+
+Bredden på alle `<ToggleRadio>` i en `<ToggleBar>` skal være den samme. `<ToggleBar>` tar i utgangspunktet hele tilgjengelige bredden og fordeler den likt mellom barna. Spesifikk bredde kan settes enten i `<ToggleBar>` eller i selvutviklede wrapperen til `<ToggleBar>`.
+
+<Canvas of={ToggleBarStories.WithWidth} />

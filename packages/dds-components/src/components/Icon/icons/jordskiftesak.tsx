@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Domain. Search terms: jordskiftesak, sak, case, jord, land, kart, map. */
 export function JordskiftesakIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

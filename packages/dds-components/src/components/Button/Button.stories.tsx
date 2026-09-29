@@ -1,7 +1,7 @@
 import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
-import { ArrowLeftIcon } from '../..';
+import { ArrowLeftIcon, NotificationsIcon } from '../..';
 import { BUTTON_PURPOSES, BUTTON_SIZES } from './Button.types';
 import {
   categoryHtml,
@@ -161,4 +161,14 @@ export const TextWithIcon = meta.story({
 
 export const Icon = meta.story({
   args: { icon: ArrowLeftIcon },
+});
+
+export const WithBadge = meta.story({
+  render: args => (
+    <Button
+      {...args}
+      icon={NotificationsIcon}
+      badgeProps={{ children: 5 }}
+    ></Button>
+  ),
 });

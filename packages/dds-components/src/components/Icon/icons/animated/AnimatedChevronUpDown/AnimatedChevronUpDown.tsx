@@ -5,6 +5,7 @@ import { type SvgProps, SvgWrapper } from '../../../utils';
 const STATES = ['up', 'down'] as const;
 export type AnimatedChevronUpDownIconStates = (typeof STATES)[number];
 
+/** Arrows and chevron. Search terms: animert, animated, chevron, pil, arrow, opp, ned, up, down. */
 export function AnimatedChevronUpDownIcon(
   props: SvgProps & { iconState?: AnimatedChevronUpDownIconStates },
 ) {

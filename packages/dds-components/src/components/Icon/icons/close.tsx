@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Checks and crosses. Search terms: lukke, close, dismiss, exit, avbryt, cancel, x, kryss, cross. */
 export function CloseIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

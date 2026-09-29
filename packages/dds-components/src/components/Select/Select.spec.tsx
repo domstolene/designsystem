@@ -66,4 +66,52 @@ describe('<Select>', () => {
       await screen.findByText(`Custom option: ${option.label}`),
     ).toBeInTheDocument();
   });
+
+  it('adds test id to control', () => {
+    portalRender(<Select options={[]} data-testid="dropdown" />);
+
+    expect(screen.getByTestId('dropdown-control')).toBeInTheDocument();
+  });
+
+  it('adds derived test ids to options', async () => {
+    const options = [
+      { label: 'Alternativ 1', value: 'one' },
+      { label: 'Alternativ 2', value: 'two' },
+    ];
+    portalRender(<Select options={options} data-testid="dropdown" />);
+
+    await userEvent.click(screen.getByTestId('dropdown-control'));
+
+    const opt1 = await screen.findByTestId('dropdown-option-one');
+    expect(opt1).toBeInTheDocument();
+    expect(opt1).toHaveRole('option');
+    const opt2 = await screen.findByTestId('dropdown-option-two');
+    expect(opt2).toBeInTheDocument();
+    expect(opt2).toHaveRole('option');
+  });
+
+  it('uses getOptionValue for derived test ids with custom options', async () => {
+    const options = [
+      { name: 'Alternativ 1', id: 101 },
+      { name: 'Alternativ 2', id: 202 },
+    ];
+    portalRender(
+      <Select
+        options={options}
+        data-testid="custom-dropdown"
+        getOptionLabel={option => option.name}
+        getOptionValue={option => String(option.id)}
+        customOptionElement={({ data }) => <span>{data.name}</span>}
+      />,
+    );
+
+    await userEvent.click(screen.getByTestId('custom-dropdown-control'));
+
+    expect(
+      await screen.findByTestId('custom-dropdown-option-101'),
+    ).toHaveTextContent('Alternativ 1');
+    expect(
+      await screen.findByTestId('custom-dropdown-option-202'),
+    ).toHaveTextContent('Alternativ 2');
+  });
 });

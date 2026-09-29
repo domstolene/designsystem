@@ -8,7 +8,7 @@ import {
 import { cn } from '../../../utils';
 import { Box } from '../Box';
 import { type ResponsiveGridProps } from '../common/Responsive.types';
-import { getResponsiveCSSProperties } from '../common/utils';
+import { getResponsiveCSSProperties, hasValue } from '../common/utils';
 
 const DEFAULT_PAGE_LAYOUT = {
   gridTemplateColumns: {
@@ -101,14 +101,15 @@ export const Grid = <T extends ElementType = 'div'>({
         id,
         cn(
           className,
-          resolvedGridTemplateColumns && styles['dds-grid-template-columns'],
-          grid && styles['dds-grid'],
-          gridAutoColumns && styles['dds-grid-auto-columns'],
-          gridAutoFlow && styles['dds-grid-auto-flow'],
-          gridAutoRows && styles['dds-grid-auto-rows'],
-          gridTemplate && styles['dds-grid-template'],
-          gridTemplateRows && styles['dds-grid-template-rows'],
-          gridTemplateAreas && styles['dds-grid-template-areas'],
+          hasValue(resolvedGridTemplateColumns) &&
+            styles['dds-grid-template-columns'],
+          hasValue(grid) && styles['dds-grid'],
+          hasValue(gridAutoColumns) && styles['dds-grid-auto-columns'],
+          hasValue(gridAutoFlow) && styles['dds-grid-auto-flow'],
+          hasValue(gridAutoRows) && styles['dds-grid-auto-rows'],
+          hasValue(gridTemplate) && styles['dds-grid-template'],
+          hasValue(gridTemplateRows) && styles['dds-grid-template-rows'],
+          hasValue(gridTemplateAreas) && styles['dds-grid-template-areas'],
         ),
         { ...style, ...styleVariables },
         htmlProps,

@@ -16,7 +16,7 @@
     "**/*.yml",
     "**/*.md",
     "**/*.mdx",
-    "**/vitest.config.ts",
+    "**/vitest.config.mts",
     "**/tsdown.config.ts",
     "**/*.spec.tsx",
     ".github/**",

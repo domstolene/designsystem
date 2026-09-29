@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Document and file. Search terms: sjekkliste, checklist, liste, list, oppgaver, tasks. */
 export function ChecklistIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

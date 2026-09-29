@@ -210,7 +210,7 @@ export const getCustomStyles = <TOption>(
     zIndex: 100,
     transition: 'var(--dds-motion-surface)',
     border: '1px solid var(--dds-color-border-default)',
-    backgroundColor: 'var(--dds-color-surface-default)',
+    backgroundColor: 'var(--dds-color-surface-paper-default)',
     borderRadius: 'var(--dds-border-radius-surface)',
     marginBlock: 'var(--dds-spacing-x0-25)',
   }),
@@ -243,15 +243,21 @@ export const getCustomStyles = <TOption>(
     gap: 'var(--dds-spacing-x0-25)',
     padding: 'var(--dds-spacing-x0-75)',
     borderRadius: 'var(--dds-border-radius-surface)',
-    backgroundColor: 'var(--dds-color-surface-default)',
+    backgroundColor: 'inherit',
     ...typography.option[size],
     color: 'var(--dds-color-text-default)',
     '@media (prefers-reduced-motion: no-preference)': {
       transition:
         'color var(--dds-motion-micro-state), background-color var(--dds-motion-micro-state)',
     },
+    '&:active': {
+      backgroundColor: 'inherit',
+    },
     ...(state.isSelected && {
       backgroundColor: 'var(--dds-color-surface-selected-default)',
+      '&:active': {
+        backgroundColor: 'var(--dds-color-surface-selected-default)',
+      },
     }),
     // egen stil siden react-select bruker focus-state og hover-styling samtidig; ikke nødvendig hvis de kan skilles.
     ...(state.isFocused && {

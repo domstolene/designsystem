@@ -89,6 +89,7 @@ export const responsivePropsArgTypes: ResponsiveArgTypes<ResponsiveProps> = {
   minHeight: CSSArgType,
   position: CSSArgType,
   display: CSSArgType,
+  flex: CSSArgType,
   flexDirection: CSSArgType,
   flexBasis: CSSArgType,
   flexFlow: CSSArgType,
@@ -103,6 +104,7 @@ export const responsivePropsArgTypes: ResponsiveArgTypes<ResponsiveProps> = {
   columnGap: CSSArgType,
   textAlign: CSSArgType,
   wordBreak: CSSArgType,
+  zIndex: CSSArgType,
 };
 
 export const responsiveStackPropsArgTypes: ResponsiveArgTypes<ResponsiveStackProps> =

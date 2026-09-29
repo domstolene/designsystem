@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Settings and tools. Search terms: tommel opp, thumb up, fylt, filled, positive, bra, good. */
 export function ThumbUpFilledIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Navigation and menu. Search terms: logg inn, login, sign in, autentiser, authenticate, pil, arrow. */
 export function LoginIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

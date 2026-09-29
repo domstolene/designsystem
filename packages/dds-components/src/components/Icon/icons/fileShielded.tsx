@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Access and people. Search terms: skjermet fil, shielded file, beskyttet, protected, dokument, document, side, page. */
 export function FileShieldedIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

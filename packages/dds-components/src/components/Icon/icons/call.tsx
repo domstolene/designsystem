@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Communication. Search terms: ring, call, telefon, phone, samtale. */
 export function CallIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

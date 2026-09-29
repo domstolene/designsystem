@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Social. Search terms: x, twitter, sosiale medier, social media. */
 export function XIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** UI manipulate. Search terms: kollapse, collapse, minimere, minimize, skjul, hide. */
 export function CollapseIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

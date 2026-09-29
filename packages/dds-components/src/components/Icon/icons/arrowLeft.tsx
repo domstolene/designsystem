@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Arrows and chevron. Search terms: pil, arrow, venstre, left, tilbake, back. */
 export function ArrowLeftIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

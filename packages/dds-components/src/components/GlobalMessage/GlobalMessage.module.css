@@ -1,11 +1,6 @@
 .container {
   border-bottom: 2px solid;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   box-sizing: border-box;
-  width: 100%;
-  padding: 0 var(--dds-spacing-x1);
 }
 
 .container--info {
@@ -33,17 +28,6 @@
   .icon {
     color: var(--dds-color-icon-on-warning-default);
   }
-}
-
-.content {
-  display: flex;
-  align-items: center;
-  padding: var(--dds-spacing-x0-75) var(--dds-spacing-x1-5)
-    var(--dds-spacing-x0-75) 0;
-}
-
-.content--closable {
-  padding-right: var(--dds-spacing-x0-75);
 }
 
 .icon {
