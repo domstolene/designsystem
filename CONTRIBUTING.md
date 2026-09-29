@@ -276,7 +276,7 @@ Eksempel:
     padding: var(--dds-spacing-x0-125) var(--dds-spacing-x0-25)
     var(--dds-spacing-x0-125) var(--dds-spacing-x0-5);
     border: 1px solid var(--dds-color-border-subtle);
-    border-radius: var(--dds-border-radius-chip);
+    border-radius: var(--dds-border-radius-rounded);
     background-color: var(--dds-color-surface-subtle);
 }
 

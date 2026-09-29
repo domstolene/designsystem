@@ -6,8 +6,8 @@
   border-radius: var(--dds-border-radius-surface);
 }
 
-:where(.border-radius--chip) {
-  border-radius: var(--dds-border-radius-chip);
+:where(.border-radius--tag) {
+  border-radius: var(--dds-border-radius-tag);
 }
 
 :where(.border-radius--input) {
