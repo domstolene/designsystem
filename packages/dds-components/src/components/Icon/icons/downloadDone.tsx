@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Document and file. Search terms: last ned, download, lagret, saved, ferdig, done, fullført, complete. */
 export function DownloadDoneIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

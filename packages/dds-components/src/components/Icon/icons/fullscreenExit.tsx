@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** UI manipulate. Search terms: fullskjerm, forlat fullskjerm, exit fullscreen, minimere, minimize, skjerm, screen. */
 export function FullscreenExitIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

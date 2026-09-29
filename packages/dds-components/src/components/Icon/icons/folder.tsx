@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Document and file. Search terms: mappe, katalog, directory. */
 export function FolderIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

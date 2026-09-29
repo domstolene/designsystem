@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Document and file. Search terms: last ned, download, lagre, save, fil, file. */
 export function DownloadIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

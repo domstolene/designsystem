@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Document and file. Search terms: pdf, dokument, document, fil, file. */
 export function PdfIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Access and people. Search terms: vis, show, synlighet, visibility, øye, eye, synlig, visible. */
 export function VisibilityOnIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

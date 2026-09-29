@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Edit. Search terms: angre, undo, tilbake, back, reversere, reverse, pil, arrow. */
 export function UndoIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

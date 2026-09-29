@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Document and file. Search terms: dokument, document, side, page. */
 export function FileIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

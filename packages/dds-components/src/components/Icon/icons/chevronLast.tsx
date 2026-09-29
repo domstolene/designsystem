@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Arrows and chevron. Search terms: chevron, pil, arrow, siste, last, end, slutt. */
 export function ChevronLastIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

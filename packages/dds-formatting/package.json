@@ -1,6 +1,6 @@
 {
   "name": "@norges-domstoler/dds-formatting",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Text formatting functions used in Elsa - domstolenes designsystem",
   "author": "Elsa team",
   "license": "MIT",
@@ -43,11 +43,6 @@
     "norges domstoler",
     "elsa"
   ],
-  "devDependencies": {
-    "typescript": "^5.9.3",
-    "vite": "^8.2.2",
-    "vitest": "^4.1.11"
-  },
   "publishConfig": {
     "provenance": true
   }

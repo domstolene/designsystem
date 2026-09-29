@@ -162,7 +162,12 @@ export const NewsPopover = ({
           {el.image}
         </Box>
       </Paper>
-      <VStack gap="x0.75" alignItems="center" margin="x0.75 x0.75 x1 x0.75">
+      <VStack
+        gap="x0.75"
+        alignItems="center"
+        margin="x0.75 x0.75 0 x0.75"
+        height={styleUpToBreakpoint('100%', smallScreenBreakpoint, '130px')}
+      >
         <Heading level={3}>{el.heading}</Heading>
         <Paragraph textAlign="center">{el.text}</Paragraph>
       </VStack>
@@ -210,7 +215,6 @@ export const NewsPopover = ({
       border="border-subtle"
       role="dialog"
       aria-labelledby={headerId}
-      height={isList ? '368px' : '327px'}
       width={styleUpToBreakpoint('100%', smallScreenBreakpoint, '500px')}
     >
       <HStack margin="x0.75 x3 x0.75 x0.75">
@@ -218,14 +222,10 @@ export const NewsPopover = ({
           {header}
         </Heading>
       </HStack>
-      <VStack
-        alignItems="center"
-        height={isList ? '299px' : undefined}
-        aria-live="polite"
-      >
+      <VStack alignItems="center" aria-live="polite" marginBlock="0 x1.5">
         {content}
         {isList && (
-          <HStack alignItems="center" gap="x1" marginBlock="auto 0">
+          <HStack alignItems="center" gap="x1">
             <Button
               aria-label={t(commonTexts.previousPage)}
               size="small"

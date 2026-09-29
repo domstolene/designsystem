@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Edit. Search terms: søppel, trash, slett, delete, fjern, remove, papirkurv, bin. */
 export function TrashIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

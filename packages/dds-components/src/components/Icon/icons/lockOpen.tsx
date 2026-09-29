@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Access and people. Search terms: åpen lås, lock open, ulåst, unlocked, tilgang, access. */
 export function LockOpenIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

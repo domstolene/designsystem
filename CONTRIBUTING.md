@@ -83,14 +83,7 @@ npm install norges-domstoler-<pakkenavn>-<versjon>.tgz
 
 ### Linking
 
-Hvis du vil teste endringer i Elsa live i applikasjonen din kan du bruke `npm link`.
-
-```Shell
-cd ~/designsystem/packages/<pakkenavn> # velg pakke
-npm link
-cd ~/din-app
-npm link @norges-domstoler/<pakkenavn>
-```
+Se [LINKING.md](./LINKING.md).
 
 ## Testing
 
@@ -283,7 +276,7 @@ Eksempel:
     padding: var(--dds-spacing-x0-125) var(--dds-spacing-x0-25)
     var(--dds-spacing-x0-125) var(--dds-spacing-x0-5);
     border: 1px solid var(--dds-color-border-subtle);
-    border-radius: var(--dds-border-radius-chip);
+    border-radius: var(--dds-border-radius-rounded);
     background-color: var(--dds-color-surface-subtle);
 }
 

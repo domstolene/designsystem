@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Notifications. Search terms: flagg, marker, mark, rapporter, report. */
 export function FlagIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

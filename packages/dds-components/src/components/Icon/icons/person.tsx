@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Access and people. Search terms: person, bruker, user, profil, profile, konto, account. */
 export function PersonIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

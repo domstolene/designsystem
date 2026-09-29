@@ -7,7 +7,9 @@ import {
 } from '../../storybook';
 import { Button } from '../Button';
 import {
+  ArchiveIcon,
   EditIcon,
+  MailIcon,
   MenuIcon,
   MoreVerticalIcon,
   PersonIcon,
@@ -336,6 +338,41 @@ export const PortalClippingComparison = meta.story({
             </div>
           </VStack>
         </HStack>
+      </VStack>
+    );
+  },
+});
+
+export const WithBadge = meta.story({
+  parameters: { docs: { story: { height: '540px' } } },
+  render: args => {
+    return (
+      <VStack>
+        <OverflowMenuGroup isInitiallyOpen>
+          <Button icon={MenuIcon} aria-label="Åpne meny" />
+          <OverflowMenu {...args}>
+            <OverflowMenuList>
+              <OverflowMenuButton
+                onClick={() => {
+                  //kun for showcase
+                }}
+                icon={MailIcon}
+                badgeProps={{ children: 3, purpose: 'action' }}
+              >
+                Innboks
+              </OverflowMenuButton>
+              <OverflowMenuButton
+                onClick={() => {
+                  //kun for showcase
+                }}
+                icon={ArchiveIcon}
+                badgeProps={{ children: 3, purpose: 'subtle' }}
+              >
+                Arkiv
+              </OverflowMenuButton>
+            </OverflowMenuList>
+          </OverflowMenu>
+        </OverflowMenuGroup>
       </VStack>
     );
   },

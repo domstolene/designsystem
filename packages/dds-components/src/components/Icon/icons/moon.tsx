@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** UI manipulate. Search terms: måne, moon, mørk, dark, natt, night, modus, mode. */
 export function MoonIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

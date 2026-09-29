@@ -1,5 +1,20 @@
 # @norges-domstoler/dds-design-tokens
 
+## 10.1.0
+
+(2026-09-11)
+
+### Minor Changes
+
+- 8a10298: Legger til ny design token `dds-color-surface-strong`.
+
+### Patch Changes
+
+- e1e76eb: Oppdaterer verdier i enkelte design tokens for farger:
+
+  - Gjør `dds-color-bg-subtle` og `dds--color-surface-subtle` lysere i `core-light` og `public-light`.
+  - Gjør `dds-color-text-default`, `dds-color-icon-default`, `dds-color-text-on-status-default`, og `dds-color-border-strong` ikke helt hvit i mørk modus i alle hovedtemaer. Dette gjør teksten og border behageligere å lese/se på.
+
 ## 10.0.0
 
 (2026-08-18)

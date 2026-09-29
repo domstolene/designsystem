@@ -28,6 +28,22 @@
         "type": "color",
         "description": "Medium surface color"
       },
+      "strong": {
+        "value": "{dds-color-data.gray.700}",
+        "type": "color",
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false,
+          "com.figma.scopes": [
+            "ALL_FILLS",
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "TEXT_FILL",
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ]
+        },
+        "description": "Strong surface color"
+      },
       "hover-default": {
         "value": "{dds-color.interactive.800}",
         "type": "color",
@@ -176,7 +192,7 @@
         "description": "Form components, togglebutton, secondary button, checkbox etc"
       },
       "strong": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.cool-gray.50}",
         "type": "color"
       },
       "subtle": {
@@ -227,7 +243,7 @@
     },
     "text": {
       "default": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.cool-gray.50}",
         "type": "color",
         "description": "default text, heading, body. on surface.hover"
       },
@@ -257,7 +273,7 @@
         "description": "On surface.action (primary and danger button)"
       },
       "on-status-default": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.cool-gray.50}",
         "type": "color",
         "description": "On default status surfaces"
       },
@@ -369,7 +385,7 @@
     },
     "icon": {
       "default": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.cool-gray.50}",
         "type": "color",
         "description": "Often used with text.default"
       },

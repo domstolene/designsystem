@@ -28,6 +28,22 @@
         "type": "color",
         "description": "Medium surface color"
       },
+      "strong": {
+        "value": "{dds-color.warm-gray.200}",
+        "type": "color",
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false,
+          "com.figma.scopes": [
+            "ALL_FILLS",
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "TEXT_FILL",
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ]
+        },
+        "description": "Strong surface color"
+      },
       "hover-default": {
         "value": "{dds-color.supreme-teal.50}",
         "type": "color",

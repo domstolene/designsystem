@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Date, time and place. Search terms: datoperiode, date range, kalender, calendar, periode, period. */
 export function DateRangeIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

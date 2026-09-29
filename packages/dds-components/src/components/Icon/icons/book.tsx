@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Services. Search terms: bok, book, dokument, document, lese, read. */
 export function BookIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

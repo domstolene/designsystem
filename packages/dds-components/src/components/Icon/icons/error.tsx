@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Notifications. Search terms: feil, error, advarsel, alert, problem, issue. */
 export function ErrorIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

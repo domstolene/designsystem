@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Domain. Search terms: hammer, dommer, judge, domstol, court, rett, klubbe. */
 export function GavelIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

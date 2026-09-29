@@ -2,7 +2,7 @@
   border: 1px solid;
   display: inline-flex;
   align-items: center;
-  border-radius: var(--dds-border-radius-chip);
+  border-radius: var(--dds-border-radius-tag);
   color: var(--dds-color-text-on-status-default);
 
   svg {
