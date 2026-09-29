@@ -45,7 +45,7 @@ export const Chip = ({
       maxWidth="100%"
       gap="x0.125"
       padding="x0.25 0 x0.25 x0.5"
-      borderRadius="chip"
+      borderRadius="rounded"
       border="border-subtle"
       background="surface-subtle"
       {...getBaseHTMLProps(
