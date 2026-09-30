@@ -142,12 +142,12 @@
     },
     "text-on": {
       "default": {
-        "value": "{dds-color.cool-gray.black}",
+        "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "Used on statistics. with default value"
       },
       "subtle": {
-        "value": "{dds-color.cool-gray.white}",
+        "value": "{dds-color.cool-gray.black}",
         "type": "color",
         "description": "Used on statistics. with subtle value"
       }
