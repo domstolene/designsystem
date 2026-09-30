@@ -371,8 +371,8 @@
   --dds-color-statistics-09-default: #007d79;
   --dds-color-statistics-09-subtle: #90ccc9;
   --dds-color-statistics-09-border: #007d79;
-  --dds-color-statistics-text-on-default: #0b0d0e; /* Used on statistics. with default value */
-  --dds-color-statistics-text-on-subtle: #ffffff; /* Used on statistics. with subtle value */
+  --dds-color-statistics-text-on-default: #ffffff; /* Used on statistics. with default value */
+  --dds-color-statistics-text-on-subtle: #0b0d0e; /* Used on statistics. with subtle value */
   --dds-color-domain-blue-default: #9fc0ff;
   --dds-color-domain-blue-strong: #6fa1fe;
   --dds-color-domain-blue-subtle: #cfe0ff;
