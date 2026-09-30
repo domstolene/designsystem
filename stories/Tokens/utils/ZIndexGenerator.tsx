@@ -1,43 +1,19 @@
 import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Zindex.json';
 
-import { copyButton } from './CopyButton';
+import { TokenTable } from './functions';
 import { type TokenBreakpointJsonObject } from './Tokens.types';
-import { Table } from '../../../packages/dds-components/src/index';
 
 export const ZIndexGenerator = () => {
   const tokenPrefix = 'dds-zindex';
   const tokens: TokenBreakpointJsonObject = jsonBase[tokenPrefix];
 
-  function generateBodyRows() {
-    const rows: Array<React.JSX.Element> = [];
-
-    for (const key in tokens) {
-      const token = tokens[key];
-      const tokenName = `--${tokenPrefix}-${key}`;
-      rows.push(
-        <Table.Row key={tokenName}>
-          <Table.Cell>{tokenName}</Table.Cell>
-          <Table.Cell>{token.value}</Table.Cell>
-          <Table.Cell>{copyButton(tokenName)}</Table.Cell>
-          <Table.Cell>{token.description}</Table.Cell>
-        </Table.Row>,
-      );
-    }
-
-    return rows;
-  }
-
   return (
-    <Table>
-      <Table.Head>
-        <Table.Row>
-          <Table.Cell>Token</Table.Cell>
-          <Table.Cell>Verdi</Table.Cell>
-          <Table.Cell>Kopier</Table.Cell>
-          <Table.Cell style={{ width: '26rem' }}>Beskrivelse</Table.Cell>
-        </Table.Row>
-      </Table.Head>
-      <Table.Body>{generateBodyRows()}</Table.Body>
-    </Table>
+    <TokenTable
+      tokens={tokens}
+      tokenPrefix={tokenPrefix}
+      headers={['Token', 'Verdi', 'Kopier', 'Beskrivelse']}
+      showDescription
+      descriptionHeaderStyle={{ width: '26rem' }}
+    />
   );
 };

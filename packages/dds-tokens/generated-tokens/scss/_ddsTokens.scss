@@ -1,9 +1,6 @@
 
 // Do not edit directly, this file was auto-generated.
 
-  $dds-color-data-10-default: var(--dds-color-data-10-default);
-  $dds-color-data-10-subtle: var(--dds-color-data-10-subtle);
-  $dds-color-data-10-border: var(--dds-color-data-10-border);
   $dds-color-data-red-100: var(--dds-color-data-red-100);
   $dds-color-data-red-200: var(--dds-color-data-red-200);
   $dds-color-data-red-300: var(--dds-color-data-red-300);
@@ -94,33 +91,6 @@
   $dds-color-data-gray-700: var(--dds-color-data-gray-700);
   $dds-color-data-gray-800: var(--dds-color-data-gray-800);
   $dds-color-data-gray-900: var(--dds-color-data-gray-900);
-  $dds-color-data-01-default: var(--dds-color-data-01-default);
-  $dds-color-data-01-subtle: var(--dds-color-data-01-subtle);
-  $dds-color-data-01-border: var(--dds-color-data-01-border);
-  $dds-color-data-02-default: var(--dds-color-data-02-default);
-  $dds-color-data-02-subtle: var(--dds-color-data-02-subtle);
-  $dds-color-data-02-border: var(--dds-color-data-02-border);
-  $dds-color-data-03-default: var(--dds-color-data-03-default);
-  $dds-color-data-03-subtle: var(--dds-color-data-03-subtle);
-  $dds-color-data-03-border: var(--dds-color-data-03-border);
-  $dds-color-data-04-default: var(--dds-color-data-04-default);
-  $dds-color-data-04-subtle: var(--dds-color-data-04-subtle);
-  $dds-color-data-04-border: var(--dds-color-data-04-border);
-  $dds-color-data-05-default: var(--dds-color-data-05-default);
-  $dds-color-data-05-subtle: var(--dds-color-data-05-subtle);
-  $dds-color-data-05-border: var(--dds-color-data-05-border);
-  $dds-color-data-06-default: var(--dds-color-data-06-default);
-  $dds-color-data-06-subtle: var(--dds-color-data-06-subtle);
-  $dds-color-data-06-border: var(--dds-color-data-06-border);
-  $dds-color-data-07-default: var(--dds-color-data-07-default);
-  $dds-color-data-07-subtle: var(--dds-color-data-07-subtle);
-  $dds-color-data-07-border: var(--dds-color-data-07-border);
-  $dds-color-data-08-default: var(--dds-color-data-08-default);
-  $dds-color-data-08-subtle: var(--dds-color-data-08-subtle);
-  $dds-color-data-08-border: var(--dds-color-data-08-border);
-  $dds-color-data-09-default: var(--dds-color-data-09-default);
-  $dds-color-data-09-subtle: var(--dds-color-data-09-subtle);
-  $dds-color-data-09-border: var(--dds-color-data-09-border);
   $dds-border-radius-button: var(--dds-border-radius-button); /* For use in button component and togglebutton */
   $dds-border-radius-surface: var(--dds-border-radius-surface); /* Most surfaces, for example cards, papers, messages, backgrounds in GUI */
   $dds-border-radius-input: var(--dds-border-radius-input); /* All input fields, and check boxes */
@@ -131,7 +101,7 @@
   $dds-color-surface-default: var(--dds-color-surface-default); /* Default bg */
   $dds-color-surface-subtle: var(--dds-color-surface-subtle); /* Subtle surface color */
   $dds-color-surface-medium: var(--dds-color-surface-medium); /* Medium surface color */
-  $dds-color-surface-strong: var(--dds-color-surface-strong); /* Strong surface color */
+  $dds-color-surface-strong: var(--dds-color-surface-strong); /* Strong surface color. Brukes ikke med text-action og text-subtle */
   $dds-color-surface-hover-default: var(--dds-color-surface-hover-default); /* Hover on surface (default, subtle, medium) */
   $dds-color-surface-hover-subtle: var(--dds-color-surface-hover-subtle); /* Subtle hover on surface (default, medium) */
   $dds-color-surface-selected-default: var(--dds-color-surface-selected-default); /* Selected state for surface (default, subtle, medium) */
@@ -197,8 +167,6 @@
   $dds-color-text-on-tertiary-subtle: var(--dds-color-text-on-tertiary-subtle); /* Used on brand.tertiary-subtle */
   $dds-color-text-on-tertiary-medium: var(--dds-color-text-on-tertiary-medium); /* Used on brand.tertiary-medium */
   $dds-color-text-on-tertiary-strong: var(--dds-color-text-on-tertiary-strong); /* Used on brand.tertiary-strong */
-  $dds-color-text-on-data-default: var(--dds-color-text-on-data-default); /* Used on data. with default value */
-  $dds-color-text-on-data-subtle: var(--dds-color-text-on-data-subtle); /* Used on data. with subtle value */
   $dds-color-icon-default: var(--dds-color-icon-default); /* Often used with text.default */
   $dds-color-icon-medium: var(--dds-color-icon-medium); /* Often used with text.medium */
   $dds-color-icon-subtle: var(--dds-color-icon-subtle); /* Often used with text.subtle */
@@ -371,3 +339,76 @@
   $dds-font-body-short-small-paragraph-spacing: var(--dds-font-body-short-small-paragraph-spacing);
   $dds-font-body-short-xsmall-letter-spacing: var(--dds-font-body-short-xsmall-letter-spacing);
   $dds-font-body-short-xsmall-paragraph-spacing: var(--dds-font-body-short-xsmall-paragraph-spacing);
+  $dds-color-statistics-10-default: var(--dds-color-statistics-10-default);
+  $dds-color-statistics-10-subtle: var(--dds-color-statistics-10-subtle);
+  $dds-color-statistics-10-border: var(--dds-color-statistics-10-border);
+  $dds-color-statistics-01-default: var(--dds-color-statistics-01-default);
+  $dds-color-statistics-01-subtle: var(--dds-color-statistics-01-subtle);
+  $dds-color-statistics-01-border: var(--dds-color-statistics-01-border);
+  $dds-color-statistics-02-default: var(--dds-color-statistics-02-default);
+  $dds-color-statistics-02-subtle: var(--dds-color-statistics-02-subtle);
+  $dds-color-statistics-02-border: var(--dds-color-statistics-02-border);
+  $dds-color-statistics-03-default: var(--dds-color-statistics-03-default);
+  $dds-color-statistics-03-subtle: var(--dds-color-statistics-03-subtle);
+  $dds-color-statistics-03-border: var(--dds-color-statistics-03-border);
+  $dds-color-statistics-04-default: var(--dds-color-statistics-04-default);
+  $dds-color-statistics-04-subtle: var(--dds-color-statistics-04-subtle);
+  $dds-color-statistics-04-border: var(--dds-color-statistics-04-border);
+  $dds-color-statistics-05-default: var(--dds-color-statistics-05-default);
+  $dds-color-statistics-05-subtle: var(--dds-color-statistics-05-subtle);
+  $dds-color-statistics-05-border: var(--dds-color-statistics-05-border);
+  $dds-color-statistics-06-default: var(--dds-color-statistics-06-default);
+  $dds-color-statistics-06-subtle: var(--dds-color-statistics-06-subtle);
+  $dds-color-statistics-06-border: var(--dds-color-statistics-06-border);
+  $dds-color-statistics-07-default: var(--dds-color-statistics-07-default);
+  $dds-color-statistics-07-subtle: var(--dds-color-statistics-07-subtle);
+  $dds-color-statistics-07-border: var(--dds-color-statistics-07-border);
+  $dds-color-statistics-08-default: var(--dds-color-statistics-08-default);
+  $dds-color-statistics-08-subtle: var(--dds-color-statistics-08-subtle);
+  $dds-color-statistics-08-border: var(--dds-color-statistics-08-border);
+  $dds-color-statistics-09-default: var(--dds-color-statistics-09-default);
+  $dds-color-statistics-09-subtle: var(--dds-color-statistics-09-subtle);
+  $dds-color-statistics-09-border: var(--dds-color-statistics-09-border);
+  $dds-color-statistics-text-on-default: var(--dds-color-statistics-text-on-default); /* Used on statistics. with default value */
+  $dds-color-statistics-text-on-subtle: var(--dds-color-statistics-text-on-subtle); /* Used on statistics. with subtle value */
+  $dds-color-domain-blue-default: var(--dds-color-domain-blue-default);
+  $dds-color-domain-blue-strong: var(--dds-color-domain-blue-strong);
+  $dds-color-domain-blue-subtle: var(--dds-color-domain-blue-subtle);
+  $dds-color-domain-blue-border: var(--dds-color-domain-blue-border);
+  $dds-color-domain-brown-default: var(--dds-color-domain-brown-default);
+  $dds-color-domain-brown-strong: var(--dds-color-domain-brown-strong);
+  $dds-color-domain-brown-subtle: var(--dds-color-domain-brown-subtle);
+  $dds-color-domain-brown-border: var(--dds-color-domain-brown-border);
+  $dds-color-domain-gray-default: var(--dds-color-domain-gray-default);
+  $dds-color-domain-gray-strong: var(--dds-color-domain-gray-strong);
+  $dds-color-domain-gray-subtle: var(--dds-color-domain-gray-subtle);
+  $dds-color-domain-gray-border: var(--dds-color-domain-gray-border);
+  $dds-color-domain-green-default: var(--dds-color-domain-green-default);
+  $dds-color-domain-green-strong: var(--dds-color-domain-green-strong);
+  $dds-color-domain-green-subtle: var(--dds-color-domain-green-subtle);
+  $dds-color-domain-green-border: var(--dds-color-domain-green-border);
+  $dds-color-domain-purple-default: var(--dds-color-domain-purple-default);
+  $dds-color-domain-purple-strong: var(--dds-color-domain-purple-strong);
+  $dds-color-domain-purple-subtle: var(--dds-color-domain-purple-subtle);
+  $dds-color-domain-purple-border: var(--dds-color-domain-purple-border);
+  $dds-color-domain-magenta-default: var(--dds-color-domain-magenta-default);
+  $dds-color-domain-magenta-strong: var(--dds-color-domain-magenta-strong);
+  $dds-color-domain-magenta-subtle: var(--dds-color-domain-magenta-subtle);
+  $dds-color-domain-magenta-border: var(--dds-color-domain-magenta-border);
+  $dds-color-domain-olive-default: var(--dds-color-domain-olive-default);
+  $dds-color-domain-olive-strong: var(--dds-color-domain-olive-strong);
+  $dds-color-domain-olive-subtle: var(--dds-color-domain-olive-subtle);
+  $dds-color-domain-olive-border: var(--dds-color-domain-olive-border);
+  $dds-color-domain-red-default: var(--dds-color-domain-red-default);
+  $dds-color-domain-red-strong: var(--dds-color-domain-red-strong);
+  $dds-color-domain-red-subtle: var(--dds-color-domain-red-subtle);
+  $dds-color-domain-red-border: var(--dds-color-domain-red-border);
+  $dds-color-domain-teal-default: var(--dds-color-domain-teal-default);
+  $dds-color-domain-teal-strong: var(--dds-color-domain-teal-strong);
+  $dds-color-domain-teal-subtle: var(--dds-color-domain-teal-subtle);
+  $dds-color-domain-teal-border: var(--dds-color-domain-teal-border);
+  $dds-color-domain-deepblue-default: var(--dds-color-domain-deepblue-default);
+  $dds-color-domain-deepblue-strong: var(--dds-color-domain-deepblue-strong);
+  $dds-color-domain-deepblue-subtle: var(--dds-color-domain-deepblue-subtle);
+  $dds-color-domain-deepblue-border: var(--dds-color-domain-deepblue-border);
+  $dds-color-domain-text-on-domain: var(--dds-color-domain-text-on-domain);

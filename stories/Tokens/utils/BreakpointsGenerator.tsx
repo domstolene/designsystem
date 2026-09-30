@@ -1,41 +1,11 @@
 import jsonBase from '@norges-domstoler/dds-design-tokens/dds/tokens/Base/Spacing.json';
 
-import { copyButton } from './CopyButton';
+import { TokenTable } from './functions';
 import { type TokenBreakpointJsonObject } from './Tokens.types';
-import { Table } from '../../../packages/dds-components/src/index';
 
 export const BreakpointsGenerator = () => {
   const tokenPrefix = 'dds-breakpoint';
   const tokens: TokenBreakpointJsonObject = jsonBase[tokenPrefix];
 
-  function generateBodyRows() {
-    const rows: Array<React.JSX.Element> = [];
-
-    for (const key in tokens) {
-      const token = tokens[key];
-      const tokenName = `--${tokenPrefix}-${key}`;
-      rows.push(
-        <Table.Row key={tokenName}>
-          <Table.Cell>{tokenName}</Table.Cell>
-          <Table.Cell>{token.value}</Table.Cell>
-          <Table.Cell>{copyButton(tokenName)}</Table.Cell>
-        </Table.Row>,
-      );
-    }
-
-    return rows;
-  }
-
-  return (
-    <Table>
-      <Table.Head>
-        <Table.Row>
-          <Table.Cell>Token</Table.Cell>
-          <Table.Cell>Verdi</Table.Cell>
-          <Table.Cell>Kopier</Table.Cell>
-        </Table.Row>
-      </Table.Head>
-      <Table.Body>{generateBodyRows()}</Table.Body>
-    </Table>
-  );
+  return <TokenTable tokens={tokens} tokenPrefix={tokenPrefix} />;
 };

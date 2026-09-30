@@ -1,0 +1,190 @@
+{
+  "dds-color-domain": {
+    "blue": {
+      "default": {
+        "value": "{dds-color-data.blue.200}",
+        "type": "color"
+      },
+      "strong": {
+        "value": "{dds-color-data.blue.300}",
+        "type": "color"
+      },
+      "subtle": {
+        "value": "{dds-color-data.blue.100}",
+        "type": "color"
+      },
+      "border": {
+        "value": "{dds-color-data.blue.400}",
+        "type": "color"
+      }
+    },
+    "brown": {
+      "default": {
+        "value": "{dds-color-data.brown.200}",
+        "type": "color"
+      },
+      "strong": {
+        "value": "{dds-color-data.brown.300}",
+        "type": "color"
+      },
+      "subtle": {
+        "value": "{dds-color-data.brown.100}",
+        "type": "color"
+      },
+      "border": {
+        "value": "{dds-color-data.brown.400}",
+        "type": "color"
+      }
+    },
+    "gray": {
+      "default": {
+        "value": "{dds-color-data.gray.200}",
+        "type": "color"
+      },
+      "strong": {
+        "value": "{dds-color-data.gray.300}",
+        "type": "color"
+      },
+      "subtle": {
+        "value": "{dds-color-data.gray.100}",
+        "type": "color"
+      },
+      "border": {
+        "value": "{dds-color-data.gray.400}",
+        "type": "color"
+      }
+    },
+    "green": {
+      "default": {
+        "value": "{dds-color-data.green.200}",
+        "type": "color"
+      },
+      "strong": {
+        "value": "{dds-color-data.green.300}",
+        "type": "color"
+      },
+      "subtle": {
+        "value": "{dds-color-data.green.100}",
+        "type": "color"
+      },
+      "border": {
+        "value": "{dds-color-data.green.400}",
+        "type": "color"
+      }
+    },
+    "purple": {
+      "default": {
+        "value": "{dds-color-data.purple.200}",
+        "type": "color"
+      },
+      "strong": {
+        "value": "{dds-color-data.purple.300}",
+        "type": "color"
+      },
+      "subtle": {
+        "value": "{dds-color-data.purple.100}",
+        "type": "color"
+      },
+      "border": {
+        "value": "{dds-color-data.purple.400}",
+        "type": "color"
+      }
+    },
+    "magenta": {
+      "default": {
+        "value": "{dds-color-data.magenta.200}",
+        "type": "color"
+      },
+      "strong": {
+        "value": "{dds-color-data.magenta.300}",
+        "type": "color"
+      },
+      "subtle": {
+        "value": "{dds-color-data.magenta.100}",
+        "type": "color"
+      },
+      "border": {
+        "value": "{dds-color-data.magenta.400}",
+        "type": "color"
+      }
+    },
+    "olive": {
+      "default": {
+        "value": "{dds-color-data.olive.200}",
+        "type": "color"
+      },
+      "strong": {
+        "value": "{dds-color-data.olive.300}",
+        "type": "color"
+      },
+      "subtle": {
+        "value": "{dds-color-data.olive.100}",
+        "type": "color"
+      },
+      "border": {
+        "value": "{dds-color-data.olive.400}",
+        "type": "color"
+      }
+    },
+    "red": {
+      "default": {
+        "value": "{dds-color-data.red.200}",
+        "type": "color"
+      },
+      "strong": {
+        "value": "{dds-color-data.red.300}",
+        "type": "color"
+      },
+      "subtle": {
+        "value": "{dds-color-data.red.100}",
+        "type": "color"
+      },
+      "border": {
+        "value": "{dds-color-data.red.400}",
+        "type": "color"
+      }
+    },
+    "teal": {
+      "default": {
+        "value": "{dds-color-data.teal.200}",
+        "type": "color"
+      },
+      "strong": {
+        "value": "{dds-color-data.teal.300}",
+        "type": "color"
+      },
+      "subtle": {
+        "value": "{dds-color-data.teal.100}",
+        "type": "color"
+      },
+      "border": {
+        "value": "{dds-color-data.teal.400}",
+        "type": "color"
+      }
+    },
+    "deepblue": {
+      "default": {
+        "value": "{dds-color-data.deepblue.200}",
+        "type": "color"
+      },
+      "strong": {
+        "value": "{dds-color-data.deepblue.300}",
+        "type": "color"
+      },
+      "subtle": {
+        "value": "{dds-color-data.deepblue.100}",
+        "type": "color"
+      },
+      "border": {
+        "value": "{dds-color-data.deepblue.400}",
+        "type": "color"
+      }
+    },
+    "text-on": {
+      "domain": {
+        "value": "{dds-color.cool-gray.black}",
+        "type": "color"
+      }
+    }
+  }
+}

@@ -7,13 +7,14 @@ import {
   BorderRadiusGenerator,
   BreakpointsGenerator,
   ColorsGenerator,
-  DataColorsGenerator,
+  DomainColorsGenerator,
   GridGenerator,
   MotionGenerator,
   ShadowsGenerator,
   SizeHeightGenerator,
   SizeIconGenerator,
   SpacingGenerator,
+  StatisticsColorsGenerator,
   TypographyGenerator,
   Wrapper,
   ZIndexGenerator,
@@ -96,7 +97,7 @@ export const Colors = meta.story(() => {
   );
 });
 
-export const ColorsDataVisualisation = meta.story(() => {
+export const ColorsDomain = meta.story(() => {
   return (
     <Wrapper>
       <Tabs>
@@ -105,8 +106,25 @@ export const ColorsDataVisualisation = meta.story(() => {
           <Tab>Dark</Tab>
         </TabList>
         <TabPanels>
-          <TabPanel>{DataColorsGenerator('light')}</TabPanel>
-          <TabPanel>{DataColorsGenerator('dark')}</TabPanel>
+          <TabPanel>{DomainColorsGenerator('light')}</TabPanel>
+          <TabPanel>{DomainColorsGenerator('dark')}</TabPanel>
+        </TabPanels>
+      </Tabs>
+    </Wrapper>
+  );
+});
+
+export const ColorsStatistics = meta.story(() => {
+  return (
+    <Wrapper>
+      <Tabs>
+        <TabList>
+          <Tab>Light</Tab>
+          <Tab>Dark</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>{StatisticsColorsGenerator('light')}</TabPanel>
+          <TabPanel>{StatisticsColorsGenerator('dark')}</TabPanel>
         </TabPanels>
       </Tabs>
     </Wrapper>

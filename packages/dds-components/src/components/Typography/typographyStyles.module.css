@@ -452,12 +452,16 @@
   color: var(--dds-color-text-on-tertiary-strong);
 }
 
-.text-color--on-data-default {
-  color: var(--dds-color-text-on-data-default);
+.text-color--domain-on-domain {
+  color: var(--dds-color-domain-text-on-domain);
 }
 
-.text-color--on-data-subtle {
-  color: var(--dds-color-text-on-data-subtle);
+.text-color--statistics-on-default {
+  color: var(--dds-color-statistics-text-on-default);
+}
+
+.text-color--statistics-on-subtle {
+  color: var(--dds-color-statistics-text-on-subtle);
 }
 
 .text-color--on-inverse {
