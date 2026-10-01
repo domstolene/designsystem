@@ -231,8 +231,8 @@ importers:
         specifier: ^2.0.3
         version: 2.0.3(style-dictionary@5.5.4)
       '@types/node':
-        specifier: ^26.4.0
-        version: 26.5.1
+        specifier: ^26.6.1
+        version: 26.6.1
       style-dictionary:
         specifier: ^5.5.4
         version: 5.5.4
@@ -5856,15 +5856,6 @@ snapshots:
   '@types/doctrine@0.0.9': {}
 
   '@types/estree@1.0.9': {}
-
-  '@types/fs-extra@8.1.5':
-    dependencies:
-      '@types/node': 26.6.1
-
-  '@types/glob@7.2.0':
-    dependencies:
-      '@types/minimatch': 6.0.0
-      '@types/node': 26.6.1
 
   '@types/json-schema@7.0.15': {}
 
