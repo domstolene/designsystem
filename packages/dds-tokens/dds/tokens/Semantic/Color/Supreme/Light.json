@@ -10,6 +10,11 @@
         "value": "{dds-color.warm-gray.50}",
         "type": "color",
         "description": "Alternative UI shell base color"
+      },
+      "medium": {
+        "value": "{dds-color.warm-gray.100}",
+        "type": "color",
+        "description": "Medium UI shell base color"
       }
     },
     "surface": {
@@ -53,6 +58,11 @@
         "value": "{dds-color.warm-gray.50}",
         "type": "color",
         "description": "Subtle hover on surface (default, medium)"
+      },
+      "hover-danger": {
+        "value": "{dds-color.danger.50}",
+        "type": "color",
+        "description": "Hover on button danger secondary"
       },
       "selected-default": {
         "value": "{dds-color.supreme-teal.50}",
@@ -224,7 +234,12 @@
       "danger": {
         "value": "{dds-color.danger.500}",
         "type": "color",
-        "description": "Tag.default, error message field"
+        "description": "Tag.default, error message field, secondary danger button"
+      },
+      "danger-hover": {
+        "value": "{dds-color.danger.350}",
+        "type": "color",
+        "description": "Hover on border-danger"
       },
       "info": {
         "value": "{dds-color.info.500}",
