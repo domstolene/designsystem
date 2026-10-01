@@ -16,6 +16,6 @@
     "noImplicitThis": true,
     "noImplicitAny": true
   },
-  "include": ["build", "src", "rollup.config.mjs", "hooks"],
+  "include": ["build", "src", "tsdown.config.ts", "hooks"],
   "exclude": ["node_modules", "dist"]
 }
