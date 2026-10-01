@@ -105,7 +105,6 @@
   $dds-color-surface-strong: var(--dds-color-surface-strong); /* Strong surface color. Brukes ikke med text-action og text-subtle */
   $dds-color-surface-hover-default: var(--dds-color-surface-hover-default); /* Hover on surface (default, subtle, medium) */
   $dds-color-surface-hover-subtle: var(--dds-color-surface-hover-subtle); /* Subtle hover on surface (default, medium) */
-  $dds-color-surface-hover-danger: var(--dds-color-surface-hover-danger); /* Hover on button danger secondary */
   $dds-color-surface-selected-default: var(--dds-color-surface-selected-default); /* Selected state for surface (default, subtle, medium) */
   $dds-color-surface-inverse-default: var(--dds-color-surface-inverse-default); /* Can be used as a surface for menu, navigation, footer etc */
   $dds-color-surface-inverse-hover: var(--dds-color-surface-inverse-hover); /* Hover on surface.inverse */
@@ -132,6 +131,7 @@
   $dds-color-surface-scrollbar: var(--dds-color-surface-scrollbar); /* Used for scrollbar */
   $dds-color-surface-notification: var(--dds-color-surface-notification); /* bg on a notification */
   $dds-color-surface-skeleton: var(--dds-color-surface-skeleton); /* Used for skeleton */
+  $dds-color-surface-danger-hover: var(--dds-color-surface-danger-hover); /* Hover on button danger secondary */
   $dds-color-border-default: var(--dds-color-border-default); /* Form components, togglebutton, secondary button, checkbox etc */
   $dds-color-border-subtle: var(--dds-color-border-subtle); /* Dropdown, tooltip, overflow etc */
   $dds-color-border-inverse: var(--dds-color-border-inverse); /* Border or divider on surface.inverse */

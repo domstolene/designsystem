@@ -107,7 +107,6 @@
   --dds-color-surface-strong: #444444; /* Strong surface color. Brukes ikke med text-action */
   --dds-color-surface-hover-default: #062c45; /* Hover on surface (default, subtle, medium) */
   --dds-color-surface-hover-subtle: #22272a; /* Subtle hover on surface (default, medium) */
-  --dds-color-surface-hover-danger: #411111; /* Hover on button danger secondary */
   --dds-color-surface-selected-default: #062c45; /* Selected state for surface (default, subtle, medium) */
   --dds-color-surface-inverse-default: #354754; /* Can be used as a surface for menu, navigation, footer etc */
   --dds-color-surface-inverse-hover: #2a3943; /* Hover on surface.inverse */
@@ -134,6 +133,7 @@
   --dds-color-surface-scrollbar: #545c62; /* Used for scrollbar */
   --dds-color-surface-notification: #d83737; /* bg on a notification */
   --dds-color-surface-skeleton: #545c62; /* Used for skeleton */
+  --dds-color-surface-danger-hover: #411111; /* Hover on button danger secondary */
   --dds-color-border-default: #77838c; /* Form components, togglebutton, secondary button, checkbox etc */
   --dds-color-border-strong: #ffffff;
   --dds-color-border-subtle: #545c62; /* Dropdown, tooltip, overflow etc */
