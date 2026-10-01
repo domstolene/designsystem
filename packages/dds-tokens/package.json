@@ -48,9 +48,9 @@
     "generate:tokens": "node build.js"
   },
   "devDependencies": {
-    "@types/node": "^26.4.0",
+    "@types/node": "^26.6.1",
     "@tokens-studio/sd-transforms": "^2.0.3",
-    "style-dictionary": "^5.5.2"
+    "style-dictionary": "^5.5.4"
   },
   "publishConfig": {
     "provenance": true

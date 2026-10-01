@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Document and file. Search terms: notatbok, notebook, penn, skrive, write, redigere, edit. */
 export function NotebookPenIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

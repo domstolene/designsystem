@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Zoom and add. Search terms: zoom ut, zoom out, forminsk, shrink, forstørrelsesglass, magnify. */
 export function ZoomOutIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

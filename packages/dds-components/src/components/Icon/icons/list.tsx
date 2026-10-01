@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Document and file. Search terms: liste, list, elementer, items, oppgaver, tasks. */
 export function ListIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

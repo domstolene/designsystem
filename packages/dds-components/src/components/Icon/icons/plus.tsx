@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Zoom and add. Search terms: pluss, legg til, add, ny, new, opprett, create. */
 export function PlusIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

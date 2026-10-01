@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Navigation and menu. Search terms: hjem, home, startside, hus, house. */
 export function HomeIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

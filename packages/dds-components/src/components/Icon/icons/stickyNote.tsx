@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Document and file. Search terms: lapp, sticky note, notat, note, post-it, påminnelse, reminder. */
 export function StickyNoteIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

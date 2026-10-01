@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Document and file. Search terms: sky, cloud, lagre, save, opplasting, upload. */
 export function CloudIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

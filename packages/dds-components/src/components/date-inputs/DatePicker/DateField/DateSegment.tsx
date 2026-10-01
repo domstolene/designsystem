@@ -30,13 +30,12 @@ export function DateSegment({
 }: DateSegmentProps) {
   const ref = useRef<HTMLDivElement>(null);
   const { segmentProps } = useDateSegment(segment, state, ref);
+  const isSeparator = segment.type === 'literal';
   return (
     <Box
       {...segmentProps}
-      padding="0 0.05rem"
-      width="max-content"
-      height="max-content"
       marginBlock="auto"
+      marginInline={isSeparator ? '-0.15ch' : undefined}
       aria-describedby={spaceSeparatedIdListGenerator([
         errorMessageId ? errorMessageId : undefined,
         tipId ? tipId : undefined,
@@ -49,10 +48,6 @@ export function DateSegment({
       )}
       style={{
         ...segmentProps.style,
-        minWidth:
-          segment.maxValue != null
-            ? String(segment.maxValue).length + 'ch'
-            : undefined,
       }}
     >
       <span

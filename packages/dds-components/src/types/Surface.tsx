@@ -2,7 +2,7 @@ export const BORDER_RADII = [
   'button',
   'input',
   'surface',
-  'chip',
+  'tag',
   'rounded',
   '0',
 ] as const;

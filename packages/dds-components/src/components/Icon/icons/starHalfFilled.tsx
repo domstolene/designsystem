@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Settings and tools. Search terms: halvfylt stjerne, half star, favoritt, favorite, vurdering, rating. */
 export function StarHalfFilledIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

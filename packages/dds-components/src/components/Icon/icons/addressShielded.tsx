@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Access and people. Search terms: adresse, address, skjermet, shielded, beskyttet, protected. */
 export function AddressShieldedIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { copyButton } from './CopyButton';
-import { type TokenGroup } from './Tokens.types';
+import { type TokenGroup, type TokenNode } from './Tokens.types';
 import {
   Box,
   type BoxProps,
@@ -29,6 +29,69 @@ export const Wrapper = (props: BoxProps) => (
 export const tableStyle = {
   marginBottom: 'var(--dds-spacing-x1-5)',
 };
+
+interface TokenTableProps {
+  tokens: TokenGroup;
+  tokenPrefix: string;
+  headers?: Array<React.ReactNode>;
+  renderPreview?: (token: TokenNode, tokenName: string) => React.ReactNode;
+  showDescription?: boolean;
+  descriptionHeaderStyle?: React.CSSProperties;
+  style?: React.CSSProperties;
+  styleElement?: React.ReactNode;
+}
+
+export function TokenTable({
+  tokens,
+  tokenPrefix,
+  headers = ['Token', 'Verdi', 'Kopier'],
+  renderPreview,
+  showDescription = false,
+  descriptionHeaderStyle,
+  style,
+  styleElement,
+}: TokenTableProps) {
+  const rows: Array<React.JSX.Element> = [];
+
+  for (const key in tokens) {
+    const token = tokens[key];
+    const tokenName = `--${tokenPrefix}-${key}`;
+    rows.push(
+      <Table.Row key={tokenName}>
+        <Table.Cell>{tokenName}</Table.Cell>
+        <Table.Cell>{token.value}</Table.Cell>
+        {renderPreview && (
+          <Table.Cell>{renderPreview(token, tokenName)}</Table.Cell>
+        )}
+        <Table.Cell>{copyButton(tokenName)}</Table.Cell>
+        {showDescription && <Table.Cell>{token.description}</Table.Cell>}
+      </Table.Row>,
+    );
+  }
+
+  return (
+    <Table style={style}>
+      {styleElement}
+      <Table.Head>
+        <Table.Row>
+          {headers.map((header, index) => (
+            <Table.Cell
+              key={index}
+              style={
+                showDescription && index === headers.length - 1
+                  ? descriptionHeaderStyle
+                  : undefined
+              }
+            >
+              {header}
+            </Table.Cell>
+          ))}
+        </Table.Row>
+      </Table.Head>
+      <Table.Body>{rows}</Table.Body>
+    </Table>
+  );
+}
 
 interface TokenOverviewTypographyBaseProps {
   tokens: TokenGroup;

@@ -42,7 +42,7 @@
             "EFFECT_COLOR"
           ]
         },
-        "description": "Strong surface color"
+        "description": "Strong surface color. Brukes ikke med text-action og text-subtle"
       },
       "hover-default": {
         "value": "{dds-color.supreme-teal.50}",
@@ -371,16 +371,6 @@
         "value": "{dds-color.cool-gray.white}",
         "type": "color",
         "description": "Used on brand.tertiary-strong"
-      },
-      "on-data-default": {
-        "value": "{dds-color.cool-gray.white}",
-        "type": "color",
-        "description": "Used on data. with default value"
-      },
-      "on-data-subtle": {
-        "value": "{dds-color.cool-gray.black}",
-        "type": "color",
-        "description": "Used on data. with subtle value"
       }
     },
     "icon": {

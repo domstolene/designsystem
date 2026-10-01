@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Date, time and place. Search terms: kalender, calendar, uke, week, dato, date. */
 export function CalendarViewWeekIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

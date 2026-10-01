@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Access and people. Search terms: fullmakt, power of attorney, representasjon, representation, dokument, hånd, document, hand. */
 export function PowerOfAttorneyIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

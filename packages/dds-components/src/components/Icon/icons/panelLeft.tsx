@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** UI manipulate. Search terms: panel venstre, panel left, sidebar, skjul, hide, vis, show, visning. */
 export function PanelLeftIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Access and people. Search terms: blokker, block, forbudt, forbidden, avvis, deny. */
 export function BlockIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

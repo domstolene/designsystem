@@ -2,6 +2,7 @@ import { type ComponentPropsWithRef, type MouseEventHandler } from 'react';
 
 import styles from './DropdownItem.module.css';
 import { cn } from '../../../utils';
+import { Badge, type BadgeInComponentProps } from '../../Badge';
 import { type ButtonProps } from '../../Button';
 import { Icon, type SvgIcon } from '../../Icon';
 import { Box } from '../../layout';
@@ -33,6 +34,7 @@ export interface DropdownItemCustomProps<T extends DropdownItemT = 'span'> {
   /**Bestemmer farger basert på formål.
    * @default "default"
    */
+  badgeProps?: BadgeInComponentProps;
   purpose?: 'default' | 'danger';
 }
 
@@ -50,6 +52,7 @@ export const DropdownItem = <T extends DropdownItemT = 'span'>({
   purpose = 'default',
   loading,
   loadingTooltip,
+  badgeProps,
   ...rest
 }: DropdownItemProps<T>) => {
   const itemCns = [
@@ -98,6 +101,9 @@ export const DropdownItem = <T extends DropdownItemT = 'span'>({
         />
       )}
       {children}
+      {badgeProps && (
+        <Box as={Badge} {...badgeProps} size="small" marginInline="x0.25 0" />
+      )}
     </Box>
   );
 };

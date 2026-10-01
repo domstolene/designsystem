@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Communication. Search terms: spørsmål og svar, question answer, chat, dialog, meldinger, messages, bubbles, bobler. */
 export function QuestionAnswerIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

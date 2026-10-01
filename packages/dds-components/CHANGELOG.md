@@ -1,5 +1,23 @@
 # @norges-domstoler/dds-components
 
+## 24.4.0
+
+(2026-09-29)
+
+### Minor Changes
+
+- bd90274: Ny prop `badgeProps` i `<Button>`, `<OverflowMenu>` elementer og `<Tab>`. Den støtter props for `<Badge>` med forhåndsdefinert plassering.
+- bd90274: Ny komponent: `<Badge>`. Brukes til å vise notifikasjoner, formidle status, og vise antall av filer, dokumenter o.l.
+
+## 24.3.1
+
+(2026-09-25)
+
+### Patch Changes
+
+- 3bff869: Fikser bredden på inputsegmentene i `<DatePicker>` og `<TimePicker>`, slik at det ikke hopper når brukeren skriver verdien. Reduserer samtidig spacing mellom separator (. eller :) og segment. `<DatePicker>` og `<TimePicker>` har dermed litt mindre bredde i de fleste størrelsene.
+- a711132: Legger til JSDoc på alle ikoner: Dette gjør dokumentasjonen av ikonene tilgjengelig for konsumenter av npm-pakken, og søkbare for AI-agenter. JSDoc-kommentarene matcher det som er definert på design.domstol.no
+
 ## 24.3.0
 
 (2026-09-21)

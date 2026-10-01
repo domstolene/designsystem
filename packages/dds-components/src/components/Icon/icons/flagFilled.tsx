@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Notifications. Search terms: flagg, fylt, filled, markere, rapporter, report. */
 export function FlagFilledIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Settings and tools. Search terms: palett, palette, farger, colors, design, tema, theme. */
 export function PaletteIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Social. Search terms: sosiale medier, social media, bilder, photos. */
 export function FlickrIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

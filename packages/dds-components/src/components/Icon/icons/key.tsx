@@ -1,5 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
 
+/** Access and people. Search terms: nøkkel, key, tilgang, access, autentisering, authentication. */
 export function KeyIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

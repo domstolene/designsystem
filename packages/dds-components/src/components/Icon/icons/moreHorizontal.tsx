@@ -1,4 +1,6 @@
 import { type SvgProps, SvgWrapper } from '../utils';
+
+/** Navigation and menu. Search terms: mer, more, horisontal, horizontal, prikker, dots, meny, menu. */
 export function MoreHorizontalIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>
