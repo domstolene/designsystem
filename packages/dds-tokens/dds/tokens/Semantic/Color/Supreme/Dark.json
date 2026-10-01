@@ -59,11 +59,6 @@
         "type": "color",
         "description": "Subtle hover on surface (default, medium)"
       },
-      "hover-danger": {
-        "value": "{dds-color.danger.850}",
-        "type": "color",
-        "description": "Hover on button danger secondary"
-      },
       "selected-default": {
         "value": "{dds-color.supreme-teal.800}",
         "type": "color",
@@ -193,6 +188,11 @@
         "value": "{dds-color.warm-gray.600}",
         "type": "color",
         "description": "Used for skeleton"
+      },
+      "danger-hover": {
+        "value": "{dds-color.danger.850}",
+        "type": "color",
+        "description": "Hover on button danger secondary"
       }
     },
     "border": {
