@@ -98,6 +98,7 @@
   $dds-border-radius-rounded: var(--dds-border-radius-rounded); /* Rounded and circular components such as radiobutton, toggle, togglebutton and progress tracker */
   $dds-color-bg-default: var(--dds-color-bg-default); /* UI shell base color */
   $dds-color-bg-subtle: var(--dds-color-bg-subtle); /* Alternative UI shell base color */
+  $dds-color-bg-medium: var(--dds-color-bg-medium); /* Medium UI shell base color */
   $dds-color-surface-default: var(--dds-color-surface-default); /* Default bg */
   $dds-color-surface-subtle: var(--dds-color-surface-subtle); /* Subtle surface color */
   $dds-color-surface-medium: var(--dds-color-surface-medium); /* Medium surface color */
@@ -130,6 +131,7 @@
   $dds-color-surface-scrollbar: var(--dds-color-surface-scrollbar); /* Used for scrollbar */
   $dds-color-surface-notification: var(--dds-color-surface-notification); /* bg on a notification */
   $dds-color-surface-skeleton: var(--dds-color-surface-skeleton); /* Used for skeleton */
+  $dds-color-surface-danger-hover: var(--dds-color-surface-danger-hover); /* Hover on button danger secondary */
   $dds-color-border-default: var(--dds-color-border-default); /* Form components, togglebutton, secondary button, checkbox etc */
   $dds-color-border-subtle: var(--dds-color-border-subtle); /* Dropdown, tooltip, overflow etc */
   $dds-color-border-inverse: var(--dds-color-border-inverse); /* Border or divider on surface.inverse */
@@ -137,7 +139,8 @@
   $dds-color-border-action-hover: var(--dds-color-border-action-hover); /* Hover on secondary button etc */
   $dds-color-border-success: var(--dds-color-border-success); /* Used with tag-default */
   $dds-color-border-warning: var(--dds-color-border-warning); /* Tag.default */
-  $dds-color-border-danger: var(--dds-color-border-danger); /* Tag.default, error message field */
+  $dds-color-border-danger: var(--dds-color-border-danger); /* Tag.default, error message field, secondary danger button */
+  $dds-color-border-danger-hover: var(--dds-color-border-danger-hover); /* Hover on border-danger */
   $dds-color-border-info: var(--dds-color-border-info); /* Tag.default */
   $dds-color-border-on-action: var(--dds-color-border-on-action); /* Used on primary split button */
   $dds-color-border-strong: var(--dds-color-border-strong);

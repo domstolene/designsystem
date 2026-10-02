@@ -100,6 +100,7 @@
   --dds-border-radius-rounded: 9999px; /* Rounded and circular components such as radiobutton, toggle, togglebutton and progress tracker */
   --dds-color-bg-default: #181a1c; /* UI shell base color */
   --dds-color-bg-subtle: #22272a; /* Alternative UI shell base color */
+  --dds-color-bg-medium: #303438; /* Medium UI shell base color */
   --dds-color-surface-default: #181a1c; /* Default bg */
   --dds-color-surface-subtle: #22272a; /* Subtle surface color */
   --dds-color-surface-medium: #303438; /* Medium surface color */
@@ -132,6 +133,7 @@
   --dds-color-surface-scrollbar: #545c62; /* Used for scrollbar */
   --dds-color-surface-notification: #d83737; /* bg on a notification */
   --dds-color-surface-skeleton: #545c62; /* Used for skeleton */
+  --dds-color-surface-danger-hover: #411111; /* Hover on button danger secondary */
   --dds-color-border-default: #77838c; /* Form components, togglebutton, secondary button, checkbox etc */
   --dds-color-border-strong: #ffffff;
   --dds-color-border-subtle: #545c62; /* Dropdown, tooltip, overflow etc */
@@ -140,7 +142,8 @@
   --dds-color-border-action-hover: #9fc5de; /* Hover on secondary button etc */
   --dds-color-border-success: #519852; /* Used with tag-default */
   --dds-color-border-warning: #ccba35; /* Tag.default */
-  --dds-color-border-danger: #ad2c2c; /* Tag.default, error message field */
+  --dds-color-border-danger: #ad2c2c; /* Tag.default, error message field, secondary danger button */
+  --dds-color-border-danger-hover: #dc4b4b; /* Hover on border-danger */
   --dds-color-border-info: #5197c5; /* Tag.default */
   --dds-color-border-on-action: #181a1c; /* Used on primary split button */
   --dds-color-text-default: #f1f3f4; /* default text, heading, body. on surface.hover */
