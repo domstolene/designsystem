@@ -1,5 +1,22 @@
 # @norges-domstoler/dds-components
 
+## 25.0.0
+
+### Major Changes
+
+- c875686: `<Paper>` støtter verdi `'tag'` istedenfor `'chip'` i prop `borderRadius`.
+- d851ad3: Endring i prop `color` i typografikomponentene, `<Icon>` og `<Spinner>`. Den støtter ikke lenger verdiene `'text-on-data-default'` og `'text-on-data-subtle'` som semantiske farger for tekst. Istedet støttes nye fargene `'text-domain-on-domain'`, `'text-statistics-on-default'` og `'text-statistics-on-subtle'`.
+- 42f2f01: Revamp og utvidelse av `<Tag>`. [Se migreringsguiden v24 til v25](https://design.domstol.no/987b33f71/p/930207-v24-til-v25).
+
+### Patch Changes
+
+- 17ce472: Oppdaterer styling til `<Tag purpose="neutral" appearance="strong">` slik at det er i tråd med andre formål.
+- Updated dependencies [5cf1113]
+- Updated dependencies [5cf1113]
+- Updated dependencies [c875686]
+- Updated dependencies [5d2ddf0]
+  - @norges-domstoler/dds-design-tokens@11.0.0
+
 ## 24.4.0
 
 (2026-09-29)
