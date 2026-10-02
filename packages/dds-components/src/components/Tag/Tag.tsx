@@ -158,22 +158,22 @@ export const Tag = ({
       'var(--dds-color-surface-subtle)',
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ['--dds-color-tag-background-strong' as any]:
-      'var(--dds-color-surface-inverse-default)',
+      'var(--dds-color-surface-strong)',
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ['--dds-color-tag-border-outline' as any]: 'var(--dds-color-border-subtle)',
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-color-tag-text' as any]: 'var(--dds-color-text-on-inverse)',
+    ['--dds-color-tag-text' as any]: 'var(--dds-color-text-default)',
   } satisfies Properties;
 
   const colorStyleVariables = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-color-tag-background-default' as any]: `var(--dds-color-data-${color}-100)`,
+    ['--dds-color-tag-background-default' as any]: `var(--dds-color-domain-${color}-subtle)`,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-color-tag-background-strong' as any]: `var(--dds-color-data-${color}-300)`,
+    ['--dds-color-tag-background-strong' as any]: `var(--dds-color-domain-${color}-strong)`,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-color-tag-border-outline' as any]: `var(--dds-color-data-${color}-300)`,
+    ['--dds-color-tag-border-outline' as any]: `var(--dds-color-domain-${color}-border)`,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-color-tag-text' as any]: `var(--dds-color-text-on-status-default)`,
+    ['--dds-color-tag-text' as any]: `var(--dds-color-domain-text-on-domain)`,
   } satisfies Properties;
 
   let styleVariables: Properties = {};
