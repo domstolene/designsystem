@@ -1,5 +1,25 @@
 # @norges-domstoler/dds-design-tokens
 
+## 11.0.0
+
+### Major Changes
+
+- c875686: Bytter navn på design token `dds-border-radius-chip` til `dds-border-radius-tag`.
+- 5d2ddf0: Endrer navn på semantiske design tokens på formen `dds-color-data-<tall>` til `dds-color-statistics-<tall>`.
+
+### Minor Changes
+
+- 5cf1113: Nye semantiske design tokens for domenebasert kategorisering. Kan brukes til f.eks. sakstyper. Disse er på følgende form:
+
+  - `dds-color-domain-<metafarge>-default`
+  - `dds-color-domain-<metafarge>-subtle`
+  - `dds-color-domain-<metafarge>-border`
+  - `dds-color-domain-<metafarge>-strong`
+
+### Patch Changes
+
+- 5cf1113: Endrer verdi i design tokens for fargene `dds-color-border-strong` og `dds-color-text-on-status-default`.
+
 ## 10.1.0
 
 (2026-09-11)
