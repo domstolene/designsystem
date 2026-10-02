@@ -41,6 +41,11 @@ export const commonArgTypesWithNodeChildren: Partial<ArgTypes> = {
   children: { control: { disable: true } },
 };
 
+export const commonArgTypesWithStringChildren: Partial<ArgTypes> = {
+  ...commonArgTypes,
+  children: { control: { type: 'text' } },
+};
+
 export const htmlEventArgType: Partial<ArgTypes> = {
   control: { disable: true },
   table: categoryHtml,

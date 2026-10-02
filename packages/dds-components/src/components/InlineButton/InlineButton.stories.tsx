@@ -4,7 +4,6 @@ import { fn } from 'storybook/test';
 
 import { InlineButton } from './InlineButton';
 import { ddsProviderDecorator, htmlEventArgType } from '../../storybook';
-import { Icon } from '../Icon';
 import { HelpIcon } from '../Icon/icons';
 import { StoryVStack } from '../layout/Stack/storybook-utils';
 import { Popover, PopoverGroup } from '../Popover';
@@ -115,9 +114,7 @@ export const ExampleIcon = meta.story({
                 marginInlineStart: 'var(--dds-spacing-x0-25)',
               }}
             >
-              <InlineButton {...args}>
-                <Icon icon={HelpIcon} iconSize="inherit" />
-              </InlineButton>
+              <InlineButton {...args} icon={HelpIcon} />
             </Tooltip>
           }
         />

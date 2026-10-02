@@ -1,20 +1,31 @@
 import preview from '#.storybook/preview';
 
-import { ddsProviderDecorator } from '../../storybook';
+import {
+  commonArgTypesWithStringChildren,
+  ddsProviderDecorator,
+} from '../../storybook';
 
-import { Chip, ChipGroup } from '.';
+import { ChipButton, ChipGroup, ChipRemovable } from '.';
 
 const meta = preview.meta({
-  title: 'dds-components/Components/Chip/ChipGroup',
+  title: 'dds-components/Components/Chip',
   component: ChipGroup,
+  argTypes: {
+    ...commonArgTypesWithStringChildren,
+  },
   decorators: [ddsProviderDecorator],
 });
 
-export const Preview = meta.story({
+export default meta;
+
+export const ChipGroupPreview = meta.story({
+  name: 'ChipGroup',
+  args: { label: 'Filtre' },
   render: args => (
     <ChipGroup {...args}>
-      <Chip>Chip 1</Chip>
-      <Chip>Chip 2</Chip>
+      <ChipRemovable>Hunder</ChipRemovable>
+      <ChipRemovable>Katter</ChipRemovable>
+      <ChipButton>Tøm filtre</ChipButton>
     </ChipGroup>
   ),
 });

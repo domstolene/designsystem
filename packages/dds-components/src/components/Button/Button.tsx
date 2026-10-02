@@ -8,6 +8,7 @@ import { getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
 import { Badge } from '../Badge';
 import { useButtonGroupContext } from '../ButtonGroup/ButtonGroup.context';
+import commonStyles from '../helpers/styling/common.module.css';
 import { focusable } from '../helpers/styling/focus.module.css';
 import { invisible } from '../helpers/styling/utilStyles.module.css';
 import { Icon, type SvgIcon } from '../Icon';
@@ -133,7 +134,7 @@ export const Button = <I extends SvgIcon, T extends ElementType = 'button'>({
         <Badge
           {...badgeProps}
           size={size}
-          className={cn(styles.badge, badgeProps.className)}
+          className={cn(commonStyles['badge--on-corner'], badgeProps.className)}
         />
       )}
     </ElementAs>
