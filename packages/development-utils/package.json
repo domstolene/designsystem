@@ -53,7 +53,7 @@
     "@testing-library/react": "^16.3.3",
     "@types/react": "19.3.0",
     "csstype": "3.2.3",
-    "postcss": "^8.5.26",
+    "postcss": "^8.5.28",
     "react": "19.3.0",
     "typed-css-modules": "^0.9.1"
   },
