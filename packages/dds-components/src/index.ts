@@ -52,6 +52,7 @@ export * from './components/Search';
 export * from './components/Select';
 export * from './components/SelectionControl/Checkbox';
 export * from './components/SelectionControl/RadioButton';
+export { type SelectionControlSize } from './components/SelectionControl/common/SelectionControl.types';
 export * from './components/Skeleton';
 export * from './components/SkipToContent';
 export * from './components/Spinner';

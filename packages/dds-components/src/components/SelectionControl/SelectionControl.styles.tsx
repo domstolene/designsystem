@@ -8,6 +8,7 @@ import { Box } from '../layout';
 import { Typography } from '../Typography';
 import labelStyles from '../Typography/Label/Label.module.css';
 import typographyStyles from '../Typography/typographyStyles.module.css';
+import { type SelectionControlSize } from './common/SelectionControl.types';
 type SelectionControlType = 'radio' | 'checkbox';
 
 type SelectionControlProps = {
@@ -33,6 +34,7 @@ type SelectionControlLabelProps = {
   disabled?: boolean;
   hasText?: boolean;
   controlType: SelectionControlType;
+  size?: SelectionControlSize;
 } & LabelHTMLAttributes<HTMLLabelElement>;
 
 export const Label = ({
@@ -40,6 +42,7 @@ export const Label = ({
   hasText,
   controlType,
   className,
+  size = 'medium',
   ...rest
 }: SelectionControlLabelProps) => {
   return (
@@ -55,7 +58,7 @@ export const Label = ({
         styles.label,
         styles[`label--${controlType}`],
         !hasText && styles['label--no-text'],
-        typographyStyles['body-short-medium'],
+        typographyStyles[`body-short-${size}`],
         disabled && typographyStyles['text-color--subtle'],
       )}
       {...rest}

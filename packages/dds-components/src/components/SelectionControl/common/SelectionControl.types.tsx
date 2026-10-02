@@ -1,6 +1,10 @@
 import { type ReactNode } from 'react';
 
-import { type Direction } from '../../../types';
+import { type Direction, createSizes } from '../../../types';
+
+export const SELECTION_CONTROL_SIZES = createSizes('small', 'medium');
+
+export type SelectionControlSize = (typeof SELECTION_CONTROL_SIZES)[number];
 
 export interface SelectionControlCommonProps {
   /**Ledetekst for alternativet. */
@@ -13,6 +17,10 @@ export interface SelectionControlCommonProps {
   readOnly?: boolean;
   /**Barn. Brukes når komponenten skal ha unik layout eller lignende. */
   children?: ReactNode;
+  /**Størrelsen på komponenten.
+   * @default "medium"
+   */
+  size?: SelectionControlSize;
 }
 
 export interface SelectionControlGroupCommonProps {
@@ -32,4 +40,8 @@ export interface SelectionControlGroupCommonProps {
   readOnly?: boolean;
   /**Meldingen som vises ved valideringsfeil. Gir error-tilstand til barna og setter `aria-describedby` for barna. */
   errorMessage?: string;
+  /**Størrelsen på elementene i gruppen.
+   * @default "medium"
+   */
+  size?: SelectionControlSize;
 }
