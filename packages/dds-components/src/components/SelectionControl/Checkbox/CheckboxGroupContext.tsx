@@ -1,6 +1,7 @@
 import { createContext, useContext } from 'react';
 
 import { type Nullable } from '../../../types';
+import { type SelectionControlSize } from '../common/SelectionControl.types';
 
 export interface CheckboxGroupContextProps {
   error?: boolean;
@@ -9,6 +10,7 @@ export interface CheckboxGroupContextProps {
   tipId?: string;
   disabled?: boolean;
   readOnly?: boolean;
+  size?: SelectionControlSize;
 }
 
 export const CheckboxGroupContext =

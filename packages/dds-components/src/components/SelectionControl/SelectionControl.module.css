@@ -138,6 +138,7 @@ input[data-indeterminate='true'] ~ .selection-control:after {
 }
 
 .selection-control {
+  --dds-spacing-sl: var(--dds-spacing-x0-125);
   position: absolute;
   left: 0;
   box-sizing: border-box;
@@ -145,8 +146,9 @@ input[data-indeterminate='true'] ~ .selection-control:after {
   border-color: var(--dds-color-border-default);
   background-color: var(--dds-color-surface-field-default);
   border-radius: var(--dds-border-radius-input);
-  height: var(--dds-size-icon-component);
-  width: var(--dds-size-icon-component);
+  margin: var(--dds-spacing-sl);
+  height: calc(var(--dds-size-icon-component) - 2 * var(--dds-spacing-sl));
+  width: calc(var(--dds-size-icon-component) - 2 * var(--dds-spacing-sl));
   &:after {
     content: '';
     position: absolute;
