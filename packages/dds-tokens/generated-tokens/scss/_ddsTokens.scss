@@ -284,10 +284,21 @@
   $dds-zindex-dropdown: var(--dds-zindex-dropdown); /* Dropdown brukes for bl.a søkeforslag, dropdown i select */
   $dds-zindex-sticky: var(--dds-zindex-sticky); /* Sticky header skal dekke til flat innhold i gruppen (tabell o.l.). Den skal legge seg under elementer som stiller med egne flater */
   $dds-zindex-absolute-element: var(--dds-zindex-absolute-element); /* Dekorative elementer med absolutt posisjon, som ellers hadde blitt skjult bak forelder */
-  $dds-size-height-input-large: var(--dds-size-height-input-large); /* Brukes i input og buttons */
-  $dds-size-height-input-medium: var(--dds-size-height-input-medium); /* Brukes i input og buttons */
-  $dds-size-height-input-small: var(--dds-size-height-input-small); /* Brukes i input og buttons */
-  $dds-size-height-input-xsmall: var(--dds-size-height-input-xsmall); /* Brukes i input og buttons */
+  $dds-size-0: var(--dds-size-0);
+  $dds-size-1: var(--dds-size-1);
+  $dds-size-2: var(--dds-size-2);
+  $dds-size-3: var(--dds-size-3);
+  $dds-size-4: var(--dds-size-4);
+  $dds-size-5: var(--dds-size-5);
+  $dds-size-6: var(--dds-size-6); /* Brukes i input og buttons */
+  $dds-size-7: var(--dds-size-7);
+  $dds-size-8: var(--dds-size-8); /* Brukes i input og buttons */
+  $dds-size-9: var(--dds-size-9);
+  $dds-size-10: var(--dds-size-10);
+  $dds-size-11: var(--dds-size-11);
+  $dds-size-12: var(--dds-size-12);
+  $dds-size-13: var(--dds-size-13);
+  $dds-size-14: var(--dds-size-14);
   $dds-font-label-medium: var(--dds-font-label-medium); /* Label for form components */
   $dds-font-body-long-xsmall: var(--dds-font-body-long-xsmall); /* Xsmall body text for editorial content */
   $dds-font-body-long-small: var(--dds-font-body-long-small); /* Small body text for editorial content */
