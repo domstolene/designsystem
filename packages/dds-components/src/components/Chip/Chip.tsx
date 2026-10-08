@@ -105,7 +105,7 @@ export const ChipBase = <T extends ChipType = 'span'>({
         ),
         style,
         htmlProps,
-        { ...rest, size },
+        { ...rest, ...(typeof rest.as === 'function' ? { size } : {}) },
       )}
     >
       {!!icon && <Icon icon={icon} iconSize="component" />}
@@ -231,6 +231,7 @@ export const ChipRemovable = ({
 
   return isOpen ? (
     <ChipBase
+      as="span"
       size={size}
       {...getBaseHTMLProps(
         id,
