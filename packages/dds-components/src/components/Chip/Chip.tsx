@@ -128,7 +128,13 @@ export const ChipButton = ({
     <ChipBase
       as="button"
       size={size}
-      {...getBaseHTMLProps(id, className, style, htmlProps, rest)}
+      {...getBaseHTMLProps(
+        id,
+        cn(className, commonStyles.button),
+        style,
+        htmlProps,
+        rest,
+      )}
     >
       {children}
       {badgeProps && (

@@ -63,6 +63,7 @@ export const Button = <I extends SvgIcon, T extends ElementType = 'button'>({
     fullWidth && styles['button--full-width'],
     loading && styles['button--is-loading'],
     typographyStyles[`body-short-${size}`],
+    commonStyles.button,
     focusable,
   );
 

@@ -7,6 +7,7 @@
       border-color var(--dds-motion-micro-state),
       background-color var(--dds-motion-micro-state),
       color var(--dds-motion-micro-state),
+      transform var(--dds-motion-micro-state),
       var(--dds-focus-transition);
   }
   &:is(button),
