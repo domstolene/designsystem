@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
+import { useState } from 'react';
 import { describe, expect, it } from 'vitest';
 
 import { Select } from './Select';
@@ -113,5 +114,35 @@ describe('<Select>', () => {
     expect(
       await screen.findByTestId('custom-dropdown-option-202'),
     ).toHaveTextContent('Alternativ 2');
+  });
+
+  it('supports controlled state', async () => {
+    const option = { label: 'label1', value: 'value1' };
+    const option2 = { label: 'label2', value: 'value2' };
+    const ControlledComponent = () => {
+      const [value, setValue] = useState(option);
+
+      return (
+        <div>
+          <Select
+            options={[option, option2]}
+            value={value}
+            onChange={selectedOption => {
+              setValue(selectedOption ?? option);
+            }}
+          />
+          <button type="button" onClick={() => setValue(option2)}>
+            Velg alternativ 2
+          </button>
+        </div>
+      );
+    };
+    portalRender(<ControlledComponent />);
+    const combobox = screen.getByRole('combobox');
+    expect(combobox).toHaveAccessibleDescription(option.label);
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Velg alternativ 2' }),
+    );
+    expect(combobox).toHaveAccessibleDescription(option2.label);
   });
 });
