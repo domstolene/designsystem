@@ -1,8 +1,11 @@
-import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { ArgTypes, Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as ChipStories from './Chip.stories';
-import meta from './Chip.stories';
+import * as ChipRemovableStories from './ChipRemovable.stories';
+import * as ChipButtonStories from './ChipButton.stories';
 import * as ChipGroupStories from './ChipGroup.stories';
+import meta from './Chip.stories';
+import { ChipRadio, ChipRemovable, ChipButton } from './Chip';
 import { Tabs, Tab, TabList, TabPanels, TabPanel } from '../Tabs';
 import { Divider } from '../Divider';
 
@@ -17,22 +20,47 @@ import { Divider } from '../Divider';
   storybookHref={{ folder: 'components', comp: 'chip' }}
 />
 
+Chip er en paraply for komponenter som representerer ulike typer interaktive merkelapper.
+Komponentene eksponeres som både compound og ikke-compound.
+
+Følgende komponenter distribueres:
+
+- **`<ChipCheckbox>`** som `<input type="checkbox">`
+- **`<ChipRadio>`** som `<input type="radio">`
+- **`<ChipButton>`** som `<button>`
+- **`<ChipRemovable>`** som `<div>` med `<button>` for lukking
+- **`<ChipGroup>`** som `<div>` med `role="group"` og valgfri ledetekst for gruppering
+
 ## Delkomponenter
 
 <Tabs>
   <TabList>
-    <Tab>Chip</Tab>
+    <Tab>ChipCheckbox</Tab>
+    <Tab>ChipRadio</Tab>
+    <Tab>ChipRemovable</Tab>
+    <Tab>ChipButton</Tab>
     <Tab>ChipGroup</Tab>
   </TabList>
   <TabPanels>
     <TabPanel>
-      <Canvas of={ChipStories.Preview} />
-      <Controls of={ChipStories.Preview} />
+      <Canvas of={ChipStories.Checkbox} />
+      <Controls of={ChipStories.Checkbox} />
     </TabPanel>
     <TabPanel>
-    En gruppe som rendrer en liste med `<Chip>`-barn.
-      <Canvas of={ChipGroupStories.Preview} />
-      Det støttes alle native HTML-attributter for `<ul>`.
+      <Canvas of={ChipStories.Radio} />
+      <Controls of={ChipStories.Radio} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={ChipRemovableStories.Removable} />
+      <Controls of={ChipRemovableStories.Removable} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={ChipButtonStories.Button} />
+      <Controls of={ChipButtonStories.Button} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={ChipGroupStories.ChipGroupPreview} />
+      <Controls of={ChipGroupStories.ChipGroupPreview} />
     </TabPanel>
   </TabPanels>
 </Tabs>
@@ -41,4 +69,7 @@ import { Divider } from '../Divider';
 
 ## Retningslinjer
 
-- bruk gjerne `title`-attributtet for å vise teksten.
+### Oppdatere deler av siden
+
+Hvis du dynamisk oppdaterer deler av innhold via Chips, bruk [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions).
+Indiker til assisterende verktøy at endringer har skjedd via `aria-live` og beskriv endringene.

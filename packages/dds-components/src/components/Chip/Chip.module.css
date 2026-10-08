@@ -1,0 +1,83 @@
+.container {
+  position: relative;
+  color: inherit;
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      box-shadow var(--dds-motion-micro-state),
+      border-color var(--dds-motion-micro-state),
+      background-color var(--dds-motion-micro-state),
+      color var(--dds-motion-micro-state),
+      transform var(--dds-motion-micro-state),
+      var(--dds-focus-transition);
+  }
+  &:is(button),
+  button {
+    cursor: pointer;
+  }
+
+  &:is(button) {
+    background: var(--dds-color-surface-default);
+    border-color: var(--dds-color-border-subtle);
+
+    &:hover {
+      background: var(--dds-color-surface-hover-default);
+      border-color: var(--dds-color-border-action-hover);
+    }
+  }
+
+  button {
+    margin-inline-start: var(--dds-spacing-x0-125);
+  }
+}
+
+.selection-control {
+  background: var(--dds-color-surface-default);
+
+  &:hover:has(input:enabled) {
+    border-color: var(--dds-color-border-action-hover);
+  }
+
+  &:has(input:disabled) {
+    color: var(--dds-color-text-subtle);
+    background: var(--dds-color-surface-field-disabled);
+  }
+}
+
+.removable,
+.selection-control:has(input:checked) {
+  background: var(--dds-color-surface-selected-default);
+}
+
+.selection-control-spacing {
+  padding-left: var(--dds-spacing-chip-sl-left);
+  padding-right: var(--dds-spacing-chip-sl-right);
+
+  & > span {
+    --dds-spacing-sl-compact: var(--dds-spacing-x0-125);
+    left: var(--dds-spacing-chip-sl-marker-left);
+    margin: var(--dds-spacing-sl-compact);
+    height: calc(
+      var(--dds-size-icon-component) - 2 * var(--dds-spacing-sl-compact)
+    );
+    width: calc(
+      var(--dds-size-icon-component) - 2 * var(--dds-spacing-sl-compact)
+    );
+  }
+}
+
+.selection-control--no-indicator {
+  &:hover {
+    background: var(--dds-color-surface-hover-default);
+  }
+  &:has(input:checked) {
+    color: var(--dds-color-text-on-action);
+    background: var(--dds-color-surface-action-resting);
+    border-color: var(--dds-color-border-action-default);
+    &:hover {
+      background: var(--dds-color-surface-action-hover);
+    }
+  }
+  & > span {
+    display: none;
+  }
+}

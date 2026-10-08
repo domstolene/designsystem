@@ -14,10 +14,6 @@
   @media (prefers-reduced-motion: no-preference) {
     transition: all var(--dds-motion-micro-state);
   }
-
-  &:active:enabled {
-    scale: 0.95;
-  }
 }
 
 .button--is-loading {
@@ -209,11 +205,4 @@
     border-color: var(--dds-color-surface-action-danger-hover);
     color: var(--dds-color-text-on-action);
   }
-}
-
-.badge {
-  position: absolute;
-  top: 0;
-  right: 0;
-  transform: translate(50%, -50%);
 }

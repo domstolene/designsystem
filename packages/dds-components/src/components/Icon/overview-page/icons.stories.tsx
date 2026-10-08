@@ -14,15 +14,17 @@ import {
 import {
   Box,
   CheckIcon,
+  ChipButton,
+  ChipCheckbox,
+  ChipGroup,
   DownloadIcon,
   HStack,
   Paper,
   Search,
   StylelessButton,
   ToggleBar,
-  ToggleButton,
-  ToggleButtonGroup,
   ToggleRadio,
+  TrashIcon,
   VStack,
   cn,
   icons,
@@ -119,8 +121,10 @@ export const Oversikt = meta.story({
     const renderIconCard = ([name, icon]: [IconName, SvgIcon]) => {
       const trimmedName = trimIconName(name);
       return (
-        <VStack
+        <Paper
           as={StylelessButton}
+          display="flex"
+          flexDirection="column"
           position="relative"
           justifyContent="center"
           alignItems="center"
@@ -159,7 +163,7 @@ export const Oversikt = meta.story({
               </Typography>
             </Box>
           )}
-        </VStack>
+        </Paper>
       );
     };
 
@@ -211,11 +215,13 @@ export const Oversikt = meta.story({
           value={searchQuery}
           onChange={e => setSearchQuery(e.target.value)}
         />
-        <ToggleButtonGroup>
+        <ChipGroup gap="x0.5" aria-label="Filtrer ikonkategorier">
           {ICON_CATEGORIES.map(category => (
-            <ToggleButton
+            <ChipCheckbox
               key={category}
-              label={category}
+              size="small"
+              checked={activeCategories.has(category)}
+              showSelectionControlIndicator={false}
               onChange={() => {
                 setActiveCategories(prev => {
                   const next = new Set(prev);
@@ -227,9 +233,24 @@ export const Oversikt = meta.story({
                   return next;
                 });
               }}
-            />
+            >
+              {category}
+            </ChipCheckbox>
           ))}
-        </ToggleButtonGroup>
+          <ChipButton
+            icon={TrashIcon}
+            size="small"
+            onClick={() => {
+              setActiveCategories(prev => {
+                const next = new Set(prev);
+                next.clear();
+                return next;
+              });
+            }}
+          >
+            Nullstill filtre
+          </ChipButton>
+        </ChipGroup>
         <LocalMessage>
           Klikk på ikonet for mer info. Animerte ikoner bruker{' '}
           <code>iconState</code> prop for å animere mellom tilstander.

@@ -33,6 +33,6 @@ export const InlineButton = ({
     )}
     {...rest}
   >
-    {icon ? <Icon icon={icon} iconSize="inherit" /> : children}
+    {icon ? <Icon icon={icon} iconSize="component" /> : children}
   </StylelessButton>
 );
