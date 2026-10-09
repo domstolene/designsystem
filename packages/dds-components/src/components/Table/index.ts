@@ -5,6 +5,7 @@ import {
   type TableCellProps,
   type TableCellType,
 } from './Cell';
+import { FilterCell } from './FilterCell';
 import { Foot, type TableFootProps } from './Foot';
 import { Head, type TableHeadProps } from './Head';
 import { Row, type TableRowProps, type TableRowType } from './Row';
@@ -20,6 +21,7 @@ type TableCompoundProps = typeof BaseTable & {
   Row: typeof Row;
   Cell: typeof Cell;
   SortCell: typeof SortCell;
+  FilterCell: typeof FilterCell;
 };
 
 const Table = BaseTable as TableCompoundProps;
@@ -29,6 +31,7 @@ Table.Head = Head;
 Table.Body = Body;
 Table.Cell = Cell;
 Table.SortCell = SortCell;
+Table.FilterCell = FilterCell;
 Table.Row = Row;
 Table.Foot = Foot;
 
@@ -54,5 +57,6 @@ export { Head as TableHead };
 export { Body as TableBody };
 export { Cell as TableCell };
 export { SortCell as TableSortCell };
+export { FilterCell as TableFilterCell };
 export { Row as TableRow };
 export { Foot as TableFoot };

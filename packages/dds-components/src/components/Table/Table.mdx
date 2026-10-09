@@ -5,7 +5,7 @@ import {
   ArgTypes,
   Controls,
 } from '@storybook/addon-docs/blocks';
-import { Table, TableRow, TableCell, TableSortCell } from '.';
+import { Table, TableRow, TableCell, TableSortCell, TableFilterCell } from '.';
 import { Tag } from '../Tag';
 import {
   Source,
@@ -71,6 +71,7 @@ Ikke-compound komponenter er også støttet: `<TableWrapper>`, `<TableHead>`, `<
     <Tab>Table.Row</Tab>
     <Tab>Table.Cell</Tab>
     <Tab>Table.SortCell</Tab>
+    <Tab>Table.FilterCell</Tab>
   </TabList>
   <TabPanels>
     <TabPanel>
@@ -96,8 +97,16 @@ Ikke-compound komponenter er også støttet: `<TableWrapper>`, `<TableHead>`, `<
       <ArgTypes of={TableCell} />
     </TabPanel>
     <TabPanel>
-      Et styled `<Cell type='head'>`-element som brukes som `<th>` i sorteringskolonner. **OBS!** komponenten stiller kun med styling og ikoner, sortering implementeres i de respektive løsningene.
+      Et styled `<Cell type='head'>`-element som brukes som `<th>` i sorteringskolonner.
+
+      **OBS!** komponenten stiller kun med styling og ikoner, sortering implementeres av konsumenten.
       <ArgTypes of={TableSortCell} />
+    </TabPanel>
+    <TabPanel>
+      Et styled `<Cell type='head'>`-element som brukes som `<th>`. Den stiller med knapp som åpner filtreringsmeny, popover-meny knyttet til knappen og sorteringsikon bak innholdet.
+
+      **OBS!** filtrering og sortering implementeres av konsumenten.
+      <ArgTypes of={TableFilterCell} />
     </TabPanel>
 
   </TabPanels>

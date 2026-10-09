@@ -185,3 +185,11 @@
     transition: var(--dds-focus-transition);
   }
 }
+
+.filter-cell {
+  & > button,
+  & > svg {
+    margin-left: var(--dds-spacing-x0-5);
+    vertical-align: middle;
+  }
+}

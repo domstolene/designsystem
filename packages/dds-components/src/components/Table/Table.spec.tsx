@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { Table, TableWrapper } from '.';
 
@@ -240,6 +240,150 @@ describe('<Table>', () => {
       expect(
         screen.queryByText(collapsingColumnHeaderText),
       ).not.toBeInTheDocument();
+    });
+  });
+  describe('<SortCell>', () => {
+    it('renders columnheader and button', () => {
+      render(
+        <Table>
+          <Table.Head>
+            <Table.Row>
+              <Table.SortCell onClick={() => null}></Table.SortCell>
+            </Table.Row>
+          </Table.Head>
+        </Table>,
+      );
+      expect(screen.getByRole('columnheader')).toBeInTheDocument();
+      expect(screen.getByRole('button')).toBeInTheDocument();
+    });
+    it('calls onclick event', async () => {
+      const event = vi.fn();
+      render(
+        <Table>
+          <Table.Head>
+            <Table.Row>
+              <Table.SortCell onClick={event}>Sorter</Table.SortCell>
+            </Table.Row>
+          </Table.Head>
+        </Table>,
+      );
+      const sortButton = screen.getByRole('button', { name: /sorter/i });
+      await userEvent.click(sortButton!);
+      expect(event).toHaveBeenCalled();
+    });
+
+    it('has aria-sort', () => {
+      render(
+        <Table>
+          <Table.Head>
+            <Table.Row>
+              <Table.SortCell
+                isSorted={true}
+                sortOrder="ascending"
+                onClick={() => null}
+              >
+                Sorter
+              </Table.SortCell>
+            </Table.Row>
+          </Table.Head>
+        </Table>,
+      );
+      const sortCell = screen.getByRole('columnheader');
+      expect(sortCell!.getAttribute('aria-sort')).toBe('ascending');
+    });
+  });
+  describe('<FilterCell>', () => {
+    it('renders columnheader', () => {
+      render(
+        <Table>
+          <Table.Head>
+            <Table.Row>
+              <Table.FilterCell />
+            </Table.Row>
+          </Table.Head>
+        </Table>,
+      );
+      expect(screen.getByRole('columnheader')).toBeInTheDocument();
+    });
+    it('renders accessible filter button', () => {
+      render(
+        <Table>
+          <Table.Head>
+            <Table.Row>
+              <Table.FilterCell />
+            </Table.Row>
+          </Table.Head>
+        </Table>,
+      );
+      expect(screen.getByRole('button')).toBeInTheDocument();
+      expect(screen.getByRole('button')).toHaveAccessibleName(
+        /åpne filtreringsmeny/i,
+      );
+    });
+    it('renders badge count', () => {
+      render(
+        <Table>
+          <Table.Head>
+            <Table.Row>
+              <Table.FilterCell badgeCount={1} />
+            </Table.Row>
+          </Table.Head>
+        </Table>,
+      );
+      expect(screen.getByText(/1/i)).toBeInTheDocument();
+    });
+    it('renders badge count in name', () => {
+      render(
+        <Table>
+          <Table.Head>
+            <Table.Row>
+              <Table.FilterCell badgeCount={1}>Navn</Table.FilterCell>
+            </Table.Row>
+          </Table.Head>
+        </Table>,
+      );
+      expect(screen.getByRole('columnheader')).toHaveAccessibleName(/navn 1/i);
+    });
+    it('has provided sort order', () => {
+      render(
+        <Table>
+          <Table.Head>
+            <Table.Row>
+              <Table.FilterCell sortOrder="ascending" />
+            </Table.Row>
+          </Table.Head>
+        </Table>,
+      );
+      const sortCell = screen.getByRole('columnheader');
+      expect(sortCell!.getAttribute('aria-sort')).toBe('ascending');
+    });
+    it('opens popover on button click', async () => {
+      render(
+        <Table>
+          <Table.Head>
+            <Table.Row>
+              <Table.FilterCell />
+            </Table.Row>
+          </Table.Head>
+        </Table>,
+      );
+      const filterButton = screen.getByRole('button');
+      await userEvent.click(filterButton);
+      expect(screen.getByRole('dialog')).toBeInTheDocument();
+    });
+    it('renders popover children', async () => {
+      render(
+        <Table>
+          <Table.Head>
+            <Table.Row>
+              <Table.FilterCell popoverChildren="test" />
+            </Table.Row>
+          </Table.Head>
+        </Table>,
+      );
+      const filterButton = screen.getByRole('button');
+      await userEvent.click(filterButton);
+      expect(screen.getByText('test')).toBeInTheDocument();
     });
   });
 });
