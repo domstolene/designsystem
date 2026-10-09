@@ -1,51 +1,155 @@
 {
   "dds-size": {
-    "height": {
-      "input": {
-        "large": {
-          "value": "3.8125rem",
-          "type": "dimension",
-          "$extensions": {
-            "com.figma.scopes": [
-              "WIDTH_HEIGHT"
-            ],
-            "com.figma.hiddenFromPublishing": false
-          },
-          "description": "Brukes i input og buttons"
-        },
-        "medium": {
-          "value": "3.125rem",
-          "type": "dimension",
-          "$extensions": {
-            "com.figma.scopes": [
-              "WIDTH_HEIGHT"
-            ],
-            "com.figma.hiddenFromPublishing": false
-          },
-          "description": "Brukes i input og buttons"
-        },
-        "small": {
-          "value": "2.5rem",
-          "type": "dimension",
-          "$extensions": {
-            "com.figma.scopes": [
-              "WIDTH_HEIGHT"
-            ],
-            "com.figma.hiddenFromPublishing": false
-          },
-          "description": "Brukes i input og buttons"
-        },
-        "xsmall": {
-          "value": "1.8125rem",
-          "type": "dimension",
-          "$extensions": {
-            "com.figma.scopes": [
-              "WIDTH_HEIGHT"
-            ],
-            "com.figma.hiddenFromPublishing": false
-          },
-          "description": "Brukes i input og buttons"
-        }
+    "0": {
+      "value": "0rem",
+      "type": "dimension",
+      "$extensions": {
+        "com.figma.scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "com.figma.hiddenFromPublishing": false
+      }
+    },
+    "1": {
+      "value": "0.25rem",
+      "type": "dimension",
+      "$extensions": {
+        "com.figma.scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "com.figma.hiddenFromPublishing": false
+      }
+    },
+    "2": {
+      "value": "0.5rem",
+      "type": "dimension",
+      "$extensions": {
+        "com.figma.scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "com.figma.hiddenFromPublishing": false
+      }
+    },
+    "3": {
+      "value": "0.75rem",
+      "type": "dimension",
+      "$extensions": {
+        "com.figma.scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "com.figma.hiddenFromPublishing": false
+      }
+    },
+    "4": {
+      "value": "1rem",
+      "type": "dimension",
+      "$extensions": {
+        "com.figma.scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "com.figma.hiddenFromPublishing": false
+      }
+    },
+    "5": {
+      "value": "1.5rem",
+      "type": "dimension",
+      "$extensions": {
+        "com.figma.scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "com.figma.hiddenFromPublishing": false
+      }
+    },
+    "6": {
+      "value": "1.75rem",
+      "type": "dimension",
+      "$extensions": {
+        "com.figma.scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "com.figma.hiddenFromPublishing": false
+      },
+      "description": "Brukes i input og buttons"
+    },
+    "7": {
+      "value": "2rem",
+      "type": "dimension",
+      "$extensions": {
+        "com.figma.scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "com.figma.hiddenFromPublishing": false
+      }
+    },
+    "8": {
+      "value": "2.25rem",
+      "type": "dimension",
+      "$extensions": {
+        "com.figma.scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "com.figma.hiddenFromPublishing": false
+      },
+      "description": "Brukes i input og buttons"
+    },
+    "9": {
+      "value": "2.5rem",
+      "type": "dimension",
+      "$extensions": {
+        "com.figma.scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "com.figma.hiddenFromPublishing": false
+      }
+    },
+    "10": {
+      "value": "2.75rem",
+      "type": "dimension",
+      "$extensions": {
+        "com.figma.scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "com.figma.hiddenFromPublishing": false
+      }
+    },
+    "11": {
+      "value": "3rem",
+      "type": "dimension",
+      "$extensions": {
+        "com.figma.scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "com.figma.hiddenFromPublishing": false
+      }
+    },
+    "12": {
+      "value": "3.25rem",
+      "type": "dimension",
+      "$extensions": {
+        "com.figma.scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "com.figma.hiddenFromPublishing": false
+      }
+    },
+    "13": {
+      "value": "3.5rem",
+      "type": "dimension",
+      "$extensions": {
+        "com.figma.scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "com.figma.hiddenFromPublishing": false
+      }
+    },
+    "14": {
+      "value": "3.75rem",
+      "type": "dimension",
+      "$extensions": {
+        "com.figma.scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "com.figma.hiddenFromPublishing": false
       }
     }
   }
