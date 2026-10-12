@@ -5,7 +5,7 @@ import {
   type TableCellProps,
   type TableCellType,
 } from './Cell';
-import { FilterCell } from './FilterCell';
+import { FilterCell, type TableFilterCellProps } from './FilterCell';
 import { Foot, type TableFootProps } from './Foot';
 import { Head, type TableHeadProps } from './Head';
 import { Row, type TableRowProps, type TableRowType } from './Row';
@@ -47,6 +47,7 @@ export type {
   TableBodyProps,
   TableFootProps,
   TableSortCellProps,
+  TableFilterCellProps,
   SortOrder,
   TableCellLayout,
   TableCellType,

@@ -15,7 +15,7 @@ import {
 export type SortOrder = 'ascending' | 'descending';
 
 export type TableFilterCellProps = {
-  /**Sorteringsrekkefølge i kolonnen. Avgjør hvilket ikon skal vises i cellen og . */
+  /**Sorteringsrekkefølge i kolonnen. Avgjør hvilket ikon skal vises i cellen og `aria-sort`. */
   sortOrder?: SortOrder;
   /**Tallet som vises i badge, typisk antall filtre. */
   badgeCount?: number;
@@ -25,7 +25,7 @@ export type TableFilterCellProps = {
   popoverChildren?: React.ReactNode;
   /**Props for `<PopoverGroup>` unntatt `children`. */
   popoverGroupProps?: Omit<PopoverGroupProps, 'children'>;
-} & Omit<TableCellProps, 'type'>;
+} & Omit<TableCellProps, 'type' | 'collapseKey'>;
 
 export const FilterCell = ({
   sortOrder,
@@ -56,6 +56,7 @@ export const FilterCell = ({
       {children}
       <PopoverGroup {...popoverGroupProps}>
         <Button
+          type="button"
           icon={FilterListIcon}
           purpose="secondary"
           size="xsmall"
@@ -81,6 +82,13 @@ const texts = createTexts({
     no: 'Åpne filtreringsmeny',
     nn: 'Opne filtreringsmeny',
     en: 'Open filter menu',
+    se: '-',
+  },
+  filterMenu: {
+    nb: 'Filtreringsmeny',
+    no: 'Filtreringsmeny',
+    nn: 'Filtreringsmeny',
+    en: 'Filter menu',
     se: '-',
   },
 });
