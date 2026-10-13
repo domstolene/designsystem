@@ -196,7 +196,7 @@
   }
 }
 
-.button--danger {
+.button--primary-danger {
   background-color: var(--dds-color-surface-action-danger-resting);
   border-color: var(--dds-color-surface-action-danger-resting);
   color: var(--dds-color-text-on-action);
@@ -204,5 +204,17 @@
     background-color: var(--dds-color-surface-action-danger-hover);
     border-color: var(--dds-color-surface-action-danger-hover);
     color: var(--dds-color-text-on-action);
+  }
+}
+
+.button--secondary-danger {
+  background-color: var(--dds-color-surface-default);
+  border-color: var(--dds-color-border-danger);
+  color: var(--dds-color-text-danger);
+
+  &:hover:not(.button--is-loading) {
+    background-color: var(--dds-color-surface-danger-hover);
+    border-color: var(--dds-color-border-danger-hover);
+    color: var(--dds-color-text-danger);
   }
 }
