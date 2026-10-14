@@ -104,7 +104,7 @@
   --dds-color-surface-default: #181a1c; /* Default bg */
   --dds-color-surface-subtle: #22272a; /* Subtle surface color */
   --dds-color-surface-medium: #303438; /* Medium surface color */
-  --dds-color-surface-strong: #444444; /* Strong surface color. Brukes ikke med text-action */
+  --dds-color-surface-strong: #3a4146; /* Strong surface color. Brukes ikke med text-action */
   --dds-color-surface-hover-default: #062c45; /* Hover on surface (default, subtle, medium) */
   --dds-color-surface-hover-subtle: #22272a; /* Subtle hover on surface (default, medium) */
   --dds-color-surface-selected-default: #062c45; /* Selected state for surface (default, subtle, medium) */
