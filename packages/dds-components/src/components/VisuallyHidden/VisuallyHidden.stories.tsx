@@ -75,7 +75,7 @@ export const TableButtons = meta.story({
           <Table.Row type="body">
             <Table.Cell>Ane Bjerke</Table.Cell>
             <Table.Cell layout="right">
-              <Button size="small" purpose="danger">
+              <Button size="small" purpose="primary-danger">
                 Slett <VisuallyHidden>Navn Navnesen</VisuallyHidden>
               </Button>
             </Table.Cell>
@@ -83,7 +83,7 @@ export const TableButtons = meta.story({
           <Table.Row type="body">
             <Table.Cell>Sandra Lovsetter</Table.Cell>
             <Table.Cell layout="right">
-              <Button size="small" purpose="danger">
+              <Button size="small" purpose="primary-danger">
                 Slett <VisuallyHidden>Sandra Lovsetter</VisuallyHidden>
               </Button>
             </Table.Cell>
