@@ -286,10 +286,21 @@
   --dds-zindex-dropdown: 100; /* Dropdown brukes for bl.a søkeforslag, dropdown i select */
   --dds-zindex-sticky: 50; /* Sticky header skal dekke til flat innhold i gruppen (tabell o.l.). Den skal legge seg under elementer som stiller med egne flater */
   --dds-zindex-absolute-element: 1; /* Dekorative elementer med absolutt posisjon, som ellers hadde blitt skjult bak forelder */
-  --dds-size-height-input-large: 3.8125rem; /* Brukes i input og buttons */
-  --dds-size-height-input-medium: 3.125rem; /* Brukes i input og buttons */
-  --dds-size-height-input-small: 2.5rem; /* Brukes i input og buttons */
-  --dds-size-height-input-xsmall: 1.8125rem; /* Brukes i input og buttons */
+  --dds-size-0: 0rem;
+  --dds-size-1: 0.25rem;
+  --dds-size-2: 0.5rem;
+  --dds-size-3: 0.75rem;
+  --dds-size-4: 1rem;
+  --dds-size-5: 1.5rem;
+  --dds-size-6: 1.75rem; /* Brukes i input og buttons */
+  --dds-size-7: 2rem;
+  --dds-size-8: 2.25rem; /* Brukes i input og buttons */
+  --dds-size-9: 2.5rem;
+  --dds-size-10: 2.75rem;
+  --dds-size-11: 3rem;
+  --dds-size-12: 3.25rem;
+  --dds-size-13: 3.5rem;
+  --dds-size-14: 3.75rem;
   --dds-font-label-medium: 400 1rem/1.3 Poppins, Arial, sans-serif; /* Label for form components */
   --dds-font-body-long-xsmall: 400 0.875rem/1.5 Poppins, Arial, sans-serif; /* Xsmall body text for editorial content */
   --dds-font-body-long-small: 400 1rem/1.5 Poppins, Arial, sans-serif; /* Small body text for editorial content */

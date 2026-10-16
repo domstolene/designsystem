@@ -340,10 +340,21 @@
   --dds-font-body-short-small-paragraph-spacing: 1em;
   --dds-font-body-short-xsmall-letter-spacing: 0.01em;
   --dds-font-body-short-xsmall-paragraph-spacing: 1em;
-  --dds-size-height-input-large: 3.625rem; /* Brukes i input og buttons */
-  --dds-size-height-input-medium: 3rem; /* Brukes i input og buttons */
-  --dds-size-height-input-small: 2.187rem; /* Brukes i input og buttons */
-  --dds-size-height-input-xsmall: 1.5625rem; /* Brukes i input og buttons */
+  --dds-size-0: 0rem;
+  --dds-size-1: 0.25rem;
+  --dds-size-2: 0.5rem;
+  --dds-size-3: 0.75rem;
+  --dds-size-4: 1rem;
+  --dds-size-5: 1.25rem;
+  --dds-size-6: 1.5rem;
+  --dds-size-7: 1.75rem;
+  --dds-size-8: 2rem;
+  --dds-size-9: 2.25rem;
+  --dds-size-10: 2.5rem;
+  --dds-size-11: 2.75rem;
+  --dds-size-12: 3rem;
+  --dds-size-13: 3.25rem;
+  --dds-size-14: 3.5rem;
   --dds-color-statistics-10-default: #196b8f;
   --dds-color-statistics-10-subtle: #93cee6;
   --dds-color-statistics-10-border: #196b8f;
