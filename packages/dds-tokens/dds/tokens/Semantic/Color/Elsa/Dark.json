@@ -34,7 +34,7 @@
         "description": "Medium surface color"
       },
       "strong": {
-        "value": "{dds-color-data.gray.700}",
+        "value": "{dds-color.cool-gray.700}",
         "type": "color",
         "$extensions": {
           "com.figma.hiddenFromPublishing": false,
