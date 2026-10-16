@@ -53,7 +53,7 @@ export const GridChild = <T extends ElementType = 'div'>({
   const styleVariables: Properties = {
     ...getResponsiveCSSProperties(gridRow, 'r', 'grid-row'),
     ...getResponsiveCSSProperties(gridArea, 'r', 'grid-area'),
-    ...getResponsiveCSSProperties(justifySelf, 'r', 'j-self'),
+    ...getResponsiveCSSProperties(justifySelf, 'r', 'j-self', { mode: 'raw' }),
     ...getResponsiveCSSProperties(columnsOccupied, 'r', 'grid-column'),
   };
 
