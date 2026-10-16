@@ -4,9 +4,15 @@ import { type ChangeEvent, useEffect, useState } from 'react';
 import { ddsProviderDecorator, windowWidthDecorator } from '../../storybook';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
-import { PersonIcon, TrashIcon } from '../Icon/icons';
+import {
+  ArrowDownIcon,
+  ArrowUpIcon,
+  PersonIcon,
+  TrashIcon,
+} from '../Icon/icons';
+import { HStack, VStack } from '../layout';
 import { Checkbox } from '../SelectionControl/Checkbox';
-import { Link, Paragraph } from '../Typography';
+import { Link, Paragraph, Typography } from '../Typography';
 import {
   type CellDataToSort,
   type HeaderCellToSort,
@@ -733,6 +739,152 @@ export const InteractiveContent = meta.story({
       </Table>
     </Table.Wrapper>
   ),
+});
+
+export const WithFilterCells = meta.story({
+  render: args => {
+    const categories = ['fil', 'bilag', 'vedlegg', 'katt'];
+    type Category = (typeof categories)[number];
+    const [filters, setFilters] = useState<Set<Category>>(new Set());
+    const [pendingFilters, setPendingFilters] = useState<Set<Category>>(
+      new Set(),
+    );
+    const [sortOrder, setSortOrder] = useState<
+      'ascending' | 'descending' | undefined
+    >();
+    const [popoverOpen, setPopoverOpen] = useState(false);
+
+    const sortedData = [...data].sort((a, b) => {
+      if (!sortOrder) return 0;
+
+      const comparison = a.dommer.localeCompare(b.dommer, 'nb');
+      return sortOrder === 'ascending' ? comparison : -comparison;
+    });
+
+    return (
+      <Table.Wrapper>
+        <Table {...args}>
+          <Table.Head>
+            <Table.Row>
+              <Table.FilterCell
+                sortOrder={sortOrder}
+                badgeCount={filters.size}
+                popoverGroupProps={{
+                  isOpen: popoverOpen,
+                  setIsOpen: setPopoverOpen,
+                }}
+                popoverProps={{
+                  withCloseButton: false,
+                  sizeProps: {
+                    height: '350px',
+                    width: '250px',
+                  },
+                }}
+                popoverChildren={
+                  <VStack position="relative" height="100%">
+                    <VStack
+                      gap="x0.75"
+                      role="group"
+                      aria-labelledby="sort-label"
+                    >
+                      <Typography
+                        id="sort-label"
+                        typographyType="label-medium"
+                        as="span"
+                      >
+                        Sorter
+                      </Typography>
+                      <HStack gap="x0.75">
+                        <Button
+                          purpose="secondary"
+                          size="small"
+                          onClick={() => setSortOrder('ascending')}
+                          icon={ArrowDownIcon}
+                        >
+                          Stigende
+                        </Button>
+                        <Button
+                          purpose="secondary"
+                          size="small"
+                          onClick={() => setSortOrder('descending')}
+                          icon={ArrowUpIcon}
+                        >
+                          Synkende
+                        </Button>
+                      </HStack>
+                    </VStack>
+                    <VStack gap="x0.5" marginBlock="x0.75" overflowY="auto">
+                      <Paragraph>
+                        Disse filtre viser hvordan de bør interagere med badge
+                        og knapper som setter filtre. De filtrerer ikke
+                        tabellen.
+                      </Paragraph>
+                      {categories.map(category => (
+                        <Checkbox
+                          key={category}
+                          label={category}
+                          checked={pendingFilters.has(category)}
+                          onChange={() => {
+                            const newFilters = new Set(pendingFilters);
+                            if (newFilters.has(category)) {
+                              newFilters.delete(category);
+                            } else {
+                              newFilters.add(category);
+                            }
+                            setPendingFilters(newFilters);
+                          }}
+                        />
+                      ))}
+                    </VStack>
+                    <VStack gap="x0.75">
+                      <Typography as="span" color="text-medium">
+                        {pendingFilters.size}{' '}
+                        {pendingFilters.size === 1 ? 'filter' : 'filtre'} valgt
+                      </Typography>
+                      <HStack gap="x0.75">
+                        <Button
+                          size="small"
+                          onClick={() => {
+                            setFilters(new Set(pendingFilters));
+                            setPopoverOpen(false);
+                          }}
+                        >
+                          Filtrer
+                        </Button>
+                        <Button
+                          size="small"
+                          purpose="secondary"
+                          onClick={() => {
+                            setFilters(new Set());
+                            setPendingFilters(new Set());
+                          }}
+                        >
+                          Tøm filter
+                        </Button>
+                      </HStack>
+                    </VStack>
+                  </VStack>
+                }
+              >
+                Dommer
+              </Table.FilterCell>
+              <Table.Cell>Domstol</Table.Cell>
+              <Table.Cell>Favoritt dyr</Table.Cell>
+            </Table.Row>
+          </Table.Head>
+          <Table.Body>
+            {sortedData.map(item => (
+              <Table.Row key={item.dommer}>
+                <Table.Cell>{item.dommer}</Table.Cell>
+                <Table.Cell>{item.domstol}</Table.Cell>
+                <Table.Cell>{item.favorittDyr}</Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
+      </Table.Wrapper>
+    );
+  },
 });
 
 export const ColumnAndRowHeaders = meta.story({
