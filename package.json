@@ -86,7 +86,7 @@
     "vitest": "^4.1.11"
   },
   "volta": {
-    "node": "24.21.0",
+    "node": "24.22.0",
     "pnpm": "11.28.4"
   },
   "packageManager": "pnpm@11.28.4",
