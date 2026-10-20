@@ -92,11 +92,7 @@ export const Button = <I extends SvgIcon, T extends ElementType = 'button'>({
         <span className={cn(!noContent && styles['spinner-wrapper--absolute'])}>
           <Spinner
             size="var(--dds-size-icon-component)"
-            color={
-              purpose === 'primary' || purpose === 'danger'
-                ? 'icon-on-action'
-                : 'icon-default'
-            }
+            color="currentColor"
             tooltip={spinnerTooltip}
           />
         </span>

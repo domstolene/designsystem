@@ -54,30 +54,24 @@ export function Spinner(props: SpinnerProps) {
           ...style,
           width: size,
           height: size,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          ['--dds-color-spinner' as any]: getTextColor(color),
         },
         htmlProps,
         rest,
       )}
     >
       <title id={uniqueId}>{tooltip ?? t(commonTexts.loading)}</title>
-      <circle
-        cx="12"
-        cy="12.25"
-        r="6"
-        fill={getTextColor(color)}
-        className={styles.jordskifterett}
-      />
+      <circle cx="12" cy="12.25" r="6" className={styles.jordskifterett} />
       <rect
         x="4"
         y="10.25"
         width="16"
         height="4"
-        fill={getTextColor(color)}
         className={styles.lagmannsrett}
       />
       <path
         d="M12 16.6154C16.4183 16.6154 20 12.7581 20 8H4C4 12.7581 7.58172 16.6154 12 16.6154Z"
-        fill={getTextColor(color)}
         className={styles.tingrett}
       />
     </svg>

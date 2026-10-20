@@ -16,8 +16,9 @@ export const BUTTON_SIZES = createSizes('xsmall', 'small', 'medium', 'large');
 export const BUTTON_PURPOSES = createPurposes(
   'primary',
   'secondary',
+  'primary-danger',
+  'secondary-danger',
   'tertiary',
-  'danger',
 );
 export type ButtonSize = (typeof BUTTON_SIZES)[number];
 export type ButtonPurpose = (typeof BUTTON_PURPOSES)[number];

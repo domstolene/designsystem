@@ -1,6 +1,8 @@
 export const PURPOSES = [
   'primary',
   'secondary',
+  'primary-danger',
+  'secondary-danger',
   'tertiary',
   'success',
   'info',
