@@ -38,8 +38,12 @@ export const Bleed = <T extends ElementType = 'div'>({
       }
     : {};
   const responsiveStyles = {
-    ...getResponsiveCSSProperties(bleedMarginInline, 'r', 'bleed-m-i', true),
-    ...getResponsiveCSSProperties(bleedMarginBlock, 'r', 'bleed-m-b', true),
+    ...getResponsiveCSSProperties(bleedMarginInline, 'r', 'bleed-m-i', {
+      invert: true,
+    }),
+    ...getResponsiveCSSProperties(bleedMarginBlock, 'r', 'bleed-m-b', {
+      invert: true,
+    }),
     ...reflStyles,
   };
 

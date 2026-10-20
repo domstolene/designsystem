@@ -15,7 +15,7 @@ on:
       - '**/*.mdx'
       - '**/vitest.config.mts'
       - '**/tsdown.config.ts'
-      - '**/*.spec.tsx'
+      - '**/*.spec.ts*'
       - '.github/**'
       - '.changeset/**'
       - 'packages/dds-formatting/**'
