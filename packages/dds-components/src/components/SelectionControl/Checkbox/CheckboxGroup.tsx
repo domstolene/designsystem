@@ -38,6 +38,7 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
     className,
     style,
     htmlProps = {},
+    size = 'medium',
     ...rest
   } = props;
 
@@ -59,6 +60,7 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
     tipId: tip ? tipId : undefined,
     disabled,
     readOnly,
+    size,
   };
 
   return (

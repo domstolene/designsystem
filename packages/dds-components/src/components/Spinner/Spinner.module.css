@@ -1,5 +1,6 @@
 .svg {
   display: block;
+  fill: var(--dds-color-spinner);
 }
 
 .jordskifterett,

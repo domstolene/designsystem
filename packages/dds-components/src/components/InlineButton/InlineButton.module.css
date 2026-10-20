@@ -4,4 +4,7 @@
   &:focus-visible {
     z-index: var(--dds-zindex-absolute-element);
   }
+  &:has(svg) {
+    line-height: 0;
+  }
 }

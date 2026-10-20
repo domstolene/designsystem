@@ -2,6 +2,7 @@ import { type ChangeEvent, createContext, useContext } from 'react';
 
 import { type RadioValue } from './RadioButton.types';
 import { type Nullable } from '../../../types';
+import { type SelectionControlSize } from '../common/SelectionControl.types';
 
 export interface RadioButtonGroupContextProps {
   disabled?: boolean;
@@ -12,6 +13,7 @@ export interface RadioButtonGroupContextProps {
   error?: boolean;
   errorMessageId?: string;
   required?: boolean;
+  size?: SelectionControlSize;
   onChange?: (event: ChangeEvent<HTMLInputElement>, v: RadioValue) => void;
 }
 

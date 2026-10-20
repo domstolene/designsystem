@@ -78,7 +78,7 @@ export const Sizes = meta.story({
   ),
 });
 
-export const CustomColors = meta.story({
+export const DomainColors = meta.story({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: ({ color, purpose, withIcon, ...commonArgs }) => (
     <StoryHStack flexWrap="wrap">

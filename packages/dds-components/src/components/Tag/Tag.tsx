@@ -45,6 +45,7 @@ export const TAG_COLORS = [
   'red',
   'green',
   'magenta',
+  'purple',
   'olive',
   'gray',
   'brown',

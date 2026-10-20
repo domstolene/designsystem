@@ -96,10 +96,17 @@ const getValue = (v: string, bp?: Breakpoint, invert?: boolean): string => {
   return invert ? invertValue(output) : output;
 };
 
-const convertMultiValue = (value: string, bp?: Breakpoint, invert?: boolean) =>
+type CSSValueMode = 'raw' | 'token';
+
+const convertMultiValue = (
+  value: string,
+  bp?: Breakpoint,
+  invert?: boolean,
+  mode: CSSValueMode = 'token',
+) =>
   value
     .split(' ')
-    .map(v => getValue(v, bp, invert))
+    .map(v => (mode === 'raw' ? v : getValue(v, bp, invert)))
     .join(' ');
 
 const invertValue = (v: string): string =>
@@ -133,11 +140,16 @@ export function getCSSProperties<T>(
   return properties;
 }
 
+interface ResponsiveCSSPropertyOptions {
+  invert?: boolean;
+  mode?: CSSValueMode;
+}
+
 export function getResponsiveCSSProperties<T>(
   property?: ResponsiveProp<T>,
   prefix?: string,
   suffix?: string,
-  invert?: boolean,
+  options: ResponsiveCSSPropertyOptions = {},
 ): Properties | undefined {
   if (property === undefined || property === null) return;
 
@@ -148,12 +160,22 @@ export function getResponsiveCSSProperties<T>(
       if (property[bp] !== undefined && property[bp] !== null) {
         (properties as Record<string, string>)[
           buildCSSKey(prefix, suffix, bp)
-        ] = convertMultiValue(property[bp].toString(), bp, invert);
+        ] = convertMultiValue(
+          property[bp].toString(),
+          bp,
+          options.invert,
+          options.mode,
+        );
       }
     });
   } else {
     (properties as Record<string, string>)[buildCSSKey(prefix, suffix)] =
-      convertMultiValue(property.toString(), undefined, invert);
+      convertMultiValue(
+        property.toString(),
+        undefined,
+        options.invert,
+        options.mode,
+      );
   }
   return properties;
 }

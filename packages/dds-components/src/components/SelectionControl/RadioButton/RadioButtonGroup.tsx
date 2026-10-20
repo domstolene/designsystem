@@ -50,6 +50,7 @@ export const RadioButtonGroup = <T extends string | number = string>({
   children,
   required = false,
   onChange,
+  size = 'medium',
   id,
   className,
   style,
@@ -84,6 +85,7 @@ export const RadioButtonGroup = <T extends string | number = string>({
     readOnly,
     value: groupValue,
     onChange: handleChange,
+    size,
   };
 
   return (

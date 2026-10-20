@@ -8,6 +8,7 @@ import {
   htmlEventArgType,
 } from '../../../storybook';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/storybook-utils';
+import { SELECTION_CONTROL_SIZES } from '../common/SelectionControl.types';
 
 import { Checkbox } from '.';
 
@@ -67,5 +68,15 @@ export const Overview = meta.story({
         <Checkbox {...args} />
       </StoryVStack>
     </StoryHStack>
+  ),
+});
+
+export const Sizes = meta.story({
+  render: args => (
+    <StoryVStack>
+      {SELECTION_CONTROL_SIZES.map(size => (
+        <Checkbox key={size} {...args} size={size} label={size} />
+      ))}
+    </StoryVStack>
   ),
 });

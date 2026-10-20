@@ -10,9 +10,7 @@ import {
 } from '../../../utils';
 import { HiddenInput } from '../../helpers';
 import focusStyles from '../../helpers/styling/focus.module.css';
-import { Typography } from '../../Typography';
 import { Label, SelectionControl } from '../SelectionControl.styles';
-import { selectionControlTypographyProps } from '../SelectionControl.utils';
 
 export const Checkbox = ({
   id,
@@ -27,6 +25,7 @@ export const Checkbox = ({
   htmlProps = {},
   style,
   children,
+  size,
   ...rest
 }: CheckboxProps) => {
   const generatedId = useId();
@@ -39,6 +38,7 @@ export const Checkbox = ({
   const isReadOnly = readOnly || checkboxGroup?.readOnly;
   const hasError = error || checkboxGroup?.error;
   const isDisabled = disabled || checkboxGroup?.disabled;
+  const controlSize = size || checkboxGroup?.size || 'medium';
 
   return (
     <Label
@@ -48,6 +48,7 @@ export const Checkbox = ({
       controlType="checkbox"
       className={className}
       style={style}
+      size={controlSize}
     >
       <HiddenInput
         {...getBaseHTMLProps(uniqueId, undefined, undefined, htmlProps, rest)}
@@ -76,11 +77,7 @@ export const Checkbox = ({
         controlType="checkbox"
         className={focusStyles['focus-styled-sibling']}
       />
-      {hasChildren ? (
-        children
-      ) : hasLabel ? (
-        <Typography {...selectionControlTypographyProps}>{label}</Typography>
-      ) : null}
+      {hasChildren ? children : hasLabel ? <span>{label}</span> : null}
     </Label>
   );
 };

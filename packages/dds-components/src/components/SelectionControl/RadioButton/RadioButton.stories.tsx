@@ -8,6 +8,7 @@ import {
   htmlEventArgType,
 } from '../../../storybook';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/storybook-utils';
+import { SELECTION_CONTROL_SIZES } from '../common/SelectionControl.types';
 
 import { RadioButton } from '.';
 
@@ -48,5 +49,15 @@ export const Overview = meta.story({
         <RadioButton {...args} label="ReadOnly checked" readOnly checked />
       </StoryVStack>
     </StoryHStack>
+  ),
+});
+
+export const Sizes = meta.story({
+  render: args => (
+    <StoryVStack>
+      {SELECTION_CONTROL_SIZES.map(size => (
+        <RadioButton key={size} {...args} size={size} label={size} />
+      ))}
+    </StoryVStack>
   ),
 });

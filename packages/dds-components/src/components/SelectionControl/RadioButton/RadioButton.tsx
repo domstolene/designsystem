@@ -10,9 +10,7 @@ import {
 } from '../../../utils';
 import { HiddenInput } from '../../helpers';
 import focusStyles from '../../helpers/styling/focus.module.css';
-import { Typography } from '../../Typography';
 import { Label, SelectionControl } from '../SelectionControl.styles';
-import { selectionControlTypographyProps } from '../SelectionControl.utils';
 
 const getIsChecked = ({
   value,
@@ -48,6 +46,7 @@ export const RadioButton = ({
   'aria-describedby': ariaDescribedby,
   className,
   htmlProps = {},
+  size,
   style,
   ...rest
 }: RadioButtonProps) => {
@@ -76,6 +75,7 @@ export const RadioButton = ({
     groupValue: radioButtonGroup?.value,
     checked,
   });
+  const controlSize = size || radioButtonGroup?.size || 'medium';
 
   return (
     <Label
@@ -85,6 +85,7 @@ export const RadioButton = ({
       hasText={hasLabel || hasChildren}
       htmlFor={uniqueId}
       controlType="radio"
+      size={controlSize}
     >
       <HiddenInput
         {...getBaseHTMLProps(uniqueId, undefined, undefined, htmlProps, rest)}
@@ -112,11 +113,7 @@ export const RadioButton = ({
         controlType="radio"
         className={focusStyles['focus-styled-sibling']}
       />
-      {hasChildren ? (
-        children
-      ) : hasLabel ? (
-        <Typography {...selectionControlTypographyProps}>{label}</Typography>
-      ) : null}
+      {hasChildren ? children : hasLabel ? <span>{label}</span> : null}
     </Label>
   );
 };

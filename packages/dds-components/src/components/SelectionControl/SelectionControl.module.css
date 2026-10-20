@@ -31,6 +31,13 @@
   }
 }
 
+:where(.label) {
+  padding-inline: calc(
+      var(--dds-size-icon-component) + var(--dds-spacing-x0-25)
+    )
+    0;
+}
+
 .label:has(input:enabled) {
   input[aria-invalid]:not([aria-readonly='true']):not(:focus-visible)
     ~ .selection-control {

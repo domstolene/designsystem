@@ -1,18 +1,58 @@
-import { Children, type ComponentPropsWithRef } from 'react';
+import { useId } from 'react';
 
-import { StylelessList } from '../helpers';
-import { HStack } from '../layout';
+import {
+  type BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '../../types';
+import { HStack, type ResponsiveProps } from '../layout';
+import { renderGroupLabel } from '../SelectionControl/SelectionControl.styles';
 
-export type ChipGroupProps = ComponentPropsWithRef<'ul'>;
+export type ChipGroupProps = BaseComponentPropsWithChildren<
+  HTMLDivElement,
+  {
+    /** Ledetekst for gruppen. */
+    label?: string;
 
-export const ChipGroup = ({ children, ...rest }: ChipGroupProps) => {
-  const childrenArray = Children.toArray(children);
+    /** Custom `id` for ledetekst. Som default genereres denne for å knytte ledetekst til gruppen.  */
+    labelId?: string;
+  } & Pick<ResponsiveProps, 'gap' | 'flexWrap'>
+>;
 
-  return (
-    <HStack as={StylelessList} {...rest} gap="x0.75">
-      {childrenArray.map((item, index) => (
-        <li key={`chip-${index}`}>{item}</li>
-      ))}
+export const ChipGroup = (props: ChipGroupProps) => {
+  const {
+    children,
+    label,
+    labelId,
+    gap = 'x0.75',
+    flexWrap = 'wrap',
+    id,
+    className,
+    style,
+    htmlProps,
+    ...rest
+  } = props;
+
+  const generatedId = useId();
+  const uniqueLabelId = labelId ?? `${generatedId}-ChipGroupLabel`;
+
+  const baseProps = getBaseHTMLProps(id, className, style, htmlProps, rest);
+  const layout = {
+    gap,
+    flexWrap,
+  };
+
+  return label ? (
+    <div
+      {...baseProps}
+      role="group"
+      aria-labelledby={label ? uniqueLabelId : undefined}
+    >
+      {renderGroupLabel({ label, id: uniqueLabelId })}
+      <HStack {...layout}>{children}</HStack>
+    </div>
+  ) : (
+    <HStack {...baseProps} {...layout} role="group">
+      {children}
     </HStack>
   );
 };
