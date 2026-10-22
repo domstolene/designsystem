@@ -129,11 +129,13 @@
 :where(.compact--medium) {
   padding: var(--dds-spacing-compact-block-md)
     var(--dds-spacing-compact-inline-md);
+  height: var(--dds-size-8);
 }
 
 :where(.compact--small) {
   padding: var(--dds-spacing-compact-block-sm)
     var(--dds-spacing-compact-inline-sm);
+  height: var(--dds-size-6);
 }
 
 :where(.compact-with-icon--medium) {

@@ -50,7 +50,7 @@ const meta = preview.meta({
   decorators: [ddsProviderDecorator],
 });
 
-const sValue = { label: 'test', value: 'test' };
+const sValue = { label: 'select', value: 'select' };
 
 export const Heights = meta.story(() => {
   return (
@@ -123,7 +123,7 @@ const renderInputs = (size: InputSize | SearchSize | ButtonSize) => (
     )}
     {isInputSize(size) && (
       <>
-        <TextInput componentSize={size} />
+        <TextInput componentSize={size} defaultValue="text input" />
         <Select componentSize={size} options={[sValue]} defaultValue={sValue} />
         {size !== 'xsmall' && (
           <Select
@@ -133,14 +133,18 @@ const renderInputs = (size: InputSize | SearchSize | ButtonSize) => (
             defaultValue={sValue}
           />
         )}
-        <NativeSelect componentSize={size} />
+        <NativeSelect componentSize={size} defaultValue="native select">
+          <option value="native select">native select</option>
+        </NativeSelect>
       </>
     )}
     <ToggleBar size={size}>
       <ToggleRadio label="Radio" />
       <ToggleRadio label="Radio" />
     </ToggleBar>
-    {isSearchSize(size) && <Search componentSize={size} />}
+    {isSearchSize(size) && (
+      <Search componentSize={size} defaultValue="search" />
+    )}
   </Wrapper>
 );
 
