@@ -111,18 +111,6 @@
     }
   },
   "dds-size-icon": {
-    "large": {
-      "value": "40px",
-      "type": "dimension"
-    },
-    "medium": {
-      "value": "24px",
-      "type": "dimension"
-    },
-    "small": {
-      "value": "16px",
-      "type": "dimension"
-    },
     "component": {
       "value": "1.3em",
       "type": "spacing",

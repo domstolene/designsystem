@@ -233,9 +233,6 @@
   --dds-grid-md-count: 12;
   --dds-grid-xl-gutter-size: 24px;
   --dds-grid-xl-count: 12;
-  --dds-size-icon-large: 40px;
-  --dds-size-icon-medium: 24px;
-  --dds-size-icon-small: 16px;
   --dds-size-icon-component: 1.3em; /* Brukes i komponenter. Relativ til tekststørrelsen */
   --dds-breakpoint-xs: 1px;
   --dds-breakpoint-sm: 600px;
