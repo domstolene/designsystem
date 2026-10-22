@@ -7,7 +7,7 @@ import { cn } from '../../utils';
 import { StylelessButton } from '../helpers';
 import { focusable } from '../helpers/styling/focus.module.css';
 import { Icon } from '../Icon';
-import { ChevronDownIcon, ChevronUpIcon, UnfoldMoreIcon } from '../Icon/icons';
+import { ArrowDownIcon, ArrowUpIcon, ArrowUpDownIcon } from '../Icon/icons';
 
 export type SortOrder = 'ascending' | 'descending';
 
@@ -29,9 +29,9 @@ export const SortCell = ({
 }: TableSortCellProps) => {
   const { t } = useTranslation();
   const SortIcon = () => {
-    if (!isSorted || !sortOrder) return UnfoldMoreIcon;
-    if (sortOrder === 'ascending') return ChevronDownIcon;
-    return ChevronUpIcon;
+    if (!isSorted || !sortOrder) return ArrowUpDownIcon;
+    if (sortOrder === 'ascending') return ArrowUpIcon;
+    return ArrowDownIcon;
   };
 
   return (
