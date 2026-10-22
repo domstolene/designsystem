@@ -22,7 +22,7 @@ import { CheckIcon, LockFilledIcon, MoonIcon, SunIcon } from '../Icon/icons';
 import { Spinner } from '../Spinner';
 import { VisuallyHidden } from '../VisuallyHidden';
 
-export const TOGGLE_SIZES = createSizes('medium', 'large', 'small');
+export const TOGGLE_SIZES = createSizes('small', 'medium', 'large');
 export type ToggleSize = (typeof TOGGLE_SIZES)[number];
 export type ToggleVariant = 'default' | 'colorScheme';
 
