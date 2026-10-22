@@ -1,3 +1,5 @@
+import { SIZE_SCALE } from '../components/layout/common/Responsive.types';
+
 export const SIZES = [
   'xsmall',
   'small',
@@ -7,6 +9,7 @@ export const SIZES = [
   'xxlarge',
   'inherit',
   'component',
+  ...SIZE_SCALE,
 ] as const;
 
 export type Size = (typeof SIZES)[number];

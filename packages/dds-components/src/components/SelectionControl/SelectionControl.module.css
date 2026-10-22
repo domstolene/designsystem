@@ -32,10 +32,7 @@
 }
 
 :where(.label) {
-  padding-inline: calc(
-      var(--dds-size-icon-component) + var(--dds-spacing-x0-25)
-    )
-    0;
+  padding-inline-start: calc(var(--dds-size-sl) + var(--dds-spacing-x0-25));
 }
 
 .label:has(input:enabled) {
@@ -152,8 +149,8 @@ input[data-indeterminate='true'] ~ .selection-control:after {
   border-color: var(--dds-color-border-default);
   background-color: var(--dds-color-surface-field-default);
   border-radius: var(--dds-border-radius-input);
-  height: var(--dds-size-icon-component);
-  width: var(--dds-size-icon-component);
+  height: var(--dds-size-sl);
+  width: var(--dds-size-sl);
   &:after {
     content: '';
     position: absolute;

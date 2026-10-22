@@ -115,6 +115,7 @@ export const ToggleRadio = ({
           typographyStyles[`body-short-${group.size}`],
           styles.content,
           buttonStyles[contentTypeCn],
+          buttonStyles[`button--${group.size}`],
           hasLabel && hasIcon && buttonStyles['with-icon-left'],
           buttonStyles[`button--${group.size}`],
           focusStyles['focus-styled-sibling'],

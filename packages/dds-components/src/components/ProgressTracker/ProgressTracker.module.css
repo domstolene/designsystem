@@ -1,6 +1,6 @@
 .list {
   --dds-progress-tracker-connector-width: 1px;
-  --dds-progress-tracker-item-number-size: 1.75rem;
+  --dds-progress-tracker-item-number-size: var(--dds-size-8);
   --dds-progress-tracker-item-margin: calc(
     (var(--dds-progress-tracker-item-number-size) / 2) -
       (var(--dds-progress-tracker-connector-width) / 2)
@@ -16,7 +16,7 @@
   border-right: var(--dds-progress-tracker-connector-width) solid
     var(--dds-color-border-default);
   width: var(--dds-progress-tracker-connector-width);
-  height: 1.125rem;
+  height: var(--dds-size-5);
   margin-left: var(--dds-progress-tracker-item-margin);
   margin-bottom: var(--dds-spacing-x0-125);
 }
@@ -25,7 +25,7 @@
   border-top: var(--dds-progress-tracker-connector-width) solid
     var(--dds-color-border-default);
   height: var(--dds-progress-tracker-connector-width);
-  width: 1.875rem;
+  width: var(--dds-size-7);
   margin-top: var(--dds-progress-tracker-item-margin);
   margin-right: var(--dds-spacing-x0-5);
 }

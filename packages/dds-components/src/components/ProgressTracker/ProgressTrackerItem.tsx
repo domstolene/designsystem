@@ -119,11 +119,11 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
 
   const stepNumberContent = useMemo(() => {
     if (completed) {
-      return <Icon icon={CheckIcon} iconSize="small" />;
+      return <Icon icon={CheckIcon} iconSize="5" />;
     }
 
     if (icon !== undefined) {
-      return <Icon icon={icon} iconSize="small" />;
+      return <Icon icon={icon} iconSize="5" />;
     }
 
     return stepNumber;

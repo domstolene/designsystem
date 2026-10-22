@@ -1,7 +1,3 @@
-.container {
-  color: var(--dds-color-text-default);
-}
-
 .container--readonly {
   color: var(--dds-color-text-medium);
 }

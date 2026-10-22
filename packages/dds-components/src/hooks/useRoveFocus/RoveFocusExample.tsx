@@ -51,13 +51,13 @@ export const RoveFocusExample = ({
         Bruk piltastene (
         {direction === 'column' ? (
           <>
-            <Icon iconSize="small" icon={ArrowUpIcon} />
-            <Icon icon={ArrowDownIcon} iconSize="small" />
+            <Icon iconSize="4" icon={ArrowUpIcon} />
+            <Icon icon={ArrowDownIcon} iconSize="4" />
           </>
         ) : (
           <>
-            <Icon iconSize="small" icon={ArrowLeftIcon} />
-            <Icon icon={ArrowRightIcon} iconSize="small" />
+            <Icon iconSize="4" icon={ArrowLeftIcon} />
+            <Icon icon={ArrowRightIcon} iconSize="4" />
           </>
         )}
         ) til å styre fokus-indeksen.

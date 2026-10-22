@@ -88,7 +88,7 @@ export const DropdownItem = <T extends DropdownItemT = 'span'>({
       {loading && (
         <span className={cn(utilStyles['center-absolute'])}>
           <Spinner
-            size="var(--dds-size-icon-medium)"
+            size="var(--dds-size-icon-component)"
             tooltip={loadingTooltip}
           />
         </span>

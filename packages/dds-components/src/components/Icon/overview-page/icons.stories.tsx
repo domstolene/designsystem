@@ -142,7 +142,7 @@ export const Oversikt = meta.story({
           title={trimmedName}
           className={cn(styles.card, focusable)}
         >
-          <Icon iconSize="large" icon={icon} color="icon-default" />
+          <Icon iconSize="8" icon={icon} color="icon-default" />
           <Typography
             typographyType="body-short-xsmall"
             className={styles.card__name}

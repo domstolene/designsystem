@@ -11,31 +11,20 @@ import {
   getBaseHTMLProps,
 } from '../../types';
 import { type IconColor } from '../../utils';
+import { SIZE_SCALE } from '../layout/common/Responsive.types';
 
 export const getSize = (iconSize: IconSize): string => {
   switch (iconSize) {
-    case 'small':
-      return 'var(--dds-size-icon-small)';
-    case 'medium':
-      return 'var(--dds-size-icon-medium)';
-    case 'large':
-      return 'var(--dds-size-icon-large)';
     case 'component':
       return 'var(--dds-size-icon-component)';
     case 'inherit':
       return '1em';
     default:
-      return 'var(--dds-size-icon-medium)';
+      return `var(--dds-size-${iconSize})`;
   }
 };
 
-export const ICON_SIZES = createSizes(
-  'large',
-  'medium',
-  'small',
-  'inherit',
-  'component',
-);
+export const ICON_SIZES = createSizes(...SIZE_SCALE, 'inherit', 'component');
 export type IconSize = (typeof ICON_SIZES)[number];
 
 export type IconProps<I extends SvgIcon = SvgIcon> = BaseComponentProps<
@@ -62,7 +51,7 @@ export type IconProps<I extends SvgIcon = SvgIcon> = BaseComponentProps<
 export function Icon<I extends SvgIcon = SvgIcon>(props: IconProps<I>) {
   const {
     id,
-    iconSize = 'medium',
+    iconSize = '4',
     color = 'currentcolor',
     icon,
     className,

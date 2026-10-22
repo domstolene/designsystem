@@ -87,7 +87,7 @@ export const Toggle = ({
   const { t } = useTranslation();
   const generatedId = useId();
   const uniqueId = id ?? `${generatedId}-toggle`;
-  const iconSize = size === 'large' ? 'medium' : 'small';
+  const iconSize = size === 'large' ? '5' : '4';
 
   const [checked, setChecked] = useControllableState({
     value: checkedProp,
@@ -161,7 +161,7 @@ export const Toggle = ({
         {readOnly && (
           <Icon
             icon={LockFilledIcon}
-            iconSize="small"
+            iconSize="4"
             className={styles['icon--read-only']}
           />
         )}
