@@ -4,8 +4,7 @@
   align-items: center;
   width: fit-content;
   gap: var(--dds-spacing-x0-25);
-  --dds-toggle-medium-thumb-spacing-inline: var(--dds-spacing-x0-125);
-  --dds-toggle-large-thumb-spacing-inline: var(--dds-spacing-x0-25);
+  --dds-spacing-inline-toggle-thumb: var(--dds-spacing-x0-125);
 }
 
 .track {
@@ -23,10 +22,10 @@
 
 .thumb {
   position: absolute;
+  left: var(--dds-spacing-inline-toggle-thumb);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--dds-spacing-x0-125);
   border-radius: var(--dds-border-radius-rounded);
   background-color: var(--dds-color-surface-field-default);
   border: 1px solid var(--dds-color-border-default);
@@ -39,7 +38,7 @@
   }
 }
 
-.thumb .checkmark {
+.thumb svg {
   opacity: 0;
   color: var(--dds-color-icon-action-resting);
   @media (prefers-reduced-motion: no-preference) {
@@ -47,28 +46,22 @@
   }
 }
 
-.thumb .unchecked-icon {
-  opacity: 1;
-  position: absolute;
-  color: var(--dds-color-icon-medium);
-  @media (prefers-reduced-motion: no-preference) {
-    transition: opacity var(--dds-motion-micro-state);
+.thumb {
+  .unchecked-icon,
+  .checked-icon {
+    position: absolute;
+    color: var(--dds-color-icon-medium);
   }
 }
 
-.thumb .checked-icon {
-  opacity: 0;
-  position: absolute;
-  color: var(--dds-color-icon-medium);
-  @media (prefers-reduced-motion: no-preference) {
-    transition: opacity var(--dds-motion-micro-state);
-  }
+.thumb .unchecked-icon {
+  opacity: 1;
 }
 
 .label input:checked ~ .track > .thumb {
-  .checkmark {
-    opacity: 1;
-  }
+  left: calc(100% - var(--dds-spacing-inline-toggle-thumb));
+  transform: translateX(-100%);
+  .checkmark,
   .checked-icon {
     opacity: 1;
   }
@@ -81,8 +74,24 @@
   display: flex;
   .icon--read-only {
     align-self: center;
-    flex-shrink: 0;
     margin-inline-end: var(--dds-spacing-x0-125);
+  }
+}
+
+.small {
+  .track {
+    height: var(--dds-size-5);
+    width: var(--dds-size-9);
+  }
+
+  .thumb {
+    top: calc((var(--dds-size-5) - var(--dds-size-4)) / 2 - 1px);
+    height: var(--dds-size-4);
+    width: var(--dds-size-4);
+  }
+
+  input:enabled:active:enabled:not([aria-readonly='true']) ~ .track > .thumb {
+    width: var(--dds-size-5);
   }
 }
 
@@ -93,19 +102,13 @@
   }
 
   .thumb {
-    left: var(--dds-toggle-medium-thumb-spacing-inline);
-    top: 1px;
+    top: calc((var(--dds-size-6) - var(--dds-size-5)) / 2 - 1px);
     height: var(--dds-size-5);
     width: var(--dds-size-5);
   }
 
-  input:checked ~ .track > .thumb {
-    left: calc(100% - var(--dds-toggle-medium-thumb-spacing-inline));
-    transform: translateX(-100%);
-  }
-
   input:enabled:active:enabled:not([aria-readonly='true']) ~ .track > .thumb {
-    width: 1.5rem;
+    width: var(--dds-size-6);
   }
 }
 
@@ -116,19 +119,13 @@
   }
 
   .thumb {
-    left: var(--dds-toggle-large-thumb-spacing-inline);
-    top: var(--dds-spacing-x0-125);
+    top: calc((var(--dds-size-8) - var(--dds-size-6)) / 2 - 1px);
     height: var(--dds-size-6);
     width: var(--dds-size-6);
   }
 
-  input:checked ~ .track > .thumb {
-    left: calc(100% - var(--dds-toggle-large-thumb-spacing-inline));
-    transform: translateX(-100%);
-  }
-
   input:enabled:active:not([aria-readonly='true']) ~ .track > .thumb {
-    width: var(--dds-spacing-x2);
+    width: var(--dds-size-8);
   }
 }
 
@@ -138,7 +135,7 @@
     background-color: var(--dds-color-surface-action-selected);
     border-color: var(--dds-color-border-action-default);
 
-    & > .thumb {
+    .thumb {
       border-color: var(--dds-color-border-action-default);
     }
   }
@@ -230,4 +227,10 @@
 
 .label--is-loading {
   cursor: not-allowed;
+  .thumb svg {
+    opacity: 1;
+  }
+  input:not(:checked) ~ .track svg {
+    color: var(--dds-color-icon-subtle);
+  }
 }
