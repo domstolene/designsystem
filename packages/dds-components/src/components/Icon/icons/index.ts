@@ -3,6 +3,7 @@ export * from './agreement';
 export * from './apps';
 export * from './archive';
 export * from './arrowDown';
+export * from './arrowDownUp';
 export * from './arrowLeft';
 export * from './arrowRight';
 export * from './arrowUp';

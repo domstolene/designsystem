@@ -4,6 +4,7 @@ import agreementSvg from '../svg/agreement.svg?raw';
 import appsSvg from '../svg/apps.svg?raw';
 import archiveSvg from '../svg/archive.svg?raw';
 import arrowDownSvg from '../svg/arrowDown.svg?raw';
+import arrowDownUpSvg from '../svg/arrowDownUp.svg?raw';
 import arrowLeftSvg from '../svg/arrowLeft.svg?raw';
 import arrowRightSvg from '../svg/arrowRight.svg?raw';
 import arrowUpSvg from '../svg/arrowUp.svg?raw';
@@ -271,6 +272,11 @@ export const iconMeta: Record<TrimmedIconName, IconMeta> = {
     category: 'Arrows and chevron',
     tags: ['pil', 'arrow', 'ned', 'down'],
     svg: arrowDownSvg,
+  },
+  ArrowDownUp: {
+    category: 'Arrows and chevron',
+    tags: ['pil', 'arrow', 'ned', 'down'],
+    svg: arrowDownUpSvg,
   },
   ArrowLeft: {
     category: 'Arrows and chevron',
