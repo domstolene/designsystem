@@ -7,7 +7,7 @@ import { cn } from '../../utils';
 import { StylelessButton } from '../helpers';
 import { focusable } from '../helpers/styling/focus.module.css';
 import { Icon } from '../Icon';
-import { ArrowDownIcon, ArrowUpIcon, ArrowUpDownIcon } from '../Icon/icons';
+import { ArrowDownIcon, ArrowUpDownIcon, ArrowUpIcon } from '../Icon/icons';
 
 export type SortOrder = 'ascending' | 'descending';
 
