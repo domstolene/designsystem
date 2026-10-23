@@ -243,7 +243,10 @@ export const Popover = ({
           )}
         </Box>
       )}
-      <Box marginBlock={!hasTitle && withCloseButton ? 'x2 0' : '0'}>
+      <Box
+        marginBlock={!hasTitle && withCloseButton ? 'x2 0' : '0'}
+        height="100%"
+      >
         {children}
       </Box>
       {withCloseButton && (
