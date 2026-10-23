@@ -51,7 +51,7 @@ export type IconProps<I extends SvgIcon = SvgIcon> = BaseComponentProps<
 export function Icon<I extends SvgIcon = SvgIcon>(props: IconProps<I>) {
   const {
     id,
-    iconSize = '4',
+    iconSize = '6',
     color = 'currentcolor',
     icon,
     className,

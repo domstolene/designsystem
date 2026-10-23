@@ -3,7 +3,7 @@ import styles from '../Icon.module.css';
 import { type SvgProps } from './types';
 
 const size = 24;
-const sizeCSS = 'var(--dds-size-icon-medium)';
+const sizeCSS = 'var(--dds-size-6)';
 
 export function SvgWrapper({
   height,
