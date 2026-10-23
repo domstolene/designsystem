@@ -108,32 +108,34 @@
 
 :where(.input--large) {
   padding: var(--dds-spacing-x0-75);
-  min-height: var(--dds-size-height-input-large);
+  min-height: var(--dds-size-14);
 }
 
 :where(.input--medium) {
   padding: var(--dds-spacing-x0-5) var(--dds-spacing-x0-75);
-  min-height: var(--dds-size-height-input-medium);
+  min-height: var(--dds-size-12);
 }
 
 :where(.input--small) {
   padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-5);
-  min-height: var(--dds-size-height-input-small);
+  min-height: var(--dds-size-8);
 }
 
 :where(.input--xsmall) {
   padding: var(--dds-spacing-x0-125) var(--dds-spacing-x0-25);
-  min-height: var(--dds-size-height-input-xsmall);
+  min-height: var(--dds-size-6);
 }
 
 :where(.compact--medium) {
   padding: var(--dds-spacing-compact-block-md)
     var(--dds-spacing-compact-inline-md);
+  height: var(--dds-size-8);
 }
 
 :where(.compact--small) {
   padding: var(--dds-spacing-compact-block-sm)
     var(--dds-spacing-compact-inline-sm);
+  height: var(--dds-size-6);
 }
 
 :where(.compact-with-icon--medium) {
@@ -312,6 +314,10 @@
   transform: translateY(-50%);
   z-index: var(--dds-zindex-absolute-element);
   color: var(--dds-color-icon-default);
+}
+
+.input-group__absolute-el:is(button:active:enabled) {
+  transform: translateY(-50%) scale(0.95);
 }
 
 :where(.input-group__absolute-el--large) {

@@ -15,7 +15,7 @@ import { Icon } from '../Icon';
 import { StarFilledIcon, StarIcon } from '../Icon/icons';
 
 export const FAVSTAR_SIZES = createSizes('medium', 'large');
-type ComponentSize = (typeof FAVSTAR_SIZES)[number];
+export type FavStartSize = (typeof FAVSTAR_SIZES)[number];
 
 export type FavStarProps = BaseComponentPropsWithChildren<
   HTMLElement,
@@ -37,7 +37,7 @@ export type FavStarProps = BaseComponentPropsWithChildren<
      * Størrelse på `<FavStar>`. `'medium'` er den mest vanlige størrelsen.
      * @default "medium"
      */
-    size?: ComponentSize;
+    size?: FavStartSize;
   }
 >;
 
@@ -66,6 +66,8 @@ export const FavStar = ({
     defaultValue: defaultChecked ?? false,
     onChange,
   });
+  const iconSize = size === 'large' ? '8' : '6';
+
   return (
     <label
       className={cn(
@@ -85,9 +87,9 @@ export const FavStar = ({
         type="checkbox"
         aria-label={props['aria-label'] ?? t(texts.favourite)}
       />
-      <Icon iconSize={size} icon={StarIcon} className={styles.icon} />
+      <Icon iconSize={iconSize} icon={StarIcon} className={styles.icon} />
       <Icon
-        iconSize={size}
+        iconSize={iconSize}
         icon={StarFilledIcon}
         className={cn(styles.icon, !checked && styles['icon--invisible'])}
       />

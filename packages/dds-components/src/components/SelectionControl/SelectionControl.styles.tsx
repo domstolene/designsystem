@@ -6,9 +6,9 @@ import { Icon } from '../Icon';
 import { LockIcon } from '../Icon/icons';
 import { Box } from '../layout';
 import { Typography } from '../Typography';
+import { type SelectionControlSize } from './common/SelectionControl.types';
 import labelStyles from '../Typography/Label/Label.module.css';
 import typographyStyles from '../Typography/typographyStyles.module.css';
-import { type SelectionControlSize } from './common/SelectionControl.types';
 type SelectionControlType = 'radio' | 'checkbox';
 
 type SelectionControlProps = {
@@ -43,12 +43,23 @@ export const Label = ({
   controlType,
   className,
   size = 'medium',
+  style,
   ...rest
 }: SelectionControlLabelProps) => {
+  const sizingMap: Record<SelectionControlSize, string> = {
+    small: 'var(--dds-size-5)',
+    medium: 'var(--dds-size-6)',
+  };
+
+  const styleVariables = {
+    '--dds-size-sl': sizingMap[size],
+  };
+
   return (
     <Box
       as="label"
       position="relative"
+      style={{ ...style, ...styleVariables }}
       display="flex"
       alignItems="center"
       width="fit-content"
@@ -92,7 +103,7 @@ export const renderGroupLabel = ({
           <Icon
             icon={LockIcon}
             className={labelStyles['read-only__icon']}
-            iconSize="small"
+            iconSize="4"
           />
         )}
         {label} {showRequiredStyling && <RequiredMarker />}

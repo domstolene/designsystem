@@ -35,13 +35,3 @@
       var(--dds-focus-transition);
   }
 }
-
-.button--horizontal {
-  width: var(--dds-size-icon-medium);
-  height: var(--dds-size-icon-medium);
-}
-
-.button--vertical {
-  width: var(--dds-size-icon-large);
-  height: var(--dds-size-icon-large);
-}

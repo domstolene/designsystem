@@ -224,9 +224,9 @@ export const CustomElement: Story = {
           .story-custom-option__icon, .story-custom-value__icon {
             border-radius: var(--dds-border-radius-rounded);
             background: #bbdefb;
-            width: var(--dds-size-icon-medium);
-            height: var(--dds-size-icon-medium);
-            min-width: var(--dds-size-icon-medium);
+            width: var(--dds-size-5);
+            height: var(--dds-size-5);
+            min-width: var(--dds-size-5);
             }
           .story-custom-option__icon--selected {
             border: 2px solid var(--dds-color-border-action-default);

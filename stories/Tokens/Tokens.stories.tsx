@@ -11,8 +11,7 @@ import {
   GridGenerator,
   MotionGenerator,
   ShadowsGenerator,
-  SizeHeightGenerator,
-  SizeIconGenerator,
+  SizeGenerator,
   SpacingGenerator,
   StatisticsColorsGenerator,
   TypographyGenerator,
@@ -20,8 +19,6 @@ import {
   ZIndexGenerator,
 } from './utils';
 import {
-  Divider,
-  Heading,
   Tab,
   TabList,
   TabPanel,
@@ -138,14 +135,6 @@ export const Grid = meta.story(() => {
 export const Size = meta.story(() => {
   return (
     <Wrapper>
-      <Heading level={2} withMargins>
-        Icon
-      </Heading>
-      {SizeIconGenerator()}
-      <Divider />
-      <Heading level={2} withMargins>
-        Height
-      </Heading>
       <Tabs>
         <TabList>
           <Tab>Core</Tab>
@@ -153,9 +142,9 @@ export const Size = meta.story(() => {
           <Tab>Supreme</Tab>
         </TabList>
         <TabPanels>
-          <TabPanel>{SizeHeightGenerator('core')}</TabPanel>
-          <TabPanel>{SizeHeightGenerator('public')}</TabPanel>
-          <TabPanel>{SizeHeightGenerator('supreme')}</TabPanel>
+          <TabPanel>{SizeGenerator('core')}</TabPanel>
+          <TabPanel>{SizeGenerator('public')}</TabPanel>
+          <TabPanel>{SizeGenerator('supreme')}</TabPanel>
         </TabPanels>
       </Tabs>
     </Wrapper>

@@ -5,7 +5,6 @@
   align-items: center;
   justify-content: center;
   width: fit-content;
-  cursor: pointer;
   box-shadow: none;
   text-decoration: none;
   border-radius: var(--dds-border-radius-button);
@@ -14,6 +13,10 @@
   @media (prefers-reduced-motion: no-preference) {
     transition: all var(--dds-motion-micro-state);
   }
+}
+
+.button:enabled {
+  cursor: pointer;
 }
 
 .button--is-loading {
@@ -36,7 +39,7 @@
 }
 
 .button--xsmall {
-  min-height: var(--dds-size-height-input-xsmall);
+  min-height: var(--dds-size-6);
   padding-block: var(--dds-spacing-x0-125);
   &.just-text {
     padding-inline: var(--dds-spacing-x0-5);
@@ -65,7 +68,7 @@
 }
 
 .button--small {
-  min-height: var(--dds-size-height-input-small);
+  min-height: var(--dds-size-8);
   padding-block: var(--dds-spacing-x0-25);
   &.just-text {
     padding-inline: var(--dds-spacing-x0-75);
@@ -88,13 +91,13 @@
   }
 
   &.clear {
-    min-height: var(--dds-size-height-input-xsmall);
+    min-height: var(--dds-size-6);
     padding: var(--dds-spacing-x0-25);
   }
 }
 
 .button--medium {
-  min-height: var(--dds-size-height-input-medium);
+  min-height: var(--dds-size-12);
   padding-block: var(--dds-spacing-x0-5);
   &.just-text {
     padding-inline: var(--dds-spacing-x1);
@@ -117,13 +120,13 @@
   }
 
   &.clear {
-    min-height: var(--dds-size-height-input-small);
+    min-height: var(--dds-size-8);
     padding: var(--dds-spacing-x0-5);
   }
 }
 
 .button--large {
-  min-height: var(--dds-size-height-input-large);
+  min-height: var(--dds-size-14);
   padding-block: var(--dds-spacing-x0-75);
   &.just-text {
     padding-inline: var(--dds-spacing-x1-5);
@@ -146,7 +149,7 @@
   }
 
   &.clear {
-    min-height: var(--dds-size-height-input-medium);
+    min-height: var(--dds-size-12);
     padding: var(--dds-spacing-x0-75);
   }
 }
@@ -165,7 +168,7 @@
   background-color: var(--dds-color-surface-action-resting);
   border-color: var(--dds-color-surface-action-resting);
   color: var(--dds-color-text-on-action);
-  &:hover:not(.button--is-loading) {
+  &:hover:enabled {
     background-color: var(--dds-color-surface-action-hover);
     border-color: var(--dds-color-surface-action-hover);
     color: var(--dds-color-text-on-action);
@@ -177,7 +180,7 @@
   border-color: var(--dds-color-border-default);
   color: var(--dds-color-text-default);
 
-  &:hover:not(.button--is-loading) {
+  &:hover:enabled {
     background-color: var(--dds-color-surface-hover-default);
     border-color: var(--dds-color-border-action-hover);
     color: var(--dds-color-text-default);
@@ -189,7 +192,7 @@
   border-color: transparent;
   color: var(--dds-color-text-default);
 
-  &:hover:not(.button--is-loading) {
+  &:hover:enabled {
     background-color: var(--dds-color-surface-hover-default);
     border-color: transparent;
     color: var(--dds-color-text-default);
@@ -200,7 +203,7 @@
   background-color: var(--dds-color-surface-action-danger-resting);
   border-color: var(--dds-color-surface-action-danger-resting);
   color: var(--dds-color-text-on-action);
-  &:hover:not(.button--is-loading) {
+  &:hover:enabled {
     background-color: var(--dds-color-surface-action-danger-hover);
     border-color: var(--dds-color-surface-action-danger-hover);
     color: var(--dds-color-text-on-action);
@@ -212,7 +215,7 @@
   border-color: var(--dds-color-border-danger);
   color: var(--dds-color-text-danger);
 
-  &:hover:not(.button--is-loading) {
+  &:hover:enabled {
     background-color: var(--dds-color-surface-danger-hover);
     border-color: var(--dds-color-border-danger-hover);
     color: var(--dds-color-text-danger);

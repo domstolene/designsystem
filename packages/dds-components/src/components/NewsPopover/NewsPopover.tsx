@@ -238,7 +238,7 @@ export const NewsPopover = ({
               return (
                 <Icon
                   key={`${slide.heading}-${i}`}
-                  iconSize="small"
+                  iconSize="4"
                   icon={CircleFilledIcon}
                   color={
                     active ? 'brand-tertiary-default' : 'brand-tertiary-subtle'

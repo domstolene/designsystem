@@ -1,15 +1,15 @@
 import { type Properties } from 'csstype';
 
+import { useCardSelectableContext } from './CardSelectable.context';
 import { getBaseHTMLProps } from '../../../types';
 import { cn, spaceSeparatedIdListGenerator } from '../../../utils';
 import focusStyles from '../../helpers/styling/focus.module.css';
 import { Checkbox } from '../../SelectionControl/Checkbox';
 import { useCheckboxGroup } from '../../SelectionControl/Checkbox/CheckboxGroupContext';
 import { RadioButton } from '../../SelectionControl/RadioButton';
+import { useRadioButtonGroup } from '../../SelectionControl/RadioButton/RadioButtonGroupContext';
 import styles from '../Card.module.css';
 import { type CardSelectableProps } from '../Card.types';
-import { useCardSelectableContext } from './CardSelectable.context';
-import { useRadioButtonGroup } from '../../SelectionControl/RadioButton/RadioButtonGroupContext';
 
 export const CardSelectable = (props: CardSelectableProps) => {
   const {
@@ -66,12 +66,12 @@ Provide \`cardType\` either via a parent <CardSelectableGroup> or directly on th
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ['--dds-selection-control-card-padding' as any]:
       padding ??
-      'var(--dds-spacing-x1-5) var(--dds-spacing-x1-5) var(--dds-spacing-x1-5) calc(var(--dds-size-icon-component) + var(--dds-spacing-x0-5) + var(--dds-spacing-x1-5))',
+      'var(--dds-spacing-x1-5) var(--dds-spacing-x1-5) var(--dds-spacing-x1-5) calc(var(--dds-size-6) + var(--dds-spacing-x0-5) + var(--dds-spacing-x1))',
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ['--dds-selection-control-card-control-top' as any]: top,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ['--dds-selection-control-card-control-left' as any]:
-      left ?? `var(--dds-spacing-x1-5)`,
+      left ?? `var(--dds-spacing-x1)`,
   };
 
   const sharedProps = {

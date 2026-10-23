@@ -45,7 +45,7 @@ export const Label = ({
       {readOnly && (
         <Icon
           icon={LockFilledIcon}
-          iconSize="small"
+          iconSize="4"
           className={styles['read-only__icon']}
         />
       )}

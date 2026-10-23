@@ -15,7 +15,7 @@ import styles from './Select.module.css';
 import { cn } from '../../utils';
 import { type InputSize } from '../helpers/Input';
 import inputStyles from '../helpers/Input/Input.module.css';
-import { Icon, type IconSize, type SvgIcon } from '../Icon';
+import { Icon, type SvgIcon } from '../Icon';
 import { CheckIcon, CloseSmallIcon } from '../Icon/icons';
 import { AnimatedChevronUpDownIcon } from '../Icon/icons/animated';
 
@@ -29,17 +29,6 @@ const {
   MultiValueRemove,
   Control,
 } = components;
-
-export const getIndicatorIconSize = (componentSize: InputSize): IconSize => {
-  switch (componentSize) {
-    case 'medium':
-      return 'medium';
-    case 'small':
-      return 'small';
-    case 'xsmall':
-      return 'small';
-  }
-};
 
 export const DDSOption = <TValue, IsMulti extends boolean>({
   testId,
@@ -56,7 +45,7 @@ export const DDSOption = <TValue, IsMulti extends boolean>({
       }
     }
   >
-    {props.isSelected && <Icon icon={CheckIcon} iconSize="small" />}
+    {props.isSelected && <Icon icon={CheckIcon} iconSize="component" />}
     {props.children}
   </Option>
 );

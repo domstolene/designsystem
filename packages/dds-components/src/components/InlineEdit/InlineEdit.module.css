@@ -47,5 +47,5 @@
 }
 
 .clear-button {
-  right: calc(var(--dds-spacing-x0-75) + var(--dds-size-icon-small));
+  right: calc(var(--dds-spacing-x0-75) + var(--dds-size-4));
 }

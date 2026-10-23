@@ -23,6 +23,26 @@ export const SPACING_SCALES = [
 
 export type SpacingScale = (typeof SPACING_SCALES)[number];
 
+export const SIZE_SCALE = [
+  '0',
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '10',
+  '11',
+  '12',
+  '13',
+  '14',
+] as const;
+
+export type SizeScale = (typeof SIZE_SCALE)[number];
+
 export type RelativeColumnsOccupied = 'all' | 'firstHalf' | 'secondHalf';
 
 export const Z_INDEXES = [

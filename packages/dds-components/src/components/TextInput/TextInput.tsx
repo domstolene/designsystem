@@ -139,13 +139,7 @@ export const TextInput = ({
 
   if (hasIcon) {
     extendedInput = (
-      <Box
-        className={cn(
-          inputStyles['input-group'],
-          tgStyles[`body-short-${componentSize}`],
-        )}
-        width={inputWidth}
-      >
+      <Box className={cn(inputStyles['input-group'])} width={inputWidth}>
         <Icon
           icon={icon}
           iconSize="component"
@@ -215,9 +209,9 @@ export const TextInput = ({
       className={cn(
         className,
         inputStyles.container,
-        styles.container,
         readOnly && styles['container--readonly'],
         disabled && styles['container--disabled'],
+        tgStyles[`body-short-${componentSize}`],
       )}
       style={style}
     >

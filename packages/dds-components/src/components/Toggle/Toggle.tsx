@@ -17,12 +17,12 @@ import {
 import { cn, readOnlyClickHandler, readOnlyKeyDownHandler } from '../../utils';
 import { HiddenInput } from '../helpers';
 import focusStyles from '../helpers/styling/focus.module.css';
-import { Icon } from '../Icon';
+import { Icon, type IconSize } from '../Icon';
 import { CheckIcon, LockFilledIcon, MoonIcon, SunIcon } from '../Icon/icons';
 import { Spinner } from '../Spinner';
 import { VisuallyHidden } from '../VisuallyHidden';
 
-export const TOGGLE_SIZES = createSizes('medium', 'large');
+export const TOGGLE_SIZES = createSizes('small', 'medium', 'large');
 export type ToggleSize = (typeof TOGGLE_SIZES)[number];
 export type ToggleVariant = 'default' | 'colorScheme';
 
@@ -87,7 +87,12 @@ export const Toggle = ({
   const { t } = useTranslation();
   const generatedId = useId();
   const uniqueId = id ?? `${generatedId}-toggle`;
-  const iconSize = size === 'large' ? 'medium' : 'small';
+  const iconSizes: Record<ToggleSize, IconSize> = {
+    small: '3',
+    medium: '4',
+    large: '5',
+  };
+  const iconSize = iconSizes[size];
 
   const [checked, setChecked] = useControllableState({
     value: checkedProp,
@@ -151,7 +156,10 @@ export const Toggle = ({
       <span className={cn(styles.track, focusStyles['focus-styled-sibling'])}>
         <span className={styles.thumb}>
           {isLoading ? (
-            <Spinner size={`var(--dds-size-icon-${size})`} />
+            <Spinner
+              size={`var(--dds-size-${iconSize})`}
+              color="currentColor"
+            />
           ) : (
             marker
           )}
@@ -161,7 +169,7 @@ export const Toggle = ({
         {readOnly && (
           <Icon
             icon={LockFilledIcon}
-            iconSize="small"
+            iconSize="4"
             className={styles['icon--read-only']}
           />
         )}
