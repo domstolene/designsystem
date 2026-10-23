@@ -1,5 +1,37 @@
 # @norges-domstoler/dds-components
 
+## 25.0.0
+
+### Major Changes
+
+- c875686: `<Paper>` støtter verdi `'tag'` istedenfor `'chip'` i prop `borderRadius`.
+- d851ad3: Endring i prop `color` i typografikomponentene, `<Icon>` og `<Spinner>`. Den støtter ikke lenger verdiene `'text-on-data-default'` og `'text-on-data-subtle'` som semantiske farger for tekst. Istedet støttes nye fargene `'text-domain-on-domain'`, `'text-statistics-on-default'` og `'text-statistics-on-subtle'`.
+- 42f2f01: Revamp og utvidelse av `<Tag>`. [Se migreringsguiden v24 til v25](https://design.domstol.no/987b33f71/p/930207-v24-til-v25).
+- 704da51: Utvider `<Button>` til å støtte ny `purpose`. Fører til navneendring. [Se migreringsguiden v24 til v25](https://design.domstol.no/987b33f71/p/930207-v24-til-v25).
+- a91bc46: Endrer `iconSize` i `<Icon>`. Se [migreringsguiden v24 til v25](https://design.domstol.no/987b33f71/p/930207-v24-til-v25).
+- 8ec463f: Revamp og utvidelse av `<Chip>`. Se [migreringsguiden v24 til v25](https://design.domstol.no/987b33f71/p/930207-v24-til-v25).
+
+### Minor Changes
+
+- 771d704: Støtte for `'small'` i `size` prop i `<Toggle>`.
+- 8ec463f: Støtte for `size` prop i `<Checkbox>` og `<RadioButton>`. Bruker `'medium'` som default og påvirker dermed ikke eksisterende bruk.
+- a91bc46: Eksponerer `type FavStarSize` - type for `size` prop i `<FavStar>`.
+- a91bc46: Tar i bruk nye design tokens for størrelser på tvers av komponenter. Kan påvrike layout.
+
+### Patch Changes
+
+- 1f0f2f2: Fikser styling i delkomponent `<AddTabButton>` i `<Tabs>`, slik at den er lik `<Tab>`.
+- 8ec463f: Øker ikonstørrelse i `<InlineButton>` til å være linjehøyden til teksten rundt. Dette gjør at ikonet er sentrert i forhold til teksten og harmonerer med den.
+- 17ce472: Oppdaterer styling til `<Tag purpose="neutral" appearance="strong">` slik at det er i tråd med andre formål.
+- d373e09: Fikset en feil der verdier sendt til CSS-props i layout-primitiver (f.eks. Box og HStack) kunne bli parset feil som design tokens dersom verdien hadde samme navn som en token.
+- Updated dependencies [5cf1113]
+- Updated dependencies [a47b3ad]
+- Updated dependencies [5cf1113]
+- Updated dependencies [c875686]
+- Updated dependencies [a91bc46]
+- Updated dependencies [5d2ddf0]
+  - @norges-domstoler/dds-design-tokens@11.0.0
+
 ## 24.4.0
 
 (2026-09-29)
