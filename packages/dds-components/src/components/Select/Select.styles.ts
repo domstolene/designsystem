@@ -155,6 +155,7 @@ export const getCustomStyles = <TOption>(
     boxSizing: 'border-box',
   }),
   multiValue: (provided, state) => ({
+    height: 'var(--dds-size-6)',
     boxSizing: 'border-box',
     minWidth: 0,
     display: 'flex',
