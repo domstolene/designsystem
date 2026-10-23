@@ -316,6 +316,10 @@
   color: var(--dds-color-icon-default);
 }
 
+.input-group__absolute-el:is(button:active:enabled) {
+  transform: translateY(-50%) scale(0.95);
+}
+
 :where(.input-group__absolute-el--large) {
   left: var(--dds-input-absolute-el-left-large);
 }

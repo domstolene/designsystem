@@ -67,7 +67,11 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
   };
 
   return (
-    <VStack {...calendarProps} gap="x0.25" height="337px">
+    <VStack
+      {...calendarProps}
+      gap="x0.25"
+      height="calc(var(--dds-size-10) * 8 + var(--dds-spacing-x0-5))"
+    >
       <HStack justifyContent="space-between" alignItems="center">
         <Button
           aria-hidden={optAttr(isPrevDisabled)}

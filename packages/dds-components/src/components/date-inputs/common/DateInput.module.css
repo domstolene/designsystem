@@ -57,14 +57,13 @@
  *------------------------------------------------------------------------*/
 
 .popover-button {
-  padding: 3px;
-  margin-left: -3px;
+  margin-left: var(--dds-spacing-x0-125);
 }
 
 .popover th,
 .popover td {
-  height: 40px;
-  width: 40px;
+  height: var(--dds-size-10);
+  width: var(--dds-size-10);
 }
 
 .calendar__header__month {
