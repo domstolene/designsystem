@@ -380,7 +380,7 @@ export const Oversikt = meta.story({
                   </ToggleBar>
                 </Box>
               )}
-              <HStack gap="x1" alignItems="end">
+              <HStack gap="x1" alignItems="end" flexWrap="wrap">
                 {ICON_SIZES.map(size => (
                   <VStack>
                     <Icon

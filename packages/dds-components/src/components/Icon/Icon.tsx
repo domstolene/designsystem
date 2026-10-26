@@ -33,7 +33,7 @@ export type IconProps<I extends SvgIcon = SvgIcon> = BaseComponentProps<
     /**Ikonet importert fra `@norges-domstoler/dds-components`. */
     icon: I;
     /**Størrelsen på ikonet.
-     * @default "medium"
+     * @default "6"
      */
     iconSize?: IconSize;
     /**Fargen på ikonet.

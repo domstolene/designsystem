@@ -30,7 +30,7 @@ export const Preview = meta.story({
 export const Sizes = meta.story({
   args: { icon },
   render: args => (
-    <StoryHStack>
+    <StoryHStack flexWrap="wrap">
       {ICON_SIZES.map(size => (
         <VStack key={size}>
           <StoryLabel>{labelText(size)}</StoryLabel>
