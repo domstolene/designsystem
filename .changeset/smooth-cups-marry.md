@@ -2,4 +2,4 @@
 '@norges-domstoler/dds-components': minor
 ---
 
-Utvider ikonbibliotek med ikonenen 'ArrowDownUp' og 'ArrowUpDown'.
+Utvider ikonbibliotek med ikonene `ArrowDownUp` og `ArrowUpDown`.
