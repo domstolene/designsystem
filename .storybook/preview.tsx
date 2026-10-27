@@ -12,6 +12,7 @@ import { type PropsWithChildren, useEffect, useState } from 'react';
 
 import {
   DdsProvider,
+  HStack,
   Toggle,
   ToggleBar,
   ToggleRadio,
@@ -102,17 +103,22 @@ export default definePreview({
           theme={`${mainTheme}-${checkedToMode(mode)}`}
           language="nb"
         >
-          <div
-            className="theme-toggle-bar-wrapper"
+          <HStack
+            width="fit-content"
+            gap="x1"
+            flexWrap="wrap"
+            marginInline="auto 0"
+            marginBlock="0 x1"
+
             id={`theme-toggle-bar-wrapper-${nameCounter}`}
           >
             <Toggle
               name={`mode-toggle-${nameCounter}`}
-              htmlProps={{ 'aria-label': 'Mørk modus' }}
               checked={mode}
               onChange={setMode}
-              variant="colorScheme"
-            />
+            >
+              Mørk modus
+            </Toggle>
             <ToggleBar
               size="xsmall"
               name={`theme-${nameCounter}`}
@@ -127,7 +133,7 @@ export default definePreview({
                 <ToggleRadio key={theme} value={theme} label={theme} />
               ))}
             </ToggleBar>
-          </div>
+          </HStack>
           <Story />
         </DdsProvider>
       );
