@@ -103,6 +103,7 @@ export const Toggle = ({
         className,
         styles.label,
         styles[size],
+        tgStyles[`body-short-${size}`],
         isLoading && styles['label--is-loading'],
         disabled && styles['label--disabled'],
         readOnly && styles['label--read-only'],
@@ -144,12 +145,7 @@ export const Toggle = ({
           )}
         </span>
       </span>
-      <span
-        className={cn(
-          tgStyles[`body-short-${size}`],
-          readOnly && styles['labeltext--readonly'],
-        )}
-      >
+      <span className={cn(readOnly && styles['labeltext--readonly'])}>
         {readOnly && (
           <Icon
             icon={LockFilledIcon}
