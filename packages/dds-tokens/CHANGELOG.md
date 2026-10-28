@@ -2,10 +2,12 @@
 
 ## 11.0.0
 
+(2026-10-28)
+
 ### Major Changes
 
 - c875686: Bytter navn på design token `dds-border-radius-chip` til `dds-border-radius-tag`.
-- a91bc46: Endrer design tokens for størrelser. Se [migreringsguiden v11 til v12](https://design.domstol.no/987b33f71/p/11677d-v11-til-v12).
+- a91bc46: Endrer design tokens for størrelser. Se [migreringsguiden v10 til v11](https://design.domstol.no/987b33f71/p/538a30-v10-til-v11).
 - 5d2ddf0: Endrer navn på semantiske design tokens på formen `dds-color-data-<tall>` til `dds-color-statistics-<tall>`.
 
 ### Minor Changes
