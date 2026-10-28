@@ -2,6 +2,8 @@
 
 ## 25.0.0
 
+(2026-10-28)
+
 ### Major Changes
 
 - c875686: `<Paper>` støtter verdi `'tag'` istedenfor `'chip'` i prop `borderRadius`.
