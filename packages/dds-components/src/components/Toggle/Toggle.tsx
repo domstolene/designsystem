@@ -18,8 +18,9 @@ import { cn, readOnlyClickHandler, readOnlyKeyDownHandler } from '../../utils';
 import { HiddenInput } from '../helpers';
 import focusStyles from '../helpers/styling/focus.module.css';
 import { Icon, type IconSize } from '../Icon';
-import { CheckIcon, LockFilledIcon, MoonIcon, SunIcon } from '../Icon/icons';
+import { CheckIcon, LockFilledIcon } from '../Icon/icons';
 import { Spinner } from '../Spinner';
+import tgStyles from '../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../VisuallyHidden';
 
 export const TOGGLE_SIZES = createSizes('small', 'medium', 'large');
@@ -59,11 +60,6 @@ export type ToggleProps = BaseComponentProps<
      * @default "medium"
      */
     size?: ToggleSize;
-    /**
-     * Variant basert på bruksområde.
-     * @default "default"
-     */
-    variant?: ToggleVariant;
   } & Pick<ComponentProps<'input'>, 'name' | 'aria-describedby' | 'onBlur'>,
   InputHTMLAttributes<HTMLInputElement>
 >;
@@ -81,7 +77,6 @@ export const Toggle = ({
   className,
   style,
   htmlProps = {},
-  variant = 'default',
   ...rest
 }: ToggleProps) => {
   const { t } = useTranslation();
@@ -100,25 +95,6 @@ export const Toggle = ({
     onChange,
   });
 
-  const isColorScheme = variant === 'colorScheme';
-
-  const marker = isColorScheme ? (
-    <>
-      <Icon
-        className={styles['unchecked-icon']}
-        icon={SunIcon}
-        iconSize={iconSize}
-      />
-      <Icon
-        className={styles['checked-icon']}
-        icon={MoonIcon}
-        iconSize={iconSize}
-      />
-    </>
-  ) : (
-    <Icon className={styles.checkmark} icon={CheckIcon} iconSize={iconSize} />
-  );
-
   return (
     <label
       htmlFor={uniqueId}
@@ -127,10 +103,10 @@ export const Toggle = ({
         className,
         styles.label,
         styles[size],
+        tgStyles[`body-short-${size}`],
         isLoading && styles['label--is-loading'],
         disabled && styles['label--disabled'],
         readOnly && styles['label--read-only'],
-        isColorScheme && styles['label--color-scheme'],
       )}
     >
       <HiddenInput
@@ -161,7 +137,11 @@ export const Toggle = ({
               color="currentColor"
             />
           ) : (
-            marker
+            <Icon
+              className={styles.checkmark}
+              icon={CheckIcon}
+              iconSize={iconSize}
+            />
           )}
         </span>
       </span>
