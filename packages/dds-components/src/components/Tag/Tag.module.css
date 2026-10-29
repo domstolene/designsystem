@@ -1,5 +1,4 @@
 .container {
-  border: 1px solid;
   display: inline-flex;
   align-items: center;
   border-radius: var(--dds-border-radius-tag);
@@ -20,7 +19,7 @@
 
 .container--outline {
   background-color: var(--dds-color-tag-background-default);
-  border-color: var(--dds-color-tag-border-outline);
+  border: 1px solid var(--dds-color-tag-border-outline);
 }
 
 .container--subtle {
