@@ -9,6 +9,7 @@ import {
   responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../storybook';
+import { Button } from '../Button';
 import { INPUT_SIZES } from '../helpers/Input';
 import { CourtIcon, MailIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
@@ -129,5 +130,11 @@ export const ResponsiveWidth = meta.story({
       lg: 'var(--dds-input-default-width)',
       xl: 'var(--dds-input-default-width)',
     },
+  },
+});
+
+export const WithChildren = meta.story({
+  args: {
+    children: <Button>Eksempel</Button>,
   },
 });

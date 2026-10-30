@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 
+import { Button } from '../Button';
 import { CheckIcon } from '../Icon/icons';
 
 import { TextInput } from '.';
@@ -178,5 +179,14 @@ describe('<TextInput>', () => {
   it('does not render required marker if required but no label is provided', () => {
     render(<TextInput required />);
     expect(screen.queryByText('*')).not.toBeInTheDocument();
+  });
+
+  it('renders child components', () => {
+    render(
+      <TextInput>
+        <Button>Button text</Button>
+      </TextInput>,
+    );
+    expect(screen.queryByText('Button text')).toBeInTheDocument();
   });
 });
