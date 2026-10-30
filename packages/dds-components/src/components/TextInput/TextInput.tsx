@@ -13,7 +13,7 @@ import { StatefulInput, getDefaultText, getInputWidth } from '../helpers/Input';
 import inputStyles from '../helpers/Input/Input.module.css';
 import { Icon } from '../Icon';
 import { renderInputMessage } from '../InputMessage';
-import { Box } from '../layout';
+import { Box, HStack } from '../layout';
 import { renderLabel } from '../Typography/Label/Label.utils';
 import tgStyles from '../Typography/typographyStyles.module.css';
 
@@ -42,6 +42,7 @@ export const TextInput = ({
   prefix,
   suffix,
   ref,
+  children,
   ...rest
 }: TextInputProps) => {
   const [text, setText] = useState<string>(getDefaultText(value, defaultValue));
@@ -222,11 +223,14 @@ export const TextInput = ({
         readOnly,
         afterLabelContent,
       })}
-      {extendedInput ? (
-        extendedInput
-      ) : (
-        <Box as={StatefulInput} width={inputWidth} {...generalInputProps} />
-      )}
+      <HStack gap="x1" alignItems="center">
+        {extendedInput ? (
+          extendedInput
+        ) : (
+          <Box as={StatefulInput} width={inputWidth} {...generalInputProps} />
+        )}
+        {children}
+      </HStack>
       {hasBottomContainer && (
         <Box
           display="flex"
