@@ -28,11 +28,13 @@ export default meta;
 
 const toggleRadios = (label?: boolean, icon?: boolean) => {
   const radios = [];
+
   for (let i = 1; i <= 3; i++) {
     radios.push(
       <ToggleRadio
         key={i}
         icon={icon ? PlusCircledIcon : undefined}
+        aria-label={!label ? `Alt${i}` : undefined}
         label={label ? `Alt${i}` : undefined}
         value={`Alt${i}`}
       />,

@@ -63,12 +63,15 @@ export const Sizes = meta.story({
           <StoryLabel>{labelText(size)}</StoryLabel>
           <Tabs {...args} size={size}>
             {tabList()}
+            {tabPanels}
           </Tabs>
           <Tabs {...args} size={size}>
             {tabList(true)}
+            {tabPanels}
           </Tabs>
           <Tabs {...args} size={size} tabContentDirection="column">
             {tabList(true)}
+            {tabPanels}
           </Tabs>
         </StoryVStack>
       ))}
@@ -259,6 +262,10 @@ export const WithBadge = meta.story({
                 Fane 2
               </Tab>
             </TabList>
+            <TabPanels>
+              <TabPanel></TabPanel>
+              <TabPanel></TabPanel>
+            </TabPanels>
           </Tabs>
           <StoryLabel>{size} column</StoryLabel>
           <Tabs {...args} size={size} tabContentDirection="column">
@@ -277,6 +284,10 @@ export const WithBadge = meta.story({
                 Fane 2
               </Tab>
             </TabList>
+            <TabPanels>
+              <TabPanel></TabPanel>
+              <TabPanel></TabPanel>
+            </TabPanels>
           </Tabs>
         </Fragment>
       ))}

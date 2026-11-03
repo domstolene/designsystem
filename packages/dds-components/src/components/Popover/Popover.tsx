@@ -197,6 +197,7 @@ export const Popover = ({
   });
 
   const hasTitle = !!header;
+  const popoverHeaderId = header ? `${popoverId}-header` : undefined;
 
   const openCn = hasTransitionedIn && isOpen ? 'open' : 'closed';
 
@@ -231,9 +232,10 @@ export const Popover = ({
       elevation="large"
       border="border-subtle"
       zIndex="popover"
+      aria-labelledby={popoverHeaderId}
     >
       {header && (
-        <Box marginInline="0 x2">
+        <Box marginInline="0 x2" id={popoverHeaderId}>
           {typeof header === 'string' ? (
             <Heading level={2} typographyType="heading-medium">
               {header}

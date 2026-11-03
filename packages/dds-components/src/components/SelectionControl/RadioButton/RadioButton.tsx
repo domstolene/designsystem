@@ -36,7 +36,7 @@ export const RadioButton = ({
   name,
   label,
   disabled = false,
-  readOnly = false,
+  readOnly,
   error = false,
   checked,
   value,
@@ -100,7 +100,7 @@ export const RadioButton = ({
           describedByIds.length > 0 ? describedByIds.join(' ') : undefined
         }
         aria-invalid={hasError ? true : undefined}
-        aria-readonly={isReadOnly}
+        aria-disabled={htmlProps['aria-disabled'] ?? isReadOnly}
         className={focusStyles['focusable-sibling']}
         onKeyDown={readOnlyKeyDownHandler(
           'selectionControl',
