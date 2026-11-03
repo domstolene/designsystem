@@ -68,8 +68,7 @@
           "WIDTH_HEIGHT"
         ],
         "com.figma.hiddenFromPublishing": false
-      },
-      "description": "Brukes i input og buttons"
+      }
     },
     "7": {
       "value": "2rem",
@@ -89,8 +88,7 @@
           "WIDTH_HEIGHT"
         ],
         "com.figma.hiddenFromPublishing": false
-      },
-      "description": "Brukes i input og buttons"
+      }
     },
     "9": {
       "value": "2.5rem",
