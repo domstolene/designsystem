@@ -149,7 +149,7 @@ export const InsideModal: Story = {
     return (
       <>
         <Button onClick={() => setOpen(true)}>Åpne modal</Button>
-        <Modal isOpen={isOpen} onClose={() => setOpen(false)}>
+        <Modal isOpen={isOpen} onClose={() => setOpen(false)} header="Header">
           <DatePicker label="Dato" {...args} />
         </Modal>
       </>

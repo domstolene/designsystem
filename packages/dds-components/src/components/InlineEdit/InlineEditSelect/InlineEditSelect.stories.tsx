@@ -50,6 +50,7 @@ export const Preview = meta.story({
         children={children}
         value={value}
         onSetValue={setValue}
+        aria-label="Ledetekst"
       />
     );
   },
@@ -70,12 +71,14 @@ export const Overview = meta.story({
           children={children}
           value={value}
           onSetValue={setValue}
+          aria-label="Ledetekst"
         />
         <InlineEditSelect
           {...args}
           children={children}
           onSetValue={setValue2}
           value={value2}
+          aria-label="Ledetekst"
         />
         <InlineEditSelect
           {...args}
@@ -83,6 +86,7 @@ export const Overview = meta.story({
           onSetValue={setValue3}
           value={value3}
           error
+          aria-label="Ledetekst"
         />
         <InlineEditSelect
           {...args}
@@ -90,6 +94,7 @@ export const Overview = meta.story({
           onSetValue={setValue4}
           value={value4}
           errorMessage="Feilmelding"
+          aria-label="Ledetekst"
         />
         <InlineEditSelect
           {...args}
@@ -102,6 +107,7 @@ export const Overview = meta.story({
           onSetValue={setValue5}
           value={value5}
           emptiable
+          aria-label="Ledetekst"
         />
         <InlineEditSelect
           {...args}
@@ -113,6 +119,7 @@ export const Overview = meta.story({
           onSetValue={setValue6}
           value={value6}
           hideIcon
+          aria-label="Ledetekst"
         />
       </StoryVStack>
     );
@@ -143,6 +150,7 @@ export const InTable = meta.story({
                   {...args}
                   children={children}
                   onSetValue={() => setValue(value)}
+                  aria-label="Ledetekst"
                 />
               </Table.Cell>
               <Table.Cell>innhold</Table.Cell>
@@ -154,6 +162,7 @@ export const InTable = meta.story({
                   {...args}
                   children={children}
                   onSetValue={() => setValue2(value2)}
+                  aria-label="Ledetekst"
                 />
               </Table.Cell>
               <Table.Cell>innhold</Table.Cell>
@@ -172,6 +181,7 @@ export const ResponsiveWidth = meta.story({
   },
   decorators: [Story => windowWidthDecorator(<Story />)],
   args: {
+    'aria-label': 'Ledetekst',
     width: {
       xs: '100%',
       sm: '100%',

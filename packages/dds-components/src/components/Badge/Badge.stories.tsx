@@ -5,6 +5,7 @@ import { commonArgTypes } from '../../storybook';
 import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
 import { Table } from '../Table';
 import { Paragraph, Typography } from '../Typography';
+import { VisuallyHidden } from '../VisuallyHidden';
 
 const meta = preview.meta({
   title: 'dds-components/Components/Badge',
@@ -69,8 +70,13 @@ export const InTable = meta.story({
   render: args => (
     <StoryVStack>
       <Paragraph>
-        Enestående <code>Badge</code> må ha et tilgjengelig navn, satt f.eks.
-        via <code>aria-label</code>.
+        Enestående <code>Badge</code> må suppleres med synlig eller usynlig
+        tekst for å forklare hva den indikerer. Usynlig ledetekst kan kodes med{' '}
+        <code>VisuallyHidden</code>-komponent.
+      </Paragraph>
+      <Paragraph>
+        OBS! <code>aria-label</code> vil resultere i UU-feil da den ikke kan
+        brukes på et element uten rolle.
       </Paragraph>
       <Table>
         <Table.Head>
@@ -82,7 +88,7 @@ export const InTable = meta.story({
         <Table.Body>
           <Table.Row>
             <Table.Cell layout="text and icon">
-              <Badge {...args} aria-label="Ny fil" />{' '}
+              <Badge {...args} /> <VisuallyHidden>Ulest</VisuallyHidden>
               <Typography bold> Dokumentnavn1 </Typography>
             </Table.Cell>
             <Table.Cell>Navn</Table.Cell>

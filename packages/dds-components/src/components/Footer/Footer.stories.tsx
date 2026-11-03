@@ -30,8 +30,8 @@ const socials = (
       <li>
         <Link href="/" style={{ display: 'block' }}>
           <Icon icon={FacebookIcon} style={{ display: 'block' }} />
+          <VisuallyHidden>Facebook</VisuallyHidden>
         </Link>
-        <VisuallyHidden>Facebook</VisuallyHidden>
       </li>
       <li>
         <Link href="/" style={{ display: 'block' }}>
@@ -150,16 +150,19 @@ export const FourColumns = meta.story({
                 <li>
                   <Link href="/" htmlProps={{ title: 'Facebook' }}>
                     <Icon icon={FacebookIcon} />
+                    <VisuallyHidden>Facebook</VisuallyHidden>
                   </Link>
                 </li>
                 <li>
                   <Link href="/" htmlProps={{ title: 'Instagram' }}>
                     <Icon icon={InstagramIcon} />
+                    <VisuallyHidden>Instagram</VisuallyHidden>
                   </Link>
                 </li>
                 <li>
                   <Link href="/" htmlProps={{ title: 'LinkedIn' }}>
                     <Icon icon={LinkedInIcon} />
+                    <VisuallyHidden>LinkedIn</VisuallyHidden>
                   </Link>
                 </li>
               </FooterSocialsList>

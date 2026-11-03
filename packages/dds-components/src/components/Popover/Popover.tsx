@@ -7,6 +7,7 @@ import {
 } from 'react';
 import { createPortal } from 'react-dom';
 
+import { usePopoverContext } from './Popover.context';
 import {
   type Placement,
   useCombinedRef,
@@ -28,9 +29,8 @@ import focusStyles from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { CloseIcon } from '../Icon/icons';
 import { Box, Paper, type ResponsiveProps } from '../layout';
-import { Heading } from '../Typography';
-import { usePopoverContext } from './Popover.context';
 import { ThemeContext } from '../ThemeProvider';
+import { Heading } from '../Typography';
 
 export type PopoverSizeProps = Pick<
   ResponsiveProps,
@@ -197,6 +197,7 @@ export const Popover = ({
   });
 
   const hasTitle = !!header;
+  const popoverHeaderId = header ? `${popoverId}-header` : undefined;
 
   const openCn = hasTransitionedIn && isOpen ? 'open' : 'closed';
 
@@ -231,9 +232,10 @@ export const Popover = ({
       elevation="large"
       border="border-subtle"
       zIndex="popover"
+      aria-labelledby={popoverHeaderId}
     >
       {header && (
-        <Box marginInline="0 x2">
+        <Box marginInline="0 x2" id={popoverHeaderId}>
           {typeof header === 'string' ? (
             <Heading level={2} typographyType="heading-medium">
               {header}

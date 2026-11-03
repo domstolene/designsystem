@@ -78,6 +78,7 @@ export const Sizes = meta.story({
 
 export const Responsive = meta.story({
   args: {
+    label: 'Telefonnummer',
     smallScreenBreakpoint: 'sm',
   },
   parameters: {
@@ -98,6 +99,7 @@ export const ResponsiveWidth = meta.story({
   },
   decorators: [Story => windowWidthDecorator(<Story />)],
   args: {
+    label: 'Telefonnummer',
     width: {
       xs: '100%',
       sm: '100%',

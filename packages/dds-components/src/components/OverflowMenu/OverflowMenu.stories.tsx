@@ -265,6 +265,7 @@ export const WithinTable = meta.story({
                     purpose="tertiary"
                     size="xsmall"
                     icon={MoreVerticalIcon}
+                    aria-label="Åpne meny"
                   />
                   <OverflowMenu {...args}>
                     <OverflowMenuList>

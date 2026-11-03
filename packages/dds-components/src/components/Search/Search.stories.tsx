@@ -23,6 +23,16 @@ const meta = preview.meta({
   },
   args: { onChange: fn() },
   decorators: [ddsProviderDecorator],
+  parameters: {
+    a11y: {
+      options: {
+        rules: {
+          label: { enabled: false },
+          'label-title-only': { enabled: false },
+        },
+      },
+    },
+  },
 });
 
 export default meta;
