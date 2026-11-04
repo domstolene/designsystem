@@ -1,19 +1,18 @@
+import { type ElementType } from 'react';
+
 import styles from './Card.module.css';
-import { type CardProps } from './Card.types';
+import { type CardProps, type NavigationCardProps } from './Card.types';
+import { ElementAs } from '../../polymorphic';
 import { getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
 import focusStyles from '../helpers/styling/focus.module.css';
 
-export const Card = (props: CardProps) => {
+export const Card = <T extends ElementType = 'a'>(props: CardProps<T>) => {
   const {
     appearance = 'filled',
     cardType,
-    cardRef,
-    id,
     className,
-    style,
-    htmlProps,
-    ...rest
+    ...propsWithoutVariants
   } = props;
 
   const classNames = cn(
@@ -24,23 +23,45 @@ export const Card = (props: CardProps) => {
   );
 
   if (cardType === 'navigation') {
-    const { href, target } = props;
+    const {
+      cardRef,
+      id,
+      style,
+      htmlProps,
+      isAnchor: propIsAnchor,
+      as: propAs,
+      ...navigationRest
+    } = propsWithoutVariants as Omit<
+      NavigationCardProps<T>,
+      'appearance' | 'cardType' | 'className'
+    >;
+    const as = propAs ?? 'a';
+    const isAnchor = as === 'a' || propIsAnchor;
+
+    const aProps = isAnchor
+      ? {
+          rel: 'noopener noreferrer',
+        }
+      : {};
 
     return (
-      <a
+      <ElementAs
+        as={as}
         {...getBaseHTMLProps(
           id,
           cn(classNames, focusStyles.focusable),
           style,
           htmlProps,
-          rest,
+          navigationRest,
         )}
         ref={cardRef}
-        href={href}
-        target={target}
+
+        {...aProps}
       />
     );
   }
+
+  const { cardRef, id, style, htmlProps, ...rest } = propsWithoutVariants;
 
   return (
     <div

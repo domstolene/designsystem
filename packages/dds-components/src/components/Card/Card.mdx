@@ -91,6 +91,18 @@ Det finnes følgene typer `<Card>`:
 - Ikke legg interaktive elementer (knapp, radio, inputfelt...) inni `<CardExpandableHeader>`. Den er allerede en knapp og kan ikke ha nøstet interaksjon.
 - Ikke bruk `<CardExpandableHeader>` til å kontrollere andre elementer, som å åpne `<OverflowMenu>` eller en modal.
 
+### Klient-side ruting
+
+For `cardType="navigation"` kan du bruke `as` for klient-side ruting med f.eks. Next.js `Link`:
+
+<Source
+  code={`import NextLink from 'next/link';
+
+<Card cardType="navigation" as={NextLink} href="/min-side">
+  Innhold
+</Card>`}
+/>
+
 ### Selectable
 
 #### Gruppe
