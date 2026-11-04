@@ -1,5 +1,5 @@
-import { ComponentProps } from 'react';
 import { render, screen } from '@testing-library/react';
+import { type ComponentProps } from 'react';
 import { describe, expect, it } from 'vitest';
 
 import { Card } from '.';

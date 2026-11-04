@@ -51,10 +51,12 @@ export type NavigationCardProps<T extends ElementType = 'a'> =
        * Brukes når custom `as` komponent wrapper en `<a>` tag.
        */
       isAnchor?: boolean;
-    } & Pick<
-        AnchorHTMLAttributes<HTMLAnchorElement>,
-        'href' | 'target' | 'onClick'
-      >
+    } & (T extends 'a'
+        ? Pick<
+            AnchorHTMLAttributes<HTMLAnchorElement>,
+            'href' | 'target' | 'onClick'
+          >
+        : object)
   >;
 
 export type ExpandableCardProps = BaseCardProps<HTMLDivElement> & {
