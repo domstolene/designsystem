@@ -25,8 +25,8 @@
 
   &:not(:hover)
     input[aria-invalid]:enabled:not([aria-readonly='true']):not(
-      :focus-visible
-    ):not(:checked)
+      [aria-disabled='true']
+    ):not(:focus-visible):not(:checked)
     ~ .selection-control {
     background-color: var(--dds-color-surface-danger-default);
   }
@@ -37,13 +37,17 @@
 }
 
 .label:has(input:enabled) {
-  input[aria-invalid]:not([aria-readonly='true']):not(:focus-visible)
+  input[aria-invalid]:not([aria-readonly='true']):not(
+      [aria-disabled='true']
+    ):not(:focus-visible)
     ~ .selection-control {
     border-color: var(--dds-color-border-danger);
     box-shadow: inset 0 0 0 1px var(--dds-color-border-danger);
   }
 
-  &:hover input:not(:checked):not([aria-readonly='true']) ~ .selection-control {
+  &:hover
+    input:not(:checked):not([aria-readonly='true']):not([aria-disabled='true'])
+    ~ .selection-control {
     background-color: var(--dds-color-surface-hover-default);
     box-shadow: inset 0 0 0 1px var(--dds-color-border-action-hover);
     border-color: var(--dds-color-border-action-hover);
@@ -56,13 +60,15 @@
   }
 
   input:checked[aria-readonly='true'] ~ .selection-control,
-  input[data-indeterminate='true'][aria-readonly='true'] ~ .selection-control {
+  input[data-indeterminate='true'][aria-readonly='true'] ~ .selection-control,
+  input:checked[aria-disabled='true'] ~ .selection-control,
+  input[data-indeterminate='true'][aria-disabled='true'] ~ .selection-control {
     border-color: var(--dds-color-surface-action-selected-disabled);
     background-color: var(--dds-color-surface-action-selected-disabled);
   }
 
   &:hover {
-    input:enabled:not([aria-readonly='true']) {
+    input:enabled:not([aria-readonly='true']):not([aria-disabled='true']) {
       &:checked[type='checkbox'],
       &[data-indeterminate='true'] {
         ~ .selection-control {
@@ -123,7 +129,8 @@ input[data-indeterminate='true'] ~ .selection-control:after {
     background-color: var(--dds-color-surface-action-selected-disabled);
   }
 
-  .label:has(input[aria-readonly='true']) {
+  .label:has(input[aria-readonly='true']),
+  .label:has(input[aria-disabled='true']) {
     cursor: default;
     color: var(--dds-color-text-medium);
     input ~ .selection-control {
