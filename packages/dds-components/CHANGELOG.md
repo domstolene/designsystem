@@ -1,5 +1,12 @@
 # @norges-domstoler/dds-components
 
+## 25.0.1
+
+### Patch Changes
+
+- f47d3eb: Fikse bug der `<Checkbox>` og `<RadioButton>` fikk vertikal overflow.
+- 87b5b11: Fikser bug der border så rart ut i `<Tag appearance="accent-left">`.
+
 ## 25.0.0
 
 (2026-10-28)
