@@ -2,6 +2,8 @@
 
 ## 25.0.1
 
+(2026-11-04)
+
 ### Patch Changes
 
 - f47d3eb: Fikse bug der `<Checkbox>` og `<RadioButton>` fikk vertikal overflow.
