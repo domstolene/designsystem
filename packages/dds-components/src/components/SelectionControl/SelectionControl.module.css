@@ -21,6 +21,7 @@
 .label {
   cursor: pointer;
   user-select: none;
+  min-height: var(--dds-size-sl);
 
   &:not(:hover)
     input[aria-invalid]:enabled:not([aria-readonly='true']):not(
