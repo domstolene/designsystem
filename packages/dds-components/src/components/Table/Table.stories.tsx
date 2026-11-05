@@ -683,9 +683,9 @@ export const WithScroll = meta.story({
       </Paragraph>
       <Table.Wrapper>
         <Table {...args}>
-          <Table.Body>
+          <Table.Head>
             <Table.Row>
-              <Table.Cell></Table.Cell>
+              <Table.Cell type="data"></Table.Cell>
               {headerCells.map(headerCell => (
                 <Table.Cell
                   key={`head-${headerCell.dataName}`}
@@ -696,6 +696,8 @@ export const WithScroll = meta.story({
                 </Table.Cell>
               ))}
             </Table.Row>
+          </Table.Head>
+          <Table.Body>
             {data.map(item => (
               <Table.Row key={item.dommer}>
                 <Table.Cell type="head" scope="row">
@@ -891,9 +893,9 @@ export const ColumnAndRowHeaders = meta.story({
   render: args => (
     <Table.Wrapper>
       <Table {...args}>
-        <Table.Body>
+        <Table.Head>
           <Table.Row>
-            <Table.Cell></Table.Cell>
+            <Table.Cell type="data"></Table.Cell>
             {headerCells.map(headerCell => (
               <Table.Cell
                 key={`head-${headerCell.dataName}`}
@@ -904,6 +906,8 @@ export const ColumnAndRowHeaders = meta.story({
               </Table.Cell>
             ))}
           </Table.Row>
+        </Table.Head>
+        <Table.Body>
           {data.map(item => (
             <Table.Row key={item.dommer}>
               <Table.Cell type="head" scope="row">
