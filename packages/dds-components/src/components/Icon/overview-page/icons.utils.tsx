@@ -139,6 +139,7 @@ import printSvg from '../svg/print.svg?raw';
 import publishSvg from '../svg/publish.svg?raw';
 import questionAnswerSvg from '../svg/questionAnswer.svg?raw';
 import receiptSvg from '../svg/receipt.svg?raw';
+import recorderSvg from '../svg/recorder.svg?raw';
 import redoSvg from '../svg/redo.svg?raw';
 import refreshSvg from '../svg/refresh.svg?raw';
 import replaySvg from '../svg/replay.svg?raw';
@@ -1477,6 +1478,11 @@ export const iconMeta: Record<TrimmedIconName, IconMeta> = {
       'fee',
     ],
     svg: receiptSvg,
+  },
+  Recorder: {
+    category: 'Settings and tools',
+    tags: ['opptak', 'recording', 'utstyr', 'equipment'],
+    svg: recorderSvg,
   },
   Redo: {
     category: 'Edit',
