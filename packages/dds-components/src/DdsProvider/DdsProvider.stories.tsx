@@ -1,6 +1,6 @@
 import preview from '#.storybook/preview';
 
-import { LocalMessage } from '../components/LocalMessage';
+import { LocalMessage } from '../components/messages';
 import { type DdsTheme } from '../components/ThemeProvider';
 import { Paragraph } from '../components/Typography';
 import { createTexts, useTranslation } from '../i18n';

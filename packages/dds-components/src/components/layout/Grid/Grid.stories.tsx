@@ -9,7 +9,7 @@ import {
 import { Button } from '../../Button';
 import { FilterIcon, PlusIcon } from '../../Icon/icons';
 import { InternalHeader } from '../../InternalHeader';
-import { LocalMessage } from '../../LocalMessage';
+import { LocalMessage } from '../../messages';
 import { Pagination } from '../../Pagination';
 import { Search } from '../../Search';
 import { Table } from '../../Table';

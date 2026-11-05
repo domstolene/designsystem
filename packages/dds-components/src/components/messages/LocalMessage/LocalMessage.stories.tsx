@@ -8,12 +8,12 @@ import {
   labelText,
   responsivePropsArgTypes,
   windowWidthDecorator,
-} from '../../storybook';
-import { Button } from '../Button';
-import { HStack } from '../layout';
-import { StoryVStack } from '../layout/Stack/storybook-utils';
-import { List, ListItem } from '../List';
-import { Heading, Paragraph } from '../Typography';
+} from '../../../storybook';
+import { Button } from '../../Button';
+import { HStack } from '../../layout';
+import { StoryVStack } from '../../layout/Stack/storybook-utils';
+import { List, ListItem } from '../../List';
+import { Heading, Paragraph } from '../../Typography';
 
 const meta = preview.meta({
   title: 'dds-components/Components/LocalMessage',
@@ -52,11 +52,23 @@ export const Variants = meta.story({
       <LocalMessage {...args} closable>
         Closable
       </LocalMessage>
+      <LocalMessage {...args} heading="Overskrift">
+        Med overskrift
+      </LocalMessage>
+      <LocalMessage {...args} closable heading="Overskrift">
+        Closable med overskrift
+      </LocalMessage>
       <LocalMessage {...args} layout="vertical">
         Vertical
       </LocalMessage>
       <LocalMessage {...args} layout="vertical" closable>
         Vertical closable
+      </LocalMessage>
+      <LocalMessage {...args} layout="vertical" heading="Overskrift">
+        Vertical med overskrift
+      </LocalMessage>
+      <LocalMessage {...args} layout="vertical" closable heading="Overskrift">
+        Vertical closable med overskrift
       </LocalMessage>
     </StoryVStack>
   ),

@@ -11,6 +11,15 @@ describe('<GlobalMessage>', () => {
     expect(messageElement).toBeInTheDocument();
   });
 
+  it('renders heading', () => {
+    const heading = 'This is a heading';
+    render(<GlobalMessage heading={heading} />);
+    const headingText = screen.getByText(heading);
+    expect(headingText).toBeInTheDocument();
+    const headingElement = screen.getByRole('heading');
+    expect(headingElement).toBeInTheDocument();
+  });
+
   it('calls onClose event', () => {
     const event = vi.fn();
     render(<GlobalMessage closable onClose={event} />);
