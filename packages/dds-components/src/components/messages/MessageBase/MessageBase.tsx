@@ -1,7 +1,6 @@
 import { type ReactNode, useState } from 'react';
 
 import styles from './MessageBase.module.css';
-import { Heading } from '../../..';
 import { useTranslation } from '../../../i18n';
 import { commonTexts } from '../../../i18n/commonTexts';
 import {
@@ -22,6 +21,7 @@ import {
 } from '../../Icon/icons';
 import { Bleed, Grid, GridChild } from '../../layout';
 import { type ResponsiveGridProps } from '../../layout/common/Responsive.types';
+import { Heading } from '../../Typography';
 import typographyStyles from '../../Typography/typographyStyles.module.css';
 
 export const MESSAGE_PURPOSES = createPurposes(

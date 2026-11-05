@@ -61,6 +61,7 @@ export const GlobalMessage = (props: GlobalMessageProps) => {
       rowGap="x0.5"
       columnGap="x0.75"
       padding="x0.75"
+      width="100%"
       {...props}
     />
   );
