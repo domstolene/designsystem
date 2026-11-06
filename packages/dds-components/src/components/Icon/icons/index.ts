@@ -128,6 +128,7 @@ export * from './print';
 export * from './publish';
 export * from './questionAnswer';
 export * from './receipt';
+export * from './recorder';
 export * from './redo';
 export * from './rows';
 export * from './refresh';
