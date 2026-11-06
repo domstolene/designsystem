@@ -18,7 +18,7 @@ Vi setter pris på at du vil gjøre Elsa bedre! Vi bruker Slack kanalen [#team-e
 
 ### Jira
 
-Arbeidet logges i [Elsa Utvikling tavle](https://domstol.atlassian.net/jira/software/c/projects/ELSA1/boards/357) i Jira. Du kan be team Elsa om å lage oppgave og få den tildelt.
+Arbeidet logges i [Elsa Utvikling tavle](https://domstol.atlassian.net/jira/software/c/projects/ELSA/boards/357) i Jira. Du kan be team Elsa om å lage oppgave og få den tildelt.
 
 ### Nødvendige installasjoner
 
