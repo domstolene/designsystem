@@ -19,9 +19,9 @@ import {
   TipIcon,
   WarningIcon,
 } from '../../Icon/icons';
-import { Bleed, Grid, GridChild } from '../../layout';
+import { Grid, GridChild } from '../../layout';
 import { type ResponsiveGridProps } from '../../layout/common/Responsive.types';
-import { Heading } from '../../Typography';
+import { Heading, type HeadingLevel } from '../../Typography';
 import typographyStyles from '../../Typography/typographyStyles.module.css';
 
 export const MESSAGE_PURPOSES = createPurposes(
@@ -51,6 +51,10 @@ export interface CommonMessageProps {
   onClose?: () => void;
   /**Overskrift for meldingen. */
   heading?: string;
+  /**Nivå for overskriften.
+   * @default 2
+   */
+  headingLevel?: Exclude<HeadingLevel, '1'>;
 }
 
 type MessageBaseProps<TLayout extends string> = BaseComponentProps<
@@ -77,6 +81,7 @@ export const MessageBase = <TLayout extends string>({
   closable,
   onClose,
   gridLayout,
+  headingLevel = 2,
   containerGridTemplateStyles,
   ...rest
 }: MessageBaseProps<TLayout>) => {
@@ -111,7 +116,7 @@ export const MessageBase = <TLayout extends string>({
       {heading && (
         <GridChild
           as={Heading}
-          level={2}
+          level={headingLevel}
           typographyType="heading-small"
           gridArea="heading"
         >
@@ -121,9 +126,7 @@ export const MessageBase = <TLayout extends string>({
       <GridChild gridArea="text">{children}</GridChild>
       {closable && (
         <GridChild gridArea="close-btn">
-          <Bleed
-            as={Button}
-            bleedMarginBlock="x0.25"
+          <Button
             icon={CloseIcon}
             purpose="tertiary"
             onClick={() => {
