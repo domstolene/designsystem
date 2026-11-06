@@ -22,6 +22,7 @@ import {
   Paper,
   Search,
   StylelessButton,
+  Tag,
   ToggleBar,
   ToggleRadio,
   TrashIcon,
@@ -118,6 +119,66 @@ export const Oversikt = meta.story({
       setCopiedImport(true);
     };
 
+    const CodeBlock = ({ codeType }: { codeType: 'import' | 'use' }) => {
+      const content: Record<
+        typeof codeType,
+        {
+          heading: string;
+          code: string;
+          copyFunction: (text: string) => void;
+          copyState: boolean;
+        }
+      > = {
+        import: {
+          heading: 'Import',
+          code: `import { ${iconState?.name} } from '@norges-domstoler/dds-components';`,
+          copyFunction: handleCopyImport,
+          copyState: copiedImport,
+        },
+        use: {
+          heading: 'Bruk',
+          code: `<Icon icon={${iconState?.name}}${availableStates.length > 0 ? ` iconState='${availableStates[0]}'` : ''} />`,
+          copyFunction: handleCopyUse,
+          copyState: copiedUse,
+        },
+      };
+
+      const contentType = content[codeType];
+      return (
+        <Paper as="section" border="border-subtle" background="surface-medium">
+          <HStack
+            as={Heading}
+            level={3}
+            typographyType="heading-small"
+            justifyContent="space-between"
+            paddingInline=" x0.5"
+            alignItems="center"
+          >
+            <span>{contentType.heading}</span>
+            <Box
+              as={Button}
+              purpose="tertiary"
+              size="small"
+              marginInline="x0.5 0"
+              icon={contentType.copyState ? CheckIcon : CopyIcon}
+              aria-label={`Kopier${contentType.copyState ? 't' : ''} ${codeType}`}
+              onClick={() => contentType.copyFunction(contentType.code)}
+            />
+          </HStack>
+
+          <Paper
+            className={styles['code-paper']}
+            background="surface-default"
+            borderRadius="0"
+          >
+            <pre className={cn(styles['icon-code'], 'icon-code')}>
+              {content[codeType].code}
+            </pre>
+          </Paper>
+        </Paper>
+      );
+    };
+
     const renderIconCard = ([name, icon]: [IconName, SvgIcon]) => {
       const trimmedName = trimIconName(name);
       return (
@@ -192,9 +253,6 @@ export const Oversikt = meta.story({
       });
     };
 
-    const importCode = `import { ${iconState?.name} } from '@norges-domstoler/dds-components';`;
-    const useCode = `<Icon icon={${iconState?.name}}${availableStates.length > 0 ? ` iconState='${availableStates[0]}'` : ''} />`;
-
     return (
       <VStack
         gap="x1"
@@ -209,7 +267,7 @@ export const Oversikt = meta.story({
         }}
       >
         <Typography typographyType="body-short-small">
-          Alle ikoner: {Object.keys(icons).length}
+          Antall ikoner: {Object.keys(icons).length}
         </Typography>
         <Search
           value={searchQuery}
@@ -274,118 +332,66 @@ export const Oversikt = meta.story({
         >
           {iconState && (
             <ModalBody>
-              {iconMeta[trimIconName(iconState.name)].svg && (
-                <Button
-                  purpose="secondary"
-                  onClick={() =>
-                    downloadSvg(
-                      iconState.name,
-                      iconMeta[trimIconName(iconState.name)].svg,
-                    )
-                  }
-                  icon={DownloadIcon}
-                >
-                  Last ned SVG
-                </Button>
-              )}
-              <Paper
-                as="section"
-                border="border-subtle"
-                background="surface-medium"
-                marginBlock="x1"
-              >
-                <HStack
-                  as={Heading}
-                  level={3}
-                  typographyType="heading-small"
-                  justifyContent="space-between"
-                  paddingInline=" x0.5"
-                  alignItems="center"
-                >
-                  <span>Import</span>
-                  <Box
-                    as={Button}
-                    purpose="tertiary"
-                    size="small"
-                    marginInline="x0.5 0"
-                    icon={copiedImport ? CheckIcon : CopyIcon}
-                    aria-label={`Kopier${copiedImport ? 't' : ''} import`}
-                    onClick={() => handleCopyImport(importCode)}
-                  />
+              <VStack gap="x1">
+                <HStack flexWrap="wrap" gap="x0.5">
+                  {iconMeta[trimIconName(iconState.name)].tags.map(tag => (
+                    <Tag key={tag} size="small">
+                      {tag}
+                    </Tag>
+                  ))}
                 </HStack>
-
-                <Paper
-                  className={styles['code-paper']}
-                  background="surface-default"
-                  borderRadius="0"
-                >
-                  <pre className={cn(styles['icon-code'], 'icon-code')}>
-                    {importCode}
-                  </pre>
-                </Paper>
-              </Paper>
-              <Paper
-                as="section"
-                border="border-subtle"
-                background="surface-medium"
-                marginBlock="x1"
-              >
-                <HStack
-                  as={Heading}
-                  level={3}
-                  typographyType="heading-small"
-                  justifyContent="space-between"
-                  paddingInline=" x0.5 0"
-                  alignItems="center"
-                >
-                  <span>Bruk i kode</span>
-                  <Box
-                    as={Button}
-                    purpose="tertiary"
-                    size="small"
-                    marginInline="x0.5"
-                    icon={copiedUse ? CheckIcon : CopyIcon}
-                    aria-label={`Kopier${copiedUse ? 't' : ''} use`}
-                    onClick={() => handleCopyUse(useCode)}
-                  />
-                </HStack>
-
-                <Paper
-                  className={styles['code-paper']}
-                  background="surface-default"
-                  borderRadius="0"
-                >
-                  <pre className={cn(styles['icon-code'], 'icon-code')}>
-                    {useCode}
-                  </pre>
-                </Paper>
-              </Paper>
-
-              <Heading level={3} withMargins>
-                Størrelser
-              </Heading>
-              {availableStates.length !== 0 && (
-                <Box width="fit-content" marginBlock="0 x1">
-                  <ToggleBar
-                    size="xsmall"
-                    value={currentState}
-                    onChange={(_event, state) => {
-                      if (state) setCurrentState(state);
-                    }}
-                    label="Tilstand"
+                {iconMeta[trimIconName(iconState.name)].svg && (
+                  <Button
+                    purpose="secondary"
+                    onClick={() =>
+                      downloadSvg(
+                        iconState.name,
+                        iconMeta[trimIconName(iconState.name)].svg,
+                      )
+                    }
+                    icon={DownloadIcon}
                   >
-                    {availableStates.map(s => (
-                      <ToggleRadio key={s} value={s} label={s} />
-                    ))}
-                  </ToggleBar>
-                </Box>
-              )}
-              <HStack gap="x1" alignItems="end" flexWrap="wrap">
-                {ICON_SIZES.map(size => (
+                    Last ned SVG
+                  </Button>
+                )}
+                <CodeBlock codeType="import" />
+                <CodeBlock codeType="use" />
+                <Heading level={3}>Størrelser</Heading>
+                {availableStates.length !== 0 && (
+                  <Box width="fit-content" marginBlock="0 x1">
+                    <ToggleBar
+                      size="xsmall"
+                      value={currentState}
+                      onChange={(_event, state) => {
+                        if (state) setCurrentState(state);
+                      }}
+                      label="Tilstand"
+                    >
+                      {availableStates.map(s => (
+                        <ToggleRadio key={s} value={s} label={s} />
+                      ))}
+                    </ToggleBar>
+                  </Box>
+                )}
+                <HStack gap="x1" alignItems="end" flexWrap="wrap">
+                  {ICON_SIZES.map(size => (
+                    <VStack>
+                      <Icon
+                        icon={iconState.icon}
+                        iconSize={size}
+                        iconState={
+                          availableStates.length
+                            ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                              (currentState as any)
+                            : undefined
+                        }
+                      />
+                      <StoryLabel>{size}</StoryLabel>
+                    </VStack>
+                  ))}
                   <VStack>
-                    <Icon
+                    <Button
                       icon={iconState.icon}
-                      iconSize={size}
                       iconState={
                         availableStates.length
                           ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -393,20 +399,10 @@ export const Oversikt = meta.story({
                           : undefined
                       }
                     />
-                    <StoryLabel>{size}</StoryLabel>
+                    <StoryLabel>I Button</StoryLabel>
                   </VStack>
-                ))}
-                <VStack>
-                  <Button
-                    icon={iconState.icon}
-                    iconState={
-                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                      availableStates.length ? (currentState as any) : undefined
-                    }
-                  />
-                  <StoryLabel>I Button</StoryLabel>
-                </VStack>
-              </HStack>
+                </HStack>
+              </VStack>
             </ModalBody>
           )}
         </Modal>
