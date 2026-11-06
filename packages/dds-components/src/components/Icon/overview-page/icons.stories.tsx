@@ -32,7 +32,7 @@ import {
 import { StoryLabel, ddsProviderDecorator } from '../../../storybook';
 import { Button } from '../../Button';
 import { focusable } from '../../helpers/styling/focus.module.css';
-import { LocalMessage } from '../../LocalMessage';
+import { LocalMessage } from '../../messages';
 import { Modal, ModalBody } from '../../Modal';
 import { Heading, Typography } from '../../Typography';
 import { CopyIcon } from '../icons/copy';

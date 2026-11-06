@@ -1,0 +1,6 @@
+.container {
+  background-color: var(--dds-color-message-background);
+  & > svg {
+    color: var(--dds-color-message-icon);
+  }
+}
