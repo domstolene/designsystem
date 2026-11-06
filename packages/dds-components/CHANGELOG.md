@@ -1,5 +1,15 @@
 # @norges-domstoler/dds-components
 
+## 25.1.0
+
+### Minor Changes
+
+- f991c00: Nytt ikon: `RecorderIcon`. Brukes til opptak i retten.
+
+### Patch Changes
+
+- ca0f796: Oppdaterer eksemplene Table WithScroll og Table ColumnAndRowHeaders.
+
 ## 25.0.1
 
 (2026-11-04)
