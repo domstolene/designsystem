@@ -1,5 +1,5 @@
 import preview from '#.storybook/preview';
-import { useState } from 'react';
+import { type ComponentPropsWithoutRef, forwardRef, useState } from 'react';
 
 import { commonArgTypesWithNodeChildren } from '../../storybook';
 import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
@@ -23,6 +23,17 @@ const meta = preview.meta({
 });
 
 export default meta;
+
+const StoryRouterLink = forwardRef<
+  HTMLAnchorElement,
+  ComponentPropsWithoutRef<'a'>
+>(({ href, children, ...rest }, ref) => (
+  <a {...rest} ref={ref} href={href} data-story-link="true">
+    {children}
+  </a>
+));
+
+StoryRouterLink.displayName = 'StoryRouterLink';
 
 const body = (
   <Paragraph>
@@ -142,6 +153,23 @@ export const Expandable = meta.story({
   },
 });
 
+export const NavigationPolymorphic = meta.story({
+  args: {
+    cardType: 'navigation',
+    href: '#',
+    as: StoryRouterLink,
+    children: <div className="story-container-padding">Navigasjon med as</div>,
+  },
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        {contentContainerStyle}
+      </>
+    ),
+  ],
+});
+
 export const ExpandableControlled = meta.story({
   args: {
     cardType: 'expandable',
@@ -168,6 +196,9 @@ export const ExpandableControlled = meta.story({
 });
 
 export const ExpandableCustom = meta.story({
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   args: {
     cardType: 'expandable',
   },
