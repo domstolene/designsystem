@@ -1,5 +1,5 @@
 import preview from '#.storybook/preview';
-import { useEffect, useState } from 'react';
+import { type Dispatch, type SetStateAction, useEffect, useState } from 'react';
 
 import { ICON_SIZES, Icon } from '../Icon';
 import styles from './icons.module.css';
@@ -44,6 +44,79 @@ const meta = preview.meta({
   tags: ['!autodocs'],
   decorators: [ddsProviderDecorator],
 });
+
+const CodeBlock = ({
+  codeType,
+  copiedState,
+  copyFunction,
+  iconName,
+  states,
+}: {
+  codeType: 'import' | 'use';
+  copiedState: boolean;
+  copyFunction: Dispatch<SetStateAction<boolean>>;
+  iconName: string;
+  states: ReadonlyArray<string>;
+}) => {
+  const content: Record<
+    typeof codeType,
+    {
+      heading: string;
+      code: string;
+    }
+  > = {
+    import: {
+      heading: 'Import',
+      code: `import { ${iconName} } from '@norges-domstoler/dds-components';`,
+    },
+    use: {
+      heading: 'Bruk',
+      code: `<Icon icon={${iconName}}${states.length > 0 ? ` iconState='${states[0]}'` : ''} />`,
+    },
+  };
+
+  const copy = (text: string) => {
+    navigator.clipboard.writeText(text);
+  };
+
+  const contentType = content[codeType];
+  return (
+    <Paper as="section" border="border-subtle" background="surface-medium">
+      <HStack
+        as={Heading}
+        level={3}
+        typographyType="heading-small"
+        justifyContent="space-between"
+        paddingInline=" x0.5"
+        alignItems="center"
+      >
+        <span>{contentType.heading}</span>
+        <Box
+          as={Button}
+          purpose="tertiary"
+          size="small"
+          marginInline="x0.5 0"
+          icon={copiedState ? CheckIcon : CopyIcon}
+          aria-label={`Kopier${copiedState ? 't' : ''} ${codeType}`}
+          onClick={() => {
+            copy(contentType.code);
+            copyFunction(true);
+          }}
+        />
+      </HStack>
+
+      <Paper
+        className={styles['code-paper']}
+        background="surface-default"
+        borderRadius="0"
+      >
+        <pre className={cn(styles['icon-code'], 'icon-code')}>
+          {content[codeType].code}
+        </pre>
+      </Paper>
+    </Paper>
+  );
+};
 
 export const Oversikt = meta.story({
   render: () => {
@@ -93,10 +166,6 @@ export const Oversikt = meta.story({
     const availableStates: ReadonlyArray<string> =
       iconState && hasStates(iconState.icon) ? iconState.icon.states : [];
 
-    const copy = (text: string) => {
-      navigator.clipboard.writeText(text);
-    };
-
     const downloadSvg = (name: IconName, svg: string) => {
       const blob = new Blob([svg], { type: 'image/svg+xml' });
       const url = URL.createObjectURL(blob);
@@ -107,76 +176,6 @@ export const Oversikt = meta.story({
       a.click();
 
       URL.revokeObjectURL(url);
-    };
-
-    const handleCopyUse = (text: string) => {
-      copy(text);
-      setCopiedUse(true);
-    };
-
-    const handleCopyImport = (text: string) => {
-      copy(text);
-      setCopiedImport(true);
-    };
-
-    const CodeBlock = ({ codeType }: { codeType: 'import' | 'use' }) => {
-      const content: Record<
-        typeof codeType,
-        {
-          heading: string;
-          code: string;
-          copyFunction: (text: string) => void;
-          copyState: boolean;
-        }
-      > = {
-        import: {
-          heading: 'Import',
-          code: `import { ${iconState?.name} } from '@norges-domstoler/dds-components';`,
-          copyFunction: handleCopyImport,
-          copyState: copiedImport,
-        },
-        use: {
-          heading: 'Bruk',
-          code: `<Icon icon={${iconState?.name}}${availableStates.length > 0 ? ` iconState='${availableStates[0]}'` : ''} />`,
-          copyFunction: handleCopyUse,
-          copyState: copiedUse,
-        },
-      };
-
-      const contentType = content[codeType];
-      return (
-        <Paper as="section" border="border-subtle" background="surface-medium">
-          <HStack
-            as={Heading}
-            level={3}
-            typographyType="heading-small"
-            justifyContent="space-between"
-            paddingInline=" x0.5"
-            alignItems="center"
-          >
-            <span>{contentType.heading}</span>
-            <Box
-              as={Button}
-              purpose="tertiary"
-              size="small"
-              marginInline="x0.5 0"
-              icon={contentType.copyState ? CheckIcon : CopyIcon}
-              aria-label={`Kopier${contentType.copyState ? 't' : ''} ${codeType}`}
-              onClick={() => contentType.copyFunction(contentType.code)}
-            />
-          </HStack>
-
-          <Paper
-            className={styles['code-paper']}
-            background="surface-default"
-            borderRadius="0"
-          >
-            <pre className={cn(styles['icon-code'], 'icon-code')}>
-              {content[codeType].code}
-            </pre>
-          </Paper>
-        </Paper>
-      );
     };
 
     const renderIconCard = ([name, icon]: [IconName, SvgIcon]) => {
@@ -354,8 +353,20 @@ export const Oversikt = meta.story({
                     Last ned SVG
                   </Button>
                 )}
-                <CodeBlock codeType="import" />
-                <CodeBlock codeType="use" />
+                <CodeBlock
+                  codeType="import"
+                  copyFunction={setCopiedImport}
+                  copiedState={copiedImport}
+                  iconName={iconState.name}
+                  states={availableStates}
+                />
+                <CodeBlock
+                  codeType="use"
+                  copyFunction={setCopiedUse}
+                  copiedState={copiedUse}
+                  iconName={iconState.name}
+                  states={availableStates}
+                />
                 <Heading level={3}>Størrelser</Heading>
                 {availableStates.length !== 0 && (
                   <Box width="fit-content" marginBlock="0 x1">
