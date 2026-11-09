@@ -1,12 +1,17 @@
 import { type Ref, useId, useRef } from 'react';
 
 import { useCombinedRef } from '../../hooks';
+import { useTranslation } from '../../i18n';
+import { commonTexts } from '../../i18n/commonTexts';
 import {
   cn,
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
+import { createClearChangeEvent } from '../../utils/createClearChangeEvent';
+import { ClearButton } from '../helpers/ClearButton/ClearButton';
 import inputStyles from '../helpers/Input/Input.module.css';
+import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Icon } from '../Icon';
 import { ChevronDownIcon, EditIcon } from '../Icon/icons';
 import { renderInputMessage } from '../InputMessage';
@@ -25,11 +30,6 @@ import {
   inlineSelectCns,
   inlineTextareaCns,
 } from './InlineEdit.utils';
-import { useTranslation } from '../../i18n';
-import { commonTexts } from '../../i18n/commonTexts';
-import { createClearChangeEvent } from '../../utils/createClearChangeEvent';
-import { ClearButton } from '../helpers/ClearButton/ClearButton';
-import utilStyles from '../helpers/styling/utilStyles.module.css';
 
 export function InlineField<T extends EditElementTag>(
   props: InlineFieldProps<T>,

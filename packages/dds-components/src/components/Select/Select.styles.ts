@@ -1,7 +1,6 @@
 import { type GroupBase, type StylesConfig } from 'react-select';
 
-import { focusVisible, focusVisibleTransitionValue } from '../helpers';
-import { scrollbarStyling } from '../helpers';
+import { focusVisible, focusVisibleTransitionValue, scrollbarStyling } from '../helpers';
 import { type InputSize } from '../helpers/Input';
 
 type FontToken<T extends string = string> = `var(--dds-font-${T})`;

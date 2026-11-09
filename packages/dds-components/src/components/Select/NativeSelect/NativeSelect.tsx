@@ -1,7 +1,6 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import type { ChangeEvent, ComponentPropsWithRef } from 'react';
 
-import styles from './NativeSelect.module.css';
 import { useCombinedRef } from '../../../hooks';
 import { useTranslation } from '../../../i18n';
 import { commonTexts } from '../../../i18n/commonTexts';
@@ -22,14 +21,14 @@ import {
 } from '../../helpers/Input';
 import inputStyles from '../../helpers/Input/Input.module.css';
 import { focusable } from '../../helpers/styling/focus.module.css';
-import { scrollbar } from '../../helpers/styling/utilStyles.module.css';
-import utilStyles from '../../helpers/styling/utilStyles.module.css';
+import utilStyles, { scrollbar } from '../../helpers/styling/utilStyles.module.css';
 import { Icon } from '../../Icon';
 import { ChevronDownIcon } from '../../Icon/icons';
 import { renderInputMessage } from '../../InputMessage';
 import { Box } from '../../layout';
 import { renderLabel } from '../../Typography/Label/Label.utils';
 import typographyStyles from '../../Typography/typographyStyles.module.css';
+import styles from './NativeSelect.module.css';
 
 export type NativeSelectProps = {
   /** Om brukeren kan fjerne verdien med en tømmeknapp. */

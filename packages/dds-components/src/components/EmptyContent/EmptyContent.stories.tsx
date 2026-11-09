@@ -1,8 +1,8 @@
 import preview from '#.storybook/preview';
 
-import { EmptyContent } from './EmptyContent';
 import { Box } from '../layout';
 import { Link } from '../Typography';
+import { EmptyContent } from './EmptyContent';
 
 const meta = preview.meta({
   title: 'dds-components/Components/EmptyContent',

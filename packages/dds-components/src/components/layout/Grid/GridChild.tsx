@@ -5,18 +5,18 @@ import {
 } from 'csstype';
 import { type ElementType } from 'react';
 
-import { Box } from '../Box';
-import styles from './Grid.module.css';
 import {
   type PolymorphicBaseComponentProps,
   getBaseHTMLProps,
 } from '../../../types';
 import { cn } from '../../../utils';
+import { Box } from '../Box';
 import {
   type ResponsiveProp,
   type ResponsiveProps,
 } from '../common/Responsive.types';
 import { getResponsiveCSSProperties, hasValue } from '../common/utils';
+import styles from './Grid.module.css';
 
 type RelativeColumnsOccupied = 'all' | 'firstHalf' | 'secondHalf';
 

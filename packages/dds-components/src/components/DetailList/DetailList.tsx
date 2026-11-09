@@ -1,5 +1,3 @@
-import { DetailListContext } from './DetailList.context';
-import styles from './DetailList.module.css';
 import {
   type BaseComponentPropsWithChildren,
   createSizes,
@@ -9,6 +7,8 @@ import { cn } from '../../utils';
 import { type Breakpoint } from '../layout';
 import tableStyles from '../Table/Table.module.css';
 import tgStyles from '../Typography/typographyStyles.module.css';
+import { DetailListContext } from './DetailList.context';
+import styles from './DetailList.module.css';
 
 export const DETAIL_LIST_SIZES = createSizes('small', 'medium', 'large');
 

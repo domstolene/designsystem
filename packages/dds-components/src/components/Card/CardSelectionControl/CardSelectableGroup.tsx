@@ -1,9 +1,5 @@
 import { useId } from 'react';
 
-import {
-  CardSelectableContext,
-  type CardSelectableContextProps,
-} from './CardSelectable.context';
 import { useControllableGroupState } from '../../../hooks/useControllableState';
 import {
   type BaseComponentPropsWithChildren,
@@ -19,6 +15,10 @@ import {
   type RadioButtonGroupContextProps,
 } from '../../SelectionControl/RadioButton/RadioButtonGroupContext';
 import { type CardSelectableType } from '../Card.types';
+import {
+  CardSelectableContext,
+  type CardSelectableContextProps,
+} from './CardSelectable.context';
 
 export type CardSelectableGroupProps<T extends string | number> =
   BaseComponentPropsWithChildren<

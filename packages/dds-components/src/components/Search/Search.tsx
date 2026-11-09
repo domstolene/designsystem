@@ -5,10 +5,6 @@ import {
   useState,
 } from 'react';
 
-import { useAutocompleteSearch } from './AutocompleteSearch.context';
-import styles from './Search.module.css';
-import { type SearchButtonProps, type SearchSize } from './Search.types';
-import { SearchSuggestions } from './SearchSuggestions';
 import { useCombinedRef } from '../../hooks';
 import { createTexts, useTranslation } from '../../i18n';
 import {
@@ -28,6 +24,10 @@ import { Box, Grid, HStack } from '../layout';
 import { renderLabel } from '../Typography/Label/Label.utils';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../VisuallyHidden';
+import { useAutocompleteSearch } from './AutocompleteSearch.context';
+import styles from './Search.module.css';
+import { type SearchButtonProps, type SearchSize } from './Search.types';
+import { SearchSuggestions } from './SearchSuggestions';
 
 export type SearchProps = Pick<InputProps, 'tip' | 'label' | 'width'> & {
   /**Størrelsen på komponenten. */

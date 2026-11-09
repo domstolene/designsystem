@@ -1,11 +1,6 @@
 import { useId } from 'react';
 
 import { Box, MinusIcon, PlusIcon, getBaseHTMLProps } from '../..';
-import styles from './InputStepper.module.css';
-import {
-  type InputStepperProps,
-  isPositiveInteger,
-} from './InputStepper.types';
 import { useControllableState } from '../../hooks/useControllableState';
 import { createTexts, useTranslation } from '../../i18n';
 import {
@@ -17,6 +12,11 @@ import { Button, type ButtonProps } from '../Button';
 import { StatefulInput, getInputWidth } from '../helpers/Input';
 import { renderInputMessage } from '../InputMessage';
 import { renderLabel } from '../Typography/Label/Label.utils';
+import styles from './InputStepper.module.css';
+import {
+  type InputStepperProps,
+  isPositiveInteger,
+} from './InputStepper.types';
 
 export const InputStepper = ({
   id,

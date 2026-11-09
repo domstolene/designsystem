@@ -6,8 +6,6 @@ import React, {
   useState,
 } from 'react';
 
-import { useIsInTableHead } from './Head';
-import styles from './Table.module.css';
 import { createTexts, useTranslation } from '../../i18n';
 import { cn } from '../../utils';
 import { Button } from '../Button';
@@ -21,6 +19,8 @@ import {
   CollapsibleCellContext,
   useCollapsibleTableContext,
 } from './CollapsibleTable.context';
+import { useIsInTableHead } from './Head';
+import styles from './Table.module.css';
 
 export type TableRowType = 'body' | 'head';
 export type RowMode = 'normal' | 'sum';

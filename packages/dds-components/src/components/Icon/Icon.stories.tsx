@@ -1,10 +1,10 @@
 import preview from '#.storybook/preview';
 
-import { ICON_SIZES } from './Icon';
 import { StoryLabel, commonArgTypes, labelText } from '../../storybook';
 import { VStack } from '../layout';
-import { OpenExternalIcon as OpenExternal } from './icons/openExternal';
 import { StoryHStack } from '../layout/Stack/storybook-utils';
+import { ICON_SIZES } from './Icon';
+import { OpenExternalIcon as OpenExternal } from './icons/openExternal';
 
 import { Icon } from '.';
 

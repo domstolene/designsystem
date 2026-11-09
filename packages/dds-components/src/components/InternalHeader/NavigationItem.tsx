@@ -1,9 +1,9 @@
 import { type ComponentPropsWithRef } from 'react';
 
-import styles from './InternalHeader.module.css';
 import { cn } from '../../utils';
 import { focusable } from '../helpers/styling/focus.module.css';
 import typographyStyles from '../Typography/typographyStyles.module.css';
+import styles from './InternalHeader.module.css';
 
 export type NavigationItemProps = {
   isCurrent?: boolean;

@@ -2,7 +2,6 @@ import preview from '#.storybook/preview';
 import { useState } from 'react';
 import { fn } from 'storybook/test';
 
-import { InlineEditSelect } from './InlineEditSelect';
 import {
   categoryCss,
   ddsProviderDecorator,
@@ -11,6 +10,7 @@ import {
 } from '../../../storybook';
 import { StoryVStack } from '../../layout/Stack/storybook-utils';
 import { Table } from '../../Table';
+import { InlineEditSelect } from './InlineEditSelect';
 
 const meta = preview.meta({
   title: 'dds-components/Components/InlineEdit/InlineEditSelect',

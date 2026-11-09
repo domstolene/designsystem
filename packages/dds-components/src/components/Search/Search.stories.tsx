@@ -1,7 +1,6 @@
 import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
-import { SEARCH_SIZES } from './Search.utils';
 import {
   ddsProviderDecorator,
   htmlEventArgType,
@@ -10,6 +9,7 @@ import {
   windowWidthDecorator,
 } from '../../storybook';
 import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
+import { SEARCH_SIZES } from './Search.utils';
 
 import { Search } from '.';
 

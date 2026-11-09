@@ -28,11 +28,11 @@ import {
   handleElementWithBackdropUnmount,
 } from '../../helpers';
 import { CloseIcon } from '../../Icon/icons';
+import { Box, type Breakpoint, type PaperProps, ShowHide } from '../../layout';
+import { Paper } from '../../layout';
 import { ThemeContext } from '../../ThemeProvider';
 import styles from '../common/DateInput.module.css';
 import { type DateField } from './DateField/DateField';
-import { Box, type Breakpoint, type PaperProps, ShowHide } from '../../layout';
-import { Paper } from '../../layout';
 
 /**------------------------------------------------------------------------
  * CalendarPopover

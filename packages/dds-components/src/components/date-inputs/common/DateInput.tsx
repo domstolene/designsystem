@@ -1,7 +1,6 @@
 import { type useDateField, type useDatePicker } from '@react-aria/datepicker';
 import { type ReactNode, type Ref, useContext } from 'react';
 
-import styles from './DateInput.module.css';
 import { cn } from '../../../utils';
 import { type InputProps, getInputWidth } from '../../helpers/Input';
 import inputStyles from '../../helpers/Input/Input.module.css';
@@ -12,6 +11,7 @@ import { renderLabel } from '../../Typography/Label/Label.utils';
 import tgStyles from '../../Typography/typographyStyles.module.css';
 import { type DatePickerProps } from '../DatePicker';
 import { CalendarPopoverContext } from '../DatePicker/CalendarPopover';
+import styles from './DateInput.module.css';
 
 export type DateInputProps = {
   className?: string;

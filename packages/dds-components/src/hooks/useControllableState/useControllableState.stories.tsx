@@ -1,7 +1,7 @@
 import preview from '#.storybook/preview';
 
-import { ControllableStateExample } from './ControllableStateExample';
 import { hookParameters } from '../hooks.utils';
+import { ControllableStateExample } from './ControllableStateExample';
 
 const meta = preview.meta({
   title: 'dds-components/Hooks/useControllableState',

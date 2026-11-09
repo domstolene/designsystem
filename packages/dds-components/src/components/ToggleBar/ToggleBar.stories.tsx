@@ -1,6 +1,5 @@
 import preview from '#.storybook/preview';
 
-import { TOGGLE_BAR_PURPOSES, TOGGLE_BAR_SIZES } from './ToggleBar.types';
 import {
   StoryLabel,
   commonArgTypesWithNodeChildren,
@@ -11,6 +10,7 @@ import {
 import { PlusCircledIcon } from '../Icon/icons';
 import { VStack } from '../layout';
 import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
+import { TOGGLE_BAR_PURPOSES, TOGGLE_BAR_SIZES } from './ToggleBar.types';
 
 import { ToggleBar, ToggleRadio } from '.';
 

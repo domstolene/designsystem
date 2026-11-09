@@ -2,7 +2,6 @@ import preview from '#.storybook/preview';
 import { useState } from 'react';
 import { fn } from 'storybook/test';
 
-import { FAVSTAR_SIZES, FavStar } from './FavStar';
 import {
   StoryLabel,
   categoryHtml,
@@ -18,6 +17,7 @@ import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
 import { Table } from '../Table';
 import { Tooltip } from '../Tooltip';
 import { Caption, Link } from '../Typography';
+import { FAVSTAR_SIZES, FavStar } from './FavStar';
 
 const meta = preview.meta({
   title: 'dds-components/Components/FavStar',

@@ -1,7 +1,7 @@
 import preview from '#.storybook/preview';
 
-import { WindowResizeExample } from './WindowResizeExample';
 import { hookParameters } from '../hooks.utils';
+import { WindowResizeExample } from './WindowResizeExample';
 
 const meta = preview.meta({
   title: 'dds-components/Hooks/useWindowResize',

@@ -1,7 +1,6 @@
 import preview from '#.storybook/preview';
 import { useState } from 'react';
 
-import { ProgressTracker } from './ProgressTracker';
 import {
   commonArgTypesWithNodeChildren,
   ddsProviderDecorator,
@@ -16,6 +15,7 @@ import {
   PersonIcon,
 } from '../Icon/icons';
 import { HStack, VStack } from '../layout';
+import { ProgressTracker } from './ProgressTracker';
 
 const meta = preview.meta({
   title: 'dds-components/Components/ProgressTracker',

@@ -1,11 +1,11 @@
 import { type ChangeEvent, useId, useState } from 'react';
 
-import { ToggleBarContext } from './ToggleBar.context';
-import { type ToggleBarProps, type ToggleBarValue } from './ToggleBar.types';
 import { getBaseHTMLProps } from '../../types';
 import { combineHandlers } from '../../utils';
 import { Grid, VStack } from '../layout';
 import { Typography } from '../Typography';
+import { ToggleBarContext } from './ToggleBar.context';
+import { type ToggleBarProps, type ToggleBarValue } from './ToggleBar.types';
 
 export const ToggleBar = <T extends string | number = string>(
   props: ToggleBarProps<T>,

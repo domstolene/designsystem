@@ -1,7 +1,7 @@
 import preview from '#.storybook/preview';
 
-import { RoveFocusExample } from './RoveFocusExample';
 import { hookParameters } from '../hooks.utils';
+import { RoveFocusExample } from './RoveFocusExample';
 
 const meta = preview.meta({
   title: 'dds-components/Hooks/useRoveFocus',

@@ -1,14 +1,6 @@
 import { type Properties } from 'csstype';
 import { useState } from 'react';
 
-import styles from './Chip.module.css';
-import {
-  Badge,
-  type BadgeInComponentProps,
-  Icon,
-  InlineButton,
-  type SvgIcon,
-} from '../..';
 import { createTexts, useTranslation } from '../../i18n';
 import {
   type ExtractStrict,
@@ -17,15 +9,20 @@ import {
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils/dom';
+import { Badge, type BadgeInComponentProps } from '../Badge';
 import inputStyles from '../helpers/Input/Input.module.css';
 import commonStyles from '../helpers/styling/common.module.css';
 import focusStyles, { focusable } from '../helpers/styling/focus.module.css';
+import { Icon } from '../Icon';
 import { CloseIcon } from '../Icon/icons';
+import { type SvgIcon } from '../Icon/utils';
+import { InlineButton } from '../InlineButton';
 import { Paper } from '../layout';
 import { Checkbox } from '../SelectionControl/Checkbox';
 import { RadioButton } from '../SelectionControl/RadioButton';
 import { TextOverflowEllipsisInner } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
+import styles from './Chip.module.css';
 
 export const CHIP_SIZES = createSizes('small', 'medium');
 

@@ -1,7 +1,7 @@
 import { type ComponentPropsWithRef } from 'react';
 
-import styles from './DetailList.module.css';
 import { cn } from '../../utils';
+import styles from './DetailList.module.css';
 
 export type DetailListTermProps = ComponentPropsWithRef<'dt'>;
 

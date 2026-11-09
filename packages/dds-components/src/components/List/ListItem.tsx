@@ -1,7 +1,7 @@
 import { type ComponentPropsWithRef } from 'react';
 
-import styles from './List.module.css';
 import { cn } from '../../utils';
+import styles from './List.module.css';
 
 export type ListItemProps = ComponentPropsWithRef<'li'>;
 

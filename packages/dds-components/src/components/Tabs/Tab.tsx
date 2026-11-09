@@ -10,10 +10,6 @@ import {
   useRef,
 } from 'react';
 
-import { type TabSize } from './Tabs';
-import { useTabsContext } from './Tabs.context';
-import styles from './Tabs.module.css';
-import { useSetTabWidth } from './TabWidthContext';
 import { useCombinedRef } from '../../hooks';
 import {
   type BaseComponentPropsWithChildren,
@@ -26,6 +22,10 @@ import { Icon } from '../Icon';
 import { type SvgIcon } from '../Icon/utils';
 import { Box, HStack } from '../layout';
 import typographyStyles from '../Typography/typographyStyles.module.css';
+import { type TabSize } from './Tabs';
+import { useTabsContext } from './Tabs.context';
+import styles from './Tabs.module.css';
+import { useSetTabWidth } from './TabWidthContext';
 
 type PickedAttributes = Pick<
   ButtonHTMLAttributes<HTMLButtonElement>,

@@ -5,10 +5,10 @@ import {
   isValidElement,
 } from 'react';
 
-import { type TabPanelProps } from './TabPanel';
-import { useTabsContext } from './Tabs.context';
 import { useCombinedRef } from '../../hooks';
 import { Box, type ResponsiveProps } from '../layout';
+import { type TabPanelProps } from './TabPanel';
+import { useTabsContext } from './Tabs.context';
 
 export type TabPanelsProps = Pick<
   ResponsiveProps,

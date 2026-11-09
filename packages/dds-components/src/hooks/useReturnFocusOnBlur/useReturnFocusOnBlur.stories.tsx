@@ -1,7 +1,7 @@
 import preview from '#.storybook/preview';
 
-import { ReturnFocusOnBlurExample } from './ReturnFocusOnBlurExample';
 import { hookParameters } from '../hooks.utils';
+import { ReturnFocusOnBlurExample } from './ReturnFocusOnBlurExample';
 
 const meta = preview.meta({
   title: 'dds-components/Hooks/useReturnFocusOnBlur',
