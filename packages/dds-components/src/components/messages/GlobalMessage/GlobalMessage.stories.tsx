@@ -6,8 +6,8 @@ import {
   commonArgTypes,
   ddsProviderDecorator,
   labelText,
-} from '../../storybook';
-import { StoryVStack } from '../layout/Stack/storybook-utils';
+} from '../../../storybook';
+import { StoryVStack } from '../../layout/Stack/storybook-utils';
 
 const meta = preview.meta({
   title: 'dds-components/Components/GlobalMessage',
@@ -28,10 +28,10 @@ export const Preview = meta.story({
   },
 });
 
-export const Variants = meta.story({
+export const Purposes = meta.story({
   args: {},
   render: args => (
-    <StoryVStack>
+    <StoryVStack alignItems="stretch">
       {G_MESSAGE_PURPOSES.map(p => (
         <GlobalMessage {...args} key={`p-${p}`} purpose={p}>
           {labelText(p)}
@@ -41,9 +41,19 @@ export const Variants = meta.story({
   ),
 });
 
-export const Closable = meta.story({
-  args: {
-    children: 'En tilfeldig melding',
-    closable: true,
-  },
+export const Variants = meta.story({
+  render: args => (
+    <StoryVStack alignItems="stretch">
+      <GlobalMessage {...args} closable>
+        Lukkbar
+      </GlobalMessage>
+
+      <GlobalMessage {...args} closable heading="Overskrift">
+        Med overskrift
+      </GlobalMessage>
+      <GlobalMessage {...args} closable heading="Overskrift">
+        Lukkbar med overskrift
+      </GlobalMessage>
+    </StoryVStack>
+  ),
 });

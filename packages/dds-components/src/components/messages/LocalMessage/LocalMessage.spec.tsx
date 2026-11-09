@@ -12,6 +12,15 @@ describe('<LocalMessage>', () => {
     expect(messageElement).toBeInTheDocument();
   });
 
+  it('renders heading', () => {
+    const heading = 'This is a heading';
+    render(<LocalMessage heading={heading} />);
+    const headingText = screen.getByText(heading);
+    expect(headingText).toBeInTheDocument();
+    const headingElement = screen.getByRole('heading');
+    expect(headingElement).toBeInTheDocument();
+  });
+
   it('calls onClose event', async () => {
     const event = vi.fn();
     render(<LocalMessage closable onClose={event} />);
