@@ -6,6 +6,10 @@ import React, {
   useState,
 } from 'react';
 
+import {
+  CollapsibleCellContext,
+  useCollapsibleTableContext,
+} from './CollapsibleTable.context';
 import { useIsInTableHead } from './Head';
 import styles from './Table.module.css';
 import { createTexts, useTranslation } from '../../i18n';
@@ -17,10 +21,6 @@ import { AnimatedChevronUpDownIcon } from '../Icon/icons/animated';
 import displayStyles from '../layout/common/display.module.css';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../VisuallyHidden';
-import {
-  CollapsibleCellContext,
-  useCollapsibleTableContext,
-} from './CollapsibleTable.context';
 
 export type TableRowType = 'body' | 'head';
 export type RowMode = 'normal' | 'sum';
@@ -164,13 +164,17 @@ export const Row = ({
 
   return (
     <>
-      <PlainRow ref={ref} {...sharedRowProps(hideBelowCn)}>
+      <PlainRow
+        ref={ref}
+        {...sharedRowProps(cn(hideBelowCn, styles['standard-row']))}
+      >
         {children}
       </PlainRow>
       <PlainRow
         {...sharedRowProps(
           cn(
             hideAboveCn,
+            styles['standard-row'],
             !childrenCollapsed && styles['row--collapsible-header--open'],
           ),
         )}
@@ -188,7 +192,7 @@ export const Row = ({
         </td>
       </PlainRow>
       {!childrenCollapsed && (
-        <PlainRow {...sharedRowProps(hideAboveCn)}>
+        <PlainRow {...sharedRowProps(cn(hideAboveCn, styles['dl-row']))}>
           <td colSpan={definingCells.length + 1}>
             <DescriptionList>{descriptionListItems}</DescriptionList>
           </td>
