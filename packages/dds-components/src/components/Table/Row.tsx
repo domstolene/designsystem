@@ -164,13 +164,17 @@ export const Row = ({
 
   return (
     <>
-      <PlainRow ref={ref} {...sharedRowProps(hideBelowCn)}>
+      <PlainRow
+        ref={ref}
+        {...sharedRowProps(cn(hideBelowCn, styles['standard-row']))}
+      >
         {children}
       </PlainRow>
       <PlainRow
         {...sharedRowProps(
           cn(
             hideAboveCn,
+            styles['standard-row'],
             !childrenCollapsed && styles['row--collapsible-header--open'],
           ),
         )}
@@ -188,7 +192,7 @@ export const Row = ({
         </td>
       </PlainRow>
       {!childrenCollapsed && (
-        <PlainRow {...sharedRowProps(hideAboveCn)}>
+        <PlainRow {...sharedRowProps(cn(hideAboveCn, styles['dl-row']))}>
           <td colSpan={definingCells.length + 1}>
             <DescriptionList>{descriptionListItems}</DescriptionList>
           </td>
