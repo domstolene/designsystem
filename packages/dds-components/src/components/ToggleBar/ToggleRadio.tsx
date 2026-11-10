@@ -1,10 +1,5 @@
 import { type ChangeEvent, type InputHTMLAttributes, useId } from 'react';
 
-import {
-  type ToggleBarContextType,
-  useToggleBarContext,
-} from './ToggleBar.context';
-import styles from './ToggleBar.module.css';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
 import buttonStyles from '../Button/Button.module.css';
@@ -14,6 +9,11 @@ import { Icon } from '../Icon';
 import { type SvgIcon } from '../Icon/utils';
 import { HStack } from '../layout';
 import typographyStyles from '../Typography/typographyStyles.module.css';
+import {
+  type ToggleBarContextType,
+  useToggleBarContext,
+} from './ToggleBar.context';
+import styles from './ToggleBar.module.css';
 
 export type ToggleRadioProps = BaseComponentProps<
   HTMLInputElement,

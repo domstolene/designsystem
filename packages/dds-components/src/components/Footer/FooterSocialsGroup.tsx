@@ -1,6 +1,6 @@
 import { type ComponentPropsWithRef } from 'react';
 
-import { VStack } from '../..';
+import { VStack } from '../layout';
 
 export type FooterSocialsGroupProps = ComponentPropsWithRef<'div'>;
 

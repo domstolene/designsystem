@@ -1,10 +1,10 @@
 import { type ComponentPropsWithRef } from 'react';
 
-import { useDetailListContext } from './DetailList.context';
-import styles from './DetailList.module.css';
 import { cn } from '../../utils';
 import { Box } from '../layout';
 import tableStyles from '../Table/Table.module.css';
+import { useDetailListContext } from './DetailList.context';
+import styles from './DetailList.module.css';
 
 export type DetailListRowProps = ComponentPropsWithRef<'div'>;
 

@@ -8,16 +8,16 @@ import {
   useState,
 } from 'react';
 
-import { AddTabButton } from './AddTabButton';
-import { type TabProps } from './Tab';
-import { useTabsContext } from './Tabs.context';
-import styles from './Tabs.module.css';
-import { TabWidthContextProvider } from './TabWidthContext';
 import { useCombinedRef, useRoveFocus } from '../../hooks';
 import { cn, combineHandlers } from '../../utils';
 import { focusable } from '../helpers/styling/focus.module.css';
 import { scrollbar } from '../helpers/styling/utilStyles.module.css';
 import { Grid } from '../layout';
+import { AddTabButton } from './AddTabButton';
+import { type TabProps } from './Tab';
+import { useTabsContext } from './Tabs.context';
+import styles from './Tabs.module.css';
+import { TabWidthContextProvider } from './TabWidthContext';
 
 export type TabListProps = ComponentPropsWithRef<'div'>;
 

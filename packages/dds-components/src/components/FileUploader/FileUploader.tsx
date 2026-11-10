@@ -1,14 +1,5 @@
 import { type ComponentPropsWithRef, useId } from 'react';
 
-import { ErrorList } from './ErrorList';
-import { File } from './File';
-import styles from './FileUploader.module.css';
-import {
-  type FileList,
-  type RemoteFile,
-  type UploadInfo,
-} from './FileUploader.types';
-import { type FileUploaderHookProps, useFileUploader } from './useFileUploader';
 import { createTexts, useTranslation } from '../../i18n';
 import {
   cn,
@@ -26,7 +17,16 @@ import { Typography } from '../Typography';
 import { renderLabel } from '../Typography/Label/Label.utils';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../VisuallyHidden';
+import { ErrorList } from './ErrorList';
+import { File } from './File';
+import styles from './FileUploader.module.css';
+import {
+  type FileList,
+  type RemoteFile,
+  type UploadInfo,
+} from './FileUploader.types';
 import { type FileUploaderFile } from './fileUploaderReducer';
+import { type FileUploaderHookProps, useFileUploader } from './useFileUploader';
 
 export type FileUploaderProps = {
   /**Id til filopplasteren. */

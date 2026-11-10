@@ -1,6 +1,12 @@
 import { type Properties } from 'csstype';
 
 import {
+  type BorderColor,
+  type PaperBackground,
+  isBorderColor,
+  isPaperBackground,
+} from '../../../types';
+import {
   BREAKPOINTS,
   type Breakpoint,
   type RelativeColumnsOccupied,
@@ -10,12 +16,6 @@ import {
   type ZIndex,
   Z_INDEXES,
 } from './Responsive.types';
-import {
-  type BorderColor,
-  type PaperBackground,
-  isBorderColor,
-  isPaperBackground,
-} from '../../../types';
 
 const TOKEN_PREFIX = 'dds';
 

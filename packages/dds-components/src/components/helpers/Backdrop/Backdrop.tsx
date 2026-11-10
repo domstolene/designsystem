@@ -1,8 +1,8 @@
 import { type ComponentPropsWithRef } from 'react';
 
-import styles from './Backdrop.module.css';
 import { cn } from '../../../utils';
 import { Box } from '../../layout';
+import styles from './Backdrop.module.css';
 
 type BackdropProps = {
   isMounted?: boolean;

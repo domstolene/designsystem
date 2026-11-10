@@ -1,12 +1,12 @@
 import { type Property } from 'csstype';
 
-import styles from './DescriptionList.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
 import { Box } from '../layout';
+import styles from './DescriptionList.module.css';
 
 export type DescriptionListGroupProps = BaseComponentPropsWithChildren<
   HTMLDivElement,

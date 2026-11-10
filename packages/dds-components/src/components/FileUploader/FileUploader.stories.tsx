@@ -2,12 +2,6 @@ import preview from '#.storybook/preview';
 import { useState } from 'react';
 import { fn } from 'storybook/test';
 
-import { FileUploader } from './FileUploader';
-import {
-  type FileList,
-  type RemoteFile,
-  type UploadInfo,
-} from './FileUploader.types';
 import {
   categoryHtml,
   ddsProviderDecorator,
@@ -16,6 +10,12 @@ import {
 } from '../../storybook';
 import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
 import { Heading, Paragraph } from '../Typography';
+import { FileUploader } from './FileUploader';
+import {
+  type FileList,
+  type RemoteFile,
+  type UploadInfo,
+} from './FileUploader.types';
 
 const meta = preview.meta({
   title: 'dds-components/Components/FileUploader',

@@ -3,8 +3,8 @@ import userEvent from '@testing-library/user-event';
 import { useState } from 'react';
 import { describe, expect, it } from 'vitest';
 
-import { InputStepper } from './InputStepper';
 import { Button } from '../Button';
+import { InputStepper } from './InputStepper';
 
 describe('<InputStepper>', () => {
   it('renders two buttons', () => {

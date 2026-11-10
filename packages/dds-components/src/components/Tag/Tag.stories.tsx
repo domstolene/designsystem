@@ -1,5 +1,7 @@
 import preview from '#.storybook/preview';
 
+import { commonArgTypes, labelText } from '../../storybook';
+import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
 import {
   TAG_APPEARANCES,
   TAG_COLORS,
@@ -7,8 +9,6 @@ import {
   TAG_SIZES,
   icons,
 } from './Tag';
-import { commonArgTypes, labelText } from '../../storybook';
-import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
 
 import { Tag } from '.';
 

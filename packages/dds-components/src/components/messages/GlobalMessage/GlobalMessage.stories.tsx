@@ -1,13 +1,13 @@
 import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
-import { G_MESSAGE_PURPOSES, GlobalMessage } from './GlobalMessage';
 import {
   commonArgTypes,
   ddsProviderDecorator,
   labelText,
 } from '../../../storybook';
 import { StoryVStack } from '../../layout/Stack/storybook-utils';
+import { G_MESSAGE_PURPOSES, GlobalMessage } from './GlobalMessage';
 
 const meta = preview.meta({
   title: 'dds-components/Components/GlobalMessage',

@@ -1,9 +1,5 @@
 import { type ChangeEvent, useId } from 'react';
 
-import {
-  RadioButtonGroupContext,
-  type RadioButtonGroupContextProps,
-} from './RadioButtonGroupContext';
 import { useControllableGroupState } from '../../../hooks/useControllableState';
 import {
   type BaseComponentPropsWithChildren,
@@ -15,6 +11,10 @@ import { renderInputMessage } from '../../InputMessage';
 import { type SelectionControlGroupCommonProps } from '../common/SelectionControl.types';
 import styles from '../SelectionControl.module.css';
 import { renderGroupLabel } from '../SelectionControl.styles';
+import {
+  RadioButtonGroupContext,
+  type RadioButtonGroupContextProps,
+} from './RadioButtonGroupContext';
 
 export type RadioButtonGroupProps<T extends string | number> =
   BaseComponentPropsWithChildren<

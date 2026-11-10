@@ -1,7 +1,7 @@
 import type { ComponentProps } from 'react';
 
-import styles from './TextOverflowEllipsis.module.css';
 import { cn } from '../../../../utils/dom';
+import styles from './TextOverflowEllipsis.module.css';
 
 export function TextOverflowEllipsisWrapper({
   className,

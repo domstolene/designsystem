@@ -1,7 +1,7 @@
 import preview from '#.storybook/preview';
 
-import { CallbackRefExample } from './CallbackRefExample';
 import { hookParameters } from '../hooks.utils';
+import { CallbackRefExample } from './CallbackRefExample';
 
 const meta = preview.meta({
   title: 'dds-components/Hooks/useCallbackRef',

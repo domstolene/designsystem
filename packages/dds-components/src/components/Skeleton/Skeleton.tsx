@@ -1,9 +1,9 @@
 import { type ComponentPropsWithRef } from 'react';
 
-import styles from './Skeleton.module.css';
 import { type BorderRadius } from '../..';
 import { cn } from '../../utils';
 import { Paper, type ResponsiveProps } from '../layout';
+import styles from './Skeleton.module.css';
 
 export type SkeletonProps = {
   /**Hvor runde hjørner skal være. Støtter dds tokens.

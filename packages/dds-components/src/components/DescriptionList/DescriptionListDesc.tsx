@@ -1,5 +1,3 @@
-import styles from './DescriptionList.module.css';
-import { Box } from '../..';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -7,6 +5,8 @@ import {
 import { cn } from '../../utils';
 import { Icon } from '../Icon';
 import { type SvgIcon } from '../Icon/utils';
+import { Box } from '../layout';
+import styles from './DescriptionList.module.css';
 
 export type DescriptionListDescProps = BaseComponentPropsWithChildren<
   HTMLElement,

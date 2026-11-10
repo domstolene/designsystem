@@ -1,7 +1,7 @@
 import { type ComponentPropsWithRef } from 'react';
 
-import Logo from './norges_domstoler_logo.svg';
 import { Box } from '../layout/Box/Box';
+import Logo from './norges_domstoler_logo.svg';
 
 type HideBreakpoint = 'xs' | 'sm' | 'md';
 

@@ -1,6 +1,5 @@
 import { type ReactNode, useState } from 'react';
 
-import styles from './MessageBase.module.css';
 import { useTranslation } from '../../../i18n';
 import { commonTexts } from '../../../i18n/commonTexts';
 import {
@@ -23,6 +22,7 @@ import { Grid, GridChild } from '../../layout';
 import { type ResponsiveGridProps } from '../../layout/common/Responsive.types';
 import { Heading, type HeadingLevel } from '../../Typography';
 import typographyStyles from '../../Typography/typographyStyles.module.css';
+import styles from './MessageBase.module.css';
 
 export const MESSAGE_PURPOSES = createPurposes(
   'info',

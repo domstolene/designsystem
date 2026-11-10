@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
+import { createTexts, useTranslation } from '../../i18n';
+import { Paragraph } from '../Typography';
 import { CommentComponent } from './CommentComponent';
 import { type FeedbackProps, type Rating } from './Feedback.types';
 import { RatingComponent } from './RatingComponent';
-import { createTexts, useTranslation } from '../../i18n';
-import { Paragraph } from '../Typography';
 
 export const Feedback = ({
   layout = 'vertical',

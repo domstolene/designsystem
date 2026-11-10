@@ -3,8 +3,8 @@ import { userEvent } from '@testing-library/user-event';
 import { useState } from 'react';
 import { describe, expect, it } from 'vitest';
 
-import { Select } from './Select';
 import { portalRender } from '../../test.utils';
+import { Select } from './Select';
 
 describe('<Select>', () => {
   it('throws when used without ThemeProvider', () => {

@@ -10,9 +10,6 @@ import {
   useState,
 } from 'react';
 
-import { ProgressTrackerContext } from './ProgressTracker.context';
-import styles from './ProgressTracker.module.css';
-import { ProgressTrackerItem } from './ProgressTrackerItem';
 import { createTexts, useTranslation } from '../../i18n';
 import {
   type BaseComponentPropsWithChildren,
@@ -23,6 +20,9 @@ import { cn } from '../../utils';
 import { StylelessOList } from '../helpers';
 import { scrollbar } from '../helpers/styling/utilStyles.module.css';
 import { Box } from '../layout';
+import { ProgressTrackerContext } from './ProgressTracker.context';
+import styles from './ProgressTracker.module.css';
+import { ProgressTrackerItem } from './ProgressTrackerItem';
 
 export type ProgressTrackerProps = BaseComponentPropsWithChildren<
   HTMLDivElement,

@@ -4,8 +4,6 @@ import {
   type HTMLAttributes,
 } from 'react';
 
-import { ButtonGroupContext } from './ButtonGroup.context';
-import styles from './ButtonGroup.module.css';
 import {
   type BaseComponentPropsWithChildren,
   type Direction,
@@ -13,6 +11,8 @@ import {
 } from '../../types';
 import { cn } from '../../utils';
 import { type ButtonSize } from '../Button/Button.types';
+import { ButtonGroupContext } from './ButtonGroup.context';
+import styles from './ButtonGroup.module.css';
 
 type PickedHTMLAttributes = Pick<
   HTMLAttributes<HTMLDivElement>,

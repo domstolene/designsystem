@@ -7,12 +7,12 @@ import {
   useState,
 } from 'react';
 
+import { useOnClickOutside, useOnKeyDown } from '../../hooks';
+import { searchFilter } from '../../utils';
 import {
   AutocompleteSearchContext,
   type AutocompleteSearchContextType,
 } from './AutocompleteSearch.context';
-import { useOnClickOutside, useOnKeyDown } from '../../hooks';
-import { searchFilter } from '../../utils';
 
 interface WeightedValue {
   text: string;

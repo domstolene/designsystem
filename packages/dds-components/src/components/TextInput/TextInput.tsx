@@ -1,8 +1,6 @@
 import { type Property } from 'csstype';
 import React, { useId, useLayoutEffect, useRef, useState } from 'react';
 
-import styles from './TextInput.module.css';
-import { type TextInputProps } from './TextInput.types';
 import {
   cn,
   derivativeIdGenerator,
@@ -16,6 +14,8 @@ import { renderInputMessage } from '../InputMessage';
 import { Box } from '../layout';
 import { renderLabel } from '../Typography/Label/Label.utils';
 import tgStyles from '../Typography/typographyStyles.module.css';
+import styles from './TextInput.module.css';
+import { type TextInputProps } from './TextInput.types';
 
 export const TextInput = ({
   label,

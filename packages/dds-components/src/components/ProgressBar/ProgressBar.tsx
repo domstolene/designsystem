@@ -1,8 +1,6 @@
 import { type ComponentPropsWithRef, useId } from 'react';
 
 import { createSizes } from '../../types';
-import utilStyles from './../helpers/styling/utilStyles.module.css';
-import styles from './ProgressBar.module.css';
 import {
   cn,
   derivativeIdGenerator,
@@ -12,6 +10,8 @@ import { type CommonInputProps, getInputWidth } from '../helpers/Input';
 import { renderInputMessage } from '../InputMessage';
 import { Box } from '../layout';
 import { renderLabel } from '../Typography/Label/Label.utils';
+import utilStyles from './../helpers/styling/utilStyles.module.css';
+import styles from './ProgressBar.module.css';
 
 export const PROGRESS_BAR_SIZES = createSizes('small', 'medium');
 export type ProgressBarSize = (typeof PROGRESS_BAR_SIZES)[number];

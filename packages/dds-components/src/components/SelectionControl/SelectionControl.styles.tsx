@@ -1,14 +1,14 @@
 import { type HTMLAttributes, type LabelHTMLAttributes } from 'react';
 
-import styles from './SelectionControl.module.css';
 import { RequiredMarker, cn } from '../../utils';
 import { Icon } from '../Icon';
 import { LockIcon } from '../Icon/icons';
 import { Box } from '../layout';
 import { Typography } from '../Typography';
-import { type SelectionControlSize } from './common/SelectionControl.types';
 import labelStyles from '../Typography/Label/Label.module.css';
 import typographyStyles from '../Typography/typographyStyles.module.css';
+import { type SelectionControlSize } from './common/SelectionControl.types';
+import styles from './SelectionControl.module.css';
 type SelectionControlType = 'radio' | 'checkbox';
 
 type SelectionControlProps = {

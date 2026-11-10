@@ -2,8 +2,8 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 
-import { InlineButton } from './InlineButton';
 import { CheckIcon } from '../Icon/icons';
+import { InlineButton } from './InlineButton';
 
 describe('<InlineButton>', () => {
   it('renders button', () => {

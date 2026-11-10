@@ -1,11 +1,11 @@
 import preview from '#.storybook/preview';
 
-import { VStack } from './VStack';
 import { Box } from '../..';
 import {
   responsiveStackPropsArgTypes,
   windowWidthDecorator,
 } from '../../../../storybook';
+import { VStack } from './VStack';
 
 const meta = preview.meta({
   title: 'dds-components/Layout Primitives/VStack',

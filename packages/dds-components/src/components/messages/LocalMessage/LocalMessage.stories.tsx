@@ -1,7 +1,6 @@
 import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
-import { L_MESSAGE_PURPOSES, LocalMessage } from './LocalMessage';
 import {
   commonArgTypes,
   ddsProviderDecorator,
@@ -12,6 +11,7 @@ import {
 import { Button } from '../../Button';
 import { HStack } from '../../layout';
 import { StoryVStack } from '../../layout/Stack/storybook-utils';
+import { L_MESSAGE_PURPOSES, LocalMessage } from './LocalMessage';
 
 const meta = preview.meta({
   title: 'dds-components/Components/LocalMessage',

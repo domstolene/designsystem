@@ -1,9 +1,9 @@
 import preview from '#.storybook/preview';
 
-import { Bleed, type BleedProps } from './Bleed';
 import { commonArgTypes, responsivePropsArgTypes } from '../../../storybook';
 import { Paper } from '../Paper';
 import { StoryVStack } from '../Stack/storybook-utils';
+import { Bleed, type BleedProps } from './Bleed';
 
 const meta = preview.meta({
   title: 'dds-components/Layout Primitives/Bleed',

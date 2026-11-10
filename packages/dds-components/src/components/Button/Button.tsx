@@ -1,7 +1,5 @@
 import { type ButtonHTMLAttributes, type ElementType } from 'react';
 
-import styles from './Button.module.css';
-import { type ButtonProps } from './Button.types';
 import { createTexts, useTranslation } from '../../i18n';
 import { ElementAs } from '../../polymorphic';
 import { getBaseHTMLProps } from '../../types';
@@ -14,6 +12,8 @@ import { invisible } from '../helpers/styling/utilStyles.module.css';
 import { Icon, type SvgIcon } from '../Icon';
 import { Spinner } from '../Spinner';
 import typographyStyles from '../Typography/typographyStyles.module.css';
+import styles from './Button.module.css';
+import { type ButtonProps } from './Button.types';
 
 export const Button = <I extends SvgIcon, T extends ElementType = 'button'>({
   as: propAs,
