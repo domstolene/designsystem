@@ -21,7 +21,9 @@ import {
 } from '../../helpers/Input';
 import inputStyles from '../../helpers/Input/Input.module.css';
 import { focusable } from '../../helpers/styling/focus.module.css';
-import utilStyles, { scrollbar } from '../../helpers/styling/utilStyles.module.css';
+import utilStyles, {
+  scrollbar,
+} from '../../helpers/styling/utilStyles.module.css';
 import { Icon } from '../../Icon';
 import { ChevronDownIcon } from '../../Icon/icons';
 import { renderInputMessage } from '../../InputMessage';

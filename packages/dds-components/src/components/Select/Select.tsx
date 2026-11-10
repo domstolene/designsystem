@@ -25,7 +25,8 @@ import {
   cn,
   derivativeIdGenerator,
   readOnlyKeyDownHandler,
-  searchFilter, spaceSeparatedIdListGenerator
+  searchFilter,
+  spaceSeparatedIdListGenerator,
 } from '../../utils';
 import {
   type CommonInputProps,
