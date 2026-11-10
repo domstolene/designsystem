@@ -13,7 +13,6 @@ import {
   useState,
 } from 'react';
 
-import { PopoverContext } from './Popover.context';
 import {
   type UseFloatPositionOptions,
   useCombinedRef,
@@ -21,6 +20,7 @@ import {
   useOnClickOutside,
   useOnKeyDown,
 } from '../../hooks';
+import { PopoverContext } from './Popover.context';
 
 export interface PopoverGroupProps {
   /** Barna til wrapperen: anchor-element som det første og `<Popover>` som det andre.  */

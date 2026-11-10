@@ -10,10 +10,10 @@ import {
   useState,
 } from 'react';
 
-import styles from './AccordionBase.module.css';
 import { useControllableState } from '../../../hooks';
 import { type Nullable } from '../../../types';
 import { cn, useElementHeight } from '../../../utils';
+import styles from './AccordionBase.module.css';
 
 export interface AccordionConfig {
   /**

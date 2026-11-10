@@ -3,6 +3,7 @@ import { type ComponentPropsWithRef } from 'react';
 import { createTexts, useTranslation } from '../../i18n';
 import { type ExtractStrict } from '../../types';
 import { cn } from '../../utils';
+import { Button, type ButtonProps, type ButtonPurpose } from '../Button';
 import {
   DescriptionList,
   DescriptionListDesc,
@@ -11,14 +12,13 @@ import {
   DescriptionListTerm,
   type DescriptionListTermProps,
 } from '../DescriptionList';
+import { EditIcon } from '../Icon/icons';
 import { InputMessage, type InputMessageProps } from '../InputMessage';
 import { Box, HStack } from '../layout';
 import { Spinner } from '../Spinner';
 import { Heading, type HeadingProps } from '../Typography';
-import styles from './FormSummary.module.css';
-import { Button, type ButtonProps, type ButtonPurpose } from '../Button';
-import { EditIcon } from '../Icon/icons';
 import { VisuallyHidden } from '../VisuallyHidden';
+import styles from './FormSummary.module.css';
 
 type FormSummaryHeaderProps = ComponentPropsWithRef<'div'>;
 

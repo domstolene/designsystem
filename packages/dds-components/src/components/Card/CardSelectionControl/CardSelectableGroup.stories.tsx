@@ -1,8 +1,6 @@
 import preview from '#.storybook/preview';
 import { useState } from 'react';
 
-import { CardSelectable } from './CardSelectable';
-import { CardSelectableGroup } from './CardSelectableGroup';
 import {
   commonArgTypesWithNodeChildren,
   ddsProviderDecorator,
@@ -12,6 +10,8 @@ import { Button } from '../../Button';
 import { VStack } from '../../layout';
 import { Typography } from '../../Typography';
 import { VisuallyHidden } from '../../VisuallyHidden';
+import { CardSelectable } from './CardSelectable';
+import { CardSelectableGroup } from './CardSelectableGroup';
 
 const {
   alignItems,

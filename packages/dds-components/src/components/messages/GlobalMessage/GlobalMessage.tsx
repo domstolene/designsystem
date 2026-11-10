@@ -1,9 +1,9 @@
-import styles from './GlobalMessage.module.css';
 import { type BaseComponentProps } from '../../../types';
 import { type ResponsiveGridProps } from '../../layout/common/Responsive.types';
 import { MESSAGE_PURPOSES, type MessagePurpose } from '../MessageBase';
 import { MessageBase } from '../MessageBase';
 import { type CommonMessageProps } from '../MessageBase/MessageBase';
+import styles from './GlobalMessage.module.css';
 
 export const G_MESSAGE_PURPOSES = MESSAGE_PURPOSES.filter(
   (purpose): purpose is Exclude<MessagePurpose, 'tips' | 'success'> =>

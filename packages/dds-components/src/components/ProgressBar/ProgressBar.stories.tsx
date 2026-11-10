@@ -1,6 +1,5 @@
 import preview from '#.storybook/preview';
 
-import { PROGRESS_BAR_SIZES } from './ProgressBar';
 import {
   categoryHtml,
   labelText,
@@ -8,6 +7,7 @@ import {
   windowWidthDecorator,
 } from '../../storybook';
 import { StoryVStack } from '../layout/Stack/storybook-utils';
+import { PROGRESS_BAR_SIZES } from './ProgressBar';
 
 import { ProgressBar } from '.';
 

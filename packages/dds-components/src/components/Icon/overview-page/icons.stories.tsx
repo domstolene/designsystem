@@ -1,16 +1,6 @@
 import preview from '#.storybook/preview';
 import { type Dispatch, type SetStateAction, useEffect, useState } from 'react';
 
-import { ICON_SIZES, Icon } from '../Icon';
-import styles from './icons.module.css';
-import {
-  ICON_CATEGORIES,
-  type IconCategory,
-  type IconName,
-  filterIcons,
-  iconMeta,
-  trimIconName,
-} from './icons.utils';
 import {
   Box,
   CheckIcon,
@@ -36,8 +26,18 @@ import { focusable } from '../../helpers/styling/focus.module.css';
 import { LocalMessage } from '../../messages';
 import { Modal, ModalBody } from '../../Modal';
 import { Heading, Typography } from '../../Typography';
+import { ICON_SIZES, Icon } from '../Icon';
 import { CopyIcon } from '../icons/copy';
 import { type SvgIcon } from '../utils';
+import styles from './icons.module.css';
+import {
+  ICON_CATEGORIES,
+  type IconCategory,
+  type IconName,
+  filterIcons,
+  iconMeta,
+  trimIconName,
+} from './icons.utils';
 
 const meta = preview.meta({
   title: 'Ikoner/Oversikt',

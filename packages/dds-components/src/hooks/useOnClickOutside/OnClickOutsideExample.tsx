@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 
-import { useOnClickOutside } from './useOnClickOutside';
 import { Paper } from '../../components/layout';
+import { useOnClickOutside } from './useOnClickOutside';
 
 export interface UseOnClickOutsideProps {
   /**Element(er) brukeren klikker utenfor. */

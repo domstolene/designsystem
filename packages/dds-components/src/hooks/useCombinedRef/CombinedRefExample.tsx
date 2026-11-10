@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 
-import { useCombinedRef } from './useCombinedRef';
 import { Paper } from '../../components/layout';
+import { useCombinedRef } from './useCombinedRef';
 
 export interface CombinedRefProps {
   /**Refs som kombineres. */

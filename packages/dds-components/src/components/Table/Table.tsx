@@ -1,11 +1,11 @@
 import { type ComponentPropsWithRef, type ReactNode, useRef } from 'react';
 
-import { CollapsibleTableContext } from './CollapsibleTable.context';
-import styles from './Table.module.css';
 import { type Breakpoint, type Size } from '../..';
 import { cn } from '../../utils';
 import { scrollbar } from '../helpers/styling/utilStyles.module.css';
 import tgStyles from '../Typography/typographyStyles.module.css';
+import { CollapsibleTableContext } from './CollapsibleTable.context';
+import styles from './Table.module.css';
 
 export type TableSize = Extract<Size, 'small' | 'medium' | 'large'>;
 

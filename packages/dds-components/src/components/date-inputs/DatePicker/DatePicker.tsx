@@ -5,14 +5,6 @@ import { useDatePickerState } from '@react-stately/datepicker';
 import type { AriaDatePickerProps } from '@react-types/datepicker';
 import { type Ref, useEffect, useId, useRef } from 'react';
 
-import { Calendar } from './Calendar/Calendar';
-import {
-  CalendarPopover,
-  CalendarPopoverAnchor,
-  CalendarPopoverContent,
-} from './CalendarPopover';
-import { LOCALE } from './constants';
-import { DateField, type DateFieldProps } from './DateField/DateField';
 import { useCombinedRef } from '../../../hooks';
 import { useLanguage } from '../../../i18n';
 import { type Breakpoint } from '../../layout';
@@ -21,6 +13,14 @@ import {
   type FocusableRef,
   useFocusManagerRef,
 } from '../utils/useFocusManagerRef';
+import { Calendar } from './Calendar/Calendar';
+import {
+  CalendarPopover,
+  CalendarPopoverAnchor,
+  CalendarPopoverContent,
+} from './CalendarPopover';
+import { LOCALE } from './constants';
+import { DateField, type DateFieldProps } from './DateField/DateField';
 
 export interface DatePickerProps
   extends

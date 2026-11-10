@@ -1,4 +1,3 @@
-import styles from './LocalMessage.module.css';
 import { type BaseComponentProps } from '../../../types';
 import { type ResponsiveProps } from '../../layout';
 import { type ResponsiveGridProps } from '../../layout/common/Responsive.types';
@@ -7,6 +6,7 @@ import {
   type CommonMessageProps,
   MESSAGE_PURPOSES,
 } from '../MessageBase/MessageBase';
+import styles from './LocalMessage.module.css';
 
 export const L_MESSAGE_PURPOSES = MESSAGE_PURPOSES;
 

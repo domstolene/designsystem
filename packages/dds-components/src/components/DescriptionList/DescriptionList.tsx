@@ -1,4 +1,3 @@
-import styles from './DescriptionList.module.css';
 import {
   type BaseComponentPropsWithChildren,
   type Direction,
@@ -6,6 +5,7 @@ import {
 } from '../../types';
 import { cn } from '../../utils';
 import { VStack } from '../layout';
+import styles from './DescriptionList.module.css';
 
 export type DescriptionListAppearance = 'default' | 'subtle';
 

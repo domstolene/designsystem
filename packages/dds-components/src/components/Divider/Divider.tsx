@@ -1,6 +1,6 @@
-import styles from './Divider.module.css';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
+import styles from './Divider.module.css';
 
 export type DividerColor = 'default' | 'subtle' | 'on-inverse';
 

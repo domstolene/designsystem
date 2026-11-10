@@ -1,7 +1,6 @@
 import { type DateSegment } from '@react-stately/datepicker';
 
-import { useTranslation } from '../../../../i18n';
-import { createTexts } from '../../../../i18n';
+import { createTexts, useTranslation } from '../../../../i18n';
 
 // Formaterer dato-segmenter til norsk locale
 export function formatDateFieldSegments(

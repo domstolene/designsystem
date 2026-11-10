@@ -1,10 +1,10 @@
-import styles from './Feedback.module.css';
-import { type Rating } from './Feedback.types';
 import { createTexts, useTranslation } from '../../i18n';
 import { Button } from '../Button';
 import { VStack } from '../layout';
 import { TextArea } from '../TextArea';
 import { Paragraph } from '../Typography';
+import styles from './Feedback.module.css';
+import { type Rating } from './Feedback.types';
 interface CommentComponentType {
   rating: Rating | null;
   feedbackText: string | undefined;

@@ -8,8 +8,8 @@ import {
   useState,
 } from 'react';
 
-import styles from './ThemeProvider.module.css';
 import { cn } from '../../utils';
+import styles from './ThemeProvider.module.css';
 
 export type DdsTheme = keyof typeof ddsTokens;
 const defaultTheme: DdsTheme = 'core-light';

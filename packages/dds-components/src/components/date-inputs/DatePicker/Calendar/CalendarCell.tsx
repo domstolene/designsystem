@@ -1,6 +1,7 @@
 import { type ComponentPropsWithRef } from 'react';
 
-import { Box, cn } from '../../../..';
+import { cn } from '../../../../utils';
+import { Box } from '../../../layout';
 import tgStyles from '../../../Typography/typographyStyles.module.css';
 import styles from '../../common/DateInput.module.css';
 

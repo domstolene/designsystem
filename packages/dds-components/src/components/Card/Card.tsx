@@ -1,8 +1,8 @@
-import styles from './Card.module.css';
-import { type CardProps } from './Card.types';
 import { getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
 import focusStyles from '../helpers/styling/focus.module.css';
+import styles from './Card.module.css';
+import { type CardProps } from './Card.types';
 
 export const Card = (props: CardProps) => {
   const {

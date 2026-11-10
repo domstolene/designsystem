@@ -1,8 +1,8 @@
 import { type ComponentPropsWithRef } from 'react';
 
-import styles from './DetailList.module.css';
 import { cn } from '../../utils';
 import { Box, type ResponsiveProps } from '../layout';
+import styles from './DetailList.module.css';
 
 export type DetailListDescProps = ComponentPropsWithRef<'dd'> &
   Pick<ResponsiveProps, 'textAlign'>;

@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
+import { FooterListHeader, FooterLogo, FooterSocialsList } from '../..';
 import { Footer } from './Footer';
 import { FooterList } from './FooterList';
-import { FooterListHeader, FooterLogo, FooterSocialsList } from '../..';
 
 describe('<Footer>', () => {
   it('renders footer', () => {

@@ -1,9 +1,9 @@
 import preview from '#.storybook/preview';
 
-import { Fieldset } from './Fieldset';
 import { categoryHtml, commonArgTypesWithNodeChildren } from '../../storybook';
 import { TextInput } from '../TextInput';
 import { Legend } from '../Typography';
+import { Fieldset } from './Fieldset';
 import { FieldsetGroup } from './FieldsetGroup';
 
 const meta = preview.meta({

@@ -1,7 +1,5 @@
 import { useEffect, useId, useRef, useState } from 'react';
 
-import { type AddTabButtonProps } from './AddTabButton';
-import { TabsContext } from './Tabs.context';
 import {
   type BaseComponentPropsWithChildren,
   type Direction,
@@ -9,6 +7,8 @@ import {
   getBaseHTMLProps,
 } from '../../types';
 import { Box, type ResponsiveProps } from '../layout';
+import { type AddTabButtonProps } from './AddTabButton';
+import { TabsContext } from './Tabs.context';
 
 export const TABS_SIZES = createSizes('small', 'medium');
 export type TabSize = (typeof TABS_SIZES)[number];

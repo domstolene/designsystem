@@ -1,5 +1,3 @@
-import { Cell, type TableCellProps } from './Cell';
-import styles from './Table.module.css';
 import { createTexts, useTranslation } from '../../i18n';
 import { cn } from '../../utils';
 import { Button } from '../Button';
@@ -11,6 +9,8 @@ import {
   type PopoverGroupProps,
   type PopoverProps,
 } from '../Popover';
+import { Cell, type TableCellProps } from './Cell';
+import styles from './Table.module.css';
 
 export type SortOrder = 'ascending' | 'descending';
 

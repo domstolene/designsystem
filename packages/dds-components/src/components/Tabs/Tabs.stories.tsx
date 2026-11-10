@@ -1,7 +1,6 @@
 import preview from '#.storybook/preview';
 import { Fragment, useState } from 'react';
 
-import { TABS_SIZES } from './Tabs';
 import {
   StoryLabel,
   commonArgTypesWithNodeChildren,
@@ -12,6 +11,7 @@ import {
 import { NotificationsIcon } from '../Icon/icons';
 import { StoryVStack } from '../layout/Stack/storybook-utils';
 import { Paragraph } from '../Typography';
+import { TABS_SIZES } from './Tabs';
 
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '.';
 

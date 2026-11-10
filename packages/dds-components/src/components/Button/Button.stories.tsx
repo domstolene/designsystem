@@ -2,7 +2,6 @@ import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
 import { ArrowLeftIcon, NotificationsIcon } from '../..';
-import { BUTTON_PURPOSES, BUTTON_SIZES } from './Button.types';
 import {
   categoryHtml,
   commonArgTypes,
@@ -12,6 +11,7 @@ import {
   labelText,
 } from '../../storybook';
 import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
+import { BUTTON_PURPOSES, BUTTON_SIZES } from './Button.types';
 
 import { Button } from '.';
 

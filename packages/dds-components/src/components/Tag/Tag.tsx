@@ -1,6 +1,5 @@
 import { type Properties } from 'csstype';
 
-import styles from './Tag.module.css';
 import {
   type BaseComponentProps,
   createPurposes,
@@ -21,6 +20,7 @@ import {
   TextOverflowEllipsisWrapper,
 } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
+import styles from './Tag.module.css';
 
 export const icons: Record<TagPurpose, SvgIcon | undefined> = {
   info: InfoIcon,

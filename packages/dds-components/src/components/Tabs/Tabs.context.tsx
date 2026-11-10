@@ -1,8 +1,8 @@
 import { type RefObject, createContext, useContext } from 'react';
 
+import { type Direction } from '../../types';
 import { type AddTabButtonProps } from './AddTabButton';
 import { type TabSize } from './Tabs';
-import { type Direction } from '../../types';
 
 interface Tabs {
   activeTab: number;

@@ -1,7 +1,6 @@
 import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
-import { CardSelectable } from './CardSelectable';
 import {
   categoryHtml,
   commonArgTypes,
@@ -17,6 +16,7 @@ import {
   type CardSelectableProps,
   type CardSelectableType,
 } from '../Card.types';
+import { CardSelectable } from './CardSelectable';
 
 const meta = preview.meta({
   title: 'dds-components/Components/Card/CardSelectable',

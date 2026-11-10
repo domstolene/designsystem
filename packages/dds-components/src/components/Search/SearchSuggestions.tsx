@@ -1,7 +1,5 @@
 import { type MouseEvent } from 'react';
 
-import styles from './Search.module.css';
-import { SearchSuggestionItem } from './SearchSuggestionItem';
 import { useRoveFocus } from '../../hooks';
 import { createTexts, useTranslation } from '../../i18n';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
@@ -10,6 +8,8 @@ import { StylelessList } from '../helpers';
 import { DropdownHeader } from '../helpers/Dropdown/DropdownHeader';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Paper } from '../layout';
+import styles from './Search.module.css';
+import { SearchSuggestionItem } from './SearchSuggestionItem';
 
 export type SearchSuggestionsProps = BaseComponentProps<
   HTMLDivElement,

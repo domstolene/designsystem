@@ -1,11 +1,11 @@
 import preview from '#.storybook/preview';
 
-import { HStack } from './HStack';
 import { Box } from '../..';
 import {
   responsiveStackPropsArgTypes,
   windowWidthDecorator,
 } from '../../../../storybook';
+import { HStack } from './HStack';
 
 const meta = preview.meta({
   title: 'dds-components/Layout Primitives/HStack',
