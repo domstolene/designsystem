@@ -2,6 +2,8 @@
 
 ## 25.1.0
 
+(2026-11-11)
+
 ### Minor Changes
 
 - f991c00: Nytt ikon: `RecorderIcon`. Brukes til opptak i retten.
