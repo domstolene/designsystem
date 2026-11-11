@@ -5,14 +5,9 @@ runs:
   using: composite
   steps:
     - name: Install dependencies
-      uses: pnpm/action-setup@v6
-
-    - name: Setup Node.js
-      uses: actions/setup-node@v6
+      uses: jdx/mise-action@v4
       with:
-        node-version: 24
-        registry-url: 'https://registry.npmjs.org'
-        cache: 'pnpm'
+        install_args: node pnpm
 
     - name: Install dependencies
       shell: bash
