@@ -9,6 +9,7 @@ on:
       - 'renovate.json'
       - 'turbo.json'
       - 'opencode.jsonc'
+      - 'mise.toml'
       - '**/*.yaml'
       - '**/*.yml'
       - '**/*.md'

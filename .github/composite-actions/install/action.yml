@@ -4,10 +4,15 @@ description: 'Sets up Node.js and runs install'
 runs:
   using: composite
   steps:
-    - name: Install dependencies
+    - name: Setup tools
       uses: jdx/mise-action@v4
       with:
         install_args: node pnpm
+
+    - name: Cache pnpm store
+      uses: actions/setup-node@v6
+      with:
+        cache: 'pnpm'
 
     - name: Install dependencies
       shell: bash
