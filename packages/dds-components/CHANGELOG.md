@@ -1,5 +1,20 @@
 # @norges-domstoler/dds-components
 
+## 25.1.0
+
+(2026-11-11)
+
+### Minor Changes
+
+- f991c00: Nytt ikon: `RecorderIcon`. Brukes til opptak i retten.
+- da1d012: Ny prop i `<GlobalMessage>` og `<LocalMessage>`: `heading`. Brukes når meldingen har overskrift. Migrerer også `<GlobalMessage>` til CSS grid og fikser spacing. Begge endringene sørger for konsekvent layout.
+
+### Patch Changes
+
+- ca0f796: Oppdaterer eksemplene Table WithScroll og Table ColumnAndRowHeaders.
+- 1cd1868: Utbedrer logikk for sebrastriper i `<Table collapsible>` - rader som hører sammen har samme bakgrunnsfarge.
+- 6396db0: Setter CSS `box-sizing: border-box;` i `<Button>` slik at den alltid har riktig høyde.
+
 ## 25.0.1
 
 (2026-11-04)
