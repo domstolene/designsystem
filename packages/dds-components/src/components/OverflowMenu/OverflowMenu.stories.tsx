@@ -67,8 +67,10 @@ export const Preview = meta.story({
                 Navn Navnesen
               </OverflowMenuSpan>
             </OverflowMenuList>
-            <OverflowMenuListHeader>Header</OverflowMenuListHeader>
-            <OverflowMenuList>
+            <OverflowMenuListHeader id="header-1">
+              Header
+            </OverflowMenuListHeader>
+            <OverflowMenuList aria-describedby="header-1">
               <OverflowMenuLink href="/">Link</OverflowMenuLink>
               <OverflowMenuButton
                 onClick={() => {
@@ -80,8 +82,10 @@ export const Preview = meta.story({
               <OverflowMenuToggle>Toggle</OverflowMenuToggle>
             </OverflowMenuList>
             <OverflowMenuDivider />
-            <OverflowMenuListHeader>Varianter</OverflowMenuListHeader>
-            <OverflowMenuList>
+            <OverflowMenuListHeader id="header-2">
+              Varianter
+            </OverflowMenuListHeader>
+            <OverflowMenuList aria-describedby="header-2">
               <OverflowMenuButton
                 loading
                 onClick={() => {
