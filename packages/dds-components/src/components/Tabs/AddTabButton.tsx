@@ -47,6 +47,7 @@ export const AddTabButton = ({
         typographyStyles[`body-short-${size}`],
         focusStyles['focusable--inset'],
       )}
+      type="button"
     >
       <Icon icon={PlusIcon} iconSize="inherit" />
       <span>{children}</span>

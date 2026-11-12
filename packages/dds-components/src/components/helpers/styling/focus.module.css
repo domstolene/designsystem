@@ -9,8 +9,24 @@
   box-shadow: var(--dds-focus-box-shadow);
 }
 
-.focusable--inset:focus-visible {
+.focusable--inset:focus-visible,
+.focusable--inset--after:focus-visible::after {
   outline: var(--dds-focus-outline);
   outline-offset: var(--dds-focus-outline-inset);
   box-shadow: var(--dds-focus-box-shadow);
+}
+
+.focusable--inset--after {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: var(--dds-focus-transition);
+    }
+  }
 }
