@@ -17,7 +17,7 @@
     "format:check": "prettier --check packages/**/src/** --cache",
     "format:write": "prettier --write packages/**/src/** --cache",
     "storybook": "storybook dev -p 6006",
-    "test:storybook:a11y": "test:components storybook-a11y.spec.tsx",
+    "test:storybook:a11y": "pnpm test:components storybook-a11y.spec.tsx",
     "generate:tokens": "pnpm -F @norges-domstoler/dds-design-tokens run generate:tokens",
     "build:storybook": "pnpm build && storybook build",
     "serve:storybook": "pnpm dlx serve storybook-static",
