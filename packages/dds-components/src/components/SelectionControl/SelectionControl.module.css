@@ -54,15 +54,15 @@
   }
 
   input:checked ~ .selection-control,
-  input[data-indeterminate='true'] ~ .selection-control {
+  input:indeterminate ~ .selection-control {
     border-color: var(--dds-color-surface-action-selected);
     background-color: var(--dds-color-surface-action-selected);
   }
 
   input:checked[aria-readonly='true'] ~ .selection-control,
-  input[data-indeterminate='true'][aria-readonly='true'] ~ .selection-control,
+  input:indeterminate[aria-readonly='true'] ~ .selection-control,
   input:checked[aria-disabled='true'] ~ .selection-control,
-  input[data-indeterminate='true'][aria-disabled='true'] ~ .selection-control {
+  input:indeterminate[aria-disabled='true'] ~ .selection-control {
     border-color: var(--dds-color-surface-action-selected-disabled);
     background-color: var(--dds-color-surface-action-selected-disabled);
   }
@@ -70,7 +70,7 @@
   &:hover {
     input:enabled:not([aria-readonly='true']):not([aria-disabled='true']) {
       &:checked[type='checkbox'],
-      &[data-indeterminate='true'] {
+      &:indeterminate {
         ~ .selection-control {
           background-color: var(--dds-color-surface-action-hover);
           border-color: var(--dds-color-surface-action-hover);
@@ -81,7 +81,7 @@
 }
 
 input:checked ~ .selection-control:after,
-input[data-indeterminate='true'] ~ .selection-control:after {
+input:indeterminate ~ .selection-control:after {
   display: block;
 }
 
@@ -96,7 +96,7 @@ input[data-indeterminate='true'] ~ .selection-control:after {
     transform: rotate(45deg);
   }
 
-  input[data-indeterminate='true'] ~ .selection-control:after {
+  input:indeterminate ~ .selection-control:after {
     border-width: 1px 0 0 0;
     left: 25%;
     top: 50%;
@@ -124,7 +124,7 @@ input[data-indeterminate='true'] ~ .selection-control:after {
     border-color: var(--dds-color-border-subtle);
   }
   input:checked ~ .selection-control,
-  input[data-indeterminate='true'] ~ .selection-control {
+  input:indeterminate ~ .selection-control {
     border-color: var(--dds-color-surface-action-selected-disabled);
     background-color: var(--dds-color-surface-action-selected-disabled);
   }
@@ -138,7 +138,7 @@ input[data-indeterminate='true'] ~ .selection-control:after {
       background-color: var(--dds-color-surface-field-disabled);
     }
     input:checked ~ .selection-control,
-    input[data-indeterminate='true'] ~ .selection-control {
+    input:indeterminate ~ .selection-control {
       border-color: var(--dds-color-surface-action-selected-disabled);
       background-color: var(--dds-color-surface-action-selected-disabled);
     }

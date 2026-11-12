@@ -1,5 +1,6 @@
-import { useId } from 'react';
+import { useCallback, useId } from 'react';
 
+import { useCombinedRef } from '../../../hooks';
 import { getBaseHTMLProps } from '../../../types';
 import {
   readOnlyClickHandler,
@@ -14,6 +15,7 @@ import { useCheckboxGroup } from './CheckboxGroupContext';
 
 export const Checkbox = ({
   id,
+  ref,
   name,
   label,
   error = false,
@@ -40,6 +42,17 @@ export const Checkbox = ({
   const isDisabled = disabled || checkboxGroup?.disabled;
   const controlSize = size || checkboxGroup?.size || 'medium';
 
+  const indeterminateRef = useCallback(
+    (el: HTMLInputElement | null) => {
+      if (el) {
+        el.indeterminate = !!indeterminate;
+      }
+    },
+    [indeterminate],
+  );
+
+  const combinedRef = useCombinedRef(indeterminateRef, ref);
+
   return (
     <Label
       disabled={isDisabled}
@@ -51,6 +64,7 @@ export const Checkbox = ({
       size={controlSize}
     >
       <HiddenInput
+        ref={combinedRef}
         {...getBaseHTMLProps(uniqueId, undefined, undefined, htmlProps, rest)}
         name={name}
         disabled={isDisabled}
@@ -61,10 +75,8 @@ export const Checkbox = ({
         ])}
         aria-invalid={hasError ? true : undefined}
         aria-labelledby={checkboxGroup?.uniqueGroupId}
-        aria-checked={indeterminate ? 'mixed' : undefined}
         aria-readonly={isReadOnly}
         type="checkbox"
-        data-indeterminate={indeterminate}
         className={focusStyles['focusable-sibling']}
         onKeyDown={readOnlyKeyDownHandler(
           'selectionControl',

@@ -129,7 +129,7 @@ describe('<RadioButton>', () => {
       expect(radio).toHaveAccessibleDescription(errorMessage);
       expect(radio).toBeInvalid();
     });
-    it('makes all radio buttons required when inside a required radio button group', () => {
+    it('makes children required when inside a required radio button group', () => {
       render(
         <RadioButtonGroup required>
           <RadioButton />
@@ -140,7 +140,7 @@ describe('<RadioButton>', () => {
       expect(radios[0]).toBeRequired();
       expect(radios[1]).toBeRequired();
     });
-    it('disables all radio buttons in a disabled radio button group', async () => {
+    it('disables children in a disabled radio button group', async () => {
       render(
         <RadioButtonGroup disabled>
           <RadioButton />
@@ -162,7 +162,7 @@ describe('<RadioButton>', () => {
       expect(radios[1]).not.toBeChecked();
     });
 
-    it('makes all radio buttons inside a read only radio button group read only', async () => {
+    it('makes children aria-disabled with readOnly prop', async () => {
       render(
         <RadioButtonGroup readOnly>
           <RadioButton value={1} />
@@ -172,7 +172,7 @@ describe('<RadioButton>', () => {
       const radios = screen.getAllByRole('radio');
 
       radios.forEach(radio => {
-        expect(radio).toHaveAttribute('aria-readonly', 'true');
+        expect(radio).toHaveAttribute('aria-disabled', 'true');
       });
 
       await userEvent.click(radios[0]);
