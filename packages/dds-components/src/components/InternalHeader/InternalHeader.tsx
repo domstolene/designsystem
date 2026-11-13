@@ -156,15 +156,13 @@ export const InternalHeader = (props: InternalHeaderProps) => {
               )}
               {hasNavInContextMenu && (
                 <ShowHide
-                  as="nav"
-                  aria-label={t(texts.siteNavigation)}
+                  as={OverflowMenuList}
                   showBelow={smallScreenBreakpoint}
+                  aria-label={t(texts.siteNavigation)}
                 >
-                  <OverflowMenuList>
-                    {navItems.map((item, i) => (
-                      <OverflowMenuLink {...item} key={`nav-${i}`} />
-                    ))}
-                  </OverflowMenuList>
+                  {navItems.map((item, i) => (
+                    <OverflowMenuLink {...item} key={`nav-${i}`} />
+                  ))}
                 </ShowHide>
               )}
               {hasNavInContextMenu && hasContextMenuElements && (

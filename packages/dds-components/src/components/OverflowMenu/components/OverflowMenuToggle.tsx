@@ -21,13 +21,13 @@ export const OverflowMenuToggle = ({
   }, []);
 
   return (
-    <li>
+    <li role="presentation">
       <DropdownItem
         as={Toggle}
         ref={combinedRef}
         {...rest}
         htmlProps={{
-          role: 'menuitem',
+          role: 'menuitemcheckbox',
           tabIndex: focusedRef === itemRef ? 0 : -1,
         }}
       />

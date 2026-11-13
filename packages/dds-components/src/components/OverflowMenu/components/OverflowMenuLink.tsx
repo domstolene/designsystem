@@ -22,7 +22,7 @@ export const OverflowMenuLink = ({
   }, []);
 
   return (
-    <li>
+    <li role="presentation">
       <DropdownItem
         as="a"
         ref={combinedRef}

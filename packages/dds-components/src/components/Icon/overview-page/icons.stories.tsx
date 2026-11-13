@@ -271,6 +271,7 @@ export const Oversikt = meta.story({
         <Search
           value={searchQuery}
           onChange={e => setSearchQuery(e.target.value)}
+          aria-label="Søk etter ikoner"
         />
         <ChipGroup gap="x0.5" aria-label="Filtrer ikonkategorier">
           {ICON_CATEGORIES.map(category => (

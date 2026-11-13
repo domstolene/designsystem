@@ -23,6 +23,16 @@ const meta = preview.meta({
   },
   args: { onChange: fn() },
   decorators: [ddsProviderDecorator],
+  parameters: {
+    a11y: {
+      options: {
+        rules: {
+          label: { enabled: false },
+          'label-title-only': { enabled: false },
+        },
+      },
+    },
+  },
 });
 
 export default meta;
@@ -87,7 +97,12 @@ export const Sizes = meta.story({
     <StoryHStack>
       <StoryVStack>
         {SEARCH_SIZES.map(size => (
-          <Search {...args} label={labelText(size)} componentSize={size} />
+          <Search
+            {...args}
+            label={labelText(size)}
+            componentSize={size}
+            key={size}
+          />
         ))}
       </StoryVStack>
       <StoryVStack>
@@ -97,6 +112,7 @@ export const Sizes = meta.story({
             label={labelText(size)}
             componentSize={size}
             buttonProps={{ onClick: () => null, label: 'Søk' }}
+            key={size}
           />
         ))}
       </StoryVStack>

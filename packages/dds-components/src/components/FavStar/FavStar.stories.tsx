@@ -2,6 +2,7 @@ import preview from '#.storybook/preview';
 import { useState } from 'react';
 import { fn } from 'storybook/test';
 
+import { VisuallyHidden } from '../..';
 import {
   StoryLabel,
   categoryHtml,
@@ -10,12 +11,8 @@ import {
   htmlEventArgType,
   labelText,
 } from '../../storybook';
-import { focusable } from '../helpers/styling/focus.module.css';
-import { Icon } from '../Icon';
-import { AttachmentIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
 import { Table } from '../Table';
-import { Tooltip } from '../Tooltip';
 import { Caption, Link } from '../Typography';
 import { FAVSTAR_SIZES, FavStar } from './FavStar';
 
@@ -49,7 +46,7 @@ export const Sizes = meta.story({
   ),
 });
 
-export const RealWorld = meta.story({
+export const InTable = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -58,25 +55,25 @@ export const RealWorld = meta.story({
       {
         id: 1,
         name: 'Krav om sak inkl. 1 vedlegg.pdf',
-        from: 'Ola Nordmann',
-        to: 'Trøndelag tingrett',
+        from: 'Navn Navnesen',
+        to: 'Tilfeldig tingrett',
         timestamp: '28.08.2023',
         read: true,
         numAttachments: 1,
       },
       {
         id: 2,
-        name: 'Bekreftelse og inngangsgebyr - Selvprosederende',
-        from: 'Trøndelag tingrett',
-        to: 'Ola Nordmann',
+        name: 'Dokumentnavn.pdf',
+        from: 'Tilfeldig tingrett',
+        to: 'Navn Navnesen',
         timestamp: '31.08.2023',
         read: false,
         numAttachments: 2,
       },
       {
         id: 3,
-        name: 'Forkynning av sak - med spørsmål om meddommere',
-        from: 'Trøndelag tingrett',
+        name: 'Dokumentnavn2.pdf',
+        from: 'Tilfeldig tingrett',
         to: 'Ikke oppgitt',
         timestamp: '04.09.2023',
         read: false,
@@ -84,9 +81,9 @@ export const RealWorld = meta.story({
       },
       {
         id: 4,
-        name: 'Oversendelse av dokument',
-        from: 'Trøndelag tingrett',
-        to: 'Ola Nordmann',
+        name: 'Dokumentnavn3.pdf',
+        from: 'Tilfeldig tingrett',
+        to: 'Navn Navnesen',
         timestamp: '04.09.2023',
         read: false,
         numAttachments: 1,
@@ -102,14 +99,14 @@ export const RealWorld = meta.story({
           <Caption>Saksdokumenter</Caption>
           <Table.Head>
             <Table.Row>
-              <Table.Cell></Table.Cell>
+              <Table.Cell>
+                <VisuallyHidden>Favoritt</VisuallyHidden>
+              </Table.Cell>
               <Table.Cell>Nr.</Table.Cell>
-              <Table.Cell></Table.Cell>
               <Table.Cell>Dokument</Table.Cell>
               <Table.Cell>Avsender</Table.Cell>
               <Table.Cell>Mottakere</Table.Cell>
               <Table.Cell>Sendt</Table.Cell>
-              <Table.Cell>Vedlegg</Table.Cell>
             </Table.Row>
           </Table.Head>
           <Table.Body>
@@ -118,6 +115,7 @@ export const RealWorld = meta.story({
                 <Table.Cell>
                   <FavStar
                     {...args}
+                    aria-label={`Stjernemarker ${document.name}`}
                     checked={favoriteDocuments.has(document.id)}
                     onChange={newChecked =>
                       setFavoriteDocuments(prev => {
@@ -137,32 +135,11 @@ export const RealWorld = meta.story({
                 </Table.Cell>
                 <Table.Cell>{document.id}</Table.Cell>
                 <Table.Cell>
-                  {!document.read && (
-                    <Tooltip text="Ulest">
-                      <div
-                        tabIndex={0}
-                        className={focusable}
-                        style={{
-                          backgroundColor:
-                            'var(--dds-color-icon-action-resting)',
-                          width: '10px',
-                          height: '10px',
-                          borderRadius: '10px',
-                        }}
-                      />
-                    </Tooltip>
-                  )}
-                </Table.Cell>
-                <Table.Cell>
                   <Link href="domstol.no">{document.name}</Link>
                 </Table.Cell>
                 <Table.Cell>{document.from}</Table.Cell>
                 <Table.Cell>{document.to}</Table.Cell>
                 <Table.Cell>{document.timestamp}</Table.Cell>
-                <Table.Cell>
-                  <Icon icon={AttachmentIcon} />
-                  {document.numAttachments}
-                </Table.Cell>
               </Table.Row>
             ))}
           </Table.Body>

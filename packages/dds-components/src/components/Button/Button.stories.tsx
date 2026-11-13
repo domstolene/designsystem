@@ -71,6 +71,7 @@ export const Purposes = meta.story({
             {...args}
             icon={ArrowLeftIcon}
             purpose={purpose}
+            aria-label="Ledetekst"
           />
         ))}
       </StoryVStack>
@@ -108,6 +109,7 @@ export const Sizes = meta.story({
             {...args}
             icon={ArrowLeftIcon}
             size={size}
+            aria-label="Ledetekst"
           />
         ))}
       </StoryVStack>
@@ -122,7 +124,7 @@ export const OverviewLoading = meta.story({
   render: args => (
     <StoryHStack>
       {BUTTON_PURPOSES.map(p => (
-        <StoryVStack>
+        <StoryVStack key={p}>
           {BUTTON_SIZES.map(s => (
             <Button {...args} key={`${p}-${s}`} purpose={p} size={s} loading />
           ))}
@@ -143,7 +145,12 @@ export const OverviewFullWidth = meta.story({
       <Button {...args} iconPosition="right" icon={ArrowLeftIcon}>
         Tekst og ikon til høyre
       </Button>
-      <Button {...args} children={undefined} icon={ArrowLeftIcon} />
+      <Button
+        {...args}
+        children={undefined}
+        icon={ArrowLeftIcon}
+        aria-label="Ledetekst"
+      />
       <Button {...args} loading>
         label
       </Button>
@@ -160,7 +167,7 @@ export const TextWithIcon = meta.story({
 });
 
 export const Icon = meta.story({
-  args: { icon: ArrowLeftIcon },
+  args: { icon: ArrowLeftIcon, 'aria-label': 'Ledetekst' },
 });
 
 export const WithBadge = meta.story({

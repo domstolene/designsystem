@@ -131,7 +131,6 @@ export const WithUploadStatus = meta.story({
     const [statusMap, setStatusMap] = useState<Map<string, UploadInfo>>(
       new Map(),
     );
-    console.log('files', files);
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     function fakeUpload(_file: File) {
