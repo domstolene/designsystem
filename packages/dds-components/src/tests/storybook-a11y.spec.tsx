@@ -1,15 +1,13 @@
 /// <reference types="vite/client" />
 
-import { setProjectAnnotations } from '@storybook/react-vite';
+import { composeStories, setProjectAnnotations } from '@storybook/react-vite';
 import { act, cleanup } from '@testing-library/react';
 import { configureAxe } from 'jest-axe';
 import { afterEach, beforeAll, describe, expect, it } from 'vitest';
 
 import preview from '../../../../.storybook/preview';
 
-const annotations = setProjectAnnotations(
-  preview as Parameters<typeof setProjectAnnotations>[0],
-);
+const annotations = setProjectAnnotations(preview.composed);
 
 beforeAll(async () => {
   await annotations.beforeAll?.();
@@ -19,30 +17,25 @@ afterEach(() => {
   cleanup();
 });
 
+interface A11yParameters {
+  a11y?: {
+    disable?: boolean;
+    test?: 'error' | 'todo' | 'off';
+    options?: {
+      rules?: Record<string, { enabled: boolean }>;
+    };
+  };
+}
+
+interface ModuleMeta {
+  title?: string;
+  tags?: Array<string>;
+  parameters?: A11yParameters;
+}
+
 interface StoryModule {
-  default?: {
-    input?: {
-      title?: string;
-      tags?: Array<string>;
-      parameters?: {
-        a11y?: {
-          disable?: boolean;
-          options?: {
-            rules?: Record<string, { enabled: boolean }>;
-          };
-        };
-      };
-    };
-    title?: string;
-    tags?: Array<string>;
-    parameters?: {
-      a11y?: {
-        disable?: boolean;
-        options?: {
-          rules?: Record<string, { enabled: boolean }>;
-        };
-      };
-    };
+  default?: ModuleMeta & {
+    input?: ModuleMeta;
   };
   [key: string]: unknown;
 }
@@ -51,16 +44,30 @@ interface StoryInstance {
   storyName?: string;
   name?: string;
   tags?: Array<string>;
-  parameters?: {
-    a11y?: {
-      disable?: boolean;
-      test?: 'error' | 'todo' | 'off';
-      options?: {
-        rules?: Record<string, { enabled: boolean }>;
-      };
-    };
+  parameters?: A11yParameters;
+  input?: {
+    storyName?: string;
+    name?: string;
+  };
+  composed?: {
+    name?: string;
+    tags?: Array<string>;
+    parameters?: A11yParameters;
+  };
+  meta?: {
+    input?: ModuleMeta;
   };
   run: () => Promise<void>;
+}
+
+interface NormalizedStory {
+  title: string;
+  moduleTags: Array<string>;
+  moduleRules: Record<string, { enabled: boolean }>;
+  storyName: string;
+  tags: Array<string>;
+  parameters?: A11yParameters;
+  story: StoryInstance;
 }
 
 function isStoryInstance(value: unknown): value is StoryInstance {
@@ -69,6 +76,85 @@ function isStoryInstance(value: unknown): value is StoryInstance {
   }
 
   return typeof (value as { run?: unknown }).run === 'function';
+}
+
+function collectCsfNextStories(
+  filePath: string,
+  storyModule: StoryModule,
+): Array<NormalizedStory> {
+  const defaultMeta = storyModule.default?.input;
+  if (defaultMeta?.parameters?.a11y?.disable) return [];
+
+  const stories: Array<NormalizedStory> = [];
+
+  for (const [storyExportName, storyExport] of Object.entries(storyModule)) {
+    if (storyExportName === 'default' || !isStoryInstance(storyExport)) {
+      continue;
+    }
+
+    const moduleMeta = defaultMeta ?? storyExport.meta?.input;
+    if (moduleMeta?.parameters?.a11y?.disable) continue;
+
+    stories.push({
+      title: moduleMeta?.title ?? filePath,
+      moduleTags: moduleMeta?.tags ?? [],
+      moduleRules: moduleMeta?.parameters?.a11y?.options?.rules ?? {},
+      storyName:
+        storyExport.input?.storyName ??
+        storyExport.input?.name ??
+        storyExport.storyName ??
+        storyExport.name ??
+        storyExportName,
+      tags: storyExport.composed?.tags ?? storyExport.tags ?? [],
+      parameters: storyExport.composed?.parameters ?? storyExport.parameters,
+      story: storyExport,
+    });
+  }
+
+  return stories;
+}
+
+function collectCsf3Stories(
+  filePath: string,
+  storyModule: StoryModule,
+): Array<NormalizedStory> {
+  const moduleMeta = storyModule.default;
+  if (!moduleMeta || moduleMeta.parameters?.a11y?.disable) return [];
+
+  const composedModule = composeStories(
+    storyModule as Parameters<typeof composeStories>[0],
+  ) as Record<string, unknown>;
+
+  const title = moduleMeta.title ?? filePath;
+  const moduleTags = moduleMeta.tags ?? [];
+  const moduleRules = moduleMeta.parameters?.a11y?.options?.rules ?? {};
+  const stories: Array<NormalizedStory> = [];
+
+  for (const [storyExportName, storyExport] of Object.entries(composedModule)) {
+    if (!isStoryInstance(storyExport)) {
+      continue;
+    }
+
+    const rawExport = storyModule[storyExportName] as
+      { storyName?: string; name?: string } | undefined;
+
+    stories.push({
+      title,
+      moduleTags,
+      moduleRules,
+      storyName:
+        rawExport?.storyName ??
+        rawExport?.name ??
+        storyExport.storyName ??
+        storyExport.name ??
+        storyExportName,
+      tags: storyExport.tags ?? [],
+      parameters: storyExport.parameters,
+      story: storyExport,
+    });
+  }
+
+  return stories;
 }
 
 function formatViolations(
@@ -101,47 +187,25 @@ const storyModules: Record<string, StoryModule> = {
 
 const allStories = Object.entries(storyModules)
   .flatMap(([filePath, storyModule]) => {
-    const moduleMeta = storyModule.default?.input;
+    const isCsf3Module = Boolean(
+      storyModule.default && !storyModule.default.input,
+    );
 
-    if (moduleMeta?.parameters?.a11y?.disable) return [];
-    const title = moduleMeta?.title ?? filePath;
-    const moduleTags = moduleMeta?.tags ?? [];
-    const moduleRules = moduleMeta?.parameters?.a11y?.options?.rules ?? {};
-    const stories: Array<{
-      title: string;
-      moduleTags: Array<string>;
-      moduleRules: Record<string, { enabled: boolean }>;
-      storyExportName: string;
-      story: StoryInstance;
-    }> = [];
-
-    for (const [storyExportName, storyExport] of Object.entries(storyModule)) {
-      if (storyExportName === 'default' || !isStoryInstance(storyExport)) {
-        continue;
-      }
-
-      stories.push({
-        title,
-        moduleTags,
-        moduleRules,
-        storyExportName,
-        story: storyExport,
-      });
-    }
-
-    return stories;
+    return isCsf3Module
+      ? collectCsf3Stories(filePath, storyModule)
+      : collectCsfNextStories(filePath, storyModule);
   })
-  .filter(({ story }) => !story.parameters?.a11y?.disable)
-  .filter(({ story }) => story.parameters?.a11y?.test !== 'off');
+  .filter(({ parameters }) => !parameters?.a11y?.disable)
+  .filter(({ parameters }) => parameters?.a11y?.test !== 'off');
 
 const storiesToTest = allStories
   .filter(
-    ({ moduleTags, story }) =>
+    ({ moduleTags, tags, parameters }) =>
       moduleTags.includes('a11y') ||
-      story.tags?.includes('a11y') ||
-      story.parameters?.a11y?.test === 'error',
+      tags.includes('a11y') ||
+      parameters?.a11y?.test === 'error',
   )
-  .filter(({ story }) => story.parameters?.a11y?.test !== 'todo');
+  .filter(({ parameters }) => parameters?.a11y?.test !== 'todo');
 
 describe('Storybook a11y', () => {
   const effectiveStoriesToTest =
@@ -149,12 +213,12 @@ describe('Storybook a11y', () => {
 
   for (const {
     title,
-    storyExportName,
+    storyName,
+    parameters,
     story,
     moduleRules,
   } of effectiveStoriesToTest) {
-    const storyName = story.storyName ?? story.name ?? storyExportName;
-    const storyRules = story.parameters?.a11y?.options?.rules ?? {};
+    const storyRules = parameters?.a11y?.options?.rules ?? {};
 
     it(`${title}: ${storyName}`, async () => {
       (globalThis as Record<string, unknown>).IS_REACT_ACT_ENVIRONMENT = true;
@@ -168,6 +232,7 @@ describe('Storybook a11y', () => {
 
       const axe = configureAxe({
         rules: {
+          // Deaktiverer rules som er relevante kun ved UU-tesing i en applikasjon
           region: { enabled: false },
           'landmark-unique': { enabled: false },
           ...moduleRules,
