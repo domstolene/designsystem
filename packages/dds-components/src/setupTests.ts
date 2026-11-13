@@ -69,3 +69,6 @@ vi.mock('./i18n', async importOriginal => {
     createTexts: (texts: Record<string, any>) => texts,
   };
 });
+
+// Mock HTMLCanvasElement.getContext (not implemented in jsdom; called by axe-core in accessibility tests)
+HTMLCanvasElement.prototype.getContext = vi.fn(() => null);

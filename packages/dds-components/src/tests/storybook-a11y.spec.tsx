@@ -1,7 +1,7 @@
 /// <reference types="vite/client" />
 
 import { setProjectAnnotations } from '@storybook/react-vite';
-import { cleanup } from '@testing-library/react';
+import { act, cleanup } from '@testing-library/react';
 import { configureAxe } from 'jest-axe';
 import { afterEach, beforeAll, describe, expect, it } from 'vitest';
 
@@ -157,7 +157,14 @@ describe('Storybook a11y', () => {
     const storyRules = story.parameters?.a11y?.options?.rules ?? {};
 
     it(`${title}: ${storyName}`, async () => {
-      await story.run();
+      (globalThis as Record<string, unknown>).IS_REACT_ACT_ENVIRONMENT = true;
+      await act(async () => {
+        await story.run();
+      });
+
+      // Nullstill React act environment flag etter kjøring av story.
+      // Fjerner noise som ikke er relevant for UU-tester med Axe.
+      (globalThis as Record<string, unknown>).IS_REACT_ACT_ENVIRONMENT = false;
 
       const axe = configureAxe({
         rules: {
