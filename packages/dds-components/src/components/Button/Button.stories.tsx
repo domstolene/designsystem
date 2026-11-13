@@ -124,7 +124,7 @@ export const OverviewLoading = meta.story({
   render: args => (
     <StoryHStack>
       {BUTTON_PURPOSES.map(p => (
-        <StoryVStack>
+        <StoryVStack key={p}>
           {BUTTON_SIZES.map(s => (
             <Button {...args} key={`${p}-${s}`} purpose={p} size={s} loading />
           ))}

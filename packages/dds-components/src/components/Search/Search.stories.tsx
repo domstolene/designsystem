@@ -97,7 +97,12 @@ export const Sizes = meta.story({
     <StoryHStack>
       <StoryVStack>
         {SEARCH_SIZES.map(size => (
-          <Search {...args} label={labelText(size)} componentSize={size} />
+          <Search
+            {...args}
+            label={labelText(size)}
+            componentSize={size}
+            key={size}
+          />
         ))}
       </StoryVStack>
       <StoryVStack>
@@ -107,6 +112,7 @@ export const Sizes = meta.story({
             label={labelText(size)}
             componentSize={size}
             buttonProps={{ onClick: () => null, label: 'Søk' }}
+            key={size}
           />
         ))}
       </StoryVStack>
