@@ -68,7 +68,7 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-storybook": "10.6.5",
     "eslint-plugin-testing-library": "^7.16.2",
-    "jsdom": "^30.1.2",
+    "jsdom": "^31.0.0",
     "postcss-import": "^17.0.0",
     "postcss-modules": "^9.0.1",
     "postcss-url": "^10.1.4",
