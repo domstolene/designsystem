@@ -232,7 +232,7 @@ export const Popover = ({
       elevation="large"
       border="border-subtle"
       zIndex="popover"
-      aria-labelledby={popoverHeaderId}
+      aria-labelledby={htmlProps['aria-labelledby'] ?? popoverHeaderId}
     >
       {header && (
         <Box marginInline="0 x2" id={popoverHeaderId}>
