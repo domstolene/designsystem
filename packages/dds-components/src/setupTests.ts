@@ -71,4 +71,6 @@ vi.mock('./i18n', async importOriginal => {
 });
 
 // Mock HTMLCanvasElement.getContext (not implemented in jsdom; called by axe-core in accessibility tests)
-HTMLCanvasElement.prototype.getContext = vi.fn(() => null);
+if (typeof HTMLCanvasElement !== 'undefined') {
+  HTMLCanvasElement.prototype.getContext = vi.fn(() => null);
+}

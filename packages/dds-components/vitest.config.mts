@@ -5,10 +5,15 @@ import { fileURLToPath } from 'node:url';
 
 import { defineConfig } from 'vitest/config';
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
   resolve: {
     alias: {
-      '#.storybook': resolve(dirname(fileURLToPath(import.meta.url)), '../../.storybook'),
+      '#.storybook': resolve(__dirname, '../../.storybook'),
+      '@norges-domstoler/dds-components/index.css': resolve(
+        __dirname,
+        './src/styles/index.ts',
+      ),
     },
   },
   test: {
