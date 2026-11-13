@@ -3,6 +3,7 @@ import { useCallback, useId } from 'react';
 import { useCombinedRef } from '../../../hooks';
 import { getBaseHTMLProps } from '../../../types';
 import {
+  readOnlyChangeHandler,
   readOnlyClickHandler,
   readOnlyKeyDownHandler,
   spaceSeparatedIdListGenerator,
@@ -28,6 +29,7 @@ export const Checkbox = ({
   style,
   children,
   size,
+  onChange,
   ...rest
 }: CheckboxProps) => {
   const generatedId = useId();
@@ -84,6 +86,9 @@ export const Checkbox = ({
           htmlProps.onKeyDown,
         )}
         onClick={readOnlyClickHandler(isReadOnly, htmlProps.onClick)}
+        onChange={
+          onChange ? readOnlyChangeHandler(isReadOnly, onChange) : undefined
+        }
       />
       <SelectionControl
         controlType="checkbox"
