@@ -127,42 +127,32 @@
 .label--disabled {
   cursor: not-allowed;
   color: var(--dds-color-text-subtle);
-
-  input:disabled ~ .track {
-    background-color: var(--dds-color-surface-field-disabled);
-  }
-
-  input:checked:disabled ~ .track {
-    background-color: var(--dds-color-surface-action-selected-disabled);
-    border-color: var(--dds-color-surface-action-selected-disabled);
-  }
-
-  input:checked:disabled ~ .track > .thumb {
-    border-color: var(--dds-color-surface-action-selected-disabled);
-
-    .checkmark {
-      color: var(--dds-color-icon-subtle);
-    }
-  }
 }
 
 .label--read-only {
   cursor: default;
   color: var(--dds-color-text-medium);
+}
 
-  input ~ .track {
-    background-color: var(--dds-color-surface-default);
+.label--disabled,
+.label--read-only {
+  input ~ .track,
+  input:disabled ~ .track {
+    background-color: var(--dds-color-surface-field-disabled);
   }
 
-  input:checked ~ .track {
-    background-color: var(--dds-color-surface-inverse-default);
-    border-color: var(--dds-color-surface-inverse-default);
+  input:checked ~ .track,
+  input:checked:disabled ~ .track {
+    background-color: var(--dds-color-surface-action-selected-disabled);
+    border-color: var(--dds-color-surface-action-selected-disabled);
   }
 
-  input:checked ~ .track > .thumb {
-    border-color: var(--dds-color-surface-inverse-default);
+  input:checked ~ .track > .thumb,
+  input:checked:disabled ~ .track > .thumb {
+    border-color: var(--dds-color-surface-action-selected-disabled);
+
     .checkmark {
-      color: var(--dds-color-icon-medium);
+      color: var(--dds-color-icon-subtle);
     }
   }
 }
