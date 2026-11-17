@@ -101,6 +101,7 @@ export const RadioButton = ({
         }
         aria-invalid={hasError ? true : undefined}
         aria-disabled={htmlProps['aria-disabled'] ?? isReadOnly}
+        data-readonly={isReadOnly}
         className={focusStyles['focusable-sibling']}
         onKeyDown={readOnlyKeyDownHandler(
           'selectionControl',

@@ -24,7 +24,7 @@
   min-height: var(--dds-size-sl);
 
   &:not(:hover)
-    input[aria-invalid]:enabled:not([aria-readonly='true']):not(
+    input[aria-invalid]:enabled:not([data-readonly='true']):not(
       [aria-disabled='true']
     ):not(:focus-visible):not(:checked)
     ~ .selection-control {
@@ -37,7 +37,7 @@
 }
 
 .label:has(input:enabled) {
-  input[aria-invalid]:not([aria-readonly='true']):not(
+  input[aria-invalid]:not([data-readonly='true']):not(
       [aria-disabled='true']
     ):not(:focus-visible)
     ~ .selection-control {
@@ -46,7 +46,7 @@
   }
 
   &:hover
-    input:not(:checked):not([aria-readonly='true']):not([aria-disabled='true'])
+    input:not(:checked):not([data-readonly='true']):not([aria-disabled='true'])
     ~ .selection-control {
     background-color: var(--dds-color-surface-hover-default);
     box-shadow: inset 0 0 0 1px var(--dds-color-border-action-hover);
@@ -59,8 +59,8 @@
     background-color: var(--dds-color-surface-action-selected);
   }
 
-  input:checked[aria-readonly='true'] ~ .selection-control,
-  input[type='checkbox']:indeterminate[aria-readonly='true']
+  input:checked[data-readonly='true'] ~ .selection-control,
+  input[type='checkbox']:indeterminate[data-readonly='true']
     ~ .selection-control,
   input[type='checkbox']:checked[aria-disabled='true'] ~ .selection-control,
   input[type='checkbox']:indeterminate[aria-disabled='true']
@@ -70,7 +70,7 @@
   }
 
   &:hover {
-    input:enabled:not([aria-readonly='true']):not([aria-disabled='true']) {
+    input:enabled:not([data-readonly='true']):not([aria-disabled='true']) {
       &:checked[type='checkbox'],
       &:indeterminate[type='checkbox'] {
         ~ .selection-control {
@@ -131,7 +131,7 @@ input[type='checkbox']:indeterminate ~ .selection-control:after {
     background-color: var(--dds-color-surface-action-selected-disabled);
   }
 
-  .label:has(input[aria-readonly='true']),
+  .label:has(input[data-readonly='true']),
   .label:has(input[aria-disabled='true']) {
     cursor: default;
     color: var(--dds-color-text-medium);

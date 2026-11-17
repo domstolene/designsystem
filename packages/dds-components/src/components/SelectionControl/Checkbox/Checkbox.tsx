@@ -78,6 +78,7 @@ export const Checkbox = ({
         aria-invalid={hasError ? true : undefined}
         aria-labelledby={checkboxGroup?.uniqueGroupId}
         aria-readonly={isReadOnly}
+        data-readonly={isReadOnly}
         type="checkbox"
         className={focusStyles['focusable-sibling']}
         onKeyDown={readOnlyKeyDownHandler(
