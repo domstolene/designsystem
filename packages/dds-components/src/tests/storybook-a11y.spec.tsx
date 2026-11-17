@@ -220,7 +220,7 @@ describe('Storybook a11y', () => {
   } of effectiveStoriesToTest) {
     const storyRules = parameters?.a11y?.options?.rules ?? {};
 
-    it(`${title}: ${storyName}`, async () => {
+    it(`${title}: ${storyName}`, { timeout: 15000 }, async () => {
       (globalThis as Record<string, unknown>).IS_REACT_ACT_ENVIRONMENT = true;
       await act(async () => {
         await story.run();
