@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
 import {
@@ -12,7 +12,7 @@ import { StoryHStack, StoryVStack } from '../../layout/Stack/storybook-utils';
 
 import { TimePicker } from '.';
 
-const meta: Meta<typeof TimePicker> = {
+const meta = preview.meta({
   title: 'dds-components/Components/TimePicker',
   component: TimePicker,
   argTypes: {
@@ -27,17 +27,15 @@ const meta: Meta<typeof TimePicker> = {
   },
   args: { onBlur: fn(), onFocus: fn(), onChange: fn(), onFocusChange: fn() },
   decorators: [ddsProviderDecorator],
-};
+});
 
 export default meta;
 
-type Story = StoryObj<typeof TimePicker>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   args: { label: 'Tidspunkt' },
-};
+});
 
-export const Overview: Story = {
+export const Overview = meta.story({
   args: { label: 'Label' },
   render: args => (
     <StoryHStack>
@@ -55,9 +53,9 @@ export const Overview: Story = {
       </StoryVStack>
     </StoryHStack>
   ),
-};
+});
 
-export const Sizes: Story = {
+export const Sizes = meta.story({
   render: args => (
     <StoryVStack>
       {INPUT_SIZES.map(size => (
@@ -70,8 +68,8 @@ export const Sizes: Story = {
       ))}
     </StoryVStack>
   ),
-};
+});
 
-export const CustomWidth: Story = {
+export const CustomWidth = meta.story({
   args: { label: 'Tidspunkt', width: '500px' },
-};
+});

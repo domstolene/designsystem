@@ -202,6 +202,9 @@ importers:
       '@react-types/datepicker':
         specifier: ^3.14.0
         version: 3.14.0(@react-spectrum/provider@3.11.1(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      '@react-types/shared':
+        specifier: ^3.37.0
+        version: 3.37.0(react@19.3.1)
       '@types/node':
         specifier: ^26.6.6
         version: 26.6.6

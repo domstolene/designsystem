@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview';
 import {
   CalendarDate,
   DateFormatter,
@@ -5,9 +6,9 @@ import {
   isWeekend,
   toCalendarDateTime,
 } from '@internationalized/date';
-import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 import { fn } from 'storybook/test';
+import type {} from '@react-types/shared';
 
 import {
   ddsProviderDecorator,
@@ -30,7 +31,7 @@ import {
 
 import { DatePicker } from '.';
 
-const meta: Meta<typeof DatePicker> = {
+const meta = preview.meta({
   title: 'dds-components/Components/DatePicker',
   component: DatePicker,
   parameters: {
@@ -61,17 +62,15 @@ const meta: Meta<typeof DatePicker> = {
     onOpenChange: fn(),
   },
   decorators: [ddsProviderDecorator],
-};
+});
 
 export default meta;
 
-type Story = StoryObj<typeof DatePicker>;
-
-export const Preview: Story = {
+export const Preview = meta.story({
   args: { label: 'Dato' },
-};
+});
 
-export const States: Story = {
+export const States = meta.story({
   args: {
     defaultValue: new CalendarDate(2023, 12, 25),
   },
@@ -104,9 +103,9 @@ export const States: Story = {
       </StoryVStack>
     </StoryHStack>
   ),
-};
+});
 
-export const Sizes: Story = {
+export const Sizes = meta.story({
   render: args => (
     <StoryVStack>
       {INPUT_SIZES.map(size => (
@@ -119,13 +118,13 @@ export const Sizes: Story = {
       ))}
     </StoryVStack>
   ),
-};
+});
 
-export const SmallScreen: Story = {
+export const SmallScreen = meta.story({
   args: { label: 'Dato', smallScreenBreakpoint: 'xl' },
-};
+});
 
-export const Responsive: Story = {
+export const Responsive = meta.story({
   args: { label: 'Dato', smallScreenBreakpoint: 'sm' },
   parameters: {
     chromatic: { disableSnapshot: true },
@@ -137,9 +136,9 @@ export const Responsive: Story = {
         'Åpne kalender; versjonen for liten skjerm vises ved sm brekkpunkt og nedover.',
       ),
   ],
-};
+});
 
-export const InsideModal: Story = {
+export const InsideModal = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -155,9 +154,9 @@ export const InsideModal: Story = {
       </>
     );
   },
-};
+});
 
-export const DateAndTime: Story = {
+export const DateAndTime = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -193,9 +192,9 @@ export const DateAndTime: Story = {
       </StoryVStack>
     );
   },
-};
+});
 
-export const NativeDate: Story = {
+export const NativeDate = meta.story({
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -210,4 +209,4 @@ export const NativeDate: Story = {
       />
     );
   },
-};
+});
