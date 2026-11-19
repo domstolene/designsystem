@@ -12,6 +12,7 @@ _Denne PRen endrer..._
 ### PR
 
 - [ ] Tydelig beskrivelse av bidraget
+- [ ] Ved endring i offentlig API, oppførsel, tokens eller eksempler: oppdatert dokumentasjonskilden og kjørt `pnpm build:docs`
 - [ ] Hvis PR påvirker en eller flere bibliotek: release entry generert med [changeset](https://github.com/changesets/changesets/blob/main/docs/adding-a-changeset.md)
 
 ### Ny komponent

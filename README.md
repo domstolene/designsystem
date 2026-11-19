@@ -17,6 +17,7 @@ I koden brukes prefikset `dds` for å spesifisere assosiasjon med designsystemet
 
 - 📖 [Elsa - dokumentasjon](https://design.domstol.no/)
 - 🖼️ [Elsa Storybook](https://domstolene.github.io/designsystem/)
+- [KI-dokumentasjon: lokalt bygg og publisering](docs/publisering-ki.md)
 
 ## 🤝 Bidra
 

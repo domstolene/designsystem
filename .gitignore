@@ -36,6 +36,9 @@ doctor-storybook.log
 build-storybook.log
 debug-storybook.log
 
+# KI-dokumentasjon
+/docs-static/
+
 # Chromatic
 chromatic-diagnostics.json
 chromatic.log
