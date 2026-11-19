@@ -23,7 +23,6 @@ Importer styling av komponentene i CSS:
 Wrapp applikasjonen din i `<DdsProvider>`.
 
 ```jsx
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {
   Button,
@@ -33,15 +32,13 @@ import {
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React>
-    <DdsProvider language="nb">
-      <TextInput label="Input" />
-      <Button>Primary</Button>
-      <Button purpose="secondary" size="small">
-        Secondary
-      </Button>
-    </DdsProvider>
-  </React>,
+  <DdsProvider language="nb">
+    <TextInput label="Saksnummer" />
+    <Button>Lagre</Button>
+    <Button purpose="secondary" size="small">
+      Avbryt
+    </Button>
+  </DdsProvider>,
 );
 ```
 

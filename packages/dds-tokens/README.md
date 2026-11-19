@@ -8,7 +8,7 @@ Design tokens kommer i flere temaer. Valg av tema styres med `<DdsProvider>` kom
 
 ## 🔍 Oversikt
 
-> 💡 Se alle tokens i [Elsa Storybook](https://domstolene.github.io/designsystem/?path=/story/dds-design-tokens-tokens).
+> 💡 Se tokens i [Elsa Storybook](https://domstolene.github.io/designsystem/?path=/story/dds-design-tokens-tokens--colors).
 
 Design tokens består av base-tokens og semantiske tokens.
 
@@ -26,7 +26,7 @@ pnpm add @norges-domstoler/dds-design-tokens
 
 ## 🔨 Bruk
 
-Design tokens er eksportert som JS-konstanter, CSS-variabler og SCSS-variabler. De brukes i kombinasjon med `<DdsProvider>` komponent fra `@norges-domstoler/dds-components` biblioteket for å sette riktig tema. CSS-variabler brukes direkte fra `@norges-domstoler/dds-components` - se [README](https://github.com/domstolene/designsystem/blob/main/packages/components/README.md).
+Design tokens er eksportert som JS-konstanter, CSS-variabler og SCSS-variabler. De brukes i kombinasjon med `<DdsProvider>` komponent fra `@norges-domstoler/dds-components` biblioteket for å sette riktig tema. CSS-variabler brukes direkte fra `@norges-domstoler/dds-components` – se [README](../dds-components/README.md).
 
 ### CSS
 
@@ -50,7 +50,7 @@ const Panel = <div className="panel"> tekst </div>;
 
 const App = () => (
   <DdsProvider>
-    <Panel />;
+    <Panel />
   </DdsProvider>
 );
 ```
@@ -58,20 +58,20 @@ const App = () => (
 ### JS
 
 ```js
-import * as React from 'react';
-import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import { DdsProvider, useTheme } from '@norges-domstoler/dds-components';
 
-const { theme } = useTheme();
-
-const style = {
-  backgroundColor: theme.ddsColorBgDefault,
-  padding: theme.ddsSpacingX075,
-};
+function Panel() {
+  const { theme } = useTheme();
+  const style = {
+    backgroundColor: theme.ddsColorBgDefault,
+    padding: theme.ddsSpacingX075,
+  };
+  return <div style={style}>Tekst</div>;
+}
 
 const App = () => (
   <DdsProvider>
-    <div style={style}>Tekst</div>;
+    <Panel />
   </DdsProvider>
 );
 ```
@@ -98,7 +98,7 @@ const Panel = <div className="panel"> tekst </div>;
 
 const App = () => (
   <DdsProvider>
-    <Panel />;
+    <Panel />
   </DdsProvider>
 );
 ```
