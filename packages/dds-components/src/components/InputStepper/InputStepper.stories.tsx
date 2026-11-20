@@ -86,6 +86,7 @@ export const ResponsiveWidth = meta.story({
   },
   decorators: [Story => windowWidthDecorator(<Story />)],
   args: {
+    label: 'Label',
     width: {
       xs: '100%',
       sm: '100%',

@@ -13,6 +13,7 @@ import {
 import { HStack, VStack } from '../layout';
 import { Checkbox } from '../SelectionControl/Checkbox';
 import { Link, Paragraph, Typography } from '../Typography';
+import { VisuallyHidden } from '../VisuallyHidden';
 import {
   type CellDataToSort,
   type HeaderCellToSort,
@@ -266,7 +267,9 @@ export const WithButtonAndIcons = meta.story({
             <Table.Cell>Navn</Table.Cell>
             <Table.Cell>Navn</Table.Cell>
             <Table.Cell>Rolle</Table.Cell>
-            <Table.Cell></Table.Cell>
+            <Table.Cell>
+              <VisuallyHidden>Handlinger</VisuallyHidden>
+            </Table.Cell>
           </Table.Row>
         </Table.Head>
         <Table.Body>
@@ -400,6 +403,7 @@ export const WithCheckbox = meta.story({
                   }
                   checked={selectedRows?.length === rows.length ? true : false}
                   onChange={e => changeAll(e)}
+                  aria-label="Velg alle"
                 />
               </Table.Cell>
               {mappedHeaderCells}
@@ -417,7 +421,6 @@ export const WithCheckbox = meta.story({
                   key={`row-${row.id}`}
                   hoverable
                   selected={isSelected}
-                  // onClick={() => handleClick(row)}
                 >
                   <Table.Cell>
                     <Checkbox
@@ -425,7 +428,7 @@ export const WithCheckbox = meta.story({
                       name={row.dommer}
                       checked={isSelected}
                       onChange={e => handleChange(e, row)}
-                      // onClick={(e) => handleCheckboxClick(e)}
+                      aria-label={`Velg rad ${row.id}`}
                     />
                   </Table.Cell>
                   <Table.Cell>{row.dommer}</Table.Cell>

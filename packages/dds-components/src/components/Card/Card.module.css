@@ -23,7 +23,7 @@
 
 .container--navigation:hover,
 .container--selection-control:has(
-    input:enabled:not([aria-readonly='true'])
+    input:enabled:not([data-readonly='true'])
   ):hover {
   border-color: var(--dds-color-border-action-hover);
   box-shadow: inset 0 0 0 1px var(--dds-color-border-action-hover);
@@ -41,7 +41,7 @@
   }
 
   input:disabled,
-  input[aria-readonly='true'] {
+  input[data-readonly='true'] {
     & ~ span {
       background-color: var(--dds-color-surface-field-disabled);
     }
@@ -62,7 +62,7 @@
     color: var(--dds-color-text-subtle);
   }
   &:has(input:disabled),
-  &:has(input[aria-readonly='true']) {
+  &:has(input[data-readonly='true']) {
     box-shadow: none;
     background-color: var(--dds-color-surface-selected-default);
     background-color: var(--dds-color-surface-field-disabled);

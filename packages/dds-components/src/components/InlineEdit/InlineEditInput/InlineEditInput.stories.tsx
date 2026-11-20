@@ -37,7 +37,14 @@ export const Preview = meta.story({
   },
   render: args => {
     const [value, setValue] = useState('');
-    return <InlineEditInput {...args} value={value} onSetValue={setValue} />;
+    return (
+      <InlineEditInput
+        {...args}
+        value={value}
+        onSetValue={setValue}
+        aria-label="Ledetekst"
+      />
+    );
   },
 });
 
@@ -51,31 +58,45 @@ export const Overview = meta.story({
     const [value6, setValue6] = useState('uten ikon');
     return (
       <StoryVStack>
-        <InlineEditInput {...args} value={value} onSetValue={setValue} />
-        <InlineEditInput {...args} onSetValue={setValue2} value={value2} />
+        <InlineEditInput
+          {...args}
+          value={value}
+          onSetValue={setValue}
+          aria-label="Ledetekst"
+        />
+        <InlineEditInput
+          {...args}
+          onSetValue={setValue2}
+          value={value2}
+          aria-label="Ledetekst"
+        />
         <InlineEditInput
           {...args}
           onSetValue={setValue3}
           value={value3}
           error
+          aria-label="Ledetekst"
         />
         <InlineEditInput
           {...args}
           onSetValue={setValue4}
           value={value4}
           errorMessage="Feilmelding"
+          aria-label="Ledetekst"
         />
         <InlineEditInput
           {...args}
           onSetValue={setValue5}
           value={value5}
           emptiable
+          aria-label="Ledetekst"
         />
         <InlineEditInput
           {...args}
           onSetValue={setValue6}
           value={value6}
           hideIcon
+          aria-label="Ledetekst"
         />
       </StoryVStack>
     );
@@ -102,7 +123,11 @@ export const InTable = meta.story({
           <Table.Body>
             <Table.Row>
               <Table.Cell>
-                <InlineEditInput {...args} onSetValue={() => setValue(value)} />
+                <InlineEditInput
+                  {...args}
+                  aria-label="Ledetekst"
+                  onSetValue={() => setValue(value)}
+                />
               </Table.Cell>
               <Table.Cell>innhold</Table.Cell>
               <Table.Cell>innhold</Table.Cell>
@@ -112,6 +137,7 @@ export const InTable = meta.story({
                 <InlineEditInput
                   {...args}
                   onSetValue={() => setValue2(value2)}
+                  aria-label="Ledetekst"
                 />
               </Table.Cell>
               <Table.Cell>innhold</Table.Cell>
@@ -130,6 +156,7 @@ export const ResponsiveWidth = meta.story({
   },
   decorators: [Story => windowWidthDecorator(<Story />)],
   args: {
+    'aria-label': 'Ledetekst',
     width: {
       xs: '100%',
       sm: '100%',

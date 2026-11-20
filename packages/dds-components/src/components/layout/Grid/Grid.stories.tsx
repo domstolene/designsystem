@@ -148,7 +148,7 @@ export const PageExample = meta.story({
               xl: '1/9',
             }}
           >
-            <Search buttonProps={{ onClick: () => null }} />
+            <Search buttonProps={{ onClick: () => null }} aria-label="Søk" />
           </GridChild>
           <GridChild
             columnsOccupied={{

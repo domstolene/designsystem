@@ -65,7 +65,7 @@ export const Overview = meta.story({
           readOnly
           indeterminate
         />
-        <Checkbox {...args} />
+        <Checkbox {...args} aria-label="Uten ledetekst" />
       </StoryVStack>
     </StoryHStack>
   ),

@@ -37,7 +37,14 @@ export const Preview = meta.story({
   },
   render: args => {
     const [value, setValue] = useState('');
-    return <InlineEditTextArea {...args} value={value} onSetValue={setValue} />;
+    return (
+      <InlineEditTextArea
+        {...args}
+        value={value}
+        aria-label="Ledetekst"
+        onSetValue={setValue}
+      />
+    );
   },
 });
 
@@ -51,31 +58,45 @@ export const Overview = meta.story({
     const [value6, setValue6] = useState('uten ikon');
     return (
       <StoryVStack>
-        <InlineEditTextArea {...args} value={value} onSetValue={setValue} />
-        <InlineEditTextArea {...args} onSetValue={setValue2} value={value2} />
+        <InlineEditTextArea
+          {...args}
+          value={value}
+          onSetValue={setValue}
+          aria-label="Ledetekst"
+        />
+        <InlineEditTextArea
+          {...args}
+          onSetValue={setValue2}
+          value={value2}
+          aria-label="Ledetekst"
+        />
         <InlineEditTextArea
           {...args}
           onSetValue={setValue3}
           value={value3}
           error
+          aria-label="Ledetekst"
         />
         <InlineEditTextArea
           {...args}
           onSetValue={setValue4}
           value={value4}
           errorMessage="Feilmelding"
+          aria-label="Ledetekst"
         />
         <InlineEditTextArea
           {...args}
           onSetValue={setValue5}
           value={value5}
           emptiable
+          aria-label="Ledetekst"
         />
         <InlineEditTextArea
           {...args}
           onSetValue={setValue6}
           value={value6}
           hideIcon
+          aria-label="Ledetekst"
         />
       </StoryVStack>
     );
@@ -104,6 +125,7 @@ export const InTable = meta.story({
               <Table.Cell>
                 <InlineEditTextArea
                   {...args}
+                  aria-label="Ledetekst"
                   onSetValue={() => setValue(value)}
                 />
               </Table.Cell>
@@ -114,6 +136,7 @@ export const InTable = meta.story({
               <Table.Cell>
                 <InlineEditTextArea
                   {...args}
+                  aria-label="Ledetekst"
                   onSetValue={() => setValue2(value2)}
                 />
               </Table.Cell>
@@ -133,6 +156,7 @@ export const ResponsiveWidth = meta.story({
   },
   decorators: [Story => windowWidthDecorator(<Story />)],
   args: {
+    'aria-label': 'Ledetekst',
     width: {
       xs: '100%',
       sm: '100%',

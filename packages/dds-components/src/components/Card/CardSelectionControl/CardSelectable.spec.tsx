@@ -149,7 +149,7 @@ describe('<CardSelectable>', () => {
         expect(radio).toBeDisabled();
       });
     });
-    it('makes children readOnly', () => {
+    it('makes children aria-disabled with readOnly prop', () => {
       render(
         <CardSelectableGroup readOnly cardType="radio">
           <CardSelectable />
@@ -159,7 +159,7 @@ describe('<CardSelectable>', () => {
       const radios = screen.getAllByRole('radio');
 
       radios.forEach(radio => {
-        expect(radio).toHaveAttribute('aria-readonly', 'true');
+        expect(radio).toHaveAttribute('aria-disabled', 'true');
       });
     });
     it('gives children name attribute', () => {

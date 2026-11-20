@@ -34,9 +34,9 @@ export const afterLabelContent = meta.story({
     children: 'Label',
     afterLabelContent: (
       <PopoverGroup>
-        <InlineButton icon={HelpIcon} />
+        <InlineButton icon={HelpIcon} aria-label="Vis ekstra info" />
         <Popover>
-          <Paragraph>Ekstra info</Paragraph>
+          <Paragraph>Ekstra info her</Paragraph>
         </Popover>
       </PopoverGroup>
     ),

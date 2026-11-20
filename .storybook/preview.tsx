@@ -49,6 +49,7 @@ let nameCounter = 0;
 
 export default definePreview({
   parameters: {
+    a11y: { test: 'error' },
     controls: { sort: 'requiredFirst' },
     options: {
       storySort: {
@@ -140,6 +141,6 @@ export default definePreview({
     },
   ],
 
-  tags: ['autodocs'],
+  tags: ['autodocs', 'a11y'],
   addons: [addonLinks(), addonA11y(), addonDocs()],
 });

@@ -37,9 +37,21 @@ export const Preview = meta.story({
 
     return (
       <StoryVStack>
-        <InlineEditInput value={value} onSetValue={setValue} />
-        <InlineEditTextArea value={value2} onSetValue={setValue2} />
-        <InlineEditSelect value={value3} onSetValue={setValue3}>
+        <InlineEditInput
+          value={value}
+          aria-label="Ledetekst"
+          onSetValue={setValue}
+        />
+        <InlineEditTextArea
+          value={value2}
+          aria-label="Ledetekst"
+          onSetValue={setValue2}
+        />
+        <InlineEditSelect
+          value={value3}
+          aria-label="Ledetekst"
+          onSetValue={setValue3}
+        >
           <option></option>
           <option>Select</option>
           <option>Alt 2</option>
