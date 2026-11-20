@@ -5,6 +5,7 @@ import {
   type ReactElement,
   type Ref,
   cloneElement,
+  useCallback,
   useEffect,
   useId,
   useRef,
@@ -102,41 +103,36 @@ export const Tooltip = ({
     }
   }, [tooltipRef]);
 
-  useEffect(() => {
-    if (tooltipRef.current) {
-      window.addEventListener('scroll', () => {
-        closeTooltip();
-      });
-    }
-    return () => {
-      if (tooltipRef.current) {
-        window.removeEventListener('scroll', () => null);
-      }
-    };
+  const timerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+
+  const closeTooltip = useCallback(() => {
+    clearTimeout(timerRef.current);
+    setOpen(false);
   }, []);
 
-  let timer: ReturnType<typeof setTimeout>;
+  const openTooltip = () => {
+    if (!open) {
+      clearTimeout(timerRef.current);
+      timerRef.current = setTimeout(() => setOpen(true), delay);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', closeTooltip, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', closeTooltip);
+    };
+  }, [closeTooltip]);
 
   useEffect(() => {
     return () => {
-      clearTimeout(timer);
+      clearTimeout(timerRef.current);
     };
   }, []);
 
   useOnKeyDown(['Escape', 'Esc'], () => {
     if (open) setOpen(false);
   });
-
-  const closeTooltip = () => {
-    clearTimeout(timer);
-    setOpen(false);
-  };
-  const openTooltip = () => {
-    if (!open) {
-      clearTimeout(timer);
-      timer = setTimeout(() => setOpen(true), delay);
-    }
-  };
 
   const hasTransitionedIn = useMountTransition(open, 500);
   const isMounted = hasTransitionedIn && open;
