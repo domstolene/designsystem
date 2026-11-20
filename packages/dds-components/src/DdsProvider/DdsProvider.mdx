@@ -30,8 +30,8 @@ import meta from './DdsProvider.stories';
 <Source code={`
 import { DdsProvider } from '@norges-domstoler/dds-components';
 
-<DdsProvider language="nb" theme="core">
-    {...din applikasjon...}
+<DdsProvider language="nb" theme="core-light">
+  <App />
 </DdsProvider>
 
 `} />
@@ -46,15 +46,13 @@ import { DdsProvider, useTheme } from '@norges-domstoler/dds-components';
 </DdsProvider>
 
 function Panel(props) {
-const { theme } = useTheme();
+  const { theme } = useTheme();
 
-const style = {
-borderRadius: theme.ddsBorderRadiusSurface,
-};
+  const style = {
+    borderRadius: theme.ddsBorderRadiusSurface,
+  };
 
-return (
-
-<div style={style} {...props} />
-)}
+  return <div style={style} {...props} />;
+}
 
 `} />

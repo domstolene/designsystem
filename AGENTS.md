@@ -96,6 +96,11 @@ Props use `BaseComponentProps` / `BaseComponentPropsWithChildren` / `Polymorphic
 - Global preview decorator wraps stories in `<DdsProvider language="nb">` with theme (`core`/`supreme`, light/dark) controls (opt out with `parameters: { disableGlobalDecorator: true }`).
 - Visual regression via Chromatic (runs on push, reviewed in PR).
 
+## KI-dokumentasjon
+
+- Når du endrer offentlig API, oppførsel, anbefalinger, designtokens eller eksempler, oppdater den relevante dokumentasjonskilden i samme endring: Storybook-MDX, TypeScript/JSDoc, pakke-README eller `docs/ki/oversikt.md`. Oppdater `llms.txt` når inngangene til dokumentasjonen endres.
+- Kjør `pnpm build:docs` og les den berørte Markdown-siden i `docs-static/ki/` før du avslutter. Endre kilden, ikke genererte filer. Hvis endringen også berører veiledning som bare finnes i Zeroheight, noter det i `docs/zeroheight-kartlegging.md`.
+
 ## Release process
 
 - Changesets for versioning/changelog (`pnpm changeset`).

@@ -31,9 +31,9 @@ export interface PopoverGroupProps {
   isOpen?: boolean;
   /**Implementerer kontrollert tilstand: funksjon for å kontrollere `isOpen`.  */
   setIsOpen?: Dispatch<SetStateAction<boolean>>;
-  /**Callback når <Popover> åpnes. */
+  /**Callback når `<Popover>` åpnes. */
   onOpen?: () => void;
-  /**Callback når <Popover> lukkes. */
+  /**Callback når `<Popover>` lukkes. */
   onClose?: () => void;
   /** `id` til `<Popover>.` */
   popoverId?: string;

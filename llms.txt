@@ -1,0 +1,11 @@
+# Elsa – Domstolenes designsystem
+
+> Elsa er designsystemet for Norges domstoler. Det inneholder React-komponenter, design tokens, ikoner, hooks, mønstre og formateringsverktøy.
+
+Bruk dokumentasjonen sammen med versjonen av Elsa som er installert i prosjektet. Teknisk dokumentasjon her bygger på hovedbranchen. For visuelle retningslinjer og materiale som foreløpig bare finnes i Zeroheight, bruk dokumentasjonssiden.
+
+## Start her
+
+- [Bruk av Elsa](https://design.domstol.no/ki/oversikt.md): Oppsett, kildevalg og oversikt over teknisk dokumentasjon.
+- [Dokumentasjon i Zeroheight](https://design.domstol.no/): Retningslinjer, identitet, designmanual og bruksbeskrivelser.
+- [Storybook](https://domstolene.github.io/designsystem/): Interaktive demoer.
