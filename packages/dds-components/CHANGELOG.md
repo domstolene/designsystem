@@ -2,6 +2,8 @@
 
 ## 25.1.1
 
+(2026-11-20)
+
 ### Patch Changes
 
 - c0458a2: Fikser feil i `<Tooltip>` der timeout og `scroll`-lytter ikke ble ryddet opp ved unmount (det kunne gi minnelekkasjer eller feil i tester). `<Tooltip keepMounted={false}>` lukkes nå også ved scrolling.
