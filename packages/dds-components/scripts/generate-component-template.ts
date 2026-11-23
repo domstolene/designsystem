@@ -1,4 +1,4 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env node
 
 import * as fs from 'node:fs';
 import * as path from 'node:path';
@@ -65,7 +65,8 @@ describe('<${name}>', () => {
     render(<${name} />);
   });
 });
-      `.trim();
+
+`.trim();
   }
 
   if (fileName.endsWith('.stories.tsx')) {
@@ -73,8 +74,8 @@ describe('<${name}>', () => {
     return `
 import preview from '#.storybook/preview';
 
-import { ${name} } from "./${name}";
 import { commonArgTypes } from '../../storybook';
+import { ${name} } from "./${name}";
 
 const meta = preview.meta({
   title: "dds-components/Components/${name}",
@@ -87,7 +88,8 @@ const meta = preview.meta({
 export default meta;
 
 export const Preview = meta.story();
-  `.trim();
+
+`.trim();
   }
 
   if (fileName.endsWith('.mdx')) {
@@ -107,10 +109,10 @@ import meta from './${name}.stories';
 # ${name}
 
 <ComponentLinkRow
-docsHref="docsId her..."
-figmaHref="figmaId her..."
-githubHref={{ folder: 'components', comp: '${name}' }}
-storybookHref={{ folder: 'components', comp: '${name.toLowerCase()}' }}
+  docsHref="docsId her..."
+  figmaHref="figmaId her..."
+  githubHref={{ folder: 'components', comp: '${name}' }}
+  storybookHref={{ folder: 'components', comp: '${name.toLowerCase()}' }}
 />
 
 <Canvas of={${name}Stories.Preview} sourceState="shown" />
@@ -142,12 +144,12 @@ export { ${name}, type ${name}Props } from './${name}';
   if (fileName.endsWith('.tsx')) {
     console.log(`⏳ Generating ${name}.tsx...`);
     return `
-import styles from './${name}.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
+import styles from './${name}.module.css';
 
 export type ${name}Props = BaseComponentPropsWithChildren<HTMLElement>;
 
@@ -174,6 +176,7 @@ return (
 };
 
 ${name}.displayName = '${name}';
+
 `.trim();
   }
 

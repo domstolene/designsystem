@@ -39,7 +39,7 @@
     "build": "pnpm generate-css-types && tsdown --config-loader unrun --dts",
     "dev": "pnpm generate-css-types && tsdown  --config-loader unrun --dts && pnpm generate-css-types --watch",
     "typecheck": "tsc --noEmit",
-    "generate:component-template": "ts-node scripts/generate-component-template.ts"
+    "generate:component-template": "node scripts/generate-component-template.ts"
   },
   "keywords": [
     "dds",
