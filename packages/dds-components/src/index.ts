@@ -38,6 +38,7 @@ export * from './components/InlineEdit';
 export * from './components/InputMessage';
 export * from './components/InternalHeader';
 export * from './components/List';
+export * from './components/Logo';
 export * from './components/messages';
 export * from './components/Modal';
 export * from './components/NewsPopover';

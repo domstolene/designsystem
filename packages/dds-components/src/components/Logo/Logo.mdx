@@ -1,0 +1,48 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import {
+  Source,
+  ComponentLinkRow,
+} from '@norges-domstoler/storybook-components';
+
+import * as LogoStories from './Logo.stories';
+import meta from './Logo.stories';
+
+<Meta of={meta} />
+
+# Logo
+
+<ComponentLinkRow
+  docsHref="docsId her..."
+  figmaHref="figmaId her..."
+  githubHref={{ folder: 'components', comp: 'Logo' }}
+  storybookHref={{ folder: 'components', comp: 'logo' }}
+/>
+
+For å sørge for tree-shakable bruk tilbyr vi ulike varianter av logoen, slik at du kun importerer det du trenger.
+Vi har både enkelte logoer og sett med varianter basert på språkstyring og/eller mørk/lys modus.
+
+Enkelte logoer:
+
+- `courtsOfNorwayLogoNbOnLight` - Norsk bokmål-versjon for lys bakgrunn
+- `courtsOfNorwayLogoNbOnDark` - Norsk bokmål-versjon for mørk bakgrunn
+
+Med støtte for mørk/lys modus:
+
+- `courtsOfNorwayLogoNb` - Norsk bokmål-versjon.
+
+Med støtte for språk:
+
+- `courtsOfNorwayLogoi18nOnLight` - Hovedlogoen for Norges domstoler i alle språk for lys bakgrunn.
+- `courtsOfNorwayLogoi18nOnDark` - Hovedlogoen for Norges domstoler i alle språk for mørk bakgrunn.
+- `courtsOfNorwayLogoi18nCoat` - Hovedlogoen for Norges domstoler med riksvåpen i alle språk for lysbakgrunn.
+
+Med støtte for mørk/lys modus og språk:
+
+- `courtsOfNorwayLogoi18n` - Hovedlogoen for Norges domstoler i alle språk.
+
+<Canvas of={LogoStories.Preview} sourceState="shown" />
+<Controls of={LogoStories.Preview} />
+
+## Retningslinjer
+
+Retningslinjer her...
