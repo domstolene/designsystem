@@ -10,7 +10,7 @@ import {
 
 import { useCombinedRef, useRoveFocus } from '../../hooks';
 import { cn, combineHandlers } from '../../utils';
-import { focusable } from '../helpers/styling/focus.module.css';
+import focusStyles, { focusable } from '../helpers/styling/focus.module.css';
 import { scrollbar } from '../helpers/styling/utilStyles.module.css';
 import { Grid } from '../layout';
 import { AddTabButton } from './AddTabButton';
@@ -100,11 +100,40 @@ export const TabList = ({
         gridAutoColumns: '1fr',
         gridAutoFlow: 'column',
       };
+  const tabCount = tabListChildren ? tabListChildren.length : 0;
 
-  return (
-    <TabWidthContextProvider onChangeWidths={setWidths}>
-      <Grid
-        defaultPageLayout={false}
+  const content = !hasButton ? (
+    <Grid
+      defaultPageLayout={false}
+      {...rest}
+      ref={combinedRef}
+      role="tablist"
+      id={uniqueId}
+      tabIndex={0}
+      onFocus={handleOnFocus}
+      onBlur={handleOnBlur}
+      overflowX="auto"
+      {...gridLayout}
+      className={cn(styles['tab-row'], focusable, scrollbar)}
+      style={{ ...style, ...customWidths }}
+    >
+      {tabListChildren}
+      {hasButton && (
+        <AddTabButton
+          index={tabListChildren ? tabListChildren.length : 0}
+          {...addTabButtonProps}
+        />
+      )}
+    </Grid>
+  ) : (
+    <Grid
+      defaultPageLayout={false}
+      overflowX="auto"
+      {...gridLayout}
+      className={cn(styles['tab-row'], scrollbar)}
+      style={{ ...style, ...customWidths }}
+    >
+      <div
         {...rest}
         ref={combinedRef}
         role="tablist"
@@ -112,19 +141,21 @@ export const TabList = ({
         tabIndex={0}
         onFocus={handleOnFocus}
         onBlur={handleOnBlur}
-        overflowX="auto"
-        {...gridLayout}
-        className={cn(styles['tab-row'], focusable, scrollbar)}
-        style={{ ...style, ...customWidths }}
+        className={cn(
+          styles['tablist-subgrid'],
+          focusStyles['focusable--inset--after'],
+        )}
+        style={tabCount > 0 ? { gridColumn: `span ${tabCount}` } : undefined}
       >
         {tabListChildren}
-        {hasButton && (
-          <AddTabButton
-            index={tabListChildren ? tabListChildren.length : 0}
-            {...addTabButtonProps}
-          />
-        )}
-      </Grid>
+      </div>
+      <AddTabButton index={tabCount} {...addTabButtonProps} />
+    </Grid>
+  );
+
+  return (
+    <TabWidthContextProvider onChangeWidths={setWidths}>
+      {content}
     </TabWidthContextProvider>
   );
 };

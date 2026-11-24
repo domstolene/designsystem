@@ -40,6 +40,9 @@ const meta = preview.meta({
 export default meta;
 
 export const Preview = meta.story({
+  args: {
+    header: 'Tittel',
+  },
   render: args => (
     <VStack alignItems="center">
       <PopoverGroup isInitiallyOpen={true}>
@@ -47,7 +50,7 @@ export const Preview = meta.story({
         <Popover {...args}>
           <VStack>
             <Paragraph withMargins>
-              Dette er en popover med tekst og knapp
+              Dette er en popover med tittel, tekst og knapp
             </Paragraph>
             <Button>Klikk</Button>
           </VStack>

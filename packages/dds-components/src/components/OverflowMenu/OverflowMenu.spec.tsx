@@ -270,13 +270,19 @@ describe('<OverflowMenu>', () => {
   describe('<OverflowMenuToggle>', () => {
     it('renders toggle as menuitem', () => {
       portalRender(<TestComponent toggle={{ children: text }} />);
-      const toggle = screen.getByRole('menuitem', { name: text, hidden: true });
+      const toggle = screen.getByRole('menuitemcheckbox', {
+        name: text,
+        hidden: true,
+      });
       expect(toggle).toBeInTheDocument();
     });
     it('changes toggle state on click', async () => {
       const user = userEvent.setup();
       portalRender(<TestComponent toggle={{ children: text }} />);
-      const toggle = screen.getByRole('menuitem', { name: text, hidden: true });
+      const toggle = screen.getByRole('menuitemcheckbox', {
+        name: text,
+        hidden: true,
+      });
       expect(toggle).not.toBeChecked();
       await user.click(toggle);
       expect(toggle).toBeChecked();
@@ -290,7 +296,10 @@ describe('<OverflowMenu>', () => {
       const menuOpened = screen.getByRole('menu');
       expect(menuOpened).toHaveAttribute('aria-hidden', 'false');
 
-      const toggle = screen.getByRole('menuitem', { name: text, hidden: true });
+      const toggle = screen.getByRole('menuitemcheckbox', {
+        name: text,
+        hidden: true,
+      });
       await user.click(toggle);
       expect(menuOpened).toHaveAttribute('aria-hidden', 'false');
     });

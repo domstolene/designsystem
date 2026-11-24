@@ -53,7 +53,7 @@ export const OverflowMenuButton = ({
   };
 
   return (
-    <li>
+    <li role="presentation">
       <DropdownItem
         as={StylelessButton}
         ref={combinedRef}

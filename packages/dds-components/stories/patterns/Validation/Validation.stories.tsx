@@ -294,8 +294,6 @@ export const Wizard = meta.story({
         error: errors[field],
       }));
 
-    console.log('summaryErrors', summaryErrors);
-
     const stepItems = steps.map((step, index) => (
       <ProgressTracker.Item key={step} completed={completedSteps.has(index)}>
         {step}

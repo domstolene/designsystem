@@ -60,7 +60,7 @@ describe('<Checkbox>', () => {
   it('is indeterminate', async () => {
     render(<Checkbox indeterminate />);
     const checkbox = screen.getByRole('checkbox');
-    expect(checkbox).toHaveAttribute('aria-checked', 'mixed');
+    expect(checkbox).toBePartiallyChecked();
   });
   it('gets selected with keyboard input', async () => {
     render(<Checkbox />);

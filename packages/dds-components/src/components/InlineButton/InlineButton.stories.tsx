@@ -36,6 +36,7 @@ export const Preview = meta.story({
 export const WithIcon = meta.story({
   args: {
     icon: HelpIcon,
+    'aria-label': 'Ledetekst',
   },
 });
 
@@ -47,7 +48,7 @@ export const WithColor = meta.story({
   render: args => (
     <StoryVStack>
       <InlineButton {...args}>Vis mer</InlineButton>
-      <InlineButton {...args} icon={HelpIcon} />
+      <InlineButton {...args} icon={HelpIcon} aria-label="Ledetekst" />
     </StoryVStack>
   ),
 });
@@ -108,13 +109,17 @@ export const ExampleIcon = meta.story({
           label="Med tooltip"
           afterLabelContent={
             <Tooltip
-              text="Ekstra info"
+              text="Ekstra info her"
               style={{
                 display: 'inline',
                 marginInlineStart: 'var(--dds-spacing-x0-25)',
               }}
             >
-              <InlineButton {...args} icon={HelpIcon} />
+              <InlineButton
+                {...args}
+                icon={HelpIcon}
+                aria-label="Ekstra info"
+              />
             </Tooltip>
           }
         />
@@ -124,6 +129,7 @@ export const ExampleIcon = meta.story({
             <PopoverGroup>
               <InlineButton
                 {...args}
+                aria-label="Ekstra info"
                 style={{ marginInlineStart: 'var(--dds-spacing-x0-25)' }}
                 icon={HelpIcon}
               ></InlineButton>

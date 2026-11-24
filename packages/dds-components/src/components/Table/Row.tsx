@@ -184,6 +184,7 @@ export const Row = ({
           <Button
             onClick={() => setChildrenCollapsed(!childrenCollapsed)}
             aria-expanded={!childrenCollapsed}
+            aria-label={t(texts.expand)}
             icon={AnimatedChevronUpDownIcon}
             iconState={iconState}
             purpose="tertiary"
