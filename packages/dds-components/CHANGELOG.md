@@ -2,6 +2,8 @@
 
 ## 25.2.0
 
+(2026-11-24)
+
 ### Minor Changes
 
 - 205e714: Nye ikoner: `PanelLeftClose` og `PanelLeftOpen`.
