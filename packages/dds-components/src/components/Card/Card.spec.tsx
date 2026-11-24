@@ -1,7 +1,14 @@
 import { render, screen } from '@testing-library/react';
+import { type ComponentProps } from 'react';
 import { describe, expect, it } from 'vitest';
 
 import { Card } from '.';
+
+const ClientLink = ({ href, children, ...rest }: ComponentProps<'a'>) => (
+  <a {...rest} href={href} data-testid="client-link">
+    {children}
+  </a>
+);
 
 describe('<Card>', () => {
   it('renders content text', () => {
@@ -17,5 +24,17 @@ describe('<Card>', () => {
     );
     const card = screen.getByRole('link');
     expect(card).toBeInTheDocument();
+  });
+
+  it('supports custom polymorphic link component for navigation cards', () => {
+    render(
+      <Card cardType="navigation" as={ClientLink} href="/sak/123">
+        text
+      </Card>,
+    );
+
+    const card = screen.getByTestId('client-link');
+    expect(card).toBeInTheDocument();
+    expect(card).toHaveAttribute('href', '/sak/123');
   });
 });
