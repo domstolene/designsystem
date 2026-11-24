@@ -5,7 +5,7 @@ import {
   type DropdownItemProps,
   type StylelessButton,
 } from '../helpers';
-import { type Toggle } from '../Toggle';
+import { type ToggleProps } from '../Toggle';
 
 export type OverflowMenuButtonProps = Omit<
   DropdownItemProps<typeof StylelessButton>,
@@ -22,10 +22,7 @@ export type OverflowMenuSpanProps = Omit<
   keyof DropdownItemButtonProps | 'as'
 >;
 
-export type OverflowMenuToggleProps = Omit<
-  DropdownItemProps<typeof Toggle>,
-  keyof DropdownItemButtonProps | 'as' | 'purpose' | 'icon'
->;
+export type OverflowMenuToggleProps = ToggleProps;
 
 export type OverflowMenuProps = Omit<
   BaseComponentPropsWithChildren<

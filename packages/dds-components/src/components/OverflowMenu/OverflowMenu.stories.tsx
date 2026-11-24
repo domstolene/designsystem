@@ -80,6 +80,9 @@ export const Preview = meta.story({
                 Knapp
               </OverflowMenuButton>
               <OverflowMenuToggle>Toggle</OverflowMenuToggle>
+              <OverflowMenuSpan subtitle="Undertekst">
+                Element med undertekst
+              </OverflowMenuSpan>
             </OverflowMenuList>
             <OverflowMenuDivider />
             <OverflowMenuListHeader id="header-2">

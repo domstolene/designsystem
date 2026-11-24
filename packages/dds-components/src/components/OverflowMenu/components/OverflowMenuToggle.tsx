@@ -8,6 +8,9 @@ import { type OverflowMenuToggleProps } from '../OverflowMenu.types';
 
 export const OverflowMenuToggle = ({
   ref,
+  className,
+  style,
+  children,
   ...rest
 }: OverflowMenuToggleProps) => {
   const itemRef = useRef<HTMLInputElement>(null);
@@ -23,14 +26,21 @@ export const OverflowMenuToggle = ({
   return (
     <li role="presentation">
       <DropdownItem
-        as={Toggle}
-        ref={combinedRef}
-        {...rest}
-        htmlProps={{
-          role: 'menuitemcheckbox',
-          tabIndex: focusedRef === itemRef ? 0 : -1,
-        }}
-      />
+        className={className}
+        style={style}
+        onClick={() => itemRef.current?.click()}
+      >
+        <Toggle
+          {...rest}
+          ref={combinedRef}
+          htmlProps={{
+            role: 'menuitemcheckbox',
+            tabIndex: focusedRef === itemRef ? 0 : -1,
+          }}
+        >
+          {children}
+        </Toggle>
+      </DropdownItem>
     </li>
   );
 };
