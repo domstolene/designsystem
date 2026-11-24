@@ -114,6 +114,8 @@ export * from './onlineMeeting';
 export * from './openExternal';
 export * from './palette';
 export * from './panelLeft';
+export * from './panelLeftOpen';
+export * from './panelLeftClose';
 export * from './paperPlane';
 export * from './payout';
 export * from './pdf';
