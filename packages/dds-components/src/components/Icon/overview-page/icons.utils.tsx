@@ -125,6 +125,8 @@ import onlineMeetingSvg from '../svg/onlineMeeting.svg?raw';
 import openExternalSvg from '../svg/openExternal.svg?raw';
 import paletteSvg from '../svg/palette.svg?raw';
 import panelLeftSvg from '../svg/panelLeft.svg?raw';
+import panelLeftCloseSvg from '../svg/panelLeftClose.svg?raw';
+import panelLeftOpenSvg from '../svg/panelLeftOpen.svg?raw';
 import paperPlaneSvg from '../svg/paperplane.svg?raw';
 import payoutSvg from '../svg/payout.svg?raw';
 import pdfSvg from '../svg/pdf.svg?raw';
@@ -1358,6 +1360,34 @@ export const iconMeta: Record<TrimmedIconName, IconMeta> = {
       'visning',
     ],
     svg: panelLeftSvg,
+  },
+  PanelLeftClose: {
+    category: 'Arrows and chevron',
+    tags: [
+      'panel venstre lukke',
+      'panel left close',
+      'sidebar',
+      'skjul',
+      'hide',
+      'vis',
+      'show',
+      'visning',
+    ],
+    svg: panelLeftCloseSvg,
+  },
+  PanelLeftOpen: {
+    category: 'Arrows and chevron',
+    tags: [
+      'panel venstre åpne',
+      'panel left open',
+      'sidebar',
+      'skjul',
+      'hide',
+      'vis',
+      'show',
+      'visning',
+    ],
+    svg: panelLeftOpenSvg,
   },
   PaperPlane: {
     category: 'Communication',
