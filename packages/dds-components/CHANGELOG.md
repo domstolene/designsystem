@@ -1,5 +1,21 @@
 # @norges-domstoler/dds-components
 
+## 25.2.0
+
+(2026-11-24)
+
+### Minor Changes
+
+- 205e714: Nye ikoner: `PanelLeftClose` og `PanelLeftOpen`.
+- a8d666a: Støtte for polymorf `<Card cardType="navigation">` via `as` prop.
+
+### Patch Changes
+
+- b6793b9: Fikser UU-bug der `<RadioButton>` fikk `aria-readonly` attributt ved bruk av `readOnly` prop. `aria-readonly` er ikke støttet på `<input type="radio">`, det settes `aria-disabled` istedet.
+- 36b9cc8: Fikser tastaturnavigasjon og rolle ved bruk av `addTabButtonProps` prop i `<Tabs>`. "Legg til tab"-knappen får også `type="button"`.
+- b6793b9: Fikser UU-feil der header i `<Popover>` ikke var dens semantiske navn.
+- 213aae5: Fikser hvordan `indeterminate` prop håndteres i `<Checkbox>`. Den setter nå `indeterminate` DOM property for inputeelementet, istedenfor å påvirke `aria-checked`. Disse props er uanhengige av hverandre og skal ikke blandes, slik at skjermlesere får riktig informasjon. Fikser også bug der read-only oppførsel ikke fungerte ved `onChange` event.
+
 ## 25.1.1
 
 (2026-11-20)
