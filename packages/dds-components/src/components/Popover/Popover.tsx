@@ -28,9 +28,9 @@ import focusStyles from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { CloseIcon } from '../Icon/icons';
 import { Box, Paper, type ResponsiveProps } from '../layout';
+import { ThemeContext } from '../ThemeProvider';
 import { Heading } from '../Typography';
 import { usePopoverContext } from './Popover.context';
-import { ThemeContext } from '../ThemeProvider';
 
 export type PopoverSizeProps = Pick<
   ResponsiveProps,

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { useFloatPosition } from './useFloatPosition';
 import { Paper } from '../../components/layout';
+import { useFloatPosition } from './useFloatPosition';
 
 export interface FloatPositionProps {
   /**`ref` til pilen. */

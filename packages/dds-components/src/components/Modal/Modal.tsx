@@ -8,7 +8,6 @@ import {
 } from 'react';
 import { createPortal } from 'react-dom';
 
-import styles from './Modal.module.css';
 import {
   useCombinedRef,
   useFocusTrap,
@@ -34,6 +33,7 @@ import { CloseIcon } from '../Icon/icons';
 import { Box, HStack, Paper } from '../layout';
 import { ThemeContext } from '../ThemeProvider';
 import { Heading } from '../Typography';
+import styles from './Modal.module.css';
 
 export type ModalProps = BaseComponentPropsWithChildren<
   HTMLDivElement,

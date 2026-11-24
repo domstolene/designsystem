@@ -1,6 +1,5 @@
 import { type ComponentProps, type ElementType } from 'react';
 
-import styles from './Paper.module.css';
 import {
   type BorderColor,
   type BorderRadius,
@@ -14,6 +13,7 @@ import { Box } from '../../layout/Box/Box';
 import { type ResponsiveProps } from '../common';
 import surfaceStyles from '../common/surface.module.css';
 import { getCSSProperties } from '../common/utils';
+import styles from './Paper.module.css';
 
 export type PaperElevation = Elevation;
 export type PaperBorder = BorderColor;

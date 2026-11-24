@@ -1,6 +1,5 @@
 import { type ComponentPropsWithRef, useState } from 'react';
 
-import styles from './SplitButton.module.css';
 import { createTexts, useTranslation } from '../../i18n';
 import { type ExtractStrict } from '../../types';
 import { cn } from '../../utils';
@@ -13,6 +12,7 @@ import {
   OverflowMenuGroup,
   OverflowMenuList,
 } from '../OverflowMenu';
+import styles from './SplitButton.module.css';
 
 export type SplitButtonPurpose = ExtractStrict<
   ButtonPurpose,

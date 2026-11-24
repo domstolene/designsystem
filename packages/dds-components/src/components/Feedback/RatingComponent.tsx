@@ -1,6 +1,3 @@
-import styles from './Feedback.module.css';
-import { type Layout, type Rating } from './Feedback.types';
-import { getButtonSize } from './utils';
 import { createTexts, useTranslation } from '../../i18n';
 import { cn } from '../../utils';
 import { Button } from '../Button';
@@ -9,6 +6,9 @@ import { HStack } from '../layout';
 import { Spinner } from '../Spinner';
 import { Tooltip } from '../Tooltip';
 import typographyStyles from '../Typography/typographyStyles.module.css';
+import styles from './Feedback.module.css';
+import { type Layout, type Rating } from './Feedback.types';
+import { getButtonSize } from './utils';
 
 interface RatingComponentType {
   layout: Layout;

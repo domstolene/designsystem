@@ -1,4 +1,3 @@
-import styles from './Accordion.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -13,6 +12,7 @@ import { AnimatedChevronUpDownIcon } from '../Icon/icons/animated';
 import { Box } from '../layout';
 import { type StaticTypographyType } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
+import styles from './Accordion.module.css';
 
 export type AccordionHeaderProps = Omit<
   BaseComponentPropsWithChildren<

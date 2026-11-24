@@ -1,6 +1,5 @@
 import { useId } from 'react';
 
-import styles from './FavStar.module.css';
 import { useControllableState } from '../../hooks/useControllableState';
 import { createTexts, useTranslation } from '../../i18n';
 import {
@@ -13,6 +12,7 @@ import { HiddenInput } from '../helpers';
 import focusStyles from '../helpers/styling/focus.module.css';
 import { Icon } from '../Icon';
 import { StarFilledIcon, StarIcon } from '../Icon/icons';
+import styles from './FavStar.module.css';
 
 export const FAVSTAR_SIZES = createSizes('medium', 'large');
 export type FavStartSize = (typeof FAVSTAR_SIZES)[number];

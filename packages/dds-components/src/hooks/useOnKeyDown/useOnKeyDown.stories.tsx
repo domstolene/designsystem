@@ -1,7 +1,7 @@
 import preview from '#.storybook/preview';
 
-import { OnKeyDownExample } from './OnKeyDownExample';
 import { hookParameters } from '../hooks.utils';
+import { OnKeyDownExample } from './OnKeyDownExample';
 
 const meta = preview.meta({
   title: 'dds-components/Hooks/useOnKeyDown',

@@ -12,6 +12,9 @@ import {
 } from 'react';
 import { useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
 
+import { createTexts, useTranslation } from '../../i18n';
+import { readOnlyChangeHandler, readOnlyKeyDownHandler } from '../../utils';
+import { type InputProps } from '../helpers/Input';
 import { type FileList, type FileUploaderAccept } from './FileUploader.types';
 import {
   isEventWithFiles,
@@ -23,9 +26,6 @@ import {
   type RootErrorList,
   fileUploaderReducer,
 } from './fileUploaderReducer';
-import { createTexts, useTranslation } from '../../i18n';
-import { readOnlyChangeHandler, readOnlyKeyDownHandler } from '../../utils';
-import { type InputProps } from '../helpers/Input';
 
 export type FileUploaderHookProps = {
   /**Dersom komponenten skal styres internt. Utgangspunktet for filene som har blitt lastet opp. */

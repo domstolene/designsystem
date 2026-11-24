@@ -7,7 +7,6 @@ import {
   useRef,
 } from 'react';
 
-import { useRoveFocus } from './useRoveFocus';
 import { Icon } from '../../components/Icon';
 import {
   ArrowDownIcon,
@@ -15,6 +14,7 @@ import {
   ArrowRightIcon,
   ArrowUpIcon,
 } from '../../components/Icon/icons';
+import { useRoveFocus } from './useRoveFocus';
 
 export interface Props {
   /**Antall elementer. */

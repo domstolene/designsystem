@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { useFocusTrap } from './useFocusTrap';
 import { Paper, VStack } from '../../components/layout';
+import { useFocusTrap } from './useFocusTrap';
 
 export interface FocusTrapProps {
   /**Om focus skal fanges i en flate, f.eks. modal når den åpnes. */

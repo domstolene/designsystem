@@ -1,8 +1,5 @@
 import { type ReactNode, useEffect, useState } from 'react';
 
-import { ErrorList } from './ErrorList';
-import styles from './FileUploader.module.css';
-import { type FileUploaderFile } from './fileUploaderReducer';
 import { createTexts, useTranslation } from '../../i18n';
 import {
   cn,
@@ -20,7 +17,10 @@ import {
 import { Box, HStack, Paper } from '../layout';
 import { Spinner } from '../Spinner';
 import { Link, Typography } from '../Typography';
+import { ErrorList } from './ErrorList';
+import styles from './FileUploader.module.css';
 import { type UploadInfo } from './FileUploader.types';
+import { type FileUploaderFile } from './fileUploaderReducer';
 
 type FileProps = {
   parentId: string;

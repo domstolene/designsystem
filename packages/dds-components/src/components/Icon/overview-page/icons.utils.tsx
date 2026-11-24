@@ -125,6 +125,8 @@ import onlineMeetingSvg from '../svg/onlineMeeting.svg?raw';
 import openExternalSvg from '../svg/openExternal.svg?raw';
 import paletteSvg from '../svg/palette.svg?raw';
 import panelLeftSvg from '../svg/panelLeft.svg?raw';
+import panelLeftCloseSvg from '../svg/panelLeftClose.svg?raw';
+import panelLeftOpenSvg from '../svg/panelLeftOpen.svg?raw';
 import paperPlaneSvg from '../svg/paperplane.svg?raw';
 import payoutSvg from '../svg/payout.svg?raw';
 import pdfSvg from '../svg/pdf.svg?raw';
@@ -139,6 +141,7 @@ import printSvg from '../svg/print.svg?raw';
 import publishSvg from '../svg/publish.svg?raw';
 import questionAnswerSvg from '../svg/questionAnswer.svg?raw';
 import receiptSvg from '../svg/receipt.svg?raw';
+import recorderSvg from '../svg/recorder.svg?raw';
 import redoSvg from '../svg/redo.svg?raw';
 import refreshSvg from '../svg/refresh.svg?raw';
 import replaySvg from '../svg/replay.svg?raw';
@@ -1358,6 +1361,34 @@ export const iconMeta: Record<TrimmedIconName, IconMeta> = {
     ],
     svg: panelLeftSvg,
   },
+  PanelLeftClose: {
+    category: 'Arrows and chevron',
+    tags: [
+      'panel venstre lukke',
+      'panel left close',
+      'sidebar',
+      'skjul',
+      'hide',
+      'vis',
+      'show',
+      'visning',
+    ],
+    svg: panelLeftCloseSvg,
+  },
+  PanelLeftOpen: {
+    category: 'Arrows and chevron',
+    tags: [
+      'panel venstre åpne',
+      'panel left open',
+      'sidebar',
+      'skjul',
+      'hide',
+      'vis',
+      'show',
+      'visning',
+    ],
+    svg: panelLeftOpenSvg,
+  },
   PaperPlane: {
     category: 'Communication',
     tags: ['papirfly', 'paper plane', 'melding', 'message', 'sende'],
@@ -1477,6 +1508,11 @@ export const iconMeta: Record<TrimmedIconName, IconMeta> = {
       'fee',
     ],
     svg: receiptSvg,
+  },
+  Recorder: {
+    category: 'Settings and tools',
+    tags: ['opptak', 'recording', 'utstyr', 'equipment'],
+    svg: recorderSvg,
   },
   Redo: {
     category: 'Edit',

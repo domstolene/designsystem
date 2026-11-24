@@ -20,6 +20,25 @@ import {
   type SingleValueProps,
 } from 'react-select';
 
+import { type WithRequiredIf } from '../../types';
+import {
+  cn,
+  derivativeIdGenerator,
+  readOnlyKeyDownHandler,
+  searchFilter,
+  spaceSeparatedIdListGenerator,
+} from '../../utils';
+import {
+  type CommonInputProps,
+  type InputIconProps,
+  type InputSize,
+  getInputWidth,
+} from '../helpers/Input';
+import inputStyles from '../helpers/Input/Input.module.css';
+import { renderInputMessage } from '../InputMessage';
+import { Box } from '../layout';
+import { ThemeContext } from '../ThemeProvider';
+import { renderLabel } from '../Typography/Label/Label.utils';
 import styles from './Select.module.css';
 import { getCustomStyles, prefix } from './Select.styles';
 import {
@@ -33,25 +52,6 @@ import {
   DDSNoOptionsMessage,
   DDSOption,
 } from './SelectComponents';
-import { type WithRequiredIf } from '../../types';
-import {
-  cn,
-  derivativeIdGenerator,
-  searchFilter,
-  spaceSeparatedIdListGenerator,
-} from '../../utils';
-import { readOnlyKeyDownHandler } from '../../utils';
-import {
-  type CommonInputProps,
-  type InputIconProps,
-  type InputSize,
-  getInputWidth,
-} from '../helpers/Input';
-import inputStyles from '../helpers/Input/Input.module.css';
-import { renderInputMessage } from '../InputMessage';
-import { Box } from '../layout';
-import { ThemeContext } from '../ThemeProvider';
-import { renderLabel } from '../Typography/Label/Label.utils';
 
 export interface SelectOption<TValue = unknown> {
   label: string | number;

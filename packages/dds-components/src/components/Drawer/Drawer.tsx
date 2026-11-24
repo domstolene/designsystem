@@ -8,7 +8,6 @@ import {
 } from 'react';
 import { createPortal } from 'react-dom';
 
-import styles from './Drawer.module.css';
 import {
   useCombinedRef,
   useFocusTrap,
@@ -32,10 +31,11 @@ import {
 import focusStyles from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { CloseIcon } from '../Icon/icons';
+import { HStack, Paper, type ResponsiveProps, VStack } from '../layout';
 import { ThemeContext } from '../ThemeProvider';
 import { Heading } from '../Typography';
 import { useDrawerContext } from './Drawer.context';
-import { HStack, Paper, type ResponsiveProps, VStack } from '../layout';
+import styles from './Drawer.module.css';
 
 export const DRAWER_SIZES = createSizes('small', 'medium', 'large');
 export type DrawerSize = (typeof DRAWER_SIZES)[number];

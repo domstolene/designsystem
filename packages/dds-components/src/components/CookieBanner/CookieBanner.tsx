@@ -8,6 +8,7 @@ import {
 } from '../../types';
 import { cn } from '../../utils';
 import { Button, type ButtonProps } from '../Button';
+import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { ExpandIcon } from '../Icon/icons';
 import {
   type Breakpoint,
@@ -17,15 +18,14 @@ import {
   ShowHide,
   VStack,
 } from '../layout';
+import { styleUpToBreakpoint } from '../layout/common/utils';
 import { Heading } from '../Typography';
+import typographyStyles from '../Typography/typographyStyles.module.css';
 import styles from './CookieBanner.module.css';
 import {
   CookieBannerCheckbox,
   type CookieBannerCheckboxProps,
 } from './CookieBannerCheckbox';
-import utilStyles from '../helpers/styling/utilStyles.module.css';
-import { styleUpToBreakpoint } from '../layout/common/utils';
-import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export type CookieBannerProps = BaseComponentPropsWithChildren<
   HTMLDivElement,

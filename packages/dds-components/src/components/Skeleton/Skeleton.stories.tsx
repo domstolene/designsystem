@@ -1,6 +1,5 @@
 import preview from '#.storybook/preview';
 
-import { Skeleton } from './Skeleton';
 import {
   categoryCss,
   responsivePropsArgTypes,
@@ -8,6 +7,7 @@ import {
 } from '../../storybook';
 import { Box, VStack } from '../layout';
 import { StoryVStack } from '../layout/Stack/storybook-utils';
+import { Skeleton } from './Skeleton';
 
 const meta = preview.meta({
   title: 'dds-components/Components/Skeleton',

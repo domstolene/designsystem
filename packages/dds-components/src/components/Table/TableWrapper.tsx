@@ -6,10 +6,10 @@ import {
   useState,
 } from 'react';
 
-import styles from './Table.module.css';
 import { cn } from '../../utils';
 import { scrollbar } from '../helpers/styling/utilStyles.module.css';
 import { ThemeContext } from '../ThemeProvider';
+import styles from './Table.module.css';
 
 export type TableWrapperProps = HTMLAttributes<HTMLDivElement>;
 

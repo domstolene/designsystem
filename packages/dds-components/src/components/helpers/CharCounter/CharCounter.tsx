@@ -1,9 +1,9 @@
 import { useId } from 'react';
 
-import styles from './CharCounter.module.css';
 import { createTexts, useTranslation } from '../../../i18n';
 import { Typography } from '../../Typography';
 import { VisuallyHidden } from '../../VisuallyHidden';
+import styles from './CharCounter.module.css';
 
 interface CharCounterProps {
   id: string;

@@ -8,7 +8,7 @@ import {
   windowWidthDecorator,
 } from '../../storybook';
 import { Box, Grid, GridChild, VStack } from '../layout';
-import { LocalMessage } from '../LocalMessage';
+import { LocalMessage } from '../messages';
 import { Tag } from '../Tag';
 import { Link } from '../Typography';
 

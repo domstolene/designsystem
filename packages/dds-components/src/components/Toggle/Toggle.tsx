@@ -5,7 +5,6 @@ import {
   useId,
 } from 'react';
 
-import styles from './Toggle.module.css';
 import { useControllableState } from '../../hooks/useControllableState';
 import { useTranslation } from '../../i18n';
 import { commonTexts } from '../../i18n/commonTexts';
@@ -22,6 +21,7 @@ import { CheckIcon, LockFilledIcon } from '../Icon/icons';
 import { Spinner } from '../Spinner';
 import tgStyles from '../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../VisuallyHidden';
+import styles from './Toggle.module.css';
 
 export const TOGGLE_SIZES = createSizes('small', 'medium', 'large');
 export type ToggleSize = (typeof TOGGLE_SIZES)[number];

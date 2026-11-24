@@ -1,7 +1,7 @@
 import preview from '#.storybook/preview';
 
-import { OnClickOutsideExample } from './OnClickOutsideExample';
 import { hookParameters } from '../hooks.utils';
+import { OnClickOutsideExample } from './OnClickOutsideExample';
 
 const meta = preview.meta({
   title: 'dds-components/Hooks/useOnClickOutside',

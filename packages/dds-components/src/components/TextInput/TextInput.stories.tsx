@@ -12,7 +12,7 @@ import {
 import { INPUT_SIZES } from '../helpers/Input';
 import { CourtIcon, MailIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
-import { LocalMessage } from '../LocalMessage';
+import { LocalMessage } from '../messages';
 
 import { TextInput } from '.';
 

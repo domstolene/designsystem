@@ -1,6 +1,5 @@
 import { type ReactNode } from 'react';
 
-import styles from './ErrorSummary.module.css';
 import { createTexts, useTranslation } from '../../i18n';
 import {
   type BaseComponentPropsWithChildren,
@@ -10,6 +9,7 @@ import { cn } from '../../utils';
 import { Paper } from '../layout';
 import { List } from '../List';
 import { Heading } from '../Typography';
+import styles from './ErrorSummary.module.css';
 
 export type ErrorSummaryProps = BaseComponentPropsWithChildren<
   HTMLDivElement,

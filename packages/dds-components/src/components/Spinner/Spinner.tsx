@@ -1,11 +1,11 @@
 import { type Property } from 'csstype';
 import { useId } from 'react';
 
-import styles from './Spinner.module.css';
 import { useTranslation } from '../../i18n';
 import { commonTexts } from '../../i18n/commonTexts';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { type TextColor, cn, getTextColor } from '../../utils';
+import styles from './Spinner.module.css';
 
 export type SpinnerProps = BaseComponentProps<
   SVGElement,

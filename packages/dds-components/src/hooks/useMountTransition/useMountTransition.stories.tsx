@@ -1,7 +1,7 @@
 import preview from '#.storybook/preview';
 
-import { MountTransitionExample } from './MountTransitionExample';
 import { hookParameters } from '../hooks.utils';
+import { MountTransitionExample } from './MountTransitionExample';
 
 const meta = preview.meta({
   title: 'dds-components/Hooks/useMountTransition',

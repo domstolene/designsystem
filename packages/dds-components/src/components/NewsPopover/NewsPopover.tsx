@@ -1,6 +1,5 @@
 import { type Dispatch, type ReactNode, type SetStateAction } from 'react';
 
-import styles from './NewsPopover.module.css';
 import {
   useCombinedRef,
   useControllableState,
@@ -26,6 +25,7 @@ import { Box, type Breakpoint, HStack, Paper, VStack } from '../layout';
 import { styleUpToBreakpoint } from '../layout/common/utils';
 import { Heading, Paragraph } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
+import styles from './NewsPopover.module.css';
 
 export interface NewsPopoverSlide {
   /**`<img>` bilde. */

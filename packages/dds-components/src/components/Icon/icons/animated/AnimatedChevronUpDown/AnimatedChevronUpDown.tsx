@@ -1,6 +1,6 @@
-import styles from './AnimatedChevronUpDown.module.css';
 import { cn, getTextColor } from '../../../../../utils';
 import { type SvgProps, SvgWrapper } from '../../../utils';
+import styles from './AnimatedChevronUpDown.module.css';
 
 const STATES = ['up', 'down'] as const;
 export type AnimatedChevronUpDownIconStates = (typeof STATES)[number];

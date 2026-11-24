@@ -1,6 +1,5 @@
 import { type Properties } from 'csstype';
 
-import { useCardSelectableContext } from './CardSelectable.context';
 import { getBaseHTMLProps } from '../../../types';
 import { cn, spaceSeparatedIdListGenerator } from '../../../utils';
 import focusStyles from '../../helpers/styling/focus.module.css';
@@ -10,6 +9,7 @@ import { RadioButton } from '../../SelectionControl/RadioButton';
 import { useRadioButtonGroup } from '../../SelectionControl/RadioButton/RadioButtonGroupContext';
 import styles from '../Card.module.css';
 import { type CardSelectableProps } from '../Card.types';
+import { useCardSelectableContext } from './CardSelectable.context';
 
 export const CardSelectable = (props: CardSelectableProps) => {
   const {

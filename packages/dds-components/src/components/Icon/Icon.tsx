@@ -1,17 +1,17 @@
 import { type ComponentType } from 'react';
 
 import {
-  type IconStatesOf,
-  type SvgIcon,
-  type SvgPropsWithState,
-} from './utils';
-import {
   type BaseComponentProps,
   createSizes,
   getBaseHTMLProps,
 } from '../../types';
 import { type IconColor } from '../../utils';
 import { SIZE_SCALE } from '../layout/common/Responsive.types';
+import {
+  type IconStatesOf,
+  type SvgIcon,
+  type SvgPropsWithState,
+} from './utils';
 
 export const getSize = (iconSize: IconSize): string => {
   switch (iconSize) {

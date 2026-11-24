@@ -12,7 +12,6 @@ import {
   useContext,
 } from 'react';
 
-import { CalendarGrid } from './CalendarGrid';
 import { createTexts, useTranslation } from '../../../../i18n';
 import { cn, optAttr } from '../../../../utils';
 import { Button } from '../../../Button';
@@ -22,6 +21,7 @@ import { HStack, VStack } from '../../../layout';
 import { Heading } from '../../../Typography';
 import styles from '../../common/DateInput.module.css';
 import { CalendarPopoverContext } from '../CalendarPopover';
+import { CalendarGrid } from './CalendarGrid';
 
 function createCalendar(identifier: string) {
   switch (identifier) {

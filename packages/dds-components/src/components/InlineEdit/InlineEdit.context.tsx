@@ -9,8 +9,8 @@ import {
   useState,
 } from 'react';
 
-import { type EditElement } from './InlineEdit.types';
 import { useOnClickOutside, useOnKeyDown } from '../../hooks';
+import { type EditElement } from './InlineEdit.types';
 
 export interface InlineEditContextType {
   onChange: (e: ChangeEvent<EditElement>) => void;

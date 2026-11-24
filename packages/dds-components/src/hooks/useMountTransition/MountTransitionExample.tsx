@@ -1,7 +1,7 @@
 import { type FC, useEffect, useState } from 'react';
 
-import { useMountTransition } from './useMountTransition';
 import { Paper } from '../../components/layout';
+import { useMountTransition } from './useMountTransition';
 
 export interface MountTransitionProps {
   /**Om elementet er mounted. */

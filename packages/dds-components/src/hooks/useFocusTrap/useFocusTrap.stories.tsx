@@ -1,7 +1,7 @@
 import preview from '#.storybook/preview';
 
-import { FocusTrapExample } from './FocusTrapExample';
 import { hookParameters } from '../hooks.utils';
+import { FocusTrapExample } from './FocusTrapExample';
 
 const meta = preview.meta({
   title: 'dds-components/Hooks/useFocusTrap',

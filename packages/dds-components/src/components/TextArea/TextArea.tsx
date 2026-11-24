@@ -6,7 +6,6 @@ import {
   useState,
 } from 'react';
 
-import styles from './TextArea.module.css';
 import { useCombinedRef } from '../../hooks';
 import {
   cn,
@@ -26,6 +25,7 @@ import { renderInputMessage } from '../InputMessage';
 import { Box } from '../layout';
 import { renderLabel } from '../Typography/Label/Label.utils';
 import typographyStyles from '../Typography/typographyStyles.module.css';
+import styles from './TextArea.module.css';
 
 export type TextAreaProps = CommonInputProps & {
   /** Spesifiserer om tegntelleren skal vises ved bruk av `maxLength` attributt.

@@ -1,11 +1,11 @@
 import { type ElementType } from 'react';
 
-import styles from './Card.module.css';
-import { type CardProps, type NavigationCardProps } from './Card.types';
 import { ElementAs } from '../../polymorphic';
 import { getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
 import focusStyles from '../helpers/styling/focus.module.css';
+import styles from './Card.module.css';
+import { type CardProps, type NavigationCardProps } from './Card.types';
 
 export const Card = <T extends ElementType = 'a'>(props: CardProps<T>) => {
   const {

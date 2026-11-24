@@ -1,10 +1,10 @@
 import preview from '#.storybook/preview';
 
-import { BADGE_PURPOSES, BADGE_SIZES, Badge } from './Badge';
 import { commonArgTypes } from '../../storybook';
 import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
 import { Table } from '../Table';
 import { Paragraph, Typography } from '../Typography';
+import { BADGE_PURPOSES, BADGE_SIZES, Badge } from './Badge';
 
 const meta = preview.meta({
   title: 'dds-components/Components/Badge',

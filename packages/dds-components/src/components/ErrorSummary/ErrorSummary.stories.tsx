@@ -1,11 +1,11 @@
 import preview from '#.storybook/preview';
 
-import { ErrorSummary } from './ErrorSummary';
-import { ErrorSummaryItem } from './ErrorSummaryItem';
 import {
   commonArgTypesWithNodeChildren,
   ddsProviderDecorator,
 } from '../../storybook';
+import { ErrorSummary } from './ErrorSummary';
+import { ErrorSummaryItem } from './ErrorSummaryItem';
 
 const meta = preview.meta({
   title: 'dds-components/Components/ErrorSummary',

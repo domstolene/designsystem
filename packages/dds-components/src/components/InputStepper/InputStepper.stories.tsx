@@ -1,8 +1,6 @@
 import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
-import { InputStepper } from './InputStepper';
-import { INPUT_STEPPER_SIZES } from './InputStepper.types';
 import {
   categoryHtml,
   commonArgTypes,
@@ -12,6 +10,8 @@ import {
   windowWidthDecorator,
 } from '../../storybook';
 import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
+import { InputStepper } from './InputStepper';
+import { INPUT_STEPPER_SIZES } from './InputStepper.types';
 
 const meta = preview.meta({
   title: 'dds-components/Components/InputStepper',

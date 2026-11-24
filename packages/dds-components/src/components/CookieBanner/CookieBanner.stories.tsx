@@ -1,6 +1,5 @@
 import preview from '#.storybook/preview';
 
-import { CookieBanner } from './CookieBanner';
 import {
   commonArgTypesWithNodeChildren,
   ddsProviderDecorator,
@@ -10,6 +9,7 @@ import {
 import { Button } from '../Button';
 import { Box, Paper, VStack } from '../layout';
 import { Link } from '../Typography';
+import { CookieBanner } from './CookieBanner';
 
 const { position, left, right, top, bottom, maxHeight, width } =
   responsivePropsArgTypes;

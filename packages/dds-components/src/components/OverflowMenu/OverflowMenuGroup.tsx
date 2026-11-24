@@ -12,7 +12,6 @@ import {
   useState,
 } from 'react';
 
-import { OverflowMenuContextProvider } from './OverflowMenu.context';
 import {
   type UseFloatPositionOptions,
   useCombinedRef,
@@ -20,6 +19,7 @@ import {
   useOnClickOutside,
   useOnKeyDown,
 } from '../../hooks';
+import { OverflowMenuContextProvider } from './OverflowMenu.context';
 
 export interface OverflowMenuGroupProps {
   /**Om `<OverflowMenu>` er åpen ved første render.

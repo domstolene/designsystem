@@ -1,7 +1,5 @@
 import { useId } from 'react';
 
-import { type CheckboxProps } from './Checkbox.types';
-import { useCheckboxGroup } from './CheckboxGroupContext';
 import { getBaseHTMLProps } from '../../../types';
 import {
   readOnlyClickHandler,
@@ -11,6 +9,8 @@ import {
 import { HiddenInput } from '../../helpers';
 import focusStyles from '../../helpers/styling/focus.module.css';
 import { Label, SelectionControl } from '../SelectionControl.styles';
+import { type CheckboxProps } from './Checkbox.types';
+import { useCheckboxGroup } from './CheckboxGroupContext';
 
 export const Checkbox = ({
   id,

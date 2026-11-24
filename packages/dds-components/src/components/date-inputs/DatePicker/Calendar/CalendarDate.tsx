@@ -9,9 +9,9 @@ import {
 } from '@react-stately/calendar';
 import { type KeyboardEvent, useRef } from 'react';
 
-import { Box } from '../../../..';
 import { cn } from '../../../../utils';
 import { focusable } from '../../../helpers/styling/focus.module.css';
+import { Box } from '../../../layout';
 import typographyStyles from '../../../Typography/typographyStyles.module.css';
 import styles from '../../common/DateInput.module.css';
 import { timezone } from '../constants';

@@ -1,0 +1,4 @@
+.container {
+  border-bottom: 2px solid var(--dds-color-message-border);
+  box-sizing: border-box;
+}

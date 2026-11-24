@@ -1,10 +1,6 @@
 import { useId } from 'react';
 
 import {
-  CheckboxGroupContext,
-  type CheckboxGroupContextProps,
-} from './CheckboxGroupContext';
-import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
@@ -14,6 +10,10 @@ import { renderInputMessage } from '../../InputMessage';
 import { type SelectionControlGroupCommonProps } from '../common/SelectionControl.types';
 import styles from '../SelectionControl.module.css';
 import { renderGroupLabel } from '../SelectionControl.styles';
+import {
+  CheckboxGroupContext,
+  type CheckboxGroupContextProps,
+} from './CheckboxGroupContext';
 
 export type CheckboxGroupProps = BaseComponentPropsWithChildren<
   HTMLDivElement,

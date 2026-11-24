@@ -1,8 +1,5 @@
 import { useState } from 'react';
 
-import styles from './InternalHeader.module.css';
-import { type InternalHeaderProps } from './InternalHeader.types';
-import { NavigationItem } from './NavigationItem';
 import { createTexts, useTranslation } from '../../i18n';
 import { getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
@@ -26,6 +23,9 @@ import {
   OverflowMenuSpan,
 } from '../OverflowMenu';
 import { Typography } from '../Typography';
+import styles from './InternalHeader.module.css';
+import { type InternalHeaderProps } from './InternalHeader.types';
+import { NavigationItem } from './NavigationItem';
 
 export const InternalHeader = (props: InternalHeaderProps) => {
   const {

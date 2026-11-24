@@ -1,7 +1,7 @@
 import preview from '#.storybook/preview';
 
-import { FloatPositionExample } from './FloatPositionExample';
 import { hookParameters } from '../hooks.utils';
+import { FloatPositionExample } from './FloatPositionExample';
 
 const meta = preview.meta({
   title: 'dds-components/Hooks/useFloatPosition',

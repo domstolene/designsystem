@@ -12,8 +12,8 @@ import {
   useState,
 } from 'react';
 
-import { DrawerContext } from './Drawer.context';
 import { useOnKeyDown } from '../../hooks';
+import { DrawerContext } from './Drawer.context';
 
 export interface DrawerGroupProps {
   /**Barna til komponenten: trigger-element og `<Drawer>`. */

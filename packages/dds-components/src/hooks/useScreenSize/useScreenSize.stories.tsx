@@ -1,7 +1,7 @@
 import preview from '#.storybook/preview';
 
-import { ScreenSizeExample } from './ScreenSizeExample';
 import { hookParameters } from '../hooks.utils';
+import { ScreenSizeExample } from './ScreenSizeExample';
 
 const meta = preview.meta({
   title: 'dds-components/Hooks/useScreenSize',

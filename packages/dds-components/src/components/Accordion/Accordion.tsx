@@ -1,4 +1,3 @@
-import styles from './Accordion.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -9,6 +8,7 @@ import {
   AccordionContextProvider,
   useAccordion,
 } from '../helpers/AccordionBase';
+import styles from './Accordion.module.css';
 
 export type AccordionProps = BaseComponentPropsWithChildren<
   HTMLDivElement,

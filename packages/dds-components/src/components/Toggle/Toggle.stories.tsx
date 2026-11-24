@@ -1,7 +1,6 @@
 import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
-import { TOGGLE_SIZES } from './Toggle';
 import {
   categoryHtml,
   commonArgTypes,
@@ -11,6 +10,7 @@ import {
   labelText,
 } from '../../storybook';
 import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
+import { TOGGLE_SIZES } from './Toggle';
 
 import { Toggle } from '.';
 

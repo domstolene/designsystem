@@ -5,11 +5,11 @@ import {
   useContext,
 } from 'react';
 
+import { isEmpty } from '../../../utils';
 import {
   type UseAccordionBodyProps,
   type UseAccordionHeaderProps,
 } from './useAccordion';
-import { isEmpty } from '../../../utils';
 
 interface AccordionContext {
   headerProps: UseAccordionHeaderProps;

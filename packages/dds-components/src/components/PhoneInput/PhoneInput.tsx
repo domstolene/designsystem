@@ -9,8 +9,6 @@ import {
   useState,
 } from 'react';
 
-import { COUNTRIES, type Country, type ISOCountryCode } from './constants';
-import styles from './PhoneInput.module.css';
 import { useCombinedRef } from '../../hooks';
 import { createTexts, useTranslation } from '../../i18n';
 import {
@@ -31,6 +29,8 @@ import { styleUpToBreakpoint } from '../layout/common/utils';
 import { NativeSelect } from '../Select';
 import { renderLabel } from '../Typography/Label/Label.utils';
 import typographyStyles from '../Typography/typographyStyles.module.css';
+import { COUNTRIES, type Country, type ISOCountryCode } from './constants';
+import styles from './PhoneInput.module.css';
 
 export interface PhoneInputValue {
   countryCode: ISOCountryCode | (string & {});

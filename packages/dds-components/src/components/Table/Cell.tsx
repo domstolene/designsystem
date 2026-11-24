@@ -1,14 +1,14 @@
 import { type ComponentPropsWithRef } from 'react';
 
+import { cn } from '../../utils';
+import { DescriptionListDesc } from '../DescriptionList';
+import displayStyles from '../layout/common/display.module.css';
 import {
   useCollapsibleTableContext,
   useIsCollapsibleChild,
 } from './CollapsibleTable.context';
 import { useIsInTableHead } from './Head';
 import styles from './Table.module.css';
-import { cn } from '../../utils';
-import { DescriptionListDesc } from '../DescriptionList';
-import displayStyles from '../layout/common/display.module.css';
 
 export type TableCellType = 'data' | 'head';
 export type TableCellLayout = 'left' | 'right' | 'center' | 'text and icon';

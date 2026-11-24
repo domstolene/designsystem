@@ -1,12 +1,13 @@
-import styles from './Badge.module.css';
-import { Box, Typography } from '../..';
 import {
   type BaseComponentProps,
   createSizes,
   getBaseHTMLProps,
 } from '../../types';
 import { type TextColor, cn } from '../../utils';
+import { Box } from '../layout';
+import { Typography } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
+import styles from './Badge.module.css';
 
 export const BADGE_PURPOSES = [
   'notification',

@@ -2,7 +2,6 @@ import preview from '#.storybook/preview';
 import { useState } from 'react';
 import { fn } from 'storybook/test';
 
-import { InlineEditInput } from './InlineEditInput';
 import {
   ddsProviderDecorator,
   htmlEventArgType,
@@ -11,6 +10,7 @@ import {
 } from '../../../storybook';
 import { StoryVStack } from '../../layout/Stack/storybook-utils';
 import { Table } from '../../Table';
+import { InlineEditInput } from './InlineEditInput';
 
 const meta = preview.meta({
   title: 'dds-components/Components/InlineEdit/InlineEditInput',

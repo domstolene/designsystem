@@ -1,7 +1,5 @@
 import { useState } from 'react';
 
-import styles from './Pagination.module.css';
-import { PaginationGenerator } from './paginationGenerator';
 import { useControllableState } from '../../hooks/useControllableState';
 import { createTexts, useTranslation } from '../../i18n';
 import { commonTexts } from '../../i18n/commonTexts';
@@ -26,6 +24,8 @@ import {
 import { styleUpToBreakpoint } from '../layout/common/utils';
 import { Select } from '../Select';
 import { Paragraph } from '../Typography';
+import styles from './Pagination.module.css';
+import { PaginationGenerator } from './paginationGenerator';
 
 export interface PaginationOption {
   label: string;

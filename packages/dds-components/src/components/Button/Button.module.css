@@ -1,4 +1,5 @@
 :where(.button) {
+  box-sizing: border-box;
   user-select: text;
   display: inline-flex;
   position: relative;

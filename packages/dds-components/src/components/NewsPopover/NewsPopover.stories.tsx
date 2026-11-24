@@ -1,14 +1,14 @@
 import preview from '#.storybook/preview';
 import { useState } from 'react';
 
+import { commonArgTypes } from '../../storybook';
+import { Button } from '../Button';
+import { StoryVStack } from '../layout/Stack/storybook-utils';
 import { NewsPopover } from './NewsPopover';
 import img from './test-img.png';
 import img2 from './test-img2.png';
 import img3 from './test-img3.png';
 import img4 from './test-img4.png';
-import { commonArgTypes } from '../../storybook';
-import { Button } from '../Button';
-import { StoryVStack } from '../layout/Stack/storybook-utils';
 
 const meta = preview.meta({
   title: 'dds-components/Components/NewsPopover',

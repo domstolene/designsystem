@@ -1,7 +1,6 @@
 import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 
-import { TextArea } from './TextArea';
 import {
   categoryHtml,
   ddsProviderDecorator,
@@ -10,6 +9,7 @@ import {
   windowWidthDecorator,
 } from '../../storybook';
 import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
+import { TextArea } from './TextArea';
 
 const meta = preview.meta({
   title: 'dds-components/Components/TextArea',

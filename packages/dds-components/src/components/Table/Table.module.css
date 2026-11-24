@@ -68,16 +68,23 @@
 }
 
 .table--collapsible--striped {
-  .row--body {
-    &:nth-of-type(4n),
-    &:nth-of-type(4n-1) {
-      background-color: var(--dds-color-surface-subtle);
-    }
+  :nth-child(4n of .row--body.standard-row),
+  :nth-child(4n-1 of .row--body.standard-row) {
+    background-color: var(--dds-color-surface-subtle);
+  }
+  :nth-child(4n-2 of .row--body.standard-row),
+  :nth-child(4n-3 of .row--body.standard-row) {
+    background-color: var(--dds-color-surface-default);
+  }
 
-    &:nth-of-type(4n-2),
-    &:nth-of-type(4n-3) {
-      background-color: var(--dds-color-surface-default);
-    }
+  :nth-child(4n of .row--body.standard-row) + .row--body.dl-row,
+  :nth-child(4n-1 of .row--body.standard-row) + .row--body.dl-row {
+    background-color: var(--dds-color-surface-subtle);
+  }
+
+  :nth-child(4n-2 of .row--body.standard-row) + .row--body.dl-row,
+  :nth-child(4n-3 of .row--body.standard-row) + .row--body.dl-row {
+    background-color: var(--dds-color-surface-default);
   }
 }
 
@@ -94,16 +101,25 @@
 }
 
 .table--collapsible--striped.table--small {
-  .row--body {
-    &:nth-of-type(4n-2),
-    &:nth-of-type(4n-3) {
-      background-color: var(--dds-color-surface-subtle);
-    }
+  :nth-child(4n of .row--body.standard-row),
+  :nth-child(4n-1 of .row--body.standard-row),
+  :nth-child(even of .row--body.dl-row) {
+    background-color: var(--dds-color-surface-default);
+  }
+  :nth-child(4n-2 of .row--body.standard-row),
+  :nth-child(4n-3 of .row--body.standard-row),
+  :nth-child(odd of .row--body.dl-row) {
+    background-color: var(--dds-color-surface-subtle);
+  }
 
-    &:nth-of-type(4n),
-    &:nth-of-type(4n-1) {
-      background-color: var(--dds-color-surface-default);
-    }
+  :nth-child(4n of .row--body.standard-row) + .row--body.dl-row,
+  :nth-child(4n-1 of .row--body.standard-row) + .row--body.dl-row {
+    background-color: var(--dds-color-surface-default);
+  }
+
+  :nth-child(4n-2 of .row--body.standard-row) + .row--body.dl-row,
+  :nth-child(4n-3 of .row--body.standard-row) + .row--body.dl-row {
+    background-color: var(--dds-color-surface-subtle);
   }
 }
 

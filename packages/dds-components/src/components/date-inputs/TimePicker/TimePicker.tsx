@@ -3,7 +3,6 @@ import { type AriaTimeFieldProps, useTimeField } from '@react-aria/datepicker';
 import { useTimeFieldState } from '@react-stately/datepicker';
 import { type Ref, useId, useRef } from 'react';
 
-import { formatTimeSegments } from './TimePicker.utils';
 import { useLanguage } from '../../../i18n';
 import { cn } from '../../../utils';
 import inputStyles from '../../helpers/Input/Input.module.css';
@@ -14,6 +13,7 @@ import { DateInput } from '../common/DateInput';
 import styles from '../common/DateInput.module.css';
 import { LOCALE } from '../DatePicker/constants';
 import { DateSegment } from '../DatePicker/DateField/DateSegment';
+import { formatTimeSegments } from './TimePicker.utils';
 
 export type TimePickerProps = Omit<AriaTimeFieldProps<Time>, 'hideTimeZone'> &
   Pick<

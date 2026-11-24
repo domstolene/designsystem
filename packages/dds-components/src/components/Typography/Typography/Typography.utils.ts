@@ -1,13 +1,13 @@
 import { type ElementType } from 'react';
 
+import { type TextColor, isTextColor } from '../../../utils';
+import typographyStyles from '../typographyStyles.module.css';
 import {
   type InlineElement,
   TG_HEADING_TYPES,
   type TypographyHeadingType,
   type TypographyType,
 } from './Typography.types';
-import { type TextColor, isTextColor } from '../../../utils';
-import typographyStyles from '../typographyStyles.module.css';
 
 export const getElementType = (element: TypographyType): ElementType => {
   switch (element) {

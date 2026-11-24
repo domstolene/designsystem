@@ -1,9 +1,9 @@
-import { container } from './Fieldset.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
+import { container } from './Fieldset.module.css';
 
 export type FieldsetProps = BaseComponentPropsWithChildren<
   HTMLFieldSetElement,

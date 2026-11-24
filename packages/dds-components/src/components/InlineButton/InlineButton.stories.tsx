@@ -2,7 +2,6 @@ import preview from '#.storybook/preview';
 import { useState } from 'react';
 import { fn } from 'storybook/test';
 
-import { InlineButton } from './InlineButton';
 import { ddsProviderDecorator, htmlEventArgType } from '../../storybook';
 import { HelpIcon } from '../Icon/icons';
 import { StoryVStack } from '../layout/Stack/storybook-utils';
@@ -11,6 +10,7 @@ import { TextInput } from '../TextInput';
 import { Tooltip } from '../Tooltip';
 import { Paragraph } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
+import { InlineButton } from './InlineButton';
 
 const meta = preview.meta({
   title: 'dds-components/Components/InlineButton',

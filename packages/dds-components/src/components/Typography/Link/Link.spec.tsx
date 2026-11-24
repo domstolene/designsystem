@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { Link } from './Link';
 import { Checkbox } from '../../SelectionControl/Checkbox';
+import { Link } from './Link';
 
 describe('<Link>', () => {
   it('renders text', () => {

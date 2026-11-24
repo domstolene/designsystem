@@ -1,8 +1,6 @@
 import { useContext, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
-import { useOverflowMenuContext } from './OverflowMenu.context';
-import styles from './OverflowMenu.module.css';
 import { useCombinedRef } from '../../hooks';
 import { getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
@@ -10,6 +8,8 @@ import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Paper } from '../layout';
 import { ThemeContext } from '../ThemeProvider';
 import typographyStyles from '../Typography/typographyStyles.module.css';
+import { useOverflowMenuContext } from './OverflowMenu.context';
+import styles from './OverflowMenu.module.css';
 
 import { type OverflowMenuProps } from '.';
 

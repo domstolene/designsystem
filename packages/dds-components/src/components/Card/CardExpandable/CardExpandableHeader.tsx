@@ -1,6 +1,5 @@
 import { type Properties, type Property } from 'csstype';
 
-import styles from './CardExpandable.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -14,6 +13,7 @@ import { Icon } from '../../Icon';
 import { AnimatedChevronUpDownIcon } from '../../Icon/icons/animated';
 import { type StaticTypographyType } from '../../Typography';
 import typographyStyles from '../../Typography/typographyStyles.module.css';
+import styles from './CardExpandable.module.css';
 
 export type CardExpandableHeaderProps = Omit<
   BaseComponentPropsWithChildren<

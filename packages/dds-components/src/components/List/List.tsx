@@ -1,6 +1,5 @@
 import { type ElementType } from 'react';
 
-import styles from './List.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -8,6 +7,7 @@ import {
 import { cn } from '../../utils';
 import { type TypographyBodyLongType } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
+import styles from './List.module.css';
 
 export type ListType = 'ordered' | 'unordered';
 export type ListTypographyType = TypographyBodyLongType | 'inherit';

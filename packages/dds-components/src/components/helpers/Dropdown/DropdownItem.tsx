@@ -1,6 +1,5 @@
 import { type ComponentPropsWithRef, type MouseEventHandler } from 'react';
 
-import styles from './DropdownItem.module.css';
 import { cn } from '../../../utils';
 import { Badge, type BadgeInComponentProps } from '../../Badge';
 import { type ButtonProps } from '../../Button';
@@ -15,6 +14,7 @@ import {
 } from '../StylelessButton';
 import focusStyles from '../styling/focus.module.css';
 import utilStyles from '../styling/utilStyles.module.css';
+import styles from './DropdownItem.module.css';
 
 type DropdownItemT = 'span' | 'a' | typeof StylelessButton | typeof Toggle;
 

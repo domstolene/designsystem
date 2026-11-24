@@ -1,8 +1,8 @@
 import { type ChangeEvent, createContext, useContext } from 'react';
 
-import { type RadioValue } from './RadioButton.types';
 import { type Nullable } from '../../../types';
 import { type SelectionControlSize } from '../common/SelectionControl.types';
+import { type RadioValue } from './RadioButton.types';
 
 export interface RadioButtonGroupContextProps {
   disabled?: boolean;

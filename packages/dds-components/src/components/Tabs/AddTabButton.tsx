@@ -1,15 +1,15 @@
 import type * as CSS from 'csstype';
 import { type ComponentPropsWithRef, useRef } from 'react';
 
-import { useTabsContext } from './Tabs.context';
-import styles from './Tabs.module.css';
-import { useSetTabWidth } from './TabWidthContext';
 import { useCombinedRef } from '../../hooks';
 import { cn } from '../../utils';
 import focusStyles from '../helpers/styling/focus.module.css';
 import { Icon } from '../Icon';
 import { PlusIcon } from '../Icon/icons';
 import typographyStyles from '../Typography/typographyStyles.module.css';
+import { useTabsContext } from './Tabs.context';
+import styles from './Tabs.module.css';
+import { useSetTabWidth } from './TabWidthContext';
 
 export type AddTabButtonProps = {
   /** Bredden. Her er det støtte for de samme enhetene som du kan bruke i `grid-template-columns`.

@@ -11,13 +11,13 @@ import {
   components,
 } from 'react-select';
 
-import styles from './Select.module.css';
 import { cn } from '../../utils';
 import { type InputSize } from '../helpers/Input';
 import inputStyles from '../helpers/Input/Input.module.css';
 import { Icon, type SvgIcon } from '../Icon';
 import { CheckIcon, CloseSmallIcon } from '../Icon/icons';
 import { AnimatedChevronUpDownIcon } from '../Icon/icons/animated';
+import styles from './Select.module.css';
 
 const {
   Option,

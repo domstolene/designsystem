@@ -12,15 +12,15 @@ import { useLocale } from '@react-aria/i18n';
 import { useDateFieldState } from '@react-stately/datepicker';
 import { type Ref, useRef } from 'react';
 
-import { CalendarButton } from './CalendarButton';
-import { formatDateFieldSegments } from './DateField.utils';
-import { DateSegment } from './DateSegment';
 import { createTexts, useTranslation } from '../../../../i18n';
 import { cn } from '../../../../utils';
 import { ClearButton } from '../../../helpers/ClearButton';
 import { type InputProps } from '../../../helpers/Input';
 import utilStyles from '../../../helpers/styling/utilStyles.module.css';
 import { DateInput } from '../../common/DateInput';
+import { CalendarButton } from './CalendarButton';
+import { formatDateFieldSegments } from './DateField.utils';
+import { DateSegment } from './DateSegment';
 
 export type DateFieldProps<T extends DateValue = CalendarDate> =
   AriaDateFieldOptions<T> & {

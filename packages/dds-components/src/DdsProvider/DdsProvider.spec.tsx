@@ -2,9 +2,9 @@ import { render, screen } from '@testing-library/react';
 import { useContext } from 'react';
 import { describe, expect, it } from 'vitest';
 
-import { DdsProvider } from './DdsProvider';
 import { useTheme } from '../components/ThemeProvider';
 import { LanguageContext } from '../i18n/LanguageProvider';
+import { DdsProvider } from './DdsProvider';
 
 function LanguageConsumer() {
   const lang = useContext(LanguageContext)?.language;

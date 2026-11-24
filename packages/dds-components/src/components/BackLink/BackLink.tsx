@@ -1,6 +1,5 @@
 import { type ComponentPropsWithRef, type ElementType } from 'react';
 
-import styles from './BackLink.module.css';
 import { createTexts, useTranslation } from '../../i18n';
 import { cn } from '../../utils';
 import { focusable } from '../helpers/styling/focus.module.css';
@@ -8,6 +7,7 @@ import { Icon } from '../Icon';
 import { ArrowLeftIcon } from '../Icon/icons';
 import { HStack } from '../layout';
 import tgStyles from '../Typography/typographyStyles.module.css';
+import styles from './BackLink.module.css';
 
 export type BackLinkProps = {
   /**

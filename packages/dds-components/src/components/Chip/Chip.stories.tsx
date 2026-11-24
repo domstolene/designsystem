@@ -1,7 +1,5 @@
 import preview from '#.storybook/preview';
 
-import { CHIP_SIZES } from './Chip';
-import { commonChipArgTypes } from './Chip.storyArgs';
 import {
   StoryLabel,
   ddsProviderDecorator,
@@ -10,6 +8,8 @@ import {
 } from '../../storybook';
 import { PersonIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
+import { CHIP_SIZES } from './Chip';
+import { commonChipArgTypes } from './Chip.storyArgs';
 
 import { ChipButton, ChipCheckbox, ChipRadio, ChipRemovable } from '.';
 const meta = preview.meta({

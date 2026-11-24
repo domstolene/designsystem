@@ -1,6 +1,5 @@
 import { type ElementType } from 'react';
 
-import styles from './Grid.module.css';
 import {
   type PolymorphicBaseComponentProps,
   getBaseHTMLProps,
@@ -9,6 +8,7 @@ import { cn } from '../../../utils';
 import { Box } from '../Box';
 import { type ResponsiveGridProps } from '../common/Responsive.types';
 import { getResponsiveCSSProperties, hasValue } from '../common/utils';
+import styles from './Grid.module.css';
 
 const DEFAULT_PAGE_LAYOUT = {
   gridTemplateColumns: {

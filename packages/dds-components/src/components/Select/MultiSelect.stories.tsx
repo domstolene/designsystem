@@ -1,6 +1,5 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { Select } from './Select';
 import {
   categoryHtml,
   ddsProviderDecorator,
@@ -10,6 +9,7 @@ import {
 import { INPUT_SIZES } from '../helpers/Input';
 import { CourtIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../layout/Stack/storybook-utils';
+import { Select } from './Select';
 
 const meta: Meta<typeof Select<Option, true>> = {
   title: 'dds-components/Components/Select/MultiSelect',

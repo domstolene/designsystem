@@ -1,7 +1,5 @@
 import { type ComponentPropsWithRef, useMemo } from 'react';
 
-import { useProgressTrackerContext } from './ProgressTracker.context';
-import styles from './ProgressTracker.module.css';
 import { createTexts, useTranslation } from '../../i18n';
 import {
   type BaseComponentPropsWithChildren,
@@ -16,6 +14,8 @@ import { type SvgIcon } from '../Icon/utils';
 import { Box } from '../layout';
 import { Typography } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
+import { useProgressTrackerContext } from './ProgressTracker.context';
+import styles from './ProgressTracker.module.css';
 
 type ItemState =
   | 'activeCompleted'

@@ -1,10 +1,10 @@
-import styles from './InlineEdit.module.css';
 import { createTexts, useTranslation } from '../../i18n';
 import inputStyles from '../helpers/Input/Input.module.css';
 import focusStyles, { focusable } from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../VisuallyHidden';
+import styles from './InlineEdit.module.css';
 
 export const inlineEditVisuallyHidden = (id: string, clearable?: boolean) => {
   const { t } = useTranslation();

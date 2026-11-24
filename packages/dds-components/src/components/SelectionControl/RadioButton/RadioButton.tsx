@@ -1,7 +1,5 @@
 import { type ChangeEvent, useId } from 'react';
 
-import { type RadioButtonProps, type RadioValue } from './RadioButton.types';
-import { useRadioButtonGroup } from './RadioButtonGroupContext';
 import { getBaseHTMLProps } from '../../../types';
 import {
   readOnlyChangeHandler,
@@ -11,6 +9,8 @@ import {
 import { HiddenInput } from '../../helpers';
 import focusStyles from '../../helpers/styling/focus.module.css';
 import { Label, SelectionControl } from '../SelectionControl.styles';
+import { type RadioButtonProps, type RadioValue } from './RadioButton.types';
+import { useRadioButtonGroup } from './RadioButtonGroupContext';
 
 const getIsChecked = ({
   value,

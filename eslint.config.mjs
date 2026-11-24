@@ -1,19 +1,25 @@
 import eslint from '@eslint/js';
-import tseslint from 'typescript-eslint';
+import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
+import { parser, configs } from 'typescript-eslint';
 import reactPlugin from 'eslint-plugin-react';
-import importPlugin from 'eslint-plugin-import';
+import importXPlugin, {
+  createNodeResolver,
+  flatConfigs,
+} from 'eslint-plugin-import-x';
 import storybook from 'eslint-plugin-storybook';
 import testingLibrary from 'eslint-plugin-testing-library';
 import prettierConfig from 'eslint-config-prettier';
 
 export default [
   eslint.configs.recommended,
-  ...tseslint.configs.recommended,
-  ...tseslint.configs.stylistic,
+  flatConfigs.recommended,
+  flatConfigs.typescript,
+  ...configs.recommended,
+  ...configs.stylistic,
   {
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
-      parser: tseslint.parser,
+      parser,
       parserOptions: {
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
@@ -21,7 +27,7 @@ export default [
     },
     plugins: {
       react: reactPlugin,
-      import: importPlugin,
+      'import-x': importXPlugin,
       storybook,
       'testing-library': testingLibrary,
     },
@@ -29,12 +35,13 @@ export default [
       react: {
         version: 'detect',
       },
-      'import/resolver': {
-        typescript: {
+      'import-x/resolver-next': [
+        createTypeScriptImportResolver({
           alwaysTryTypes: true,
           project: ['tsconfig.json', 'packages/*/tsconfig.json'],
-        },
-      },
+        }),
+        createNodeResolver(),
+      ],
     },
     rules: {
       '@typescript-eslint/array-type': ['error', { default: 'generic' }], // https://tkdodo.eu/blog/array-types-in-type-script
@@ -52,8 +59,7 @@ export default [
           allowSeparatedGroups: true,
         },
       ],
-      'import/no-unresolved': 'error',
-      'import/order': [
+      'import-x/order': [
         'error',
         {
           groups: [
@@ -71,8 +77,7 @@ export default [
           },
         },
       ],
-      'import/no-named-as-default': 'off',
-      'import/no-cycle': 'error',
+      'import-x/no-cycle': 'error',
     },
   },
   {

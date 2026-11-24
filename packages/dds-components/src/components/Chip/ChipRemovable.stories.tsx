@@ -1,7 +1,7 @@
 import preview from '#.storybook/preview';
 
-import { commonChipArgTypes } from './Chip.storyArgs';
 import { ddsProviderDecorator } from '../../storybook';
+import { commonChipArgTypes } from './Chip.storyArgs';
 
 import { ChipRemovable } from '.';
 

@@ -1,6 +1,5 @@
 import { type LabelHTMLAttributes, type ReactNode } from 'react';
 
-import styles from './Label.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -9,6 +8,7 @@ import { RequiredMarker, cn } from '../../../utils';
 import { Icon } from '../../Icon';
 import { LockFilledIcon } from '../../Icon/icons';
 import { type CommonInlineTypographyProps, Typography } from '../Typography';
+import styles from './Label.module.css';
 
 type PickedHTMLAttributes = Pick<
   LabelHTMLAttributes<HTMLLabelElement>,

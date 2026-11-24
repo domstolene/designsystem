@@ -1,10 +1,10 @@
 import preview from '#.storybook/preview';
 
-import { TG_PARAGRAPH_TYPES } from './Paragraph';
 import { ddsProviderDecorator } from '../../../storybook';
 import { StoryVStack } from '../../layout/Stack/storybook-utils';
 import { blockTgCommonArgTypes } from '../storybook-utils/storyUtils';
 import { Typography } from '../Typography';
+import { TG_PARAGRAPH_TYPES } from './Paragraph';
 
 import { Paragraph } from '.';
 

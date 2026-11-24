@@ -1,5 +1,14 @@
 import { type HTMLAttributes } from 'react';
 
+import {
+  type BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '../../../types';
+import { cn } from '../../../utils';
+import { getTextColor, isTextColor } from '../../../utils/color';
+import { focusable } from '../../helpers/styling/focus.module.css';
+import { Box } from '../../layout';
+import typographyStyles from '../typographyStyles.module.css';
 import styles from './Typography.module.css';
 import {
   type OtherTypographyType,
@@ -13,15 +22,6 @@ import {
   isCaption,
   isLegend,
 } from './Typography.utils';
-import {
-  type BaseComponentPropsWithChildren,
-  getBaseHTMLProps,
-} from '../../../types';
-import { cn } from '../../../utils';
-import { getTextColor, isTextColor } from '../../../utils/color';
-import { focusable } from '../../helpers/styling/focus.module.css';
-import { Box } from '../../layout';
-import typographyStyles from '../typographyStyles.module.css';
 
 type AnchorTypographyProps = BaseComponentPropsWithChildren<
   HTMLAnchorElement,

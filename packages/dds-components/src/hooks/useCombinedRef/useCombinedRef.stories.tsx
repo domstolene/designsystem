@@ -1,7 +1,7 @@
 import preview from '#.storybook/preview';
 
-import { CombinedRefExample } from './CombinedRefExample';
 import { hookParameters } from '../hooks.utils';
+import { CombinedRefExample } from './CombinedRefExample';
 
 const meta = preview.meta({
   title: 'dds-components/Hooks/useCombinedRef',

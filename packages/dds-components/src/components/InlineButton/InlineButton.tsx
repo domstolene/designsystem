@@ -1,12 +1,12 @@
 import { type ComponentPropsWithRef } from 'react';
 
-import styles from './InlineButton.module.css';
 import { cn } from '../../utils';
 import { StylelessButton } from '../helpers';
 import focusStyles from '../helpers/styling/focus.module.css';
 import { Icon, type SvgIcon } from '../Icon';
 import { type BaseTypographyProps, getColorCn } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
+import styles from './InlineButton.module.css';
 
 export type InlineButtonProps = {
   /**

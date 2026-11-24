@@ -2,11 +2,11 @@ import preview from '#.storybook/preview';
 import { useState } from 'react';
 import { fn } from 'storybook/test';
 
+import { ddsProviderDecorator, htmlEventArgType } from '../../storybook';
+import { StoryVStack } from '../layout/Stack/storybook-utils';
 import { InlineEditInput } from './InlineEditInput/InlineEditInput';
 import { InlineEditSelect } from './InlineEditSelect';
 import { InlineEditTextArea } from './InlineEditTextArea/InlineEditTextArea';
-import { ddsProviderDecorator, htmlEventArgType } from '../../storybook';
-import { StoryVStack } from '../layout/Stack/storybook-utils';
 
 const meta = preview.meta({
   title: 'dds-components/Components/InlineEdit',

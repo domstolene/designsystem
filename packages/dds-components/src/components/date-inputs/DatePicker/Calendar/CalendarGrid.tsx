@@ -10,13 +10,13 @@ import {
 } from '@react-stately/calendar';
 import { useContext } from 'react';
 
-import { CalendarCell } from './CalendarCell';
-import { CalendarDate } from './CalendarDate';
 import { createTexts, useTranslation } from '../../../../i18n';
 import tgStyles from '../../../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../../../VisuallyHidden';
 import { getWeekNumber } from '../../utils/getWeekNumber';
 import { CalendarPopoverContext } from '../CalendarPopover';
+import { CalendarCell } from './CalendarCell';
+import { CalendarDate } from './CalendarDate';
 
 interface CalendarGridProps extends AriaCalendarGridProps {
   state: CalendarState | RangeCalendarState;

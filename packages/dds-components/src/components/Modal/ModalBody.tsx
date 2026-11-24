@@ -1,4 +1,3 @@
-import styles from './Modal.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -6,6 +5,7 @@ import {
 import { cn } from '../../utils';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Box, type ResponsiveProps } from '../layout';
+import styles from './Modal.module.css';
 
 export type ModalBodyProps = BaseComponentPropsWithChildren<
   HTMLDivElement,

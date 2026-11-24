@@ -1,6 +1,5 @@
 import { Children, type ReactNode, isValidElement } from 'react';
 
-import styles from './Breadcrumbs.module.css';
 import { createTexts, useTranslation } from '../../i18n';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
@@ -16,8 +15,9 @@ import {
   OverflowMenuList,
   OverflowMenuSpan,
 } from '../OverflowMenu';
-import { type BreadcrumbProps, isAnchorTypographyProps } from './Breadcrumb';
 import tgStyles from '../Typography/typographyStyles.module.css';
+import { type BreadcrumbProps, isAnchorTypographyProps } from './Breadcrumb';
+import styles from './Breadcrumbs.module.css';
 
 export type BreadcrumbsProps = BaseComponentProps<
   HTMLElement,
