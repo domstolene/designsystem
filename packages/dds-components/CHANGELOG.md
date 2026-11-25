@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-components
 
+## 25.2.1
+
+### Patch Changes
+
+- e38a45a: Setter default typografi i `<Popover>` slik at den ikke ved uhell arver fra forelder som tabellheader o.l.
+- a1af243: Fikser feil retning i sorteringsikoner i `<FilterCell>`.
+- 7161521: Fikser for lite ikon i "Legg til fane"-knappen i `<Tabs>`.
+
 ## 25.2.0
 
 (2026-11-24)
