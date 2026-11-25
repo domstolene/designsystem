@@ -41,8 +41,8 @@ export const FilterCell = ({
   const SortIcon = !sortOrder
     ? undefined
     : sortOrder === 'ascending'
-      ? ArrowDownIcon
-      : ArrowUpIcon;
+      ? ArrowUpIcon
+      : ArrowDownIcon;
 
   const hasBadgeCount = !!badgeCount;
 

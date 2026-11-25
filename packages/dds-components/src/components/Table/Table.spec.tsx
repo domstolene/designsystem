@@ -2,6 +2,8 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 
+import { ArrowDownIcon, ArrowUpDownIcon, ArrowUpIcon } from '../Icon/icons';
+
 import { Table, TableWrapper } from '.';
 
 const definingContent = 'header1';
@@ -278,7 +280,7 @@ describe('<Table>', () => {
           <Table.Head>
             <Table.Row>
               <Table.SortCell
-                isSorted={true}
+                isSorted
                 sortOrder="ascending"
                 onClick={() => null}
               >
@@ -290,6 +292,69 @@ describe('<Table>', () => {
       );
       const sortCell = screen.getByRole('columnheader');
       expect(sortCell!.getAttribute('aria-sort')).toBe('ascending');
+    });
+
+    it('renders the expected sort icon for ascending, descending and unsorted', () => {
+      const { container: unsortedIcon } = render(<ArrowUpDownIcon />);
+      const { container: ascendingIcon } = render(<ArrowUpIcon />);
+      const { container: descendingIcon } = render(<ArrowDownIcon />);
+
+      const { rerender } = render(
+        <Table>
+          <Table.Head>
+            <Table.Row>
+              <Table.SortCell onClick={() => null}>Sorter</Table.SortCell>
+            </Table.Row>
+          </Table.Head>
+        </Table>,
+      );
+      const getSortIcon = () =>
+        screen
+          .getByRole('button', { name: /sorter/i })
+          .querySelector(':scope > svg');
+
+      expect(getSortIcon()?.innerHTML).toBe(
+        unsortedIcon.querySelector('svg')?.innerHTML,
+      );
+      rerender(
+        <Table>
+          <Table.Head>
+            <Table.Row>
+              <Table.SortCell
+                isSorted
+                sortOrder="ascending"
+                onClick={() => null}
+              >
+                Sorter
+              </Table.SortCell>
+            </Table.Row>
+          </Table.Head>
+        </Table>,
+      );
+
+      expect(getSortIcon()?.innerHTML).toBe(
+        ascendingIcon.querySelector('svg')?.innerHTML,
+      );
+
+      rerender(
+        <Table>
+          <Table.Head>
+            <Table.Row>
+              <Table.SortCell
+                isSorted
+                sortOrder="descending"
+                onClick={() => null}
+              >
+                Sorter
+              </Table.SortCell>
+            </Table.Row>
+          </Table.Head>
+        </Table>,
+      );
+
+      expect(getSortIcon()?.innerHTML).toBe(
+        descendingIcon.querySelector('svg')?.innerHTML,
+      );
     });
   });
   describe('<FilterCell>', () => {
@@ -356,6 +421,55 @@ describe('<Table>', () => {
       );
       const sortCell = screen.getByRole('columnheader');
       expect(sortCell!.getAttribute('aria-sort')).toBe('ascending');
+    });
+    it('renders the expected sort icon for ascending, descending and unsorted', () => {
+      const { container: ascendingIcon } = render(<ArrowUpIcon />);
+      const { container: descendingIcon } = render(<ArrowDownIcon />);
+
+      const { rerender } = render(
+        <Table>
+          <Table.Head>
+            <Table.Row>
+              <Table.FilterCell onClick={() => null}>Sorter</Table.FilterCell>
+            </Table.Row>
+          </Table.Head>
+        </Table>,
+      );
+      const getSortIcon = () =>
+        screen.getByRole('columnheader').querySelector(':scope > svg');
+
+      expect(getSortIcon()?.innerHTML).toBe(undefined);
+      rerender(
+        <Table>
+          <Table.Head>
+            <Table.Row>
+              <Table.FilterCell sortOrder="ascending" onClick={() => null}>
+                Sorter
+              </Table.FilterCell>
+            </Table.Row>
+          </Table.Head>
+        </Table>,
+      );
+
+      expect(getSortIcon()?.innerHTML).toBe(
+        ascendingIcon.querySelector('svg')?.innerHTML,
+      );
+
+      rerender(
+        <Table>
+          <Table.Head>
+            <Table.Row>
+              <Table.FilterCell sortOrder="descending" onClick={() => null}>
+                Sorter
+              </Table.FilterCell>
+            </Table.Row>
+          </Table.Head>
+        </Table>,
+      );
+
+      expect(getSortIcon()?.innerHTML).toBe(
+        descendingIcon.querySelector('svg')?.innerHTML,
+      );
     });
     it('opens popover on button click', async () => {
       render(

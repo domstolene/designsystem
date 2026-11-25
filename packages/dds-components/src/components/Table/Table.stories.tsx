@@ -804,7 +804,7 @@ export const WithFilterCells = meta.story({
                           purpose="secondary"
                           size="small"
                           onClick={() => setSortOrder('ascending')}
-                          icon={ArrowDownIcon}
+                          icon={ArrowUpIcon}
                         >
                           Stigende
                         </Button>
@@ -812,7 +812,7 @@ export const WithFilterCells = meta.story({
                           purpose="secondary"
                           size="small"
                           onClick={() => setSortOrder('descending')}
-                          icon={ArrowUpIcon}
+                          icon={ArrowDownIcon}
                         >
                           Synkende
                         </Button>
