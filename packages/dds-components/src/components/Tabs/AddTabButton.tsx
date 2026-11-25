@@ -49,7 +49,7 @@ export const AddTabButton = ({
       )}
       type="button"
     >
-      <Icon icon={PlusIcon} iconSize="inherit" />
+      <Icon icon={PlusIcon} iconSize="component" />
       <span>{children}</span>
     </button>
   );
