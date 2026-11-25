@@ -30,6 +30,7 @@ import { CloseIcon } from '../Icon/icons';
 import { Box, Paper, type ResponsiveProps } from '../layout';
 import { ThemeContext } from '../ThemeProvider';
 import { Heading } from '../Typography';
+import tgStyles from '../Typography/typographyStyles.module.css';
 import { usePopoverContext } from './Popover.context';
 
 export type PopoverSizeProps = Pick<
@@ -210,6 +211,7 @@ export const Popover = ({
           utilStyles['visibility-transition'],
           utilStyles[`visibility-transition--${openCn}`],
           focusStyles.focusable,
+          tgStyles['body-long-medium'],
         ),
         {
           ...style,
