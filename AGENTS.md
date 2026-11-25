@@ -115,7 +115,7 @@ Props use `BaseComponentProps` / `BaseComponentPropsWithChildren` / `Polymorphic
 
 ## Environment
 
-- Node `24.22.2`, pnpm `12.19.0` (managed via **mise** in `mise.toml`)
+- Node `26.13.1`, pnpm `12.19.0` (managed via **mise** in `mise.toml`)
 - `packageManager: "pnpm@11.28.10"` in root `package.json`
 
 ## Misc
