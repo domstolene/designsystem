@@ -79,7 +79,7 @@ export function ThemeProvider({
 /**
  * Hook for å hente gjeldende tema og temanavn. Brukes inni ThemeProvider.
  *
- * @returns tema med JS-konstanter og navnet på temaet.
+ * @returns tema med JS-konstanter, navnet på temaet og modus.
  */
 
 export function useTheme() {
@@ -92,6 +92,7 @@ export function useTheme() {
   }
 
   const theme = ddsTokens[themeName];
+  const themeMode = themeName.split('-')[1] as DdsThemeMode;
 
-  return { theme, themeName };
+  return { theme, themeName, themeMode };
 }
