@@ -91,7 +91,7 @@ export const Tab = ({
   }, [focus]);
 
   const handleSelect = useCallback(() => {
-    if (setFocus && index) {
+    if (setFocus && index !== undefined) {
       setFocus(index);
     }
   }, [index, setFocus]);
@@ -176,7 +176,6 @@ export const Tab = ({
       role="tab"
       onClick={handleOnClick}
       onKeyDown={handleOnKeyDown}
-      tabIndex={focus ? 0 : -1}
     >
       {icon && <Icon icon={icon} iconSize="component" />}
       {content}

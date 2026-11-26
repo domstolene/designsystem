@@ -51,11 +51,19 @@ export function OverflowMenuContextProvider({
   const [items, setItems] = useState<Array<RefObject<FocusableElement | null>>>(
     [],
   );
-  const [focusIndex] = useRoveFocus(items.length, rest.isOpen);
+  const [focusIndex] = useRoveFocus(
+    items.length,
+    rest.isOpen,
+    undefined,
+    undefined,
+    true,
+  );
 
   useEffect(() => {
-    items[focusIndex]?.current?.focus();
-  }, [focusIndex]);
+    if (rest.isOpen) {
+      items[focusIndex]?.current?.focus();
+    }
+  }, [focusIndex, rest.isOpen]);
 
   return (
     <OverflowMenuContext

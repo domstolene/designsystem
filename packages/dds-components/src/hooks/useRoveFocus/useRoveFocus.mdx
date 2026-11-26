@@ -5,6 +5,7 @@ import {
 } from '@norges-domstoler/storybook-components';
 import * as RoveStories from './useRoveFocus.stories';
 import meta from './useRoveFocus.stories';
+import { Table } from '../../components/Table';
 
 <Meta of={meta} />
 
@@ -22,6 +23,62 @@ Bytter fokus mellom elementer i en gruppe med piltaster og ikke Tab, og looper f
 <Canvas of={RoveStories.Preview} sourceState="none" />
 <Controls of={RoveStories.Preview} />
 
+## Skjermleser
+
+Skjermlesere skiller mellom "browse mode" og "focus mode" som påvirker hvordan piltaster brukes.
+I "browse mode" navigerer piltastene gjennom innholdet på siden, mens i "focus mode" er de tilgjengelige for navigering.
+For å kunne bruke piltastnavigering med `useRoveFocus`, må skjermleseren være i "focus mode".
+Dette oppnår vi ved å bruke riktige ARIA-roller for containeren og de fokuserbare elementene.
+
+Følgende tabell viser vanlige UI-mønstre og hvilke ARIA-roller som må brukes for containeren og de fokuserbare elementene:
+
+<Table>
+<Table.Head>
+  <Table.Row>
+    <Table.Cell>UI Mønster</Table.Cell>
+    <Table.Cell>Container rolle</Table.Cell>
+    <Table.Cell>Fokusert element rolle</Table.Cell>
+  </Table.Row>
+</Table.Head>
+<Table.Body>
+  <Table.Row>
+    <Table.Cell>Menu</Table.Cell>
+    <Table.Cell>role="menu" / menubar</Table.Cell>
+    <Table.Cell>role="menuitem" / menuitemcheckbox / menuitemradio</Table.Cell>
+  </Table.Row>
+  <Table.Row>
+    <Table.Cell>Tabs</Table.Cell>
+    <Table.Cell>role="tablist"</Table.Cell>
+    <Table.Cell>role="tab"</Table.Cell>
+  </Table.Row>
+  <Table.Row>
+    <Table.Cell>Listbox / options</Table.Cell>
+    <Table.Cell>role="listbox"</Table.Cell>
+    <Table.Cell>role="option"</Table.Cell>
+  </Table.Row>
+  <Table.Row>
+    <Table.Cell>Radio group</Table.Cell>
+    <Table.Cell>role="radiogroup"</Table.Cell>
+    <Table.Cell>role="radio"</Table.Cell>
+  </Table.Row>
+  <Table.Row>
+    <Table.Cell>Tree</Table.Cell>
+    <Table.Cell>role="tree"</Table.Cell>
+    <Table.Cell>role="treeitem"</Table.Cell>
+  </Table.Row>
+  <Table.Row>
+    <Table.Cell>Data grid</Table.Cell>
+    <Table.Cell>role="grid"</Table.Cell>
+    <Table.Cell>role="gridcell"</Table.Cell>
+  </Table.Row>
+  <Table.Row>
+    <Table.Cell>Button toolbar</Table.Cell>
+    <Table.Cell>role="toolbar"</Table.Cell>
+    <Table.Cell>nativ `<button>`</Table.Cell>
+  </Table.Row>
+</Table.Body>
+</Table>
+
 ## Bruk
 
 <Source
@@ -35,10 +92,11 @@ const [focusedIndex, setFocus] = useRoveFocus(elements.length);
 
 return (
 
-<ul>
+<ul role="menu">
   {elements.map((element, index) => (
     <li key={element}>
       <RoveItem
+        role="menuitem"
         index={index}
         shouldFocus={focusedIndex === index}
         setFocus={setFocus}

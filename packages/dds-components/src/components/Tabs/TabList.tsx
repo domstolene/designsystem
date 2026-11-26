@@ -41,7 +41,13 @@ export const TabList = ({
 
   const uniqueId = id ?? `${tabsId}-tablist`;
   const childrenArray = Children.toArray(children).length;
-  const [focus, setFocus] = useRoveFocus(childrenArray, hasTabFocus, 'row');
+  const [focus, setFocus] = useRoveFocus(
+    childrenArray,
+    hasTabFocus,
+    'row',
+    false,
+    true,
+  );
   const combinedRef = useCombinedRef(ref, tabListRef);
 
   const hasButton = addTabButtonProps ? true : false;
@@ -58,6 +64,7 @@ export const TabList = ({
             htmlProps: {
               ...child.props.htmlProps,
               'aria-controls': `${tabsId}-panel-${index}`,
+              tabIndex: focus === index ? 0 : -1,
             },
             active: activeTab === index,
             index,
@@ -109,7 +116,6 @@ export const TabList = ({
       ref={combinedRef}
       role="tablist"
       id={uniqueId}
-      tabIndex={0}
       onFocus={handleOnFocus}
       onBlur={handleOnBlur}
       overflowX="auto"
@@ -138,7 +144,6 @@ export const TabList = ({
         ref={combinedRef}
         role="tablist"
         id={uniqueId}
-        tabIndex={0}
         onFocus={handleOnFocus}
         onBlur={handleOnBlur}
         className={cn(

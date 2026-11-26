@@ -1,4 +1,4 @@
-import { type MouseEvent } from 'react';
+import { type KeyboardEvent, type MouseEvent } from 'react';
 
 import { useRoveFocus } from '../../hooks';
 import { createTexts, useTranslation } from '../../i18n';
@@ -8,6 +8,7 @@ import { StylelessList } from '../helpers';
 import { DropdownHeader } from '../helpers/Dropdown/DropdownHeader';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Paper } from '../layout';
+import { useAutocompleteSearch } from './AutocompleteSearch.context';
 import styles from './Search.module.css';
 import { SearchSuggestionItem } from './SearchSuggestionItem';
 
@@ -44,7 +45,21 @@ export const SearchSuggestions = ({
     'suggestions-header',
   );
   const { t } = useTranslation();
-  const [focus] = useRoveFocus(suggestions?.length, showSuggestions);
+  const [focus, setFocus] = useRoveFocus(suggestions?.length, showSuggestions);
+  const { inputRef } = useAutocompleteSearch();
+
+  const handleReturnFocus = (e: KeyboardEvent<HTMLButtonElement>) => {
+    if (e.key === ' ') {
+      e.preventDefault();
+      e.currentTarget.click();
+      setFocus(-1);
+      inputRef?.current?.focus();
+    } else if (e.key === 'Tab' && e.shiftKey) {
+      e.preventDefault();
+      setFocus(-1);
+      inputRef?.current?.focus();
+    }
+  };
 
   const suggestionsToRender = maxSuggestions
     ? suggestions?.slice(maxSuggestions)
@@ -82,18 +97,18 @@ export const SearchSuggestions = ({
       <StylelessList role="listbox" aria-labelledby={suggestionsHeaderId}>
         {suggestionsToRender.map((suggestion, index) => {
           return (
-            <li key={index} role="option">
-              <SearchSuggestionItem
-                index={index}
-                focus={focus === index && showSuggestions}
-                aria-label={t(texts.search(suggestion))}
-                onClick={onSuggestionClick}
-                aria-setsize={suggestionsToRender.length}
-                aria-posinset={index}
-              >
-                {suggestion}
-              </SearchSuggestionItem>
-            </li>
+            <SearchSuggestionItem
+              key={index}
+              index={index}
+              focus={focus === index && showSuggestions}
+              aria-label={t(texts.search(suggestion))}
+              onClick={onSuggestionClick}
+              aria-setsize={suggestionsToRender.length}
+              aria-posinset={index + 1}
+              onKeyDown={handleReturnFocus}
+            >
+              {suggestion}
+            </SearchSuggestionItem>
           );
         })}
       </StylelessList>
