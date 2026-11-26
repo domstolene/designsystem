@@ -2,6 +2,8 @@
 
 ## 25.2.1
 
+(2026-11-26)
+
 ### Patch Changes
 
 - e38a45a: Setter default typografi i `<Popover>` slik at den ikke ved uhell arver fra forelder som tabellheader o.l.
