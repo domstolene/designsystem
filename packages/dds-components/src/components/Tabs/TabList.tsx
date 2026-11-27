@@ -79,6 +79,9 @@ export const TabList = ({
   const [widths, setWidths] = useState<Array<CSS.Properties['width']>>([]);
 
   const handleOnFocus = (event: FocusEvent<HTMLDivElement, Element>) => {
+    if (!hasTabFocus) {
+      setFocus(activeTab);
+    }
     setHasTabFocus(true);
     onFocus?.(event);
   };
