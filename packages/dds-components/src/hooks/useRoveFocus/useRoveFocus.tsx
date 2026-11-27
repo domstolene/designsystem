@@ -19,7 +19,8 @@ export const isKeyboardEvent = (
  * @param {number} size antall elementer i gruppen.
  * @param {boolean} active om fokus skal kontrolleres av hooken. Når status blir inaktiv vil fokusrekkefølge nullstilles.
  * @param {'row' | 'column'} direction retning elementene blas i.
- * @param {boolean} noWrap om indeksen skal 'wrappe' rundt til 0 hvis den går over size - 1, eller til size - 1 hvis den går under 0.
+ * @param {boolean} noWrap om indeksen skal gå rundt til 0 hvis den går over `size - 1`, eller til `size - 1` hvis den går under 0.
+ * @param {number} immediateFocus om første elementet skal ha fokus umiddelbart. Brukes når gruppen med roving fokus f.eks. åpnes med en knapp eller er alltid synlig. Brukes ikke når gruppen med roving fokus vises basert på fortløpende input i et felt.  
  * @returns {[focusedIndex: number, setFocus: Dispatch<SetStateAction<number>>]} hook par: indeksen til fokuserte elemenentet og funksjonen som håndterer fokus.
  * @example
  * ```tsx
@@ -46,8 +47,10 @@ export function useRoveFocus(
   active?: boolean,
   direction: Direction = 'column',
   noWrap?: boolean,
+  immediateFocus?: boolean,
 ): [number, Dispatch<SetStateAction<number>>] {
-  const [currentFocusIndex, setCurrentFocusIndex] = useState(-1);
+  const initialIndex = immediateFocus ? 0 : -1;
+  const [currentFocusIndex, setCurrentFocusIndex] = useState(initialIndex);
 
   const nextKey = direction === 'row' ? 'ArrowRight' : 'ArrowDown';
   const previousKey = direction === 'row' ? 'ArrowLeft' : 'ArrowUp';
@@ -76,7 +79,7 @@ export function useRoveFocus(
 
   useEffect(() => {
     if (!active) {
-      setCurrentFocusIndex(-1);
+      setCurrentFocusIndex(initialIndex);
       return;
     }
 
@@ -84,7 +87,7 @@ export function useRoveFocus(
     return () => {
       document.removeEventListener('keydown', handleKeyDown, false);
     };
-  }, [handleKeyDown, active]);
+  }, [handleKeyDown, active, initialIndex]);
 
   return [currentFocusIndex, setCurrentFocusIndex];
 }

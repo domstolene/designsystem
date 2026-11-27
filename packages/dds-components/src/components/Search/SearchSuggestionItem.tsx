@@ -24,12 +24,15 @@ export const SearchSuggestionItem = ({
   }, [focus]);
 
   return (
-    <DropdownItem
-      as={StylelessButton}
-      ref={combinedRef}
-      {...rest}
-      tabIndex={focus ? 0 : -1}
-    />
+    <li role="presentation">
+      <DropdownItem
+        role="option"
+        as={StylelessButton}
+        ref={combinedRef}
+        {...rest}
+        tabIndex={focus ? 0 : -1}
+      />
+    </li>
   );
 };
 

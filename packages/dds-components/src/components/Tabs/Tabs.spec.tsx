@@ -269,6 +269,53 @@ describe('<Tabs>', () => {
     expect(tabPanel1).not.toBeVisible();
     expect(tabPanel2).toBeVisible();
   });
+  describe('roving focus', () => {
+    it('focuses first tab with Tab key', async () => {
+      render(
+        <Tabs>
+          <TabList>
+            <Tab />
+            <Tab />
+            <Tab />
+          </TabList>
+        </Tabs>,
+      );
+
+      await userEvent.keyboard('[Tab]');
+      expect(screen.getAllByRole('tab')[0]).toHaveFocus();
+    });
+
+    it('focuses second tab with roving focus', async () => {
+      render(
+        <Tabs>
+          <TabList>
+            <Tab />
+            <Tab />
+            <Tab />
+          </TabList>
+        </Tabs>,
+      );
+
+      await userEvent.keyboard('[Tab]');
+      await userEvent.keyboard('{ArrowRight}');
+      expect(screen.getAllByRole('tab')[1]).toHaveFocus();
+    });
+
+    it('focuses active tab with Tab key', async () => {
+      render(
+        <Tabs activeTab={1}>
+          <TabList>
+            <Tab />
+            <Tab />
+            <Tab />
+          </TabList>
+        </Tabs>,
+      );
+
+      await userEvent.keyboard('[Tab]');
+      expect(screen.getAllByRole('tab')[1]).toHaveFocus();
+    });
+  });
   describe('AddTabButton', () => {
     it('renders AddTabButton when addTabButtonProps prop is provided', () => {
       const onAddTab = vi.fn();

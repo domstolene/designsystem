@@ -23,8 +23,10 @@ export interface Props {
   active?: Parameters<typeof useRoveFocus>[1];
   /**Retning elementene blas i. */
   direction: Parameters<typeof useRoveFocus>[2];
-  /**Om indeksen skal 'wrappe' rundt til 0 hvis den går over size - 1, eller til size - 1 hvis den går under 0. */
+  /**Om indeksen skal gå rundt til 0 hvis den går over `size - 1`, eller til `size - 1` hvis den går under 0. */
   noWrap?: Parameters<typeof useRoveFocus>[3];
+  /**Om første elementet skal ha fokus umiddelbart. Brukes når gruppen med roving fokus f.eks. åpnes med en knapp eller er alltid synlig. Brukes ikke når gruppen med roving fokus vises basert på fortløpende input i et felt.   */
+  immediateFocus?: Parameters<typeof useRoveFocus>[4];
 }
 
 export const RoveFocusExample = ({
@@ -32,6 +34,7 @@ export const RoveFocusExample = ({
   direction = 'column',
   noWrap,
   size,
+  immediateFocus,
 }: Props) => {
   const elements = [];
   const maxSize = 10;
@@ -44,6 +47,7 @@ export const RoveFocusExample = ({
     active,
     direction,
     noWrap,
+    immediateFocus,
   );
   return (
     <div>
@@ -64,16 +68,19 @@ export const RoveFocusExample = ({
       </p>
       <p>Fokusert indeks: {focusedIndex}</p>
       <p>
-        <code>useRoveFocus(size, active, direction, noWrap)</code>
+        <code>
+          useRoveFocus(size, active, direction, noWrap, immediateFocus)
+        </code>
       </p>
       <p>
         <code>
           useRoveFocus({elements.length}, {(active ?? false).toString()},{' '}
-          {direction}, {(noWrap ?? false).toString()})
+          {direction}, {(noWrap ?? false).toString()},{' '}
+          {(immediateFocus ?? false).toString()})
         </code>
       </p>
       {loopSize === maxSize && <p>Nådd maks antall elementer 🥵 </p>}
-      <ul>
+      <ul role="menu">
         {elements.map((element, index) => (
           <li key={element}>
             <RoveItem
