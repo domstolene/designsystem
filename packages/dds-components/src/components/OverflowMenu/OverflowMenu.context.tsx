@@ -63,7 +63,7 @@ export function OverflowMenuContextProvider({
     if (rest.isOpen) {
       items[focusIndex]?.current?.focus();
     }
-  }, [focusIndex, rest.isOpen]);
+  }, [focusIndex, rest.isOpen, items]);
 
   return (
     <OverflowMenuContext

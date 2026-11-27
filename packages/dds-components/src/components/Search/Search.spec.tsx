@@ -101,7 +101,7 @@ describe('<Search>', () => {
       expect(input).toHaveAttribute('aria-expanded', 'true');
     });
 
-    it('menuitem gets focus when using arrows to navigate', async () => {
+    it('option gets focus when using arrows to navigate', async () => {
       const text = 'text';
       render(
         <Search.AutocompleteWrapper data={{ array: [text] }}>
@@ -111,7 +111,7 @@ describe('<Search>', () => {
 
       const input = screen.getByRole('combobox');
       await userEvent.type(input, `${text}`);
-      const menuitem = screen.getByRole('button', { name: `${text} søk` });
+      const menuitem = screen.getByRole('option', { name: `${text} søk` });
       expect(menuitem).not.toHaveFocus();
 
       await act(async () => {

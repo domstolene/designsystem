@@ -64,7 +64,7 @@ export const TabList = ({
             htmlProps: {
               ...child.props.htmlProps,
               'aria-controls': `${tabsId}-panel-${index}`,
-              tabIndex: focus === index ? 0 : -1,
+              tabIndex: (hasTabFocus ? focus : activeTab) === index ? 0 : -1,
             },
             active: activeTab === index,
             index,
