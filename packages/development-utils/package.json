@@ -52,8 +52,8 @@
     "@norges-domstoler/storybook-components": "workspace:*",
     "@testing-library/react": "^16.3.3",
     "@types/react": "19.3.0",
-    "csstype": "3.2.3",
-    "postcss": "^8.5.32",
+    "csstype": "3.2.4",
+    "postcss": "^8.5.33",
     "react": "19.3.1",
     "typed-css-modules": "^0.9.1"
   },

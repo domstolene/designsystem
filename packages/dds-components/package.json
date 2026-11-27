@@ -60,8 +60,8 @@
     "@types/node": "^26.6.6",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
-    "csstype": "3.2.3",
-    "postcss": "^8.5.32",
+    "csstype": "3.2.4",
+    "postcss": "^8.5.33",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "ts-node": "^10.9.2",
@@ -82,7 +82,7 @@
     "@react-aria/i18n": "^3.13.1",
     "@react-stately/calendar": "^3.10.1",
     "@react-stately/datepicker": "^3.17.1",
-    "file-selector": "^5.0.2",
+    "file-selector": "^5.0.3",
     "react-select": "^5.10.2"
   },
   "publishConfig": {
